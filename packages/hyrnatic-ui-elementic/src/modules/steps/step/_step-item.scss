@@ -1,0 +1,90 @@
+$crc: '.h-step-item';
+
+#{$crc} {
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+
+	&.-current {
+		#{$crc}__container {
+			border-color: $c-active--primary-border;
+		}
+
+		#{$crc}__icon {
+			color: $c-active--primary-border;
+		}
+
+		#{$crc}__label{
+			opacity: $o-100;
+		}
+	}
+
+	&.-done {
+		#{$crc}__container {
+			border-color: $c-hover--primary-border;
+		}
+
+		#{$crc}__icon {
+			color: $c-checked--primary-text;
+		}
+
+		#{$crc}__label{
+			opacity: $o-100;
+		}
+
+		#{$crc}__done-icon{
+			opacity: 1;
+			animation: done-icon-spin ease-out $s-medium both;
+		}
+	}
+}
+
+#{$crc}__container {
+	@include size($v-control-height);
+	box-sizing: border-box;
+	line-height: $v-control-height;
+	transition: color $t-fast-standard, background $t-fast-standard, border-color $t-fast-standard;
+	background: $c-primary-background;
+	border-width: $v-control-border-width;
+	border-style: solid;
+	border-color: $c-primary-border;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#{$crc}__icon {
+	color: $c-primary-border;
+	transition: color $t-fast-standard;
+}
+
+#{$crc}__done-icon {
+	position: absolute;
+	color: $c-checked--primary-text;
+	padding: 6px;
+	background: $c-hover--primary-border;
+	border-radius: 50%;
+	opacity: 0;
+	transition: $t-medium-standard;
+}
+
+#{$crc}__label {
+	@include text-primary-content();
+	position: absolute;
+	top: $v-control-height + $g-8;
+	line-height: $v-control-height-small;
+	text-align: center;
+	white-space: nowrap;
+	opacity: $o-64;
+	transition: $t-fast-standard;
+}
+
+@keyframes done-icon-spin {
+	0% {
+		transform: rotate(90deg) scale(0.25);
+	}
+	100% {
+		transform: rotate(0deg) scale(1);
+	}
+}

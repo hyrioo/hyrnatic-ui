@@ -1,0 +1,7 @@
+$crc: '.h-select-item-divider';
+
+#{$crc}{
+	margin: $g-8 0;
+	position: relative;
+	border-bottom: $v-control-border-width solid $c-primary-border;
+}

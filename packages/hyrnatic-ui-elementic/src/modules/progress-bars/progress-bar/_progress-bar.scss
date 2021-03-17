@@ -1,0 +1,108 @@
+$crc: '.h-progress-bar';
+
+#{$crc}{
+	height: $v-control-height;
+	display: flex;
+
+	&.-size-large{
+		#{$crc}__back{
+			border-radius: $v-control-height-small / 2;
+			height: $v-control-height-small;
+			margin: $g-8 0;
+		}
+		#{$crc}__filler{
+			border-radius: $v-control-height-small / 2;
+		}
+		#{$crc}__label{
+			font-size: $fs-small;
+			font-weight: $fw-regular;
+			color: $c-fill;
+			line-height: $v-control-height-small;
+			margin-left: 0;
+			margin-right: $g-8;
+		}
+	}
+
+	&.-styling-error {
+		#{$crc}__back{
+			background: $c-danger-border;
+		}
+		#{$crc}__filler{
+			background: $c-danger-text;
+		}
+		#{$crc}__label{
+			@include text-danger-content();
+		}
+	}
+
+	&.-striped #{$crc}__filler:after, &.-animated #{$crc}__filler:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		-webkit-background-size: 32px 32px;
+		background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+				color-stop(.25, rgba(#FFF, $o-32)),
+				color-stop(.25, transparent),
+				color-stop(.5, transparent),
+				color-stop(.5, rgba(#FFF, $o-32)),
+				color-stop(.75, rgba(#FFF, $o-32)),
+				color-stop(.75, transparent),
+				to(transparent)
+		);
+	}
+	&.-animated #{$crc}__filler:after{
+		animation: move infinite linear $s-very-slow;
+	}
+}
+
+@keyframes move {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 32px 32px;
+	}
+}
+
+#{$crc}__back{
+	background: $c-primary-border;
+	position: relative;
+	height: $v-control-height-tiny;
+	border-radius: $v-control-height-tiny / 2;
+	overflow: hidden;
+	margin: $g-12 0;
+	flex-grow: 1;
+	display: inline-block;
+}
+
+#{$crc}__filler{
+	background: $c-primary-text;
+	border-radius: $v-control-height-tiny / 2;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	transition: width $t-fast-deceleration;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#{$crc}__overflow-indicator{
+	width: 2px;
+	position: absolute;
+	height: 100%;
+	background: $c-fill;
+	top: 0;
+	left: 0;
+	box-shadow: 0 0 $g-8 2px $c-fill;
+	transition: left $t-medium-standard;
+
+}
+
+#{$crc}__label{
+	line-height: $v-control-height;
+	margin-left: $g-8;
+	flex-shrink: 0;
+}

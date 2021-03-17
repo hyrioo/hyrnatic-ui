@@ -1,0 +1,19 @@
+$crc: '.h-select-item-header';
+
+#{$crc}{
+	line-height: $v-control-height;
+	padding: 0 $g-8;
+	white-space: nowrap;
+	color: $c-primary-text;
+	margin-top: $g-4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&:first-child{
+		margin-top: 0;
+	}
+}
+
+#{$crc}__icon{
+	margin-right: $g-8;
+}

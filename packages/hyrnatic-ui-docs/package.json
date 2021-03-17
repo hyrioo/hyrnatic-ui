@@ -1,0 +1,12 @@
+{
+  "name": "@hyrioo/hyrnatic-ui-docs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo build"
+  },
+  "dependencies": {
+    "@hyrioo/hyrnatic-ui-elementic": "^0.0.0"
+  }
+}

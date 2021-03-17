@@ -1,0 +1,45 @@
+$crc: '.h-collapse-item';
+
+#{$crc}{
+	border-top: $v-control-border-width solid $c-primary-border;
+	padding: $g-8 $g-12;
+	border-radius: $v-control-border-radius;
+	position: relative;
+}
+
+#{$crc}__header{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: $c-primary-text;
+	outline: none;
+
+	&:focus {
+		text-shadow: $sd-hover--primary-text-shadow;
+	}
+}
+
+#{$crc}__expand-icon{
+	@include size(16px);
+	cursor: pointer;
+	user-select: none; // Prevents text selection on fast clicks
+	right: 0;
+	margin-left: $g-12;
+	position: absolute;
+
+	svg{
+		position: absolute;
+	}
+}
+
+#{$crc}__header-text{
+	margin: 0;
+	@include text-header();
+}
+
+#{$crc}__expanded-content{
+	transition: height $t-medium-standard;
+}
+#{$crc}__expanded-content-inner{
+	padding-top: $g-8;
+}

@@ -1,0 +1,10 @@
+version: '3'
+services:
+  node:
+    image: node:14.15.0
+    working_dir: /var/www
+    command: tail -f /dev/null
+    volumes:
+      - ./:/var/www
+    ports:
+      - ${DOCKER_NODE_PORT:-8080}:8080

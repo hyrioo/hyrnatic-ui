@@ -1,0 +1,66 @@
+
+
+@mixin text-page-header($color-only: false){
+	color: $c-primary-text;
+
+	@if $color-only == false {
+		font-size: $fs-page-header;
+		font-weight: $fw-light;
+	}
+}
+@mixin text-header($color-only: false){
+	color: $c-primary-text;
+
+	@if $color-only == false {
+		font-size: $fs-header;
+		font-weight: $fw-regular;
+	}
+}
+@mixin text-content($color-only: false){
+	color: $c-dark-text;
+
+	@if $color-only == false {
+		font-size: $fs-default;
+		font-weight: $fw-regular;
+	}
+}
+@mixin text-hinted-content($color-only: false){
+	color: $c-dark-text-hint;
+
+	@if $color-only == false {
+		font-size: $fs-default;
+		font-weight: $fw-regular;
+	}
+}
+@mixin text-primary-content($color-only: false){
+	color: $c-primary-text;
+
+	@if $color-only == false {
+		font-size: $fs-default;
+		font-weight: $fw-regular;
+	}
+}
+@mixin text-danger-content($color-only: false){
+	color: $c-danger-text;
+
+	@if $color-only == false {
+		font-size: $fs-default;
+		font-weight: $fw-regular;
+	}
+}
+@mixin text-small-content($color-only: false){
+	color: $c-dark-text;
+
+	@if $color-only == false {
+		font-size: $fs-small;
+		font-weight: $fw-regular;
+	}
+}
+@mixin text-tiny-content($color-only: false){
+	color: $c-dark-text;
+
+	@if $color-only == false {
+		font-size: $fs-tiny;
+		font-weight: $fw-regular;
+	}
+}

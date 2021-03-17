@@ -1,0 +1,12 @@
+$crc: '.h-list-item';
+
+#{$crc} {
+	padding: $g-4 0;
+	line-height: $v-control-height - $g-8;
+	border-bottom: 1px solid $c-primary-border;
+	width: 100%;
+
+	&:last-child{
+		border-bottom: none;
+	}
+}

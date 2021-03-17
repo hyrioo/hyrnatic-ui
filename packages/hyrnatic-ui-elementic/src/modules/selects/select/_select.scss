@@ -1,0 +1,116 @@
+$crc: '.h-select';
+
+#{$crc}{
+	box-sizing: content-box;
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+
+	&.-active #{$crc}__button{
+		border-color: $c-hover--primary-border;
+		border-radius: $v-control-border-radius $v-control-border-radius 0 0;
+
+		#{$crc}__icon{
+			transform: rotate(180deg);
+		}
+	}
+
+	&.-disabled {
+		opacity: $v-control-disabled-opacity;
+		pointer-events: none;
+
+		#{$crc}__button {
+			background: $c-disabled--primary-background;
+			color: $c-disabled--negative-text;
+		}
+
+		#{$crc}__label.-placeholder{
+			color: $c-disabled--primary-text;
+		}
+	}
+}
+#{$crc}__button{
+	min-width: $v-control-height;
+	height: $v-control-height;
+	line-height: $v-control-height - ($v-control-border-width*2);
+	border-radius: $v-control-border-radius;
+	border-width: $v-control-border-width;
+	border-style: solid;
+	padding: 0 $g-8;
+	padding-right: $g-32 + $g-8;
+	background: transparent;
+	transition: border-color $t-fast-standard, border-radius $t-fast-standard;
+	outline: none;
+	cursor: pointer;
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	background: $c-primary-background;
+	border-color: $c-primary-border;
+	color: $c-primary-text;
+
+	&:hover, &:focus{
+		border-color: $c-hover--primary-border;
+	}
+}
+
+#{$crc}__label{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	&.-placeholder{
+		color: rgba($c-primary-text, $o-64);
+	}
+}
+
+#{$crc}__icon, #{$crc}__clear-icon{
+	padding: 0 $g-8;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: transform $t-fast-standard;
+
+	> svg{
+		margin: ($g-8 - $v-control-border-width) 0;
+		vertical-align: top;
+	}
+}
+
+
+#{$crc}__menu-container {
+	box-shadow: $sd-active--primary-box-shadow;
+	margin-top: -($v-control-height) !important;
+	padding-top: $v-control-height;
+	pointer-events: none;
+
+	#{$crc}__menu {
+		border: $v-control-border-width solid $c-primary-border;
+		border-top: none;
+		background: $c-primary-background;
+		border-radius: 0 0 $v-control-border-radius $v-control-border-radius;
+		pointer-events: all;
+		display: flex;
+		max-height: 300px;
+
+		.h-scroll-container{
+			flex-grow: 1;
+		}
+
+		/*&:after {
+			content: '';
+			position: absolute;
+			height: 3px;
+			left: -$v-control-border-width;
+			right: -$v-control-border-width;
+			top: -$v-control-border-width;
+			background: $c-primary;
+			border-radius: 3px 3px 0 0;
+		}*/
+	}
+}

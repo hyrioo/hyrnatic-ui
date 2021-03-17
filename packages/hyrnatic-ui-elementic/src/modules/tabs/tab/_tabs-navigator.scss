@@ -1,0 +1,53 @@
+$crc: '.h-tabs-navigator';
+
+#{$crc}{
+	position: relative;
+	display: flex;
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: $c-primary-border;
+		border-radius: 1px;
+	}
+
+	&.-vertical {
+		display: inline-flex;
+		flex-direction: column;
+
+		&:before {
+			width: 2px;
+			right: 0;
+			left: initial;
+			top: 0;
+			height: auto;
+		}
+
+
+		#{$crc}__indicator{
+			top: 0;
+			right: 0;
+			left: initial;
+			width: 2px;
+		}
+	}
+}
+
+#{$crc}__indicator{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	background: $c-primary-text;
+	border-radius: 1px;
+	transition: $t-medium-deceleration;
+	z-index: 2;
+
+	&.-hidden{
+		opacity: $o-0;
+	}
+}

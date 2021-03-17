@@ -1,0 +1,96 @@
+$crc: '.h-scroll-container';
+$track-color: lighten(desaturate($c-primary, 100), 20);
+
+#{$crc} {
+	&:hover, &.-hover, &.-dragging {
+		> #{$crc}__track {
+			opacity: 1;
+		}
+	}
+
+	&.-is-hidden {
+		> #{$crc}__track {
+			opacity: $o-0;
+		}
+	}
+}
+
+#{$crc}__track {
+	background: rgba($track-color, $o-0);
+	position: absolute;
+	border-radius: 2px;
+	transition: background $t-fast-standard, opacity $t-fast-standard, width $t-fast-standard, height $t-fast-standard;
+	pointer-events: none;
+	transform: translateZ(0);
+
+	&.-vertical {
+		top: $g-4;
+		right: $g-4;
+		bottom: $g-4;
+		width: 4px;
+
+		#{$crc}__thumb {
+			width: 4px;
+		}
+	}
+
+	&.-horizontal {
+		left: $g-4;
+		right: $g-12;
+		bottom: $g-4;
+		height: 4px;
+
+		#{$crc}__thumb {
+			height: 4px;
+		}
+	}
+
+	&.-hover, &.-dragging {
+		border-radius: 3px;
+		background: rgba($track-color, $o-32);
+
+		#{$crc}__thumb {
+			border-radius: 3px;
+		}
+
+		&.-vertical {
+			width: 6px;
+
+			#{$crc}__thumb {
+				width: 6px;
+			}
+		}
+
+		&.-horizontal {
+			height: 6px;
+
+			#{$crc}__thumb {
+				height: 6px;
+			}
+		}
+
+		> #{$crc}__thumb {
+			opacity: $o-64;
+
+			&.-hover, &.-dragging {
+				opacity: $o-100;
+			}
+		}
+	}
+}
+
+#{$crc}__thumb {
+	background: $track-color;
+	border-radius: 2px;
+	cursor: pointer;
+	opacity: $o-32;
+	transition: opacity $t-fast-standard, background $t-fast-standard, width $t-fast-standard, height $t-fast-standard;
+
+	&.-hover{
+		background: $c-hover--primary-border;
+	}
+
+	&.-dragging {
+		background: $c-active--primary-border;
+	}
+}

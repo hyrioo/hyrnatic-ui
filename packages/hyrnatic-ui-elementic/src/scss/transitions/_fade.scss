@@ -1,0 +1,12 @@
+$speeds: ("fast": $t-fast-standard, "medium": $t-medium-standard, "slow": $t-slow-standard);
+
+@each $speed, $transition in $speeds {
+	$name: fade-#{$speed};
+
+	.#{$name}-enter-active, .#{$name}-leave-active {
+		transition: opacity $transition;
+	}
+	.#{$name}-enter-from, .#{$name}-leave-to {
+		opacity: $o-0;
+	}
+}

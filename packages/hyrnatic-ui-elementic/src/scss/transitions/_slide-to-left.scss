@@ -1,0 +1,16 @@
+$sizes: ("large2x": 64px, "large": 32px, "small": 16px, "tiny": 8px, "tiny2x": 4px);
+$speeds: ("fast": $t-fast-standard, "medium": $t-medium-standard, "slow": $t-slow-standard);
+
+@each $size-name, $size in $sizes {
+  @each $speed, $transition in $speeds {
+    $name: #{$size-name}-slide-to-left-#{$speed};
+
+    .#{$name}-enter-active, .#{$name}-leave-active {
+      transition: opacity $transition, transform $transition;
+    }
+    .#{$name}-enter-from, .#{$name}-leave-to {
+      opacity: $o-0;
+      transform: translateX($size);
+    }
+  }
+}

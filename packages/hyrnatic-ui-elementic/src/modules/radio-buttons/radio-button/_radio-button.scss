@@ -1,0 +1,169 @@
+$crc: '.h-radio-button';
+
+#{$crc} {
+	position: relative;
+	cursor: pointer;
+	height: $v-control-height;
+	line-height: $v-control-height;
+	display: inline-flex;
+	align-items: center;
+	transition: border-color $t-fast-standard, box-shadow $t-fast-standard, background $t-fast-standard;
+	border-radius: $v-control-border-radius;
+
+	&.-bordered{
+		border-width: $v-control-border-width;
+		border-style: solid;
+		border-color: $c-primary-border;
+		line-height: $v-control-height - ($v-control-border-width * 2);
+		padding: 0 10px;
+		box-sizing: border-box;
+	}
+
+	&:hover, &.-focus{
+		&.-bordered {
+			border-color: $c-hover--primary-border;
+			box-shadow: $sd-hover--primary-box-shadow;
+		}
+
+		#{$crc}__input{
+			border-color: $c-hover--primary-border;
+			background: $c-hover--primary-border;
+			box-shadow: $sd-hover--primary-box-shadow;
+		}
+	}
+
+	&:active{
+		&.-bordered {
+			border-color: $c-active--primary-border;
+			box-shadow: $sd-active--primary-box-shadow;
+		}
+
+		#{$crc}__input{
+			border-color: $c-active--primary-border;
+			background: $c-active--primary-border;
+			box-shadow: $sd-active--primary-box-shadow;
+		}
+	}
+
+	&.-checked{
+		#{$crc}__input{
+			background: $c-checked--primary-background;
+			border-color: $c-checked--primary-background;
+			transition: $t-fast-standard;
+		}
+
+		#{$crc}__check-icon{
+			transform: scale(0.4);
+			transition: transform $t-fast-standard;
+		}
+
+		&.-bordered{
+			border-color: $c-checked--primary-background;
+		}
+
+		&:hover{
+
+			&.-bordered{
+				border-color: $c-hover--primary-background;
+			}
+
+			#{$crc}__input{
+				background: $c-hover--primary-background;
+			}
+		}
+
+		&:active{
+
+			&.-bordered{
+				border-color: $c-active--primary-background;
+			}
+
+			#{$crc}__input{
+				background: $c-active--primary-background;
+			}
+		}
+	}
+
+	&.-disabled{
+		#{$crc}__input, &.-bordered {
+			background: $c-disabled--primary-background;
+			border-color: $c-primary-border;
+		}
+		#{$crc}__check-icon{
+			transform: scale(0.4);// Force scaled to prevent visual issue if changing checked state while disabled
+			opacity: $o-0;
+			background: $c-disabled--primary-text;
+		}
+		&.-checked #{$crc}__check-icon{
+			opacity: 1;
+		}
+		color: $c-disabled--negative-text;
+		opacity: $v-control-disabled-opacity;
+		pointer-events: none;
+	}
+}
+
+#{$crc}__container{
+	display: block;
+	height: 12px;
+	position: relative;
+}
+
+#{$crc}__input{
+	appearance: none;
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border-width: $v-control-border-width;
+	border-style: solid;
+	border-color: $c-primary-border;
+	background: $c-primary-background;
+	transition: $t-fast-standard, background $t-fast-standard;
+	outline: none;
+	cursor: pointer;
+	vertical-align: bottom;
+	margin: 0;
+}
+
+#{$crc}__label {
+	margin-left: $g-8;
+}
+
+#{$crc}__check-icon{
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: $c-checked--primary-text;
+
+	transform: scale(1);
+	transform-origin: center;
+	transition: opacity $t-fast-standard, transform $t-fast-standard;
+}
+
+
+.hyrnatic-grouped-radio-buttons{
+	display: inline-flex;
+
+	#{$crc}.-bordered{
+		border-radius: 0;
+		margin-left: -($v-control-border-width);
+
+		&:first-child{
+			border-radius: $v-control-border-radius 0 0 $v-control-border-radius;
+			margin-left: 0;
+		}
+		&:last-child{
+			border-radius: 0 $v-control-border-radius $v-control-border-radius 0;
+		}
+		&.-checked{
+			z-index: 2;
+		}
+		&:hover{
+			z-index: 3;
+		}
+	}
+}

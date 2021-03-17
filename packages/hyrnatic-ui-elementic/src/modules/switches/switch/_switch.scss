@@ -1,0 +1,113 @@
+$crc: '.h-switch';
+
+#{$crc}{
+	position: relative;
+	cursor: pointer;
+	height: $v-control-height-small;
+	line-height: $v-control-height-small;
+	margin: ($v-control-height - $v-control-height-small) / 2 0;
+	display: inline-flex;
+	box-sizing: border-box;
+	vertical-align: middle;
+
+	&:hover, &.-focus{
+		#{$crc}__back{
+			border-color: $c-hover--primary-border;
+		}
+
+		#{$crc}__dot{
+			background: $c-hover--primary-border;
+		}
+	}
+
+	&.-checked{
+		#{$crc}__back{
+			border-color: $c-hover--primary-border;
+		}
+		#{$crc}__back-inner {
+			transform: scale(0);
+		}
+
+		#{$crc}__dot{
+			left: $v-control-height / 2;
+			background: $c-fill;
+		}
+	}
+
+
+	&.-disabled{
+		opacity: $v-control-disabled-opacity;
+		pointer-events: none;
+
+		#{$crc}__back {
+			border-color: $c-primary-border;
+			background: $c-primary-border;
+		}
+		#{$crc}__back-inner {
+			background: $c-disabled--primary-background;
+		}
+		#{$crc}__dot{
+			background: $c-disabled--primary-text;
+		}
+
+		&.-checked{
+			#{$crc}__back{
+				background: $c-primary-border;
+			}
+
+			#{$crc}__back-inner {
+				background: $c-disabled--primary-background;
+			}
+		}
+	}
+}
+
+#{$crc}__container{
+	position: relative;
+}
+
+#{$crc}__back{
+	height: $v-control-height-small;
+	width: $v-control-height;
+	margin: 0;
+	border-style: solid;
+	border-width: $v-control-border-width;
+	border-color: $c-primary-border;
+	border-radius: $v-control-height-small / 2;
+	background: $c-hover--primary-border;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	transition: border-color $t-fast-standard,  border-width $t-fast-standard;
+}
+
+#{$crc}__back-inner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: $v-control-height - ($v-control-border-width * 2);
+	height: $v-control-height-small - ($v-control-border-width * 2);
+	margin: $v-control-border-width;
+	background: #fff; //TODO: Replace with variable
+	border-radius: ($v-control-height-small - ($v-control-border-width * 2)) / 2;
+	transition: transform $t-fast-standard;
+}
+
+#{$crc}__dot{
+	position: absolute;
+	left: 0;
+	top: 0;
+	@include size($v-control-height-small / 2);
+	margin: $v-control-height-small / 4;
+	background: $c-primary-border;
+	border-radius: 50%;
+	transition: left $t-fast-standard, background $t-fast-standard;
+}
+
+#{$crc}__left-label{
+	margin-right: $g-8;
+}
+
+#{$crc}__right-label{
+	margin-left: $g-8;
+}

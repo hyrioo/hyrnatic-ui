@@ -1,0 +1,134 @@
+<template>
+    <hr-dropdown v-show="visible" ref="dropdown" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners">
+        <div ref="button" tabindex="0" :class="[css_ec('button'), {'-split-button': props.splitButton}]" :style="{...popperWidth}" @click="props.onButtonClick" @keydown="props.onKeyEvents($event, 'main')">
+            <span :class="[css_ec('label')]">
+                <slot name="label">
+                    {{ label }}
+                </slot>
+            </span>
+            <div ref="icon" tabindex="0" :class="[css_ec('icon')]" @click.stop="props.onIconClick" @keydown.stop="props.onKeyEvents($event, 'split')">
+                <h-icon icon="dots-horizontal" size="16px" />
+            </div>
+        </div>
+
+        <h-popper ref="popper" :classes="[css_ec('menu-container')]" :reference="button" :arrow-reference="icon" show-arrow keep transition="tiny2x-slide-up-medium"
+                  :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :minimum-width="dropdownHasWidth" :modifiers="popperModifiers"
+                  @popper-size-changed="popperSizeChanged" @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
+        >
+            <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents">
+                <h-scroll-container>
+                    <slot />
+                </h-scroll-container>
+            </div>
+            <template #arrow>
+                <div :class="[css_ec('arrow')]" />
+            </template>
+        </h-popper>
+    </hr-dropdown>
+</template>
+
+<script lang="ts">
+import {
+    defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext,
+} from 'vue';
+import componentCss from '@elementic/utils/component-css';
+import { PopperComponent } from '@core/modules/poppers/popper/Popper';
+import {
+    coreDropdownDisabledProp,
+    coreDropdownHideOnClickProp,
+    coreDropdownSplitButtonProp, coreDropdownVisibleProp, setup, SlotProps,
+} from '@core/modules/dropdowns/dropdown/Dropdown';
+
+export default defineComponent({
+    name: 'h-dropdown',
+    props: {
+        ...coreDropdownSplitButtonProp,
+        ...coreDropdownDisabledProp,
+        ...coreDropdownHideOnClickProp,
+        ...coreDropdownVisibleProp,
+        label: {
+            type: String,
+            default: '',
+        },
+        align: {
+            type: String,
+            default: 'start',
+        },
+    },
+    emits: ['click'],
+    setup(props, ctx: SetupContext) {
+        const dropdown = ref();
+        const button = ref<HTMLElement>();
+        const icon = ref<HTMLElement>();
+        const popper = ref<PopperComponent>();
+
+        /*onMounted(() => {
+            nextTick(() => {
+                popper.value.updatePopper();
+            });
+        });*/
+
+        const popperWidth = ref({});
+        const popperModifiers = [
+            {
+                name: 'offset',
+                options: {
+                    offset: [0, 4],
+                },
+            },
+        ];
+        const dropdownHasWidth = computed(() => (dropdown.value && dropdown.value.$el.style.width ? dropdown.value.$el.style.width : null));
+        const popperSizeChanged = (size) => {
+            if (dropdownHasWidth.value || size.width === 0) {
+                popperWidth.value = null;
+                return;
+            }
+            popperWidth.value = { minWidth: `${size.width}px` };
+        };
+        let scheduledUpdatePopper = false;
+        const updatePopper = () => {
+            if (scheduledUpdatePopper) {
+                return;
+            }
+            nextTick(() => {
+                if (popper.value) {
+                    popper.value.updatePopper();
+                }
+                scheduledUpdatePopper = false;
+            });
+            scheduledUpdatePopper = true;
+        };
+        const onClickOutside = (value) => {
+            if (value.outsidePopper && value.outsideReference) {
+                dropdown.value.close();
+            }
+        };
+        provide('updatePopper', updatePopper);
+
+        const asProps = (slotProps: SlotProps) => ({
+            class: {
+                '-active': slotProps.menuVisible, '-disabled': slotProps.disabled,
+            },
+        });
+        const core = setup().as('div', asProps).props(['disabled', 'hideOnSelect', 'splitButton', 'visible']).events(['click'])
+            .build();
+
+        return {
+            core,
+            dropdown,
+            button,
+            icon,
+            popper,
+
+            popperWidth,
+            popperModifiers,
+            popperSizeChanged,
+            dropdownHasWidth,
+
+            onClickOutside,
+
+            ...componentCss(),
+        };
+    },
+});
+</script>

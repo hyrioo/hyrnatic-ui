@@ -1,0 +1,94 @@
+$crc: '.h-table';
+
+#{$crc} {
+	width: 100%;
+	border-collapse: collapse;
+
+	td, th {
+		padding: 0 $g-12;
+		line-height: $v-control-height;
+	}
+
+	th {
+		@include text-primary-content();
+		text-align: left;
+		border-bottom: 2px solid $c-primary-border;
+	}
+
+	td {
+		transition: background-color $t-fast-standard;
+		border-bottom: 1px solid $c-primary-border;
+
+		&.-minimum-width {
+			width: 1px;
+		}
+	}
+
+	tr {
+		&:last-child td {
+			border-bottom-color: transparent;
+		}
+
+		&.-selected td {
+			background-color: rgba($c-primary, .16);
+		}
+	}
+
+	&.-striped {
+		tr:nth-child(even) {
+			td {
+				background-color: rgba($c-primary-border, .16);
+			}
+		}
+	}
+
+	&.-hoverable tr:hover td {
+		background-color: rgba($c-primary-border, .32);
+	}
+
+	.h-checkbox {
+		display: flex;
+	}
+}
+
+#{$crc}-column__header {
+	display: flex;
+	align-items: center;
+
+	> .content {
+		flex-grow: 1;
+	}
+
+	> .sorting-icon {
+		width: 16px;
+		height: 24px;
+		position: relative;
+		cursor: pointer;
+
+		> .sort-up, > .sort-down {
+			color: $c-dark-text;
+			position: absolute;
+			transition: color $t-fast-standard;
+			top: 0;
+			left: 0;
+		}
+
+		> .sort-down {
+			top: $g-8;
+		}
+
+		&.-unsorted {
+			> .sort-up, > .sort-down {
+				color: $c-primary-text;
+			}
+		}
+
+		&.-sorting-desc > .sort-down {
+			color: $c-primary-text;
+		}
+
+		&.-sorting-asc > .sort-up {
+			color: $c-primary-text;
+		}
+	}
+}

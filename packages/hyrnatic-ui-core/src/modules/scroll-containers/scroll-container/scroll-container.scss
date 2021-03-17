@@ -1,0 +1,30 @@
+$crc: '.hr-scroll-container';
+
+#{$crc} {
+    overflow: hidden;
+    position: relative;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &.-disable-selection {
+        > #{$crc}__wrapper {
+            user-select: none;
+
+            > #{$crc}__container {
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+#{$crc}__wrapper {
+    overflow: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}

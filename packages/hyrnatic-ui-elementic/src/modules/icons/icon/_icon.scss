@@ -1,0 +1,7 @@
+$crc: '.h-icon';
+
+#{$crc} {
+	&.-spin {
+		animation: hyrnatic-spin $s-slow linear infinite;
+	}
+}

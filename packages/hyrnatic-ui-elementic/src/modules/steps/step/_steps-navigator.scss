@@ -1,0 +1,33 @@
+$crc: '.h-steps-navigator';
+
+#{$crc} {
+	position: relative;
+	display: flex;
+	justify-content: center;
+
+	#{$crc}__indicator {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		top: 16px;
+		height: 2px;
+		background: $c-primary-text;
+		border-radius: 1px;
+		transition: width $t-medium-deceleration, opacity $t-medium-standard;
+
+		&.-hidden {
+			opacity: $o-0;
+		}
+	}
+	&.-has-labels {
+		padding-bottom: $v-control-height-small + ($g-4 * 2);
+	}
+}
+
+#{$crc}__step-line {
+	background: $c-primary-border;
+	height: 2px;
+	width: calc(100% - #{$v-control-height});
+	max-width: 172px;
+	margin-top: $v-control-height / 2;
+}

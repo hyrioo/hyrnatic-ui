@@ -1,0 +1,51 @@
+$crc: '.h-table-column-header';
+
+#{$crc}	{
+	&.-sortable {
+		#{$crc}__content{
+			padding-right: $g-12;
+		}
+	}
+}
+
+#{$crc}__container {
+	display: flex;
+	align-items: center;
+}
+#{$crc}__content{
+	flex-grow: 1;
+}
+
+#{$crc}__sorting-icon{
+	width: 16px;
+	height: 24px;
+	position: relative;
+	cursor: pointer;
+
+	&.-unsorted {
+		#{$crc}__sort-up, #{$crc}__sort-down {
+			color: $c-primary-text;
+		}
+	}
+
+	&.-sorting-desc #{$crc}__sort-down {
+		color: $c-primary-text;
+	}
+
+	&.-sorting-asc #{$crc}__sort-up {
+		color: $c-primary-text;
+	}
+}
+
+#{$crc}__sort-up, #{$crc}__sort-down{
+	color: $c-dark-text;
+	position: absolute;
+	transition: color $t-fast-standard;
+	top: 0;
+	left: 0;
+}
+
+#{$crc}__sort-down{
+	top: $g-8;
+}
+

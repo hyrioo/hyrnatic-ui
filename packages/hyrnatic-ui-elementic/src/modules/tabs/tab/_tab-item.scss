@@ -1,0 +1,25 @@
+$crc: '.h-tab-item';
+
+#{$crc}{
+	@include text-content();
+	padding: 0 $g-16;
+	line-height: $v-control-height;
+	cursor: pointer;
+	transition: color $t-fast-standard, border-color $t-fast-standard;
+	display: flex;
+	align-items: center;
+	outline: none;
+	z-index: 1;
+
+	&.-active, &:hover, &:focus{
+		@include text-primary-content(true);
+	}
+	&:hover, &:focus {
+		text-shadow: $sd-hover--primary-text-shadow;
+	}
+
+	&.-disabled{
+		color: $c-disabled--primary-text;
+		cursor: default;
+	}
+}

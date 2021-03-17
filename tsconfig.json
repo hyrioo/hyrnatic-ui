@@ -1,0 +1,12 @@
+{
+  "references": [
+    {
+      "path": "./packages/hyrnatic-ui-core"
+    }
+  ],
+  "files": [],
+  "include": [],
+  "exclude": [
+    "**/node_modules"
+  ]
+}

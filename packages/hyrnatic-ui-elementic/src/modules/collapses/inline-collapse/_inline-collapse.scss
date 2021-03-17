@@ -1,0 +1,43 @@
+$crc: '.h-inline-collapse';
+#{$crc}{
+
+}
+
+#{$crc}__toggle-line{
+	display: flex;
+	height: $v-control-height;
+	align-items: center;
+	outline: none;
+
+	&:focus {
+		//text-shadow: $sd-hover--primary-text-shadow;
+
+		#{$crc}__left-filler, #{$crc}__right-filler{
+			background: $c-hover--primary-border;
+			box-shadow: $sd-hover--primary-box-shadow;
+		}
+
+	}
+
+	&.-align-left #{$crc}__left-filler{
+		width: $g-16;
+	}
+
+	&.-align-right #{$crc}__right-filler{
+		width: $g-16;
+	}
+}
+
+#{$crc}__toggle-text{
+	@include text-primary-content();
+	margin: 0 $g-8;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+#{$crc}__left-filler, #{$crc}__right-filler{
+	background: $c-primary-border;
+	height: $v-control-border-width;
+	width: 100%;
+	transition: box-shadow $t-fast-standard, background $t-fast-standard;
+}

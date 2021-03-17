@@ -1,0 +1,10 @@
+.hinge-top-fast-enter-active, .hinge-top-fast-leave-active {
+    transition: opacity $t-fast-standard, transform $t-fast-standard;
+    transform-origin: top center;
+    transform: rotateX(0);
+    opacity: 1;
+}
+.hinge-top-fast-enter, .hinge-top-fast-leave-to {
+    transform: rotateX(-64deg);
+    opacity: 0;
+}
