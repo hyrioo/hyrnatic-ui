@@ -79,14 +79,15 @@ $crc: '.h-drawer';
 	@include text-page-header();
 }
 #{$crc}__content{
-	padding: 0 $g-32;
-	padding-bottom: $g-16;
+	padding: 0 0 $g-16 $g-32;
 	flex-grow: 1;
-
-	&.-no-padding{
-		padding: 0;
-	}
+	overflow: auto;
 }
+#{$crc}__inner-content{
+	padding-right: $g-32;
+	padding-bottom: $g-16;
+}
+
 #{$crc}__footer{
 	padding: $g-16 $g-32;
 	padding-top: $g-16 + 1px;

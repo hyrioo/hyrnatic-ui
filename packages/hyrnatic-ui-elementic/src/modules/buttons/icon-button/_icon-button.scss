@@ -1,9 +1,6 @@
 $crc: '.h-icon-button';
 
 #{$crc} {
-	min-width: $v-control-height;
-	height: $v-control-height;
-	line-height: $v-control-height;
 	border-radius: $v-control-border-radius;
 	padding: 0;
 	border-width: $v-control-border-width;
@@ -17,7 +14,6 @@ $crc: '.h-icon-button';
 	justify-content: center;
 	vertical-align: middle;
 	position: relative;
-
 
 	&.-loading {
 		pointer-events: none;
@@ -143,6 +139,25 @@ $crc: '.h-icon-button';
 		&:disabled {
 			background: $c-disabled--danger-background;
 		}
+	}
+
+	&.-styling-none {
+		background: transparent;
+		border-color: transparent;
+		border-width: 0;
+		color: $c-dark-text;
+	}
+
+	&.-size-normal {
+		min-width: $v-control-height;
+		height: $v-control-height;
+		line-height: $v-control-height;
+	}
+
+	&.-size-small {
+		min-width: $v-control-height-small;
+		height: $v-control-height-small;
+		line-height: $v-control-height-small;
 	}
 
 	// Shared for all types

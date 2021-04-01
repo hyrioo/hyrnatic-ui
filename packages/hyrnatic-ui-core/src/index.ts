@@ -150,4 +150,21 @@ export { default as CoreTableRow } from '@/modules/tables/table/Row';
 export { TableProvide as CoreTableProvide, SortDefinition as CoreTableSortDefinition } from '@/modules/tables/table/TableTypes';
 
 
+export { default as CoreTabsInstall } from '@/modules/tabs/install';
+export {
+    coreTabItemSetup,
+    CoreTabItemSlotProps,
+    coreTabItemIdProp,
+    coreTabItemIdDisabledProp,
+    CoreTabItemInstance,
+    CoreTabsNavigatorProvide,
+    CoreTabsNavigatorReturn,
+} from '@/modules/tabs/tab/TabItem';
+export {
+    coreTabsNavigatorSetup,
+    CoreTabsNavigatorSlotProps,
+    coreTabsNavigatorModelValueProp,
+} from '@/modules/tabs/tab/TabsNavigator';
+
+
 export { default as ModuleHelper } from '@/utils/package';

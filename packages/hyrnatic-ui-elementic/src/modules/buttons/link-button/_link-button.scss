@@ -1,0 +1,135 @@
+$crc: '.h-link-button';
+
+#{$crc} {
+	padding: 0 $g-16;
+	border: none;
+	background: transparent;
+	font-size: $fs-default;
+	transition: $t-fast-standard;
+	outline: none;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	position: relative;
+
+	&.-loading {
+		pointer-events: none;
+
+		#{$crc}__loading-icon {
+			opacity: 1;
+			left: $g-4;
+		}
+		#{$crc}__text {
+			transform: translate($g-12, 0);
+		}
+	}
+
+	&.-styling-primary {
+		color: $c-primary-text;
+
+		&:hover, &:focus {
+			text-shadow: $sd-hover--primary-text-shadow;
+		}
+		&:active {
+			text-shadow: $sd-active--primary-text-shadow;
+			color: $c-active--primary-text;
+		}
+	}
+
+	&.-styling-secondary {
+		color: $c-secondary-text;
+
+		&:hover, &:focus {
+			text-shadow: $sd-hover--secondary-text-shadow;
+		}
+		&:active {
+			text-shadow: $sd-active--secondary-text-shadow;
+			color: $c-active--secondary-text;
+		}
+	}
+
+	&.-styling-negative {
+		color: $c-negative-text;
+
+		&:hover, &:focus {
+			text-shadow: $sd-hover--negative-text-shadow;
+		}
+		&:active {
+			text-shadow: $sd-active--negative-text-shadow;
+			color: $c-active--negative-text;
+		}
+	}
+
+	&.-styling-success {
+		color: $c-success-text;
+
+		&:hover, &:focus {
+			text-shadow: $sd-hover--success-text-shadow;
+		}
+		&:active {
+			text-shadow: $sd-active--success-text-shadow;
+			color: $c-active--success-text;
+		}
+	}
+
+	&.-styling-warning {
+		color: $c-warning-text;
+
+		&:hover, &:focus {
+			text-shadow: $sd-hover--warning-text-shadow;
+		}
+		&:active {
+			text-shadow: $sd-active--warning-text-shadow;
+			color: $c-active--warning-text;
+		}
+	}
+
+	&.-styling-danger {
+		color: $c-danger-text;
+
+		&:hover, &:focus {
+			text-shadow: $sd-hover--danger-text-shadow;
+		}
+		&:active {
+			text-shadow: $sd-active--danger-text-shadow;
+			color: $c-active--danger-text;
+		}
+	}
+
+	&.-styling-none {
+		color: $c-dark-text;
+	}
+
+	&.-size-normal {
+		min-width: $v-control-height;
+		height: $v-control-height;
+		line-height: $v-control-height;
+	}
+
+	&.-size-small {
+		min-width: $v-control-height-small;
+		height: $v-control-height-small;
+		line-height: $v-control-height-small;
+	}
+
+	// Shared for all types
+	&:disabled {
+		color: $c-disabled--negative-text;
+		opacity: $v-control-disabled-opacity;
+		pointer-events: none;
+	}
+}
+
+#{$crc}__loading-icon {
+	position: absolute;
+	top: 50%;
+	left: $g-12;
+	margin-top: -$g-8;
+	animation: hyrnatic-spin $s-slow infinite linear;
+	opacity: $o-0;
+}
+#{$crc}__loading-icon, #{$crc}__text {
+	transition: $t-fast-standard;
+}

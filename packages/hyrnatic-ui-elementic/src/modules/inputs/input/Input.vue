@@ -1,5 +1,6 @@
 <template>
     <hr-input ref="coreInput" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners">
+        <slot name="customPrefix" />
         <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]">
             <slot name="prefix">
                 {{ prefix }}
@@ -8,7 +9,7 @@
         <h-icon v-if="prefixIcon" :class="[css_ec('prefix-icon')]" :icon="prefixIcon" size="16px" />
         <input ref="input" :class="[css_ec('input')]" :value="props.modelValue" :type="type"
                :max-length="maxLength" :min-length="minLength" :disabled="props.disabled"
-               :placeholder="placeholder" :readonly="props.readonly"
+               :placeholder="placeholder" :readonly="props.readonly" :autocomplete="autocomplete"
                @input="props.modelValue = $event.target.value" @focus="onFocus" @blur="onBlur"
         />
         <h-icon v-if="suffixIcon" :class="[css_ec('suffix-icon')]" :icon="suffixIcon" size="16px" />
@@ -17,6 +18,7 @@
                 {{ suffix }}
             </slot>
         </div>
+        <slot name="customSuffix" />
     </hr-input>
 </template>
 
@@ -51,6 +53,10 @@ export default defineComponent({
         size: {
             type: String,
             default: null,
+        },
+        autocomplete: {
+            type: String,
+            default: null
         },
 
         minLength: {

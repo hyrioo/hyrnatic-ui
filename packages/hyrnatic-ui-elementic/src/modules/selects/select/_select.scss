@@ -41,6 +41,7 @@ $crc: '.h-select';
 	background: transparent;
 	transition: border-color $t-fast-standard, border-radius $t-fast-standard;
 	outline: none;
+	font-size: $fs-default;
 	cursor: pointer;
 	position: relative;
 	text-align: left;

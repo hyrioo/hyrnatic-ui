@@ -4,7 +4,7 @@ import Column from '@/modules/tables/table/Column';
 import Row from '@/modules/tables/table/Row';
 export declare const coreTableDataProp: {
     data: {
-        type: ArrayConstructor;
+        type: PropType<object[]>;
         default: boolean;
     };
 };
@@ -22,7 +22,7 @@ export declare const coreTableSelectableProp: {
 };
 export declare const coreTableSelectedRowsProp: {
     selectedRows: {
-        type: PropType<String[]>;
+        type: PropType<object[]>;
         default: () => any[];
     };
 };
@@ -59,7 +59,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     selectedRows: {
-        type: PropType<String[]>;
+        type: PropType<object[]>;
         default: () => any[];
     };
     selectable: {
@@ -71,7 +71,7 @@ declare const _default: import("vue").DefineComponent<{
         required: boolean;
     };
     data: {
-        type: ArrayConstructor;
+        type: PropType<object[]>;
         default: boolean;
     };
     asProps: {
@@ -1029,17 +1029,17 @@ declare const _default: import("vue").DefineComponent<{
     asProps: (slotProps: any) => any;
     as: string;
     sort: SortDefinition;
-    selectedRows: String[];
+    selectedRows: object[];
     selectable: boolean | Function;
-    data: unknown[];
+    data: object[];
 } & {
     rowKey?: string;
 }>, {
     asProps: (slotProps: any) => any;
     as: string;
     sort: SortDefinition;
-    selectedRows: String[];
+    selectedRows: object[];
     selectable: boolean | Function;
-    data: unknown[];
+    data: object[];
 }>;
 export default _default;

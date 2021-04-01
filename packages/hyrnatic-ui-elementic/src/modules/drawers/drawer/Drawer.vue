@@ -17,7 +17,11 @@
                     </div>
 
                     <div :class="[css_ec('content')]">
-                        <slot />
+                        <h-scroll-container>
+                            <div :class="[css_ec('inner-content')]">
+                                <slot />
+                            </div>
+                        </h-scroll-container>
                     </div>
 
                     <div v-if="$slots.footer" :class="[css_ec('footer')]">

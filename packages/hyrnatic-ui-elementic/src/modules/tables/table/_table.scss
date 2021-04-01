@@ -2,7 +2,11 @@ $crc: '.h-table';
 
 #{$crc} {
 	width: 100%;
-	border-collapse: collapse;
+	font-size: $fs-default;
+	background-color: $c-primary-background;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: $v-box-border-radius;
 
 	td, th {
 		padding: 0 $g-12;
@@ -30,20 +34,23 @@ $crc: '.h-table';
 		}
 
 		&.-selected td {
-			background-color: rgba($c-primary, .16);
+			background-color: rgba($c-primary, $o-16);
 		}
 	}
 
 	&.-striped {
 		tr:nth-child(even) {
 			td {
-				background-color: rgba($c-primary-border, .16);
+				background-color: rgba($c-primary-border, $o-8);
 			}
+		}
+		tr.-selected td {
+			background-color: rgba($c-primary, $o-16);
 		}
 	}
 
 	&.-hoverable tr:hover td {
-		background-color: rgba($c-primary-border, .32);
+		background-color: rgba($c-primary-border, $o-32);
 	}
 
 	.h-checkbox {
@@ -51,7 +58,7 @@ $crc: '.h-table';
 	}
 }
 
-#{$crc}-column__header {
+/*#{$crc}-column__header {
 	display: flex;
 	align-items: center;
 
@@ -91,4 +98,4 @@ $crc: '.h-table';
 			color: $c-primary-text;
 		}
 	}
-}
+}*/

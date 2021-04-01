@@ -14,7 +14,7 @@
 </template>
 
 <script lang="tsx">
-import { computed, defineComponent, SetupContext } from 'vue';
+import { computed, defineComponent, PropType, SetupContext } from 'vue';
 import componentCss from '@/utils/component-css';
 import {
     coreButtonDisabledProp,
@@ -39,11 +39,11 @@ export default defineComponent({
             default: null,
         },
         styling: {
-            type: String,
+            type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
         },
         size: {
-            type: String,
+            type: String as PropType<'normal' | 'small'>,
             default: 'normal',
         },
     },

@@ -4,7 +4,7 @@
             <h-table-column-header v-for="column in props.orderedColumns" :key="column.property" :column="column" :sort="sort" />
         </thead>
         <tbody>
-            <h-table-row v-for="row in props.rows" :key="row.data[rowKey]" :row="row" :columns="props.orderedColumns" />
+            <h-table-row v-for="row in props.rows" :key="row.data[rowKey]" :row="row" :columns="props.orderedColumns" :classes="rowClasses" />
         </tbody>
         <tfoot v-if="$slots.footer">
             <slot name="footer" :rows="props.rows" />
@@ -27,7 +27,7 @@
 <script lang="ts">
 import {
     defineComponent,
-    SetupContext,
+    SetupContext, watch,
 } from 'vue';
 import componentCss from '@/utils/component-css';
 import {
@@ -50,6 +50,10 @@ export default defineComponent({
         ...coreTableSelectableProp,
         ...coreTableSelectedRowsProp,
         ...coreTableSortProp,
+        rowClasses: {
+            type: [String, Function],
+            default: null,
+        },
         striped: {
             type: Boolean,
             default: false,
@@ -61,7 +65,7 @@ export default defineComponent({
     },
     emits: ['update:sort', 'update:selectedRows'],
     setup(props, ctx: SetupContext) {
-        const core = coreTableSetup().as('table').props(['data', 'rowKey', 'selectable', 'selectedRows', 'sort']).events(['update:sort', 'update:selectedRows'])
+        const core = coreTableSetup().as('table').props(['data', 'rowKey', 'selectable', 'sort', 'selectedRows']).events(['update:sort', 'update:selectedRows'])
             .build();
 
         return {

@@ -33,4 +33,6 @@ export { coreTableRowSetup, CoreTableRowSlotProps, coreTableRowColumnsProp, core
 export { default as CoreTableColumn } from '@/modules/tables/table/Column';
 export { default as CoreTableRow } from '@/modules/tables/table/Row';
 export { TableProvide as CoreTableProvide, SortDefinition as CoreTableSortDefinition } from '@/modules/tables/table/TableTypes';
+export { default as CoreTabsInstall } from '@/modules/tabs/install';
+export {} from '@/modules/tabs/tab/TabItem';
 export { default as ModuleHelper } from '@/utils/package';

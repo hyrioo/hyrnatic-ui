@@ -3,6 +3,7 @@ $crc: '.h-select-item';
 #{$crc} {
 	line-height: $v-control-height;
 	padding: 0 $g-12 0 $g-8;
+	font-size: $fs-default;
 	cursor: pointer;
 	white-space: nowrap;
 	transition: $t-fast-standard;

@@ -1,6 +1,7 @@
 import {
-    computed, watch, ComputedRef, Ref, ref,
+    computed, watch, ComputedRef,
 } from 'vue';
+import Obj from '@/utils/object';
 
 export default class Row {
     public id: string;
@@ -30,14 +31,9 @@ export default class Row {
 
     getValue(prop, formatter) {
         let { data } = this;
+
         if (prop !== undefined) {
-            const props = prop.split('.');
-            props.forEach((p) => {
-                if (data[p] === undefined) {
-                    return null;
-                }
-                data = data[p];
-            });
+            data = Obj.getProperty(data, prop);
         }
 
         if (typeof formatter === 'function') {

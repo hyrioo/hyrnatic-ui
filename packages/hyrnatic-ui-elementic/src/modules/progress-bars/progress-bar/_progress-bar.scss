@@ -6,18 +6,18 @@ $crc: '.h-progress-bar';
 
 	&.-size-large{
 		#{$crc}__back{
-			border-radius: $v-control-height-small / 2;
-			height: $v-control-height-small;
+			border-radius: $v-control-height-tiny / 2;
+			height: $v-control-height-tiny;
 			margin: $g-8 0;
 		}
 		#{$crc}__filler{
-			border-radius: $v-control-height-small / 2;
+			border-radius: $v-control-height-tiny / 2;
 		}
 		#{$crc}__label{
 			font-size: $fs-small;
 			font-weight: $fw-regular;
 			color: $c-fill;
-			line-height: $v-control-height-small;
+			line-height: $v-control-height-tiny;
 			margin-left: 0;
 			margin-right: $g-8;
 		}
@@ -70,8 +70,8 @@ $crc: '.h-progress-bar';
 #{$crc}__back{
 	background: $c-primary-border;
 	position: relative;
-	height: $v-control-height-tiny;
-	border-radius: $v-control-height-tiny / 2;
+	height: $v-control-height-tiny2x;
+	border-radius: $v-control-height-tiny2x / 2;
 	overflow: hidden;
 	margin: $g-12 0;
 	flex-grow: 1;
@@ -80,7 +80,7 @@ $crc: '.h-progress-bar';
 
 #{$crc}__filler{
 	background: $c-primary-text;
-	border-radius: $v-control-height-tiny / 2;
+	border-radius: $v-control-height-tiny2x / 2;
 	height: 100%;
 	position: relative;
 	overflow: hidden;

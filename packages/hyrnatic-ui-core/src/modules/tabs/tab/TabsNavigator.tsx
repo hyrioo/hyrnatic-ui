@@ -12,7 +12,7 @@ import {
     setupBuilder,
 } from '@/utils/component';
 import Arr from '@/utils/array';
-import { TabItemInstance, TabsNavigatorProvide } from '@/modules/tabs/tab/TabItem';
+import { CoreTabItemInstance, CoreTabsNavigatorProvide } from '@/modules/tabs/tab/TabItem';
 
 export const coreTabsNavigatorModelValueProp = {
     modelValue: {
@@ -21,13 +21,13 @@ export const coreTabsNavigatorModelValueProp = {
     },
 };
 
-export type SlotProps = {
-    tabs: Ref<TabItemInstance[]>;
-    activeTab: ComputedRef<TabItemInstance>;
+export type CoreTabsNavigatorSlotProps = {
+    tabs: Ref<CoreTabItemInstance[]>;
+    activeTab: ComputedRef<CoreTabItemInstance>;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreTabsNavigatorSetup() {
+    return setupBuilder<CoreTabsNavigatorSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -39,27 +39,27 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const tabs = ref<TabItemInstance[]>([]);
-        const activeTab = computed<TabItemInstance>(() => tabs.value.find((t) => t.id === props.modelValue));
-        const addTabInstance = (instance: TabItemInstance) => {
+        const tabs = ref<CoreTabItemInstance[]>([]);
+        const activeTab = computed<CoreTabItemInstance>(() => tabs.value.find((t) => t.id === props.modelValue));
+        const addTabInstance = (instance: CoreTabItemInstance) => {
             tabs.value.push(instance);
         };
-        const removeTabInstance = (instance: TabItemInstance) => {
+        const removeTabInstance = (instance: CoreTabItemInstance) => {
             tabs.value = Arr.remove(tabs.value, instance);
         };
 
-        const onTabClick = (instance: TabItemInstance) => {
+        const onTabClick = (instance: CoreTabItemInstance) => {
             ctx.emit('update:modelValue', instance.id);
         };
 
-        provide<TabsNavigatorProvide>('coreTabsNavigator', {
+        provide<CoreTabsNavigatorProvide>('coreTabsNavigator', {
             activeTab,
             addTabInstance,
             removeTabInstance,
             onTabClick,
         });
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreTabsNavigatorSlotProps>({
             tabs,
             activeTab,
         });

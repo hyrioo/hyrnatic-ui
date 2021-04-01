@@ -8,6 +8,7 @@ import {
     reactive,
     Ref,
     ref,
+    toRef,
     SetupContext,
     watch,
 } from 'vue';
@@ -22,7 +23,7 @@ import Row from '@/modules/tables/table/Row';
 
 export const coreTableDataProp = {
     data: {
-        type: Array,
+        type: Array as PropType<object[]>,
         default: true,
     },
 };
@@ -40,7 +41,7 @@ export const coreTableSelectableProp = {
 };
 export const coreTableSelectedRowsProp = {
     selectedRows: {
-        type: Array as PropType<String[]>,
+        type: Array as PropType<object[]>,
         default: () => [],
     },
 };
@@ -106,7 +107,7 @@ export default defineComponent({
             rows.value.forEach((r) => {
                 if (state) {
                     if (r.selectable) {
-                        newArray.push(r.id);
+                        newArray.push(r.data);
                         r.selected = true;
                     }
                 } else {
@@ -115,25 +116,33 @@ export default defineComponent({
             });
             ctx.emit('update:selectedRows', newArray);
         };
+        watch([() => props.selectedRows, () => [...props.selectedRows]], () => {
+            rows.value.forEach((row) => {
+                row.selected = props.selectedRows.findIndex((sr) => sr === row.data) !== -1;
+            });
+        }, {
+            immediate: true,
+        });
 
         // Rows
         const mapDataToRows = () => {
+            console.log('mapDataToRows');
             const oldRows = rows.value;
             rows.value = props.data.map((rowData) => {
                 let row = oldRows.find((r) => r.data[props.rowKey] === rowData[props.rowKey]);
                 if (row === undefined) {
                     row = new Row(rowData[props.rowKey], rowData, props, setRowSelectionState);
-                    row.selected = props.selectedRows.findIndex((sr) => sr === row.id) !== -1;
+                    row.selected = props.selectedRows.findIndex((sr) => sr === row.data) !== -1;
+                } else if(row.data !== rowData) {
+                    row.data = rowData;
                 }
                 return row;
             });
         };
-
-        watch(() => props.data, () => {
+        watch([() => props.data, () => [...props.data]], () => {
             mapDataToRows();
         }, {
             immediate: true,
-            deep: false,
         });
 
         // Sorting

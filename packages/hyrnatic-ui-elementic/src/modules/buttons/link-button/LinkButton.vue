@@ -1,18 +1,16 @@
 <template>
     <hr-button v-show="visible" v-bind="core.props" v-on="core.listeners">
-        <template #default="props">
-            <button :class="[css_root, `-styling-${styling}`, `-size-${size}`, {'-loading': props.loading}]" :disabled="props.disabled" @click="props.onClick">
-                <h-icon :class="[css_ec('loading-icon')]" icon="loading" size="16px" />
+        <h-icon :class="[css_ec('loading-icon')]" icon="loading" size="16px" />
 
-                <span :class="[css_ec('content')]">
-                    <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16px" />
-                </span>
-            </button>
-        </template>
+        <span :class="[css_ec('text')]">
+            <slot>
+                {{ label }}
+            </slot>
+        </span>
     </hr-button>
 </template>
 
-<script lang="ts">
+<script lang="tsx">
 import { defineComponent, PropType, SetupContext } from 'vue';
 import componentCss from '@/utils/component-css';
 import {
@@ -20,17 +18,18 @@ import {
     coreButtonLoadingProp,
     coreButtonVisibleProp,
     coreButtonSetup,
+    CoreButtonSlotProps,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
-    name: 'h-icon-button',
+    name: 'h-link-button',
     props: {
         ...coreButtonDisabledProp,
         ...coreButtonLoadingProp,
         ...coreButtonVisibleProp,
-        icon: {
-            type: String,
-            required: true,
+        label: {
+            type: [String, Number],
+            default: null,
         },
         styling: {
             type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
@@ -43,11 +42,19 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const core = coreButtonSetup().props(['disabled', 'loading', 'visible']).events(['click']).build();
+        const componentCssHelpers = componentCss();
+
+        const asProps = (slotProps: CoreButtonSlotProps) => ({
+            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-size-${props.size}`, { '-loading': slotProps.loading }],
+            disabled: slotProps.disabled,
+            onClick: slotProps.onClick,
+        });
+        const core = coreButtonSetup().as('button', asProps).props(['disabled', 'loading', 'visible']).events(['click'])
+            .build();
 
         return {
             core,
-            ...componentCss(),
+            ...componentCssHelpers,
         };
     },
 });

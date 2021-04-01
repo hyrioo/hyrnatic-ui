@@ -73,7 +73,7 @@ $crc: '.h-step-item';
 	@include text-primary-content();
 	position: absolute;
 	top: $v-control-height + $g-8;
-	line-height: $v-control-height-small;
+	line-height: $v-control-height-tiny;
 	text-align: center;
 	white-space: nowrap;
 	opacity: $o-64;

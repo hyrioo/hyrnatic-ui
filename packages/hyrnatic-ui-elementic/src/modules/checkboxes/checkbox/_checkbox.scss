@@ -5,12 +5,14 @@ $crc: '.h-checkbox';
 	cursor: pointer;
 	height: $v-control-height;
 	line-height: $v-control-height;
+	font-size: $fs-default;
 	display: inline-flex;
 	align-items: center;
 	transition: border-color $t-fast-standard, box-shadow $t-fast-standard, background $t-fast-standard;
 	border-radius: $v-control-border-radius;
 
 	&.-bordered {
+		background: $c-primary-background;
 		border-width: $v-control-border-width;
 		border-style: solid;
 		border-color: $c-primary-border;

@@ -2,9 +2,11 @@
   "name": "@hyrioo/hyrnatic-ui-elementic",
   "version": "0.0.0",
   "main": "dist/index.js",
+  "modul": "src/main.ts",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "build:watch": "webpack --mode=production --watch"
   },
   "dependencies": {
     "@hyrioo/hyrnatic-ui-core": "^0.0.1",

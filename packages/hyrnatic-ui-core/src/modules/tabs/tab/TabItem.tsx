@@ -15,20 +15,20 @@ import {
     setupBuilder,
 } from '@/utils/component';
 
-export type TabItemInstance = {
+export type CoreTabItemInstance = {
     id: string;
     ref?: HTMLElement;
 };
 
-export type TabsNavigatorProvide = {
-    activeTab: ComputedRef<TabItemInstance>;
-    onTabClick(instance: TabItemInstance): void;
-    addTabInstance(instance: TabItemInstance): void;
-    removeTabInstance(instance: TabItemInstance): void;
+export type CoreTabsNavigatorProvide = {
+    activeTab: ComputedRef<CoreTabItemInstance>;
+    onTabClick(instance: CoreTabItemInstance): void;
+    addTabInstance(instance: CoreTabItemInstance): void;
+    removeTabInstance(instance: CoreTabItemInstance): void;
 };
 
-export type TabsNavigatorReturn = {
-    activeTab: TabItemInstance;
+export type CoreTabsNavigatorReturn = {
+    activeTab: CoreTabItemInstance;
 };
 
 export const coreTabItemIdProp = {
@@ -44,14 +44,14 @@ export const coreTabItemIdDisabledProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreTabItemSlotProps = {
     disabled: ComputedRef<boolean>;
     active: ComputedRef<boolean>;
     onClick: () => any;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreTabItemSetup() {
+    return setupBuilder<CoreTabItemSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -63,8 +63,8 @@ export default defineComponent({
         ...coreTabItemIdDisabledProp,
     },
     setup(props, ctx: SetupContext) {
-        const tabsNavigator = inject<TabsNavigatorProvide>('coreTabsNavigator');
-        const instance = reactive<TabItemInstance>({
+        const tabsNavigator = inject<CoreTabsNavigatorProvide>('coreTabsNavigator');
+        const instance = reactive<CoreTabItemInstance>({
             id: props.id,
         });
 
@@ -83,7 +83,7 @@ export default defineComponent({
             }
         };
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreTabItemSlotProps>({
             disabled: computed(() => props.disabled),
             active,
             onClick,

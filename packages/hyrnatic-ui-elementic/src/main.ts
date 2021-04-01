@@ -10,10 +10,10 @@ import IconInstall from '@/modules/icons/install';
 import InputInstall from './modules/inputs/install';
 // import ListInstall from './modules/lists/install';
 // import PaginatorInstall from './modules/paginators/install';
-// import PopperInstall from './modules/poppers/install';
+import PopperInstall from './modules/poppers/install';
 // import ProgressBarInstall from './modules/progress-bars/install';
 // import RadioButtonInstall from './modules/radio-buttons/install';
-// import ScrollContainerInstall from './modules/scroll-containers/install';
+import ScrollContainerInstall from './modules/scroll-containers/install';
 import SelectInstall from './modules/selects/install';
 // import StepInstall from './modules/steps/install';
 // import SwitchInstall from './modules/switches/install';
@@ -39,10 +39,10 @@ const modules = {
     InputInstall,
     // ListInstall,
     // PaginatorInstall,
-    // PopperInstall,
+    PopperInstall,
     // ProgressBarInstall,
     // RadioButtonInstall,
-    // ScrollContainerInstall,
+    ScrollContainerInstall,
     SelectInstall,
     // StepInstall,
     // SwitchInstall,
