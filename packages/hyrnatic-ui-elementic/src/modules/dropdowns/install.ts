@@ -1,9 +1,8 @@
-import DropdownCoreInstall from '@core/modules/dropdowns/install';
-import Dropdown from '@elementic/modules/dropdowns/dropdown/Dropdown.vue';
-import DropdownItem from '@elementic/modules/dropdowns/dropdown/DropdownItem.vue';
-import DropdownItemDivider from '@elementic/modules/dropdowns/dropdown/DropdownItemDivider.vue';
-import DropdownItemHeader from '@elementic/modules/dropdowns/dropdown/DropdownItemHeader.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import Dropdown from '@/modules/dropdowns/dropdown/Dropdown.vue';
+import DropdownItem from '@/modules/dropdowns/dropdown/DropdownItem.vue';
+import DropdownItemDivider from '@/modules/dropdowns/dropdown/DropdownItemDivider.vue';
+import DropdownItemHeader from '@/modules/dropdowns/dropdown/DropdownItemHeader.vue';
+import { CoreDropdownsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
@@ -13,7 +12,7 @@ const components = {
     DropdownItemHeader,
 };
 const dependencies = {
-    DropdownCoreInstall,
+    CoreDropdownsInstall,
 };
 
 export default {

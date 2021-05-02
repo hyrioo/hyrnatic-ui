@@ -89,20 +89,20 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    value: any;
     disabled: boolean;
-    visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;
+    value: any;
+    visible: boolean;
     indeterminate: boolean;
 } & {
     modelValue?: boolean | unknown[];
 }>, {
-    value: any;
     disabled: boolean;
-    visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;
+    value: any;
+    visible: boolean;
     indeterminate: boolean;
 }>;
 export default _default;

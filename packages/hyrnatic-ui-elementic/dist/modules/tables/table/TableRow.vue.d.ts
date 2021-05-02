@@ -17,9 +17,9 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
     rowClasses: import("vue").ComputedRef<any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "rowClick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    classes: string | Function;
     row: Record<string, any>;
     columns: unknown[];
-    classes: string | Function;
 } & {}>, {
     classes: string | Function;
 }>;

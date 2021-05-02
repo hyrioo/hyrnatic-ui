@@ -1,28 +1,25 @@
 import {
     defineComponent,
-    ref,
-    nextTick,
     SetupContext,
-    PropType,
     computed,
     reactive,
     getCurrentInstance,
     Ref,
     inject,
-    onMounted, onUnmounted, onUpdated, ComputedRef, h,
+    onMounted, onUnmounted, ComputedRef, h,
 } from 'vue';
 import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '@/utils/component';
 
-export type DropdownItemInstance = {
+export type CoreDropdownItemInstance = {
     onClick(e: any): void;
     disabled: boolean;
 };
 
-export type DropdownProvide = {
-    focusedItem: Ref<DropdownItemInstance>;
+export type CoreDropdownProvide = {
+    focusedItem: Ref<CoreDropdownItemInstance>;
     onItemClick(e: any): void;
-    addItemInstance(instance: DropdownItemInstance): void;
-    removeItemInstance(instance: DropdownItemInstance): void;
+    addItemInstance(instance: CoreDropdownItemInstance): void;
+    removeItemInstance(instance: CoreDropdownItemInstance): void;
 };
 
 export const coreDropdownItemDisabledProp = {
@@ -32,14 +29,14 @@ export const coreDropdownItemDisabledProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreDropdownItemSlotProps = {
     disabled: ComputedRef<boolean>;
     focused: ComputedRef<boolean>;
     onClick: (e) => any;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreDropdownItemSetup() {
+    return setupBuilder<CoreDropdownItemSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -51,7 +48,7 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const dropdown = inject<DropdownProvide>('dropdown');
+        const dropdown = inject<CoreDropdownProvide>('dropdown');
 
         const onClick = (e) => {
             if (!props.disabled) {
@@ -60,7 +57,7 @@ export default defineComponent({
             }
         };
 
-        const instance = reactive<DropdownItemInstance>({
+        const instance = reactive<CoreDropdownItemInstance>({
             disabled: props.disabled,
             onClick,
         });
@@ -74,7 +71,7 @@ export default defineComponent({
 
         const isFocused = computed(() => dropdown.focusedItem.value === instance);
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreDropdownItemSlotProps>({
             disabled: computed(() => props.disabled),
             focused: isFocused,
             onClick,

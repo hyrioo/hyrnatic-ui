@@ -1,8 +1,7 @@
-import TooltipCoreInstall from '@core/modules/tooltips/install';
-import PopperInstall from '@elementic/modules/poppers/install';
-import Tooltip from '@elementic/modules/tooltips/tooltip/Tooltip.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import iconRegistry from '@core/utils/icon-registry';
+import PopperInstall from '@/modules/poppers/install';
+import Tooltip from './tooltip/Tooltip.vue';
+import { CoreTooltipsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import iconRegistry from '@/utils/icon-registry';
 import tooltipArrow from './custom-icons/tooltip-arrow';
 
 let installed = false;
@@ -10,7 +9,7 @@ const components = {
     Tooltip,
 };
 const dependencies = {
-    TooltipCoreInstall,
+    CoreTooltipsInstall,
     PopperInstall,
 };
 

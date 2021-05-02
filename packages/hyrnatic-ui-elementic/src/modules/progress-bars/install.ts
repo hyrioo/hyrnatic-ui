@@ -1,13 +1,12 @@
-import ProgressBarCoreInstall from '@core/modules/progress-bars/install';
-import ProgressBar from '@elementic/modules/progress-bars/progress-bar/ProgressBar.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import ProgressBar from './progress-bar/ProgressBar.vue';
+import { CoreProgressBarsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
     ProgressBar,
 };
 const dependencies = {
-    ProgressBarCoreInstall,
+    CoreProgressBarsInstall,
 };
 
 export default {

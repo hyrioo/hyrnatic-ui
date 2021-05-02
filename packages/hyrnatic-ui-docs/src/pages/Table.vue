@@ -18,9 +18,9 @@
 import {
     computed, defineComponent, ref, SetupContext,
 } from 'vue';
-import { SortDefinition } from '@core/modules/tables/table/TableTypes';
+import { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-elementic';
 import Page from '../components/Page.vue';
-import Arr from '../../../packages/hyrnatic-ui-core/src/utils/array';
+import Arr from '@/utils/array';
 
 export default defineComponent({
     components: { Page },
@@ -64,7 +64,7 @@ export default defineComponent({
                 address: '219 Ivan Court',
             },
         ]);
-        const sort = ref<SortDefinition>({
+        const sort = ref<CoreTableSortDefinition>({
             key: null,
             direction: 'asc',
         });

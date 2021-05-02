@@ -14,12 +14,14 @@ import {
     inject,
     onUpdated, onMounted, onUnmounted,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import HrDropdownItem, { coreDropdownItemDisabledProp, setup, SlotProps } from '@core/modules/dropdowns/dropdown/DropdownItem';
+import componentCss from '@/utils/component-css';
+import {
+    coreDropdownItemDisabledProp,
+    coreDropdownItemSetup, CoreDropdownItemSlotProps
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-dropdown-item',
-    components: { HrDropdownItem },
     props: {
         ...coreDropdownItemDisabledProp,
         label: {
@@ -39,13 +41,13 @@ export default defineComponent({
         onUnmounted(() => updatePopper());
         onUpdated(() => updatePopper());
 
-        const asProps = (slotProps: SlotProps) => ({
+        const asProps = (slotProps: CoreDropdownItemSlotProps) => ({
             class: {
                 '-focused': slotProps.focused, '-disabled': slotProps.disabled,
             },
             onClick: slotProps.onClick,
         });
-        const core = setup().as('div', asProps).props(['disabled']).events(['click'])
+        const core = coreDropdownItemSetup().as('div', asProps).props(['disabled']).events(['click'])
             .build();
 
         return {

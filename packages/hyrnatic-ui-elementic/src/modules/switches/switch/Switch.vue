@@ -24,13 +24,16 @@
 import {
     defineComponent, ref, computed, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
+import componentCss from '@/utils/component-css';
 import {
     coreCheckboxDisabledProp,
+    coreCheckboxIndeterminateProp,
     coreCheckboxModelValueProp,
-    coreCheckboxValueProp, coreCheckboxVisibleProp,
-    setup, SlotProps,
-} from '@core/modules/checkboxes/checkbox/Checkbox';
+    coreCheckboxValueProp,
+    coreCheckboxVisibleProp,
+    coreCheckboxSetup,
+    CoreCheckboxSlotProps,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-switch',
@@ -54,12 +57,12 @@ export default defineComponent({
         const componentCssHelpers = componentCss();
         const hasFocus = ref(false);
 
-        const asProps = (slotProps: SlotProps) => ({
+        const asProps = (slotProps: CoreCheckboxSlotProps) => ({
             class: [componentCssHelpers.css_root.value, {
                 '-focus': hasFocus, '-checked': slotProps.state, '-indeterminate': slotProps.indeterminate, '-disabled': slotProps.disabled,
             }],
         });
-        const core = setup().as('label', asProps).props(['modelValue', 'value', 'disabled', 'visible']).events(['update:modelValue'])
+        const core = coreCheckboxSetup().as('label', asProps).props(['modelValue', 'value', 'disabled', 'visible']).events(['update:modelValue'])
             .build();
 
         return {

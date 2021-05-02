@@ -16,10 +16,10 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     strokes: {
-        type: (ArrayConstructor | StringConstructor)[];
+        type: (StringConstructor | ArrayConstructor)[];
     };
     fills: {
-        type: (ArrayConstructor | StringConstructor)[];
+        type: (StringConstructor | ArrayConstructor)[];
         default: string;
     };
     spin: {

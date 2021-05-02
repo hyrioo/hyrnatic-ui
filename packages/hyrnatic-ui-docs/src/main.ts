@@ -1,8 +1,6 @@
 import { createApp } from 'vue';
 import './scss/hyrnatic-ui-core.scss';
-import HyrnaticUICore from '@core/main';
-import HyrnaticUIElementic from '@elementic/main';
-import iconRegistry from '@core/utils/icon-registry';
+import HyrnaticUIElementic,  { IconRegistry } from '@hyrioo/hyrnatic-ui-elementic';
 import {
     mdiKey,
     mdiInformationOutline,
@@ -13,14 +11,13 @@ import {
 import App from './App.vue';
 import router from './router';
 
-iconRegistry.registerMDI('key', mdiKey);
-iconRegistry.registerMDI('information-outline', mdiInformationOutline);
-iconRegistry.registerMDI('alerts-circle-outline', mdiAlertCircleOutline);
-iconRegistry.registerMDI('close-circle-outline', mdiCloseCircleOutline);
-iconRegistry.registerMDI('check-circle-outline', mdiCheckCircleOutline);
+IconRegistry.registerMDI('key', mdiKey);
+IconRegistry.registerMDI('information-outline', mdiInformationOutline);
+IconRegistry.registerMDI('alerts-circle-outline', mdiAlertCircleOutline);
+IconRegistry.registerMDI('close-circle-outline', mdiCloseCircleOutline);
+IconRegistry.registerMDI('check-circle-outline', mdiCheckCircleOutline);
 
 const app = createApp(App);
-app.use(HyrnaticUICore);
 app.use(HyrnaticUIElementic);
 app.use(router);
 app.mount('#app');

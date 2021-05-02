@@ -1,6 +1,6 @@
 <template>
     <hr-select ref="select" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners">
-        <button ref="button" :class="[css_ec('button')]" :style="{...popperWidth}" :disabled="props.disabled" :title="props.modelValue && props.modelValue.length !== 0 ? props.selectedText : null" @click="props.onButtonClick" @keydown="props.onKeyEvents">
+        <button ref="button" type="button" :class="[css_ec('button')]" :style="{...popperWidth}" :disabled="props.disabled" :title="props.modelValue && props.modelValue.length !== 0 ? props.selectedText : null" @click="props.onButtonClick" @keydown="props.onKeyEvents">
             <span :class="[css_ec('label'), {'-placeholder': !props.anythingSelected}]">
                 <template v-if="props.anythingSelected">
                     <slot name="selection" :items="props.selectedItems">{{ props.selectedText }}</slot>
@@ -22,7 +22,7 @@
         </button>
 
         <h-popper ref="popper" :classes="[css_ec('menu-container')]" :reference="button" keep transition="fade-fast"
-                  :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :fixed-width="selectHasWidth"
+                  :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :modifiers="modifiers" :fixed-width="selectHasWidth"
                   @popper-size-changed="popperSizeChanged" @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
         >
             <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents">
@@ -46,7 +46,9 @@ import {
     coreSelectHideOnSelectProp,
     coreSelectModelValueProp,
     coreSelectMultipleProp,
+    coreSelectCompareProp,
     coreSelectSetup, CoreSelectSlotProps,
+    corePopperMinimumReferenceSizeModifier,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -57,6 +59,7 @@ export default defineComponent({
         ...coreSelectHideOnSelectProp,
         ...coreSelectMultipleProp,
         ...coreSelectModelValueProp,
+        ...coreSelectCompareProp,
         placeholder: {
             type: String,
             default: '',
@@ -71,6 +74,9 @@ export default defineComponent({
         const select = ref();
         const button = ref<HTMLButtonElement>();
         const popper = ref<CorePopperComponent>();
+        const modifiers = [
+            ...corePopperMinimumReferenceSizeModifier,
+        ];
 
         onMounted(() => {
             nextTick(() => {
@@ -111,7 +117,7 @@ export default defineComponent({
         const asProps = (slotProps: CoreSelectSlotProps) => ({
             class: { '-active': slotProps.menuVisible, '-disabled': slotProps.disabled },
         });
-        const core = coreSelectSetup().as('div', asProps).props(['modelValue', 'disabled', 'hideOnSelect', 'allowClear', 'multiple']).events(['update:modelValue'])
+        const core = coreSelectSetup().as('div', asProps).props(['modelValue', 'disabled', 'hideOnSelect', 'allowClear', 'multiple', 'compare']).events(['update:modelValue'])
             .build();
 
         return {
@@ -121,6 +127,7 @@ export default defineComponent({
             popper,
 
             selectHasWidth,
+            modifiers,
 
             popperWidth,
             popperSizeChanged,

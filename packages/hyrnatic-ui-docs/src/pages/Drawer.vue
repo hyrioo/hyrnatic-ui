@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
-import { create, createPromise } from '@core/modules/dialogs/dialog/DialogManager';
+import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 import Page from '../components/Page.vue';
 import SampleDrawer from '../components/SampleDrawer.vue';
 
@@ -17,7 +17,7 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const showOnRight = async () => {
             const counter = ref(0);
-            createPromise(SampleDrawer, { text: 'Testing', counter }, {
+            DialogManager.createPromise(SampleDrawer, { text: 'Testing', counter }, {
                 something: () => {
                     counter.value++;
                 },
@@ -41,7 +41,7 @@ export default defineComponent({
         };
         const showOnLeft = async () => {
             const counter = ref(0);
-            createPromise(SampleDrawer, { text: 'Testing', counter, placement: 'left' }, {
+            DialogManager.createPromise(SampleDrawer, { text: 'Testing', counter, placement: 'left' }, {
                 something: () => {
                     counter.value++;
                 },

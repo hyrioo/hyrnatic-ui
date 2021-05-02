@@ -11,13 +11,13 @@ import {
 } from '@/utils/component';
 import Arr from '@/utils/array';
 
-export interface StepItem {
+export interface CoreStepsNavigatorStepItem {
     id: string;
     data: any;
     visible: boolean;
     validator(): boolean;
 }
-export interface DetailedStepItem extends StepItem {
+export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorStepItem {
     stepIndex: number;
     isCurrent: boolean;
     isDone: boolean;
@@ -25,8 +25,8 @@ export interface DetailedStepItem extends StepItem {
     isLocked: boolean;
 }
 
-export function createStep(id, data, validator = null, visible = true) : StepItem {
-    return reactive<StepItem>({
+export function createCoreStepItem(id, data, validator = null, visible = true) : CoreStepsNavigatorStepItem {
+    return reactive<CoreStepsNavigatorStepItem>({
         id,
         visible,
         validator,
@@ -41,30 +41,30 @@ export const coreStepsNavigatorModelValueProp = {
 };
 export const coreStepsNavigatorStepsProp = {
     steps: {
-        type: Array as PropType<StepItem[]>,
+        type: Array as PropType<CoreStepsNavigatorStepItem[]>,
         default: null,
     },
 };
 
-export type StepsNavigatorReturn = {
-    currentStep: DetailedStepItem;
-    visibleSteps: ComputedRef<DetailedStepItem[]>;
+export type CoreStepsNavigatorReturn = {
+    currentStep: CoreStepsNavigatorDetailedStepItem;
+    visibleSteps: ComputedRef<CoreStepsNavigatorDetailedStepItem[]>;
     nextStep(): void;
     previousStep(): void;
 };
 
-export type SlotProps = {
-    steps: Ref<DetailedStepItem[]>;
-    currentStep: ComputedRef<DetailedStepItem>;
+export type CoreStepsNavigatorSlotProps = {
+    steps: Ref<CoreStepsNavigatorDetailedStepItem[]>;
+    currentStep: ComputedRef<CoreStepsNavigatorDetailedStepItem>;
     currentIndex: ComputedRef<number>;
-    visibleSteps: ComputedRef<DetailedStepItem[]>;
+    visibleSteps: ComputedRef<CoreStepsNavigatorDetailedStepItem[]>;
     nextStep(): void;
     previousStep(): void;
-    onStepClick(step: DetailedStepItem): void;
+    onStepClick(step: CoreStepsNavigatorDetailedStepItem): void;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreStepsNavigatorSetup() {
+    return setupBuilder<CoreStepsNavigatorSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -80,8 +80,8 @@ export default defineComponent({
         const currentIndex = computed<number>(() => props.steps.findIndex((s) => s.id === props.modelValue));
         const visibleSteps = computed(() => props.steps.filter((s) => s.visible));
         const steps = computed(() => {
-            const array: DetailedStepItem[] = [];
-            props.steps.forEach((step: StepItem) => {
+            const array: CoreStepsNavigatorDetailedStepItem[] = [];
+            props.steps.forEach((step: CoreStepsNavigatorStepItem) => {
                 const stepIndex = props.steps.findIndex((s) => s.id === step.id);
                 array.push({
                     id: step.id,
@@ -97,10 +97,10 @@ export default defineComponent({
             });
             return array;
         });
-        const currentStep = computed<DetailedStepItem>(() => steps.value[currentIndex.value]);
+        const currentStep = computed<CoreStepsNavigatorDetailedStepItem>(() => steps.value[currentIndex.value]);
         const visibleDetailedSteps = computed(() => steps.value.filter((s) => s.visible));
 
-        const onStepClick = (step: DetailedStepItem) => {
+        const onStepClick = (step: CoreStepsNavigatorDetailedStepItem) => {
             ctx.emit('update:modelValue', step.id);
         };
 
@@ -119,7 +119,7 @@ export default defineComponent({
             ctx.emit('update:modelValue', newStep.id);
         };
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreStepsNavigatorSlotProps>({
             steps,
             currentStep,
             currentIndex,

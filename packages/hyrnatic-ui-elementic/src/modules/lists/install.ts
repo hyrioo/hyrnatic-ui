@@ -1,6 +1,6 @@
-import List from '@elementic/modules/lists/list/List.vue';
-import ListItem from '@elementic/modules/lists/list/ListItem.vue';
-import { installComponents } from '@core/utils/package';
+import List from './list/List.vue';
+import ListItem from './list/ListItem.vue';
+import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {

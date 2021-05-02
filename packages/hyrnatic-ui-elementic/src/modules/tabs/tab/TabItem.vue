@@ -13,16 +13,17 @@ import {
     SetupContext,
     onUpdated, onMounted, onUnmounted, reactive, computed,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import HrTabItem, {
-    coreTabItemIdDisabledProp,
+import componentCss from '@/utils/component-css';
+import {
+    CoreTabItemInstance,
     coreTabItemIdProp,
-    setup, SlotProps, TabItemInstance, TabsNavigatorProvide,
-} from '@core/modules/tabs/tab/TabItem';
+    coreTabItemIdDisabledProp,
+    coreTabItemSetup,
+    CoreTabItemSlotProps,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-tab-item',
-    components: { HrTabItem },
     props: {
         ...coreTabItemIdProp,
         ...coreTabItemIdDisabledProp,
@@ -35,7 +36,7 @@ export default defineComponent({
         const tab = ref();
         const updateIndicator = inject<Function>('updateIndicator');
         const tabsNavigator = inject<any>('tabsNavigator');
-        const instance = reactive<TabItemInstance>({
+        const instance = reactive<CoreTabItemInstance>({
             id: props.id,
         });
 
@@ -50,7 +51,7 @@ export default defineComponent({
             updateIndicator();
         });
 
-        const asProps = (slotProps: SlotProps) => ({
+        const asProps = (slotProps: CoreTabItemSlotProps) => ({
             class: { '-active': slotProps.active, '-disabled': slotProps.disabled },
             onClick: slotProps.onClick,
             onKeydown: (e: KeyboardEvent) => {
@@ -59,7 +60,7 @@ export default defineComponent({
                 }
             },
         });
-        const core = setup().as('div', asProps).props(['id', 'disabled']).build();
+        const core = coreTabItemSetup().as('div', asProps).props(['id', 'disabled']).build();
 
         return {
             core,

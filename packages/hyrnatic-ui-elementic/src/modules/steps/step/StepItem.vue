@@ -14,14 +14,14 @@
 import {
     defineComponent, PropType, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import { DetailedStepItem } from '@core/modules/steps/step/StepsNavigator';
+import componentCss from '@/utils/component-css';
+import { CoreStepsNavigatorDetailedStepItem } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-step-item',
     props: {
         step: {
-            type: Object as PropType<DetailedStepItem>,
+            type: Object as PropType<CoreStepsNavigatorDetailedStepItem>,
             required: true,
         },
     },

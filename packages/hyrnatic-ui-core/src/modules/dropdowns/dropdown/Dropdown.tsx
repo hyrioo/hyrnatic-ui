@@ -5,7 +5,6 @@ import {
     computed,
     reactive,
     getCurrentInstance,
-    Ref,
     provide, ComputedRef, h, watch,
 } from 'vue';
 import {
@@ -14,7 +13,7 @@ import {
     setupBuilder,
 } from '@/utils/component';
 import Arr from '@/utils/array';
-import { DropdownItemInstance, DropdownProvide } from '@/modules/dropdowns/dropdown/DropdownItem';
+import { CoreDropdownItemInstance, CoreDropdownProvide } from '@/modules/dropdowns/dropdown/DropdownItem';
 
 export const coreDropdownDisabledProp = {
     disabled: {
@@ -41,11 +40,11 @@ export const coreDropdownVisibleProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreDropdownSlotProps = {
     menuVisible: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     splitButton: ComputedRef<boolean>;
-    focusedItem: ComputedRef<DropdownItemInstance>;
+    focusedItem: ComputedRef<CoreDropdownItemInstance>;
     clearFocusedItem: (e) => any;
     onKeyEvents: (e, target: 'main' | 'split') => any;
     onButtonClick: (e) => any;
@@ -53,8 +52,8 @@ export type SlotProps = {
     onItemClick: (e) => any;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreDropdownSetup() {
+    return setupBuilder<CoreDropdownSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -70,16 +69,16 @@ export default defineComponent({
     emits: ['click'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
-        const items = ref<DropdownItemInstance[]>([]);
-        const focusedItem = ref<DropdownItemInstance>();
+        const items = ref<CoreDropdownItemInstance[]>([]);
+        const focusedItem = ref<CoreDropdownItemInstance>();
         const focusableItems = computed(() => items.value.filter((i) => i.disabled === false));
         const clearFocusedItem = () => {
             focusedItem.value = null;
         };
-        const addItemInstance = (instance: DropdownItemInstance) => {
+        const addItemInstance = (instance: CoreDropdownItemInstance) => {
             items.value.push(instance);
         };
-        const removeItemInstance = (instance: DropdownItemInstance) => {
+        const removeItemInstance = (instance: CoreDropdownItemInstance) => {
             items.value = Arr.remove(items.value, instance);
         };
 
@@ -152,14 +151,14 @@ export default defineComponent({
             menuVisible.value = !menuVisible.value;
         };
 
-        provide<DropdownProvide>('dropdown', {
+        provide<CoreDropdownProvide>('dropdown', {
             focusedItem,
             onItemClick,
             addItemInstance,
             removeItemInstance,
         });
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreDropdownSlotProps>({
             menuVisible: computed(() => menuVisible.value),
             disabled: computed(() => props.disabled),
             splitButton: computed(() => props.splitButton),

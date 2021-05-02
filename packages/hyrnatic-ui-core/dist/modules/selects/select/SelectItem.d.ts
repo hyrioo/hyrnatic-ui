@@ -73,16 +73,16 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    value: any;
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;
+    value: any;
     label: string;
 } & {}>, {
-    value: any;
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;
+    value: any;
     label: string;
 }>;
 export default _default;

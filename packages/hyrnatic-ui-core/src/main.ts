@@ -1,36 +1,42 @@
 // import transitions from './transitions';
 import CommonInstall from './modules/common/install';
 
-import ButtonInstall from './modules/buttons/install';
-import CheckboxInstall from './modules/checkboxes/install';
-import CollapseInstall from './modules/collapses/install';
-import DialogInstall from './modules/dialogs/install';
-import DropdownInstall from './modules/dropdowns/install';
-import InputInstall from './modules/inputs/install';
-import ProgressBarInstall from './modules/progress-bars/install';
-import RadioButtonInstall from './modules/radio-buttons/install';
-import ScrollContainerInstall from './modules/scroll-containers/install';
+import ButtonsInstall from './modules/buttons/install';
+import CheckboxesInstall from './modules/checkboxes/install';
+import CollapsesInstall from './modules/collapses/install';
+import DialogsInstall from './modules/dialogs/install';
+import DropdownsInstall from './modules/dropdowns/install';
+import FragmentsInstall from './modules/fragments/install';
+import InputsInstall from './modules/inputs/install';
+import PaginatorsInstall from './modules/paginators/install';
+import ProgressBarsInstall from './modules/progress-bars/install';
+import RadioButtonsInstall from './modules/radio-buttons/install';
+import ScrollContainersInstall from './modules/scroll-containers/install';
 
-import SelectInstall from './modules/selects/install';
-import StepInstall from './modules/steps/install';
-import TabInstall from './modules/tabs/install';
-import TableInstall from './modules/tables/install';
+import SelectsInstall from './modules/selects/install';
+import StepsInstall from './modules/steps/install';
+import TablesInstall from './modules/tables/install';
+import TabsInstall from './modules/tabs/install';
+import TooltipsInstall from './modules/tooltips/install';
 
 const modules = {
     CommonInstall,
-    ButtonInstall,
-    CheckboxInstall,
-    CollapseInstall,
-    DialogInstall,
-    DropdownInstall,
-    InputInstall,
-    ProgressBarInstall,
-    RadioButtonInstall,
-    ScrollContainerInstall,
-    SelectInstall,
-    StepInstall,
-    TabInstall,
-    TableInstall,
+    ButtonsInstall,
+    CheckboxesInstall,
+    CollapsesInstall,
+    DialogsInstall,
+    DropdownsInstall,
+    FragmentsInstall,
+    InputsInstall,
+    PaginatorsInstall,
+    ProgressBarsInstall,
+    RadioButtonsInstall,
+    ScrollContainersInstall,
+    SelectsInstall,
+    StepsInstall,
+    TablesInstall,
+    TabsInstall,
+    TooltipsInstall,
 };
 
 export default {

@@ -1,18 +1,18 @@
 import { ComputedRef, PropType, Ref } from 'vue';
-export interface StepItem {
+export interface CoreStepsNavigatorStepItem {
     id: string;
     data: any;
     visible: boolean;
     validator(): boolean;
 }
-export interface DetailedStepItem extends StepItem {
+export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorStepItem {
     stepIndex: number;
     isCurrent: boolean;
     isDone: boolean;
     isLast: boolean;
     isLocked: boolean;
 }
-export declare function createStep(id: any, data: any, validator?: any, visible?: boolean): StepItem;
+export declare function createStep(id: any, data: any, validator?: any, visible?: boolean): CoreStepsNavigatorStepItem;
 export declare const coreStepsNavigatorModelValueProp: {
     modelValue: {
         type: StringConstructor;
@@ -21,27 +21,27 @@ export declare const coreStepsNavigatorModelValueProp: {
 };
 export declare const coreStepsNavigatorStepsProp: {
     steps: {
-        type: PropType<StepItem[]>;
+        type: PropType<CoreStepsNavigatorStepItem[]>;
         default: any;
     };
 };
-export declare type StepsNavigatorReturn = {
-    currentStep: DetailedStepItem;
-    visibleSteps: ComputedRef<DetailedStepItem[]>;
+export declare type CoreStepsNavigatorReturn = {
+    currentStep: CoreStepsNavigatorDetailedStepItem;
+    visibleSteps: ComputedRef<CoreStepsNavigatorDetailedStepItem[]>;
     nextStep(): void;
     previousStep(): void;
 };
-export declare type SlotProps = {
-    steps: Ref<DetailedStepItem[]>;
-    currentStep: ComputedRef<DetailedStepItem>;
+export declare type CoreStepsNavigatorSlotProps = {
+    steps: Ref<CoreStepsNavigatorDetailedStepItem[]>;
+    currentStep: ComputedRef<CoreStepsNavigatorDetailedStepItem>;
     currentIndex: ComputedRef<number>;
-    visibleSteps: ComputedRef<DetailedStepItem[]>;
+    visibleSteps: ComputedRef<CoreStepsNavigatorDetailedStepItem[]>;
     nextStep(): void;
     previousStep(): void;
-    onStepClick(step: DetailedStepItem): void;
+    onStepClick(step: CoreStepsNavigatorDetailedStepItem): void;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreStepsNavigatorSetup(): {
+    as(tag: string, func?: (slotProps: CoreStepsNavigatorSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;
@@ -52,7 +52,7 @@ export declare function setup(): {
 };
 declare const _default: import("vue").DefineComponent<{
     steps: {
-        type: PropType<StepItem[]>;
+        type: PropType<CoreStepsNavigatorStepItem[]>;
         default: any;
     };
     modelValue: {
@@ -70,7 +70,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     nextStep: () => void;
     previousStep: () => void;
-    visibleSteps: ComputedRef<DetailedStepItem[]>;
+    visibleSteps: ComputedRef<CoreStepsNavigatorDetailedStepItem[]>;
     slotProps: {
         steps: {
             stepIndex: number;
@@ -108,20 +108,20 @@ declare const _default: import("vue").DefineComponent<{
         }[];
         nextStep: () => void;
         previousStep: () => void;
-        onStepClick: (step: DetailedStepItem) => void;
+        onStepClick: (step: CoreStepsNavigatorDetailedStepItem) => void;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    modelValue: string;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: string;
-    steps: StepItem[];
+    steps: CoreStepsNavigatorStepItem[];
 } & {}>, {
+    modelValue: string;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: string;
-    steps: StepItem[];
+    steps: CoreStepsNavigatorStepItem[];
 }>;
 export default _default;

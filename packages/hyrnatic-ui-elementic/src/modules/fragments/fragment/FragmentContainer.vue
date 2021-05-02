@@ -8,8 +8,8 @@
 import {
     computed, defineComponent, nextTick, provide, reactive, ref, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import { coreFragmentContainerActiveProp, setup } from '@core/modules/fragments/fragment/FragmentContainer';
+import componentCss from '@/utils/component-css';
+import { coreFragmentContainerActiveProp, coreFragmentContainerSetup } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-fragment-container',
@@ -54,7 +54,7 @@ export default defineComponent({
             heights.target = null;
         };
 
-        const core = setup().as('div').props(['active']).build();
+        const core = coreFragmentContainerSetup().as('div').props(['active']).build();
 
         provide('fragmentContainer', {
             active: computed(() => props.active),

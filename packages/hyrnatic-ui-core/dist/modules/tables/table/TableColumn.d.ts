@@ -976,16 +976,16 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     data: Record<string, any>;
-    order: number;
     component: any;
+    order: number;
     sortable: boolean;
     formatter: Function;
 } & {
     property?: string;
 }>, {
     data: Record<string, any>;
-    order: number;
     component: any;
+    order: number;
     sortable: boolean;
     formatter: Function;
 }>;

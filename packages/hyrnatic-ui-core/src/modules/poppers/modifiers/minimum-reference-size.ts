@@ -1,6 +1,11 @@
 import { Modifier } from '@popperjs/core/lib/types';
 
-export const minimumReferenceSize: Modifier<'minimumReferenceSize', any> = {
+export const minimumReferenceSize: {
+    phase: string; data: { rerun: boolean }; name: string; fn: ({
+                                                                    state,
+                                                                    instance
+                                                                }: { state: any; instance: any }) => void; enabled: boolean; requires: string[]
+} = {
     name: 'minimumReferenceSize',
     enabled: true,
     fn: ({ state, instance }) => {

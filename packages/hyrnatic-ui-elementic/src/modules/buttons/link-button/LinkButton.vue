@@ -48,6 +48,7 @@ export default defineComponent({
             class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-size-${props.size}`, { '-loading': slotProps.loading }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
+            type: 'button',
         });
         const core = coreButtonSetup().as('button', asProps).props(['disabled', 'loading', 'visible']).events(['click'])
             .build();

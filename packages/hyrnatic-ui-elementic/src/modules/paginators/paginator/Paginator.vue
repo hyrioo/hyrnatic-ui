@@ -27,14 +27,14 @@
 import {
     defineComponent, computed, ref, watch, nextTick, onMounted, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
+import componentCss from '@/utils/component-css';
 import {
     corePaginatorCountProp,
     corePaginatorDeltaProp,
     corePaginatorModelValueProp,
     corePaginatorPageSizeProp,
-    setup,
-} from '@core/modules/paginators/paginator/Paginator';
+    corePaginatorSetup,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-paginator',
@@ -65,7 +65,7 @@ export default defineComponent({
         });
         onMounted(updateIndicator);
 
-        const core = setup().as('div').props(['modelValue', 'pageSize', 'count', 'delta']).events(['update:modelValue'])
+        const core = corePaginatorSetup().as('div').props(['modelValue', 'pageSize', 'count', 'delta']).events(['update:modelValue'])
             .build();
 
         return {

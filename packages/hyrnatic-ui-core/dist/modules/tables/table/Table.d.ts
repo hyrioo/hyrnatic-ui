@@ -16,7 +16,7 @@ export declare const coreTableRowKeyProp: {
 };
 export declare const coreTableSelectableProp: {
     selectable: {
-        type: (FunctionConstructor | BooleanConstructor)[];
+        type: (BooleanConstructor | FunctionConstructor)[];
         default: boolean;
     };
 };
@@ -63,7 +63,7 @@ declare const _default: import("vue").DefineComponent<{
         default: () => any[];
     };
     selectable: {
-        type: (FunctionConstructor | BooleanConstructor)[];
+        type: (BooleanConstructor | FunctionConstructor)[];
         default: boolean;
     };
     rowKey: {
@@ -1029,17 +1029,17 @@ declare const _default: import("vue").DefineComponent<{
     asProps: (slotProps: any) => any;
     as: string;
     sort: SortDefinition;
+    data: object[];
     selectedRows: object[];
     selectable: boolean | Function;
-    data: object[];
 } & {
     rowKey?: string;
 }>, {
     asProps: (slotProps: any) => any;
     as: string;
     sort: SortDefinition;
+    data: object[];
     selectedRows: object[];
     selectable: boolean | Function;
-    data: object[];
 }>;
 export default _default;

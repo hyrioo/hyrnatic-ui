@@ -6,6 +6,7 @@ declare const _default: import("vue").DefineComponent<any, {
     button: import("vue").Ref<HTMLButtonElement>;
     popper: import("vue").Ref<any>;
     selectHasWidth: import("vue").ComputedRef<any>;
+    modifiers: any[];
     popperWidth: import("vue").Ref<{}>;
     popperSizeChanged: (size: any) => void;
     onClickOutside: (value: any) => void;

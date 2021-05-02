@@ -1,16 +1,16 @@
 import { ComputedRef } from 'vue';
-export declare type TabItemInstance = {
+export declare type CoreTabItemInstance = {
     id: string;
     ref?: HTMLElement;
 };
-export declare type TabsNavigatorProvide = {
-    activeTab: ComputedRef<TabItemInstance>;
-    onTabClick(instance: TabItemInstance): void;
-    addTabInstance(instance: TabItemInstance): void;
-    removeTabInstance(instance: TabItemInstance): void;
+export declare type CoreTabsNavigatorProvide = {
+    activeTab: ComputedRef<CoreTabItemInstance>;
+    onTabClick(instance: CoreTabItemInstance): void;
+    addTabInstance(instance: CoreTabItemInstance): void;
+    removeTabInstance(instance: CoreTabItemInstance): void;
 };
-export declare type TabsNavigatorReturn = {
-    activeTab: TabItemInstance;
+export declare type CoreTabsNavigatorReturn = {
+    activeTab: CoreTabItemInstance;
 };
 export declare const coreTabItemIdProp: {
     id: {
@@ -24,13 +24,13 @@ export declare const coreTabItemIdDisabledProp: {
         default: boolean;
     };
 };
-export declare type SlotProps = {
+export declare type CoreTabItemSlotProps = {
     disabled: ComputedRef<boolean>;
     active: ComputedRef<boolean>;
     onClick: () => any;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreTabItemSetup(): {
+    as(tag: string, func?: (slotProps: CoreTabItemSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;

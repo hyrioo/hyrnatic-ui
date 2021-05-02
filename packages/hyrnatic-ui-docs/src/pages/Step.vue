@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
-import { createStep, StepItem } from '@core/modules/steps/step/StepsNavigator';
+import { createCoreStepItem, CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-elementic';
 import Page from '../components/Page.vue';
 
 export default defineComponent({
@@ -19,16 +19,16 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const visible = ref(false);
         const label = ref('One');
-        const steps = ref<StepItem[]>([
-            createStep('one', {
+        const steps = ref<CoreStepsNavigatorStepItem[]>([
+            createCoreStepItem('one', {
                 label,
                 icon: 'key',
             }),
-            createStep('two', {
+            createCoreStepItem('two', {
                 label: 'Two',
                 icon: 'key',
             }),
-            createStep('three', {
+            createCoreStepItem('three', {
                 label: 'Three',
                 icon: 'key',
             }),

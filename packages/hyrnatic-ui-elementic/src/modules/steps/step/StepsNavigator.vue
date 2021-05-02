@@ -12,14 +12,14 @@
 import {
     defineComponent, ref, computed, SetupContext, onMounted, provide, watch, onBeforeUpdate, nextTick,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import { setup } from '@core/modules/tabs/tab/TabsNavigator';
+import componentCss from '@/utils/component-css';
 import {
-    StepsNavigatorReturn,
+    CoreStepsNavigatorStepItem,
+    CoreStepsNavigatorReturn,
     coreStepsNavigatorModelValueProp,
     coreStepsNavigatorStepsProp,
-    StepItem,
-} from '@core/modules/steps/step/StepsNavigator';
+    coreStepsNavigatorSetup,
+} from '@hyrioo/hyrnatic-ui-core'
 
 export default defineComponent({
     name: 'h-steps-navigator',
@@ -33,9 +33,9 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const stepsNavigator = ref<StepsNavigatorReturn>();
+        const stepsNavigator = ref<CoreStepsNavigatorReturn>();
         const stepsRefs = ref([]);
-        const hasLabels = computed(() => props.steps.filter((step: StepItem) => step.data.label).length > 0);
+        const hasLabels = computed(() => props.steps.filter((step: CoreStepsNavigatorStepItem) => step.data.label).length > 0);
         const indicatorSize = ref(0);
         const indicatorOffset = ref(0);
         const indicatorStyle = computed(() => (
@@ -60,7 +60,7 @@ export default defineComponent({
                 }
             }
         };
-        const setActiveStepRef = (component, step: StepItem) => {
+        const setActiveStepRef = (component, step: CoreStepsNavigatorStepItem) => {
             console.log('setActiveStepRef', step);
             if (step.id === props.modelValue) {
                 updateIndicator();
@@ -79,7 +79,7 @@ export default defineComponent({
             stepsNavigator.value.nextStep();
         };
 
-        const core = setup().as('div').props(['modelValue', 'steps']).events(['update:modelValue'])
+        const core = coreStepsNavigatorSetup().as('div').props(['modelValue', 'steps']).events(['update:modelValue'])
             .build();
 
         return {

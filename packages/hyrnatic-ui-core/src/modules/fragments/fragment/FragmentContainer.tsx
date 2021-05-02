@@ -15,12 +15,12 @@ export const coreFragmentContainerActiveProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreFragmentContainerSlotProps = {
     active: ComputedRef<string>;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreFragmentContainerSetup() {
+    return setupBuilder<CoreFragmentContainerSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -32,7 +32,7 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreFragmentContainerSlotProps>({
             active: computed(() => props.active),
         });
         const defaultRender = () => ctx.slots.default(slotProps);

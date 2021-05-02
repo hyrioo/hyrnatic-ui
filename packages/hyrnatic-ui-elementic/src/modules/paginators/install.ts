@@ -1,13 +1,12 @@
-import PaginatorCoreInstall from '@core/modules/paginators/install';
-import Paginator from '@elementic/modules/paginators/paginator/Paginator.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import Paginator from './paginator/Paginator.vue';
+import { CorePaginatorsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
     Paginator,
 };
 const dependencies = {
-    PaginatorCoreInstall,
+    CorePaginatorsInstall,
 };
 
 export default {

@@ -1,13 +1,13 @@
-import { PropType, Ref, ComputedRef } from 'vue';
-export declare type DropdownItemInstance = {
+import { Ref, ComputedRef } from 'vue';
+export declare type CoreDropdownItemInstance = {
     onClick(e: any): void;
     disabled: boolean;
 };
-export declare type DropdownProvide = {
-    focusedItem: Ref<DropdownItemInstance>;
+export declare type CoreDropdownProvide = {
+    focusedItem: Ref<CoreDropdownItemInstance>;
     onItemClick(e: any): void;
-    addItemInstance(instance: DropdownItemInstance): void;
-    removeItemInstance(instance: DropdownItemInstance): void;
+    addItemInstance(instance: CoreDropdownItemInstance): void;
+    removeItemInstance(instance: CoreDropdownItemInstance): void;
 };
 export declare const coreDropdownItemDisabledProp: {
     disabled: {
@@ -15,13 +15,13 @@ export declare const coreDropdownItemDisabledProp: {
         default: boolean;
     };
 };
-export declare type SlotProps = {
+export declare type CoreDropdownItemSlotProps = {
     disabled: ComputedRef<boolean>;
     focused: ComputedRef<boolean>;
     onClick: (e: any) => any;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreDropdownItemSetup(): {
+    as(tag: string, func?: (slotProps: CoreDropdownItemSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;
@@ -36,7 +36,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     asProps: {
-        type: PropType<(slotProps: any) => any>;
+        type: import("vue").PropType<(slotProps: any) => any>;
         default: any;
     };
     as: {

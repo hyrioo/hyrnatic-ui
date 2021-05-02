@@ -17,11 +17,11 @@ export declare const coreProgressBarMaximumProp: {
         default: number;
     };
 };
-export declare type SlotProps = {
+export declare type CoreProgressBarSlotProps = {
     percentage: ComputedRef<number>;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreProgressBarSetup(): {
+    as(tag: string, func?: (slotProps: CoreProgressBarSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;

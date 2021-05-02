@@ -1,7 +1,6 @@
-import TabCoreInstall from '@core/modules/tabs/install';
-import TabItem from '@elementic/modules/tabs/tab/TabItem.vue';
-import TabsNavigator from '@elementic/modules/tabs/tab/TabsNavigator.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import TabItem from './tab/TabItem.vue';
+import TabsNavigator from './tab/TabsNavigator.vue';
+import { CoreTabsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
@@ -9,7 +8,7 @@ const components = {
     TabsNavigator,
 };
 const dependencies = {
-    TabCoreInstall,
+    CoreTabsInstall,
 };
 
 export default {

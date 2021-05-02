@@ -31,13 +31,15 @@
 import {
     defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import { PopperComponent } from '@core/modules/poppers/popper/Popper';
+import componentCss from '@/utils/component-css';
 import {
+    CorePopperComponent,
     coreDropdownDisabledProp,
     coreDropdownHideOnClickProp,
-    coreDropdownSplitButtonProp, coreDropdownVisibleProp, setup, SlotProps,
-} from '@core/modules/dropdowns/dropdown/Dropdown';
+    coreDropdownSplitButtonProp,
+    coreDropdownVisibleProp,
+    coreDropdownSetup, CoreDropdownSlotProps,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-dropdown',
@@ -60,7 +62,7 @@ export default defineComponent({
         const dropdown = ref();
         const button = ref<HTMLElement>();
         const icon = ref<HTMLElement>();
-        const popper = ref<PopperComponent>();
+        const popper = ref<CorePopperComponent>();
 
         /*onMounted(() => {
             nextTick(() => {
@@ -105,12 +107,12 @@ export default defineComponent({
         };
         provide('updatePopper', updatePopper);
 
-        const asProps = (slotProps: SlotProps) => ({
+        const asProps = (slotProps: CoreDropdownSlotProps) => ({
             class: {
                 '-active': slotProps.menuVisible, '-disabled': slotProps.disabled,
             },
         });
-        const core = setup().as('div', asProps).props(['disabled', 'hideOnSelect', 'splitButton', 'visible']).events(['click'])
+        const core = coreDropdownSetup().as('div', asProps).props(['disabled', 'hideOnSelect', 'splitButton', 'visible']).events(['click'])
             .build();
 
         return {

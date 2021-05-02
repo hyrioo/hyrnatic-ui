@@ -46,6 +46,10 @@ export default defineComponent({
             type: String as PropType<'normal' | 'small'>,
             default: 'normal',
         },
+        type: {
+            type: String as PropType<'button' | 'submit' | 'reset'>,
+            default: 'button',
+        }
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
@@ -56,6 +60,7 @@ export default defineComponent({
             class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-icon-only': iconOnly.value, '-has-icon': props.icon }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
+            type: props.type,
         });
         const core = coreButtonSetup().as('button', asProps).props(['disabled', 'loading', 'visible']).events(['click'])
             .build();

@@ -20,16 +20,16 @@
 import {
     defineComponent, computed, SetupContext, ref,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import HrProgressBar, {
+import componentCss from '@/utils/component-css';
+import {
     coreProgressBarMaximumProp,
     coreProgressBarMinimumProp,
-    coreProgressBarValueProp, setup, SlotProps,
-} from '@core/modules/progress-bars/progress-bar/ProgressBar';
+    coreProgressBarValueProp,
+    coreProgressBarSetup,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-progress-bar',
-    components: { HrProgressBar },
     props: {
         ...coreProgressBarValueProp,
         ...coreProgressBarMinimumProp,
@@ -86,7 +86,7 @@ export default defineComponent({
             return Math.round(offset * 10) / 10;
         });
 
-        const core = setup().as('div').props(['value', 'minimum', 'maximum']).build();
+        const core = coreProgressBarSetup().as('div').props(['value', 'minimum', 'maximum']).build();
 
         return {
             core,

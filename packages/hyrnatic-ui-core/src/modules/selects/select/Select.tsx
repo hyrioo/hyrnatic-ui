@@ -5,7 +5,7 @@ import {
     computed,
     reactive,
     getCurrentInstance,
-    provide, ComputedRef, h,
+    provide, ComputedRef, h, PropType,
 } from 'vue';
 import {
     coreComponentAsProp,
@@ -14,6 +14,7 @@ import {
 } from '@/utils/component';
 import { SelectItemInstance, SelectProvide } from '@/modules/selects/select/SelectItem';
 import Arr from '@/utils/array';
+import Obj from '@/utils/object';
 
 export const coreSelectModelValueProp = {
     modelValue: {
@@ -42,6 +43,12 @@ export const coreSelectHideOnSelectProp = {
     hideOnSelect: {
         type: Boolean,
         default: true,
+    },
+};
+export const coreSelectCompareProp = {
+    compare: {
+        type: [Function, String] as PropType<((modelValue: any[], itemValue: any) => boolean) | string>,
+        default: null,
     },
 };
 
@@ -78,17 +85,32 @@ export default defineComponent({
         ...coreSelectAllowClearProp,
         ...coreSelectHideOnSelectProp,
         ...coreSelectModelValueProp,
+        ...coreSelectCompareProp,
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
         const items = ref<SelectItemInstance[]>([]);
         const focusedItem = ref<SelectItemInstance>();
-        const anythingSelected = computed(() => props.modelValue !== undefined && props.modelValue !== null && props.modelValue.length !== 0);
         const selectedItems = computed(() => {
             const copy = [].concat(props.modelValue);
-            return items.value.filter((i) => copy.indexOf(i.value) !== -1);
+            return items.value.filter((i) => {
+                const index = copy.indexOf(i.value);
+                if(index !== -1) {
+                    return true;
+                } else if(props.compare) {
+                    if(typeof props.compare === 'string'){
+                        console.log(copy, i, props.compare);
+                        return copy.find((c) => (c !== null && Obj.getProperty(c, props.compare as string)) === (i.value !== null && Obj.getProperty(i.value, props.compare as string)));
+                    } else {
+                        return props.compare(copy, i.value);
+                    }
+                } else {
+                    return false;
+                }
+            });
         });
+        const anythingSelected = computed(() => selectedItems.value.length > 0);
         const selectedText = computed(() => {
             const texts = [];
             selectedItems.value.forEach((selected) => {

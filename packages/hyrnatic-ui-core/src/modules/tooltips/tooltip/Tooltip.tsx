@@ -24,12 +24,12 @@ export const coreTooltipTriggerProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreTooltipSlotProps = {
     visible: ComputedRef<boolean>;
 }
 
-export function setup(reference: Ref<HTMLInputElement>) {
-    return setupBuilder<SlotProps>(getCurrentInstance()).setProp('reference', reference);
+export function coreTooltipSetup(reference: Ref<HTMLInputElement>) {
+    return setupBuilder<CoreTooltipSlotProps>(getCurrentInstance()).setProp('reference', reference);
 }
 
 export default defineComponent({
@@ -94,7 +94,7 @@ export default defineComponent({
             }
         });
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreTooltipSlotProps>({
             visible: computed(() => visible.value),
         });
         const defaultRender = () => ctx.slots.default(slotProps);

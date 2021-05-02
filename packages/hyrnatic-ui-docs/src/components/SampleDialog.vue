@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
-import { createPromise, setupDialog } from '@core/modules/dialogs/dialog/DialogManager';
+import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 import ConfirmDialog from './ConfirmDialog.vue';
 
 export default defineComponent({
@@ -29,13 +29,13 @@ export default defineComponent({
     },
     emits: ['something', 'something-more', 'resolve'],
     setup(props, ctx: SetupContext) {
-        const { resolve } = setupDialog();
+        const { resolve } = DialogManager.setupDialog();
         const closable = ref(true);
         const something = () => {
             ctx.emit('something');
         };
         const somethingMore = () => {
-            createPromise(ConfirmDialog, { }, { }, { stack: 'dialog' }).then(() => {
+            DialogManager.createPromise(ConfirmDialog, { }, { }, { stack: 'dialog' }).then(() => {
                 ctx.emit('something-more');
             }).catch(() => {});
         };

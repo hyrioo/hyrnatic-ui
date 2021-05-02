@@ -9,14 +9,17 @@
 import {
     defineComponent, ref, computed, SetupContext, onMounted, provide, watch, nextTick,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import HrTabsNavigator, { coreTabsNavigatorModelValueProp, setup } from '@core/modules/tabs/tab/TabsNavigator';
-import { TabItemInstance, TabsNavigatorProvide, TabsNavigatorReturn } from '@core/modules/tabs/tab/TabItem';
-import Arr from '@core/utils/array';
+import componentCss from '@/utils/component-css';
+import {
+    CoreTabItemInstance,
+    CoreTabsNavigatorReturn,
+    coreTabsNavigatorModelValueProp,
+    coreTabsNavigatorSetup,
+} from '@hyrioo/hyrnatic-ui-core';
+import Arr from '@/utils/array';
 
 export default defineComponent({
     name: 'h-tabs-navigator',
-    components: { HrTabsNavigator },
     props: {
         ...coreTabsNavigatorModelValueProp,
         vertical: {
@@ -26,12 +29,12 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const tabsNavigator = ref<TabsNavigatorReturn>();
-        const tabs = ref<TabItemInstance[]>([]);
-        const addTabInstance = (instance: TabItemInstance) => {
+        const tabsNavigator = ref<CoreTabsNavigatorReturn>();
+        const tabs = ref<CoreTabItemInstance[]>([]);
+        const addTabInstance = (instance: CoreTabItemInstance) => {
             tabs.value.push(instance);
         };
-        const removeTabInstance = (instance: TabItemInstance) => {
+        const removeTabInstance = (instance: CoreTabItemInstance) => {
             tabs.value = Arr.remove(tabs.value, instance);
         };
         const indicatorSize = ref(0);
@@ -64,7 +67,7 @@ export default defineComponent({
             removeTabInstance,
         });
 
-        const core = setup().as('div').props(['modelValue']).events(['update:modelValue'])
+        const core = coreTabsNavigatorSetup().as('div').props(['modelValue']).events(['update:modelValue'])
             .build();
 
         return {

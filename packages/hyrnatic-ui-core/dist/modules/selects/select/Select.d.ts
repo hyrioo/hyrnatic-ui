@@ -1,4 +1,4 @@
-import { ComputedRef } from 'vue';
+import { ComputedRef, PropType } from 'vue';
 import { SelectItemInstance } from '@/modules/selects/select/SelectItem';
 export declare const coreSelectModelValueProp: {
     modelValue: {
@@ -29,6 +29,12 @@ export declare const coreSelectHideOnSelectProp: {
         default: boolean;
     };
 };
+export declare const coreSelectCompareProp: {
+    compare: {
+        type: PropType<string | ((modelValue: any[], itemValue: any) => boolean)>;
+        default: any;
+    };
+};
 export declare type CoreSelectSlotProps = {
     modelValue: ComputedRef;
     disabled: ComputedRef<boolean>;
@@ -56,6 +62,10 @@ export declare function coreSelectSetup(): {
     };
 };
 declare const _default: import("vue").DefineComponent<{
+    compare: {
+        type: PropType<string | ((modelValue: any[], itemValue: any) => boolean)>;
+        default: any;
+    };
     modelValue: {
         type: any;
     };
@@ -76,7 +86,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     asProps: {
-        type: import("vue").PropType<(slotProps: any) => any>;
+        type: PropType<(slotProps: any) => any>;
         default: any;
     };
     as: {
@@ -113,20 +123,22 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
+    compare: string | ((modelValue: any[], itemValue: any) => boolean);
     modelValue: any;
     hideOnSelect: boolean;
     allowClear: boolean;
     multiple: boolean;
+    disabled: boolean;
+    asProps: (slotProps: any) => any;
+    as: string;
 } & {}>, {
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
+    compare: string | ((modelValue: any[], itemValue: any) => boolean);
     modelValue: any;
     hideOnSelect: boolean;
     allowClear: boolean;
     multiple: boolean;
+    disabled: boolean;
+    asProps: (slotProps: any) => any;
+    as: string;
 }>;
 export default _default;

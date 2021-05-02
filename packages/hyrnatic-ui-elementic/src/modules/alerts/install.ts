@@ -1,4 +1,4 @@
-import Alert from '@elementic/modules/alerts/alert/Alert.vue';
+import Alert from './alert/Alert.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

@@ -1,17 +1,17 @@
 import { ComputedRef, Ref } from 'vue';
-import { TabItemInstance } from '@/modules/tabs/tab/TabItem';
+import { CoreTabItemInstance } from '@/modules/tabs/tab/TabItem';
 export declare const coreTabsNavigatorModelValueProp: {
     modelValue: {
         type: StringConstructor;
         default: any;
     };
 };
-export declare type SlotProps = {
-    tabs: Ref<TabItemInstance[]>;
-    activeTab: ComputedRef<TabItemInstance>;
+export declare type CoreTabsNavigatorSlotProps = {
+    tabs: Ref<CoreTabItemInstance[]>;
+    activeTab: ComputedRef<CoreTabItemInstance>;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreTabsNavigatorSetup(): {
+    as(tag: string, func?: (slotProps: CoreTabsNavigatorSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;
@@ -34,7 +34,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }, {
-    activeTab: ComputedRef<TabItemInstance>;
+    activeTab: ComputedRef<CoreTabItemInstance>;
     slotProps: {
         tabs: {
             id: string;
@@ -49,12 +49,12 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    modelValue: string;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: string;
 } & {}>, {
+    modelValue: string;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: string;
 }>;
 export default _default;

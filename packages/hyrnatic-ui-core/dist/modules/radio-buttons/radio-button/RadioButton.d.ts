@@ -17,13 +17,13 @@ export declare const coreRadioButtonValueProp: {
         default: boolean;
     };
 };
-export declare type SlotProps = {
+export declare type CoreRadioButtonSlotProps = {
     state: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     onChange: (e: any) => any;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreRadioButtonSetup(): {
+    as(tag: string, func?: (slotProps: CoreRadioButtonSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;
@@ -63,16 +63,16 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    value: any;
+    modelValue: any;
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: any;
+    value: any;
 } & {}>, {
-    value: any;
+    modelValue: any;
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: any;
+    value: any;
 }>;
 export default _default;

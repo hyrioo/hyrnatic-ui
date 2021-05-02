@@ -1,13 +1,12 @@
-import RadioButtonCoreInstall from '@core/modules/radio-buttons/install';
-import RadioButton from '@elementic/modules/radio-buttons/radio-button/RadioButton.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import RadioButton from './radio-button/RadioButton.vue';
+import { CoreRadioButtonsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
     RadioButton,
 };
 const dependencies = {
-    RadioButtonCoreInstall,
+    CoreRadioButtonsInstall,
 };
 
 export default {

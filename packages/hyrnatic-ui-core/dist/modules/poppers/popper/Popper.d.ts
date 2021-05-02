@@ -127,8 +127,9 @@ declare const _default: import("vue").DefineComponent<{
     destroy: () => void;
     afterHide: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "show" | "hide" | "created" | "clickOutside" | "popperSizeChanged" | "update:visible", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modifiers: Modifier<any, any>[];
     visible: boolean;
+    reference: any;
+    modifiers: Modifier<any, any>[];
     classes: any;
     transition: string;
     rootClasses: any;
@@ -136,10 +137,10 @@ declare const _default: import("vue").DefineComponent<{
     keep: boolean;
     fixedWidth: string;
     minimumWidth: string;
-    reference: any;
 } & {}>, {
-    modifiers: Modifier<any, any>[];
     visible: boolean;
+    reference: any;
+    modifiers: Modifier<any, any>[];
     classes: any;
     transition: string;
     rootClasses: any;
@@ -147,6 +148,5 @@ declare const _default: import("vue").DefineComponent<{
     keep: boolean;
     fixedWidth: string;
     minimumWidth: string;
-    reference: any;
 }>;
 export default _default;

@@ -8,7 +8,7 @@
                   :visible="props.visible" :options="{placement: placement}" :modifiers="popperModifiers"
         >
             <slot name="content">
-                {{ content }}
+                <span v-html="content" />
             </slot>
             <template #arrow>
                 <h-icon icon="tooltip-arrow" :class="[css_ec('arrow')]" />
@@ -21,9 +21,13 @@
 import {
     defineComponent, nextTick, onMounted, ref, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import { coreTooltipModelValueProp, coreTooltipTriggerProp, setup } from '@core/modules/tooltips/tooltip/Tooltip';
-import { PopperComponent } from '@core/modules/poppers/popper/Popper';
+import componentCss from '@/utils/component-css';
+import {
+    CorePopperComponent,
+    coreTooltipModelValueProp,
+    coreTooltipTriggerProp,
+    coreTooltipSetup,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-tooltip',
@@ -41,7 +45,7 @@ export default defineComponent({
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
         const reference = ref();
-        const popper = ref<PopperComponent>();
+        const popper = ref<CorePopperComponent>();
 
         const popperModifiers = [
             {
@@ -59,7 +63,7 @@ export default defineComponent({
             ctx.emit('update:modelValue', visible);
         };*/
 
-        const core = setup(reference).props(['modelValue', 'trigger']).events(['update:modelValue']).build();
+        const core = coreTooltipSetup(reference).props(['modelValue', 'trigger']).events(['update:modelValue']).build();
 
         return {
             core,

@@ -1,13 +1,12 @@
-import CheckboxCoreInstall from '@core/modules/checkboxes/install';
-import Switch from '@elementic/modules/switches/switch/Switch.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import Switch from './switch/Switch.vue';
+import { CoreCheckboxInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
     Switch,
 };
 const dependencies = {
-    CheckboxCoreInstall,
+    CoreCheckboxInstall,
 };
 
 export default {

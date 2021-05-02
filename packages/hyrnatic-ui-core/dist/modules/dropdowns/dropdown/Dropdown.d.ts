@@ -1,5 +1,5 @@
 import { ComputedRef } from 'vue';
-import { DropdownItemInstance } from '@/modules/dropdowns/dropdown/DropdownItem';
+import { CoreDropdownItemInstance } from '@/modules/dropdowns/dropdown/DropdownItem';
 export declare const coreDropdownDisabledProp: {
     disabled: {
         type: BooleanConstructor;
@@ -24,19 +24,19 @@ export declare const coreDropdownVisibleProp: {
         default: boolean;
     };
 };
-export declare type SlotProps = {
+export declare type CoreDropdownSlotProps = {
     menuVisible: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     splitButton: ComputedRef<boolean>;
-    focusedItem: ComputedRef<DropdownItemInstance>;
+    focusedItem: ComputedRef<CoreDropdownItemInstance>;
     clearFocusedItem: (e: any) => any;
     onKeyEvents: (e: any, target: 'main' | 'split') => any;
     onButtonClick: (e: any) => any;
     onIconClick: (e: any) => any;
     onItemClick: (e: any) => any;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreDropdownSetup(): {
+    as(tag: string, func?: (slotProps: CoreDropdownSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;
@@ -91,16 +91,16 @@ declare const _default: import("vue").DefineComponent<{
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     disabled: boolean;
-    visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;
+    visible: boolean;
     splitButton: boolean;
     hideOnClick: boolean;
 } & {}>, {
     disabled: boolean;
-    visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;
+    visible: boolean;
     splitButton: boolean;
     hideOnClick: boolean;
 }>;

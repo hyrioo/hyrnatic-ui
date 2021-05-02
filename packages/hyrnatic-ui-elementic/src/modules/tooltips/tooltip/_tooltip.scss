@@ -4,7 +4,7 @@ $popper-arrow-size: 16px;
 #{$crc}{
 	box-sizing: border-box;
 	//display: inline-block;
-	line-height: $v-control-height - ($g-8 * 2) - ($v-control-border-width * 2);
+	//line-height: $v-control-height - ($g-8 * 2) - ($v-control-border-width * 2);
 	padding: $g-8 $g-12;
 	background: $c-primary-background;
 	border-radius: $v-control-border-radius;

@@ -23,14 +23,14 @@ export declare const corePaginatorDeltaProp: {
         default: number;
     };
 };
-export declare type SlotProps = {
+export declare type CorePaginatorSlotProps = {
     currentPage: ComputedRef<number>;
     pages: ComputedRef<number>;
     buttons: ComputedRef<number[]>;
     onPaginationButtonClick: (page: number) => void;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function corePaginatorSetup(): {
+    as(tag: string, func?: (slotProps: CorePaginatorSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;

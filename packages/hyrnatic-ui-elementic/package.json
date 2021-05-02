@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hyrioo/hyrnatic-ui-core": "^0.0.1",
-    "@mdi/js": "^5.9.55"
+    "@mdi/js": "^5.9.55",
+    "vue-loader": "^16.2.0"
   }
 }

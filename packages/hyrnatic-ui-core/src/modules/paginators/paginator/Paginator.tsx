@@ -32,15 +32,15 @@ export const corePaginatorDeltaProp = {
     },
 };
 
-export type SlotProps = {
+export type CorePaginatorSlotProps = {
     currentPage: ComputedRef<number>;
     pages: ComputedRef<number>;
     buttons: ComputedRef<number[]>;
     onPaginationButtonClick: (page: number) => void;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function corePaginatorSetup() {
+    return setupBuilder<CorePaginatorSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -92,7 +92,7 @@ export default defineComponent({
             }
         };
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CorePaginatorSlotProps>({
             currentPage: computed(() => props.modelValue),
             pages,
             buttons: paginationButtons,

@@ -26,12 +26,12 @@ export const coreProgressBarMaximumProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreProgressBarSlotProps = {
     percentage: ComputedRef<number>;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreProgressBarSetup() {
+    return setupBuilder<CoreProgressBarSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -49,7 +49,7 @@ export default defineComponent({
             return Math.round(p);
         });
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreProgressBarSlotProps>({
             percentage,
         });
         const defaultRender = () => ctx.slots.default(slotProps);

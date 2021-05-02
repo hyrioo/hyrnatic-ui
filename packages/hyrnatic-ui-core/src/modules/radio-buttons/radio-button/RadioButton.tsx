@@ -26,14 +26,14 @@ export const coreRadioButtonValueProp = {
     },
 };
 
-export type SlotProps = {
+export type CoreRadioButtonSlotProps = {
     state: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     onChange: (e) => any;
 }
 
-export function setup() {
-    return setupBuilder<SlotProps>(getCurrentInstance());
+export function coreRadioButtonSetup() {
+    return setupBuilder<CoreRadioButtonSlotProps>(getCurrentInstance());
 }
 
 export default defineComponent({
@@ -53,7 +53,7 @@ export default defineComponent({
             ctx.emit('update:modelValue', props.value);
         };
 
-        const slotProps = reactive<SlotProps>({
+        const slotProps = reactive<CoreRadioButtonSlotProps>({
             disabled: computed(() => props.disabled),
             state,
             onChange,

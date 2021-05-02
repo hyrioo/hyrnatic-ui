@@ -16,18 +16,17 @@
 import {
     defineComponent, ref, computed, SetupContext,
 } from 'vue';
-import componentCss from '@elementic/utils/component-css';
-import HrRadioButton, {
+import componentCss from '@/utils/component-css';
+import {
     coreRadioButtonDisabledProp,
     coreRadioButtonModelValueProp,
     coreRadioButtonValueProp,
-    setup,
-    SlotProps,
-} from '@core/modules/radio-buttons/radio-button/RadioButton';
+    coreRadioButtonSetup,
+    CoreRadioButtonSlotProps,
+} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-radio-button',
-    components: { HrRadioButton },
     props: {
         ...coreRadioButtonDisabledProp,
         ...coreRadioButtonModelValueProp,
@@ -46,10 +45,10 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const hasFocus = ref(false);
 
-        const asProps = (slotProps: SlotProps) => ({
+        const asProps = (slotProps: CoreRadioButtonSlotProps) => ({
             class: { '-checked': slotProps.state, '-disabled': slotProps.disabled },
         });
-        const core = setup().as('label', asProps).props(['modelValue', 'value', 'disabled']).events(['update:modelValue'])
+        const core = coreRadioButtonSetup().as('label', asProps).props(['modelValue', 'value', 'disabled']).events(['update:modelValue'])
             .build();
 
         return {

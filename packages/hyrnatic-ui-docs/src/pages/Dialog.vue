@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
-import { create } from '@core/modules/dialogs/dialog/DialogManager';
+import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 import Page from '../components/Page.vue';
 import SampleDialog from '../components/SampleDialog.vue';
 
@@ -15,7 +15,7 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const onClick = async () => {
             const counter = ref(0);
-            const dialog = create(SampleDialog, { text: '1' }, {
+            const dialog = DialogManager.create(SampleDialog, { text: '1' }, {
                 something: () => {
                     counter.value++;
                 },

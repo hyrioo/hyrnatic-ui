@@ -1,7 +1,6 @@
-import StepCoreInstall from '@core/modules/steps/install';
-import StepItem from '@elementic/modules/steps/step/StepItem.vue';
-import StepsNavigator from '@elementic/modules/steps/step/StepsNavigator.vue';
-import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import StepItem from './step/StepItem.vue';
+import StepsNavigator from './step/StepsNavigator.vue';
+import { CoreStepsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;
 const components = {
@@ -9,7 +8,7 @@ const components = {
     StepsNavigator,
 };
 const dependencies = {
-    StepCoreInstall,
+    CoreStepsInstall,
 };
 
 export default {

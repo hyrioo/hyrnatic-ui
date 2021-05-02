@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, SetupContext } from 'vue';
-import componentCss from '@elementic/utils/component-css';
+import componentCss from '@/utils/component-css';
 
 export default defineComponent({
     name: 'h-alert',

@@ -5,11 +5,11 @@ export declare const coreFragmentContainerActiveProp: {
         required: boolean;
     };
 };
-export declare type SlotProps = {
+export declare type CoreFragmentContainerSlotProps = {
     active: ComputedRef<string>;
 };
-export declare function setup(): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreFragmentContainerSetup(): {
+    as(tag: string, func?: (slotProps: CoreFragmentContainerSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;

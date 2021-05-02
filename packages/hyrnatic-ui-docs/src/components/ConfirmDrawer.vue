@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
-import { createPromise, setupDialog } from '@core/modules/dialogs/dialog/DialogManager';
+import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 // eslint-disable-next-line import/no-self-import
 import ConfirmDrawer from './ConfirmDrawer.vue';
 
@@ -25,12 +25,12 @@ export default defineComponent({
     },
     emits: ['resolve', 'reject'],
     setup(props, ctx: SetupContext) {
-        const { resolve, reject } = setupDialog();
+        const { resolve, reject } = DialogManager.setupDialog();
         const confirm = ref(true);
 
         const confirmAgain = () => {
             if (confirm.value) {
-                createPromise(ConfirmDrawer, {}, {}, { stack: 'drawer' }).then(() => {
+                DialogManager.createPromise(ConfirmDrawer, {}, {}, { stack: 'drawer' }).then(() => {
                     resolve();
                 }).catch(() => {
                 });

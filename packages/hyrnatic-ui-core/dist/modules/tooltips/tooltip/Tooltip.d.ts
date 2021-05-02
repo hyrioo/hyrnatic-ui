@@ -11,11 +11,11 @@ export declare const coreTooltipTriggerProp: {
         default: string;
     };
 };
-export declare type SlotProps = {
+export declare type CoreTooltipSlotProps = {
     visible: ComputedRef<boolean>;
 };
-export declare function setup(reference: Ref<HTMLInputElement>): {
-    as(tag: string, func?: (slotProps: SlotProps) => any): any;
+export declare function coreTooltipSetup(reference: Ref<HTMLInputElement>): {
+    as(tag: string, func?: (slotProps: CoreTooltipSlotProps) => any): any;
     props(proxies: string[]): any;
     setProp(key: string, value: any): any;
     events(events: string[]): any;
