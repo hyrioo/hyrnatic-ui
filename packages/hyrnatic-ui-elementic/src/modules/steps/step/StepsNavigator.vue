@@ -12,7 +12,7 @@
 import {
     defineComponent, ref, computed, SetupContext, onMounted, provide, watch, onBeforeUpdate, nextTick,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     CoreStepsNavigatorStepItem,
     CoreStepsNavigatorReturn,

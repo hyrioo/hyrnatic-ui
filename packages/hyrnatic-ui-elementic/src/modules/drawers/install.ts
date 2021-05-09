@@ -1,4 +1,4 @@
-import Drawer from '@/modules/drawers/drawer/Drawer.vue';
+import Drawer from './drawer/Drawer.vue';
 import { CoreDialogsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

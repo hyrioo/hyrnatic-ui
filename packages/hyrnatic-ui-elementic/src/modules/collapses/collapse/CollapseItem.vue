@@ -26,7 +26,7 @@
 import {
     defineComponent, SetupContext,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import { coreCollapseItemIdProp, coreCollapseItemSetup, CoreCollapseItemSlotProps } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({

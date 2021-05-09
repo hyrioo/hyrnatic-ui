@@ -3,17 +3,17 @@ import Main from './main';
 export default Main;
 
 
-export { default as CoreButtonsInstall } from '@/modules/buttons/install';
+export { default as CoreButtonsInstall } from './modules/buttons/install';
 export {
     coreButtonSetup,
     CoreButtonSlotProps,
     coreButtonDisabledProp,
     coreButtonVisibleProp,
     coreButtonLoadingProp,
-} from '@/modules/buttons/button/Button';
+} from './modules/buttons/button/Button';
 
 
-export { default as CoreCheckboxInstall } from '@/modules/checkboxes/install';
+export { default as CoreCheckboxInstall } from './modules/checkboxes/install';
 export {
     coreCheckboxSetup,
     CoreCheckboxSlotProps,
@@ -22,38 +22,38 @@ export {
     coreCheckboxDisabledProp,
     coreCheckboxVisibleProp,
     coreCheckboxIndeterminateProp,
-} from '@/modules/checkboxes/checkbox/Checkbox';
+} from './modules/checkboxes/checkbox/Checkbox';
 
 
-export { default as CoreCollapsesInstall } from '@/modules/collapses/install';
+export { default as CoreCollapsesInstall } from './modules/collapses/install';
 export {
     coreCollapseSetup,
     CoreCollapseSlotProps,
     coreCollapseAccordionProp,
     coreCollapseModelValueProp,
-} from '@/modules/collapses/collapse/Collapse';
+} from './modules/collapses/collapse/Collapse';
 export {
     coreCollapseItemSetup,
     CoreCollapseItemSlotProps,
     coreCollapseItemIdProp,
-} from '@/modules/collapses/collapse/CollapseItem';
+} from './modules/collapses/collapse/CollapseItem';
 export {
     coreCollapseInlineSetup,
     CoreCollapseInlineSlotProps,
     coreInlineCollapseModelValueProp
-} from '@/modules/collapses/inline-collapse/InlineCollapse';
+} from './modules/collapses/inline-collapse/InlineCollapse';
 
 
-export { default as CoreDialogsInstall } from '@/modules/dialogs/install';
+export { default as CoreDialogsInstall } from './modules/dialogs/install';
 export {
     coreDialogSetup,
     CoreDialogSlotProps,
     coreDialogVisibleProp,
-} from '@/modules/dialogs/dialog/Dialog';
-export * as DialogManager from '@/modules/dialogs/dialog/DialogManager';
+} from './modules/dialogs/dialog/Dialog';
+export * as DialogManager from './modules/dialogs/dialog/DialogManager';
 
 
-export { default as CoreDropdownsInstall } from '@/modules/dropdowns/install';
+export { default as CoreDropdownsInstall } from './modules/dropdowns/install';
 export {
     coreDropdownSetup,
     CoreDropdownSlotProps,
@@ -61,25 +61,25 @@ export {
     coreDropdownHideOnClickProp,
     coreDropdownSplitButtonProp,
     coreDropdownVisibleProp,
-} from '@/modules/dropdowns/dropdown/Dropdown';
+} from './modules/dropdowns/dropdown/Dropdown';
 export {
     coreDropdownItemSetup,
     CoreDropdownItemSlotProps,
     coreDropdownItemDisabledProp,
     CoreDropdownItemInstance,
     CoreDropdownProvide,
-} from '@/modules/dropdowns/dropdown/DropdownItem';
+} from './modules/dropdowns/dropdown/DropdownItem';
 
 
-export { default as CoreFragmentsInstall } from '@/modules/fragments/install';
+export { default as CoreFragmentsInstall } from './modules/fragments/install';
 export {
     coreFragmentContainerSetup,
     CoreFragmentContainerSlotProps,
     coreFragmentContainerActiveProp,
-} from '@/modules/fragments/fragment/FragmentContainer';
+} from './modules/fragments/fragment/FragmentContainer';
 
 
-export { default as CoreInputsInstall } from '@/modules/inputs/install';
+export { default as CoreInputsInstall } from './modules/inputs/install';
 export {
     coreInputSetup,
     CoreInputSlotProps,
@@ -87,10 +87,10 @@ export {
     coreInputModelModifiersProp,
     coreInputDisabledProp,
     coreInputReadonlyProp,
-} from '@/modules/inputs/input/Input';
+} from './modules/inputs/input/Input';
 
 
-export { default as CorePaginatorsInstall } from '@/modules/paginators/install';
+export { default as CorePaginatorsInstall } from './modules/paginators/install';
 export {
     corePaginatorSetup,
     CorePaginatorSlotProps,
@@ -98,10 +98,10 @@ export {
     corePaginatorPageSizeProp,
     corePaginatorCountProp,
     corePaginatorDeltaProp,
-} from '@/modules/paginators/paginator/Paginator';
+} from './modules/paginators/paginator/Paginator';
 
 
-export { default as CorePoppersInstall } from '@/modules/poppers/install';
+export { default as CorePoppersInstall } from './modules/poppers/install';
 export {
     corePopperSetup,
     CorePopperSlotProps,
@@ -117,36 +117,36 @@ export {
     corePopperClassesProp,
     corePopperRootClassesProp,
     defaultPopperOptions,
-} from '@/modules/poppers/popper/Popper';
-export { default as corePopperAfterUpdateModifier } from '@/modules/poppers/modifiers/after-update';
-export { default as corePopperApplyMaxSizeModifier } from '@/modules/poppers/modifiers/apply-max-size';
-export { default as corePopperArrowPositionModifier } from '@/modules/poppers/modifiers/arrow-position';
-export { default as corePopperBroadcastSizeModifier } from '@/modules/poppers/modifiers/broadcast-size';
-export { default as corePopperMatchReferenceSizeModifier } from '@/modules/poppers/modifiers/match-reference-size';
-export { default as corePopperMinimumReferenceSizeModifier } from '@/modules/poppers/modifiers/minimum-reference-size';
+} from './modules/poppers/popper/Popper';
+export { default as corePopperAfterUpdateModifier } from './modules/poppers/modifiers/after-update';
+export { default as corePopperApplyMaxSizeModifier } from './modules/poppers/modifiers/apply-max-size';
+export { default as corePopperArrowPositionModifier } from './modules/poppers/modifiers/arrow-position';
+export { default as corePopperBroadcastSizeModifier } from './modules/poppers/modifiers/broadcast-size';
+export { default as corePopperMatchReferenceSizeModifier } from './modules/poppers/modifiers/match-reference-size';
+export { default as corePopperMinimumReferenceSizeModifier } from './modules/poppers/modifiers/minimum-reference-size';
 
 
-export { default as CoreProgressBarsInstall } from '@/modules/progress-bars/install';
+export { default as CoreProgressBarsInstall } from './modules/progress-bars/install';
 export {
     coreProgressBarSetup,
     CoreProgressBarSlotProps,
     coreProgressBarValueProp,
     coreProgressBarMinimumProp,
     coreProgressBarMaximumProp,
-} from '@/modules/progress-bars/progress-bar/ProgressBar';
+} from './modules/progress-bars/progress-bar/ProgressBar';
 
 
-export { default as CoreRadioButtonsInstall } from '@/modules/radio-buttons/install';
+export { default as CoreRadioButtonsInstall } from './modules/radio-buttons/install';
 export {
     coreRadioButtonSetup,
     CoreRadioButtonSlotProps,
     coreRadioButtonDisabledProp,
     coreRadioButtonModelValueProp,
     coreRadioButtonValueProp,
-} from '@/modules/radio-buttons/radio-button/RadioButton';
+} from './modules/radio-buttons/radio-button/RadioButton';
 
 
-export { default as CoreScrollContainersInstall } from '@/modules/scroll-containers/install';
+export { default as CoreScrollContainersInstall } from './modules/scroll-containers/install';
 export {
     coreScrollContainerSetup,
     CoreScrollContainerSlotProps,
@@ -156,10 +156,10 @@ export {
     coreScrollContainerAutoHideDelayProp,
     coreScrollContainerMinimumSizeProp,
     coreScrollContainerClassesProp,
-} from '@/modules/scroll-containers/scroll-container/ScrollContainer';
+} from './modules/scroll-containers/scroll-container/ScrollContainer';
 
 
-export { default as CoreSelectsInstall } from '@/modules/selects/install';
+export { default as CoreSelectsInstall } from './modules/selects/install';
 export {
     coreSelectSetup,
     CoreSelectSlotProps,
@@ -169,16 +169,16 @@ export {
     coreSelectAllowClearProp,
     coreSelectHideOnSelectProp,
     coreSelectCompareProp,
-} from '@/modules/selects/select/Select';
+} from './modules/selects/select/Select';
 export {
     coreSelectItemSetup,
     CoreSelectItemSlotProps,
     coreSelectItemValueProp,
     coreSelectItemDisabledProp,
-} from '@/modules/selects/select/SelectItem';
+} from './modules/selects/select/SelectItem';
 
 
-export { default as CoreStepsInstall } from '@/modules/steps/install';
+export { default as CoreStepsInstall } from './modules/steps/install';
 export {
     createCoreStepItem,
     coreStepsNavigatorSetup,
@@ -188,10 +188,10 @@ export {
     CoreStepsNavigatorReturn,
     CoreStepsNavigatorStepItem,
     CoreStepsNavigatorDetailedStepItem,
-} from '@/modules/steps/step/StepsNavigator';
+} from './modules/steps/step/StepsNavigator';
 
 
-export { default as CoreTablesInstall } from '@/modules/tables/install';
+export { default as CoreTablesInstall } from './modules/tables/install';
 export {
     coreTableSetup,
     CoreTableSlotProps,
@@ -200,7 +200,7 @@ export {
     coreTableSelectableProp,
     coreTableSelectedRowsProp,
     coreTableSortProp,
-} from '@/modules/tables/table/Table';
+} from './modules/tables/table/Table';
 export {
     coreTableColumnSetup,
     coreTableColumnPropertyProp,
@@ -209,19 +209,19 @@ export {
     coreTableColumnDataProp,
     coreTableColumnOrderProp,
     coreTableColumnComponentProp,
-} from '@/modules/tables/table/TableColumn';
+} from './modules/tables/table/TableColumn';
 export {
     coreTableRowSetup,
     CoreTableRowSlotProps,
     coreTableRowColumnsProp,
     coreTableRowRowProp,
-} from '@/modules/tables/table/TableRow';
-export { default as CoreTableColumn } from '@/modules/tables/table/Column';
-export { default as CoreTableRow } from '@/modules/tables/table/Row';
-export { TableProvide as CoreTableProvide, SortDefinition as CoreTableSortDefinition } from '@/modules/tables/table/TableTypes';
+} from './modules/tables/table/TableRow';
+export { default as CoreTableColumn } from './modules/tables/table/Column';
+export { default as CoreTableRow } from './modules/tables/table/Row';
+export { TableProvide as CoreTableProvide, SortDefinition as CoreTableSortDefinition } from './modules/tables/table/TableTypes';
 
 
-export { default as CoreTabsInstall } from '@/modules/tabs/install';
+export { default as CoreTabsInstall } from './modules/tabs/install';
 export {
     coreTabItemSetup,
     CoreTabItemSlotProps,
@@ -230,21 +230,21 @@ export {
     CoreTabItemInstance,
     CoreTabsNavigatorProvide,
     CoreTabsNavigatorReturn,
-} from '@/modules/tabs/tab/TabItem';
+} from './modules/tabs/tab/TabItem';
 export {
     coreTabsNavigatorSetup,
     CoreTabsNavigatorSlotProps,
     coreTabsNavigatorModelValueProp,
-} from '@/modules/tabs/tab/TabsNavigator';
+} from './modules/tabs/tab/TabsNavigator';
 
 
-export { default as CoreTooltipsInstall } from '@/modules/tooltips/install';
+export { default as CoreTooltipsInstall } from './modules/tooltips/install';
 export {
     coreTooltipSetup,
     CoreTooltipSlotProps,
     coreTooltipModelValueProp,
     coreTooltipTriggerProp,
-} from '@/modules/tooltips/tooltip/Tooltip';
+} from './modules/tooltips/tooltip/Tooltip';
 
 
 export { default as ModuleHelper } from '@/utils/package';

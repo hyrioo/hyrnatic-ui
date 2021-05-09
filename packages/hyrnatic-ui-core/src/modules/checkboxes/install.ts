@@ -1,5 +1,5 @@
-import Checkbox from '@/modules/checkboxes/checkbox/Checkbox';
-import { installComponents } from '@/utils/package';
+import Checkbox from './checkbox/Checkbox';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

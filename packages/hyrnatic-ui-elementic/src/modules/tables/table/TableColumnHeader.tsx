@@ -1,7 +1,7 @@
 import {
     defineComponent, SetupContext, inject, computed, PropType,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import { CoreTableColumn, CoreTableSortDefinition, CoreTableProvide } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({

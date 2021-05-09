@@ -1,4 +1,4 @@
-import Icon from '@/modules/icons/icon/Icon.vue';
+import Icon from './icon/Icon.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

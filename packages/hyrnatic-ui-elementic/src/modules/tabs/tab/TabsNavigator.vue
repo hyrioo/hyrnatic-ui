@@ -9,14 +9,14 @@
 import {
     defineComponent, ref, computed, SetupContext, onMounted, provide, watch, nextTick,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     CoreTabItemInstance,
     CoreTabsNavigatorReturn,
     coreTabsNavigatorModelValueProp,
     coreTabsNavigatorSetup,
 } from '@hyrioo/hyrnatic-ui-core';
-import Arr from '@/utils/array';
+import Arr from '../../../utils/array';
 
 export default defineComponent({
     name: 'h-tabs-navigator',

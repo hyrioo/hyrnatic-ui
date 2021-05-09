@@ -21,7 +21,7 @@
 import {
     defineComponent, nextTick, onMounted, ref, SetupContext,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     CorePopperComponent,
     coreTooltipModelValueProp,

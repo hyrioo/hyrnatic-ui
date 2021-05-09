@@ -1,5 +1,5 @@
-import Tooltip from '@/modules/tooltips/tooltip/Tooltip';
-import { installComponents } from '@/utils/package';
+import Tooltip from './tooltip/Tooltip';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

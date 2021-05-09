@@ -1,5 +1,5 @@
-import Button from '@/modules/buttons/button/Button';
-import { installComponents } from '@/utils/package';
+import Button from './button/Button';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

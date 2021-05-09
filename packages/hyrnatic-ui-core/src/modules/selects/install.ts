@@ -1,6 +1,6 @@
-import Select from '@/modules/selects/select/Select';
-import SelectItem from '@/modules/selects/select/SelectItem';
-import { installComponents } from '@/utils/package';
+import Select from './select/Select';
+import SelectItem from './select/SelectItem';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

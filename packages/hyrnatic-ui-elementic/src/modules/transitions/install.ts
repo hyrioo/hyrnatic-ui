@@ -1,4 +1,4 @@
-import Grow from '@/modules/transitions/Grow';
+import Grow from './Grow';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

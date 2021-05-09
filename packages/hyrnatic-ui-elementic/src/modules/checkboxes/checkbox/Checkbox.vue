@@ -17,7 +17,7 @@
 import {
     defineComponent, ref, computed, SetupContext, onMounted,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     coreCheckboxDisabledProp,
     coreCheckboxIndeterminateProp,

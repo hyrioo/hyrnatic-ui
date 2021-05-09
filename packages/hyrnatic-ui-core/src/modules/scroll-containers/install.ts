@@ -1,6 +1,6 @@
-import ScrollContainer from '@/modules/scroll-containers/scroll-container/ScrollContainer';
-import { installComponents, installDependencies, Module } from '@/utils/package';
-import CommonInstall from '@/modules/common/install';
+import ScrollContainer from './scroll-container/ScrollContainer';
+import { installComponents, installDependencies, Module } from '../../utils/package';
+import CommonInstall from '../common/install';
 
 let installed = false;
 const components = {

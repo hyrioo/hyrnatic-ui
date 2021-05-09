@@ -1,5 +1,5 @@
-import { installComponents } from '@/utils/package';
-import FragmentContainer from '@/modules/fragments/fragment/FragmentContainer';
+import FragmentContainer from './fragment/FragmentContainer';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

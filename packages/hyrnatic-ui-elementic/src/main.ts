@@ -1,12 +1,12 @@
 import AlertsInstall from './modules/alerts/install';
-import ButtonsInstall from '@/modules/buttons/install';
+import ButtonsInstall from './modules/buttons/install';
 import CheckboxesInstall from './modules/checkboxes/install';
 import CollapsesInstall from './modules/collapses/install';
 import DialogsInstall from './modules/dialogs/install';
 import DrawersInstall from './modules/drawers/install';
 import DropdownsInstall from './modules/dropdowns/install';
 import FragmentsInstall from './modules/fragments/install';
-import IconsInstall from '@/modules/icons/install';
+import IconsInstall from './modules/icons/install';
 import InputsInstall from './modules/inputs/install';
 import ListsInstall from './modules/lists/install';
 import PaginatorsInstall from './modules/paginators/install';
@@ -51,7 +51,7 @@ const modules = {
 
 export default {
     install: (app, options) => {
-        console.log('Install all');
+        console.log('Install all', modules);
         Object.values(modules).forEach((module) => {
             module.install(app, options);
         });

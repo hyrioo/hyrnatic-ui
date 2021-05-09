@@ -1,7 +1,7 @@
-import Collapse from '@/modules/collapses/collapse/Collapse';
-import CollapseItem from '@/modules/collapses/collapse/CollapseItem';
-import InlineCollapse from '@/modules/collapses/inline-collapse/InlineCollapse';
-import { installComponents } from '@/utils/package';
+import Collapse from './collapse/Collapse';
+import CollapseItem from './collapse/CollapseItem';
+import InlineCollapse from './inline-collapse/InlineCollapse';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

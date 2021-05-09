@@ -1,7 +1,7 @@
-import PopperInstall from '@/modules/poppers/install';
 import Tooltip from './tooltip/Tooltip.vue';
 import { CoreTooltipsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import iconRegistry from '@/utils/icon-registry';
+import PopperInstall from '../poppers/install';
+import iconRegistry from '../../utils/icon-registry';
 import tooltipArrow from './custom-icons/tooltip-arrow';
 
 let installed = false;

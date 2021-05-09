@@ -10,9 +10,8 @@ var config = {
         // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: [".ts", ".tsx", ".js", ".vue"],
         alias: {
-            '@': path.join(__dirname, 'src/'),
+            // '@': path.join(__dirname, 'src/'),
         },
-        symlinks: false,
     },
     module: {
         rules: [

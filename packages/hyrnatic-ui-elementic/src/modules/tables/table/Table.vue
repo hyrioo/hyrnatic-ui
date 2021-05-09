@@ -29,7 +29,7 @@ import {
     defineComponent,
     SetupContext, watch,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     coreTableDataProp,
     coreTableRowKeyProp,
@@ -38,8 +38,8 @@ import {
     coreTableSortProp,
     coreTableSetup,
 } from '@hyrioo/hyrnatic-ui-core';
-import HTableColumnHeader from '@/modules/tables/table/TableColumnHeader';
-import HTableRow from '@/modules/tables/table/TableRow.vue';
+import HTableColumnHeader from './TableColumnHeader';
+import HTableRow from './TableRow.vue';
 
 export default defineComponent({
     name: 'h-table',

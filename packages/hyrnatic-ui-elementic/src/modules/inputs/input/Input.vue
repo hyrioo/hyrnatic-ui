@@ -26,7 +26,7 @@
 import {
     defineComponent, ref, SetupContext,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     coreInputDisabledProp,
     coreInputModelModifiersProp,

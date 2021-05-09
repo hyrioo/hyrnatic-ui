@@ -10,4 +10,4 @@ export { createCoreStepItem, CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic
 
 export { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-core';
 
-export * as IconRegistry from '@/utils/icon-registry';
+export * as IconRegistry from './utils/icon-registry';

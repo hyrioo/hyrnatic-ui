@@ -1,7 +1,7 @@
-import Collapse from '@/modules/collapses/collapse/Collapse.vue';
-import CollapseItem from '@/modules/collapses/collapse/CollapseItem.vue';
-import InlineCollapse from '@/modules/collapses/inline-collapse/InlineCollapse.vue';
-import TransitionsInstall from '@/modules/transitions/install';
+import Collapse from './collapse/Collapse.vue';
+import CollapseItem from './collapse/CollapseItem.vue';
+import InlineCollapse from './inline-collapse/InlineCollapse.vue';
+import TransitionsInstall from '../transitions/install';
 import { CoreCollapsesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

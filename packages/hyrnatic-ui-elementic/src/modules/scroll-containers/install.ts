@@ -1,4 +1,4 @@
-import ScrollContainer from '@/modules/scroll-containers/scroll-container/ScrollContainer.vue';
+import ScrollContainer from './scroll-container/ScrollContainer.vue';
 import { CoreScrollContainersInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

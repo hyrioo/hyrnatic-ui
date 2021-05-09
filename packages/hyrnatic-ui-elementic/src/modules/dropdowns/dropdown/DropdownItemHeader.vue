@@ -11,7 +11,7 @@
 import {
     defineComponent, inject, onMounted, onUnmounted, onUpdated, SetupContext,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 
 export default defineComponent({
     name: 'h-dropdown-item-header',

@@ -1,6 +1,6 @@
-import Dialog from '@/modules/dialogs/dialog/Dialog';
-import DialogWrapper from '@/modules/dialogs/dialog/DialogWrapper';
-import { installComponents } from '@/utils/package';
+import Dialog from './dialog/Dialog';
+import DialogWrapper from './dialog/DialogWrapper';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

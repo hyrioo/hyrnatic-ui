@@ -1,7 +1,7 @@
-import { installDirectives } from '@/utils/package';
-import ClickOutside from '@/modules/common/directives/click-outside';
-import DocumentEvent from '@/modules/common/directives/document-event';
-import Resize from '@/modules/common/directives/resize';
+import { installDirectives } from '../../utils/package';
+import ClickOutside from './directives/click-outside';
+import DocumentEvent from './directives/document-event';
+import Resize from './directives/resize';
 
 let installed = false;
 const directives = {

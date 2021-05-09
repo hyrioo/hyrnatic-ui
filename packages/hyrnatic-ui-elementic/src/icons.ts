@@ -10,7 +10,7 @@ import {
     mdiArrowRight,
     mdiPlus,
 } from '@mdi/js';
-import IconRegistry from '@/utils/icon-registry';
+import IconRegistry from './utils/icon-registry';
 
 IconRegistry.registerMDI('check', mdiCheck);
 IconRegistry.registerMDI('chevron-down', mdiChevronDown);

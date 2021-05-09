@@ -13,7 +13,7 @@ import {
     SetupContext,
     onUpdated, onMounted, onUnmounted, reactive, computed,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     CoreTabItemInstance,
     coreTabItemIdProp,

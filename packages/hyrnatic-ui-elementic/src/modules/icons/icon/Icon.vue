@@ -4,8 +4,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, SetupContext } from 'vue';
-import IconRegistry from '@/utils/icon-registry';
-import componentCss from '@/utils/component-css';
+import IconRegistry from '../../../utils/icon-registry';
+import componentCss from '../../../utils/component-css';
 
 export default defineComponent({
     name: 'h-icon',

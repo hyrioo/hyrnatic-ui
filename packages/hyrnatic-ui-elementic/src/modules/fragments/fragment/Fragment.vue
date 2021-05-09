@@ -11,7 +11,7 @@ import {
     computed, defineComponent, getCurrentInstance, inject, SetupContext,
 } from 'vue';
 import getSize from 'get-size';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 
 export default defineComponent({
     name: 'h-fragment',

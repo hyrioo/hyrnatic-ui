@@ -1,4 +1,4 @@
-import Dialog from '@/modules/dialogs/dialog/Dialog.vue';
+import Dialog from './dialog/Dialog.vue';
 import { CoreDialogsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

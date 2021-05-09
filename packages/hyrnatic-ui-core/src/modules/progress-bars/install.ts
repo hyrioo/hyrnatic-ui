@@ -1,5 +1,5 @@
-import ProgressBar from '@/modules/progress-bars/progress-bar/ProgressBar';
-import { installComponents } from '@/utils/package';
+import ProgressBar from './progress-bar/ProgressBar';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

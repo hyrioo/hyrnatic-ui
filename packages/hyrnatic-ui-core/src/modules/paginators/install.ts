@@ -1,5 +1,5 @@
-import Paginator from '@/modules/paginators/paginator/Paginator';
-import { installComponents } from '@/utils/package';
+import Paginator from './paginator/Paginator';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

@@ -20,7 +20,7 @@
 import {
     defineComponent, computed, SetupContext, ref,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     coreProgressBarMaximumProp,
     coreProgressBarMinimumProp,

@@ -8,7 +8,7 @@
 import {
     computed, defineComponent, nextTick, provide, reactive, ref, SetupContext,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import { coreFragmentContainerActiveProp, coreFragmentContainerSetup } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({

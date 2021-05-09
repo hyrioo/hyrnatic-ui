@@ -38,7 +38,7 @@
 import {
     defineComponent, reactive, ref, SetupContext, watch,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '/utils/component-css';
 import { coreDialogVisibleProp, coreDialogSetup } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({

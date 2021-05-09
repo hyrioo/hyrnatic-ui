@@ -1,5 +1,5 @@
-import StepsNavigator from '@/modules/steps/step/StepsNavigator';
-import { installComponents } from '@/utils/package';
+import StepsNavigator from './step/StepsNavigator';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

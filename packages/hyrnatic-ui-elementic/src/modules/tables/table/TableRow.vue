@@ -8,7 +8,7 @@
 import {
     defineComponent, SetupContext, PropType, computed, watch,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import { coreTableRowSetup, CoreTableRowSlotProps, CoreTableRow, CoreTableColumn } from '@hyrioo/hyrnatic-ui-core';
 import HTableCell from './TableCell';
 

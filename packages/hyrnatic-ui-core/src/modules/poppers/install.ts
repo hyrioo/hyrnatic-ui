@@ -1,5 +1,5 @@
-import Popper from '@/modules/poppers/popper/Popper';
-import { installComponents } from '@/utils/package';
+import Popper from './popper/Popper';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

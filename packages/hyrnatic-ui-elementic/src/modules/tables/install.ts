@@ -1,6 +1,6 @@
-import Table from '@/modules/tables/table/Table.vue';
-import TableColumn from '@/modules/tables/table/TableColumn.vue';
-import CheckboxInstall from '@/modules/checkboxes/install';
+import Table from './table/Table.vue';
+import TableColumn from './table/TableColumn.vue';
+import CheckboxInstall from '../checkboxes/install';
 import { CoreTablesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

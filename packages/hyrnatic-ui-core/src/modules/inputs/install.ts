@@ -1,5 +1,5 @@
-import Input from '@/modules/inputs/input/Input';
-import { installComponents } from '@/utils/package';
+import Input from './input/Input';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {

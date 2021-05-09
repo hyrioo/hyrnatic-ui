@@ -2,7 +2,7 @@
   "name": "@hyrioo/hyrnatic-ui-elementic",
   "version": "0.0.0",
   "main": "dist/index.js",
-  "modul": "src/main.ts",
+  "module": "src/main.ts",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=production",

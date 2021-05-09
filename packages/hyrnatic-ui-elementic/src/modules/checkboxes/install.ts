@@ -1,6 +1,6 @@
-import Checkbox from '@/modules/checkboxes/checkbox/Checkbox.vue';
+import Checkbox from './checkbox/Checkbox.vue';
 import { CoreCheckboxInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import iconRegistry from '@/utils/icon-registry';
+import iconRegistry from '../../utils/icon-registry';
 import checkStroke from './custom-icons/check-stroke';
 
 let installed = false;

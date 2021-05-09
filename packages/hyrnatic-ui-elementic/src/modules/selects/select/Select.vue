@@ -38,7 +38,7 @@
 import {
     defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext,
 } from 'vue';
-import componentCss from '@/utils/component-css';
+import componentCss from '../../../utils/component-css';
 import {
     CorePopperComponent,
     coreSelectAllowClearProp,

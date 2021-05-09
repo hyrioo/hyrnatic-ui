@@ -1,5 +1,5 @@
+import Input from './input/Input.vue';
 import { CoreInputsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import Input from '@/modules/inputs/input/Input.vue';
 
 let installed = false;
 const components = {

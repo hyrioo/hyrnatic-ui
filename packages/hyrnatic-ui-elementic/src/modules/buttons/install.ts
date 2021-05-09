@@ -1,7 +1,7 @@
-import Button from '@/modules/buttons/button/Button';
-import IconButton from '@/modules/buttons/icon-button/IconButton';
-import LinkButton from '@/modules/buttons/link-button/LinkButton';
-import IconInstall from '@/modules/icons/install';
+import Button from './button/Button';
+import IconButton from './icon-button/IconButton';
+import LinkButton from './link-button/LinkButton';
+import IconInstall from '../icons/install';
 import { ModuleHelper, CoreButtonsInstall } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

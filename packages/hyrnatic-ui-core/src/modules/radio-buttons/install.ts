@@ -1,5 +1,5 @@
-import RadioButton from '@/modules/radio-buttons/radio-button/RadioButton';
-import { installComponents } from '@/utils/package';
+import RadioButton from './radio-button/RadioButton';
+import { installComponents } from '../../utils/package';
 
 let installed = false;
 const components = {
