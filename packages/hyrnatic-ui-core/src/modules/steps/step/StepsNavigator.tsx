@@ -8,8 +8,8 @@ import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
-import Arr from '@/utils/array';
+} from '../../../utils/component';
+import Arr from '../../../utils/array';
 
 export interface CoreStepsNavigatorStepItem {
     id: string;

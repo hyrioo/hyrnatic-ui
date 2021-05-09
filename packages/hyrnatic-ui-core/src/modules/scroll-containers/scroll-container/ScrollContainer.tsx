@@ -10,7 +10,7 @@ import {
     ComputedRef,
     getCurrentInstance,
 } from 'vue';
-import { coreComponentAsPropsProp, setupBuilder } from '@/utils/component';
+import { coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 import './scroll-container.scss';
 
 export const coreScrollContainerHorizontalProp = {

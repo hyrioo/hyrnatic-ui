@@ -11,8 +11,8 @@ import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
-import Arr from '@/utils/array';
+} from '../../../utils/component';
+import Arr from '../../../utils/array';
 import { CoreDropdownItemInstance, CoreDropdownProvide } from '@/modules/dropdowns/dropdown/DropdownItem';
 
 export const coreDropdownDisabledProp = {

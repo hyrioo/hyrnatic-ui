@@ -1,6 +1,6 @@
-import Button from './button/Button';
-import IconButton from './icon-button/IconButton';
-import LinkButton from './link-button/LinkButton';
+import Button from './button/Button.vue';
+import IconButton from './icon-button/IconButton.vue';
+import LinkButton from './link-button/LinkButton.vue';
 import IconInstall from '../icons/install';
 import { ModuleHelper, CoreButtonsInstall } from '@hyrioo/hyrnatic-ui-core';
 

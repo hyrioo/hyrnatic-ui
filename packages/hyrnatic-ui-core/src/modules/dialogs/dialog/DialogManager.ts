@@ -1,4 +1,4 @@
-import { InternalDialogObject, Wrapper, wrappers } from '@/modules/dialogs/dialog/DialogWrapper';
+import { InternalDialogObject, Wrapper, wrappers } from './DialogWrapper';
 import {
     getCurrentInstance, provide, reactive, shallowRef,
 } from 'vue';

@@ -4,7 +4,7 @@ import {
 } from 'vue';
 import {
     coreComponentAsProp, coreComponentAsPropsProp, proxyEvents, proxyProps, setupBuilder,
-} from '@/utils/component';
+} from '../../../utils/component';
 
 export const coreButtonDisabledProp = {
     disabled: {

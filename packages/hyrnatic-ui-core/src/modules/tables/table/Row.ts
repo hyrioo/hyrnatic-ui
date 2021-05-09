@@ -1,7 +1,7 @@
 import {
     computed, watch, ComputedRef,
 } from 'vue';
-import Obj from '@/utils/object';
+import Obj from '../../../utils/object';
 
 export default class Row {
     public id: string;

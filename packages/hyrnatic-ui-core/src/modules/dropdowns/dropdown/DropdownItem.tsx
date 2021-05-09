@@ -8,7 +8,7 @@ import {
     inject,
     onMounted, onUnmounted, ComputedRef, h,
 } from 'vue';
-import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '@/utils/component';
+import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 
 export type CoreDropdownItemInstance = {
     onClick(e: any): void;

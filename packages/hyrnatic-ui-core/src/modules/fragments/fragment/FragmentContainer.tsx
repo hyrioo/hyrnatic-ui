@@ -6,7 +6,7 @@ import {
     reactive,
     SetupContext,
 } from 'vue';
-import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '@/utils/component';
+import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 
 export const coreFragmentContainerActiveProp = {
     active: {

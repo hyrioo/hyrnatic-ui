@@ -1,7 +1,7 @@
 import {
     computed, ComputedRef, defineComponent, getCurrentInstance, h, reactive, ref, SetupContext, watch,
 } from 'vue';
-import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '@/utils/component';
+import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 
 export const coreInlineCollapseModelValueProp = {
     modelValue: {

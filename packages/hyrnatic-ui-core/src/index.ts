@@ -1,54 +1,112 @@
-import Main from './main';
+// import transitions from './transitions';
+import CommonInstall from './modules/common/install';
 
-export default Main;
+import ButtonsInstall from './modules/buttons/install';
+import CheckboxesInstall from './modules/checkboxes/install';
+import CollapsesInstall from './modules/collapses/install';
+import DialogsInstall from './modules/dialogs/install';
+import DropdownsInstall from './modules/dropdowns/install';
+import FragmentsInstall from './modules/fragments/install';
+import InputsInstall from './modules/inputs/install';
+import PaginatorsInstall from './modules/paginators/install';
+import ProgressBarsInstall from './modules/progress-bars/install';
+import RadioButtonsInstall from './modules/radio-buttons/install';
+import ScrollContainersInstall from './modules/scroll-containers/install';
 
+import SelectsInstall from './modules/selects/install';
+import StepsInstall from './modules/steps/install';
+import TablesInstall from './modules/tables/install';
+import TabsInstall from './modules/tabs/install';
+import TooltipsInstall from './modules/tooltips/install';
+
+const modules = {
+    CommonInstall,
+    ButtonsInstall,
+    CheckboxesInstall,
+    CollapsesInstall,
+    DialogsInstall,
+    DropdownsInstall,
+    FragmentsInstall,
+    InputsInstall,
+    PaginatorsInstall,
+    ProgressBarsInstall,
+    RadioButtonsInstall,
+    ScrollContainersInstall,
+    SelectsInstall,
+    StepsInstall,
+    TablesInstall,
+    TabsInstall,
+    TooltipsInstall,
+};
+
+export default {
+    install: (app, options) => {
+        Object.values(modules).forEach((module) => {
+            module.install(app, options);
+        });
+        /*Object.keys(transitions).forEach((key) => {
+            const transition = transitions[key];
+            app.component(transition.name, transition);
+        });*/
+    },
+};
 
 export { default as CoreButtonsInstall } from './modules/buttons/install';
 export {
     coreButtonSetup,
-    CoreButtonSlotProps,
     coreButtonDisabledProp,
     coreButtonVisibleProp,
     coreButtonLoadingProp,
 } from './modules/buttons/button/Button';
-
+export type {
+    CoreButtonSlotProps,
+} from './modules/buttons/button/Button';
 
 export { default as CoreCheckboxInstall } from './modules/checkboxes/install';
 export {
     coreCheckboxSetup,
-    CoreCheckboxSlotProps,
     coreCheckboxModelValueProp,
     coreCheckboxValueProp,
     coreCheckboxDisabledProp,
     coreCheckboxVisibleProp,
     coreCheckboxIndeterminateProp,
 } from './modules/checkboxes/checkbox/Checkbox';
-
+export type {
+    CoreCheckboxSlotProps,
+} from './modules/checkboxes/checkbox/Checkbox';
 
 export { default as CoreCollapsesInstall } from './modules/collapses/install';
 export {
     coreCollapseSetup,
-    CoreCollapseSlotProps,
     coreCollapseAccordionProp,
     coreCollapseModelValueProp,
 } from './modules/collapses/collapse/Collapse';
 export {
     coreCollapseItemSetup,
-    CoreCollapseItemSlotProps,
     coreCollapseItemIdProp,
 } from './modules/collapses/collapse/CollapseItem';
 export {
     coreCollapseInlineSetup,
-    CoreCollapseInlineSlotProps,
     coreInlineCollapseModelValueProp
+} from './modules/collapses/inline-collapse/InlineCollapse';
+export type {
+    CoreCollapseSlotProps,
+} from './modules/collapses/collapse/Collapse';
+export type {
+    CoreCollapseItemSlotProps,
+} from './modules/collapses/collapse/CollapseItem';
+export type {
+    CoreCollapseInlineSlotProps,
 } from './modules/collapses/inline-collapse/InlineCollapse';
 
 
 export { default as CoreDialogsInstall } from './modules/dialogs/install';
 export {
     coreDialogSetup,
-    CoreDialogSlotProps,
     coreDialogVisibleProp,
+} from './modules/dialogs/dialog/Dialog';
+export type {
+    CoreDialogSlotProps,
 } from './modules/dialogs/dialog/Dialog';
 export * as DialogManager from './modules/dialogs/dialog/DialogManager';
 
@@ -56,7 +114,6 @@ export * as DialogManager from './modules/dialogs/dialog/DialogManager';
 export { default as CoreDropdownsInstall } from './modules/dropdowns/install';
 export {
     coreDropdownSetup,
-    CoreDropdownSlotProps,
     coreDropdownDisabledProp,
     coreDropdownHideOnClickProp,
     coreDropdownSplitButtonProp,
@@ -64,8 +121,13 @@ export {
 } from './modules/dropdowns/dropdown/Dropdown';
 export {
     coreDropdownItemSetup,
-    CoreDropdownItemSlotProps,
     coreDropdownItemDisabledProp,
+} from './modules/dropdowns/dropdown/DropdownItem';
+export type {
+    CoreDropdownSlotProps,
+} from './modules/dropdowns/dropdown/Dropdown';
+export type {
+    CoreDropdownItemSlotProps,
     CoreDropdownItemInstance,
     CoreDropdownProvide,
 } from './modules/dropdowns/dropdown/DropdownItem';
@@ -74,38 +136,41 @@ export {
 export { default as CoreFragmentsInstall } from './modules/fragments/install';
 export {
     coreFragmentContainerSetup,
-    CoreFragmentContainerSlotProps,
     coreFragmentContainerActiveProp,
+} from './modules/fragments/fragment/FragmentContainer';
+export type {
+    CoreFragmentContainerSlotProps,
 } from './modules/fragments/fragment/FragmentContainer';
 
 
 export { default as CoreInputsInstall } from './modules/inputs/install';
 export {
     coreInputSetup,
-    CoreInputSlotProps,
     coreInputModelValueProp,
     coreInputModelModifiersProp,
     coreInputDisabledProp,
     coreInputReadonlyProp,
+} from './modules/inputs/input/Input';
+export type {
+    CoreInputSlotProps,
 } from './modules/inputs/input/Input';
 
 
 export { default as CorePaginatorsInstall } from './modules/paginators/install';
 export {
     corePaginatorSetup,
-    CorePaginatorSlotProps,
     corePaginatorModelValueProp,
     corePaginatorPageSizeProp,
     corePaginatorCountProp,
     corePaginatorDeltaProp,
 } from './modules/paginators/paginator/Paginator';
-
+export type {
+    CorePaginatorSlotProps,
+} from './modules/paginators/paginator/Paginator';
 
 export { default as CorePoppersInstall } from './modules/poppers/install';
 export {
     corePopperSetup,
-    CorePopperSlotProps,
-    CorePopperComponent,
     corePopperReferenceProp,
     corePopperVisibleProp,
     corePopperMinimumWidthProp,
@@ -118,6 +183,10 @@ export {
     corePopperRootClassesProp,
     defaultPopperOptions,
 } from './modules/poppers/popper/Popper';
+export type {
+    CorePopperSlotProps,
+    CorePopperComponent,
+} from './modules/poppers/popper/Popper';
 export { default as corePopperAfterUpdateModifier } from './modules/poppers/modifiers/after-update';
 export { default as corePopperApplyMaxSizeModifier } from './modules/poppers/modifiers/apply-max-size';
 export { default as corePopperArrowPositionModifier } from './modules/poppers/modifiers/arrow-position';
@@ -129,27 +198,30 @@ export { default as corePopperMinimumReferenceSizeModifier } from './modules/pop
 export { default as CoreProgressBarsInstall } from './modules/progress-bars/install';
 export {
     coreProgressBarSetup,
-    CoreProgressBarSlotProps,
     coreProgressBarValueProp,
     coreProgressBarMinimumProp,
     coreProgressBarMaximumProp,
+} from './modules/progress-bars/progress-bar/ProgressBar';
+export type {
+    CoreProgressBarSlotProps,
 } from './modules/progress-bars/progress-bar/ProgressBar';
 
 
 export { default as CoreRadioButtonsInstall } from './modules/radio-buttons/install';
 export {
     coreRadioButtonSetup,
-    CoreRadioButtonSlotProps,
     coreRadioButtonDisabledProp,
     coreRadioButtonModelValueProp,
     coreRadioButtonValueProp,
+} from './modules/radio-buttons/radio-button/RadioButton';
+export type {
+    CoreRadioButtonSlotProps,
 } from './modules/radio-buttons/radio-button/RadioButton';
 
 
 export { default as CoreScrollContainersInstall } from './modules/scroll-containers/install';
 export {
     coreScrollContainerSetup,
-    CoreScrollContainerSlotProps,
     coreScrollContainerHorizontalProp,
     coreScrollContainerVerticalProp,
     coreScrollContainerAutoHideProp,
@@ -157,12 +229,14 @@ export {
     coreScrollContainerMinimumSizeProp,
     coreScrollContainerClassesProp,
 } from './modules/scroll-containers/scroll-container/ScrollContainer';
+export type {
+    CoreScrollContainerSlotProps,
+} from './modules/scroll-containers/scroll-container/ScrollContainer';
 
 
 export { default as CoreSelectsInstall } from './modules/selects/install';
 export {
     coreSelectSetup,
-    CoreSelectSlotProps,
     coreSelectModelValueProp,
     coreSelectDisabledProp,
     coreSelectMultipleProp,
@@ -172,9 +246,14 @@ export {
 } from './modules/selects/select/Select';
 export {
     coreSelectItemSetup,
-    CoreSelectItemSlotProps,
     coreSelectItemValueProp,
     coreSelectItemDisabledProp,
+} from './modules/selects/select/SelectItem';
+export type {
+    CoreSelectSlotProps,
+} from './modules/selects/select/Select';
+export type {
+    CoreSelectItemSlotProps,
 } from './modules/selects/select/SelectItem';
 
 
@@ -182,9 +261,11 @@ export { default as CoreStepsInstall } from './modules/steps/install';
 export {
     createCoreStepItem,
     coreStepsNavigatorSetup,
-    CoreStepsNavigatorSlotProps,
     coreStepsNavigatorModelValueProp,
     coreStepsNavigatorStepsProp,
+} from './modules/steps/step/StepsNavigator';
+export type {
+    CoreStepsNavigatorSlotProps,
     CoreStepsNavigatorReturn,
     CoreStepsNavigatorStepItem,
     CoreStepsNavigatorDetailedStepItem,
@@ -194,7 +275,6 @@ export {
 export { default as CoreTablesInstall } from './modules/tables/install';
 export {
     coreTableSetup,
-    CoreTableSlotProps,
     coreTableDataProp,
     coreTableRowKeyProp,
     coreTableSelectableProp,
@@ -212,39 +292,49 @@ export {
 } from './modules/tables/table/TableColumn';
 export {
     coreTableRowSetup,
-    CoreTableRowSlotProps,
     coreTableRowColumnsProp,
     coreTableRowRowProp,
 } from './modules/tables/table/TableRow';
+export type {
+    CoreTableSlotProps,
+} from './modules/tables/table/Table';
+export type {
+    CoreTableRowSlotProps,
+} from './modules/tables/table/TableRow';
 export { default as CoreTableColumn } from './modules/tables/table/Column';
 export { default as CoreTableRow } from './modules/tables/table/Row';
-export { TableProvide as CoreTableProvide, SortDefinition as CoreTableSortDefinition } from './modules/tables/table/TableTypes';
+export type { TableProvide as CoreTableProvide, SortDefinition as CoreTableSortDefinition } from './modules/tables/table/TableTypes';
 
 
 export { default as CoreTabsInstall } from './modules/tabs/install';
 export {
     coreTabItemSetup,
-    CoreTabItemSlotProps,
     coreTabItemIdProp,
     coreTabItemIdDisabledProp,
+} from './modules/tabs/tab/TabItem';
+export {
+    coreTabsNavigatorSetup,
+    coreTabsNavigatorModelValueProp,
+} from './modules/tabs/tab/TabsNavigator';
+export type {
+    CoreTabItemSlotProps,
     CoreTabItemInstance,
     CoreTabsNavigatorProvide,
     CoreTabsNavigatorReturn,
 } from './modules/tabs/tab/TabItem';
-export {
-    coreTabsNavigatorSetup,
+export type {
     CoreTabsNavigatorSlotProps,
-    coreTabsNavigatorModelValueProp,
 } from './modules/tabs/tab/TabsNavigator';
 
 
 export { default as CoreTooltipsInstall } from './modules/tooltips/install';
 export {
     coreTooltipSetup,
-    CoreTooltipSlotProps,
     coreTooltipModelValueProp,
     coreTooltipTriggerProp,
 } from './modules/tooltips/tooltip/Tooltip';
+export type {
+    CoreTooltipSlotProps,
+} from './modules/tooltips/tooltip/Tooltip';
 
-
-export { default as ModuleHelper } from '@/utils/package';
+export { default as ModuleHelper } from './utils/package';

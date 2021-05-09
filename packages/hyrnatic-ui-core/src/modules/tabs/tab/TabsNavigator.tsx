@@ -10,8 +10,8 @@ import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
-import Arr from '@/utils/array';
+} from '../../../utils/component';
+import Arr from '../../../utils/array';
 import { CoreTabItemInstance, CoreTabsNavigatorProvide } from '@/modules/tabs/tab/TabItem';
 
 export const coreTabsNavigatorModelValueProp = {

@@ -13,7 +13,7 @@ import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
+} from '../../../utils/component';
 
 export type CoreTabItemInstance = {
     id: string;

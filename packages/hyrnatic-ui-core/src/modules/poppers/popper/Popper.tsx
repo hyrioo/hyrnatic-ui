@@ -13,11 +13,11 @@ import {
 } from 'vue';
 import { Instance as PopperInstance, Modifier } from '@popperjs/core/lib/types';
 import { createPopper, OptionsGeneric } from '@popperjs/core';
-import broadcastSizeModifier from '@/modules/poppers/modifiers/broadcast-size';
-import afterUpdate from '@/modules/poppers/modifiers/after-update';
+import broadcastSizeModifier from '../modifiers/broadcast-size';
+import afterUpdate from '../modifiers/after-update';
 import maxSize from 'popper-max-size-modifier';
-import { setupBuilder } from '@/utils/component';
-import { applyMaxSize } from '@/modules/poppers/modifiers/apply-max-size';
+import { setupBuilder } from '../../../utils/component';
+import { applyMaxSize } from '../modifiers/apply-max-size';
 
 export const corePopperReferenceProp = {
     reference: {

@@ -11,10 +11,10 @@ import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
+} from '../../../utils/component';
 import { SelectItemInstance, SelectProvide } from '@/modules/selects/select/SelectItem';
-import Arr from '@/utils/array';
-import Obj from '@/utils/object';
+import Arr from '../../../utils/array';
+import Obj from '../../../utils/object';
 
 export const coreSelectModelValueProp = {
     modelValue: {

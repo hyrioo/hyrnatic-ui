@@ -1,12 +1,12 @@
 import {
     computed, ComputedRef, defineComponent, getCurrentInstance, h, provide, reactive, Ref, SetupContext,
 } from 'vue';
-import Arr from '@/utils/array';
+import Arr from '../../../utils/array';
 import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
+} from '../../../utils/component';
 
 export const coreCollapseAccordionProp = {
     accordion: {

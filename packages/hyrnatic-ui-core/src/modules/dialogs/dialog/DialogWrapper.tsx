@@ -8,7 +8,7 @@ import {
     Teleport,
     ComputedRef, reactive,
 } from 'vue';
-import Str from '@/utils/string';
+import Str from '../../../utils/string';
 
 export interface DialogObject {
     component: DefineComponent;

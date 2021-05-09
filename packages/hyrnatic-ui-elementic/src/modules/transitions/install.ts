@@ -1,4 +1,4 @@
-import Grow from './Grow';
+import Grow from './Grow.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

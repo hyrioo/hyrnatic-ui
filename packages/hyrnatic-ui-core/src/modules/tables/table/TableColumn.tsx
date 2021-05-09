@@ -5,9 +5,9 @@ import {
     SetupContext,
 
 } from 'vue';
-import { proxyEvents, proxyProps } from '@/utils/component';
+import { proxyEvents, proxyProps } from '../../../utils/component';
 import { TableProvide } from '@/modules/tables/table/TableTypes';
-import Str from '@/utils/string';
+import Str from '../../../utils/string';
 
 export const coreTableColumnPropertyProp = {
     property: {

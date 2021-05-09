@@ -2,7 +2,7 @@
   "name": "@hyrioo/hyrnatic-ui-core",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "module": "src/main.ts",
+  "module": "src/index.ts",
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",

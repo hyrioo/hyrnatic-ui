@@ -1,8 +1,8 @@
 import {
     computed, ComputedRef, defineComponent, getCurrentInstance, inject, reactive, SetupContext,
 } from 'vue';
-import { proxyEvents, proxyProps } from '@/utils/component';
-import { getWrapper } from '@/modules/dialogs/dialog/DialogManager';
+import { proxyEvents, proxyProps } from '../../../utils/component';
+import { getWrapper } from './DialogManager';
 
 export const coreDialogVisibleProp = {
     visible: {

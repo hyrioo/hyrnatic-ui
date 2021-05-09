@@ -9,7 +9,7 @@ import {
     SetupContext,
     watch,
 } from 'vue';
-import { setupBuilder } from '@/utils/component';
+import { setupBuilder } from '../../../utils/component';
 
 export const coreTooltipModelValueProp = {
     modelValue: {

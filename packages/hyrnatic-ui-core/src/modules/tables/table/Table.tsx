@@ -16,10 +16,10 @@ import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
-} from '@/utils/component';
-import { SortDefinition, TableProvide } from '@/modules/tables/table/TableTypes';
-import Column from '@/modules/tables/table/Column';
-import Row from '@/modules/tables/table/Row';
+} from '../../../utils/component';
+import { SortDefinition, TableProvide } from './TableTypes';
+import Column from './Column';
+import Row from './Row';
 
 export const coreTableDataProp = {
     data: {

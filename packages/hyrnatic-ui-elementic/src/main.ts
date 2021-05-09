@@ -51,9 +51,19 @@ const modules = {
 
 export default {
     install: (app, options) => {
-        console.log('Install all', modules);
         Object.values(modules).forEach((module) => {
             module.install(app, options);
         });
     },
 };
+
+export { DialogManager } from '@hyrioo/hyrnatic-ui-core';
+
+export { corePopperAfterUpdateModifier, corePopperApplyMaxSizeModifier, corePopperArrowPositionModifier, corePopperBroadcastSizeModifier, corePopperMatchReferenceSizeModifier, corePopperMinimumReferenceSizeModifier } from '@hyrioo/hyrnatic-ui-core';
+
+export { createCoreStepItem } from '@hyrioo/hyrnatic-ui-core';
+export type { CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-core';
+
+export type { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-core';
+
+export * as IconRegistry from './utils/icon-registry';

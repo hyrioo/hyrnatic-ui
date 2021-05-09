@@ -51,7 +51,7 @@ var config = {
 
 var indexConfig = Object.assign({}, config, {
     name: 'index',
-    entry: './src/index.ts',
+    entry: './src/index-old.ts',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: "index.js",
