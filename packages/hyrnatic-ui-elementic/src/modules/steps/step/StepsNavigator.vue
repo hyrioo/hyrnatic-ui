@@ -49,7 +49,6 @@ export default defineComponent({
         ));
 
         const updateIndicator = () => {
-            console.log('updateIndicator');
             if (stepsRefs.value.length) {
                 const firstStep = stepsRefs.value[0].$el;
                 indicatorOffset.value = props.vertical ? firstStep.offsetTop + firstStep.offsetHeight : firstStep.offsetLeft + firstStep.offsetWidth;
@@ -61,7 +60,6 @@ export default defineComponent({
             }
         };
         const setActiveStepRef = (component, step: CoreStepsNavigatorStepItem) => {
-            console.log('setActiveStepRef', step);
             if (step.id === props.modelValue) {
                 updateIndicator();
             }

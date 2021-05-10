@@ -1,5 +1,5 @@
 <template>
-    <hr-tabs-navigator v-slot="props" ref="tabsNavigator" :class="[css_root, {'-vertical': vertical}]" v-bind="core.props" v-on="core.listeners">
+    <hr-tabs-navigator v-slot="props" :ref="el => setNavigator(el)" :class="[css_root, {'-vertical': vertical}]" v-bind="core.props" v-on="core.listeners">
         <slot />
         <div :class="[css_ec('indicator'), {'-hidden': props.activeTab === null}]" :style="indicatorStyle" />
     </hr-tabs-navigator>
@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, ref, computed, SetupContext, onMounted, provide, watch, nextTick,
+    defineComponent, ref, computed, SetupContext, onMounted, provide, watch, watchEffect, nextTick, onUnmounted
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -58,8 +58,11 @@ export default defineComponent({
                 }
             }
         };
+        const setNavigator = (el) => {
+            tabsNavigator.value = el;
+            watch(() => tabsNavigator.value ? tabsNavigator.value.activeTab : null, updateIndicator);
+        }
         onMounted(() => updateIndicator());
-        nextTick(() => watch(() => tabsNavigator.value.activeTab, updateIndicator));
         provide('updateIndicator', updateIndicator);
 
         provide('tabsNavigator', {
@@ -71,7 +74,7 @@ export default defineComponent({
             .build();
 
         return {
-            tabsNavigator,
+            setNavigator,
             core,
             indicatorStyle,
             updateIndicator,

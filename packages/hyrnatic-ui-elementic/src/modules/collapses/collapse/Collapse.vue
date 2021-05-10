@@ -9,7 +9,7 @@ import {
     defineComponent, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
-import HrCollapse, {
+import {
     coreCollapseAccordionProp,
     coreCollapseModelValueProp,
     coreCollapseSetup,
@@ -17,7 +17,6 @@ import HrCollapse, {
 
 export default defineComponent({
     name: 'h-collapse',
-    components: { HrCollapse },
     props: {
         ...coreCollapseAccordionProp,
         ...coreCollapseModelValueProp,

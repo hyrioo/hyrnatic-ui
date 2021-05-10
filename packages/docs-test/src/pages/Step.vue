@@ -37,7 +37,6 @@ export default defineComponent({
         const value = ref('two');
 
         const next = () => {
-            console.log(navigator.value);
             navigator.value.nextStep();
         };
 

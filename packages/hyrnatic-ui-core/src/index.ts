@@ -154,6 +154,16 @@ export {
 export type {
     CoreInputSlotProps,
 } from './modules/inputs/input/Input';
+export {
+    coreAutocompleteSetup,
+    coreAutocompleteModelValueProp,
+    coreAutocompleteModelModifiersProp,
+    coreAutocompleteDisabledProp,
+    coreAutocompleteItemsProp,
+} from './modules/inputs/autocomplete/Autocomplete';
+export type {
+    CoreAutocompleteSlotProps,
+} from './modules/inputs/autocomplete/Autocomplete';
 
 
 export { default as CorePaginatorsInstall } from './modules/paginators/install';

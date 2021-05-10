@@ -9,7 +9,7 @@ import { defineComponent, SetupContext } from 'vue';
 import getSize from 'get-size';
 
 export default defineComponent({
-    name: 'hr-grow-transition',
+    name: 'h-grow-transition',
     setup(props, ctx: SetupContext) {
         const beforeEnter = (el) => {
             const originalSize = getSize(el);
@@ -42,7 +42,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .grow-enter-active, .grow-leave-active {
   transition: height 512ms cubic-bezier(0.4, 0.0, 0.2, 1);
   overflow: hidden;

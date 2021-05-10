@@ -68,7 +68,6 @@ export default defineComponent({
 
         const label = computed(() => {
             if (coreProgressBar.value) {
-                console.log(coreProgressBar.value);
                 return props.showPercentage ? `${coreProgressBar.value.percentage}%` : props.value;
             } else {
                 return '';
