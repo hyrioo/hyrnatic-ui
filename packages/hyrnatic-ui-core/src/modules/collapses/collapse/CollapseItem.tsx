@@ -1,7 +1,7 @@
 import {
     computed, ComputedRef, defineComponent, getCurrentInstance, h, inject, reactive, SetupContext,
 } from 'vue';
-import { CollapseProvide } from '@/modules/collapses/collapse/Collapse';
+import { CollapseProvide } from './Collapse';
 import {
     coreComponentAsProp,
     coreComponentAsPropsProp,

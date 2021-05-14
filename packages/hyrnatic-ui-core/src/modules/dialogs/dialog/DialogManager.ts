@@ -10,7 +10,7 @@ export function create<P extends {} = {}, L extends {} = {}>(component, props: P
     let dialog: InternalDialogObject = null;
     const promise = new Promise((resolve, reject) => {
         dialog = wrappers[wrapper].addDialog({
-            component: shallowRef(component), listeners, props: reactive(props), stack,
+            component: shallowRef(component), listeners, props: props !== null ? reactive(props) : null, stack,
         }, { resolve, reject });
     });
 

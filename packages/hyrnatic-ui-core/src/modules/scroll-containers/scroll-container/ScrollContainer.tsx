@@ -233,6 +233,9 @@ export default defineComponent({
             }
         };
 
+        const scrollTo = (x ,y) => {
+            wrapper.value.scrollTo(x, y);
+        }
         const onScroll = () => {
             startAutoHideTimer();
             updateThumbs();
@@ -280,6 +283,8 @@ export default defineComponent({
 
             slotProps,
             registerBar,
+
+            scrollTo,
         };
     },
     render() {

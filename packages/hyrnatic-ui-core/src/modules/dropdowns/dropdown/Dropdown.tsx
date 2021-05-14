@@ -13,7 +13,7 @@ import {
     setupBuilder,
 } from '../../../utils/component';
 import Arr from '../../../utils/array';
-import { CoreDropdownItemInstance, CoreDropdownProvide } from '@/modules/dropdowns/dropdown/DropdownItem';
+import { CoreDropdownItemInstance, CoreDropdownProvide } from './DropdownItem';
 
 export const coreDropdownDisabledProp = {
     disabled: {

@@ -12,7 +12,7 @@ import {
     coreComponentAsPropsProp,
     setupBuilder,
 } from '../../../utils/component';
-import { SelectItemInstance, SelectProvide } from '@/modules/selects/select/SelectItem';
+import { SelectItemInstance, SelectProvide } from './SelectItem';
 import Arr from '../../../utils/array';
 import Obj from '../../../utils/object';
 

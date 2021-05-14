@@ -56,6 +56,10 @@ export default defineComponent({
             scrollContainer.value.registerBar('horizontal', horizontalTrack.value, horizontalThumb.value);
         });
 
+        const scrollTo = (x ,y) => {
+            scrollContainer.value.scrollTo(x, y);
+        }
+
         const asProps = (slotProps: CoreScrollContainerSlotProps) => ({
             class: { '-hover': slotProps.anyHover, '-dragging': slotProps.anyDragging, '-is-hidden': slotProps.hidden },
         });
@@ -69,6 +73,7 @@ export default defineComponent({
             horizontalTrack,
             horizontalThumb,
             ...componentCss(),
+            scrollTo,
         };
     },
 });

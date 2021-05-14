@@ -26,7 +26,7 @@ export default defineComponent({
         const value2 = ref('');
         const value3 = ref(true);
         const items = computed(() => {
-            return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'].filter((s) => s.toLowerCase().indexOf(value.value.toLowerCase()) !== -1);
+            return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six', 'twenty-seven', 'twenty-eight', 'twenty-nine'].filter((s) => s.toLowerCase().indexOf(value.value.toLowerCase()) !== -1);
         });
 
         const alert = (item) => {

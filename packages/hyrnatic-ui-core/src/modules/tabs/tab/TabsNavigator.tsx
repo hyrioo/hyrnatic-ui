@@ -12,7 +12,7 @@ import {
     setupBuilder,
 } from '../../../utils/component';
 import Arr from '../../../utils/array';
-import { CoreTabItemInstance, CoreTabsNavigatorProvide } from '@/modules/tabs/tab/TabItem';
+import { CoreTabItemInstance, CoreTabsNavigatorProvide } from './TabItem';
 
 export const coreTabsNavigatorModelValueProp = {
     modelValue: {

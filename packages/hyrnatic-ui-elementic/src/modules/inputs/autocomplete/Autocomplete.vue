@@ -1,5 +1,5 @@
 <template>
-    <hr-autocomplete :ref="(el) => setCoreInput(el)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners">
+    <hr-autocomplete :ref="(el) => setCoreInput(el)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners" @item-selected="onItemSelected" @focused-item-changed="onFocusedItemChanged">
         <slot name="customPrefix" />
         <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]">
             <slot name="prefix">
@@ -20,13 +20,13 @@
         </div>
         <slot name="customSuffix" />
 
-        <h-popper ref="popper" :classes="[css_ec('list-container')]" :reference="coreInputEl" keep transition="fade-fast"
+        <h-popper ref="popper" :classes="[css_ec('list-container')]" :reference="coreAutocompleteEl" transition="fade-fast"
                   :visible="props.listVisible" :options="{placement: `bottom`}" :modifiers="modifiers"
                   @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
         >
             <div :class="[css_ec('list-box')]" @keydown="props.onKeyEvents">
-                <h-scroll-container>
-                    <slot :items="props.items" :focused-item="props.focusedItem">
+                <h-scroll-container ref="scrollContainer">
+                    <slot :items="props.items" :focused-item="props.focusedItem" :on-item-click="props.onItemClick">
                         <ul :class="[css_ec('list')]">
                             <li v-for="item in props.items" :class="[css_ec('list-item'), {'-focused': item === props.focusedItem}]" @click="props.onItemClick(item)">{{ item }}</li>
                         </ul>
@@ -101,31 +101,33 @@ export default defineComponent({
             default: null,
         },
     },
-    emits: ['update:modelValue', 'focus', 'blur', 'item-selected'],
+    emits: ['update:modelValue', 'focus', 'blur', 'itemSelected', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const input = ref<HTMLInputElement>();
-        const coreInput = ref();
-        const coreInputEl = ref<HTMLElement>();
+        const scrollContainer = ref<HTMLElement>();
+        const coreAutocomplete = ref();
+        const coreAutocompleteEl = ref<HTMLElement>();
         const popper = ref<CorePopperComponent>();
         const modifiers = [
             ...corePopperMatchReferenceSizeModifier,
         ];
 
-        onMounted(() => {
+        console.log(scrollContainer);
+        /*onMounted(() => {
             nextTick(() => {
                 popper.value.updatePopper();
             });
-        });
+        });*/
 
         const setCoreInput = (el) => {
-            coreInput.value = el;
-            coreInputEl.value = el ? el.$el : null;
+            coreAutocomplete.value = el;
+            coreAutocompleteEl.value = el ? el.$el : null;
         }
 
         const hasFocus = ref(false);
         const onFocus = () => {
             hasFocus.value = true;
-            coreInput.value.showList();
+            coreAutocomplete.value.showList();
             ctx.emit('focus');
         };
         const onBlur = () => {
@@ -133,36 +135,52 @@ export default defineComponent({
             ctx.emit('blur');
         };
         const focus = () => {
-            coreInput.value.focusInput();
+            coreAutocomplete.value.focusInput();
+        };
+        const hideList = () => {
+            coreAutocomplete.value.hideList();
         };
 
         const onClickOutside = (value) => {
+            console.log('onClickOutside', value);
             if (value.outsidePopper && value.outsideReference) {
-                coreInput.value.hideList();
+                hideList();
             }
         };
+
+        const onItemSelected = (item) => {
+            console.log('onItemSelected', item);
+        }
+        const onFocusedItemChanged = (item) => {
+            //TODO: Scroll to item
+        }
 
         const asProps = (slotProps: CoreAutocompleteSlotProps) => ({
             class: {
                 '-disabled': slotProps.disabled,
-            },
+            }
         });
-        const core = coreAutocompleteSetup(input).as('div', asProps).props(['modelValue', 'modelModifiers', 'disabled', 'items']).events(['update:modelValue', 'item-selected'])
+        const core = coreAutocompleteSetup(input).as('div', asProps).props(['modelValue', 'modelModifiers', 'disabled', 'items']).events(['update:modelValue', 'itemSelected', 'focusedItemChanged'])
             .build();
 
         return {
             setCoreInput,
-            coreInputEl,
+            coreAutocompleteEl,
             modifiers,
             input,
+            scrollContainer,
             hasFocus,
             onFocus,
             onBlur,
-            focus,
             popper,
             core,
             onClickOutside,
+            onItemSelected,
+            onFocusedItemChanged,
             ...componentCss(),
+
+            focus,
+            hideList,
         };
     },
 });

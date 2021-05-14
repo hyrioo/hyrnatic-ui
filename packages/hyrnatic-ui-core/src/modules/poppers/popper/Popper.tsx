@@ -112,6 +112,7 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const popperElement = ref<HTMLElement>(null);
         const innerElement = ref<HTMLElement>(null);
+        const destroyed = ref(false);
         const popperInstance = ref<PopperInstance>();
         const popperPlacement = ref(null);//computed(() => (popperInstance.value ? popperInstance.value.state.placement : null));
         const defaultPopperModifiers = [
@@ -155,13 +156,15 @@ export default defineComponent({
                 console.warn('The reference must be a valid element to create a popper instance');
                 return;
             }
-
+            destroyed.value = false;
             popperOptions.value.onFirstUpdate = () => ctx.emit('created');
             popperInstance.value = createPopper(props.reference, popperElement.value, popperOptions.value);
+            document.addEventListener('click', onDocumentClick);
         };
         let updateState = false;
         let queuedUpdate = false;
         const updatePopper = () => {
+            console.log('updatePopper');
             if (updateState) {
                 queuedUpdate = true;
                 return;
@@ -231,6 +234,7 @@ export default defineComponent({
         };
 
         const destroy = () => {
+            destroyed.value = true;
             if (popperInstance.value) {
                 popperInstance.value.destroy();
                 popperInstance.value = null;
@@ -246,10 +250,6 @@ export default defineComponent({
         };
 
         onUnmounted(destroy);
-        onMounted(() => {
-            // Temp until custom directives is working correctly in JSX
-            document.addEventListener('click', onDocumentClick);
-        });
 
         return {
             popperElement,
@@ -259,15 +259,23 @@ export default defineComponent({
             updatePopper,
             onDocumentClick,
             destroy,
+            destroyed,
             afterHide,
         };
     },
     render() {
         // TODO: Insert v-document-event={[this.onDocumentClick, 'click']} on span when custom directives is working correctly in JSX
         const content = () => (
-            <div v-show={this.visible} ref="innerElement" class={[this.classes]} style={this.style} data-popper-placement={this.popperPlacement}>
-                {this.$slots.default()}
-            </div>
+            (this.$props.keep ?
+                <div v-show={this.visible} ref="innerElement" class={[this.classes]} style={this.style} data-popper-placement={this.popperPlacement}>
+                    {this.$slots.default()}
+                </div> :
+                (this.visible ?
+                    <div ref="innerElement" class={[this.classes]} style={this.style} data-popper-placement={this.popperPlacement}>
+                        {this.$slots.default()}
+                    </div> : null
+                )
+            )
         );
         return (
             <Teleport to="body">

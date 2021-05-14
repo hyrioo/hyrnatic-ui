@@ -6,7 +6,7 @@ import {
 
 } from 'vue';
 import { proxyEvents, proxyProps } from '../../../utils/component';
-import { TableProvide } from '@/modules/tables/table/TableTypes';
+import { TableProvide } from './TableTypes';
 import Str from '../../../utils/string';
 
 export const coreTableColumnPropertyProp = {

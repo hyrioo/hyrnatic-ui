@@ -63,17 +63,10 @@ export default defineComponent({
             required: true,
         },
     },
-    emits: ['update:modelValue', 'item-selected'],
+    emits: ['update:modelValue', 'itemSelected', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const focusInput = (e) => {
-            if (props.readonly) {
-                // If nothing is selected, then select all text
-                if (e.target.selectionEnd === e.target.selectionStart) {
-                    props.input.select();
-                }
-            } else {
-                props.input.focus();
-            }
+            props.input.focus();
         };
 
         const emitValue = (value) => {
@@ -98,7 +91,7 @@ export default defineComponent({
         const listVisible = ref(false);
         const focusedItem = ref();
         const onItemClick = (item) => {
-            ctx.emit('item-selected', item);
+            ctx.emit('itemSelected', item);
         };
         const hideList = () => {
             listVisible.value = false;
@@ -118,10 +111,12 @@ export default defineComponent({
                 e.stopImmediatePropagation();
             } else if (e.key === 'ArrowDown') {
                 focusedItem.value = Arr.next(props.items, currentIndex);
+            ctx.emit('focusedItemChanged', focusedItem.value);
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'ArrowUp') {
                 focusedItem.value = Arr.prev(props.items, currentIndex);
+            ctx.emit('focusedItemChanged', focusedItem.value);
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'Enter' && focusedItem.value) {
@@ -138,6 +133,7 @@ export default defineComponent({
         };
         const clearFocusedItem = () => {
             focusedItem.value = null;
+            ctx.emit('focusedItemChanged', focusedItem.value);
         };
 
         const slotProps = reactive<CoreAutocompleteSlotProps>({

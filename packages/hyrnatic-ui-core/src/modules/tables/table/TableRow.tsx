@@ -1,7 +1,7 @@
 import {
     defineComponent, getCurrentInstance, h, PropType, reactive, SetupContext,
 } from 'vue';
-import Row from '@/modules/tables/table/Row';
+import Row from './Row';
 import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 
 export const coreTableRowColumnsProp = {
