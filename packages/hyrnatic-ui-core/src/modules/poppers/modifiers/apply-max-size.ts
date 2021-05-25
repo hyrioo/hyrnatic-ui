@@ -15,6 +15,7 @@ export const applyMaxSize: Modifier<'applyMaxSize', any> = {
             maxHeight: `${height}px`,
         };
     },
+    data: {},
 };
 
 export default [applyMaxSize];

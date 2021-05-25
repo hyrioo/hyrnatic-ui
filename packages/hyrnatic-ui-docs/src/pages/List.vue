@@ -26,7 +26,7 @@
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
 import Page from '../components/Page.vue';
-import Arr from '@/utils/array';
+import Arr from '../utils/array';
 
 export default defineComponent({
     components: { Page },

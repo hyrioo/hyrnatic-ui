@@ -84,6 +84,7 @@ export default defineComponent({
             .build();
 
         const updatePopper = () => {
+            console.log('popper.vue updatePopper');
             popper.value.updatePopper();
         };
 

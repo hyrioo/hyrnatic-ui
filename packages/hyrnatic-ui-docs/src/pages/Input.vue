@@ -5,11 +5,18 @@
         <h-input v-model.capitalize="value2" prefix-icon="key" prefix="Test" suffix="Test" />
         <br /><br />
         <h-input v-model="value2" :readonly="value3" />
+        <br /><br />
+        <h-autocomplete v-model="value" :items="items" @item-selected="alert">
+<!--            <template v-slot="props">-->
+<!--                <span>{{ props.focusedItem }}</span>-->
+<!--                <li v-for="item in props.items" :class="{'-focused': item === props.focusedItem}">{{ item }}</li>-->
+<!--            </template>-->
+        </h-autocomplete>
     </page>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
 import Page from '../components/Page.vue';
 
 export default defineComponent({
@@ -18,11 +25,20 @@ export default defineComponent({
         const value = ref('');
         const value2 = ref('');
         const value3 = ref(true);
+        const items = computed(() => {
+            return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six', 'twenty-seven', 'twenty-eight', 'twenty-nine'].filter((s) => s.toLowerCase().indexOf(value.value.toLowerCase()) !== -1);
+        });
+
+        const alert = (item) => {
+            console.log('Alert', item);
+        }
 
         return {
             value,
             value2,
             value3,
+            items,
+            alert,
         };
     },
 });

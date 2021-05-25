@@ -9,14 +9,16 @@ export const minimumReferenceSize: {
     name: 'minimumReferenceSize',
     enabled: true,
     fn: ({ state, instance }) => {
+        console.log('minimumReferenceSize');
         if (state.modifiersData.minimumReferenceSize.rerun) {
             return;
         }
         state.modifiersData.minimumReferenceSize.rerun = true;
         const widthOrHeight = state.placement.startsWith('left')
             || state.placement.startsWith('right')
-            ? 'min-height'
-            : 'min-width';
+            ? 'height'
+            : 'width';
+
         const popperSize = state.rects.popper[widthOrHeight];
         const referenceSize = state.rects.reference[widthOrHeight];
         const popperSizeRounded = Math.round(popperSize);

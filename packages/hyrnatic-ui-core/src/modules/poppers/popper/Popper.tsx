@@ -108,11 +108,10 @@ export default defineComponent({
         ...corePopperRootClassesProp,
         ...corePopperTransitionProp,
     },
-    emits: ['show', 'hide', 'created', 'clickOutside', 'popperSizeChanged', 'update:visible'],
+    emits: ['show', 'hide', 'created', 'afterUpdate', 'clickOutside', 'popperSizeChanged', 'update:visible'],
     setup(props, ctx: SetupContext) {
         const popperElement = ref<HTMLElement>(null);
         const innerElement = ref<HTMLElement>(null);
-        const destroyed = ref(false);
         const popperInstance = ref<PopperInstance>();
         const popperPlacement = ref(null);//computed(() => (popperInstance.value ? popperInstance.value.state.placement : null));
         const defaultPopperModifiers = [
@@ -131,6 +130,7 @@ export default defineComponent({
                 options: {
                     callback: () => {
                         popperPlacement.value = popperInstance.value ? popperInstance.value.state.placement : null;
+                        ctx.emit('afterUpdate');
                     },
                 },
             },
@@ -152,19 +152,22 @@ export default defineComponent({
         });
 
         const createPopperInstance = () => {
+            // console.log('createPopperInstance');
             if (!props.reference) {
                 console.warn('The reference must be a valid element to create a popper instance');
                 return;
             }
-            destroyed.value = false;
             popperOptions.value.onFirstUpdate = () => ctx.emit('created');
             popperInstance.value = createPopper(props.reference, popperElement.value, popperOptions.value);
-            document.addEventListener('click', onDocumentClick);
+            // console.log(popperInstance.value);
         };
         let updateState = false;
         let queuedUpdate = false;
         const updatePopper = () => {
-            console.log('updatePopper');
+            if (!innerElement.value) {
+                return;
+            }
+            // console.log('updatePopper');
             if (updateState) {
                 queuedUpdate = true;
                 return;
@@ -204,6 +207,7 @@ export default defineComponent({
             }
         };
         watch(() => props.visible, (visible: boolean) => {
+            // console.log('watch props.visible');
             ctx.emit(visible ? 'show' : 'hide');
             if (visible) {
                 nextTick(updatePopper);
@@ -234,14 +238,10 @@ export default defineComponent({
         };
 
         const destroy = () => {
-            destroyed.value = true;
             if (popperInstance.value) {
                 popperInstance.value.destroy();
                 popperInstance.value = null;
             }
-
-            // Temp until custom directives is working correctly in JSX
-            document.removeEventListener('click', onDocumentClick);
         };
         const afterHide = () => {
             if (!props.keep) {
@@ -259,12 +259,10 @@ export default defineComponent({
             updatePopper,
             onDocumentClick,
             destroy,
-            destroyed,
             afterHide,
         };
     },
     render() {
-        // TODO: Insert v-document-event={[this.onDocumentClick, 'click']} on span when custom directives is working correctly in JSX
         const content = () => (
             (this.$props.keep ?
                 <div v-show={this.visible} ref="innerElement" class={[this.classes]} style={this.style} data-popper-placement={this.popperPlacement}>
@@ -279,7 +277,7 @@ export default defineComponent({
         );
         return (
             <Teleport to="body">
-                <span ref="popperElement" class={[this.rootClasses]}>
+                <span ref="popperElement" class={[this.rootClasses]} v-document-event={[this.onDocumentClick, 'click']}>
                     {this.transition ? (
                         <Transition name={this.transition} onAfterLeave={this.afterHide}>
                             {content()}

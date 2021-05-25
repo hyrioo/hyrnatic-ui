@@ -20,7 +20,7 @@ import {
 } from 'vue';
 import { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-elementic';
 import Page from '../components/Page.vue';
-import Arr from '@/utils/array';
+import Arr from '../utils/array';
 
 export default defineComponent({
     components: { Page },

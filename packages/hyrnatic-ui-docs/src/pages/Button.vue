@@ -1,6 +1,6 @@
 <template>
     <page title="Button">
-        <h-button label="test" :loading="loading" @click="onClick" />
+        <h-button label="Test" :loading="loading" @click="onClick" />
         <br />
         <h-button :disabled="loading" label="Disabled" @click="onClick" />
         <br />

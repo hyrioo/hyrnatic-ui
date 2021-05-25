@@ -1,6 +1,6 @@
 <template>
     <hr-select ref="select" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners">
-        <button ref="button" type="button" :class="[css_ec('button')]" :style="{...popperWidth}" :disabled="props.disabled" :title="props.modelValue && props.modelValue.length !== 0 ? props.selectedText : null" @click="props.onButtonClick" @keydown="props.onKeyEvents">
+        <button ref="button" type="button" :class="[css_ec('button')]" :style="{...selectWidth}" :disabled="props.disabled" :title="props.modelValue && props.modelValue.length !== 0 ? props.selectedText : null" @click="props.onButtonClick" @keydown="props.onKeyEvents">
             <span :class="[css_ec('label'), {'-placeholder': !props.anythingSelected}]">
                 <template v-if="props.anythingSelected">
                     <slot name="selection" :items="props.selectedItems">{{ props.selectedText }}</slot>
@@ -22,7 +22,7 @@
         </button>
 
         <h-popper ref="popper" :classes="[css_ec('menu-container')]" :reference="button" keep transition="fade-fast"
-                  :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :modifiers="modifiers" :fixed-width="selectHasWidth"
+                  :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :modifiers="modifiers"
                   @popper-size-changed="popperSizeChanged" @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
         >
             <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents">
@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext,
+    defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext, PropType,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -49,6 +49,8 @@ import {
     coreSelectCompareProp,
     coreSelectSetup, CoreSelectSlotProps,
     corePopperMinimumReferenceSizeModifier,
+    corePopperMatchReferenceSizeModifier,
+    corePopperApplyMaxSizeModifier,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -64,6 +66,14 @@ export default defineComponent({
             type: String,
             default: '',
         },
+        autoSize: {
+            type: Boolean,
+            default: false,
+        },
+        sizingStrategy: {
+            type: String as PropType<'match' | 'minimum'>,
+            default: 'match',
+        },
         align: {
             type: String,
             default: 'start',
@@ -74,9 +84,24 @@ export default defineComponent({
         const select = ref();
         const button = ref<HTMLButtonElement>();
         const popper = ref<CorePopperComponent>();
-        const modifiers = [
-            ...corePopperMinimumReferenceSizeModifier,
-        ];
+        const modifiers = computed( () => {
+            const defaultModifiers = [
+                ...corePopperApplyMaxSizeModifier,
+            ];
+            if (!props.autoSize && props.sizingStrategy === 'minimum'){
+                return [
+                    ...defaultModifiers,
+                    ...corePopperMinimumReferenceSizeModifier,
+                ]
+            } else if (!props.autoSize && props.sizingStrategy === 'match'){
+                return [
+                    ...defaultModifiers,
+                    ...corePopperMatchReferenceSizeModifier,
+                ]
+            } else {
+                return defaultModifiers;
+            }
+        });
 
         onMounted(() => {
             nextTick(() => {
@@ -84,13 +109,12 @@ export default defineComponent({
             });
         });
 
-        const popperWidth = ref({});
-        const selectHasWidth = computed(() => (select.value && select.value.$el.style.width ? select.value.$el.style.width : null));
+        const popperWidth = ref(null);
+        const selectWidth = computed(() => {
+            return props.autoSize ? { width: `${popperWidth.value}` } : null;
+        });
         const popperSizeChanged = (size) => {
-            if (selectHasWidth.value || size.width === 0) {
-                return;
-            }
-            popperWidth.value = select.value.$el.style.width ? { minWidth: `${size.width}px` } : { width: `${size.width}px` };
+            popperWidth.value = `${size.width}px`;
         };
 
         const onClickOutside = (value) => {
@@ -98,12 +122,15 @@ export default defineComponent({
                 select.value.close();
             }
         };
+
         let scheduledUpdatePopper = false;
         const updatePopper = () => {
+            // console.log('select updatePopper');
             if (scheduledUpdatePopper) {
                 return;
             }
             nextTick(() => {
+                // console.log('select nexttick updatePopper');
                 if (popper.value) {
                     popper.value.updatePopper();
                 }
@@ -126,10 +153,9 @@ export default defineComponent({
             button,
             popper,
 
-            selectHasWidth,
+            selectWidth,
             modifiers,
 
-            popperWidth,
             popperSizeChanged,
             onClickOutside,
 

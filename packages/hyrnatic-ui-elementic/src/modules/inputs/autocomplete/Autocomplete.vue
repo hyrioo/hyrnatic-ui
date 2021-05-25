@@ -1,5 +1,5 @@
 <template>
-    <hr-autocomplete :ref="(el) => setCoreInput(el)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners" @item-selected="onItemSelected" @focused-item-changed="onFocusedItemChanged">
+    <hr-autocomplete :ref="(el) => setCoreInput(el)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
         <slot name="customPrefix" />
         <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]">
             <slot name="prefix">
@@ -148,9 +148,6 @@ export default defineComponent({
             }
         };
 
-        const onItemSelected = (item) => {
-            console.log('onItemSelected', item);
-        }
         const onFocusedItemChanged = (item) => {
             //TODO: Scroll to item
         }
@@ -175,7 +172,6 @@ export default defineComponent({
             popper,
             core,
             onClickOutside,
-            onItemSelected,
             onFocusedItemChanged,
             ...componentCss(),
 
