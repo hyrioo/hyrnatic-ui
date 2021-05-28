@@ -1,19 +1,11 @@
 import { Modifier } from '@popperjs/core/lib/types';
+import { beforeWrite } from '@popperjs/core';
 
-export const minimumReferenceSize: {
-    phase: string; data: { rerun: boolean }; name: string; fn: ({
-                                                                    state,
-                                                                    instance
-                                                                }: { state: any; instance: any }) => void; enabled: boolean; requires: string[]
-} = {
+export type MinimumReferenceSizeModifier = Modifier<string, {}>;
+export const minimumReferenceSize: MinimumReferenceSizeModifier = {
     name: 'minimumReferenceSize',
     enabled: true,
-    fn: ({ state, instance }) => {
-        console.log('minimumReferenceSize');
-        if (state.modifiersData.minimumReferenceSize.rerun) {
-            return;
-        }
-        state.modifiersData.minimumReferenceSize.rerun = true;
+    fn: ({ state, instance, name }) => {
         const widthOrHeight = state.placement.startsWith('left')
             || state.placement.startsWith('right')
             ? 'height'
@@ -23,15 +15,30 @@ export const minimumReferenceSize: {
         const referenceSize = state.rects.reference[widthOrHeight];
         const popperSizeRounded = Math.round(popperSize);
         const referenceSizeRounded = Math.round(referenceSize);
-        if (popperSize === 0 || Number.isNaN(popperSizeRounded) || Number.isNaN(referenceSizeRounded) || popperSizeRounded >= referenceSizeRounded) return;
+
+        if (popperSize === 0 || Number.isNaN(popperSizeRounded) || Number.isNaN(referenceSizeRounded) || popperSizeRounded >= referenceSizeRounded) {
+            return;
+        }
 
         state.styles.popper[widthOrHeight] = `${referenceSize}px`;
-        instance.update();
+        if(!state.modifiersData[`${name}#persistent`] || state.modifiersData[`${name}#persistent`]._skip_update == false){
+            state.modifiersData[`${name}#persistent`] = state.modifiersData[`${name}#persistent`] || {};
+            state.modifiersData[`${name}#persistent`]._skip_update = true;
+            instance.update().then((test) => {
+                state.modifiersData[`${name}#persistent`]._skip_update = false;
+            });
+        }
     },
-    data: {
-        rerun: false,
+    effect: ({state, name}) => {
+        console.log('effect first');
+
+        return () => {
+            console.log('effect cleanup');
+            state.modifiersData[`${name}#persistent`] = state.modifiersData[`${name}#persistent`] || {};
+            state.modifiersData[`${name}#persistent`]._skip_update = false;
+        }
     },
-    phase: 'beforeWrite',
+    phase: beforeWrite,
     requires: ['computeStyles'],
 };
 

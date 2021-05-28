@@ -165,10 +165,12 @@ export default defineComponent({
         let queuedUpdate = false;
         const updatePopper = () => {
             if (!innerElement.value) {
+                // console.log('No innerElement. Abort update');
                 return;
             }
             // console.log('updatePopper');
             if (updateState) {
+                // console.log('Already updating. Queue new update');
                 queuedUpdate = true;
                 return;
             }
@@ -176,6 +178,7 @@ export default defineComponent({
             if (props.visible) {
                 if (popperInstance.value) {
                     updateState = true;
+                    // console.log('Update popper instance');
                     popperInstance.value.update().finally(() => {
                         updateState = false;
                         if (queuedUpdate) {
@@ -183,6 +186,7 @@ export default defineComponent({
                         }
                     });
                 } else {
+                    // console.log('Create new popper instance');
                     createPopperInstance();
                 }
             } else {
@@ -207,7 +211,6 @@ export default defineComponent({
             }
         };
         watch(() => props.visible, (visible: boolean) => {
-            // console.log('watch props.visible');
             ctx.emit(visible ? 'show' : 'hide');
             if (visible) {
                 nextTick(updatePopper);
@@ -252,6 +255,7 @@ export default defineComponent({
         onUnmounted(destroy);
 
         return {
+            popperInstance,
             popperElement,
             innerElement,
             popperPlacement,

@@ -9,6 +9,14 @@
         <h-button label="Emit 'something-more' after confirm" @click="confirmAgain" />
         <br /><br />
         <h-button label="Emit 'something-more' after confirm dialog" @click="confirmAgainDialog" />
+        <br /><br />
+        <h-select v-model="value" placeholder="Select option..." style="width: 100%;">
+            <h-select-item value="1" label="Loooong option 1" />
+            <h-select-item value="2" label="Option 2" />
+            <h-select-item-divider />
+            <h-select-item value="3" label="Option 3" disabled />
+            <h-select-item value="4" label="Option 4" />
+        </h-select>
 
         <template #footer>
             <h-button label="Close" styling="negative" style="margin-right: 12px" @click="close" />
@@ -39,6 +47,7 @@ export default defineComponent({
     },
     emits: ['something', 'something-more', 'resolve'],
     setup(props, ctx: SetupContext) {
+        const value = ref();
         const { resolve } = DialogManager.setupDialog();
         const something = () => {
             ctx.emit('something');
@@ -58,6 +67,7 @@ export default defineComponent({
         };
 
         return {
+            value,
             something,
             confirmAgain,
             confirmAgainDialog,

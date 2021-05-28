@@ -1,9 +1,11 @@
 import { Modifier } from '@popperjs/core/lib/types';
+import { beforeWrite } from '@popperjs/core';
 
-export const applyMaxSize: Modifier<'applyMaxSize', any> = {
+export type ApplyMaxSizeModifier = Modifier<string, {}>;
+export const applyMaxSize: ApplyMaxSizeModifier = {
     name: 'applyMaxSize',
     enabled: true,
-    phase: 'beforeWrite',
+    phase: beforeWrite,
     requires: ['maxSize'],
     fn({ state }) {
         // The `maxSize` modifier provides this data

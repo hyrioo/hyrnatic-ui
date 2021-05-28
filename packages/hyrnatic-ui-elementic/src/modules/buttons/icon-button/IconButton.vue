@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, SetupContext } from 'vue';
+import { computed, defineComponent, PropType, SetupContext } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
     coreButtonDisabledProp,
@@ -29,9 +29,17 @@ export default defineComponent({
             type: String,
             required: true,
         },
+        bordered: {
+            type: Boolean,
+            default: true,
+        },
         styling: {
             type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
+        },
+        iconStyling: {
+            type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
+            default: null,
         },
         size: {
             type: String as PropType<'normal' | 'small'>,
@@ -41,9 +49,10 @@ export default defineComponent({
     emits: ['click'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
+        const actualIconStyling = computed(() => props.iconStyling === null ? props.styling : props.iconStyling)
 
         const asProps = (slotProps: CoreButtonSlotProps) => ({
-            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-size-${props.size}`, { '-loading': slotProps.loading }],
+            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-icon-styling-${actualIconStyling.value}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-bordered': props.bordered }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
             type: 'button',

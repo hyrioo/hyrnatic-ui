@@ -3,7 +3,7 @@ $crc: '.h-icon-button';
 #{$crc} {
 	border-radius: $v-control-border-radius;
 	padding: 0;
-	border-width: $v-control-border-width;
+	border-width: 0;
 	border-style: solid;
 	background: transparent;
 	transition: $t-fast-standard;
@@ -30,7 +30,6 @@ $crc: '.h-icon-button';
 	&.-styling-primary {
 		background: $c-primary-background;
 		border-color: $c-primary-border;
-		color: $c-primary-text;
 
 		&:hover, &:focus {
 			border-color: $c-hover--primary-border;
@@ -39,17 +38,14 @@ $crc: '.h-icon-button';
 		&:active {
 			border-color: $c-active--primary-border;
 			box-shadow: $sd-active--primary-box-shadow;
-			color: $c-active--primary-text;
 		}
 		&:disabled {
 			background: $c-disabled--primary-background;
 		}
 	}
-
 	&.-styling-secondary {
 		background: $c-secondary-background;
 		border-color: $c-secondary-border;
-		color: $c-secondary-text;
 
 		&:hover, &:focus {
 			border-color: $c-hover--secondary-border;
@@ -58,17 +54,14 @@ $crc: '.h-icon-button';
 		&:active {
 			border-color: $c-active--secondary-border;
 			box-shadow: $sd-active--secondary-box-shadow;
-			color: $c-active--secondary-text;
 		}
 		&:disabled {
 			background: $c-disabled--secondary-background;
 		}
 	}
-
 	&.-styling-negative {
 		background: $c-negative-background;
 		border-color: $c-negative-border;
-		color: $c-negative-text;
 
 		&:hover, &:focus {
 			border-color: $c-hover--negative-border;
@@ -77,17 +70,14 @@ $crc: '.h-icon-button';
 		&:active {
 			border-color: $c-active--negative-border;
 			box-shadow: $sd-active--negative-box-shadow;
-			color: $c-active--negative-text;
 		}
 		&:disabled {
 			background: $c-disabled--negative-background;
 		}
 	}
-
 	&.-styling-success {
 		background: $c-success-background;
 		border-color: $c-success-border;
-		color: $c-success-text;
 
 		&:hover, &:focus {
 			border-color: $c-hover--success-border;
@@ -96,36 +86,32 @@ $crc: '.h-icon-button';
 		&:active {
 			border-color: $c-active--success-border;
 			box-shadow: $sd-active--success-box-shadow;
-			color: $c-active--success-text;
 		}
 		&:disabled {
 			background: $c-disabled--success-background;
 		}
 	}
-
 	&.-styling-warning {
 		background: $c-warning-background;
 		border-color: $c-warning-border;
-		color: $c-warning-text;
 
 		&:hover, &:focus {
 			border-color: $c-hover--warning-border;
 			box-shadow: $sd-hover--warning-box-shadow;
 		}
+
 		&:active {
 			border-color: $c-active--warning-border;
 			box-shadow: $sd-active--warning-box-shadow;
-			color: $c-active--warning-text;
 		}
+
 		&:disabled {
 			background: $c-disabled--warning-background;
 		}
 	}
-
 	&.-styling-danger {
 		background: $c-danger-background;
 		border-color: $c-danger-border;
-		color: $c-danger-text;
 
 		&:hover, &:focus {
 			border-color: $c-hover--danger-border;
@@ -134,18 +120,65 @@ $crc: '.h-icon-button';
 		&:active {
 			border-color: $c-active--danger-border;
 			box-shadow: $sd-active--danger-box-shadow;
-			color: $c-active--danger-text;
 		}
 		&:disabled {
 			background: $c-disabled--danger-background;
 		}
 	}
-
 	&.-styling-none {
 		background: transparent;
 		border-color: transparent;
-		border-width: 0;
+	}
+
+	&.-icon-styling-primary {
+		color: $c-primary-text;
+
+		&:active {
+			color: $c-active--primary-text;
+		}
+	}
+
+	&.-icon-styling-secondary {
+		color: $c-secondary-text;
+
+		&:active {
+			color: $c-active--secondary-text;
+		}
+	}
+	&.-icon-styling-negative {
+		color: $c-negative-text;
+
+		&:active {
+			color: $c-active--negative-text;
+		}
+	}
+	&.-icon-styling-success {
+		color: $c-success-text;
+
+		&:active {
+			color: $c-active--success-text;
+		}
+	}
+	&.-icon-styling-warning {
+		color: $c-warning-text;
+
+		&:active {
+			color: $c-active--warning-text;
+		}
+	}
+	&.-icon-styling-danger {
+		color: $c-danger-text;
+
+		&:active {
+			color: $c-active--danger-text;
+		}
+	}
+	&.-icon-styling-none {
 		color: $c-dark-text;
+	}
+
+	&.-bordered {
+		border-width: $v-control-border-width;
 	}
 
 	&.-size-normal {
