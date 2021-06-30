@@ -21,7 +21,7 @@
         <slot name="customSuffix" />
 
         <h-popper ref="popper" :classes="[css_ec('list-container')]" :reference="coreAutocompleteEl" transition="fade-fast"
-                  :visible="props.listVisible" :options="{placement: `bottom`}" :modifiers="modifiers"
+                  :visible="props.listVisible" :options="{placement: `bottom-start`}" :modifiers="modifiers"
                   @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
         >
             <div :class="[css_ec('list-box')]" @keydown="props.onKeyEvents">
@@ -112,7 +112,6 @@ export default defineComponent({
             ...corePopperMatchReferenceSizeModifier,
         ];
 
-        console.log(scrollContainer);
         /*onMounted(() => {
             nextTick(() => {
                 popper.value.updatePopper();
@@ -142,7 +141,6 @@ export default defineComponent({
         };
 
         const onClickOutside = (value) => {
-            console.log('onClickOutside', value);
             if (value.outsidePopper && value.outsideReference) {
                 hideList();
             }

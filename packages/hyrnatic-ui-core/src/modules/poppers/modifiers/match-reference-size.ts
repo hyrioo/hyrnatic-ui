@@ -30,10 +30,10 @@ export const matchReferenceSize: MatchReferenceSizeModifier = {
         }
     },
     effect: ({state, name}) => {
-        console.log('effect first');
+        // console.log('effect first');
 
         return () => {
-            console.log('effect cleanup');
+            // console.log('effect cleanup');
             state.modifiersData[`${name}#persistent`] = state.modifiersData[`${name}#persistent`] || {};
             state.modifiersData[`${name}#persistent`]._skip_update = false;
         }
