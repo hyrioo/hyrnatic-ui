@@ -5,14 +5,14 @@ import {
     computed,
     reactive,
     getCurrentInstance,
-    provide, ComputedRef, h, PropType,
+    provide, ComputedRef, h, PropType, watch,
 } from 'vue';
 import {
     coreComponentAsProp,
     coreComponentAsPropsProp,
     setupBuilder,
 } from '../../../utils/component';
-import { SelectItemInstance, SelectProvide } from './SelectItem';
+import { SelectItemInstance, CoreSelectProvide } from './SelectItem';
 import Arr from '../../../utils/array';
 import Obj from '../../../utils/object';
 
@@ -87,7 +87,7 @@ export default defineComponent({
         ...coreSelectModelValueProp,
         ...coreSelectCompareProp,
     },
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
         const items = ref<SelectItemInstance[]>([]);
@@ -122,6 +122,10 @@ export default defineComponent({
         const clearFocusedItem = () => {
             focusedItem.value = null;
         };
+        watch(focusedItem, () => {
+            ctx.emit('focusedItemChanged', focusedItem.value);
+        });
+
         const addItemInstance = (instance) => {
             items.value.push(instance);
         };
@@ -195,7 +199,7 @@ export default defineComponent({
             }
         };
 
-        provide<SelectProvide>('select', {
+        provide<CoreSelectProvide>('select', {
             selectedItems,
             focusedItem,
             onItemClick,
@@ -227,6 +231,7 @@ export default defineComponent({
             close,
             slotProps,
             defaultRender,
+            items,
         };
     },
     render() {

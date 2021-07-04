@@ -4,8 +4,8 @@ import {
     inject,
     onMounted,
     onUnmounted,
-    reactive, Ref,
-    SetupContext,
+    reactive, ref, Ref,
+    SetupContext, watch,
 } from 'vue';
 import {
     coreComponentAsProp,
@@ -17,9 +17,10 @@ export type SelectItemInstance = {
     value: any;
     label: string;
     disabled: boolean;
+    element?: HTMLElement;
 };
 
-export type SelectProvide = {
+export type CoreSelectProvide = {
     selectedItems: ComputedRef<SelectItemInstance[]>;
     focusedItem: Ref<SelectItemInstance>;
     onItemClick(instance: SelectItemInstance): void;
@@ -39,6 +40,11 @@ export const coreSelectItemDisabledProp = {
         default: false,
     },
 };
+export const coreSelectItemElementProp = {
+    element: {
+        type: HTMLElement,
+    },
+};
 
 export type CoreSelectItemSlotProps = {
     selected: ComputedRef<boolean>;
@@ -46,6 +52,10 @@ export type CoreSelectItemSlotProps = {
     disabled: ComputedRef<boolean>;
     value: ComputedRef;
     onClick: (e) => any;
+}
+
+export type CoreSelectItemReturn = {
+    setElement: (element: HTMLElement) => void;
 }
 
 export function coreSelectItemSetup() {
@@ -66,12 +76,17 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const select = inject<SelectProvide>('select');
+        const select = inject<CoreSelectProvide>('select');
         const instance = reactive<SelectItemInstance>({
             value: props.value,
             label: props.label,
             disabled: props.disabled,
+            element: null,
         });
+
+        const setElement = (element: HTMLElement) => {
+            instance.element = element;
+        }
 
         onMounted(() => {
             select.addItemInstance(instance);
@@ -99,6 +114,8 @@ export default defineComponent({
         const defaultRender = () => ctx.slots.default(slotProps);
 
         return {
+            instance,
+            setElement,
             slotProps,
             defaultRender,
         };

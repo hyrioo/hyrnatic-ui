@@ -1,5 +1,5 @@
 <template>
-    <hr-autocomplete :ref="(el) => setCoreInput(el)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
+    <hr-autocomplete :ref="(com) => setCoreInput(com)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
         <slot name="customPrefix" />
         <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]">
             <slot name="prefix">
@@ -28,7 +28,7 @@
                 <h-scroll-container ref="scrollContainer">
                     <slot :items="props.items" :focused-item="props.focusedItem" :on-item-click="props.onItemClick">
                         <ul :class="[css_ec('list')]">
-                            <li v-for="item in props.items" :class="[css_ec('list-item'), {'-focused': item === props.focusedItem}]" @click="props.onItemClick(item)">{{ item }}</li>
+                            <li v-for="(item, index) in props.items" :ref="el => items[index] = el" :class="[css_ec('list-item'), {'-focused': item === props.focusedItem}]" @click="props.onItemClick(item)">{{ item }}</li>
                         </ul>
                     </slot>
                 </h-scroll-container>
@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, nextTick, onMounted, ref, SetupContext,
+    defineComponent, nextTick, onBeforeUpdate, onMounted, ref, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -49,6 +49,7 @@ import {
     coreAutocompleteModelModifiersProp,
     coreAutocompleteModelValueProp,
     CoreAutocompleteSlotProps,
+    CoreAutocompleteReturn,
     corePopperMatchReferenceSizeModifier,
     CorePopperComponent,
 } from '@hyrioo/hyrnatic-ui-core';
@@ -105,12 +106,16 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const input = ref<HTMLInputElement>();
         const scrollContainer = ref<HTMLElement>();
-        const coreAutocomplete = ref();
+        const items = ref<HTMLElement[]>();
+        const coreAutocomplete = ref<CoreAutocompleteReturn>();
         const coreAutocompleteEl = ref<HTMLElement>();
         const popper = ref<CorePopperComponent>();
         const modifiers = [
             ...corePopperMatchReferenceSizeModifier,
         ];
+        onBeforeUpdate(() => {
+            items.value = [];
+        });
 
         /*onMounted(() => {
             nextTick(() => {
@@ -118,9 +123,9 @@ export default defineComponent({
             });
         });*/
 
-        const setCoreInput = (el) => {
-            coreAutocomplete.value = el;
-            coreAutocompleteEl.value = el ? el.$el : null;
+        const setCoreInput = (com) => {
+            coreAutocomplete.value = com;
+            coreAutocompleteEl.value = com ? com.$el : null;
         }
 
         const hasFocus = ref(false);
@@ -146,8 +151,15 @@ export default defineComponent({
             }
         };
 
-        const onFocusedItemChanged = (item) => {
-            //TODO: Scroll to item
+        const onFocusedItemChanged = (item: any) => {
+            const index = props.items.findIndex((i) => i === item);
+            if(index !== -1) {
+                const el = items.value[index];
+                el.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                })
+            }
         }
 
         const asProps = (slotProps: CoreAutocompleteSlotProps) => ({
@@ -163,6 +175,7 @@ export default defineComponent({
             coreAutocompleteEl,
             modifiers,
             input,
+            items,
             scrollContainer,
             hasFocus,
             onFocus,

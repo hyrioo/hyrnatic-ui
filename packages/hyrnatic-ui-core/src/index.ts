@@ -163,6 +163,7 @@ export {
 } from './modules/inputs/autocomplete/Autocomplete';
 export type {
     CoreAutocompleteSlotProps,
+    CoreAutocompleteReturn,
 } from './modules/inputs/autocomplete/Autocomplete';
 
 
@@ -264,6 +265,8 @@ export type {
 } from './modules/selects/select/Select';
 export type {
     CoreSelectItemSlotProps,
+    CoreSelectProvide,
+    CoreSelectItemReturn,
 } from './modules/selects/select/SelectItem';
 
 

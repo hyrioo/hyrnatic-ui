@@ -1,5 +1,5 @@
 <template>
-    <hr-select ref="select" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners">
+    <hr-select ref="select" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
         <button ref="button" type="button" :class="[css_ec('button')]" :style="{...selectWidth}" :disabled="props.disabled" :title="props.modelValue && props.modelValue.length !== 0 ? props.selectedText : null" @click="props.onButtonClick" @keydown="props.onKeyEvents">
             <span :class="[css_ec('label'), {'-placeholder': !props.anythingSelected}]">
                 <template v-if="props.anythingSelected">
@@ -51,6 +51,7 @@ import {
     corePopperMinimumReferenceSizeModifier,
     corePopperMatchReferenceSizeModifier,
     corePopperApplyMaxSizeModifier,
+    SelectItemInstance,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -79,7 +80,7 @@ export default defineComponent({
             default: 'start',
         },
     },
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const select = ref();
         const button = ref<HTMLButtonElement>();
@@ -123,6 +124,15 @@ export default defineComponent({
             }
         };
 
+        const onFocusedItemChanged = (item: SelectItemInstance) => {
+            if(item && item.element) {
+                item.element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                })
+            }
+        }
+
         let scheduledUpdatePopper = false;
         const updatePopper = () => {
             // console.log('select updatePopper');
@@ -144,7 +154,7 @@ export default defineComponent({
         const asProps = (slotProps: CoreSelectSlotProps) => ({
             class: { '-active': slotProps.menuVisible, '-disabled': slotProps.disabled },
         });
-        const core = coreSelectSetup().as('div', asProps).props(['modelValue', 'disabled', 'hideOnSelect', 'allowClear', 'multiple', 'compare']).events(['update:modelValue'])
+        const core = coreSelectSetup().as('div', asProps).props(['modelValue', 'disabled', 'hideOnSelect', 'allowClear', 'multiple', 'compare']).events(['update:modelValue', 'focusedItemChanged'])
             .build();
 
         return {
@@ -158,6 +168,7 @@ export default defineComponent({
 
             popperSizeChanged,
             onClickOutside,
+            onFocusedItemChanged,
 
             ...componentCss(),
         };

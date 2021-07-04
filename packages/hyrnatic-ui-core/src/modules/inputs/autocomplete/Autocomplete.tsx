@@ -1,6 +1,6 @@
 import {
     defineComponent, nextTick, SetupContext, PropType, computed, reactive, getCurrentInstance, Ref, ComputedRef, h,
-    WritableComputedRef, ref,
+    WritableComputedRef, ref, UnwrapRef, watch,
 } from 'vue';
 import {
     coreComponentAsProp,
@@ -40,9 +40,16 @@ export type CoreAutocompleteSlotProps = {
     listVisible: ComputedRef<boolean>;
     items: ComputedRef;
     focusedItem: ComputedRef;
-    onItemClick: (item) => any;
-    onKeyEvents: (e) => any;
-    clearFocusedItem: () => any;
+    onItemClick: (item) => void;
+    onKeyEvents: (e) => void;
+    clearFocusedItem: () => void;
+}
+export type CoreAutocompleteReturn = {
+    slotProps: UnwrapRef<CoreAutocompleteSlotProps>,
+    focusInput: () => void;
+    // defaultRender,
+    hideList: () => void;
+    showList: () => void;
 }
 
 export function coreAutocompleteSetup(input: Ref<HTMLInputElement>) {
@@ -90,6 +97,10 @@ export default defineComponent({
 
         const listVisible = ref(false);
         const focusedItem = ref();
+        watch(focusedItem, () => {
+            ctx.emit('focusedItemChanged', focusedItem.value);
+        });
+
         const onItemClick = (item) => {
             ctx.emit('itemSelected', item);
         };
@@ -105,18 +116,16 @@ export default defineComponent({
             }
             const currentIndex = focusedItem.value ? props.items.findIndex((i) => i === focusedItem.value) : null;
 
-            if (!listVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter')) {
+            if (!listVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter') && props.modelValue.length > 0) {
                 showList();
                 e.preventDefault();
                 e.stopImmediatePropagation();
-            } else if (e.key === 'ArrowDown') {
+            } else if (e.key === 'ArrowDown' && props.modelValue.length > 0) {
                 focusedItem.value = Arr.next(props.items, currentIndex);
-            ctx.emit('focusedItemChanged', focusedItem.value);
                 e.preventDefault();
                 e.stopImmediatePropagation();
-            } else if (e.key === 'ArrowUp') {
+            } else if (e.key === 'ArrowUp' && props.modelValue.length > 0) {
                 focusedItem.value = Arr.prev(props.items, currentIndex);
-            ctx.emit('focusedItemChanged', focusedItem.value);
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'Enter' && focusedItem.value) {
@@ -133,7 +142,6 @@ export default defineComponent({
         };
         const clearFocusedItem = () => {
             focusedItem.value = null;
-            ctx.emit('focusedItemChanged', focusedItem.value);
         };
 
         const slotProps = reactive<CoreAutocompleteSlotProps>({

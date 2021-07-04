@@ -1,5 +1,6 @@
 <template>
-    <hr-select-item v-slot="props" tabindex="-1" :class="[css_root]" v-bind="core.props" v-on="core.listeners">
+    <hr-select-item :ref="com => setElement(com)" v-slot="props" tabindex="-1" :class="[css_root]" v-bind="core.props"
+                    v-on="core.listeners">
         <slot>
             <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16" />
             <span :class="[css_ec('label')]">{{ label }}</span>
@@ -14,7 +15,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, inject, onMounted, onUnmounted, onUpdated, SetupContext,
+    defineComponent, inject, onMounted, onUnmounted, onUpdated, ref, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -22,6 +23,8 @@ import {
     coreSelectItemValueProp,
     coreSelectItemSetup,
     CoreSelectItemSlotProps,
+    CoreSelectProvide,
+    CoreSelectItemReturn,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -41,6 +44,12 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const updatePopper = inject<Function>('updatePopper');
 
+        const setElement = (component: CoreSelectItemReturn) => {
+            if (component) {
+                component.setElement(component.$el);
+            }
+        };
+
         onMounted(() => updatePopper());
         onUnmounted(() => updatePopper());
         onUpdated(() => updatePopper());
@@ -53,6 +62,7 @@ export default defineComponent({
 
         return {
             core,
+            setElement,
             ...componentCss(),
         };
     },
