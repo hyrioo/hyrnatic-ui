@@ -114,7 +114,6 @@ export default defineComponent({
         const defaultRender = () => ctx.slots.default(slotProps);
 
         return {
-            instance,
             setElement,
             slotProps,
             defaultRender,

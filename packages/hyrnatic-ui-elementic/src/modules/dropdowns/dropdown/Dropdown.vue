@@ -1,5 +1,5 @@
 <template>
-    <hr-dropdown v-show="visible" ref="dropdown" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners">
+    <hr-dropdown v-show="visible" ref="dropdown" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
         <div ref="button" tabindex="0" :class="[css_ec('button'), {'-split-button': props.splitButton}]" :style="{...popperWidth}" @click="props.onButtonClick" @keydown="props.onKeyEvents($event, 'main')">
             <span :class="[css_ec('label')]">
                 <slot name="label">
@@ -38,7 +38,9 @@ import {
     coreDropdownHideOnClickProp,
     coreDropdownSplitButtonProp,
     coreDropdownVisibleProp,
-    coreDropdownSetup, CoreDropdownSlotProps,
+    coreDropdownSetup,
+    CoreDropdownSlotProps,
+    CoreDropdownItemInstance,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -57,7 +59,7 @@ export default defineComponent({
             default: 'start',
         },
     },
-    emits: ['click'],
+    emits: ['click', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const dropdown = ref();
         const button = ref<HTMLElement>();
@@ -105,6 +107,16 @@ export default defineComponent({
                 dropdown.value.close();
             }
         };
+
+        const onFocusedItemChanged = (item: CoreDropdownItemInstance) => {
+            if(item && item.element) {
+                item.element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                })
+            }
+        }
+
         provide('updatePopper', updatePopper);
 
         const asProps = (slotProps: CoreDropdownSlotProps) => ({
@@ -112,7 +124,7 @@ export default defineComponent({
                 '-active': slotProps.menuVisible, '-disabled': slotProps.disabled,
             },
         });
-        const core = coreDropdownSetup().as('div', asProps).props(['disabled', 'hideOnSelect', 'splitButton', 'visible']).events(['click'])
+        const core = coreDropdownSetup().as('div', asProps).props(['disabled', 'hideOnSelect', 'splitButton', 'visible']).events(['click', 'focusedItemChanged'])
             .build();
 
         return {
@@ -128,6 +140,7 @@ export default defineComponent({
             dropdownHasWidth,
 
             onClickOutside,
+            onFocusedItemChanged,
 
             ...componentCss(),
         };

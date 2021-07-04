@@ -66,7 +66,7 @@ export default defineComponent({
         ...coreDropdownSplitButtonProp,
         ...coreDropdownVisibleProp,
     },
-    emits: ['click'],
+    emits: ['click', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
         const items = ref<CoreDropdownItemInstance[]>([]);
@@ -75,6 +75,10 @@ export default defineComponent({
         const clearFocusedItem = () => {
             focusedItem.value = null;
         };
+        watch(focusedItem, () => {
+            ctx.emit('focusedItemChanged', focusedItem.value);
+        });
+
         const addItemInstance = (instance: CoreDropdownItemInstance) => {
             items.value.push(instance);
         };

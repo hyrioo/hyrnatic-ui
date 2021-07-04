@@ -13,6 +13,7 @@ import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../
 export type CoreDropdownItemInstance = {
     onClick(e: any): void;
     disabled: boolean;
+    element?: HTMLElement;
 };
 
 export type CoreDropdownProvide = {
@@ -34,6 +35,10 @@ export type CoreDropdownItemSlotProps = {
     focused: ComputedRef<boolean>;
     onClick: (e) => any;
 }
+export type CoreDropdownItemReturn = {
+    setElement: (element: HTMLElement) => void;
+}
+
 
 export function coreDropdownItemSetup() {
     return setupBuilder<CoreDropdownItemSlotProps>(getCurrentInstance());
@@ -60,7 +65,12 @@ export default defineComponent({
         const instance = reactive<CoreDropdownItemInstance>({
             disabled: props.disabled,
             onClick,
+            element: null,
         });
+
+        const setElement = (element: HTMLElement) => {
+            instance.element = element;
+        }
 
         onMounted(() => {
             dropdown.addItemInstance(instance);
@@ -79,6 +89,7 @@ export default defineComponent({
         const defaultRender = () => ctx.slots.default(slotProps);
 
         return {
+            setElement,
             slotProps,
             defaultRender,
         };

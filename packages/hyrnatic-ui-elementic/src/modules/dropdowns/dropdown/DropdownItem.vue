@@ -1,5 +1,5 @@
 <template>
-    <hr-dropdown-item :class="[css_root]" tabindex="-1" v-bind="core.props" v-on="core.listeners">
+    <hr-dropdown-item :ref="com => setElement(com)" :class="[css_root]" tabindex="-1" v-bind="core.props" v-on="core.listeners">
         <slot>
             <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" />
             <span :class="[css_ec('label')]">{{ label }}</span>
@@ -17,7 +17,9 @@ import {
 import componentCss from '../../../utils/component-css';
 import {
     coreDropdownItemDisabledProp,
-    coreDropdownItemSetup, CoreDropdownItemSlotProps
+    coreDropdownItemSetup,
+    CoreDropdownItemSlotProps,
+    CoreDropdownItemReturn
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -37,6 +39,12 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const updatePopper = inject<Function>('updatePopper');
 
+        const setElement = (component: CoreDropdownItemReturn) => {
+            if (component) {
+                component.setElement(component.$el);
+            }
+        };
+
         onMounted(() => updatePopper());
         onUnmounted(() => updatePopper());
         onUpdated(() => updatePopper());
@@ -51,6 +59,7 @@ export default defineComponent({
             .build();
 
         return {
+            setElement,
             core,
             ...componentCss(),
         };
