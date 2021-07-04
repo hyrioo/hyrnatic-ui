@@ -1,6 +1,6 @@
 <template>
     <hr-button v-show="visible" v-bind="core.props" v-on="core.listeners">
-        <h-icon :class="[css_ec('loading-icon')]" icon="loading" size="16px" />
+        <h-icon :class="[css_ec('loading-icon')]" :icon="Icons.loading" size="16px" />
 
         <span :class="[css_ec('text')]">
             <slot>
@@ -20,6 +20,7 @@ import {
     coreButtonSetup,
     CoreButtonSlotProps,
 } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-link-button',
@@ -54,6 +55,7 @@ export default defineComponent({
             .build();
 
         return {
+            Icons,
             core,
             ...componentCssHelpers,
         };

@@ -2,7 +2,7 @@
     <hr-paginator v-slot="props" v-bind="core.props" :class="[css_root]" v-on="core.listeners">
         <div :class="[css_ec('indicator'), {'-hidden': activeButton === null}]" :style="indicatorStyle" />
         <button :class="[css_ec('button')]" :disabled="props.currentPage === 1" @click="props.onPaginationButtonClick(props.currentPage-1)">
-            <h-icon icon="arrow-left" size="16px" />
+            <h-icon :icon="Icons.arrowLeft" size="16px" />
         </button>
         <template v-for="page of props.buttons">
             <template v-if="page === props.currentPage">
@@ -18,7 +18,7 @@
         </template>
 
         <button :class="[css_ec('button')]" :disabled="props.currentPage === props.pages" @click="props.onPaginationButtonClick(props.currentPage+1)">
-            <h-icon icon="arrow-right" size="16px" />
+            <h-icon :icon="Icons.arrowRight" size="16px" />
         </button>
     </hr-paginator>
 </template>
@@ -35,6 +35,7 @@ import {
     corePaginatorPageSizeProp,
     corePaginatorSetup,
 } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-paginator',
@@ -69,6 +70,7 @@ export default defineComponent({
             .build();
 
         return {
+            Icons,
             core,
             activeButton,
             indicatorStyle,

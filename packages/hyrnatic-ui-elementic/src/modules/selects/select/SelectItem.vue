@@ -7,7 +7,7 @@
         </slot>
         <div :class="[css_ec('checkmark')]">
             <transition name="fade-fast">
-                <h-icon v-show="props.selected" icon="check" size="16px" />
+                <h-icon v-show="props.selected" :icon="Icons.check" size="16px" />
             </transition>
         </div>
     </hr-select-item>
@@ -26,6 +26,7 @@ import {
     CoreSelectProvide,
     CoreSelectItemReturn,
 } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-select-item',
@@ -61,6 +62,7 @@ export default defineComponent({
         const core = coreSelectItemSetup().as('div', asProps).props(['value', 'label', 'disabled']).build();
 
         return {
+            Icons,
             core,
             setElement,
             ...componentCss(),

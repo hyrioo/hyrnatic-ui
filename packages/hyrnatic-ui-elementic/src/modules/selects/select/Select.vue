@@ -11,12 +11,12 @@
             </span>
             <transition name="fade-fast">
                 <div v-if="!(props.allowClear && props.menuVisible)" :class="[css_ec('icon')]">
-                    <h-icon icon="chevron-down" size="16px" />
+                    <h-icon :icon="Icons.chevronDown" size="16px" />
                 </div>
             </transition>
             <transition name="fade-fast">
                 <div v-if="props.allowClear && props.menuVisible" :class="[css_ec('clear-icon')]" title="Clear" @click="props.clearValue">
-                    <h-icon icon="close" size="16px" />
+                    <h-icon :icon="Icons.close" size="16px" />
                 </div>
             </transition>
         </button>
@@ -53,6 +53,7 @@ import {
     corePopperApplyMaxSizeModifier,
     SelectItemInstance,
 } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-select',
@@ -158,6 +159,7 @@ export default defineComponent({
             .build();
 
         return {
+            Icons,
             core,
             select,
             button,

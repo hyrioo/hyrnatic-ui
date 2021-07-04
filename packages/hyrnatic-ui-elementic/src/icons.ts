@@ -8,17 +8,29 @@ import {
     mdiMinus,
     mdiArrowLeft,
     mdiArrowRight,
-    mdiPlus,
+    mdiPlus, mdiCalendarMonth,
 } from '@mdi/js';
 import IconRegistry from './utils/icon-registry';
+import { StringHelper } from '@hyrioo/hyrnatic-ui-core';
 
-IconRegistry.registerMDI('check', mdiCheck);
-IconRegistry.registerMDI('chevron-down', mdiChevronDown);
-IconRegistry.registerMDI('chevron-up', mdiChevronUp);
-IconRegistry.registerMDI('close', mdiClose);
-IconRegistry.registerMDI('dots-horizontal', mdiDotsHorizontal);
-IconRegistry.registerMDI('loading', mdiLoading);
-IconRegistry.registerMDI('minus', mdiMinus);
-IconRegistry.registerMDI('arrow-left', mdiArrowLeft);
-IconRegistry.registerMDI('arrow-right', mdiArrowRight);
-IconRegistry.registerMDI('plus', mdiPlus);
+const icons = {
+    calendarMonth: mdiCalendarMonth,
+    check: mdiCheck,
+    chevronDown: mdiChevronDown,
+    chevronUp: mdiChevronUp,
+    close: mdiClose,
+    dotsHorizontal: mdiDotsHorizontal,
+    loading: mdiLoading,
+    minus: mdiMinus,
+    arrowLeft: mdiArrowLeft,
+    arrowRight: mdiArrowRight,
+    plus: mdiPlus,
+};
+
+Object.keys(icons).forEach((key) => {
+    const newKey = StringHelper.kebabize(key);
+    IconRegistry.registerMDI(newKey, icons[key]);
+    icons[key] = newKey;
+});
+
+export default icons;

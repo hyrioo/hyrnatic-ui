@@ -15,8 +15,8 @@ import {
     CoreTabsNavigatorReturn,
     coreTabsNavigatorModelValueProp,
     coreTabsNavigatorSetup,
+    ArrayHelper,
 } from '@hyrioo/hyrnatic-ui-core';
-import Arr from '../../../utils/array';
 
 export default defineComponent({
     name: 'h-tabs-navigator',
@@ -35,7 +35,7 @@ export default defineComponent({
             tabs.value.push(instance);
         };
         const removeTabInstance = (instance: CoreTabItemInstance) => {
-            tabs.value = Arr.remove(tabs.value, instance);
+            tabs.value = ArrayHelper.remove(tabs.value, instance);
         };
         const indicatorSize = ref(0);
         const indicatorOffset = ref(0);

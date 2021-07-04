@@ -12,7 +12,7 @@
                 <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{transform: getScale(props.stackIndex, props.activeStackCount)}">
                     <div :class="[css_ec('box')]">
                         <div v-if="showCloseIcon" :class="[css_ec('close-icon')]">
-                            <h-button icon="close" styling="none" size="small" @click="props.close" />
+                            <h-button :icon="Icons.close" styling="none" size="small" @click="props.close" />
                         </div>
                         <div v-if="$slots.title || title" :class="[css_ec('title')]">
                             <slot name="title">
@@ -40,6 +40,7 @@ import {
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import { coreDialogVisibleProp, coreDialogSetup } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-dialog',
@@ -97,6 +98,7 @@ export default defineComponent({
         const core = coreDialogSetup(['visible'], ['reject']);
 
         return {
+            Icons,
             core,
             ...componentCss(),
             transitionEnded,

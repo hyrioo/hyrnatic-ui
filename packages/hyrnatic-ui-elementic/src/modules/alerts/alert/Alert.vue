@@ -8,7 +8,7 @@
             <div v-if="description" :class="[css_ec('description')]">{{ description }}</div>
         </div>
         <div v-if="showCloseButton || closeText" :class="[css_ec('close')]" @click="onClose">
-            <h-icon v-if="showCloseButton" icon="close" size="16px" />
+            <h-icon v-if="showCloseButton" :icon="Icons.close" size="16px" />
             <span v-else-if="closeText">{{ closeText }}</span>
         </div>
     </div>
@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent, SetupContext } from 'vue';
 import componentCss from '../../../utils/component-css';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-alert',
@@ -51,6 +52,7 @@ export default defineComponent({
         };
 
         return {
+            Icons,
             onClose,
             ...componentCss(),
         };

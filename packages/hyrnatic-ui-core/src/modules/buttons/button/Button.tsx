@@ -59,7 +59,7 @@ export default defineComponent({
         const defaultRender = () => ctx.slots.default(slotProps);
         return () => {
             if (props.as) {
-                const p = props.asProps ? props.asProps(slotProps) : null;
+                const p = props.asProps ? props.asProps(slotProps) : {};
                 return h(props.as, { ...p }, defaultRender());
             }
             return defaultRender();

@@ -2,8 +2,8 @@
     <hr-checkbox v-show="visible" v-slot="props" v-bind="core.props" v-on="core.listeners">
         <span :class="[css_ec('container')]">
             <input :class="[css_ec('input')]" :checked="props.state" type="checkbox" :disabled="props.disabled" @change="props.onChange" @focus="hasFocus = true" @blur="hasFocus = false" />
-            <h-icon v-show="!props.indeterminate" :class="[css_ec('check-icon')]" icon="check-stroke" size="10" :fills="null" />
-            <h-icon v-show="props.indeterminate" :class="[css_ec('indeterminate-icon')]" icon="minus" size="10" :fills="null" />
+            <h-icon v-show="!props.indeterminate" :class="[css_ec('check-icon')]" :icon="CheckboxIcons.checkStroke" size="10" :fills="null" />
+            <h-icon v-show="props.indeterminate" :class="[css_ec('indeterminate-icon')]" :icon="Icons.minus" size="10" :fills="null" />
         </span>
         <span v-if="$slots.default || label" :class="[css_ec('label')]">
             <slot>
@@ -27,6 +27,8 @@ import {
     coreCheckboxSetup,
     CoreCheckboxSlotProps,
 } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
+import { CheckboxIcons } from '../install';
 
 export default defineComponent({
     name: 'h-checkbox',
@@ -59,6 +61,8 @@ export default defineComponent({
             .build();
 
         return {
+            Icons,
+            CheckboxIcons,
             asProps,
             core,
             hasFocus,

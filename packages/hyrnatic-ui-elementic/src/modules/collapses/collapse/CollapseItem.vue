@@ -7,8 +7,8 @@
 
             <div :class="[css_ec('expand-icon')]">
                 <transition name="fade-medium">
-                    <h-icon v-if="!props.expanded" key="expand" icon="plus" size="16px" />
-                    <h-icon v-else key="contract" icon="minus" size="16px" />
+                    <h-icon v-if="!props.expanded" key="expand" :icon="Icons.plus" size="16px" />
+                    <h-icon v-else key="contract" :icon="Icons.minus" size="16px" />
                 </transition>
             </div>
         </div>
@@ -28,6 +28,7 @@ import {
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import { coreCollapseItemIdProp, coreCollapseItemSetup, CoreCollapseItemSlotProps } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-collapse-item',
@@ -47,6 +48,7 @@ export default defineComponent({
         const core = coreCollapseItemSetup().as('div', asProps).props(['id']).build();
 
         return {
+            Icons,
             core,
             ...componentCssHelpers,
         };

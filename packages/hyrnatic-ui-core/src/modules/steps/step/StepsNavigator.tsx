@@ -140,7 +140,8 @@ export default defineComponent({
     },
     render() {
         if (this.$props.as) {
-            return h(this.$props.as, { ...this.$props.asProps(this.slotProps) }, this.defaultRender());
+            const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
+            return h(this.$props.as, { ...p }, this.defaultRender());
         }
         return this.defaultRender();
     },

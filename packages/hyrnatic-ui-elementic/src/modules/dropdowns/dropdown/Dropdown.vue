@@ -7,7 +7,7 @@
                 </slot>
             </span>
             <div ref="icon" tabindex="0" :class="[css_ec('icon')]" @click.stop="props.onIconClick" @keydown.stop="props.onKeyEvents($event, 'split')">
-                <h-icon icon="dots-horizontal" size="16px" />
+                <h-icon :icon="Icons.dotsHorizontal" size="16px" />
             </div>
         </div>
 
@@ -42,6 +42,7 @@ import {
     CoreDropdownSlotProps,
     CoreDropdownItemInstance,
 } from '@hyrioo/hyrnatic-ui-core';
+import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-dropdown',
@@ -128,6 +129,7 @@ export default defineComponent({
             .build();
 
         return {
+            Icons,
             core,
             dropdown,
             button,
