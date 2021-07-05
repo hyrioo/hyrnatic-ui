@@ -114,6 +114,14 @@ export type {
 export { default as CoreDatePickersInstall } from './modules/date-pickers/install';
 export {
     coreDatePickerSetup,
+    coreDatePickerModelValueProp,
+    coreDatePickerValueFormatProp,
+    coreDatePickerDisabledProp,
+    coreDatePickerVisibleProp,
+    coreDatePickerMultipleProp,
+    coreDatePickerClearableProp,
+    coreDatePickerDisabledDateProp,
+    coreDatePickerFirstDayOfWeekProp,
 } from './modules/date-pickers/date-picker/DatePicker';
 export type {
     CoreDatePickerSlotProps,

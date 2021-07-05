@@ -6,6 +6,7 @@ import Alert from './pages/Alert.vue';
 import Button from './pages/Button.vue';
 import Checkbox from './pages/Checkbox.vue';
 import Collapse from './pages/Collapse.vue';
+import DatePicker from './pages/DatePicker.vue';
 import Dialog from './pages/Dialog.vue';
 import Drawer from './pages/Drawer.vue';
 import Dropdown from './pages/Dropdown.vue';
@@ -40,6 +41,7 @@ const router = createRouter({
         componentPage('button', Button),
         componentPage('checkbox', Checkbox),
         componentPage('collapse', Collapse),
+        componentPage('date-picker', DatePicker),
         componentPage('dialog', Dialog),
         componentPage('drawer', Drawer),
         componentPage('dropdown', Dropdown),

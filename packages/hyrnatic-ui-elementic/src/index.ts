@@ -2,6 +2,7 @@ import AlertsInstall from './modules/alerts/install';
 import ButtonsInstall from './modules/buttons/install';
 import CheckboxesInstall from './modules/checkboxes/install';
 import CollapsesInstall from './modules/collapses/install';
+import DatePickersInstall from './modules/date-pickers/install';
 import DialogsInstall from './modules/dialogs/install';
 import DrawersInstall from './modules/drawers/install';
 import DropdownsInstall from './modules/dropdowns/install';
@@ -29,6 +30,7 @@ const modules = {
     ButtonsInstall,
     CheckboxesInstall,
     CollapsesInstall,
+    DatePickersInstall,
     DialogsInstall,
     DrawersInstall,
     DropdownsInstall,

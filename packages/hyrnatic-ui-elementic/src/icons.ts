@@ -8,22 +8,26 @@ import {
     mdiMinus,
     mdiArrowLeft,
     mdiArrowRight,
-    mdiPlus, mdiCalendarMonth,
+    mdiPlus, mdiCalendarMonth, mdiChevronLeft, mdiChevronRight, mdiChevronDoubleRight, mdiChevronDoubleLeft,
 } from '@mdi/js';
 import IconRegistry from './utils/icon-registry';
 import { StringHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const icons = {
+    arrowLeft: mdiArrowLeft,
+    arrowRight: mdiArrowRight,
     calendarMonth: mdiCalendarMonth,
     check: mdiCheck,
+    chevronDoubleLeft: mdiChevronDoubleLeft,
+    chevronDoubleRight: mdiChevronDoubleRight,
     chevronDown: mdiChevronDown,
+    chevronLeft: mdiChevronLeft,
+    chevronRight: mdiChevronRight,
     chevronUp: mdiChevronUp,
     close: mdiClose,
     dotsHorizontal: mdiDotsHorizontal,
     loading: mdiLoading,
     minus: mdiMinus,
-    arrowLeft: mdiArrowLeft,
-    arrowRight: mdiArrowRight,
     plus: mdiPlus,
 };
 
