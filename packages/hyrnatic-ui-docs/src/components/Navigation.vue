@@ -19,6 +19,7 @@ export default defineComponent({
             { route: 'button', text: 'Button' },
             { route: 'checkbox', text: 'Checkbox' },
             { route: 'collapse', text: 'Collapse' },
+            { route: 'date-picker', text: 'Date picker' },
             { route: 'dialog', text: 'Dialog' },
             { route: 'drawer', text: 'Drawer' },
             { route: 'dropdown', text: 'Dropdown' },

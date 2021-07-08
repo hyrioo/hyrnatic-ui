@@ -152,7 +152,7 @@ export default defineComponent({
         });
 
         const createPopperInstance = () => {
-            // console.log('createPopperInstance');
+            // console.log('createPopperInstance', props.reference);
             if (!props.reference) {
                 console.warn('The reference must be a valid element to create a popper instance');
                 return;
@@ -168,7 +168,7 @@ export default defineComponent({
                 // console.log('No innerElement. Abort update');
                 return;
             }
-            // console.log('updatePopper');
+            // console.log('updatePopper', props.reference);
             if (updateState) {
                 // console.log('Already updating. Queue new update');
                 queuedUpdate = true;
