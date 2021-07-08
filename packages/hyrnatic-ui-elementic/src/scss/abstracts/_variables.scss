@@ -54,6 +54,7 @@ $c-dark-danger: rgba-solid(rgba($c-danger, $o-80), #000);
 $c-default-shadow: #4A5C5C;
 
 $c-primary-text: $c-primary;
+$c-default-text: #202020;
 $c-dark-text: #4A5C5C;
 $c-light-text: #C7DBDB;
 $c-dark-text-hint: rgba($c-dark-text, $o-64);
@@ -278,12 +279,12 @@ $t-slow-sharp: $s-slow $e-sharp;
 /* Shadows
    ========================= */
 
-$sd-hover--primary-box-shadow: default-box-shadow($c-primary, $o-16p, 16px);
-$sd-hover--secondary-box-shadow: default-box-shadow($c-secondary);
-$sd-hover--negative-box-shadow: default-box-shadow($c-negative);
-$sd-hover--success-box-shadow: default-box-shadow($c-success);
-$sd-hover--warning-box-shadow: default-box-shadow($c-warning);
-$sd-hover--danger-box-shadow: default-box-shadow($c-danger);
+$sd-hover--primary-box-shadow: default-box-shadow($c-primary, $o-16p, $g-12);
+$sd-hover--secondary-box-shadow: default-box-shadow($c-secondary, $o-16p, $g-12);
+$sd-hover--negative-box-shadow: default-box-shadow($c-negative, $o-16p, $g-12);
+$sd-hover--success-box-shadow: default-box-shadow($c-success, $o-16p, $g-12);
+$sd-hover--warning-box-shadow: default-box-shadow($c-warning, $o-16p, $g-12);
+$sd-hover--danger-box-shadow: default-box-shadow($c-danger, $o-16p, $g-12);
 
 $sd-hover--primary-text-shadow: default-text-shadow($c-primary);
 $sd-hover--secondary-text-shadow: default-text-shadow($c-secondary);
@@ -293,12 +294,12 @@ $sd-hover--warning-text-shadow: default-text-shadow($c-warning);
 $sd-hover--danger-text-shadow: default-text-shadow($c-danger);
 
 
-$sd-active--primary-box-shadow: default-box-shadow($c-dark-primary);
-$sd-active--secondary-box-shadow: default-box-shadow($c-dark-secondary);
-$sd-active--negative-box-shadow: default-box-shadow($c-dark-negative);
-$sd-active--success-box-shadow: default-box-shadow($c-dark-success);
-$sd-active--warning-box-shadow: default-box-shadow($c-dark-warning);
-$sd-active--danger-box-shadow: default-box-shadow($c-dark-danger);
+$sd-active--primary-box-shadow: default-box-shadow($c-dark-primary, $o-16p, $g-12);
+$sd-active--secondary-box-shadow: default-box-shadow($c-dark-secondary, $o-16p, $g-12);
+$sd-active--negative-box-shadow: default-box-shadow($c-dark-negative, $o-16p, $g-12);
+$sd-active--success-box-shadow: default-box-shadow($c-dark-success, $o-16p, $g-12);
+$sd-active--warning-box-shadow: default-box-shadow($c-dark-warning, $o-16p, $g-12);
+$sd-active--danger-box-shadow: default-box-shadow($c-dark-danger, $o-16p, $g-12);
 
 $sd-active--primary-text-shadow: default-text-shadow($c-dark-primary);
 $sd-active--secondary-text-shadow: default-text-shadow($c-dark-secondary);
@@ -307,6 +308,6 @@ $sd-active--success-text-shadow: default-text-shadow($c-dark-success);
 $sd-active--warning-text-shadow: default-text-shadow($c-dark-warning);
 $sd-active--danger-text-shadow: default-text-shadow($c-dark-danger);
 
-$sd-card-box-shadow: 0 2px 4px rgba($c-default-shadow, $o-16);
-$sd-modal-box-shadow: 0 0 16px rgba($c-default-shadow, $o-16);
-$sd-tooltip-box: 0 0 16px rgba($c-default-shadow, $o-16);
+$sd-card-box-shadow: 0 2px $g-4 rgba($c-default-shadow, $o-16);
+$sd-modal-box-shadow: 0 0 $g-16 rgba($c-default-shadow, $o-16);
+$sd-tooltip-box: 0 0 $g-12 rgba($c-default-shadow, $o-16);

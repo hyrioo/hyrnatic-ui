@@ -1,5 +1,7 @@
 <template>
-    <page title="Button">
+    <page title="Date picker">
+        <h-date-picker v-model="date" />
+        <br><br>
         <h-date-picker v-model="date" />
     </page>
 </template>
