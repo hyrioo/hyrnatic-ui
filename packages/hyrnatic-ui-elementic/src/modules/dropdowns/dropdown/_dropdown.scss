@@ -84,10 +84,15 @@ $crc: '.h-dropdown';
 	}
 }
 
+#{$crc}__menu-container {
+	filter: drop-shadow($sd-active--primary-box-shadow);
+}
+
+
 #{$crc}__menu {
 	border: $v-control-border-width solid $c-primary-border;
 	background: $c-primary-background;
-	border-radius: $v-control-border-radius;
+	border-radius: $v-box-border-radius;
 	padding-top: 3px - $v-control-border-width;
 	display: flex;
 	max-height: 300px;
@@ -104,7 +109,7 @@ $crc: '.h-dropdown';
 		right: 0;
 		top: 0;
 		background: $c-primary;
-		border-radius: 3px 3px 0 0;
+		border-radius: $v-box-border-radius $v-box-border-radius 0 0;
 	}
 }
 

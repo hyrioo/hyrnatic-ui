@@ -30,33 +30,36 @@ export default defineComponent({
             type: String,
             required: true,
         },
-        bordered: {
+        rounded: {
             type: Boolean,
-            default: true,
+            default: false,
         },
-        styling: {
+        color: {
             type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
         },
-        iconStyling: {
-            type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
-            default: null,
+        styling: {
+            type: String as PropType<'simple' | 'block' | 'subtle'>,
+            default: 'simple',
         },
         size: {
-            type: String as PropType<'normal' | 'small'>,
+            type: String as PropType<'small' | 'normal'>,
             default: 'normal',
         },
+        type: {
+            type: String as PropType<'button' | 'submit' | 'reset'>,
+            default: 'button',
+        }
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
-        const actualIconStyling = computed(() => props.iconStyling === null ? props.styling : props.iconStyling)
 
         const asProps = (slotProps: CoreButtonSlotProps) => ({
-            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-icon-styling-${actualIconStyling.value}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-bordered': props.bordered }],
+            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`,  `-color-${props.color}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-rounded': props.rounded }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
-            type: 'button',
+            type: props.type,
         });
         const core = coreButtonSetup().as('button', asProps).props(['disabled', 'loading', 'visible']).events(['click']).build();
 

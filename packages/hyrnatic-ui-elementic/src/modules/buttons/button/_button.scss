@@ -2,7 +2,6 @@ $crc: '.h-button';
 
 #{$crc} {
 	border-radius: $v-control-border-radius;
-	padding: 0 $g-24;
 	border-width: $v-control-border-width;
 	border-style: solid;
 	font-size: $fs-default;
@@ -16,6 +15,524 @@ $crc: '.h-button';
 	vertical-align: middle;
 	position: relative;
 
+	--button-text-color: #{$c-default-text};
+
+
+	&.-styling-subtle {
+		border: none;
+
+		&.-color-primary {
+			--button-text-color: #{$c-primary-text};
+
+			&:hover, &:focus {
+				background: rgba($c-primary-border, $o-48);
+				box-shadow: $sd-hover--primary-box-shadow;
+			}
+			&:active{
+				--button-text-color: #{$c-active--primary-text};
+			}
+			&:disabled {
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-secondary {
+			--button-text-color: #{$c-secondary-text};
+
+			&:hover, &:focus {
+				background: rgba($c-secondary-border, $o-48);
+				box-shadow: $sd-hover--secondary-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--secondary-text};
+			}
+			&:disabled {
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-negative {
+			--button-text-color: #{$c-negative-text};
+
+			&:hover, &:focus {
+				background: rgba($c-negative-border, $o-48);
+				box-shadow: $sd-hover--negative-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--negative-text};
+			}
+			&:disabled {
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-success {
+			--button-text-color: #{$c-success-text};
+
+			&:hover, &:focus {
+				background: rgba($c-success-border, $o-48);
+				box-shadow: $sd-hover--success-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--success-text};
+			}
+			&:disabled {
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-warning {
+			--button-text-color: #{$c-warning-text};
+
+			&:hover, &:focus {
+				background: rgba($c-warning-border, $o-48);
+				box-shadow: $sd-hover--warning-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--warning-text};
+			}
+			&:disabled {
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-danger {
+			--button-text-color: #{$c-danger-text};
+
+			&:hover, &:focus {
+				background: rgba($c-danger-border, $o-48);
+				box-shadow: $sd-hover--danger-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--danger-text};
+			}
+			&:disabled {
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+	}
+
+	&.-styling-simple {
+		border-width: $v-control-border-width;
+		border-style: solid;
+
+		&.-color-primary {
+			--button-text-color: #{$c-primary-text};
+			background: $c-primary-background;
+			border-color: $c-primary-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--primary-border;
+				box-shadow: $sd-hover--primary-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--primary-text};
+				border-color: $c-active--primary-border;
+				box-shadow: $sd-active--primary-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--primary-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-secondary {
+			--button-text-color: #{$c-secondary-text};
+			background: $c-secondary-background;
+			border-color: $c-secondary-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--secondary-border;
+				box-shadow: $sd-hover--secondary-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--secondary-text};
+				border-color: $c-active--secondary-border;
+				box-shadow: $sd-active--secondary-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--secondary-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-negative {
+			--button-text-color: #{$c-negative-text};
+			background: $c-negative-background;
+			border-color: $c-negative-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--negative-border;
+				box-shadow: $sd-hover--negative-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--negative-text};
+				border-color: $c-active--negative-border;
+				box-shadow: $sd-active--negative-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--negative-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-success {
+			--button-text-color: #{$c-success-text};
+			background: $c-success-background;
+			border-color: $c-success-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--success-border;
+				box-shadow: $sd-hover--success-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--success-text};
+				border-color: $c-active--success-border;
+				box-shadow: $sd-active--success-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--success-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-warning {
+			--button-text-color: #{$c-warning-text};
+			background: $c-warning-background;
+			border-color: $c-warning-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--warning-border;
+				box-shadow: $sd-hover--warning-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--warning-text};
+				border-color: $c-active--warning-border;
+				box-shadow: $sd-active--warning-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--warning-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-danger {
+			--button-text-color: #{$c-danger-text};
+			background: $c-danger-background;
+			border-color: $c-danger-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--danger-border;
+				box-shadow: $sd-hover--danger-box-shadow;
+			}
+			&:active {
+				--button-text-color: #{$c-active--danger-text};
+				border-color: $c-active--danger-border;
+				box-shadow: $sd-active--danger-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--danger-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+	}
+
+	&.-styling-block {
+		border-width: $v-control-border-width;
+		border-style: solid;
+
+		&.-color-primary {
+			--button-text-color: #{$c-fill};
+			background: $c-primary;
+			border-color: $c-primary;
+
+			&:hover, &:focus {
+				border-color: $c-dark-primary;
+				box-shadow: $sd-hover--primary-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--primary-border;
+				box-shadow: $sd-active--primary-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-primary-border;
+				background: $c-disabled--primary-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-secondary {
+			--button-text-color: #{$c-default-text};
+			background: $c-secondary;
+			border-color: $c-secondary;
+
+			&:hover, &:focus {
+				border-color: $c-dark-secondary;
+				box-shadow: $sd-hover--secondary-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--secondary-border;
+				box-shadow: $sd-active--secondary-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-secondary-border;
+				background: $c-disabled--secondary-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-negative {
+			--button-text-color: #{$c-fill};
+			background: $c-negative;
+			border-color: $c-negative;
+
+			&:hover, &:focus {
+				border-color: $c-dark-negative;
+				box-shadow: $sd-hover--negative-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--negative-border;
+				box-shadow: $sd-active--negative-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-negative-border;
+				background: $c-disabled--negative-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-success {
+			--button-text-color: #{$c-default-text};
+			background: $c-success;
+			border-color: $c-success;
+
+			&:hover, &:focus {
+				border-color: $c-dark-success;
+				box-shadow: $sd-hover--success-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--success-border;
+				box-shadow: $sd-active--success-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-success-border;
+				background: $c-disabled--success-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-warning {
+			--button-text-color: #{$c-default-text};
+			background: $c-warning;
+			border-color: $c-warning;
+
+			&:hover, &:focus {
+				border-color: $c-dark-warning;
+				box-shadow: $sd-hover--warning-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--warning-border;
+				box-shadow: $sd-active--warning-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-warning-border;
+				background: $c-disabled--warning-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+
+		&.-color-danger {
+			--button-text-color: #{$c-fill};
+			background: $c-danger;
+			border-color: $c-danger;
+
+			&:hover, &:focus {
+				border-color: $c-dark-danger;
+				box-shadow: $sd-hover--danger-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--danger-border;
+				box-shadow: $sd-active--danger-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-danger-border;
+				background: $c-disabled--danger-background;
+				--button-text-color: #{$c-dark-text};
+			}
+		}
+	}
+
+	&.-styling-none {
+		background: transparent;
+		border-color: transparent;
+
+		&.-color-primary {
+            --button-text-color: #{$c-primary-text};
+			&:active {
+                --button-text-color: #{$c-active--primary-text};
+            }
+			&:disabled {
+                --button-text-color: #{$c-dark-text};
+            }
+		}
+
+		&.-color-secondary {
+            --button-text-color: #{$c-secondary-text};
+			&:active {
+                --button-text-color: #{$c-active--secondary-text};
+            }
+			&:disabled {
+                --button-text-color: #{$c-dark-text};
+            }
+		}
+
+		&.-color-negative {
+            --button-text-color: #{$c-negative-text};
+			&:active {
+                --button-text-color: #{$c-active--negative-text};
+            }
+			&:disabled {
+                --button-text-color: #{$c-dark-text};
+            }
+		}
+
+		&.-color-success {
+            --button-text-color: #{$c-success-text};
+			&:active {
+                --button-text-color: #{$c-active--success-text};
+            }
+			&:disabled {
+                --button-text-color: #{$c-dark-text};
+            }
+		}
+
+		&.-color-warning {
+            --button-text-color: #{$c-warning-text};
+			&:active {
+                --button-text-color: #{$c-active--warning-text};
+            }
+			&:disabled {
+                --button-text-color: #{$c-dark-text};
+            }
+		}
+
+		&.-color-danger {
+            --button-text-color: #{$c-danger-text};
+			&:active {
+                --button-text-color: #{$c-active--danger-text};
+            }
+			&:disabled {
+                --button-text-color: #{$c-dark-text};
+            }
+		}
+	}
+
+
+	&.-size-small {
+		padding: 0 $g-20;
+		min-width: $v-control-height-small;
+		height: $v-control-height-small;
+		line-height: $v-control-height-small;
+
+		&.-rounded {
+			border-radius: $v-control-height-small / 2;
+		}
+
+		&.-has-icon {
+			padding: 0 $g-12;
+		}
+
+		#{$crc}__loading-icon {
+			left: $g-8 - $v-control-border-width;
+		}
+
+		&.-has-icon #{$crc}__loading-icon {
+			left: $g-12;
+		}
+
+		&.-loading {
+			#{$crc}__content {
+				transform: translate($g-8, 0);
+			}
+
+			&.-has-icon {
+				#{$crc}__content {
+					transform: translate(0, 0);
+				}
+			}
+		}
+	}
+
+	&.-size-normal {
+		padding: 0 $g-24;
+		min-width: $v-control-height;
+		height: $v-control-height;
+		line-height: $v-control-height;
+
+		&.-rounded {
+			border-radius: $v-control-height / 2;
+		}
+
+		&.-has-icon {
+			padding: 0 $g-16;
+		}
+
+		#{$crc}__loading-icon {
+			left: $g-12 - $v-control-border-width;
+		}
+
+		&.-has-icon #{$crc}__loading-icon {
+			left: $g-12;
+		}
+
+		&.-loading {
+			#{$crc}__content {
+				transform: translate($g-12, 0);
+			}
+
+			&.-has-icon {
+				#{$crc}__content {
+					transform: translate(0, 0);
+				}
+			}
+		}
+	}
+
+	/*&.-size-large {
+		padding: 0 $g-32;
+		min-width: $v-control-height-large;
+		height: $v-control-height-large;
+		line-height: $v-control-height-large;
+
+		&.-rounded {
+			border-radius: $v-control-height-large / 2;
+		}
+
+		&.-has-icon {
+			padding: 0 $g-16;
+		}
+
+		#{$crc}__loading-icon {
+			left: $g-12 - $v-control-border-width;
+		}
+
+		&.-has-icon #{$crc}__loading-icon {
+			left: $g-12;
+		}
+
+		&.-loading {
+			#{$crc}__content {
+				transform: translate($g-12, 0);
+			}
+
+			&.-has-icon {
+				#{$crc}__content {
+					transform: translate(0, 0);
+				}
+			}
+		}
+	}*/
+
 
 	&.-loading {
 		pointer-events: none;
@@ -23,169 +540,11 @@ $crc: '.h-button';
 		#{$crc}__loading-icon {
 			opacity: 1;
 		}
-		#{$crc}__content {
-			transform: translate($g-12, 0);
-		}
 		#{$crc}__icon {
 			opacity: $o-0;
-			transform: translate(0, 0);
-		}
-
-		&.-has-icon {
-			#{$crc}__content {
-				transform: translate(0, 0);
-			}
 		}
 	}
 
-	&.-has-icon #{$crc}__loading-icon {
-		left: $g-24;
-	}
-
-	&.-styling-primary {
-		background: $c-primary-background;
-		border-color: $c-primary-border;
-		color: $c-primary-text;
-
-		&:hover, &:focus {
-			border-color: $c-hover--primary-border;
-			box-shadow: $sd-hover--primary-box-shadow;
-			//text-shadow: $sd-hover--primary-text-shadow;
-		}
-		&:active {
-			border-color: $c-active--primary-border;
-			box-shadow: $sd-active--primary-box-shadow;
-			//text-shadow: $sd-active--primary-text-shadow;
-			color: $c-active--primary-text;
-		}
-		&:disabled {
-			background: $c-disabled--primary-background;
-		}
-	}
-
-	&.-styling-secondary {
-		background: $c-secondary-background;
-		border-color: $c-secondary-border;
-		color: $c-secondary-text;
-
-		&:hover, &:focus {
-			border-color: $c-hover--secondary-border;
-			box-shadow: $sd-hover--secondary-box-shadow;
-			//text-shadow: $sd-hover--secondary-text-shadow;
-		}
-		&:active {
-			border-color: $c-active--secondary-border;
-			box-shadow: $sd-active--secondary-box-shadow;
-			//text-shadow: $sd-active--secondary-text-shadow;
-			color: $c-active--secondary-text;
-		}
-		&:disabled {
-			background: $c-disabled--secondary-background;
-		}
-	}
-
-	&.-styling-negative {
-		background: $c-negative-background;
-		border-color: $c-negative-border;
-		color: $c-negative-text;
-
-		&:hover, &:focus {
-			border-color: $c-hover--negative-border;
-			box-shadow: $sd-hover--negative-box-shadow;
-			//text-shadow: $sd-hover--negative-text-shadow;
-		}
-		&:active {
-			border-color: $c-active--negative-border;
-			box-shadow: $sd-active--negative-box-shadow;
-			//text-shadow: $sd-active--negative-text-shadow;
-			color: $c-active--negative-text;
-		}
-		&:disabled {
-			background: $c-disabled--negative-background;
-		}
-	}
-
-	&.-styling-success {
-		background: $c-success-background;
-		border-color: $c-success-border;
-		color: $c-success-text;
-
-		&:hover, &:focus {
-			border-color: $c-hover--success-border;
-			box-shadow: $sd-hover--success-box-shadow;
-			//text-shadow: $sd-hover--success-text-shadow;
-		}
-		&:active {
-			border-color: $c-active--success-border;
-			box-shadow: $sd-active--success-box-shadow;
-			//text-shadow: $sd-active--success-text-shadow;
-			color: $c-active--success-text;
-		}
-		&:disabled {
-			background: $c-disabled--success-background;
-		}
-	}
-
-	&.-styling-warning {
-		background: $c-warning-background;
-		border-color: $c-warning-border;
-		color: $c-warning-text;
-
-		&:hover, &:focus {
-			border-color: $c-hover--warning-border;
-			box-shadow: $sd-hover--warning-box-shadow;
-			//text-shadow: $sd-hover--warning-text-shadow;
-		}
-		&:active {
-			border-color: $c-active--warning-border;
-			box-shadow: $sd-active--warning-box-shadow;
-			//text-shadow: $sd-active--warning-text-shadow;
-			color: $c-active--warning-text;
-		}
-		&:disabled {
-			background: $c-disabled--warning-background;
-		}
-	}
-
-	&.-styling-danger {
-		background: $c-danger-background;
-		border-color: $c-danger-border;
-		color: $c-danger-text;
-
-		&:hover, &:focus {
-			border-color: $c-hover--danger-border;
-			box-shadow: $sd-hover--danger-box-shadow;
-			//text-shadow: $sd-hover--danger-text-shadow;
-		}
-		&:active {
-			border-color: $c-active--danger-border;
-			box-shadow: $sd-active--danger-box-shadow;
-			//text-shadow: $sd-active--danger-text-shadow;
-			color: $c-active--danger-text;
-		}
-		&:disabled {
-			background: $c-disabled--danger-background;
-		}
-	}
-
-	&.-styling-none {
-		background: transparent;
-		border-color: transparent;
-		border-width: 0;
-		color: $c-dark-text;
-	}
-
-	&.-size-normal {
-		min-width: $v-control-height;
-		height: $v-control-height;
-		line-height: $v-control-height;
-	}
-
-	&.-size-small {
-		min-width: $v-control-height-small;
-		height: $v-control-height-small;
-		line-height: $v-control-height-small;
-	}
 
 	&.-icon-only {
 		padding: 0;
@@ -199,12 +558,23 @@ $crc: '.h-button';
 		}
 	}
 
-	// Shared for all types
 	&:disabled {
 		color: $c-disabled--negative-text;
 		opacity: $v-control-disabled-opacity;
 		pointer-events: none;
 	}
+
+
+}
+
+#{$crc}__content {
+	color: var(--button-text-color);
+	display: flex;
+	align-items: center;
+}
+
+#{$crc}__loading-icon, #{$crc}__icon {
+	color: var(--button-text-color);
 }
 
 #{$crc}__icon {
@@ -217,11 +587,11 @@ $crc: '.h-button';
 #{$crc}__loading-icon {
 	position: absolute;
 	top: 50%;
-	left: $g-12 - $v-control-border-width;
 	margin-top: -$g-8;
 	animation: hyrnatic-spin $s-slow infinite linear;
 	opacity: $o-0;
 }
+
 #{$crc}__loading-icon, #{$crc}__content, #{$crc}__icon {
 	transition: $t-fast-standard;
 }

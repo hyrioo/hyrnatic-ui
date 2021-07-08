@@ -3,8 +3,6 @@ $crc: '.h-icon-button';
 #{$crc} {
 	border-radius: $v-control-border-radius;
 	padding: 0;
-	border-width: 0;
-	border-style: solid;
 	background: transparent;
 	transition: $t-fast-standard;
 	outline: none;
@@ -15,6 +13,10 @@ $crc: '.h-icon-button';
 	vertical-align: middle;
 	position: relative;
 
+	svg {
+		transition: $t-fast-standard;
+	}
+
 	&.-loading {
 		pointer-events: none;
 
@@ -23,162 +25,384 @@ $crc: '.h-icon-button';
 		}
 		#{$crc}__icon {
 			opacity: $o-0;
-			transform: translate(0, 0);
 		}
 	}
 
-	&.-styling-primary {
-		background: $c-primary-background;
-		border-color: $c-primary-border;
+	&.-rounded {
+		border-radius: 50%;
+	}
 
-		&:hover, &:focus {
-			border-color: $c-hover--primary-border;
-			box-shadow: $sd-hover--primary-box-shadow;
+	&.-styling-subtle {
+		border: none;
+
+		&.-color-primary {
+			svg { color: $c-primary-text; }
+
+			&:hover, &:focus {
+				background: rgba($c-primary-border, $o-48);
+				box-shadow: $sd-hover--primary-box-shadow;
+			}
+			&:active svg { color: $c-active--primary-text; }
+			&:disabled {
+				svg { color: $c-dark-text; }
+			}
 		}
-		&:active {
-			border-color: $c-active--primary-border;
-			box-shadow: $sd-active--primary-box-shadow;
+
+		&.-color-secondary {
+			svg { color: $c-secondary-text; }
+
+			&:hover, &:focus {
+				background: rgba($c-secondary-border, $o-48);
+				box-shadow: $sd-hover--secondary-box-shadow;
+			}
+			&:active svg { color: $c-active--secondary-text; }
+			&:disabled {
+				svg { color: $c-dark-text; }
+			}
 		}
-		&:disabled {
-			background: $c-disabled--primary-background;
+
+		&.-color-negative {
+			svg { color: $c-negative-text; }
+
+			&:hover, &:focus {
+				background: rgba($c-negative-border, $o-48);
+				box-shadow: $sd-hover--negative-box-shadow;
+			}
+			&:active svg { color: $c-active--negative-text; }
+			&:disabled {
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-success {
+			svg { color: $c-success-text; }
+
+			&:hover, &:focus {
+				background: rgba($c-success-border, $o-48);
+				box-shadow: $sd-hover--success-box-shadow;
+			}
+			&:active svg { color: $c-active--success-text; }
+			&:disabled {
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-warning {
+			svg { color: $c-warning-text; }
+
+			&:hover, &:focus {
+				background: rgba($c-warning-border, $o-48);
+				box-shadow: $sd-hover--warning-box-shadow;
+			}
+			&:active svg { color: $c-active--warning-text; }
+			&:disabled {
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-danger {
+			svg { color: $c-danger-text; }
+
+			&:hover, &:focus {
+				background: rgba($c-danger-border, $o-48);
+				box-shadow: $sd-hover--danger-box-shadow;
+			}
+			&:active svg { color: $c-active--danger-text; }
+			&:disabled {
+				svg { color: $c-dark-text; }
+			}
 		}
 	}
-	&.-styling-secondary {
-		background: $c-secondary-background;
-		border-color: $c-secondary-border;
 
-		&:hover, &:focus {
-			border-color: $c-hover--secondary-border;
-			box-shadow: $sd-hover--secondary-box-shadow;
+	&.-styling-simple {
+		border-width: $v-control-border-width;
+		border-style: solid;
+
+		&.-color-primary {
+			svg { color: $c-primary-text; }
+			background: $c-primary-background;
+			border-color: $c-primary-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--primary-border;
+				box-shadow: $sd-hover--primary-box-shadow;
+			}
+			&:active {
+				svg { color: $c-active--primary-text; }
+				border-color: $c-active--primary-border;
+				box-shadow: $sd-active--primary-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--primary-background;
+				svg { color: $c-dark-text; }
+			}
 		}
-		&:active {
-			border-color: $c-active--secondary-border;
-			box-shadow: $sd-active--secondary-box-shadow;
+
+		&.-color-secondary {
+			svg { color: $c-secondary-text; }
+			background: $c-secondary-background;
+			border-color: $c-secondary-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--secondary-border;
+				box-shadow: $sd-hover--secondary-box-shadow;
+			}
+			&:active {
+				svg { color: $c-active--secondary-text; }
+				border-color: $c-active--secondary-border;
+				box-shadow: $sd-active--secondary-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--secondary-background;
+				svg { color: $c-dark-text; }
+			}
 		}
-		&:disabled {
-			background: $c-disabled--secondary-background;
+
+		&.-color-negative {
+			svg { color: $c-negative-text; }
+			background: $c-negative-background;
+			border-color: $c-negative-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--negative-border;
+				box-shadow: $sd-hover--negative-box-shadow;
+			}
+			&:active {
+				svg { color: $c-active--negative-text; }
+				border-color: $c-active--negative-border;
+				box-shadow: $sd-active--negative-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--negative-background;
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-success {
+			svg { color: $c-success-text; }
+			background: $c-success-background;
+			border-color: $c-success-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--success-border;
+				box-shadow: $sd-hover--success-box-shadow;
+			}
+			&:active {
+				svg { color: $c-active--success-text; }
+				border-color: $c-active--success-border;
+				box-shadow: $sd-active--success-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--success-background;
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-warning {
+			svg { color: $c-warning-text; }
+			background: $c-warning-background;
+			border-color: $c-warning-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--warning-border;
+				box-shadow: $sd-hover--warning-box-shadow;
+			}
+			&:active {
+				svg { color: $c-active--warning-text; }
+				border-color: $c-active--warning-border;
+				box-shadow: $sd-active--warning-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--warning-background;
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-danger {
+			svg { color: $c-danger-text; }
+			background: $c-danger-background;
+			border-color: $c-danger-border;
+
+			&:hover, &:focus {
+				border-color: $c-hover--danger-border;
+				box-shadow: $sd-hover--danger-box-shadow;
+			}
+			&:active {
+				svg { color: $c-active--danger-text; }
+				border-color: $c-active--danger-border;
+				box-shadow: $sd-active--danger-box-shadow;
+			}
+			&:disabled {
+				background: $c-disabled--danger-background;
+				svg { color: $c-dark-text; }
+			}
 		}
 	}
-	&.-styling-negative {
-		background: $c-negative-background;
-		border-color: $c-negative-border;
 
-		&:hover, &:focus {
-			border-color: $c-hover--negative-border;
-			box-shadow: $sd-hover--negative-box-shadow;
+	&.-styling-block {
+		border-width: $v-control-border-width;
+		border-style: solid;
+
+		&.-color-primary {
+			svg { color: $c-fill; }
+			background: $c-primary;
+			border-color: $c-primary;
+
+			&:hover, &:focus {
+				border-color: $c-dark-primary;
+				box-shadow: $sd-hover--primary-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--primary-border;
+				box-shadow: $sd-active--primary-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-primary-border;
+				background: $c-disabled--primary-background;
+				svg { color: $c-dark-text; }
+			}
 		}
-		&:active {
-			border-color: $c-active--negative-border;
-			box-shadow: $sd-active--negative-box-shadow;
+
+		&.-color-secondary {
+			svg { color: $c-fill; }
+			background: $c-secondary;
+			border-color: $c-secondary;
+
+			&:hover, &:focus {
+				border-color: $c-dark-secondary;
+				box-shadow: $sd-hover--secondary-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--secondary-border;
+				box-shadow: $sd-active--secondary-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-secondary-border;
+				background: $c-disabled--secondary-background;
+				svg { color: $c-dark-text; }
+			}
 		}
-		&:disabled {
-			background: $c-disabled--negative-background;
+
+		&.-color-negative {
+			svg { color: $c-fill; }
+			background: $c-negative;
+			border-color: $c-negative;
+
+			&:hover, &:focus {
+				border-color: $c-dark-negative;
+				box-shadow: $sd-hover--negative-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--negative-border;
+				box-shadow: $sd-active--negative-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-negative-border;
+				background: $c-disabled--negative-background;
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-success {
+			svg { color: $c-fill; }
+			background: $c-success;
+			border-color: $c-success;
+
+			&:hover, &:focus {
+				border-color: $c-dark-success;
+				box-shadow: $sd-hover--success-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--success-border;
+				box-shadow: $sd-active--success-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-success-border;
+				background: $c-disabled--success-background;
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-warning {
+			svg { color: $c-fill; }
+			background: $c-warning;
+			border-color: $c-warning;
+
+			&:hover, &:focus {
+				border-color: $c-dark-warning;
+				box-shadow: $sd-hover--warning-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--warning-border;
+				box-shadow: $sd-active--warning-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-warning-border;
+				background: $c-disabled--warning-background;
+				svg { color: $c-dark-text; }
+			}
+		}
+
+		&.-color-danger {
+			svg { color: $c-fill; }
+			background: $c-danger;
+			border-color: $c-danger;
+
+			&:hover, &:focus {
+				border-color: $c-dark-danger;
+				box-shadow: $sd-hover--danger-box-shadow;
+			}
+			&:active {
+				border-color: $c-active--danger-border;
+				box-shadow: $sd-active--danger-box-shadow;
+			}
+			&:disabled {
+				border-color: $c-danger-border;
+				background: $c-disabled--danger-background;
+				svg { color: $c-dark-text; }
+			}
 		}
 	}
-	&.-styling-success {
-		background: $c-success-background;
-		border-color: $c-success-border;
 
-		&:hover, &:focus {
-			border-color: $c-hover--success-border;
-			box-shadow: $sd-hover--success-box-shadow;
-		}
-		&:active {
-			border-color: $c-active--success-border;
-			box-shadow: $sd-active--success-box-shadow;
-		}
-		&:disabled {
-			background: $c-disabled--success-background;
-		}
-	}
-	&.-styling-warning {
-		background: $c-warning-background;
-		border-color: $c-warning-border;
-
-		&:hover, &:focus {
-			border-color: $c-hover--warning-border;
-			box-shadow: $sd-hover--warning-box-shadow;
-		}
-
-		&:active {
-			border-color: $c-active--warning-border;
-			box-shadow: $sd-active--warning-box-shadow;
-		}
-
-		&:disabled {
-			background: $c-disabled--warning-background;
-		}
-	}
-	&.-styling-danger {
-		background: $c-danger-background;
-		border-color: $c-danger-border;
-
-		&:hover, &:focus {
-			border-color: $c-hover--danger-border;
-			box-shadow: $sd-hover--danger-box-shadow;
-		}
-		&:active {
-			border-color: $c-active--danger-border;
-			box-shadow: $sd-active--danger-box-shadow;
-		}
-		&:disabled {
-			background: $c-disabled--danger-background;
-		}
-	}
 	&.-styling-none {
 		background: transparent;
 		border-color: transparent;
-	}
 
-	&.-icon-styling-primary {
-		color: $c-primary-text;
-
-		&:active {
-			color: $c-active--primary-text;
+		&.-color-primary {
+			svg { color: $c-primary-text; }
+			&:active svg { color: $c-active--primary-text; }
+			&:disabled svg { color: $c-dark-text; }
 		}
-	}
 
-	&.-icon-styling-secondary {
-		color: $c-secondary-text;
-
-		&:active {
-			color: $c-active--secondary-text;
+		&.-color-secondary {
+			svg { color: $c-secondary-text; }
+			&:active svg { color: $c-active--secondary-text; }
+			&:disabled svg { color: $c-dark-text; }
 		}
-	}
-	&.-icon-styling-negative {
-		color: $c-negative-text;
 
-		&:active {
-			color: $c-active--negative-text;
+		&.-color-negative {
+			svg { color: $c-negative-text; }
+			&:active svg { color: $c-active--negative-text; }
+			&:disabled svg { color: $c-dark-text; }
 		}
-	}
-	&.-icon-styling-success {
-		color: $c-success-text;
 
-		&:active {
-			color: $c-active--success-text;
+		&.-color-success {
+			svg { color: $c-success-text; }
+			&:active svg { color: $c-active--success-text; }
+			&:disabled svg { color: $c-dark-text; }
 		}
-	}
-	&.-icon-styling-warning {
-		color: $c-warning-text;
 
-		&:active {
-			color: $c-active--warning-text;
+		&.-color-warning {
+			svg { color: $c-warning-text; }
+			&:active svg { color: $c-active--warning-text; }
+			&:disabled svg { color: $c-dark-text; }
 		}
-	}
-	&.-icon-styling-danger {
-		color: $c-danger-text;
 
-		&:active {
-			color: $c-active--danger-text;
+		&.-color-danger {
+			svg { color: $c-danger-text; }
+			&:active svg { color: $c-active--danger-text; }
+			&:disabled svg { color: $c-dark-text; }
 		}
-	}
-	&.-icon-styling-none {
-		color: $c-dark-text;
-	}
-
-	&.-bordered {
-		border-width: $v-control-border-width;
 	}
 
 	&.-size-normal {
@@ -195,7 +419,6 @@ $crc: '.h-icon-button';
 
 	// Shared for all types
 	&:disabled {
-		color: $c-disabled--negative-text;
 		opacity: $v-control-disabled-opacity;
 		pointer-events: none;
 	}
@@ -211,7 +434,6 @@ $crc: '.h-icon-button';
 #{$crc}__loading-icon {
 	position: absolute;
 	top: 50%;
-	left: $g-8 - $v-control-border-width;
 	margin-top: -$g-8;
 	animation: hyrnatic-spin $s-slow infinite linear;
 	opacity: $o-0;

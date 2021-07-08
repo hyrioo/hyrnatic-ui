@@ -39,12 +39,20 @@ export default defineComponent({
             type: String,
             default: null,
         },
-        styling: {
+        rounded: {
+            type: Boolean,
+            default: false,
+        },
+        color: {
             type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
         },
+        styling: {
+            type: String as PropType<'simple' | 'block' | 'subtle'>,
+            default: 'simple',
+        },
         size: {
-            type: String as PropType<'normal' | 'small'>,
+            type: String as PropType<'small' | 'normal'>,
             default: 'normal',
         },
         type: {
@@ -58,7 +66,7 @@ export default defineComponent({
         const iconOnly = computed(() => !ctx.slots.default && !props.label);
 
         const asProps = (slotProps: CoreButtonSlotProps) => ({
-            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-icon-only': iconOnly.value, '-has-icon': props.icon }],
+            class: [componentCssHelpers.css_root.value,  `-styling-${props.styling}`,  `-color-${props.color}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-icon-only': iconOnly.value, '-has-icon': props.icon, '-rounded': props.rounded }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
             type: props.type,
