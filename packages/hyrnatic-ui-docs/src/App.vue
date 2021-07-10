@@ -66,8 +66,8 @@ body {
 .header {
   height: 48px;
   line-height: 48px;
-  background: #D4E6E6;
-  border-bottom: 2px solid #319C9C;
+  background: rgba(#319C9C, .08);
+  border-bottom: 2px solid rgba(#319C9C, .32);
   font-size: 18px;
   color: #319C9C;
 }

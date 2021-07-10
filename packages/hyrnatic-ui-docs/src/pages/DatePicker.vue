@@ -9,11 +9,12 @@
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from 'vue';
 import Page from '../components/Page.vue';
+import { DateTime, Duration, Info as DateTimeInfo } from 'luxon';
 
 export default defineComponent({
     components: { Page },
     setup(props, ctx: SetupContext) {
-        const date = ref(null);
+        const date = ref(DateTime.now());
 
         return {
             date,

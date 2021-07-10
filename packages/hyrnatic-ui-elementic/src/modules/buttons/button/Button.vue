@@ -28,6 +28,23 @@ import Icons from '../../../icons';
 
 export default defineComponent({
     name: 'h-button',
+    docs: {
+        slots: [
+            {
+                name: 'default',
+                description: 'The content of the button. Note: this will also overwrite the icon',
+                props: null,
+            }
+        ],
+        events: [
+            {
+                event: 'click',
+                description: 'Emitted when clicked, while not in loading or disabled state',
+                parameters: null,
+            }
+        ]
+    },
+    emits: ['click'],
     props: {
         ...coreButtonDisabledProp,
         ...coreButtonLoadingProp,
@@ -35,33 +52,81 @@ export default defineComponent({
         label: {
             type: [String, Number],
             default: null,
+            docs: {
+                origin: 'elementic',
+                description: 'A simple way to define the content',
+                type: ['string', 'number'],
+                values: null,
+                default: null,
+            },
         },
         icon: {
             type: String,
             default: null,
+            docs: {
+                origin: 'elementic',
+                description: 'Key for the icon registered in the IconRegistry',
+                type: ['string'],
+                values: null,
+                default: null,
+            },
         },
         rounded: {
             type: Boolean,
             default: false,
+            docs: {
+                origin: 'elementic',
+                description: 'Style the button as rounded',
+                type: ['boolean'],
+                values: null,
+                default: false,
+            },
         },
         color: {
             type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
+            docs: {
+                origin: 'elementic',
+                description: 'The color used by the styling',
+                type: ['string'],
+                values: ['primary', 'secondary', 'negative', 'success', 'warning', 'danger', 'none'],
+                default: 'primary',
+            },
         },
         styling: {
-            type: String as PropType<'simple' | 'block' | 'subtle'>,
+            type: String as PropType<'subtle' | 'simple' | 'block' | 'none'>,
             default: 'simple',
+            docs: {
+                origin: 'elementic',
+                description: 'The styling of the button',
+                type: ['string'],
+                values: ['subtle', 'simple', 'block', 'none'],
+                default: 'simple',
+            },
         },
         size: {
             type: String as PropType<'small' | 'normal'>,
             default: 'normal',
+            docs: {
+                origin: 'elementic',
+                description: 'The size of the button',
+                type: ['string'],
+                values: ['small', 'normal'],
+                default: 'normal',
+            },
         },
         type: {
             type: String as PropType<'button' | 'submit' | 'reset'>,
             default: 'button',
+            docs: {
+                origin: 'elementic',
+                description: 'The HTML type set on the button',
+                type: ['string'],
+                values: ['button', 'submit', 'reset'],
+                default: 'button',
+            },
         }
     },
-    emits: ['click'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
         const iconOnly = computed(() => !ctx.slots.default && !props.label);
@@ -81,16 +146,5 @@ export default defineComponent({
             ...componentCssHelpers,
         };
     },
-    /*render() {
-        return <hr-buttons v-slots={{
-            default: (props) => (
-                <buttons v-show={this.$props.visible} onClick={props.onClick}
-                    class={[componentCss().css_root.value, `-styling-${this.$props.styling}`, `-size-${this.$props.size}`, this.iconOnly ? '-icon-only' : null, this.icon ? '-has-icon' : null, props.loading ? '-loading' : null]}>
-                    <h-icon class={[componentCss().css_ec('loading-icon')]} icon="loading" size="16px" />
-                    {this.$props.label}
-                </buttons>
-            ),
-        }} />;
-    },*/
 });
 </script>

@@ -1,15 +1,37 @@
 import { computed, PropType, reactive } from 'vue';
 
+export type DocsDescriptor = {
+    origin: 'core' | string;
+    description: string;
+    type: string[];
+    values: string[];
+    default: any;
+}
+
 export const coreComponentAsProp = {
     as: {
         type: String,
         default: null,
+        docs: {
+            origin: 'core',
+            description: 'Render the core component as tag',
+            type: 'string',
+            values: null,
+            default: null,
+        }
     },
 };
 export const coreComponentAsPropsProp = {
     asProps: {
         type: Function as PropType<(slotProps) => any>,
         default: null,
+        docs: {
+            origin: 'core',
+            description: 'Callback to set props on the rendered tag',
+            type: 'function',
+            values: null,
+            default: null,
+        }
     },
 };
 
@@ -24,6 +46,7 @@ export function proxyProps(props: { [key: string]: any }, proxies: string[]) {
     });
     return obj;
 }
+
 export function proxyEvents(instance: any, events: string[]) {
     const obj: { [key: string]: any } = {};
     events.forEach((key) => {

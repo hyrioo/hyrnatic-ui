@@ -69,3 +69,5 @@ export type { CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-core';
 export type { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-core';
 
 export * as IconRegistry from './utils/icon-registry';
+
+export { default as Button } from './modules/buttons/button/Button.vue';

@@ -37,6 +37,7 @@ export type CoreDropdownItemSlotProps = {
 }
 export type CoreDropdownItemReturn = {
     setElement: (element: HTMLElement) => void;
+    $el: HTMLElement;
 }
 
 

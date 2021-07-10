@@ -50,7 +50,7 @@ export default defineComponent({
 .navigation {
     width: 200px;
     flex-shrink: 0;
-    border-right: 2px solid #319C9C;
+    border-right: 2px solid rgba(#319C9C, .32);
     padding-top: 32px;
 
     h2 {

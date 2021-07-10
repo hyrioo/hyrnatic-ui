@@ -33,7 +33,7 @@ export default defineComponent({
 
     > h1 {
         color: #319C9C;
-        font-size: 18px;
+        font-size: 22px;
         margin: 0;
         margin-bottom: 32px;
     }
