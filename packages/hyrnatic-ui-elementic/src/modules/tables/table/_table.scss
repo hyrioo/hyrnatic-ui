@@ -9,8 +9,8 @@ $crc: '.h-table';
 	border-radius: $v-box-border-radius;
 
 	td, th {
-		padding: 0 $g-12;
-		line-height: $v-control-height;
+		padding: $g-8 $g-12;
+		line-height: $v-control-height - $g-16;
 	}
 
 	th {
