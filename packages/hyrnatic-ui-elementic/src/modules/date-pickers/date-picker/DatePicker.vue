@@ -87,7 +87,7 @@ export default defineComponent({
         const componentCssHelpers = componentCss();
         const input = ref();
         const icon = ref();
-        const inputValue = ref('');
+        const inputValue = ref(props.modelValue ? props.modelValue.toISODate() : '');
         const popperVisible = ref(false);
         const shownDate = ref<DateTime>(DateTime.now());
         const modifiers = [
@@ -143,13 +143,13 @@ export default defineComponent({
         const onDateInputChanged = () => {
             const parsed = DateTime.fromISO(inputValue.value);
             if (parsed.isValid) {
+                shownDate.value = parsed;
                 ctx.emit('update:modelValue', parsed);
             }
         };
 
         const inputHasFocus = ref(false);
         const onInputFocus = () => {
-
             if(popperVisible.value === false) {
                 shownDate.value = props.modelValue ? props.modelValue : DateTime.now();
             }

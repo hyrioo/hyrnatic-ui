@@ -116,6 +116,7 @@ $crc: '.h-date-picker';
 	align-items: center;
 	height: $v-control-height-large;
 	padding: 0 $g-8;
+	font-size: $fs-default;
 }
 
 #{$crc}__calendar {
@@ -140,6 +141,7 @@ $crc: '.h-date-picker';
 #{$crc}__calendar-date {
 	width: 14.28571428571429%;
 	height: $v-control-height-small;
+	font-size: $fs-default;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;

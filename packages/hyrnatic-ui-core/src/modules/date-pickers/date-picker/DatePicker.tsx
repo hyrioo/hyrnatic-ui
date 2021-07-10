@@ -55,6 +55,7 @@ export const coreDatePickerFirstDayOfWeekProp = {
     },
 };
 export type CoreDatePickerSlotProps = {
+    disabled: ComputedRef<boolean>;
 }
 export function coreDatePickerSetup() {
     return setupBuilder<CoreDatePickerSlotProps>(getCurrentInstance());
@@ -77,6 +78,7 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
 
         const slotProps = reactive<CoreDatePickerSlotProps>({
+            disabled: computed(() => props.disabled),
         });
 
         const defaultRender = () => ctx.slots.default(slotProps);
