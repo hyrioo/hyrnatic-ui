@@ -13,7 +13,7 @@ import {
     setupBuilder,
 } from '../../../utils/component';
 
-export type SelectItemInstance = {
+export type CoreSelectItemInstance = {
     value: any;
     label: string;
     disabled: boolean;
@@ -21,11 +21,11 @@ export type SelectItemInstance = {
 };
 
 export type CoreSelectProvide = {
-    selectedItems: ComputedRef<SelectItemInstance[]>;
-    focusedItem: Ref<SelectItemInstance>;
-    onItemClick(instance: SelectItemInstance): void;
-    addItemInstance(instance: SelectItemInstance): void;
-    removeItemInstance(instance: SelectItemInstance): void;
+    selectedItems: ComputedRef<CoreSelectItemInstance[]>;
+    focusedItem: Ref<CoreSelectItemInstance>;
+    onItemClick(instance: CoreSelectItemInstance): void;
+    addItemInstance(instance: CoreSelectItemInstance): void;
+    removeItemInstance(instance: CoreSelectItemInstance): void;
 };
 
 export const coreSelectItemValueProp = {
@@ -40,11 +40,6 @@ export const coreSelectItemDisabledProp = {
         default: false,
     },
 };
-export const coreSelectItemElementProp = {
-    element: {
-        type: HTMLElement,
-    },
-};
 
 export type CoreSelectItemSlotProps = {
     selected: ComputedRef<boolean>;
@@ -56,6 +51,7 @@ export type CoreSelectItemSlotProps = {
 
 export type CoreSelectItemReturn = {
     setElement: (element: HTMLElement) => void;
+    $el: HTMLElement;
 }
 
 export function coreSelectItemSetup() {
@@ -77,7 +73,7 @@ export default defineComponent({
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
         const select = inject<CoreSelectProvide>('select');
-        const instance = reactive<SelectItemInstance>({
+        const instance = reactive<CoreSelectItemInstance>({
             value: props.value,
             label: props.label,
             disabled: props.disabled,

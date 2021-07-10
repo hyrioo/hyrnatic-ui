@@ -164,6 +164,7 @@ export type {
     CoreDropdownItemSlotProps,
     CoreDropdownItemInstance,
     CoreDropdownProvide,
+    CoreDropdownItemReturn,
 } from './modules/dropdowns/dropdown/DropdownItem';
 
 
@@ -326,6 +327,7 @@ export type {
     CoreSelectItemSlotProps,
     CoreSelectProvide,
     CoreSelectItemReturn,
+    CoreSelectItemInstance,
 } from './modules/selects/select/SelectItem';
 
 

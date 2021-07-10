@@ -51,7 +51,7 @@ import {
     corePopperMinimumReferenceSizeModifier,
     corePopperMatchReferenceSizeModifier,
     corePopperApplyMaxSizeModifier,
-    SelectItemInstance,
+    CoreSelectItemInstance,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
 
@@ -125,7 +125,7 @@ export default defineComponent({
             }
         };
 
-        const onFocusedItemChanged = (item: SelectItemInstance) => {
+        const onFocusedItemChanged = (item: CoreSelectItemInstance) => {
             if(item && item.element) {
                 item.element.scrollIntoView({
                     behavior: 'smooth',

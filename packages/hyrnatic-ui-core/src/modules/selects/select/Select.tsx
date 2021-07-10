@@ -12,7 +12,7 @@ import {
     coreComponentAsPropsProp,
     setupBuilder,
 } from '../../../utils/component';
-import { SelectItemInstance, CoreSelectProvide } from './SelectItem';
+import { CoreSelectItemInstance, CoreSelectProvide } from './SelectItem';
 import Arr from '../../../utils/array';
 import Obj from '../../../utils/object';
 
@@ -57,10 +57,10 @@ export type CoreSelectSlotProps = {
     disabled: ComputedRef<boolean>;
     allowClear: ComputedRef<boolean>;
     menuVisible: ComputedRef<boolean>;
-    focusedItem: ComputedRef<SelectItemInstance>;
+    focusedItem: ComputedRef<CoreSelectItemInstance>;
     clearFocusedItem: (e) => any;
     anythingSelected: ComputedRef<boolean>;
-    selectedItems: ComputedRef<SelectItemInstance[]>;
+    selectedItems: ComputedRef<CoreSelectItemInstance[]>;
     selectedText: ComputedRef<string>;
 
     clearValue: (e) => any;
@@ -90,8 +90,8 @@ export default defineComponent({
     emits: ['update:modelValue', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
-        const items = ref<SelectItemInstance[]>([]);
-        const focusedItem = ref<SelectItemInstance>();
+        const items = ref<CoreSelectItemInstance[]>([]);
+        const focusedItem = ref<CoreSelectItemInstance>();
         const selectedItems = computed(() => {
             const copy = [].concat(props.modelValue);
             return items.value.filter((i) => {
@@ -136,7 +136,7 @@ export default defineComponent({
         const close = () => {
             menuVisible.value = false;
         };
-        const onItemClick = (item: SelectItemInstance) => {
+        const onItemClick = (item: CoreSelectItemInstance) => {
             const { value } = item;
             if (props.hideOnSelect && !props.multiple) {
                 close();
