@@ -1,10 +1,11 @@
 <template>
     <hr-button v-show="visible" v-bind="core.props" v-on="core.listeners">
-        <h-icon :class="[css_ec('loading-icon')]" :icon="Icons.loading" size="16px" />
-
         <span :class="[css_ec('content')]">
+            <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16px" />
+            <div :class="[css_ec('loading-container')]">
+                <div :class="[css_ec('loading-spinner')]" />
+            </div>
             <slot>
-                <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16px" />
                 <span v-if="$slots.default || label" :class="[css_ec('text')]">
                     {{ label }}
                 </span>
