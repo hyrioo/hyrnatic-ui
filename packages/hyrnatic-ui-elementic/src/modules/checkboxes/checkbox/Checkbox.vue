@@ -40,7 +40,7 @@ export default defineComponent({
         ...coreCheckboxValueProp,
         label: {
             type: String,
-            default: '',
+            default: null,
         },
         bordered: {
             type: Boolean,

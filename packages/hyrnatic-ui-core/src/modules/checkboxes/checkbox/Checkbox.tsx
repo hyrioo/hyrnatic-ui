@@ -7,7 +7,7 @@ import {
 
 export const coreCheckboxModelValueProp = {
     modelValue: {
-        type: [Array, Boolean],
+        type: [Array, Boolean, String],
         required: true,
     },
 };
@@ -21,12 +21,26 @@ export const coreCheckboxDisabledProp = {
     disabled: {
         type: Boolean,
         default: false,
+        docs: {
+            origin: 'core',
+            description: 'Determines if the checkbox is disabled.',
+            type: 'boolean',
+            values: null,
+            default: false,
+        }
     },
 };
 export const coreCheckboxVisibleProp = {
     visible: {
         type: Boolean,
         default: true,
+        docs: {
+            origin: 'core',
+            description: 'Determines if the button is visible. Use this instead of v-show.',
+            type: 'boolean',
+            values: null,
+            default: true,
+        }
     },
 };
 export const coreCheckboxIndeterminateProp = {

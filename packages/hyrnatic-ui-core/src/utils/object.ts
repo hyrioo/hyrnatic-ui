@@ -7,11 +7,13 @@ export default {
     getProperty(obj: object, property: string): any {
         let data = obj;
         const props = property.split('.');
-        props.forEach((p) => {
+        props.every((p) => {
             if (data[p] === undefined) {
-                return null;
+                data = null;
+            } else {
+                data = data[p];
             }
-            data = data[p];
+            return data !== null;
         });
         return data;
     },

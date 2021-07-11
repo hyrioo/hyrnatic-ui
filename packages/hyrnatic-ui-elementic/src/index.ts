@@ -16,6 +16,7 @@ import ProgressBarsInstall from './modules/progress-bars/install';
 import RadioButtonsInstall from './modules/radio-buttons/install';
 import ScrollContainersInstall from './modules/scroll-containers/install';
 import SelectsInstall from './modules/selects/install';
+import SpinnersInstall from './modules/spinners/install';
 import StepsInstall from './modules/steps/install';
 import SwitchesInstall from './modules/switches/install';
 import TabsInstall from './modules/tabs/install';
@@ -44,6 +45,7 @@ const modules = {
     RadioButtonsInstall,
     ScrollContainersInstall,
     SelectsInstall,
+    SpinnersInstall,
     StepsInstall,
     SwitchesInstall,
     TabsInstall,
@@ -69,5 +71,3 @@ export type { CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-core';
 export type { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-core';
 
 export * as IconRegistry from './utils/icon-registry';
-
-export { default as Button } from './modules/buttons/button/Button.vue';

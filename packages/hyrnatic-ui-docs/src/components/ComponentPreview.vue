@@ -9,8 +9,12 @@
                 <slot name="options" />
             </div>
         </div>
-        <div v-if="$slots.source" class="source">
-            <slot name="source" />
+        <div v-if="$slots.source || code" class="source">
+            <slot name="source">
+                <ssh-pre language="html-vue">
+                    {{ code }}
+                </ssh-pre>
+            </slot>
         </div>
     </div>
 </template>
@@ -20,9 +24,16 @@ import {
     computed, defineComponent, Ref, SetupContext,
 } from 'vue';
 
+import SshPre from 'simple-syntax-highlighter';
+
 export default defineComponent({
     name: 'component-preview',
+    components: { SshPre },
     props: {
+        code: {
+            type: String,
+            default: null
+        }
     },
     setup(props, ctx: SetupContext) {
 
@@ -61,6 +72,11 @@ export default defineComponent({
             margin: 0;
             margin-bottom: 12px;
         }
+    }
+
+    .source {
+        border-top: 1px solid rgba(#319C9C, .32);
+        background: rgba(#319C9C, .08);
     }
 }
 </style>

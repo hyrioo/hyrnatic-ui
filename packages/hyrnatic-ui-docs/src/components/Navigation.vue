@@ -33,6 +33,7 @@ export default defineComponent({
             { route: 'radio-button', text: 'Radio Button' },
             { route: 'scroll-container', text: 'Scroll Container' },
             { route: 'select', text: 'Select' },
+            { route: 'spinner', text: 'Spinner' },
             { route: 'step', text: 'Step' },
             { route: 'switch', text: 'Switch' },
             { route: 'tab', text: 'Tab' },

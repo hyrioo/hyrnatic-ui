@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-// import './scss/hyrnatic-ui-core.scss';
+import './scss/_sshpre.scss';
 import HyrnaticUIElementic,  { IconRegistry } from '@hyrioo/hyrnatic-ui-elementic';
 import {
     mdiKey,
@@ -7,13 +7,15 @@ import {
     mdiAlertCircleOutline,
     mdiCloseCircleOutline,
     mdiCheckCircleOutline,
+    mdiContentCopy,
 } from '@mdi/js';
 import App from './App.vue';
 import router from './router';
 
 IconRegistry.registerMDI('key', mdiKey);
+IconRegistry.registerMDI('content-copy', mdiContentCopy);
 IconRegistry.registerMDI('information-outline', mdiInformationOutline);
-IconRegistry.registerMDI('alert-circle-outline', mdiAlertCircleOutline);
+IconRegistry.registerMDI('spinner-circle-outline', mdiAlertCircleOutline);
 IconRegistry.registerMDI('close-circle-outline', mdiCloseCircleOutline);
 IconRegistry.registerMDI('check-circle-outline', mdiCheckCircleOutline);
 

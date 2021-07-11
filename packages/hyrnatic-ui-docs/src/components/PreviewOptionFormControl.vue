@@ -19,6 +19,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
     .preview-option-form-control{
-        margin-bottom: 8px;
+        margin-top: 8px;
     }
 </style>

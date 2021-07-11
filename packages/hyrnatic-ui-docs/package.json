@@ -8,7 +8,11 @@
   },
   "dependencies": {
     "luxon": "^1.27.0",
+    "prism": "^4.1.2",
+    "prismjs": "^1.24.1",
+    "simple-syntax-highlighter": "^2.0.6",
     "vue": "^3.0.5",
+    "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.0.6",
     "webpack": "^5.37.0"
   },

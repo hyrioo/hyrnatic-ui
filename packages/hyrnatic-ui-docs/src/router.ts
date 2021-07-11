@@ -20,6 +20,7 @@ import ProgressBar from './pages/ProgressBar.vue';
 import RadioButton from './pages/RadioButton.vue';
 import ScrollContainer from './pages/ScrollContainer.vue';
 import Select from './pages/Select.vue';
+import Spinner from './pages/Spinner.vue';
 import Step from './pages/Step.vue';
 import Switch from './pages/Switch.vue';
 import Tab from './pages/Tab.vue';
@@ -55,6 +56,7 @@ const router = createRouter({
         componentPage('radio-button', RadioButton),
         componentPage('scroll-container', ScrollContainer),
         componentPage('select', Select),
+        componentPage('spinner', Spinner),
         componentPage('step', Step),
         componentPage('switch', Switch),
         componentPage('tab', Tab),

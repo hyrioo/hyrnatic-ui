@@ -106,11 +106,9 @@ export default defineComponent({
 
         const nextStep = () => {
             if (typeof currentStep.value.validator === 'function' && currentStep.value.validator() === false) {
-                // this.active_step.alert.$emit('validation-failed');
+                // this.active_step.spinner.$emit('validation-failed');
             } else {
-                console.log(steps.value, currentIndex.value);
                 const newStep = Arr.next(steps.value, currentIndex.value, (step) => step.visible);
-                console.log(newStep);
                 ctx.emit('update:modelValue', newStep.id);
             }
         };

@@ -29,7 +29,7 @@ export default class Row {
         });
     }
 
-    getValue(prop, formatter) {
+    getValue(prop, formatter): string {
         let { data } = this;
 
         if (prop !== undefined) {
@@ -42,6 +42,6 @@ export default class Row {
             console.warn('[hr-table-column] Unsupported value for formatter');
         }
 
-        return data;
+        return data as string;
     }
 }

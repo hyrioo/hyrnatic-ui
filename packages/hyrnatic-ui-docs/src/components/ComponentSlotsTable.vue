@@ -1,5 +1,5 @@
 <template>
-    <h-table :data="componentSlots" row-key="key">
+    <h-table :data="component.slots" row-key="key">
         <!--<h-table-column property="origin" label="Origin" width="minimum">
             <template #default="{ row }">
                 {{ row.origin }}
@@ -25,13 +25,6 @@ export default defineComponent({
         }
     },
     setup(props, ctx: SetupContext) {
-        const componentSlots = computed(() => {
-            const p = [];
-            props.component.docs.slots.forEach((slot) => {
-                p.push(slot);
-            });
-            return p;
-        });
         const valuesFormatter = (cellValue) => {
             if(cellValue === null) {
                 return '-';
@@ -43,7 +36,6 @@ export default defineComponent({
         };
 
         return {
-            componentSlots,
             valuesFormatter,
         };
     },

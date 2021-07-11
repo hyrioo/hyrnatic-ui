@@ -38,18 +38,6 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-secondary {
-		color: $c-secondary-text;
-
-		&:hover, &:focus {
-			text-shadow: $sd-hover--secondary-text-shadow;
-		}
-		&:active {
-			text-shadow: $sd-active--secondary-text-shadow;
-			color: $c-active--secondary-text;
-		}
-	}
-
 	&.-styling-negative {
 		color: $c-negative-text;
 

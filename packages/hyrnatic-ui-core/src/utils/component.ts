@@ -1,37 +1,15 @@
 import { computed, PropType, reactive } from 'vue';
 
-export type DocsDescriptor = {
-    origin: 'core' | string;
-    description: string;
-    type: string[];
-    values: string[];
-    default: any;
-}
-
 export const coreComponentAsProp = {
     as: {
         type: String,
         default: null,
-        docs: {
-            origin: 'core',
-            description: 'Render the core component as tag',
-            type: 'string',
-            values: null,
-            default: null,
-        }
     },
 };
 export const coreComponentAsPropsProp = {
     asProps: {
         type: Function as PropType<(slotProps) => any>,
         default: null,
-        docs: {
-            origin: 'core',
-            description: 'Callback to set props on the rendered tag',
-            type: 'function',
-            values: null,
-            default: null,
-        }
     },
 };
 
@@ -60,7 +38,7 @@ export function setupBuilder<SP>(instance) {
     const listeners: any = {};
     const setup = {
         /**
-         * Render the renderless alert with a wrapper
+         * Render the renderless spinner with a wrapper
          * @param tag HTML tag to use as wrapper
          * @param func Callback to apply properties to the wrapper element
          */
@@ -70,7 +48,7 @@ export function setupBuilder<SP>(instance) {
             return setup;
         },
         /**
-         * Proxy properties as computed from the instance to the renderless alert
+         * Proxy properties as computed from the instance to the renderless spinner
          * @param proxies
          */
         props(proxies: string[]) {

@@ -28,24 +28,21 @@ $o-100p: 100;
    ========================= */
 
 $c-primary: #319C9C !default;
-$c-secondary: #52c5ff !default;
 $c-negative: #4A5C5C !default;
-$c-success: #41CD41 !default;
-$c-warning: #FFC550 !default;
-$c-danger: #FF5050 !default;
+$c-success: #6ACC6A !default;
+$c-warning: #FFBC85 !default;
+$c-danger: #ff8585 !default;
 
 $c-disabled: #F8F8F8;
 $c-fill: #FFFFFF;
 
 $c-light-primary: rgba-solid(rgba($c-primary, $o-32), #F5F5F5);
-$c-light-secondary: rgba-solid(rgba($c-secondary, $o-32), #F5F5F5);
 $c-light-negative: rgba-solid(rgba($c-negative, $o-32), #F5F5F5);
 $c-light-success: rgba-solid(rgba($c-success, $o-32), #F5F5F5);
 $c-light-warning: rgba-solid(rgba($c-warning, $o-32), #F5F5F5);
 $c-light-danger: rgba-solid(rgba($c-danger, $o-32), #F5F5F5);
 
 $c-dark-primary: rgba-solid(rgba($c-primary, $o-80), #000);
-$c-dark-secondary: rgba-solid(rgba($c-secondary, $o-80), #000);
 $c-dark-negative: rgba-solid(rgba($c-negative, $o-80), #000);
 $c-dark-success: rgba-solid(rgba($c-success, $o-80), #000);
 $c-dark-warning: rgba-solid(rgba($c-warning, $o-80), #000);
@@ -54,6 +51,11 @@ $c-dark-danger: rgba-solid(rgba($c-danger, $o-80), #000);
 $c-default-shadow: #4A5C5C;
 
 $c-primary-text: $c-primary;
+$c-negative-text: #4A5C5C;
+$c-success-text: #43AF43;
+$c-warning-text: #DB9154;
+$c-danger-text: #DB5454;
+
 $c-default-text: #202020;
 $c-dark-text: #4A5C5C;
 $c-light-text: #C7DBDB;
@@ -66,35 +68,25 @@ $c-light-text-hint: rgba($c-light-text, $o-64);
    ========================= */
 
 $c-primary-border: $c-light-primary;
-$c-secondary-border: $c-light-secondary;
 $c-negative-border: $c-light-negative;
 $c-success-border: $c-light-success;
 $c-warning-border: $c-light-warning;
 $c-danger-border: $c-light-danger;
 
 $c-primary-background: $c-fill;
-$c-secondary-background: $c-fill;
 $c-negative-background: $c-fill;
 $c-success-background: $c-fill;
 $c-warning-background: $c-fill;
 $c-danger-background: $c-fill;
 
-$c-secondary-text: $c-secondary;
-$c-negative-text: $c-negative;
-$c-success-text: $c-success;
-$c-warning-text: $c-warning;
-$c-danger-text: $c-danger;
-
 
 $c-checked--primary-background: $c-primary;
-$c-checked--secondary-background: $c-secondary;
 $c-checked--negative-background: $c-negative;
 $c-checked--success-background: $c-success;
 $c-checked--warning-background: $c-warning;
 $c-checked--danger-background: $c-danger;
 
 $c-checked--primary-text: $c-fill;
-$c-checked--secondary-text: $c-fill;
 $c-checked--negative-text: $c-fill;
 $c-checked--success-text: $c-fill;
 $c-checked--warning-text: $c-fill;
@@ -102,14 +94,12 @@ $c-checked--danger-text: $c-fill;
 
 
 $c-hover--primary-background: $c-primary;
-$c-hover--secondary-background: $c-secondary;
 $c-hover--negative-background: $c-negative;
 $c-hover--success-background: $c-success;
 $c-hover--warning-background: $c-warning;
 $c-hover--danger-background: $c-danger;
 
 $c-hover--primary-border: $c-primary;
-$c-hover--secondary-border: $c-secondary;
 $c-hover--negative-border: $c-negative;
 $c-hover--success-border: $c-success;
 $c-hover--warning-border: $c-warning;
@@ -117,21 +107,18 @@ $c-hover--danger-border: $c-danger;
 
 
 $c-active--primary-background: $c-dark-primary;
-$c-active--secondary-background: $c-dark-secondary;
 $c-active--negative-background: $c-dark-negative;
 $c-active--success-background: $c-dark-success;
 $c-active--warning-background: $c-dark-warning;
 $c-active--danger-background: $c-dark-danger;
 
 $c-active--primary-border: $c-dark-primary;
-$c-active--secondary-border: $c-dark-secondary;
 $c-active--negative-border: $c-dark-negative;
 $c-active--success-border: $c-dark-success;
 $c-active--warning-border: $c-dark-warning;
 $c-active--danger-border: $c-dark-danger;
 
 $c-active--primary-text: $c-dark-primary;
-$c-active--secondary-text: $c-dark-secondary;
 $c-active--negative-text: $c-dark-negative;
 $c-active--success-text: $c-dark-success;
 $c-active--warning-text: $c-dark-warning;
@@ -139,14 +126,12 @@ $c-active--danger-text: $c-dark-danger;
 
 
 $c-disabled--primary-background: $c-disabled;
-$c-disabled--secondary-background: $c-disabled;
 $c-disabled--negative-background: $c-disabled;
 $c-disabled--success-background: $c-disabled;
 $c-disabled--warning-background: $c-disabled;
 $c-disabled--danger-background: $c-disabled;
 
 $c-disabled--primary-text: rgba($c-dark-text, $o-64);
-$c-disabled--secondary-text: rgba($c-dark-text, $o-64);
 $c-disabled--negative-text: rgba($c-dark-text, $o-64);
 $c-disabled--success-text: rgba($c-dark-text, $o-64);
 $c-disabled--warning-text: rgba($c-dark-text, $o-64);
@@ -280,14 +265,12 @@ $t-slow-sharp: $s-slow $e-sharp;
    ========================= */
 
 $sd-hover--primary-box-shadow: default-box-shadow($c-primary, $o-16p, $g-12);
-$sd-hover--secondary-box-shadow: default-box-shadow($c-secondary, $o-16p, $g-12);
 $sd-hover--negative-box-shadow: default-box-shadow($c-negative, $o-16p, $g-12);
 $sd-hover--success-box-shadow: default-box-shadow($c-success, $o-16p, $g-12);
 $sd-hover--warning-box-shadow: default-box-shadow($c-warning, $o-16p, $g-12);
 $sd-hover--danger-box-shadow: default-box-shadow($c-danger, $o-16p, $g-12);
 
 $sd-hover--primary-text-shadow: default-text-shadow($c-primary);
-$sd-hover--secondary-text-shadow: default-text-shadow($c-secondary);
 $sd-hover--negative-text-shadow: default-text-shadow($c-negative);
 $sd-hover--success-text-shadow: default-text-shadow($c-success);
 $sd-hover--warning-text-shadow: default-text-shadow($c-warning);
@@ -295,14 +278,12 @@ $sd-hover--danger-text-shadow: default-text-shadow($c-danger);
 
 
 $sd-active--primary-box-shadow: default-box-shadow($c-dark-primary, $o-16p, $g-12);
-$sd-active--secondary-box-shadow: default-box-shadow($c-dark-secondary, $o-16p, $g-12);
 $sd-active--negative-box-shadow: default-box-shadow($c-dark-negative, $o-16p, $g-12);
 $sd-active--success-box-shadow: default-box-shadow($c-dark-success, $o-16p, $g-12);
 $sd-active--warning-box-shadow: default-box-shadow($c-dark-warning, $o-16p, $g-12);
 $sd-active--danger-box-shadow: default-box-shadow($c-dark-danger, $o-16p, $g-12);
 
 $sd-active--primary-text-shadow: default-text-shadow($c-dark-primary);
-$sd-active--secondary-text-shadow: default-text-shadow($c-dark-secondary);
 $sd-active--negative-text-shadow: default-text-shadow($c-dark-negative);
 $sd-active--success-text-shadow: default-text-shadow($c-dark-success);
 $sd-active--warning-text-shadow: default-text-shadow($c-dark-warning);

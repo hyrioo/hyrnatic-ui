@@ -4,7 +4,7 @@ $crc: '.h-icon-button';
 	border-radius: $v-control-border-radius;
 	padding: 0;
 	background: transparent;
-	transition: $t-fast-standard;
+	transition: color $t-fast-standard, background $t-fast-standard, border-color $t-fast-standard, box-shadow $t-fast-standard;
 	outline: none;
 	cursor: pointer;
 	display: inline-flex;
@@ -13,103 +13,77 @@ $crc: '.h-icon-button';
 	vertical-align: middle;
 	position: relative;
 
+	--button-text-color: #{$c-default-text};
+
 	svg {
 		transition: $t-fast-standard;
-	}
-
-	&.-loading {
-		pointer-events: none;
-
-		#{$crc}__loading-icon {
-			opacity: 1;
-		}
-		#{$crc}__icon {
-			opacity: $o-0;
-		}
-	}
-
-	&.-rounded {
-		border-radius: 50%;
 	}
 
 	&.-styling-subtle {
 		border: none;
 
 		&.-color-primary {
-			svg { color: $c-primary-text; }
+			--button-text-color: #{$c-primary-text};
 
 			&:hover, &:focus {
 				background: rgba($c-primary-border, $o-48);
 				box-shadow: $sd-hover--primary-box-shadow;
 			}
-			&:active svg { color: $c-active--primary-text; }
+			&:active { --button-text-color: #{$c-active--primary-text}; }
 			&:disabled {
-				svg { color: $c-dark-text; }
-			}
-		}
-
-		&.-color-secondary {
-			svg { color: $c-secondary-text; }
-
-			&:hover, &:focus {
-				background: rgba($c-secondary-border, $o-48);
-				box-shadow: $sd-hover--secondary-box-shadow;
-			}
-			&:active svg { color: $c-active--secondary-text; }
-			&:disabled {
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-negative {
-			svg { color: $c-negative-text; }
+			--button-text-color: #{$c-negative-text};
 
 			&:hover, &:focus {
 				background: rgba($c-negative-border, $o-48);
 				box-shadow: $sd-hover--negative-box-shadow;
 			}
-			&:active svg { color: $c-active--negative-text; }
+			&:active { --button-text-color: #{$c-active--negative-text}; }
 			&:disabled {
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-success {
-			svg { color: $c-success-text; }
+			--button-text-color: #{$c-success-text};
 
 			&:hover, &:focus {
 				background: rgba($c-success-border, $o-48);
 				box-shadow: $sd-hover--success-box-shadow;
 			}
-			&:active svg { color: $c-active--success-text; }
+			&:active { --button-text-color: #{$c-active--success-text}; }
 			&:disabled {
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-warning {
-			svg { color: $c-warning-text; }
+			--button-text-color: #{$c-warning-text};
 
 			&:hover, &:focus {
 				background: rgba($c-warning-border, $o-48);
 				box-shadow: $sd-hover--warning-box-shadow;
 			}
-			&:active svg { color: $c-active--warning-text; }
+			&:active { --button-text-color: #{$c-active--warning-text}; }
 			&:disabled {
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-danger {
-			svg { color: $c-danger-text; }
+			--button-text-color: #{$c-danger-text};
 
 			&:hover, &:focus {
 				background: rgba($c-danger-border, $o-48);
 				box-shadow: $sd-hover--danger-box-shadow;
 			}
-			&:active svg { color: $c-active--danger-text; }
+			&:active { --button-text-color: #{$c-active--danger-text}; }
 			&:disabled {
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 	}
@@ -119,7 +93,7 @@ $crc: '.h-icon-button';
 		border-style: solid;
 
 		&.-color-primary {
-			svg { color: $c-primary-text; }
+			--button-text-color: #{$c-primary-text};
 			background: $c-primary-background;
 			border-color: $c-primary-border;
 
@@ -128,38 +102,18 @@ $crc: '.h-icon-button';
 				box-shadow: $sd-hover--primary-box-shadow;
 			}
 			&:active {
-				svg { color: $c-active--primary-text; }
+				--button-text-color: #{$c-active--primary-text};
 				border-color: $c-active--primary-border;
 				box-shadow: $sd-active--primary-box-shadow;
 			}
 			&:disabled {
 				background: $c-disabled--primary-background;
-				svg { color: $c-dark-text; }
-			}
-		}
-
-		&.-color-secondary {
-			svg { color: $c-secondary-text; }
-			background: $c-secondary-background;
-			border-color: $c-secondary-border;
-
-			&:hover, &:focus {
-				border-color: $c-hover--secondary-border;
-				box-shadow: $sd-hover--secondary-box-shadow;
-			}
-			&:active {
-				svg { color: $c-active--secondary-text; }
-				border-color: $c-active--secondary-border;
-				box-shadow: $sd-active--secondary-box-shadow;
-			}
-			&:disabled {
-				background: $c-disabled--secondary-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-negative {
-			svg { color: $c-negative-text; }
+			--button-text-color: #{$c-negative-text};
 			background: $c-negative-background;
 			border-color: $c-negative-border;
 
@@ -168,18 +122,18 @@ $crc: '.h-icon-button';
 				box-shadow: $sd-hover--negative-box-shadow;
 			}
 			&:active {
-				svg { color: $c-active--negative-text; }
+				--button-text-color: #{$c-active--negative-text};
 				border-color: $c-active--negative-border;
 				box-shadow: $sd-active--negative-box-shadow;
 			}
 			&:disabled {
 				background: $c-disabled--negative-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-success {
-			svg { color: $c-success-text; }
+			--button-text-color: #{$c-success-text};
 			background: $c-success-background;
 			border-color: $c-success-border;
 
@@ -188,18 +142,18 @@ $crc: '.h-icon-button';
 				box-shadow: $sd-hover--success-box-shadow;
 			}
 			&:active {
-				svg { color: $c-active--success-text; }
+				--button-text-color: #{$c-active--success-text};
 				border-color: $c-active--success-border;
 				box-shadow: $sd-active--success-box-shadow;
 			}
 			&:disabled {
 				background: $c-disabled--success-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-warning {
-			svg { color: $c-warning-text; }
+			--button-text-color: #{$c-warning-text};
 			background: $c-warning-background;
 			border-color: $c-warning-border;
 
@@ -208,18 +162,18 @@ $crc: '.h-icon-button';
 				box-shadow: $sd-hover--warning-box-shadow;
 			}
 			&:active {
-				svg { color: $c-active--warning-text; }
+				--button-text-color: #{$c-active--warning-text};
 				border-color: $c-active--warning-border;
 				box-shadow: $sd-active--warning-box-shadow;
 			}
 			&:disabled {
 				background: $c-disabled--warning-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-danger {
-			svg { color: $c-danger-text; }
+			--button-text-color: #{$c-danger-text};
 			background: $c-danger-background;
 			border-color: $c-danger-border;
 
@@ -228,13 +182,13 @@ $crc: '.h-icon-button';
 				box-shadow: $sd-hover--danger-box-shadow;
 			}
 			&:active {
-				svg { color: $c-active--danger-text; }
+				--button-text-color: #{$c-active--danger-text};
 				border-color: $c-active--danger-border;
 				box-shadow: $sd-active--danger-box-shadow;
 			}
 			&:disabled {
 				background: $c-disabled--danger-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 	}
@@ -244,7 +198,7 @@ $crc: '.h-icon-button';
 		border-style: solid;
 
 		&.-color-primary {
-			svg { color: $c-fill; }
+			--button-text-color: #{$c-fill};
 			background: $c-primary;
 			border-color: $c-primary;
 
@@ -259,32 +213,12 @@ $crc: '.h-icon-button';
 			&:disabled {
 				border-color: $c-primary-border;
 				background: $c-disabled--primary-background;
-				svg { color: $c-dark-text; }
-			}
-		}
-
-		&.-color-secondary {
-			svg { color: $c-fill; }
-			background: $c-secondary;
-			border-color: $c-secondary;
-
-			&:hover, &:focus {
-				border-color: $c-dark-secondary;
-				box-shadow: $sd-hover--secondary-box-shadow;
-			}
-			&:active {
-				border-color: $c-active--secondary-border;
-				box-shadow: $sd-active--secondary-box-shadow;
-			}
-			&:disabled {
-				border-color: $c-secondary-border;
-				background: $c-disabled--secondary-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-negative {
-			svg { color: $c-fill; }
+			--button-text-color: #{$c-fill};
 			background: $c-negative;
 			border-color: $c-negative;
 
@@ -299,12 +233,12 @@ $crc: '.h-icon-button';
 			&:disabled {
 				border-color: $c-negative-border;
 				background: $c-disabled--negative-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-success {
-			svg { color: $c-fill; }
+			--button-text-color: #{$c-fill};
 			background: $c-success;
 			border-color: $c-success;
 
@@ -319,12 +253,12 @@ $crc: '.h-icon-button';
 			&:disabled {
 				border-color: $c-success-border;
 				background: $c-disabled--success-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-warning {
-			svg { color: $c-fill; }
+			--button-text-color: #{$c-fill};
 			background: $c-warning;
 			border-color: $c-warning;
 
@@ -339,12 +273,12 @@ $crc: '.h-icon-button';
 			&:disabled {
 				border-color: $c-warning-border;
 				background: $c-disabled--warning-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 
 		&.-color-danger {
-			svg { color: $c-fill; }
+			--button-text-color: #{$c-fill};
 			background: $c-danger;
 			border-color: $c-danger;
 
@@ -359,7 +293,7 @@ $crc: '.h-icon-button';
 			&:disabled {
 				border-color: $c-danger-border;
 				background: $c-disabled--danger-background;
-				svg { color: $c-dark-text; }
+				--button-text-color: #{$c-dark-text};
 			}
 		}
 	}
@@ -369,39 +303,33 @@ $crc: '.h-icon-button';
 		border-color: transparent;
 
 		&.-color-primary {
-			svg { color: $c-primary-text; }
-			&:active svg { color: $c-active--primary-text; }
-			&:disabled svg { color: $c-dark-text; }
-		}
-
-		&.-color-secondary {
-			svg { color: $c-secondary-text; }
-			&:active svg { color: $c-active--secondary-text; }
-			&:disabled svg { color: $c-dark-text; }
+			--button-text-color: #{$c-primary-text};
+			&:active { --button-text-color: #{$c-active--primary-text}; }
+			&:disabled { --button-text-color: #{$c-dark-text}; }
 		}
 
 		&.-color-negative {
-			svg { color: $c-negative-text; }
-			&:active svg { color: $c-active--negative-text; }
-			&:disabled svg { color: $c-dark-text; }
+			--button-text-color: #{$c-negative-text};
+			&:active { --button-text-color: #{$c-active--negative-text}; }
+			&:disabled { --button-text-color: #{$c-dark-text}; }
 		}
 
 		&.-color-success {
-			svg { color: $c-success-text; }
-			&:active svg { color: $c-active--success-text; }
-			&:disabled svg { color: $c-dark-text; }
+			--button-text-color: #{$c-success-text};
+			&:active { --button-text-color: #{$c-active--success-text}; }
+			&:disabled { --button-text-color: #{$c-dark-text}; }
 		}
 
 		&.-color-warning {
-			svg { color: $c-warning-text; }
-			&:active svg { color: $c-active--warning-text; }
-			&:disabled svg { color: $c-dark-text; }
+			--button-text-color: #{$c-warning-text};
+			&:active { --button-text-color: #{$c-active--warning-text}; }
+			&:disabled { --button-text-color: #{$c-dark-text}; }
 		}
 
 		&.-color-danger {
-			svg { color: $c-danger-text; }
-			&:active svg { color: $c-active--danger-text; }
-			&:disabled svg { color: $c-dark-text; }
+			--button-text-color: #{$c-danger-text};
+			&:active { --button-text-color: #{$c-active--danger-text}; }
+			&:disabled { --button-text-color: #{$c-dark-text}; }
 		}
 	}
 
@@ -417,11 +345,38 @@ $crc: '.h-icon-button';
 		line-height: $v-control-height-small;
 	}
 
+	&.-loading {
+		pointer-events: none;
+
+		#{$crc}__loading-container {
+			opacity: $o-100;
+		}
+
+		#{$crc}__icon {
+			opacity: $o-0;
+		}
+	}
+
+	&.-rounded {
+		border-radius: 50%;
+	}
+
 	// Shared for all types
 	&:disabled {
 		opacity: $v-control-disabled-opacity;
 		pointer-events: none;
 	}
+}
+
+#{$crc}__content {
+	color: var(--button-text-color);
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+#{$crc}__icon {
+	color: var(--button-text-color);
 }
 
 #{$crc}__icon {
@@ -431,14 +386,41 @@ $crc: '.h-icon-button';
 	transition: opacity $t-fast-standard;
 }
 
-#{$crc}__loading-icon {
+#{$crc}__loading-container {
+	width: 16px;
+	height: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
-	top: 50%;
-	margin-top: -$g-8;
-	animation: hyrnatic-spin $s-slow infinite linear;
+	left: 0;
 	opacity: $o-0;
 }
 
-#{$crc}__loading-icon, #{$crc}__icon {
-	transition: $t-fast-standard;
+#{$crc}__loading-spinner {
+	width: 12px;
+	height: 12px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: var(--button-text-color);
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	box-sizing: border-box;
+	border-radius: 50%;
+	animation: h-icon-button__loading-spinner-rotate 1500ms cubic-bezier(0.5, 0.2, 0.5, 0.8) infinite;
+	transition: border-color $t-medium-standard;
+}
+
+#{$crc}__loading-container, #{$crc}__icon {
+	transition: $t-medium-standard;
+}
+
+
+@keyframes h-icon-button__loading-spinner-rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

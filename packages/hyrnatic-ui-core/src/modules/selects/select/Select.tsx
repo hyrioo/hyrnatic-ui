@@ -100,7 +100,6 @@ export default defineComponent({
                     return true;
                 } else if(props.compare) {
                     if(typeof props.compare === 'string'){
-                        console.log(copy, i, props.compare);
                         return copy.find((c) => (c !== null && Obj.getProperty(c, props.compare as string)) === (i.value !== null && Obj.getProperty(i.value, props.compare as string)));
                     } else {
                         return props.compare(copy, i.value);

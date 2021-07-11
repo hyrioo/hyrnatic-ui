@@ -1,9 +1,10 @@
 <template>
     <hr-button v-show="visible" v-bind="core.props" v-on="core.listeners">
-        <h-icon :class="[css_ec('loading-icon')]" :icon="Icons.loading" size="16px" />
-
         <span :class="[css_ec('content')]">
             <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16px" />
+            <div :class="[css_ec('loading-container')]">
+                <div :class="[css_ec('loading-spinner')]" />
+            </div>
         </span>
     </hr-button>
 </template>
@@ -35,11 +36,11 @@ export default defineComponent({
             default: false,
         },
         color: {
-            type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
+            type: String as PropType<'primary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
         },
         styling: {
-            type: String as PropType<'simple' | 'block' | 'subtle'>,
+            type: String as PropType<'subtle' | 'simple' | 'block'>,
             default: 'simple',
         },
         size: {

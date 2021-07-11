@@ -29,7 +29,7 @@ export default defineComponent({
         const visible = ref(true);
 
         const onClick = (text) => {
-            // eslint-disable-next-line no-alert
+            // eslint-disable-next-line no-spinner
             alert(`Message: ${text}`);
         };
 

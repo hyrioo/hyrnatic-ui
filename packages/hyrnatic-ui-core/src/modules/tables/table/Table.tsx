@@ -126,7 +126,6 @@ export default defineComponent({
 
         // Rows
         const mapDataToRows = () => {
-            console.log('mapDataToRows');
             const oldRows = rows.value;
             rows.value = props.data.map((rowData) => {
                 let row = oldRows.find((r) => r.data[props.rowKey] === rowData[props.rowKey]);

@@ -38,23 +38,6 @@ $crc: '.h-button';
             }
         }
 
-        &.-color-secondary {
-            --button-text-color: #{$c-secondary-text};
-
-            &:hover, &:focus {
-                background: rgba($c-secondary-border, $o-48);
-                box-shadow: $sd-hover--secondary-box-shadow;
-            }
-
-            &:active {
-                --button-text-color: #{$c-active--secondary-text};
-            }
-
-            &:disabled {
-                --button-text-color: #{$c-dark-text};
-            }
-        }
-
         &.-color-negative {
             --button-text-color: #{$c-negative-text};
 
@@ -146,28 +129,6 @@ $crc: '.h-button';
 
             &:disabled {
                 background: $c-disabled--primary-background;
-                --button-text-color: #{$c-dark-text};
-            }
-        }
-
-        &.-color-secondary {
-            --button-text-color: #{$c-secondary-text};
-            background: $c-secondary-background;
-            border-color: $c-secondary-border;
-
-            &:hover, &:focus {
-                border-color: $c-hover--secondary-border;
-                box-shadow: $sd-hover--secondary-box-shadow;
-            }
-
-            &:active {
-                --button-text-color: #{$c-active--secondary-text};
-                border-color: $c-active--secondary-border;
-                box-shadow: $sd-active--secondary-box-shadow;
-            }
-
-            &:disabled {
-                background: $c-disabled--secondary-background;
                 --button-text-color: #{$c-dark-text};
             }
         }
@@ -287,28 +248,6 @@ $crc: '.h-button';
             }
         }
 
-        &.-color-secondary {
-            --button-text-color: #{$c-default-text};
-            background: $c-secondary;
-            border-color: $c-secondary;
-
-            &:hover, &:focus {
-                border-color: $c-dark-secondary;
-                box-shadow: $sd-hover--secondary-box-shadow;
-            }
-
-            &:active {
-                border-color: $c-active--secondary-border;
-                box-shadow: $sd-active--secondary-box-shadow;
-            }
-
-            &:disabled {
-                border-color: $c-secondary-border;
-                background: $c-disabled--secondary-background;
-                --button-text-color: #{$c-dark-text};
-            }
-        }
-
         &.-color-negative {
             --button-text-color: #{$c-fill};
             background: $c-negative;
@@ -407,18 +346,6 @@ $crc: '.h-button';
 
             &:active {
                 --button-text-color: #{$c-active--primary-text};
-            }
-
-            &:disabled {
-                --button-text-color: #{$c-dark-text};
-            }
-        }
-
-        &.-color-secondary {
-            --button-text-color: #{$c-secondary-text};
-
-            &:active {
-                --button-text-color: #{$c-active--secondary-text};
             }
 
             &:disabled {
@@ -596,8 +523,6 @@ $crc: '.h-button';
         opacity: $v-control-disabled-opacity;
         pointer-events: none;
     }
-
-
 }
 
 #{$crc}__content {
@@ -607,7 +532,7 @@ $crc: '.h-button';
     position: relative;
 }
 
-#{$crc}__loading-container, #{$crc}__icon {
+#{$crc}__loading-spinner, #{$crc}__icon {
     color: var(--button-text-color);
 }
 
@@ -632,20 +557,22 @@ $crc: '.h-button';
 #{$crc}__loading-spinner {
     width: 12px;
     height: 12px;
-    border: 3px solid var(--button-text-color);
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--button-text-color);
     border-right-color: transparent;
     border-bottom-color: transparent;
     box-sizing: border-box;
     border-radius: 50%;
-    animation: loader-rotate $s-slow + $s-medium ease-in-out infinite;
+    animation: h-button__loading-spinner-rotate 1500ms cubic-bezier(0.5, 0.2, 0.5, 0.8) infinite;
+    transition: border-color $t-medium-standard;
 }
-
 
 #{$crc}__loading-container, #{$crc}__content, #{$crc}__icon {
     transition: $t-medium-standard;
 }
 
-@keyframes loader-rotate {
+@keyframes h-button__loading-spinner-rotate {
     0% {
         transform: rotate(0);
     }
