@@ -1,10 +1,10 @@
 <template>
-    <h-dialog title="Some dialog title" :show-close-icon="closable">
-        This is dynamic content: {{ text }} <br />
-        Counter: {{ counter }} <br />
-        <h-checkbox v-model="closable" /> <br />
-        <h-button label="Something" @click="something" />
-        <h-button label="Something More" @click="somethingMore" />
+    <h-dialog title="Some dialog title" :color="color" :show-close-button="showCloseButton">
+        Dynamic counter: {{ counter }} <br /> <br />
+        Nested status: {{ nested }} <br /> <br />
+
+        <h-button label="Add to counter" @click="addCounter" style="margin-right: 12px" />
+        <h-button label="Open nested dialog" @click="openNestedDialog" />
 
         <template #footer>
             <h-button label="Close" @click="close" />
@@ -20,6 +20,12 @@ import ConfirmDialog from './ConfirmDialog.vue';
 export default defineComponent({
     name: 'SampleDialog',
     props: {
+        showCloseButton: {
+            type: Boolean,
+        },
+        color: {
+            type: String,
+        },
         text: {
             type: String,
         },
@@ -29,25 +35,27 @@ export default defineComponent({
     },
     emits: ['something', 'something-more', 'resolve'],
     setup(props, ctx: SetupContext) {
+        const nested = ref('-');
         const { resolve } = DialogManager.setupDialog();
-        const closable = ref(true);
-        const something = () => {
+        const addCounter = () => {
             ctx.emit('something');
         };
-        const somethingMore = () => {
+        const openNestedDialog = () => {
             DialogManager.createPromise(ConfirmDialog, { }, { }, { stack: 'dialog' }).then(() => {
-                ctx.emit('something-more');
-            }).catch(() => {});
+                nested.value = 'Resolved';
+            }).catch(() => {
+                nested.value = 'Rejected';
+            });
         };
         const close = () => {
             resolve({ status: 'test', value: 1 });
         };
 
         return {
-            closable,
-            something,
-            somethingMore,
+            addCounter,
+            openNestedDialog,
             close,
+            nested,
         };
     },
 });

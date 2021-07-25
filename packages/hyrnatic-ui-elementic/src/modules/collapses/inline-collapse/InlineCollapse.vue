@@ -2,7 +2,7 @@
     <hr-inline-collapse v-slot="props" v-bind="core.props" v-on="core.listeners">
         <div tabindex="0" :class="[css_ec('toggle-line'), `-align-${textAlign}`]" @click="props.onClick" @keydown.enter="props.onClick">
             <div :class="[css_ec('left-filler')]" />
-            <div :class="[css_ec('toggle-text')]">{{ props.expanded ? collapseLabel : expandLabel }}</div>
+            <div :class="[css_ec('toggle-text')]">{{ props.expanded ? collapseText : expandText }}</div>
             <div :class="[css_ec('right-filler')]" />
         </div>
         <component :is="animate ? 'h-grow-transition' : 'div'">
@@ -17,28 +17,25 @@
 
 <script lang="ts">
 import {
-    defineComponent, SetupContext,
+    defineComponent, PropType, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
-import { coreCollapseInlineSetup } from '@hyrioo/hyrnatic-ui-core';
+import { coreCollapseInlineSetup, coreInlineCollapseModelValueProp } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-inline-collapse',
     props: {
-        modelValue: {
-            type: Boolean,
-            default: false,
-        },
-        expandLabel: {
+        ...coreInlineCollapseModelValueProp,
+        expandText: {
             type: String,
             default: 'Show more',
         },
-        collapseLabel: {
+        collapseText: {
             type: String,
             default: 'Hide',
         },
         textAlign: {
-            type: String,
+            type: String as PropType<'left' | 'right'>,
             default: 'left',
         },
         animate: {
@@ -46,13 +43,13 @@ export default defineComponent({
             default: true,
         },
     },
-    emits: ['update:modelValue', 'click'],
+    emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
         const asProps = () => ({
             class: [componentCssHelpers.css_root.value],
         });
-        const core = coreCollapseInlineSetup().as('div', asProps).events(['click']).build();
+        const core = coreCollapseInlineSetup().as('div', asProps).build();
 
         return {
             core,

@@ -1,7 +1,6 @@
 <template>
-    <h-dialog title="Confirm" :show-close-icon="false">
+    <h-dialog title="Confirm" :show-close-button="false">
         {{ text }}<br /><br />
-        <h-checkbox v-model="confirm" />
         <template #footer>
             <h-button label="Abort" styling="negative" style="margin-right: 12px" @click="reject" />
             <h-button label="Confirm" @click="confirmAgain" />
@@ -26,7 +25,7 @@ export default defineComponent({
     emits: ['resolve', 'reject'],
     setup(props, ctx: SetupContext) {
         const { resolve, reject } = DialogManager.setupDialog();
-        const confirm = ref(true);
+        const confirm = ref(false);
 
         const confirmAgain = () => {
             if (confirm.value) {

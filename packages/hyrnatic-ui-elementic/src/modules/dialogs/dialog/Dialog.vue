@@ -1,6 +1,6 @@
 <template>
     <hr-dialog v-slot="props" v-bind="core.props" v-on="core.listeners">
-        <div :class="[css_root, `-styling-${styling}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.activeStackCount}`]">
+        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.activeStackCount}`]">
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
@@ -11,7 +11,7 @@
             >
                 <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{transform: getScale(props.stackIndex, props.activeStackCount)}">
                     <div :class="[css_ec('box')]">
-                        <div v-if="showCloseIcon" :class="[css_ec('close-icon')]">
+                        <div v-if="showCloseButton" :class="[css_ec('close-icon')]">
                             <h-button :icon="Icons.close" styling="none" size="small" @click="props.close" />
                         </div>
                         <div v-if="$slots.title || title" :class="[css_ec('title')]">
@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, reactive, ref, SetupContext, watch,
+    defineComponent, PropType, reactive, ref, SetupContext, watch,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import { coreDialogVisibleProp, coreDialogSetup } from '@hyrioo/hyrnatic-ui-core';
@@ -48,13 +48,13 @@ export default defineComponent({
         ...coreDialogVisibleProp,
         title: {
             type: String,
-            default: 'test',
+            default: null,
         },
-        styling: {
-            type: String,
+        color: {
+            type: String as PropType<'primary' | 'danger'>,
             default: 'primary',
         },
-        showCloseIcon: {
+        showCloseButton: {
             type: Boolean,
             default: true,
         },

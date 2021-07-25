@@ -1,4 +1,4 @@
-import { ComponentAPIDescriptor, DocsAsProp, DocsAsPropsProp } from '../../../utils/docs';
+import { ComponentAPIDescriptor } from '../../../utils/docs';
 
 const docs: ComponentAPIDescriptor = {
     slots: [
@@ -6,12 +6,10 @@ const docs: ComponentAPIDescriptor = {
     events: [
     ],
     props: [
-        DocsAsProp,
-        DocsAsPropsProp,
         {
             property: 'model-value',
             origin: 'core',
-            description: 'If an array is passed the value will be added/remove when the checkbox is checked/unchecked. If a string is passed the value will be set when check, and null when unchecked.',
+            description: 'If an array is passed the value will be added/remove when the checkbox is checked/unchecked. If value is true then the model-value will be set to true/false when checked/unchecked. If a string is passed the value will be set when check, and null when unchecked.',
             type: ['array', 'boolean', 'string'],
             values: null,
             default: null,

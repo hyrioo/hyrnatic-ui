@@ -21,10 +21,9 @@
                                    @click="minusShownDate({years: 1})" />
                 </div>
                 <div>
-                    <span :class="[css_ec('calendar-year-label')]">{{
-                            `${shownDate.monthLong} ${shownDate.year}`
-                        }}</span>
-                    <!--<span :class="[css_ec('calendar-month-label')]">{{ shownDate.monthLong }}</span>-->
+                    <span :class="[css_ec('calendar-year-label')]">
+                        {{ `${shownDate.monthLong} ${shownDate.year}`}}
+                    </span>
                 </div>
                 <div>
                     <h-icon-button :icon="Icons.chevronDoubleRight" size="normal" styling="subtle"
@@ -109,8 +108,14 @@ export default defineComponent({
         const daysToShow = computed<{ date: DateTime, classes: any }[]>(() => {
             const days = [];
             const startOfMonth = shownDate.value.startOf('month');
+            let offset = startOfMonth.weekday - 1;
+            if(offset < props.firstDayOfWeek) {
+                offset += 7 - props.firstDayOfWeek;
+            } else {
+                offset -= props.firstDayOfWeek;
+            }
             const today = DateTime.now();
-            let date = startOfMonth.minus({ days: startOfMonth.weekday - 1 });
+            let date = startOfMonth.minus({ days: offset });
             for (let i = 0; i < 6 * 7; i++) {
                 days.push({
                     date,
@@ -172,8 +177,7 @@ export default defineComponent({
             class: [componentCssHelpers.css_root.value],
             disabled: slotProps.disabled,
         });
-        const core = coreDatePickerSetup().as('div', asProps).props(['modelValue', 'disabled', 'visible']).events(['click'])
-            .build();
+        const core = coreDatePickerSetup().as('div', asProps).props(['modelValue', 'disabled', 'visible']).build();
 
         return {
             Icons,

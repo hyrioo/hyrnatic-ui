@@ -1,5 +1,5 @@
 <template>
-    <page title="Button">
+    <page title="Icon Button">
         <section>
             <h2>Intro</h2>
             <p>
@@ -12,16 +12,16 @@
             <component-preview>
                 <template #preview>
                     <div style="display: flex; flex-direction: column; align-items: center">
-                        <h-button label="Subtle" :size="size" :icon="icon?'key':null" :rounded="rounded"
+                        <h-icon-button icon="key" :size="size" :rounded="rounded"
                                   :disabled="disabled" :loading="loading" styling="subtle" :color="color"
                                   style="margin-bottom: 8px" />
-                        <h-button label="Simple" :size="size" :icon="icon?'key':null" :rounded="rounded"
+                        <h-icon-button icon="key" :size="size" :rounded="rounded"
                                   :disabled="disabled" :loading="loading" styling="simple" :color="color"
                                   style="margin-bottom: 8px" />
-                        <h-button label="Block" :size="size" :icon="icon?'key':null" :rounded="rounded"
+                        <h-icon-button icon="key" :size="size" :rounded="rounded"
                                   :disabled="disabled" :loading="loading" styling="block" :color="color"
                                   style="margin-bottom: 8px" />
-                        <h-button label="None" :size="size" :icon="icon?'key':null" :rounded="rounded"
+                        <h-icon-button icon="key" :size="size" :rounded="rounded"
                                   :disabled="disabled" :loading="loading" styling="none" :color="color"
                                   style="margin-bottom: 8px" />
                     </div>
@@ -38,16 +38,13 @@
                         <h-switch v-model="disabled" right-text="Disabled" style="margin-right: 12px" />
                     </preview-option-form-control>
                     <preview-option-form-control>
-                        <h-switch v-model="icon" right-text="Show icon" style="margin-right: 12px" />
-                    </preview-option-form-control>
-                    <preview-option-form-control>
                         <h-select v-model="size" placeholder="Select size" style="margin-right: 12px; width: 100%;">
                             <h-select-item value="small" label="Small" />
                             <h-select-item value="normal" label="Normal" />
                         </h-select>
                     </preview-option-form-control>
                     <preview-option-form-control>
-                        <h-select v-model="color" placeholder="Select styling" style="margin-right: 12px; width: 100%;">
+                        <h-select v-model="color" placeholder="Select color" style="margin-right: 12px; width: 100%;">
                             <h-select-item value="primary" label="Primary" />
                             <h-select-item value="negative" label="Negative" />
                             <h-select-item value="success" label="Success" />
@@ -65,86 +62,55 @@
             <code-example :code="code" language="html-vue" />
         </section>
 
-        <section>
-            <h2>Content slot example</h2>
-            <p>
-                You can customize the content completely by using the default slot.
-            </p>
-            <component-preview :code="slotCode">
-                <template #preview>
-                    <h-button>
-                        <span><i>Some</i> <b>custom</b> <del>content</del></span>
-                    </h-button>
-                </template>
-            </component-preview>
-        </section>
-
-        <section v-if="Button.props.length">
+        <section v-if="IconButton.props.length">
             <h2>Props</h2>
-            <component-props-table :component="Button" />
+            <component-props-table :component="IconButton" />
         </section>
 
-        <section v-if="Button.slots.length">
+        <section v-if="IconButton.slots.length">
             <h2>Slots</h2>
-            <component-slots-table :component="Button" />
+            <component-slots-table :component="IconButton" />
         </section>
 
-        <section v-if="Button.events.length">
+        <section v-if="IconButton.events.length">
             <h2>Events</h2>
-            <component-events-table :component="Button" />
+            <component-events-table :component="IconButton" />
         </section>
     </page>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, SetupContext } from 'vue';
+import { defineComponent, ref, SetupContext } from 'vue';
 import Page from '../components/Page.vue';
+import CodeExample from '../components/CodeExample.vue';
 import ComponentPropsTable from '../components/ComponentPropsTable.vue';
 import ComponentPreview from '../components/ComponentPreview.vue';
 import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
 import ComponentEventsTable from '../components/ComponentEventsTable.vue';
 import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
-import CodeExample from '../components/CodeExample.vue';
-import Button from '../../../hyrnatic-ui-elementic/src/modules/buttons/button/button-docs';
+import IconButton from '../../../hyrnatic-ui-elementic/src/modules/buttons/icon-button/icon-button-docs';
 
 export default defineComponent({
-    components: {
-        CodeExample,
-        PreviewOptionFormControl,
-        ComponentEventsTable,
-        ComponentSlotsTable,
-        ComponentPreview,
-        ComponentPropsTable,
-        Page,
-    },
+    components: { CodeExample, PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
     setup(props, ctx: SetupContext) {
         const loading = ref(false);
         const rounded = ref(false);
         const disabled = ref(false);
         const icon = ref(false);
         const size = ref('normal');
-        const styling = ref('simple');
         const color = ref('primary');
 
-        const code = `<h-button label="Subtle" size="normal" icon="key" styling="subtle" color="primary" rounded disabled loading />`;
-        const slotCode = `<h-button>
-    <span><i>Some</i> <b>custom</b> <del>content</del></span>
-</h-button>`;
-
-        console.log(Button);
-
+        const code = `<h-icon-button size="normal" icon="key" styling="subtle" color="primary" rounded disabled loading />`;
 
         return {
-            Button,
+            IconButton,
             loading,
             rounded,
             disabled,
             icon,
             size,
-            styling,
             color,
             code,
-            slotCode,
         };
     },
 });
@@ -162,3 +128,4 @@ h2 {
     margin-bottom: 12px;
 }
 </style>
+

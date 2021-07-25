@@ -16,7 +16,7 @@
                 </template>
                 <template #options>
                     <preview-option-form-control>
-                        <h-select v-model="color" placeholder="Select color" style="margin-right: 12px; width: 100%" >
+                        <h-select v-model="color" placeholder="Select color" style="margin-right: 12px; width: 100%;">
                             <h-select-item value="primary" label="Primary" />
                             <h-select-item value="negative" label="Negative" />
                             <h-select-item value="success" label="Success" />

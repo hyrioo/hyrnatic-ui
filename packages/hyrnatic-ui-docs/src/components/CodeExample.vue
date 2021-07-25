@@ -1,12 +1,12 @@
 <template>
     <div class="code-container">
         <ssh-pre :language="language" copy-button>
+            {{ code }}
             <template #copy-button>
                 <div class="copy-button">
                     <h-icon icon="content-copy" size="16px" />
                 </div>
             </template>
-            {{ code }}
         </ssh-pre>
     </div>
 </template>

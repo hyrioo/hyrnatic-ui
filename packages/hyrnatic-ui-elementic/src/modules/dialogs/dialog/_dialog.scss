@@ -12,7 +12,7 @@ $crc: '.h-dialog';
 	justify-content: center;
 
 
-	&.-styling-primary #{$crc}__box {
+	&.-color-primary #{$crc}__box {
 		box-shadow: $sd-hover--primary-box-shadow;
 		border-color: $c-box--primary-border;
 
@@ -20,7 +20,7 @@ $crc: '.h-dialog';
 			background: $c-primary;
 		}
 	}
-	&.-styling-danger #{$crc}__box {
+	&.-color-danger #{$crc}__box {
 		box-shadow: $sd-hover--danger-box-shadow;
 		border-color: $c-box--danger-border;
 

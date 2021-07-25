@@ -4,8 +4,11 @@
         <router-link :to="{name: 'installation'}" :active-class="'active'">Installation</router-link>
         <router-link :to="{name: 'installation'}" :active-class="'active'">Quick start</router-link>
         <router-link :to="{name: 'installation'}" :active-class="'active'">Custom theme</router-link>
-        <h2>Components</h2>
-        <router-link v-for="page of pages" :key="page.route" :to="{name: page.route}" :active-class="'active'">{{ page.text }}</router-link>
+        <h2>Modules</h2>
+        <template v-for="module in modules">
+            <h3>{{ module.name }}</h3>
+            <router-link v-for="page of module.pages" :key="page.route" :to="{name: page.route}" :active-class="'active'">{{ page.text }}</router-link>
+        </template>
     </div>
 </template>
 
@@ -14,34 +17,146 @@ import { defineComponent, SetupContext } from 'vue';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
-        const pages = [
-            { route: 'alert', text: 'Alert' },
-            { route: 'button', text: 'Button' },
-            { route: 'checkbox', text: 'Checkbox' },
-            { route: 'collapse', text: 'Collapse' },
-            { route: 'date-picker', text: 'Date picker' },
-            { route: 'dialog', text: 'Dialog' },
-            { route: 'drawer', text: 'Drawer' },
-            { route: 'dropdown', text: 'Dropdown' },
-            { route: 'icon', text: 'Icon' },
-            { route: 'icon-button', text: 'Icon Button' },
-            { route: 'inline-collapse', text: 'Inline Collapse' },
-            { route: 'input', text: 'Input' },
-            { route: 'list', text: 'List' },
-            { route: 'paginator', text: 'Paginator' },
-            { route: 'progress-bar', text: 'Progress bar' },
-            { route: 'radio-button', text: 'Radio Button' },
-            { route: 'scroll-container', text: 'Scroll Container' },
-            { route: 'select', text: 'Select' },
-            { route: 'spinner', text: 'Spinner' },
-            { route: 'step', text: 'Step' },
-            { route: 'switch', text: 'Switch' },
-            { route: 'tab', text: 'Tab' },
-            { route: 'table', text: 'Table' },
-            { route: 'tooltip', text: 'Tooltip' },
+        const modules = [
+            {
+                name: 'Alerts',
+                pages: [
+                    { route: 'alert', text: 'Alert' },
+                ]
+            },
+            {
+                name: 'Buttons',
+                pages: [
+                    { route: 'button', text: 'Button' },
+                    { route: 'icon-button', text: 'Icon Button' },
+                    // { route: 'link-button', text: 'Link Button' },
+                ]
+            },
+            {
+                name: 'Checkboxes',
+                pages: [
+                    { route: 'checkbox', text: 'Checkbox' },
+                ]
+            },
+            {
+                name: 'Collapses',
+                pages: [
+                    { route: 'collapse', text: 'Collapse' },
+                    { route: 'inline-collapse', text: 'Inline Collapse' },
+                ]
+            },
+            {
+                name: 'Date pickers',
+                pages: [
+                    { route: 'date-picker', text: 'Date picker' },
+                ]
+            },
+            {
+                name: 'Dialogs',
+                pages: [
+                    { route: 'dialog', text: 'Dialog' },
+                ]
+            },
+            {
+                name: 'Drawers',
+                pages: [
+                    { route: 'drawer', text: 'Drawer' },
+                ]
+            },
+            {
+                name: 'Dropdowns',
+                pages: [
+                    { route: 'dropdown', text: 'Dropdown' },
+                ]
+            },
+            {
+                name: 'Icons',
+                pages: [
+                    { route: 'icon', text: 'Icon' },
+                ]
+            },
+            {
+                name: 'Inputs',
+                pages: [
+                    { route: 'input', text: 'Input' },
+                ]
+            },
+            {
+                name: 'Lists',
+                pages: [
+                    { route: 'list', text: 'List' },
+                ]
+            },
+            {
+                name: 'Paginators',
+                pages: [
+                    { route: 'paginator', text: 'Paginator' },
+                ]
+            },
+            {
+                name: 'Progress bars',
+                pages: [
+                    { route: 'progress-bar', text: 'Progress bar' },
+                ]
+            },
+            {
+                name: 'Radio buttons',
+                pages: [
+                    { route: 'radio-button', text: 'Radio Button' },
+                ]
+            },
+            {
+                name: 'Scroll containers',
+                pages: [
+                    { route: 'scroll-container', text: 'Scroll Container' },
+                ]
+            },
+            {
+                name: 'Selects',
+                pages: [
+                    { route: 'select', text: 'Select' },
+                ]
+            },
+            {
+                name: 'Spinners',
+                pages: [
+                    { route: 'spinner', text: 'Spinner' },
+                ]
+            },
+            {
+                name: 'Steps',
+                pages: [
+                    { route: 'step', text: 'Step' },
+                ]
+            },
+            {
+                name: 'Switches',
+                pages: [
+                    { route: 'switch', text: 'Switch' },
+                ]
+            },
+            {
+                name: 'Tabs',
+                pages: [
+                    { route: 'tab', text: 'Tab' },
+                ]
+            },
+            {
+                name: 'Tables',
+                pages: [
+                    { route: 'table', text: 'Table' },
+                ]
+            },
+            {
+                name: 'Tooltips',
+                pages: [
+                    { route: 'tooltip', text: 'Tooltip' },
+                ]
+            },
         ];
+
         return {
-            pages,
+            modules,
         };
     },
 });
@@ -65,6 +180,17 @@ export default defineComponent({
         }
     }
 
+    h3 {
+        color: rgba(#4A5C5C, .72);
+        font-size: 13px;
+        margin: 0 0 4px;
+        margin-top: 16px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
     a {
         line-height: 32px;
         text-decoration: none;
@@ -72,13 +198,34 @@ export default defineComponent({
         color: #319C9C;
         transition: padding-left 256ms cubic-bezier(0.4, 0.0, 0.2, 1);
         padding-left: 0;
+        position: relative;
 
         &:hover {
             padding-left: 8px;
         }
 
         &.active {
+            padding-left: 8px;
             font-weight: bold;
+
+            &:before{
+                transform: translate(-8px, 0);
+                opacity: 1;
+            }
+        }
+
+        &:before{
+            content: '';
+            height: 24px;
+            width: 3px;
+            background: #319C9C;
+            left: 0;
+            top: 4px;
+            display: block;
+            position: absolute;
+            opacity: 0;
+            transform: translate(0, 0);
+            transition: transform 256ms cubic-bezier(0.4, 0.0, 0.2, 1), opacity 256ms cubic-bezier(0.4, 0.0, 0.2, 1);
         }
     }
 }

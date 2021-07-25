@@ -1,7 +1,7 @@
 <template>
     <div class="preview-container">
         <div class="main">
-            <div v-if="$slots.preview" class="preview">
+            <div v-if="$slots.preview" class="preview" :style="{alignItems: centerPreviewVertically ? 'center' : 'start'}">
                 <slot name="preview" />
             </div>
             <div v-if="$slots.options" class="options">
@@ -11,8 +11,13 @@
         </div>
         <div v-if="$slots.source || code" class="source">
             <slot name="source">
-                <ssh-pre language="html-vue">
+                <ssh-pre language="html-vue" copy-button>
                     {{ code }}
+                    <template #copy-button>
+                        <div class="copy-button">
+                            <h-icon icon="content-copy" size="16px" />
+                        </div>
+                    </template>
                 </ssh-pre>
             </slot>
         </div>
@@ -33,6 +38,10 @@ export default defineComponent({
         code: {
             type: String,
             default: null
+        },
+        centerPreviewVertically: {
+            type: Boolean,
+            default: true,
         }
     },
     setup(props, ctx: SetupContext) {
@@ -77,6 +86,25 @@ export default defineComponent({
     .source {
         border-top: 1px solid rgba(#319C9C, .32);
         background: rgba(#319C9C, .08);
+    }
+
+    .copy-button {
+        border-bottom: 1px solid rgba(#319C9C, .32);
+        border-left: 1px solid rgba(#319C9C, .32);
+        width: 32px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        color: #319C9C;
+        border-radius: 0 4px 0 4px;
+        transition: 256ms;
+        cursor: pointer;
+
+        &:hover {
+            background: darken(#FFF, 4%);
+        }
     }
 }
 </style>

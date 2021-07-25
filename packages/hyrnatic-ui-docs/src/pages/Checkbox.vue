@@ -27,12 +27,12 @@
 
         <section v-if="Checkbox.slots.length">
             <h2>Slots</h2>
-            <component-slots-table :component="Button" />
+            <component-slots-table :component="Checkbox" />
         </section>
 
         <section v-if="Checkbox.events.length">
             <h2>Events</h2>
-            <component-events-table :component="Button" />
+            <component-events-table :component="Checkbox" />
         </section>
     </page>
 </template>

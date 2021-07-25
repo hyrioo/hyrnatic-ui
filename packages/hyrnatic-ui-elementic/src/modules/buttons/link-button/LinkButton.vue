@@ -33,7 +33,7 @@ export default defineComponent({
             default: null,
         },
         styling: {
-            type: String as PropType<'primary' | 'secondary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
+            type: String as PropType<'primary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
         },
         size: {

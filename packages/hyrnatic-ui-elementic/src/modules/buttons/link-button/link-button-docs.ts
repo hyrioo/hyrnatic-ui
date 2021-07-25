@@ -1,4 +1,4 @@
-import { ComponentAPIDescriptor } from '../../../utils/docs';
+import { ComponentAPIDescriptor, DocsAsProp, DocsAsPropsProp } from '../../../utils/docs';
 
 const docs: ComponentAPIDescriptor = {
     slots: [],
@@ -10,6 +10,8 @@ const docs: ComponentAPIDescriptor = {
         }
     ],
     props: [
+        DocsAsProp,
+        DocsAsPropsProp,
         {
             property: 'disabled',
             origin: 'core',

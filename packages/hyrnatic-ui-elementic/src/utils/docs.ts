@@ -15,13 +15,13 @@ export type ComponentAPIDescriptor = {
         parameters?: Array<string> | null;
     }>;
 
-    props?: Array<{
+    props: Array<{
         origin: string;
         property: string;
         description: string;
         type: Array<string> | string;
         values?: Array<string>;
-        default: string | boolean | null;
+        default?: string | boolean | null;
         required?: boolean;
     }>;
 }
