@@ -26,7 +26,7 @@ export type Wrapper = {
     getDialog(id: string): InternalDialogObject;
     destroyDialog(id: string): void;
     getStackCount(stack: string): ComputedRef<number>;
-    getStackActiveCount(stack: string): ComputedRef<number>;
+    getStackVisibleCount(stack: string): ComputedRef<number>;
     getStackIndex(stack: string, id: string): ComputedRef<number>;
 }
 
@@ -67,9 +67,9 @@ export default defineComponent({
         });
 
         /**
-         * Computed count of active dialogs for each stack in the wrapper
+         * Computed count of visible (non transitioning) dialogs for each stack in the wrapper
          */
-        const activeDialogsCount = computed(() => {
+        const visibleDialogsCount = computed(() => {
             const counts = [];
             Object.keys(stacks).forEach((key) => {
                 counts[key] = stacks[key].filter((d) => d.visible).length;
@@ -197,7 +197,7 @@ export default defineComponent({
          * Get count for all active dialogs for a specific stack, without the ones that are transitioning away
          * @param stack
          */
-        const getStackActiveCount = (stack) => computed(() => activeDialogsCount.value[stack]);
+        const getStackVisibleCount = (stack) => computed(() => visibleDialogsCount.value[stack]);
 
         /**
          * Get the index for a dialog in a specific stack
@@ -211,7 +211,7 @@ export default defineComponent({
             getDialog,
             destroyDialog,
             getStackCount,
-            getStackActiveCount,
+            getStackVisibleCount,
             getStackIndex,
         };
         wrappers[props.name] = wrapper;

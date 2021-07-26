@@ -15,7 +15,7 @@ export type CoreDialogSlotProps = {
     visible: ComputedRef<boolean>;
     stackIndex: ComputedRef<number>;
     stackCount: ComputedRef<number>;
-    activeStackCount: ComputedRef<number>;
+    visibleStackCount: ComputedRef<number>;
     close: () => void;
 }
 export function coreDialogSetup(props: string[] = [], events: string[] = []) {
@@ -47,7 +47,7 @@ export default defineComponent({
             visible: computed(() => props.visible),
             stackIndex: wrapper.getStackIndex(dialog.stack, dialog.id),
             stackCount: wrapper.getStackCount(dialog.stack),
-            activeStackCount: wrapper.getStackActiveCount(dialog.stack),
+            visibleStackCount: wrapper.getStackVisibleCount(dialog.stack),
             close,
         });
 

@@ -1,18 +1,17 @@
 import Icon from './icon/Icon.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
-let installed = false;
+const moduleId = 'elementic-icons';
 const components = {
     Icon,
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

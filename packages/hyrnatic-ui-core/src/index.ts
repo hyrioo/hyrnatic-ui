@@ -53,6 +53,7 @@ export default {
  */
 export { default as CoreButtonsInstall } from './modules/buttons/install';
 export {
+    default as coreButton,
     coreButtonSetup,
     coreButtonDisabledProp,
     coreButtonVisibleProp,

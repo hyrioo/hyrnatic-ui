@@ -4,7 +4,7 @@ import LinkButton from './link-button/LinkButton.vue';
 import IconInstall from '../icons/install';
 import { ModuleHelper, CoreButtonsInstall } from '@hyrioo/hyrnatic-ui-core';
 
-let installed = false;
+const moduleId = 'elementic-buttons';
 const components = {
     Button,
     IconButton,
@@ -16,13 +16,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

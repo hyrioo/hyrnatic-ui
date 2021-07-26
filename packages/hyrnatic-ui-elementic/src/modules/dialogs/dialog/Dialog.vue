@@ -1,15 +1,15 @@
 <template>
     <hr-dialog v-slot="props" v-bind="core.props" v-on="core.listeners">
-        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.activeStackCount}`]">
+        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-visible-count-${props.visibleStackCount}`]">
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
-                <div v-show="props.visible" :class="[css_ec('backdrop')]" :style="{opacity: getOpacity(props.stackIndex, props.activeStackCount)}" />
+                <div v-show="props.visible" :class="[css_ec('backdrop')]" :style="{opacity: getOpacity(props.stackIndex, props.visibleStackCount)}" />
             </transition>
             <transition name="small-slide-up-medium" appear
                         @before-leave="transitionStarted('box')" @after-leave="transitionEnded('box')"
             >
-                <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{transform: getScale(props.stackIndex, props.activeStackCount)}">
+                <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{transform: getScale(props.stackIndex, props.visibleStackCount)}">
                     <div :class="[css_ec('box')]">
                         <div v-if="showCloseButton" :class="[css_ec('close-icon')]">
                             <h-button :icon="Icons.close" styling="none" size="small" @click="props.close" />

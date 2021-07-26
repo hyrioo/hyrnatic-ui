@@ -42,6 +42,6 @@ export default class Row {
             console.warn('[hr-table-column] Unsupported value for formatter');
         }
 
-        return data as string;
+        return data as unknown as string;
     }
 }
