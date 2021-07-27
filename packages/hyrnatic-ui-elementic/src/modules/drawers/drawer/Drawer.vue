@@ -1,15 +1,15 @@
 <template>
     <hr-dialog v-slot="props" v-bind="core.props" v-on="core.listeners">
-        <div :class="[css_root, `-styling-${styling}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.activeStackCount}`]">
+        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.visibleStackCount}`]">
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
-                <div v-show="props.visible" :class="[css_ec('backdrop')]" :style="{opacity: getOpacity(props.stackIndex, props.activeStackCount)}" />
+                <div v-show="props.visible" :class="[css_ec('backdrop')]" :style="{opacity: getOpacity(props.stackIndex, props.visibleStackCount)}" />
             </transition>
             <transition :name="slideTransition" appear
                         @before-leave="transitionStarted('box')" @after-leave="transitionEnded('box')"
             >
-                <div v-show="props.visible" :class="[css_ec('box'), `-placement-${placement}`, {'-has-footer': $slots.footer}]" :style="{transform: getScale(props.stackIndex, props.activeStackCount)}">
+                <div v-show="props.visible" :class="[css_ec('box'), `-placement-${placement}`, {'-has-footer': $slots.footer}]" :style="{transform: getScale(props.stackIndex, props.visibleStackCount)}">
                     <div v-if="$slots.title || title" :class="[css_ec('title')]">
                         <slot name="title">
                             <span v-html="title" />
@@ -49,8 +49,8 @@ export default defineComponent({
             type: String,
             default: 'test',
         },
-        styling: {
-            type: String,
+        color: {
+            type: String as PropType<'primary' | 'danger'>,
             default: 'primary',
         },
         placement: {
@@ -82,7 +82,7 @@ export default defineComponent({
 
         const getScale = (index, count) => {
             if (index < count - 1) {
-                return `translateX(-${(count - index - 1) * 64}px)`;
+                return `translateX(${props.placement === 'right' ? '-' : ''}${(count - index - 1) * 64}px)`;
             } else {
                 return null;
             }

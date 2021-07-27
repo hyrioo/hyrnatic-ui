@@ -52,7 +52,8 @@ export const corePopperKeepProp = {
 export const corePopperOptionsProp = {
     options: {
         type: Object as PropType<OptionsGeneric<any>>,
-        default: () => {},
+        default: () => {
+        },
     },
 };
 export const corePopperModifiersProp = {
@@ -147,8 +148,10 @@ export default defineComponent({
             };
             return s as CSSProperties;
         });
-        watch(() => popperOptions, (options: any) => {
-            popperInstance.value.setOptions(options);
+        watch(popperOptions, (options: any) => {
+            if (popperInstance.value) {
+                popperInstance.value.setOptions(options);
+            }
         });
 
         const createPopperInstance = () => {
@@ -269,14 +272,16 @@ export default defineComponent({
     render() {
         const content = () => (
             (this.$props.keep ?
-                <div v-show={this.visible} ref="innerElement" class={[this.classes]} style={this.style} data-popper-placement={this.popperPlacement}>
-                    {this.$slots.default()}
-                </div> :
-                (this.visible ?
-                    <div ref="innerElement" class={[this.classes]} style={this.style} data-popper-placement={this.popperPlacement}>
+                    <div v-show={this.visible} ref="innerElement" class={[this.classes]} style={this.style}
+                         data-popper-placement={this.popperPlacement}>
                         {this.$slots.default()}
-                    </div> : null
-                )
+                    </div> :
+                    (this.visible ?
+                            <div ref="innerElement" class={[this.classes]} style={this.style}
+                                 data-popper-placement={this.popperPlacement}>
+                                {this.$slots.default()}
+                            </div> : null
+                    )
             )
         );
         return (
@@ -286,7 +291,7 @@ export default defineComponent({
                         <Transition name={this.transition} onAfterLeave={this.afterHide}>
                             {content()}
                         </Transition>
-                    ) : content() }
+                    ) : content()}
                 </span>
             </Teleport>
         );

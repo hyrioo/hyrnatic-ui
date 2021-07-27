@@ -1,7 +1,7 @@
 import Select from './select/Select.vue';
-import SelectItem from './select/SelectItem.vue';
-import SelectItemDivider from './select/SelectItemDivider.vue';
-import SelectItemHeader from './select/SelectItemHeader.vue';
+import SelectItem from './select-item/SelectItem.vue';
+import SelectItemDivider from './select-item-divider/SelectItemDivider.vue';
+import SelectItemHeader from './select-item-header/SelectItemHeader.vue';
 import { CoreSelectsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import PoppersInstall from '../poppers/install';
 import ScrollContainersInstall from '../scroll-containers/install';

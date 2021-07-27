@@ -39,16 +39,9 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
-import Page from '../components/Page.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
 import Checkbox from '../../../hyrnatic-ui-elementic/src/modules/checkboxes/checkbox/checkbox-docs';
 
 export default defineComponent({
-    components: { PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
     setup(props, ctx: SetupContext) {
         const value = ref(false);
         const bordered = ref(false);
@@ -70,14 +63,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-section {
-    margin-bottom: 32px;
-}
-
-h2 {
-    color: #319C9C;
-    font-size: 18px;
-    margin: 0;
-    margin-bottom: 12px;
-}
 </style>

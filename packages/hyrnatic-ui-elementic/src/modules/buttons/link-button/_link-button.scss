@@ -26,7 +26,7 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-primary {
+	&.-color-primary {
 		color: $c-primary-text;
 
 		&:hover, &:focus {
@@ -38,7 +38,7 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-negative {
+	&.-color-negative {
 		color: $c-negative-text;
 
 		&:hover, &:focus {
@@ -50,7 +50,7 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-success {
+	&.-color-success {
 		color: $c-success-text;
 
 		&:hover, &:focus {
@@ -62,7 +62,7 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-warning {
+	&.-color-warning {
 		color: $c-warning-text;
 
 		&:hover, &:focus {
@@ -74,7 +74,7 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-danger {
+	&.-color-danger {
 		color: $c-danger-text;
 
 		&:hover, &:focus {
@@ -86,7 +86,7 @@ $crc: '.h-link-button';
 		}
 	}
 
-	&.-styling-none {
+	&.-color-none {
 		color: $c-dark-text;
 	}
 

@@ -140,6 +140,9 @@ export {
 export type {
     CoreDialogSlotProps,
 } from './modules/dialogs/dialog/Dialog';
+export {
+    default as coreDialogWrapper,
+} from './modules/dialogs/dialog/DialogWrapper';
 export * as DialogManager from './modules/dialogs/dialog/DialogManager';
 
 

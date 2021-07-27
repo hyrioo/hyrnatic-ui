@@ -15,6 +15,9 @@ export function installComponents(app, components) {
         app.component(components[key].name, components[key]);
     });
 }
+export function installComponentAlias(app, alias, component) {
+    app.component(alias, component);
+}
 export function installDirectives(app, directives) {
     Object.keys(directives).forEach((key) => {
         app.directive(directives[key].name, directives[key]);
@@ -28,6 +31,7 @@ export function installDependencies(app, options: object, dependencies: {[key: s
 
 export default {
     installComponents,
+    installComponentAlias,
     installDependencies,
     installDirectives,
     isModuleInstalled,

@@ -12,10 +12,10 @@ $crc: '.h-drawer';
 	justify-content: center;
 
 
-	&.-styling-primary #{$crc}__box {
+	&.-color-primary #{$crc}__box {
 		box-shadow: $sd-hover--primary-box-shadow;
 	}
-	&.-styling-danger #{$crc}__box {
+	&.-color-danger #{$crc}__box {
 		box-shadow: $sd-hover--danger-box-shadow;
 
 		#{$crc}__title{

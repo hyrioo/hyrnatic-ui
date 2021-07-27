@@ -4,39 +4,62 @@ const docs: ComponentAPIDescriptor = {
     slots: [
         {
             name: 'default',
-            description: 'Override the content of the button.',
+            description: 'Container for the items.',
             props: null,
-        }
+        },
+        {
+            name: 'label',
+            description: 'Override the label.',
+            props: null,
+        },
+        {
+            name: 'arrow',
+            description: 'Override the arrow.',
+            props: null,
+        },
     ],
     events: [
         {
             name: 'click',
-            description: 'Emitted when clicked, while not in loading or disabled state.',
+            description: 'Emitted when clicked on the main part of the button while spilt-button is enabled.',
             parameters: null,
-        }
+        },
+        {
+            name: 'focusedItemChanged',
+            description: 'Emitted when the focused item changes from key input.',
+            parameters: null,
+        },
     ],
     props: [
         {
             property: 'disabled',
             origin: 'core',
-            description: 'Determines if the button is disabled.',
+            description: 'Determines if the dropdown is disabled.',
             type: 'boolean',
             default: false,
         },
         {
             property: 'visible',
             origin: 'core',
-            description: 'Determines if the button is visible. This will also disable interactivity during transition. Use this instead of v-show.',
+            description: 'Determines if the dropdown is visible. This will also disable interactivity during transition. Use this instead of v-show.',
             type: 'boolean',
             default: true,
         },
         {
-            property: 'loading',
+            property: 'split-button',
             origin: 'core',
-            description: 'Determines if the button is in loading state.',
+            description: 'Determines if the dropdown should be a separate part of the button.',
             type: 'boolean',
             values: null,
             default: false,
+        },
+        {
+            property: 'hide-on-click',
+            origin: 'core',
+            description: 'Determines if the dropdown should be hidden when an item is clicked.',
+            type: 'boolean',
+            values: null,
+            default: true,
         },
         {
             property: 'label',

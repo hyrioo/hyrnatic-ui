@@ -1,7 +1,7 @@
 import Dropdown from './dropdown/Dropdown.vue';
-import DropdownItem from './dropdown/DropdownItem.vue';
-import DropdownItemDivider from './dropdown/DropdownItemDivider.vue';
-import DropdownItemHeader from './dropdown/DropdownItemHeader.vue';
+import DropdownItem from './dropdown-item/DropdownItem.vue';
+import DropdownItemDivider from './dropdown-item-divider/DropdownItemDivider.vue';
+import DropdownItemHeader from './dropdown-item-header/DropdownItemHeader.vue';
 import { CoreDropdownsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

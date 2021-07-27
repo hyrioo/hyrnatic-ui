@@ -77,7 +77,7 @@ export default defineComponent({
             default: 'match',
         },
         align: {
-            type: String,
+            type: String as PropType<'start' | 'end'>,
             default: 'start',
         },
     },

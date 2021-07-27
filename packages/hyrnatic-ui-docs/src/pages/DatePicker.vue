@@ -44,17 +44,10 @@
 
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from 'vue';
-import Page from '../components/Page.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
 import DatePicker from '../../../hyrnatic-ui-elementic/src/modules/date-pickers/date-picker/date-picker-docs';
 import { DateTime, Duration, Info as DateTimeInfo } from 'luxon';
 
 export default defineComponent({
-    components: { PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
     setup(props, ctx: SetupContext) {
         const date = ref(DateTime.now());
         const highlightToday = ref(true);
@@ -74,14 +67,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-section {
-    margin-bottom: 32px;
-}
-
-h2 {
-    color: #319C9C;
-    font-size: 18px;
-    margin: 0;
-    margin-bottom: 12px;
-}
 </style>

@@ -1,5 +1,5 @@
 import Collapse from './collapse/Collapse.vue';
-import CollapseItem from './collapse/CollapseItem.vue';
+import CollapseItem from './collapse-item/CollapseItem.vue';
 import InlineCollapse from './inline-collapse/InlineCollapse.vue';
 import TransitionsInstall from '../transitions/install';
 import { CoreCollapsesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';

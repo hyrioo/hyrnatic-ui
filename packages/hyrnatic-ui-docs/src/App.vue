@@ -10,7 +10,7 @@
             <router-view />
         </div>
     </div>
-    <hr-dialog-wrapper ref="wrapper" />
+    <h-dialog-wrapper ref="wrapper" />
 </template>
 
 <script lang="ts">

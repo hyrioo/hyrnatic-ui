@@ -1,5 +1,5 @@
 import Fragment from './fragment/Fragment.vue';
-import FragmentContainer from './fragment/FragmentContainer.vue';
+import FragmentContainer from './fragment-container/FragmentContainer.vue';
 import { CoreFragmentsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

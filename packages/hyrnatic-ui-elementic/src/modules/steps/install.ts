@@ -1,5 +1,5 @@
-import StepItem from './step/StepItem.vue';
-import StepsNavigator from './step/StepsNavigator.vue';
+import StepItem from './step-item/StepItem.vue';
+import StepsNavigator from './steps-navigator/StepsNavigator.vue';
 import { CoreStepsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

@@ -33,7 +33,7 @@ export default defineComponent({
             type: Number,
         },
     },
-    emits: ['something', 'something-more', 'resolve'],
+    emits: ['something', 'resolve'],
     setup(props, ctx: SetupContext) {
         const nested = ref('-');
         const { resolve } = DialogManager.setupDialog();

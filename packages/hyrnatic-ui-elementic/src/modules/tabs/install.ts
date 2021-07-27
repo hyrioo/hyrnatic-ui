@@ -1,5 +1,5 @@
-import TabItem from './tab/TabItem.vue';
-import TabsNavigator from './tab/TabsNavigator.vue';
+import TabItem from './tab-item/TabItem.vue';
+import TabsNavigator from './tabs-navigator/TabsNavigator.vue';
 import { CoreTabsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

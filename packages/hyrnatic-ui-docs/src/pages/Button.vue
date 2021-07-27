@@ -98,25 +98,9 @@
 
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from 'vue';
-import Page from '../components/Page.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
-import CodeExample from '../components/CodeExample.vue';
 import Button from '../../../hyrnatic-ui-elementic/src/modules/buttons/button/button-docs';
 
 export default defineComponent({
-    components: {
-        CodeExample,
-        PreviewOptionFormControl,
-        ComponentEventsTable,
-        ComponentSlotsTable,
-        ComponentPreview,
-        ComponentPropsTable,
-        Page,
-    },
     setup(props, ctx: SetupContext) {
         const loading = ref(false);
         const rounded = ref(false);
@@ -127,12 +111,10 @@ export default defineComponent({
         const color = ref('primary');
 
         const code = `<h-button label="Subtle" size="normal" icon="key" styling="subtle" color="primary" rounded disabled loading />`;
-        const slotCode = `<h-button>
+        const slotCode =
+`<h-button>
     <span><i>Some</i> <b>custom</b> <del>content</del></span>
 </h-button>`;
-
-        console.log(Button);
-
 
         return {
             Button,
@@ -151,14 +133,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-section {
-    margin-bottom: 32px;
-}
-
-h2 {
-    color: #319C9C;
-    font-size: 18px;
-    margin: 0;
-    margin-bottom: 12px;
-}
 </style>

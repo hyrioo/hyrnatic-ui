@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext,
+    defineComponent, ref, computed, provide, onMounted, nextTick, SetupContext, PropType,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -47,16 +47,16 @@ import Icons from '../../../icons';
 export default defineComponent({
     name: 'h-dropdown',
     props: {
-        ...coreDropdownSplitButtonProp,
         ...coreDropdownDisabledProp,
-        ...coreDropdownHideOnClickProp,
         ...coreDropdownVisibleProp,
+        ...coreDropdownSplitButtonProp,
+        ...coreDropdownHideOnClickProp,
         label: {
             type: String,
             default: '',
         },
         align: {
-            type: String,
+            type: String as PropType<'start' | 'end'>,
             default: 'start',
         },
     },
@@ -125,7 +125,7 @@ export default defineComponent({
                 '-active': slotProps.menuVisible, '-disabled': slotProps.disabled,
             },
         });
-        const core = coreDropdownSetup().as('div', asProps).props(['disabled', 'hideOnSelect', 'splitButton', 'visible']).events(['click', 'focusedItemChanged'])
+        const core = coreDropdownSetup().as('div', asProps).props(['disabled', 'hideOnClick', 'splitButton', 'visible']).events(['click', 'focusedItemChanged'])
             .build();
 
         return {

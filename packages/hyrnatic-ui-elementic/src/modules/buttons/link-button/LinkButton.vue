@@ -32,7 +32,7 @@ export default defineComponent({
             type: [String, Number],
             default: null,
         },
-        styling: {
+        color: {
             type: String as PropType<'primary' | 'negative' | 'success' | 'warning' | 'danger' | 'none'>,
             default: 'primary',
         },
@@ -40,16 +40,20 @@ export default defineComponent({
             type: String as PropType<'normal' | 'small'>,
             default: 'normal',
         },
+        type: {
+            type: String as PropType<'button' | 'submit' | 'reset'>,
+            default: 'button',
+        }
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
 
         const asProps = (slotProps: CoreButtonSlotProps) => ({
-            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-size-${props.size}`, { '-loading': slotProps.loading }],
+            class: [componentCssHelpers.css_root.value, `-color-${props.color}`, `-size-${props.size}`, { '-loading': slotProps.loading }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
-            type: 'button',
+            type: props.type,
         });
         const core = coreButtonSetup().as('button', asProps).props(['disabled', 'loading', 'visible']).events(['click'])
             .build();

@@ -22,7 +22,7 @@
 @import "../modules/checkboxes/checkbox/checkbox";
 
 @import "../modules/collapses/collapse/collapse";
-@import "../modules/collapses/collapse/collapse-item";
+@import "../modules/collapses/collapse-item/collapse-item";
 @import "../modules/collapses/inline-collapse/inline-collapse";
 
 @import "../modules/date-pickers/date-picker/date-picker";
@@ -32,14 +32,14 @@
 @import "../modules/drawers/drawer/drawer";
 
 @import "../modules/dropdowns/dropdown/dropdown";
-@import "../modules/dropdowns/dropdown/dropdown-item";
-@import "../modules/dropdowns/dropdown/dropdown-item-header";
-@import "../modules/dropdowns/dropdown/dropdown-item-divider";
+@import "../modules/dropdowns/dropdown-item/dropdown-item";
+@import "../modules/dropdowns/dropdown-item-header/dropdown-item-header";
+@import "../modules/dropdowns/dropdown-item-divider/dropdown-item-divider";
 
 //@import "../modules/form/form";
 
 @import "../modules/fragments/fragment/fragment";
-@import "../modules/fragments/fragment/fragment-container";
+@import "../modules/fragments/fragment-container/fragment-container";
 
 @import "../modules/icons/icon/icon";
 
@@ -47,7 +47,7 @@
 @import "../modules/inputs/autocomplete/autocomplete";
 
 @import "../modules/lists/list/list";
-@import "../modules/lists/list/list-item";
+@import "../modules/lists/list-item/list-item";
 
 @import "../modules/paginators/paginator/paginator";
 
@@ -58,16 +58,16 @@
 @import "../modules/scroll-containers/scroll-container/scroll-container";
 
 @import "../modules/selects/select/select";
-@import "../modules/selects/select/select-item";
-@import "../modules/selects/select/select-item-header";
-@import "../modules/selects/select/select-item-divider";
+@import "../modules/selects/select-item/select-item";
+@import "../modules/selects/select-item-header/select-item-header";
+@import "../modules/selects/select-item-divider/select-item-divider";
 
 @import "../modules/spinners/spinner/spinner";
 
 //@import "../modules/slider/slider";
 
-@import "../modules/steps/step/steps-navigator";
-@import "../modules/steps/step/step-item";
+@import "../modules/steps/steps-navigator/steps-navigator";
+@import "../modules/steps/step-item/step-item";
 
 @import "../modules/switches/switch/switch";
 
@@ -76,8 +76,8 @@
 @import "../modules/tables/table/table";
 @import "../modules/tables/table/table-column-header";
 
-@import "../modules/tabs/tab/tabs-navigator";
-@import "../modules/tabs/tab/tab-item";
+@import "../modules/tabs/tabs-navigator/tabs-navigator";
+@import "../modules/tabs/tab-item/tab-item";
 
 @import "../modules/tooltips/tooltip/tooltip";
 

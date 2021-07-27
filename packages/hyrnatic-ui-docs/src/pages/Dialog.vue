@@ -10,7 +10,7 @@
             <h2>Preview</h2>
             <component-preview :code="code">
                 <template #preview>
-                    <h-button label="Show dialog" @click="onClick" />
+                    <h-button label="Open dialog" @click="onClick" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
@@ -28,6 +28,8 @@
 
         <section>
             <h2>Usage</h2>
+            <p>First add the wrapper to your layout component.</p>
+            <code-example :code='code3' language="html-vue"/>
             <p>To open a dialog you must use the DialogManager, and import the component to wish to open.</p>
             <code-example :code="code2" language="js" />
         </section>
@@ -52,18 +54,10 @@
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
 import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import Page from '../components/Page.vue';
-import CodeExample from '../components/CodeExample.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
 import Dialog from '../../../hyrnatic-ui-elementic/src/modules/dialogs/dialog/dialog-docs';
 import SampleDialog from '../components/SampleDialog.vue';
 
 export default defineComponent({
-    components: { PreviewOptionFormControl, CodeExample, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
     setup(props, ctx: SetupContext) {
         const showCloseButton = ref(true);
         const color = ref('primary');
@@ -96,7 +90,8 @@ export default defineComponent({
     </template>
 </h-dialog>`;
         const code2 =
-`import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
+`// Component.vue
+import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 import CustomDialog from '../components/CustomDialog.vue';
 const props = {
     prop: 'anything',
@@ -114,6 +109,9 @@ DialogManager.createPromise(CustomDialog, props, listeners, options).then(() => 
 }).catch(() => {
     // Rejected
 });`;
+        const code3 =
+`<!-- App.vue -->
+<hr-dialog-wrapper></hr-dialog-wrapper>`;
 
         return {
             Dialog,
@@ -122,20 +120,11 @@ DialogManager.createPromise(CustomDialog, props, listeners, options).then(() => 
             color,
             code,
             code2,
+            code3,
         };
     },
 });
 </script>
 
 <style lang="scss" scoped>
-section {
-    margin-bottom: 32px;
-}
-
-h2 {
-    color: #319C9C;
-    font-size: 18px;
-    margin: 0;
-    margin-bottom: 12px;
-}
 </style>

@@ -79,6 +79,10 @@ export default defineComponent({
             ctx.emit('focusedItemChanged', focusedItem.value);
         });
 
+        const interactivityDisabled = computed(() => {
+            return props.disabled || !props.visible;
+        });
+
         const addItemInstance = (instance: CoreDropdownItemInstance) => {
             items.value.push(instance);
         };
@@ -100,7 +104,7 @@ export default defineComponent({
             }
         };
         const onKeyEvents = (e, target: 'main' | 'split') => {
-            if (props.disabled) {
+            if (interactivityDisabled.value) {
                 return false;
             }
             const currentIndex = focusedItem.value ? focusableItems.value.findIndex((i) => i === focusedItem.value) : null;
@@ -138,7 +142,7 @@ export default defineComponent({
             }
         };
         const onButtonClick = (e) => {
-            if (props.disabled) {
+            if (interactivityDisabled.value) {
                 return false;
             }
 
@@ -149,7 +153,7 @@ export default defineComponent({
             }
         };
         const onIconClick = () => {
-            if (props.disabled) {
+            if (interactivityDisabled.value) {
                 return false;
             }
             menuVisible.value = !menuVisible.value;

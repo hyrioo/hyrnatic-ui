@@ -1,5 +1,5 @@
 import List from './list/List.vue';
-import ListItem from './list/ListItem.vue';
+import ListItem from './list-item/ListItem.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 let installed = false;

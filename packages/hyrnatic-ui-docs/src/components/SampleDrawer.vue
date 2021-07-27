@@ -1,22 +1,12 @@
 <template>
     <h-drawer title="Some dialog title" :placement="placement">
-        This is dynamic content: {{ text }}
-        <br />
         Counter: {{ counter }}
         <br /><br />
-        <h-button label="Emit 'something'" @click="something" />
+        <h-button label="Emit 'addCounter'" @click="something" />
         <br /><br />
-        <h-button label="Emit 'something-more' after confirm" @click="confirmAgain" />
+        <h-button label="Emit 'addCounter' after confirm drawer" @click="confirmAgain" />
         <br /><br />
-        <h-button label="Emit 'something-more' after confirm dialog" @click="confirmAgainDialog" />
-        <br /><br />
-        <h-select v-model="value" placeholder="Select option..." style="width: 100%;">
-            <h-select-item value="1" label="Loooong option 1" />
-            <h-select-item value="2" label="Option 2" />
-            <h-select-item-divider />
-            <h-select-item value="3" label="Option 3" disabled />
-            <h-select-item value="4" label="Option 4" />
-        </h-select>
+        <h-button label="Emit 'addCounter' after confirm dialog" @click="confirmAgainDialog" />
 
         <template #footer>
             <h-button label="Close" styling="negative" style="margin-right: 12px" @click="close" />
@@ -34,9 +24,6 @@ import ConfirmDialog from './ConfirmDialog.vue';
 export default defineComponent({
     name: 'SampleDrawer',
     props: {
-        text: {
-            type: String,
-        },
         counter: {
             type: Number,
         },
@@ -45,21 +32,21 @@ export default defineComponent({
             default: 'right',
         },
     },
-    emits: ['something', 'something-more', 'resolve'],
+    emits: ['addCounter', 'resolve'],
     setup(props, ctx: SetupContext) {
         const value = ref();
         const { resolve } = DialogManager.setupDialog();
         const something = () => {
-            ctx.emit('something');
+            ctx.emit('addCounter');
         };
         const confirmAgain = () => {
-            DialogManager.createPromise(ConfirmDrawer, { }, { }, { stack: 'drawer' }).then(() => {
-                ctx.emit('something-more');
+            DialogManager.createPromise(ConfirmDrawer, { placement: props.placement }, { }, { stack: 'drawer' }).then(() => {
+                ctx.emit('addCounter');
             }).catch(() => {});
         };
         const confirmAgainDialog = () => {
             DialogManager.createPromise(ConfirmDialog, { }, { }, { stack: 'dialog' }).then(() => {
-                ctx.emit('something-more');
+                ctx.emit('addCounter');
             }).catch(() => {});
         };
         const close = () => {
