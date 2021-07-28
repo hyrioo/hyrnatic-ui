@@ -3,7 +3,7 @@
         Dynamic counter: {{ counter }} <br /> <br />
         Nested status: {{ nested }} <br /> <br />
 
-        <h-button label="Add to counter" @click="addCounter" style="margin-right: 12px" />
+        <h-button label="Increment counter" @click="addCounter" style="margin-right: 12px" />
         <h-button label="Open nested dialog" @click="openNestedDialog" />
 
         <template #footer>

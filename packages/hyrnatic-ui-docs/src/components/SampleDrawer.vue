@@ -2,11 +2,11 @@
     <h-drawer title="Some dialog title" :placement="placement">
         Counter: {{ counter }}
         <br /><br />
-        <h-button label="Emit 'addCounter'" @click="something" />
+        <h-button label="Emit 'incrementCounter'" @click="something" />
         <br /><br />
-        <h-button label="Emit 'addCounter' after confirm drawer" @click="confirmAgain" />
+        <h-button label="Emit 'incrementCounter' after confirm drawer" @click="confirmAgain" />
         <br /><br />
-        <h-button label="Emit 'addCounter' after confirm dialog" @click="confirmAgainDialog" />
+        <h-button label="Emit 'incrementCounter' after confirm dialog" @click="confirmAgainDialog" />
 
         <template #footer>
             <h-button label="Close" styling="negative" style="margin-right: 12px" @click="close" />
@@ -32,21 +32,21 @@ export default defineComponent({
             default: 'right',
         },
     },
-    emits: ['addCounter', 'resolve'],
+    emits: ['incrementCounter', 'resolve'],
     setup(props, ctx: SetupContext) {
         const value = ref();
         const { resolve } = DialogManager.setupDialog();
         const something = () => {
-            ctx.emit('addCounter');
+            ctx.emit('incrementCounter');
         };
         const confirmAgain = () => {
             DialogManager.createPromise(ConfirmDrawer, { placement: props.placement }, { }, { stack: 'drawer' }).then(() => {
-                ctx.emit('addCounter');
+                ctx.emit('incrementCounter');
             }).catch(() => {});
         };
         const confirmAgainDialog = () => {
             DialogManager.createPromise(ConfirmDialog, { }, { }, { stack: 'dialog' }).then(() => {
-                ctx.emit('addCounter');
+                ctx.emit('incrementCounter');
             }).catch(() => {});
         };
         const close = () => {

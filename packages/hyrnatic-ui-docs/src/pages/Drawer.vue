@@ -61,7 +61,7 @@ export default defineComponent({
 
         const openDrawer = async () => {
             DialogManager.createPromise(SampleDrawer, { text: 'Testing', placement, counter }, {
-                addCounter: () => {
+                incrementCounter: () => {
                     counter.value++;
                 },
             }, { stack: 'drawer' }).then((result) => {

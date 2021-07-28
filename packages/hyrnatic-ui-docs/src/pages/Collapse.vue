@@ -89,7 +89,7 @@
 <script lang="ts">
 import { defineComponent, ref, SetupContext, watch } from 'vue';
 import Collapse from '../../../hyrnatic-ui-elementic/src/modules/collapses/collapse/collapse-docs';
-import CollapseItem from '../../../hyrnatic-ui-elementic/src/modules/collapses/collapse/collapse-item-docs';
+import CollapseItem from '../../../hyrnatic-ui-elementic/src/modules/collapses/collapse-item/collapse-item-docs';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {

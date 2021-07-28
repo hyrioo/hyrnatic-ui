@@ -8,6 +8,7 @@ $crc: '.h-inline-collapse';
 	height: $v-control-height;
 	align-items: center;
 	outline: none;
+	cursor: pointer;
 
 	&:focus {
 		//text-shadow: $sd-hover--primary-text-shadow;
@@ -32,7 +33,6 @@ $crc: '.h-inline-collapse';
 	@include text-primary-content();
 	margin: 0 $g-8;
 	white-space: nowrap;
-	cursor: pointer;
 }
 
 #{$crc}__left-filler, #{$crc}__right-filler{

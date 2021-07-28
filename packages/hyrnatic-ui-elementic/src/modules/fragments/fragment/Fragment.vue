@@ -1,5 +1,7 @@
 <template>
-    <transition :name="transitionName" @enter="onEnter" @afterEnter="onAfterEnter" @before-leave="onBeforeLeave">
+    <transition :name="transitionName" @enter="onEnter" @afterEnter="onAfterEnter" @before-leave="onBeforeLeave"
+                :enter-active-class="`${transitionName}-enter-active -transitioning`"
+                :leave-active-class="`${transitionName}-leave-active -transitioning`">
         <div v-if="isActive" :class="[css_root]">
             <slot />
         </div>
@@ -8,7 +10,7 @@
 
 <script lang="ts">
 import {
-    computed, defineComponent, getCurrentInstance, inject, SetupContext,
+    computed, defineComponent, getCurrentInstance, inject, ref, SetupContext,
 } from 'vue';
 import getSize from 'get-size';
 import componentCss from '../../../utils/component-css';
@@ -26,6 +28,7 @@ export default defineComponent({
         const fragmentContainer = inject<any>('fragmentContainer');
         const isActive = computed(() => props.id === fragmentContainer.active.value);
         const transitionName = computed(() => fragmentContainer.transition);
+
         const onEnter = () => {
             fragmentContainer.setNewHeight(getSize(instance.vnode.el).height);
         };

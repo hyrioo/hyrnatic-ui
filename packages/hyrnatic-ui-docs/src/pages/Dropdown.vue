@@ -37,29 +37,94 @@
             </component-preview>
         </section>
 
-        <section v-if="Dropdown.props.length">
-            <h2>Props</h2>
-            <component-props-table :component="Dropdown" />
-        </section>
+        <h-tabs-navigator v-model="selectedTab">
+            <h-tab-item id="dropdown" label="Dropdown" />
+            <h-tab-item id="dropdown-item" label="Dropdown item" />
+            <h-tab-item id="dropdown-header" label="Dropdown item header" />
+            <h-tab-item id="dropdown-divider" label="Dropdown item divider" />
+        </h-tabs-navigator>
 
-        <section v-if="Dropdown.slots.length">
-            <h2>Slots</h2>
-            <component-slots-table :component="Dropdown" />
-        </section>
+        <h-fragment-container :active="selectedTab" style="margin-top: 12px">
+            <h-fragment id="dropdown">
+                <section v-if="Dropdown.props.length">
+                    <h2>Props</h2>
+                    <component-props-table :component="Dropdown" />
+                </section>
 
-        <section v-if="Dropdown.events.length">
-            <h2>Events</h2>
-            <component-events-table :component="Dropdown" />
-        </section>
+                <section v-if="Dropdown.slots.length">
+                    <h2>Slots</h2>
+                    <component-slots-table :component="Dropdown" />
+                </section>
+
+                <section v-if="Dropdown.events.length">
+                    <h2>Events</h2>
+                    <component-events-table :component="Dropdown" />
+                </section>
+            </h-fragment>
+            <h-fragment id="dropdown-item">
+                <section v-if="DropdownItem.props.length">
+                    <h2>Props</h2>
+                    <component-props-table :component="DropdownItem" />
+                </section>
+
+                <section v-if="DropdownItem.slots.length">
+                    <h2>Slots</h2>
+                    <component-slots-table :component="DropdownItem" />
+                </section>
+
+                <section v-if="DropdownItem.events.length">
+                    <h2>Events</h2>
+                    <component-events-table :component="DropdownItem" />
+                </section>
+            </h-fragment>
+            <h-fragment id="dropdown-header">
+                <section v-if="DropdownItemHeader.props.length">
+                    <h2>Props</h2>
+                    <component-props-table :component="DropdownItemHeader" />
+                </section>
+
+                <section v-if="DropdownItemHeader.slots.length">
+                    <h2>Slots</h2>
+                    <component-slots-table :component="DropdownItemHeader" />
+                </section>
+
+                <section v-if="DropdownItemHeader.events.length">
+                    <h2>Events</h2>
+                    <component-events-table :component="DropdownItemHeader" />
+                </section>
+            </h-fragment>
+            <h-fragment id="dropdown-divider">
+                <p v-if="!DropdownItemDivider.props.length && !DropdownItemDivider.slots.length && !DropdownItemDivider.events.length">This component does not have any props, slots or events.</p>
+                <section v-if="DropdownItemDivider.props.length">
+                    <h2>Props</h2>
+                    <component-props-table :component="DropdownItemDivider" />
+                </section>
+
+                <section v-if="DropdownItemDivider.slots.length">
+                    <h2>Slots</h2>
+                    <component-slots-table :component="DropdownItemDivider" />
+                </section>
+
+                <section v-if="DropdownItemDivider.events.length">
+                    <h2>Events</h2>
+                    <component-events-table :component="DropdownItemDivider" />
+                </section>
+            </h-fragment>
+        </h-fragment-container>
+
     </page>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
 import Dropdown from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown/dropdown-docs';
+import DropdownItem from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item/dropdown-item-docs';
+import DropdownItemHeader from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item-header/dropdown-item-header-docs';
+import DropdownItemDivider from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item-divider/dropdown-item-divider-docs';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
+        const selectedTab = ref('dropdown');
         const value = ref([]);
         const header = ref('Header');
         const align = ref('start');
@@ -83,6 +148,10 @@ export default defineComponent({
 
         return {
             Dropdown,
+            DropdownItem,
+            DropdownItemHeader,
+            DropdownItemDivider,
+            selectedTab,
             value,
             header,
             align,

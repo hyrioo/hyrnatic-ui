@@ -40,13 +40,13 @@ export default defineComponent({
 
     section {
         margin-bottom: 32px;
-    }
 
-    h2 {
-        color: #319C9C;
-        font-size: 18px;
-        margin: 0;
-        margin-bottom: 12px;
+        > h2 {
+            color: #319C9C;
+            font-size: 18px;
+            margin: 0;
+            margin-bottom: 12px;
+        }
     }
 }
 </style>

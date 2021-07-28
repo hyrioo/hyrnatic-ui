@@ -12,11 +12,11 @@
 
 
 .fragment-fade-container{
-  transition: height $t-medium-standard;
+  transition: height 10s $e-standard;
 }
 .fragment-fade-enter-active, .fragment-fade-leave-active {
   position: absolute;
-  transition: opacity $t-medium-standard;
+  transition: opacity 10s $e-standard;
 }
 .fragment-fade-enter, .fragment-fade-leave-to {
   opacity: $o-0;

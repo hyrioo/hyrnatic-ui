@@ -2,7 +2,7 @@
     <hr-collapse-item v-slot="props" v-bind="core.props" v-on="core.listeners">
         <div tabindex="0" :class="[css_ec('header')]" @click="props.onClick" @keydown.enter="props.onClick">
             <slot name="header">
-                <h2 :class="[css_ec('header-text')]">{{ header }}</h2>
+                <span :class="[css_ec('header-text')]">{{ header }}</span>
             </slot>
 
             <div :class="[css_ec('expand-icon')]">
