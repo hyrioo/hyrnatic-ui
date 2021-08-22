@@ -10,38 +10,75 @@
             <h2>Preview</h2>
             <component-preview :code="code" style="color: #319C9C">
                 <template #preview>
-                    <h-icon icon="key" :spin="spin" />
-                    <br /><br />
-                    <h-icon icon="loading" :spin="spin" />
-                    <br /><br />
+                    <h-icon icon="key" :spin="spin" :size="size" style="margin-right: 12px" />
+                    <h-icon icon="loading" :spin="spin" :size="size" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
                         <h-switch v-model="spin" right-text="Spin" style="margin-right: 12px" />
                     </preview-option-form-control>
                     <preview-option-form-control>
-                        <h-switch v-model="hideOnClick" right-text="Hide on click" style="margin-right: 12px" />
-                    </preview-option-form-control>
-                    <preview-option-form-control>
-                        <h-select v-model="align" placeholder="Select alignment" style="width: 100%;">
-                            <h-select-item value="start" label="Start" />
-                            <h-select-item value="end" label="End" />
+                        <h-select v-model="size" placeholder="Select size" style="width: 100%;">
+                            <h-select-item value="16px" label="16px" />
+                            <h-select-item value="24px" label="24px" />
+                            <h-select-item value="32px" label="32px" />
+                            <h-select-item value="48px" label="48px" />
                         </h-select>
                     </preview-option-form-control>
                 </template>
             </component-preview>
+        </section>
+
+        <section>
+            <h2>Usage</h2>
+            <p>To use a new icon you must first register it.</p>
+            <code-example :code='code2' language="js"/>
+        </section>
+
+        <section v-if="Icon.props.length">
+            <h2>Props</h2>
+            <component-props-table :component="Icon" />
+        </section>
+
+        <section v-if="Icon.slots.length">
+            <h2>Slots</h2>
+            <component-slots-table :component="Icon" />
+        </section>
+
+        <section v-if="Icon.events.length">
+            <h2>Events</h2>
+            <component-events-table :component="Icon" />
         </section>
     </page>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from 'vue';
+import Icon from '../../../hyrnatic-ui-elementic/src/modules/icons/icon/icon-docs';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
         const spin = ref(false);
+        const size = ref('32px');
+
+        const code = `<h-icon icon="loading" :spin="spin" :size="size" />`;
+        const code2 =
+            `// app.js
+import { IconRegistry } from '@hyrioo/hyrnatic-ui-elementic';
+const icon = {
+    width: 24, // default width
+    height: 40, // default height
+    viewBox: '0 0 24 40',
+    data: '<circle cx="12" cy="12" r="10" />',
+};
+IconRegistry.register('custom-icon', icon);`;
+
         return {
+            Icon,
             spin,
+            size,
+            code,
+            code2,
         };
     },
 });

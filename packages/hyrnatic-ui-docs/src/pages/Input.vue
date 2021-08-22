@@ -1,30 +1,83 @@
 <template>
     <page title="Input">
-        <h-input v-model="value" />
-        <br /><br /><br /><br />
-        <h-input v-model.capitalize="value2" prefix-icon="key" prefix="Test" suffix="Test" />
-        <br /><br />
-        <h-input v-model="value2" :readonly="value3" />
-        <br /><br />
-        <h-autocomplete v-model="value" :items="items" @item-selected="alert">
+        <section>
+            <h2>Intro</h2>
+            <p>
+                TBW
+            </p>
+        </section>
+        <section>
+            <h2>Preview</h2>
+            <component-preview :code="capitalize?capitalizeTemplateExample:templateExample">
+                <template #preview>
+                    <div style="display: flex; flex-direction: column; align-items: center">
+                        <template v-if="capitalize">
+                            <h-input v-model.capitalize="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" style="margin-bottom: 12px"  />
+                            <h-input v-model.capitalize="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix-icon="key" suffix-icon="key" style="margin-bottom: 12px"  />
+                            <h-input v-model.capitalize="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix="Prefix" suffix="Suffix" style="margin-bottom: 12px"  />
+                        </template>
+                        <template v-else>
+                            <h-input v-model="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" style="margin-bottom: 12px"  />
+                            <h-input v-model="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix-icon="key" suffix-icon="key" style="margin-bottom: 12px"  />
+                            <h-input v-model="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix="Prefix" suffix="Suffix" style="margin-bottom: 12px"  />
+                        </template>
+                    </div>
+                </template>
+                <template #options>
+                    <preview-option-form-control>
+                        <h-switch v-model="disabled" right-text="Disabled" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-switch v-model="readonly" right-text="Readonly" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-switch v-model="capitalize" right-text="Capitalize" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-input v-model="placeholder" />
+                    </preview-option-form-control>
+                </template>
+            </component-preview>
+        </section>
+
+        <section v-if="Input.props.length">
+            <h2>Props</h2>
+            <component-props-table :component="Input" />
+        </section>
+
+        <section v-if="Input.slots.length">
+            <h2>Slots</h2>
+            <component-slots-table :component="Input" />
+        </section>
+
+        <section v-if="Input.events.length">
+            <h2>Events</h2>
+            <component-events-table :component="Input" />
+        </section>
+        <!--<h-autocomplete v-model="value" :items="items" @item-selected="alert">-->
 <!--            <template v-slot="props">-->
 <!--                <span>{{ props.focusedItem }}</span>-->
 <!--                <li v-for="item in props.items" :class="{'-focused': item === props.focusedItem}">{{ item }}</li>-->
 <!--            </template>-->
-        </h-autocomplete>
+<!--        </h-autocomplete>-->
+        <!--<h-file-input v-model="value4" multiple />-->
     </page>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref, SetupContext } from 'vue';
 import Page from '../components/Page.vue';
+import { capitalizeTemplateExample, templateExample } from '../snippets/input';
+import Input from '../../../hyrnatic-ui-elementic/src/modules/inputs/input/input-docs';
 
 export default defineComponent({
     components: { Page },
     setup(props, ctx: SetupContext) {
         const value = ref('');
-        const value2 = ref('');
-        const value3 = ref(true);
+        const placeholder = ref('Placeholder');
+        const disabled = ref(false);
+        const readonly = ref(false);
+        const capitalize = ref(false);
         const items = computed(() => {
             return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six', 'twenty-seven', 'twenty-eight', 'twenty-nine'].filter((s) => s.toLowerCase().indexOf(value.value.toLowerCase()) !== -1);
         });
@@ -34,9 +87,14 @@ export default defineComponent({
         }
 
         return {
+            Input,
+            templateExample,
+            capitalizeTemplateExample,
             value,
-            value2,
-            value3,
+            disabled,
+            placeholder,
+            readonly,
+            capitalize,
             items,
             alert,
         };

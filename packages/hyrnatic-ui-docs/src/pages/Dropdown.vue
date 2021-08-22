@@ -37,14 +37,14 @@
             </component-preview>
         </section>
 
-        <h-tabs-navigator v-model="selectedTab">
+        <h-tabs-navigator v-model="selectedTab" style="margin-bottom: 12px">
             <h-tab-item id="dropdown" label="Dropdown" />
             <h-tab-item id="dropdown-item" label="Dropdown item" />
             <h-tab-item id="dropdown-header" label="Dropdown item header" />
             <h-tab-item id="dropdown-divider" label="Dropdown item divider" />
         </h-tabs-navigator>
 
-        <h-fragment-container :active="selectedTab" style="margin-top: 12px">
+        <h-fragment-container :active="selectedTab">
             <h-fragment id="dropdown">
                 <section v-if="Dropdown.props.length">
                     <h2>Props</h2>
@@ -94,7 +94,7 @@
                 </section>
             </h-fragment>
             <h-fragment id="dropdown-divider">
-                <p v-if="!DropdownItemDivider.props.length && !DropdownItemDivider.slots.length && !DropdownItemDivider.events.length">This component does not have any props, slots or events.</p>
+                <span v-if="!DropdownItemDivider.props.length && !DropdownItemDivider.slots.length && !DropdownItemDivider.events.length">This component does not have any props, slots or events.</span>
                 <section v-if="DropdownItemDivider.props.length">
                     <h2>Props</h2>
                     <component-props-table :component="DropdownItemDivider" />
