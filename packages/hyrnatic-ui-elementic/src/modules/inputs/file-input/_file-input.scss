@@ -1,0 +1,75 @@
+$crc: '.h-file-input';
+#{$crc}{
+	width: 100%;
+	min-width: $v-control-height;
+	height: $v-control-height;
+	line-height: $v-control-height;
+	border-radius: $v-control-border-radius;
+	border-width: $v-control-border-width;
+	border-style: solid;
+	border-color: $c-primary-border;
+	background: $c-primary-background;
+	display: inline-flex;
+	transition: $t-fast-standard;
+	font-size: $fs-default;
+	cursor: pointer;
+	vertical-align: top;
+	box-sizing: border-box;
+
+	&:hover{
+		border-color: $c-hover--primary-border;
+		box-shadow: $sd-hover--primary-box-shadow;
+	}
+
+	&.-focus{
+		border-color: $c-active--primary-border;
+		box-shadow: $sd-active--primary-box-shadow;
+	}
+
+	&.-readonly{
+		border-style: dashed;
+
+		&:hover, &.-focus{
+			border-color: $c-primary-border;
+			box-shadow: none;
+		}
+	}
+
+	&.-disabled{
+		background: $c-disabled--primary-background;
+		border-color: $c-primary-border;
+		color: $c-disabled--negative-text;
+		opacity: $v-control-disabled-opacity;
+		pointer-events: none;
+	}
+}
+
+#{$crc}__input{
+	display: none;
+}
+
+#{$crc}__text{
+	color: $c-dark-text;
+	padding: 0 $g-8;
+	flex-grow: 1;
+	width: 100%;
+}
+
+
+#{$crc}__suffix{
+	padding: 0 $g-8;
+	background: rgba($c-primary-border, .32);
+	color: $c-dark-text;
+	fill: $c-dark-text;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-width: 0;
+	border-style: solid;
+	border-color: $c-primary-border;
+	transition: border-color $t-fast-standard;
+}
+#{$crc}__suffix{
+	border-left-width: $v-control-border-width;
+}
