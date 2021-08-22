@@ -1,11 +1,12 @@
 $crc: '.h-dialog';
 
 #{$crc}{
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-height: 100%;
+	min-height: calc(100% - (#{$g-32} * 2));
+	padding: $g-32 0;
 	//z-index: 1000;
 	display: flex;
 	align-items: center;
@@ -34,7 +35,7 @@ $crc: '.h-dialog';
 }
 
 #{$crc}__backdrop {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -45,7 +46,6 @@ $crc: '.h-dialog';
 
 #{$crc}__box-container{
 	position: relative;
-	width: 400px;
 	transition: transform $t-medium-standard;
 }
 #{$crc}__box{

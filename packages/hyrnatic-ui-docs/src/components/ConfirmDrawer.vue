@@ -24,7 +24,6 @@ export default defineComponent({
             default: 'right',
         },
     },
-    emits: ['resolve', 'reject'],
     setup(props, ctx: SetupContext) {
         const { resolve, reject } = DialogManager.setupDialog();
 

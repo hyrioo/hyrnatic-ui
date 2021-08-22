@@ -33,11 +33,15 @@ export default defineComponent({
     props: {
         ...coreDialogVisibleProp,
     },
-    emits: ['reject'],
     setup(props, ctx: SetupContext) {
         const id = inject<string>('dialog-id');
+        if (!id) {
+            console.warn('You must call DialogManager.setupDialog() in the dialog setup');
+        }
+
+        const reject = inject<(payload: any) => void>('dialog-reject');
         const close = () => {
-            ctx.emit('reject', null);
+            reject(null);
         };
 
         const wrapper = getWrapper();

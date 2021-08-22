@@ -22,7 +22,6 @@ export default defineComponent({
             default: 'Some action',
         },
     },
-    emits: ['resolve', 'reject'],
     setup(props, ctx: SetupContext) {
         const { resolve, reject } = DialogManager.setupDialog();
         const confirm = ref(false);

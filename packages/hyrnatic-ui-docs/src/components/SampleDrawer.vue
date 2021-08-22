@@ -32,7 +32,7 @@ export default defineComponent({
             default: 'right',
         },
     },
-    emits: ['incrementCounter', 'resolve'],
+    emits: ['incrementCounter'],
     setup(props, ctx: SetupContext) {
         const value = ref();
         const { resolve } = DialogManager.setupDialog();

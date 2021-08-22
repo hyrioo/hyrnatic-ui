@@ -36,7 +36,7 @@
 <script lang="ts">
 import {
     computed,
-    defineComponent, PropType, reactive, ref, SetupContext, watch,
+    defineComponent, inject, PropType, reactive, ref, SetupContext, watch,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import { coreDialogVisibleProp, coreDialogSetup } from '@hyrioo/hyrnatic-ui-core';
@@ -58,14 +58,14 @@ export default defineComponent({
             default: 'right',
         },
     },
-    emits: ['reject', 'resolve', 'transitionEnd'],
     setup(props, ctx: SetupContext) {
+        const transitionEnd = inject<() => void>('dialog-transition-end');
         const activeTransitions = reactive({});
         const slideTransition = computed(() => (props.placement === 'right' ? 'large2x-slide-to-left-medium' : 'large2x-slide-to-right-medium'));
 
         watch(activeTransitions, () => {
             if (Object.keys(activeTransitions).length === 0) {
-                ctx.emit('transitionEnd');
+                transitionEnd();
             }
         });
 
@@ -95,7 +95,7 @@ export default defineComponent({
             }
         };
 
-        const core = coreDialogSetup(['visible'], ['reject']);
+        const core = coreDialogSetup(['visible']);
 
         return {
             core,

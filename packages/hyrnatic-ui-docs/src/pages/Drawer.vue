@@ -60,7 +60,7 @@ export default defineComponent({
         const placement = ref('right');
 
         const openDrawer = async () => {
-            DialogManager.createPromise(SampleDrawer, { text: 'Testing', placement, counter }, {
+            DialogManager.createPromise(SampleDrawer, { placement, counter }, {
                 incrementCounter: () => {
                     counter.value++;
                 },

@@ -6,7 +6,7 @@ import {
     DefineComponent,
     computed,
     Teleport,
-    ComputedRef, reactive,
+    ComputedRef, reactive, Ref, provide,
 } from 'vue';
 import Str from '../../../utils/string';
 
@@ -15,14 +15,18 @@ export interface DialogObject {
     listeners: object;
     props: object;
     stack: string;
+    promise: { resolve: Function; reject: Function };
 }
 export interface InternalDialogObject extends DialogObject {
     id: string;
     visible: boolean;
     compiledListeners: ComputedRef;
+    resolve: (payload: any) => void;
+    reject: (payload: any) => void;
+    transitionEnd: Function;
 }
 export type Wrapper = {
-    addDialog(dialog: DialogObject, promise: { resolve: Function; reject: Function }): InternalDialogObject;
+    addDialog(dialog: DialogObject): InternalDialogObject;
     getDialog(id: string): InternalDialogObject;
     destroyDialog(id: string): void;
     getStackCount(stack: string): ComputedRef<number>;
@@ -44,7 +48,9 @@ export default defineComponent({
             default: 'default',
         },
     },
-    setup(props, ctx: SetupContext) {
+    setup: function (props, ctx: SetupContext) {
+        provide('wrapper-name', props.name);
+
         /**
          * Collection of all dialogs in the wrapper
          */
@@ -136,56 +142,39 @@ export default defineComponent({
         };
 
         /**
-         * Trigger listener if defined on dialog
-         * @param dialog
-         * @param event
-         * @param payload
-         */
-        const triggerListener = (dialog, event, payload?) => {
-            if (dialog.listners && dialog.listners[event]) {
-                dialog.listners[event](payload);
-            }
-        };
-
-        /**
          * Add a dialog to the wrapper
          * @param dialog
-         * @param promise
          */
-        const addDialog = (dialog, promise) => {
-            const baseListeners = {
-                resolve: (result) => {
-                    promise.resolve(result);
-                    hideDialog(dialog.id);
-                    triggerListener(dialog, 'resolve', result);
-                },
-                reject: (result) => {
-                    promise.reject(result);
-                    hideDialog(dialog.id);
-                    triggerListener(dialog, 'reject', result);
-                },
-                transitionEnd: () => {
-                    removeDialog(dialog.id);
-                    triggerListener(dialog, 'transitionEnd');
-                },
+        const addDialog = (dialog: DialogObject) => {
+            const internalDialog: InternalDialogObject = dialog as InternalDialogObject;
+            internalDialog.resolve = (payload: any = null) => {
+                internalDialog.promise.resolve(payload);
+                hideDialog(internalDialog.id);
             };
-            dialog.visible = ref(true);
-            dialog.id = Str.random();
-            dialog.compiledListeners = computed(() => convertListeners({ ...dialog.listeners, ...baseListeners }));
-            if (!stacks[dialog.stack]) {
-                stacks[dialog.stack] = [];
+            internalDialog.reject = (payload: any = null) => {
+                internalDialog.promise.reject(payload);
+                hideDialog(internalDialog.id);
+            };
+            internalDialog.transitionEnd = () => {
+                removeDialog(internalDialog.id);
+            };
+            internalDialog.visible = true;
+            internalDialog.id = Str.random();
+            internalDialog.compiledListeners = computed(() => internalDialog.listeners ? convertListeners(internalDialog.listeners) : {});
+            if (!stacks[internalDialog.stack]) {
+                stacks[internalDialog.stack] = [];
             }
-            stacks[dialog.stack].push(dialog);
-            dialogs[dialog.id] = dialog;
+            stacks[internalDialog.stack].push(internalDialog);
+            dialogs[internalDialog.id] = internalDialog;
 
-            return dialog;
+            return internalDialog;
         };
 
         /**
          * Get the InternalDialogObject for a dialog id
          * @param id
          */
-        const getDialog = (id) => dialogs[id];
+        const getDialog = (id): InternalDialogObject => dialogs[id];
 
         /**
          * Get count for all dialogs for a specific stack, even the ones that are transitioning away

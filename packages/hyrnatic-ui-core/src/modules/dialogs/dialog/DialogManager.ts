@@ -1,6 +1,6 @@
 import { InternalDialogObject, Wrapper, wrappers } from './DialogWrapper';
 import {
-    getCurrentInstance, provide, reactive, shallowRef,
+    getCurrentInstance, inject, provide, reactive, shallowRef,
 } from 'vue';
 
 export function create<P extends {} = {}, L extends {} = {}>(component, props: P = null, listeners: L = null, options?: { wrapper?: string; stack?: string }): { destroy: () => void; promise: Promise<any> } {
@@ -10,8 +10,12 @@ export function create<P extends {} = {}, L extends {} = {}>(component, props: P
     let dialog: InternalDialogObject = null;
     const promise = new Promise((resolve, reject) => {
         dialog = wrappers[wrapper].addDialog({
-            component: shallowRef(component), listeners, props: props !== null ? reactive(props) : null, stack,
-        }, { resolve, reject });
+            component: shallowRef(component),
+            listeners: listeners !== null ? reactive(listeners) : null,
+            props: props !== null ? reactive(props) : null,
+            stack,
+            promise: { resolve, reject }
+        });
     });
 
     return {
@@ -25,17 +29,31 @@ export function createPromise<P extends {} = {}, L extends {} = {}>(component, p
 export function getWrapper(key: string = 'default'): Wrapper {
     return wrappers[key];
 }
+export function getDialog(key: string): InternalDialogObject {
+    const wrapper = inject<string>('wrapper-name');
+    return wrappers[wrapper].getDialog(key);
+
+    /*const keys = Object.keys(wrappers);
+    let dialog = null;
+    keys.forEach((wrapperKey) => {
+        const d = wrappers[wrapperKey].getDialog(key);
+        if(d) {
+            dialog = d;
+        }
+    });
+    return dialog;*/
+}
 
 export function setupDialog() {
     const ctx = getCurrentInstance();
+    const internalDialogObject = getDialog(ctx.vnode.key as string);
     provide('dialog-id', ctx.vnode.key);
+    provide('dialog-resolve', internalDialogObject.resolve);
+    provide('dialog-reject', internalDialogObject.reject);
+    provide('dialog-transition-end', internalDialogObject.transitionEnd);
 
     return {
-        reject(payload: any = null) {
-            ctx.emit('reject', payload);
-        },
-        resolve(payload: any = null) {
-            ctx.emit('resolve', payload);
-        },
+        resolve: internalDialogObject.resolve,
+        reject: internalDialogObject.reject,
     };
 }

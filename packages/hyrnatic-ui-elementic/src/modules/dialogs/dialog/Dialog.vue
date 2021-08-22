@@ -9,7 +9,7 @@
             <transition name="small-slide-up-medium" appear
                         @before-leave="transitionStarted('box')" @after-leave="transitionEnded('box')"
             >
-                <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{transform: getScale(props.stackIndex, props.visibleStackCount)}">
+                <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{width: width, transform: getScale(props.stackIndex, props.visibleStackCount)}">
                     <div :class="[css_ec('box')]">
                         <div v-if="showCloseButton" :class="[css_ec('close-icon')]">
                             <h-button :icon="Icons.close" styling="none" size="small" @click="props.close" />
@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, PropType, reactive, ref, SetupContext, watch,
+    defineComponent, inject, PropType, reactive, ref, SetupContext, watch,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import { coreDialogVisibleProp, coreDialogSetup } from '@hyrioo/hyrnatic-ui-core';
@@ -54,18 +54,22 @@ export default defineComponent({
             type: String as PropType<'primary' | 'danger'>,
             default: 'primary',
         },
+        width: {
+            type: String,
+            default: '400px',
+        },
         showCloseButton: {
             type: Boolean,
             default: true,
         },
     },
-    emits: ['reject', 'resolve', 'transitionEnd'],
     setup(props, ctx: SetupContext) {
+        const transitionEnd = inject<() => void>('dialog-transition-end');
         const activeTransitions = reactive({});
 
         watch(activeTransitions, () => {
             if (Object.keys(activeTransitions).length === 0) {
-                ctx.emit('transitionEnd');
+                transitionEnd();
             }
         });
 
@@ -95,7 +99,7 @@ export default defineComponent({
             }
         };
 
-        const core = coreDialogSetup(['visible'], ['reject']);
+        const core = coreDialogSetup(['visible']);
 
         return {
             Icons,

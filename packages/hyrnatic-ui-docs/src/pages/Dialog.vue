@@ -8,7 +8,7 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code">
+            <component-preview :code="templateExample">
                 <template #preview>
                     <h-button label="Open dialog" @click="onClick" />
                 </template>
@@ -29,9 +29,11 @@
         <section>
             <h2>Usage</h2>
             <p>First add the wrapper to your layout component.</p>
-            <code-example :code='code3' language="html-vue"/>
-            <p>To open a dialog you must use the DialogManager, and import the component to wish to open.</p>
-            <code-example :code="code2" language="js" />
+            <code-example :code='wrapperExample' language="html-vue"/>
+            <p>To open a dialog you must use the <span class="inline-highlight">DialogManager</span>, and import the component to wish to open.</p>
+            <code-example :code="usageExample" language="js" />
+            <p>Your custom dialog must call <span class="inline-highlight">DialogManager.setupDialog()</span> in the setup.</p>
+            <code-example :code="dialogExample" language="js" />
         </section>
 
         <section v-if="Dialog.props.length">
@@ -56,6 +58,7 @@ import { defineComponent, ref, SetupContext } from 'vue';
 import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 import Dialog from '../../../hyrnatic-ui-elementic/src/modules/dialogs/dialog/dialog-docs';
 import SampleDialog from '../components/SampleDialog.vue';
+import { dialogExample, templateExample, usageExample, wrapperExample } from '../snippets/dialog';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -70,57 +73,22 @@ export default defineComponent({
                 },
             }, { stack: 'dialog' });
 
-            dialog.promise.then((result) => {
+            dialog.promise.then((result: any) => {
                 console.log('resolve', result);
-            }).catch((reason) => {
+            }).catch((reason: any) => {
                 console.log('reject', reason);
             });
         };
-
-        const code =
-`<h-dialog title="Some dialog title" :color="color" :show-close-button="showCloseButton">
-    Dynamic counter: {{ counter }} <br /> <br />
-    Nested status: {{ nested }} <br /> <br />
-
-    <h-button label="Add to counter" @click="addCounter" style="margin-right: 12px" />
-    <h-button label="Open nested dialog" @click="openNestedDialog" />
-
-    <template #footer>
-        <h-button label="Close" @click="close" />
-    </template>
-</h-dialog>`;
-        const code2 =
-`// Component.vue
-import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import CustomDialog from '../components/CustomDialog.vue';
-const props = {
-    prop: 'anything',
-};
-const listeners = {
-    listener: () => {
-        // React to something
-    }
-};
-const options = {
-    stack: 'dialog'
-};
-DialogManager.createPromise(CustomDialog, props, listeners, options).then(() => {
-    // Resolved successfully
-}).catch(() => {
-    // Rejected
-});`;
-        const code3 =
-`<!-- App.vue -->
-<hr-dialog-wrapper></hr-dialog-wrapper>`;
 
         return {
             Dialog,
             onClick,
             showCloseButton,
             color,
-            code,
-            code2,
-            code3,
+            templateExample,
+            usageExample,
+            dialogExample,
+            wrapperExample,
         };
     },
 });
