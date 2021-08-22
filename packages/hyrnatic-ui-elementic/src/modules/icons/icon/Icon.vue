@@ -1,5 +1,5 @@
 <template>
-    <svg :class="[css_root, {'-spin': spin}]" :viewBox="viewBox" :style="style" v-html="content" @click="onClick" />
+    <svg :class="[css_root, {'-spin': spin}]" :viewBox="viewBox" :style="style" v-html="content" />
 </template>
 
 <script lang="ts">
@@ -39,10 +39,6 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const onClick = (e) => {
-            ctx.emit('click', e);
-        };
-
         const noneWhenNull = (value) => (value === null ? 'none' : value);
         const removeColorsFromTag = (tag) => {
             const regAttrs = /(\w*)="(.*?)"/gi;
@@ -104,7 +100,6 @@ export default defineComponent({
         });
 
         return {
-            onClick,
             content,
             viewBox,
             style,

@@ -1,0 +1,10 @@
+@import "../hyrnatic-ui-elementic/src/scss/base";
+@import "../hyrnatic-ui-elementic/src/scss/abstracts/variables";
+@import "../hyrnatic-ui-elementic/src/scss/abstracts/mixins";
+
+.inline-highlight {
+    border: 1px solid rgba($c-primary, $o-32);
+    background: rgba($c-primary, $o-8);
+    padding: $g-4 $g-8;
+    border-radius: $v-box-border-radius;
+}

@@ -11,7 +11,7 @@
         </div>
         <div v-if="$slots.source || code" class="source">
             <slot name="source">
-                <ssh-pre language="html-vue" copy-button>
+                <ssh-pre language="html-vue" copy-button reactive>
                     {{ code }}
                     <template #copy-button>
                         <div class="copy-button">

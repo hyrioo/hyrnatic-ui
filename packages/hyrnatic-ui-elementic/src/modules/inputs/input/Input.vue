@@ -50,10 +50,6 @@ export default defineComponent({
         type: {
             type: String,
         },
-        size: {
-            type: String,
-            default: null,
-        },
         autocomplete: {
             type: String,
             default: null

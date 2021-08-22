@@ -10,7 +10,7 @@ import {
 
 export const coreInputModelValueProp = {
     modelValue: {
-        type: String,
+        type: null,
         required: true,
     },
 };

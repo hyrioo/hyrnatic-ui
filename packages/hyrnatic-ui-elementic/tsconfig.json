@@ -5,7 +5,7 @@
     "jsx": "preserve",
     "strict": false,
     "moduleResolution": "node",
-    "sourceMap": false,
+    "sourceMap": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
