@@ -1,5 +1,5 @@
 <template>
-    <hr-fragment-container v-bind="core.props" :class="[css_root, `${transition}-container`]" :style="{height: actualHeight}">
+    <hr-fragment-container v-bind="core.props" :class="[css_root, transition ? `${transition}-container` : null]" :style="{height: actualHeight}">
         <slot />
     </hr-fragment-container>
 </template>
@@ -17,7 +17,7 @@ export default defineComponent({
         ...coreFragmentContainerActiveProp,
         transition: {
             type: String,
-            default: 'fragment-slide-down',
+            default: null,
         },
     },
     setup(props, ctx: SetupContext) {
@@ -67,6 +67,7 @@ export default defineComponent({
         return {
             core,
             actualHeight,
+            heights,
             ...componentCss(),
         };
     },

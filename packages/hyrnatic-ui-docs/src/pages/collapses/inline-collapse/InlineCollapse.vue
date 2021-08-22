@@ -2,9 +2,9 @@
     <page title="Inline collapse">
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code" :center-preview-vertically="false">
+            <component-preview :code="previewExample(previewExampleOptions)" :center-preview-vertically="false">
                 <template #preview>
-                    <h-inline-collapse v-model="expanded" :animate="animate" :text-align="textAlign" style="flex-grow: 1">
+                    <h-inline-collapse v-model="expanded" v-bind="previewExampleOptions" style="flex-grow: 1">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in tristique est. Duis ullamcorper leo non
                         viverra suscipit. Proin scelerisque tempor sapien vitae congue. Sed quis erat leo. Aliquam consectetur magna
                         et arcu bibendum iaculis. Proin arcu enim, eleifend vel dui sit amet, porttitor lacinia nisi. Suspendisse
@@ -57,14 +57,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext, watch } from 'vue';
-import Page from '../components/Page.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
-import InlineCollapse from '../../../hyrnatic-ui-elementic/src/modules/collapses/inline-collapse/inline-collapse-docs';
+import { computed, defineComponent, ref, SetupContext, watch } from 'vue';
+import Page from '../../../components/Page.vue';
+import ComponentPropsTable from '../../../components/ComponentPropsTable.vue';
+import ComponentPreview from '../../../components/ComponentPreview.vue';
+import ComponentSlotsTable from '../../../components/ComponentSlotsTable.vue';
+import ComponentEventsTable from '../../../components/ComponentEventsTable.vue';
+import PreviewOptionFormControl from '../../../components/PreviewOptionFormControl.vue';
+import InlineCollapse from '../../../../../hyrnatic-ui-elementic/src/modules/collapses/inline-collapse/inline-collapse-docs';
+import { previewExample } from './snippets';
 
 export default defineComponent({
     components: { PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
@@ -73,17 +74,20 @@ export default defineComponent({
         const animate = ref(true);
         const textAlign = ref('left');
 
-        const code =
-`<h-inline-collapse v-model="expanded" :animate="animate">
-    ...content
-</h-inline-collapse>`;
+        const previewExampleOptions = computed(() => {
+            return {
+                animate: animate.value,
+                textAlign: textAlign.value,
+            };
+        });
 
         return {
             InlineCollapse,
+            previewExample,
+            previewExampleOptions,
             expanded,
             animate,
             textAlign,
-            code,
         };
     },
 });

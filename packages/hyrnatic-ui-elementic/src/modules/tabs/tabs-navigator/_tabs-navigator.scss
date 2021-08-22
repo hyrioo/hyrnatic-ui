@@ -45,7 +45,7 @@ $crc: '.h-tabs-navigator';
 	background: $c-primary-text;
 	border-radius: 1px;
 	transition: $t-medium-deceleration;
-	z-index: 2;
+	//z-index: 2;
 
 	&.-hidden{
 		opacity: $o-0;

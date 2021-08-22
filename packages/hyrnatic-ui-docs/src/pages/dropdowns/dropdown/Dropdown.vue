@@ -8,9 +8,9 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code">
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
-                    <h-dropdown label="Action" :split-button="split" :hide-on-click="hideOnClick" :align="align" style="width: 150px;" @click="onClick('Action')">
+                    <h-dropdown label="Action" v-bind="previewExampleOptions" style="width: 150px;" @click="onClick('Action')">
                         <h-dropdown-item-header label="Header" />
                         <h-dropdown-item label="Looooooooooooooooong option 1" @click="onClick('1')" />
                         <h-dropdown-item label="Option 2" @click="onClick('2')" />
@@ -116,11 +116,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
-import Dropdown from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown/dropdown-docs';
-import DropdownItem from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item/dropdown-item-docs';
-import DropdownItemHeader from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item-header/dropdown-item-header-docs';
-import DropdownItemDivider from '../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item-divider/dropdown-item-divider-docs';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
+import Dropdown from '../../../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown/dropdown-docs';
+import DropdownItem from '../../../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item/dropdown-item-docs';
+import DropdownItemHeader from '../../../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item-header/dropdown-item-header-docs';
+import DropdownItemDivider from '../../../../../hyrnatic-ui-elementic/src/modules/dropdowns/dropdown-item-divider/dropdown-item-divider-docs';
+import { previewExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -136,21 +137,21 @@ export default defineComponent({
             alert(`Clicked on: ${text}`);
         };
 
-        const code =
-`<h-dropdown label="Action" split-button @click="onClick('Action')">
-    <h-dropdown-item-header label="Header" />
-    <h-dropdown-item label="Option 1" @click="onClick('1')" />
-    <h-dropdown-item label="Option 2" @click="onClick('2')" />
-    <h-dropdown-item-divider />
-    <h-dropdown-item label="Option 3" @click="onClick('3')" />
-    <h-dropdown-item label="Option 4" @click="onClick('4')" />
-</h-dropdown>`;
+        const previewExampleOptions = computed(() => {
+            return {
+                splitButton: split.value,
+                hideOnClick: hideOnClick.value,
+                align: align.value,
+            };
+        });
 
         return {
             Dropdown,
             DropdownItem,
             DropdownItemHeader,
             DropdownItemDivider,
+            previewExample,
+            previewExampleOptions,
             selectedTab,
             value,
             header,
@@ -158,7 +159,6 @@ export default defineComponent({
             split,
             hideOnClick,
             onClick,
-            code,
         };
     },
 });

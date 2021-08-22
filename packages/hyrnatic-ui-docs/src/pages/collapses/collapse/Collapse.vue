@@ -2,9 +2,9 @@
     <page title="Collapse">
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code" :center-preview-vertically="false">
+            <component-preview :code="previewExample(previewExampleOptions)" :center-preview-vertically="false">
                 <template #preview>
-                    <h-collapse v-model="expanded" :accordion="accordion" style="flex-grow: 1">
+                    <h-collapse v-model="expanded" v-bind="previewExampleOptions" style="flex-grow: 1">
                         <h-collapse-item id="1" header="Header 1">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in tristique est. Duis ullamcorper leo
                             non viverra suscipit. Proin scelerisque tempor sapien vitae congue. Sed quis erat leo. Aliquam
@@ -87,9 +87,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext, watch } from 'vue';
-import Collapse from '../../../hyrnatic-ui-elementic/src/modules/collapses/collapse/collapse-docs';
-import CollapseItem from '../../../hyrnatic-ui-elementic/src/modules/collapses/collapse-item/collapse-item-docs';
+import { computed, defineComponent, ref, SetupContext, watch } from 'vue';
+import Collapse from '../../../../../hyrnatic-ui-elementic/src/modules/collapses/collapse/collapse-docs';
+import CollapseItem from '../../../../../hyrnatic-ui-elementic/src/modules/collapses/collapse-item/collapse-item-docs';
+import { previewExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -102,24 +103,21 @@ export default defineComponent({
             } else {
                 expanded.value = expanded.value ? [expanded.value] : [];
             }
-        })
+        });
 
-        const code =
-`<h-collapse v-model="expanded" :accordion="accordion">
-    <h-collapse-item id="1" header="Header 1">
-        ...content 1
-    </h-collapse-item>
-    <h-collapse-item id="2" header="Header 2">
-        ...content 2
-    </h-collapse-item>
-</h-collapse>`
+        const previewExampleOptions = computed(() => {
+            return {
+                accordion: accordion.value,
+            };
+        });
 
         return {
             Collapse,
             CollapseItem,
+            previewExample,
+            previewExampleOptions,
             expanded,
             accordion,
-            code,
         };
     },
 });

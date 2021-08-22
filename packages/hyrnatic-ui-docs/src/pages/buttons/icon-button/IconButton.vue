@@ -9,22 +9,9 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview>
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
-                    <div style="display: flex; flex-direction: column; align-items: center">
-                        <h-icon-button icon="key" :size="size" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="subtle" :color="color"
-                                  style="margin-bottom: 8px" />
-                        <h-icon-button icon="key" :size="size" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="simple" :color="color"
-                                  style="margin-bottom: 8px" />
-                        <h-icon-button icon="key" :size="size" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="block" :color="color"
-                                  style="margin-bottom: 8px" />
-                        <h-icon-button icon="key" :size="size" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="none" :color="color"
-                                  style="margin-bottom: 8px" />
-                    </div>
+                    <vue-runtime-template :template="previewExample(previewExampleOptions)" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
@@ -36,6 +23,14 @@
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-switch v-model="disabled" right-text="Disabled" style="margin-right: 12px" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-select v-model="styling" placeholder="Select styling" style="margin-right: 12px; width: 100%;">
+                            <h-select-item value="subtle" label="Subtle" />
+                            <h-select-item value="simple" label="Simple" />
+                            <h-select-item value="block" label="Block" />
+                            <h-select-item value="none" label="None" />
+                        </h-select>
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-select v-model="size" placeholder="Select size" style="margin-right: 12px; width: 100%;">
@@ -57,11 +52,6 @@
             </component-preview>
         </section>
 
-        <section>
-            <h2>Example</h2>
-            <code-example :code="code" language="html-vue" />
-        </section>
-
         <section v-if="IconButton.props.length">
             <h2>Props</h2>
             <component-props-table :component="IconButton" />
@@ -80,15 +70,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
-import Page from '../components/Page.vue';
-import CodeExample from '../components/CodeExample.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
-import IconButton from '../../../hyrnatic-ui-elementic/src/modules/buttons/icon-button/icon-button-docs';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
+import Page from '../../../components/Page.vue';
+import CodeExample from '../../../components/CodeExample.vue';
+import ComponentPropsTable from '../../../components/ComponentPropsTable.vue';
+import ComponentPreview from '../../../components/ComponentPreview.vue';
+import ComponentSlotsTable from '../../../components/ComponentSlotsTable.vue';
+import ComponentEventsTable from '../../../components/ComponentEventsTable.vue';
+import PreviewOptionFormControl from '../../../components/PreviewOptionFormControl.vue';
+import IconButton from '../../../../../hyrnatic-ui-elementic/src/modules/buttons/icon-button/icon-button-docs';
+import { previewExample } from './snippets';
 
 export default defineComponent({
     components: { CodeExample, PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
@@ -96,21 +87,24 @@ export default defineComponent({
         const loading = ref(false);
         const rounded = ref(false);
         const disabled = ref(false);
-        const icon = ref(false);
+        const styling = ref('simple');
         const size = ref('normal');
         const color = ref('primary');
 
-        const code = `<h-icon-button size="normal" icon="key" styling="subtle" color="primary" rounded disabled loading />`;
+        const previewExampleOptions = computed(() => {
+            return {size: size.value, styling: styling.value, color: color.value, disabled: disabled.value, rounded: rounded.value, loading: loading.value};
+        });
 
         return {
             IconButton,
+            previewExample,
+            previewExampleOptions,
             loading,
             rounded,
             disabled,
-            icon,
+            styling,
             size,
             color,
-            code,
         };
     },
 });

@@ -6,7 +6,7 @@ import ComponentSlotsTable from './components/ComponentSlotsTable.vue';
 import ComponentEventsTable from './components/ComponentEventsTable.vue';
 import PreviewOptionFormControl from './components/PreviewOptionFormControl.vue';
 
-export default {
+const components: {[key: string]: {name: string}} = {
     Page,
     CodeExample,
     ComponentPropsTable,
@@ -15,3 +15,4 @@ export default {
     ComponentEventsTable,
     PreviewOptionFormControl,
 }
+export default components;

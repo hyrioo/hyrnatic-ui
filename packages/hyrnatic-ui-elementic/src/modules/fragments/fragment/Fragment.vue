@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import {
-    computed, defineComponent, getCurrentInstance, inject, ref, SetupContext,
+    computed, defineComponent, getCurrentInstance, inject, nextTick, ref, SetupContext, watch,
 } from 'vue';
 import getSize from 'get-size';
 import componentCss from '../../../utils/component-css';
@@ -30,7 +30,9 @@ export default defineComponent({
         const transitionName = computed(() => fragmentContainer.transition);
 
         const onEnter = () => {
-            fragmentContainer.setNewHeight(getSize(instance.vnode.el).height);
+            setTimeout(() => {
+                fragmentContainer.setNewHeight(getSize(instance.vnode.el).height);
+            }, 5);
         };
         const onBeforeLeave = () => {
             fragmentContainer.setOldHeight(getSize(instance.vnode.el).height);

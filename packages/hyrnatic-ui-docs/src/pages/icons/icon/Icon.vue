@@ -8,10 +8,9 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code" style="color: #319C9C">
+            <component-preview :code="previewExample(previewExampleOptions)" style="color: #319C9C">
                 <template #preview>
-                    <h-icon icon="key" :spin="spin" :size="size" style="margin-right: 12px" />
-                    <h-icon icon="loading" :spin="spin" :size="size" />
+                    <vue-runtime-template :template="previewExample(previewExampleOptions)" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
@@ -25,6 +24,12 @@
                             <h-select-item value="48px" label="48px" />
                         </h-select>
                     </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-select v-model="icon" placeholder="Select icon" style="width: 100%;">
+                            <h-select-item value="key" label="Key" />
+                            <h-select-item value="loading" label="Loading" />
+                        </h-select>
+                    </preview-option-form-control>
                 </template>
             </component-preview>
         </section>
@@ -32,7 +37,7 @@
         <section>
             <h2>Usage</h2>
             <p>To use a new icon you must first register it.</p>
-            <code-example :code='code2' language="js"/>
+            <code-example :code='usageExample' language="js"/>
         </section>
 
         <section v-if="Icon.props.length">
@@ -53,32 +58,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
-import Icon from '../../../hyrnatic-ui-elementic/src/modules/icons/icon/icon-docs';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
+import Icon from '../../../../../hyrnatic-ui-elementic/src/modules/icons/icon/icon-docs';
+import { previewExample, usageExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
         const spin = ref(false);
-        const size = ref('32px');
+        const size = ref('24px');
+        const icon = ref('key');
 
-        const code = `<h-icon icon="loading" :spin="spin" :size="size" />`;
-        const code2 =
-            `// app.js
-import { IconRegistry } from '@hyrioo/hyrnatic-ui-elementic';
-const icon = {
-    width: 24, // default width
-    height: 40, // default height
-    viewBox: '0 0 24 40',
-    data: '<circle cx="12" cy="12" r="10" />',
-};
-IconRegistry.register('custom-icon', icon);`;
+        const previewExampleOptions = computed(() => {
+            return {
+                spin: spin.value,
+                size: size.value,
+                icon: icon.value,
+            };
+        });
 
         return {
             Icon,
+            previewExample,
+            previewExampleOptions,
+            usageExample,
             spin,
             size,
-            code,
-            code2,
+            icon,
         };
     },
 });

@@ -1,23 +1,75 @@
-.fragment-slide-down-container{
-  transition: height $t-medium-standard;
+.fragment-slide-down-container {
+    transition: height $t-medium-acceleration;
 }
 .fragment-slide-down-enter-active, .fragment-slide-down-leave-active {
-  position: absolute;
-  transition: opacity $t-medium-standard, transform $t-medium-standard;
+    position: absolute;
+    transition: opacity $t-medium-acceleration, transform $t-medium-acceleration;
 }
 .fragment-slide-down-enter, .fragment-slide-down-leave-to {
-  opacity: $o-0;
-  transform: translateY(15px);
+    opacity: $o-0;
+    transform: translateY(15px);
+}
+
+.fragment-slide-right-container {
+    transition: height $t-medium-acceleration;
+}
+.fragment-slide-right-enter-active, .fragment-slide-right-leave-active {
+    position: absolute;
+    transition: opacity $t-medium-acceleration, transform $t-medium-acceleration;
+}
+.fragment-slide-right-enter-from {
+    opacity: $o-0;
+    transform: translateX(-100%);
+}
+.fragment-slide-right-enter-to, .fragment-slide-right-leave-from {
+    opacity: $o-100;
+    transform: translateX(0);
+}
+.fragment-slide-right-leave-to {
+    opacity: $o-0;
+    transform: translateX(100%);
+}
+
+.fragment-slide-left-container {
+    transition: height $t-medium-acceleration;
+}
+.fragment-slide-left-enter-active, .fragment-slide-left-leave-active {
+    position: absolute;
+    transition: opacity $t-medium-acceleration, transform $t-medium-acceleration;
+}
+.fragment-slide-left-enter-from {
+    opacity: $o-0;
+    transform: translateX(100%);
+}
+.fragment-slide-left-enter-to, .fragment-slide-left-leave-from {
+    opacity: $o-100;
+    transform: translateX(0);
+}
+.fragment-slide-left-leave-to {
+    opacity: $o-0;
+    transform: translateX(-100%);
+}
+
+.fragment-slide-out-right-container {
+    transition: height $t-medium-acceleration;
+}
+.fragment-slide-out-right-enter-active, .fragment-slide-out-right-leave-active {
+    position: absolute;
+    transition: opacity $t-medium-acceleration, transform $t-medium-acceleration;
+}
+.fragment-slide-out-right-enter, .fragment-slide-out-right-leave-to {
+    opacity: $o-0;
+    transform: translateX(100%);
 }
 
 
-.fragment-fade-container{
-  transition: height 10s $e-standard;
+.fragment-fade-container {
+    transition: height $s-medium $e-standard;
 }
 .fragment-fade-enter-active, .fragment-fade-leave-active {
-  position: absolute;
-  transition: opacity 10s $e-standard;
+    position: absolute;
+    transition: opacity $s-medium $e-standard;
 }
 .fragment-fade-enter, .fragment-fade-leave-to {
-  opacity: $o-0;
+    opacity: $o-0;
 }

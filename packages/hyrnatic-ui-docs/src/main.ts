@@ -13,6 +13,7 @@ import {
 import App from './App.vue';
 import router from './router';
 import components from './components';
+import VRuntimeTemplate from 'vue3-runtime-template';
 
 IconRegistry.registerMDI('key', mdiKey);
 IconRegistry.registerMDI('content-copy', mdiContentCopy);
@@ -24,7 +25,8 @@ IconRegistry.registerMDI('check-circle-outline', mdiCheckCircleOutline);
 const app = createApp(App);
 app.use(HyrnaticUIElementic);
 app.use(router);
-Object.keys(components).forEach((key) => {
+app.component('vue-runtime-template', VRuntimeTemplate);
+Object.keys(components).forEach((key: string) => {
     const component = components[key];
     app.component(component.name, component);
 });

@@ -8,7 +8,7 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="templateExample">
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
                     <h-button label="Open dialog" @click="onClick" />
                 </template>
@@ -54,11 +54,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
 import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import Dialog from '../../../hyrnatic-ui-elementic/src/modules/dialogs/dialog/dialog-docs';
-import SampleDialog from '../components/SampleDialog.vue';
-import { dialogExample, templateExample, usageExample, wrapperExample } from '../snippets/dialog';
+import Dialog from '../../../../../hyrnatic-ui-elementic/src/modules/dialogs/dialog/dialog-docs';
+import SampleDialog from '../../../components/SampleDialog.vue';
+import { dialogExample, previewExample, usageExample, wrapperExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -80,15 +80,23 @@ export default defineComponent({
             });
         };
 
+        const previewExampleOptions = computed(() => {
+            return {
+                showCloseButton: showCloseButton.value,
+                color: color.value,
+            };
+        });
+
         return {
             Dialog,
-            onClick,
-            showCloseButton,
-            color,
-            templateExample,
+            previewExample,
+            previewExampleOptions,
             usageExample,
             dialogExample,
             wrapperExample,
+            onClick,
+            showCloseButton,
+            color,
         };
     },
 });

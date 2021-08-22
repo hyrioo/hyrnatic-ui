@@ -9,22 +9,9 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview>
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
-                    <div style="display: flex; flex-direction: column; align-items: center">
-                        <h-button label="Subtle" :size="size" :icon="icon?'key':null" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="subtle" :color="color"
-                                  style="margin-bottom: 8px" />
-                        <h-button label="Simple" :size="size" :icon="icon?'key':null" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="simple" :color="color"
-                                  style="margin-bottom: 8px" />
-                        <h-button label="Block" :size="size" :icon="icon?'key':null" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="block" :color="color"
-                                  style="margin-bottom: 8px" />
-                        <h-button label="None" :size="size" :icon="icon?'key':null" :rounded="rounded"
-                                  :disabled="disabled" :loading="loading" styling="none" :color="color"
-                                  style="margin-bottom: 8px" />
-                    </div>
+                    <vue-runtime-template :template="previewExample(previewExampleOptions)" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
@@ -39,6 +26,15 @@
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-switch v-model="icon" right-text="Show icon" style="margin-right: 12px" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-select v-model="styling" placeholder="Select styling"
+                                  style="margin-right: 12px; width: 100%;">
+                            <h-select-item value="subtle" label="Subtle" />
+                            <h-select-item value="simple" label="Simple" />
+                            <h-select-item value="block" label="Block" />
+                            <h-select-item value="none" label="None" />
+                        </h-select>
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-select v-model="size" placeholder="Select size" style="margin-right: 12px; width: 100%;">
@@ -61,20 +57,13 @@
         </section>
 
         <section>
-            <h2>Example</h2>
-            <code-example :code="code" language="html-vue" />
-        </section>
-
-        <section>
             <h2>Content slot example</h2>
             <p>
                 You can customize the content completely by using the default slot.
             </p>
-            <component-preview :code="slotCode">
+            <component-preview :code="slotExample">
                 <template #preview>
-                    <h-button>
-                        <span><i>Some</i> <b>custom</b> <del>content</del></span>
-                    </h-button>
+                    <vue-runtime-template :template="slotExample" />
                 </template>
             </component-preview>
         </section>
@@ -97,8 +86,9 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, SetupContext } from 'vue';
-import Button from '../../../hyrnatic-ui-elementic/src/modules/buttons/button/button-docs';
+import { ref, defineComponent, SetupContext, computed } from 'vue';
+import Button from '../../../../../hyrnatic-ui-elementic/src/modules/buttons/button/button-docs';
+import { previewExample, slotExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -110,14 +100,23 @@ export default defineComponent({
         const styling = ref('simple');
         const color = ref('primary');
 
-        const code = `<h-button label="Subtle" size="normal" icon="key" styling="subtle" color="primary" rounded disabled loading />`;
-        const slotCode =
-`<h-button>
-    <span><i>Some</i> <b>custom</b> <del>content</del></span>
-</h-button>`;
+        const previewExampleOptions = computed(() => {
+            return {
+                size: size.value,
+                icon: icon.value,
+                styling: styling.value,
+                color: color.value,
+                disabled: disabled.value,
+                rounded: rounded.value,
+                loading: loading.value
+            };
+        });
 
         return {
             Button,
+            previewExample,
+            previewExampleOptions,
+            slotExample,
             loading,
             rounded,
             disabled,
@@ -125,8 +124,6 @@ export default defineComponent({
             size,
             styling,
             color,
-            code,
-            slotCode,
         };
     },
 });

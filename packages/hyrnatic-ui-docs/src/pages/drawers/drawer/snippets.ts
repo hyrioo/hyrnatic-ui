@@ -1,20 +1,26 @@
-export const templateExample =
-`<h-dialog title="Some dialog title" :color="color" :show-close-button="showCloseButton">
-    Dynamic counter: {{ counter }} <br /> <br />
-    Nested status: {{ nested }} <br /> <br />
-
-    <h-button label="Add to counter" @click="addCounter" style="margin-right: 12px" />
-    <h-button label="Open nested dialog" @click="openNestedDialog" />
+export const previewExample = (options: {placement: string}) => {
+    const code =
+`<h-drawer title="Some dialog title" placement="${options.placement}">
+    Counter: {{ counter }}
+    <br /><br />
+    <h-button label="Emit 'addCounter'" @click="something" />
+    <br /><br />
+    <h-button label="Emit 'addCounter' after confirm drawer" @click="confirmAgain" />
+    <br /><br />
+    <h-button label="Emit 'addCounter' after confirm dialog" @click="confirmAgainDialog" />
 
     <template #footer>
-        <h-button label="Close" @click="close" />
+        <h-button label="Close" styling="negative" style="margin-right: 12px" @click="close" />
+        <h-button label="Save" @click="close" />
     </template>
-</h-dialog>`;
+</h-drawer>`;
+    return code;
+}
 
 export const usageExample =
 `// Component.vue
 import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import CustomDialog from '../components/CustomDialog.vue';
+import CustomDrawer from '../components/CustomDrawer.vue';
 const props = {
     counter: ref(0),
 };
@@ -26,16 +32,16 @@ const listeners = {
 const options = {
     stack: 'dialog'
 };
-DialogManager.createPromise(CustomDialog, props, listeners, options).then(() => {
+DialogManager.createPromise(CustomDrawer, props, listeners, options).then(() => {
     // Resolved successfully
 }).catch(() => {
     // Rejected
 });`;
 
-export const dialogExample =
-`// CustomDialog.vue
+export const drawerExample =
+`// CustomDrawer.vue
 export default defineComponent({
-    name: 'CustomDialog',
+    name: 'CustomDrawer',
     props: {
         counter: {
             type: Number,
@@ -60,4 +66,4 @@ export default defineComponent({
 
 export const wrapperExample =
 `<!-- App.vue -->
-<hr-dialog-wrapper></hr-dialog-wrapper>`;
+<hr-dialog-wrapper />`;

@@ -8,7 +8,7 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code">
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
                     <h-button label="Open drawer" @click="openDrawer" />
                 </template>
@@ -26,9 +26,11 @@
         <section>
             <h2>Usage</h2>
             <p>First add the wrapper to your layout component.</p>
-            <code-example :code='code3' language="html-vue"/>
-            <p>To open a dialog you must use the DialogManager, and import the component to wish to open.</p>
-            <code-example :code="code2" language="js" />
+            <code-example :code='wrapperExample' language="html-vue"/>
+            <p>To open a dialog you must use the <span class="inline-highlight">DialogManager</span>, and import the component to wish to open.</p>
+            <code-example :code="usageExample" language="js" />
+            <p>Your custom drawer must call <span class="inline-highlight">DialogManager.setupDialog()</span> in the setup.</p>
+            <code-example :code="drawerExample" language="js" />
         </section>
 
         <section v-if="Drawer.props.length">
@@ -49,10 +51,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
 import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import Drawer from '../../../hyrnatic-ui-elementic/src/modules/drawers/drawer/drawer-docs';
-import SampleDrawer from '../components/SampleDrawer.vue';
+import Drawer from '../../../../../hyrnatic-ui-elementic/src/modules/drawers/drawer/drawer-docs';
+import SampleDrawer from '../../../components/SampleDrawer.vue';
+import { drawerExample, previewExample, usageExample, wrapperExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -71,53 +74,22 @@ export default defineComponent({
             });
         };
 
+        const previewExampleOptions = computed(() => {
+            return {
+                placement: placement.value,
 
-        const code =
-`<h-drawer title="Some dialog title" :placement="placement">
-    Counter: {{ counter }}
-    <br /><br />
-    <h-button label="Emit 'addCounter'" @click="something" />
-    <br /><br />
-    <h-button label="Emit 'addCounter' after confirm drawer" @click="confirmAgain" />
-    <br /><br />
-    <h-button label="Emit 'addCounter' after confirm dialog" @click="confirmAgainDialog" />
-
-    <template #footer>
-        <h-button label="Close" styling="negative" style="margin-right: 12px" @click="close" />
-        <h-button label="Save" @click="close" />
-    </template>
-</h-drawer>`;
-        const code2 =
-`// Component.vue
-import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import CustomDrawer from '../components/CustomDrawer.vue';
-const props = {
-    prop: 'anything',
-};
-const listeners = {
-    listener: () => {
-        // React to something
-    }
-};
-const options = {
-    stack: 'drawer'
-};
-DialogManager.createPromise(CustomDrawer, props, listeners, options).then(() => {
-    // Resolved successfully
-}).catch(() => {
-    // Rejected
-});`;
-        const code3 =
-`<!-- App.vue -->
-<hr-dialog-wrapper></hr-dialog-wrapper>`;
+            };
+        });
 
         return {
             Drawer,
+            previewExample,
+            previewExampleOptions,
+            usageExample,
+            drawerExample,
+            wrapperExample,
             openDrawer,
             placement,
-            code,
-            code2,
-            code3,
         };
     },
 });

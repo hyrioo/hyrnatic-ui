@@ -8,18 +8,18 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="capitalize?capitalizeTemplateExample:templateExample">
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
                     <div style="display: flex; flex-direction: column; align-items: center">
                         <template v-if="capitalize">
-                            <h-input v-model.capitalize="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" style="margin-bottom: 12px"  />
-                            <h-input v-model.capitalize="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix-icon="key" suffix-icon="key" style="margin-bottom: 12px"  />
-                            <h-input v-model.capitalize="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix="Prefix" suffix="Suffix" style="margin-bottom: 12px"  />
+                            <h-input v-model.capitalize="value" v-bind="vbind" style="margin-bottom: 12px"  />
+                            <h-input v-model.capitalize="value" v-bind="vbind" prefix-icon="key" suffix-icon="key" style="margin-bottom: 12px"  />
+                            <h-input v-model.capitalize="value" v-bind="vbind" prefix="Prefix" suffix="Suffix" style="margin-bottom: 12px"  />
                         </template>
                         <template v-else>
-                            <h-input v-model="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" style="margin-bottom: 12px"  />
-                            <h-input v-model="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix-icon="key" suffix-icon="key" style="margin-bottom: 12px"  />
-                            <h-input v-model="value" :disabled="disabled" :placeholder="placeholder" :readonly="readonly" prefix="Prefix" suffix="Suffix" style="margin-bottom: 12px"  />
+                            <h-input v-model="value" v-bind="vbind" style="margin-bottom: 12px"  />
+                            <h-input v-model="value" v-bind="vbind" prefix-icon="key" suffix-icon="key" style="margin-bottom: 12px"  />
+                            <h-input v-model="value" v-bind="vbind" prefix="Prefix" suffix="Suffix" style="margin-bottom: 12px"  />
                         </template>
                     </div>
                 </template>
@@ -66,9 +66,9 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, SetupContext } from 'vue';
-import Page from '../components/Page.vue';
-import { capitalizeTemplateExample, templateExample } from '../snippets/input';
-import Input from '../../../hyrnatic-ui-elementic/src/modules/inputs/input/input-docs';
+import Page from '../../../components/Page.vue';
+import { capitalizeTemplateExample, previewExample, templateExample } from './snippets';
+import Input from '../../../../../hyrnatic-ui-elementic/src/modules/inputs/input/input-docs';
 
 export default defineComponent({
     components: { Page },
@@ -86,10 +86,29 @@ export default defineComponent({
             console.log('Alert', item);
         }
 
+        const previewExampleOptions = computed(() => {
+            return {
+                capitalize: capitalize.value,
+                placeholder: placeholder.value,
+                readonly: readonly.value,
+                disabled: disabled.value,
+            };
+        });
+
+        const vbind = computed(() => {
+            return {
+                placeholder: placeholder.value,
+                readonly: readonly.value,
+                disabled: disabled.value,
+            };
+        });
+
+
         return {
             Input,
-            templateExample,
-            capitalizeTemplateExample,
+            previewExample,
+            previewExampleOptions,
+            vbind,
             value,
             disabled,
             placeholder,

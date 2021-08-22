@@ -2,9 +2,9 @@
     <page title="Date picker">
         <section>
             <h2>Preview</h2>
-            <component-preview :code="code">
+            <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
-                    <h-date-picker v-model="date" :highlight-today="highlightToday" :first-day-of-week="firstDayOfWeek" />
+                    <h-date-picker v-model="date" v-bind="previewExampleOptions" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
@@ -43,22 +43,29 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, SetupContext } from 'vue';
-import DatePicker from '../../../hyrnatic-ui-elementic/src/modules/date-pickers/date-picker/date-picker-docs';
-import { DateTime, Duration, Info as DateTimeInfo } from 'luxon';
+import { ref, defineComponent, SetupContext, computed } from 'vue';
+import DatePicker from '../../../../../hyrnatic-ui-elementic/src/modules/date-pickers/date-picker/date-picker-docs';
+import { DateTime } from 'luxon';
+import { previewExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
-        const date = ref(DateTime.now());
+        const date = ref<DateTime>(DateTime.now().minus({days: 3}));
         const highlightToday = ref(true);
         const firstDayOfWeek = ref(0);
 
-        const code = `<h-date-picker v-model="date" :highlight-today="highlightToday" />`;
+        const previewExampleOptions = computed(() => {
+            return {
+                highlightToday: highlightToday.value,
+                firstDayOfWeek: firstDayOfWeek.value,
+            };
+        });
 
         return {
             DatePicker,
+            previewExample,
+            previewExampleOptions,
             date,
-            code,
             highlightToday,
             firstDayOfWeek,
         };
