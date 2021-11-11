@@ -153,8 +153,8 @@ export default defineComponent({
 
         const onFocusedItemChanged = (item: any) => {
             const index = props.items.findIndex((i) => i === item);
-            if(index !== -1) {
-                const el = items.value[index];
+            const el = items.value[index];
+            if(el) {
                 el.scrollIntoView({
                     behavior: 'smooth',
                     block: 'nearest',

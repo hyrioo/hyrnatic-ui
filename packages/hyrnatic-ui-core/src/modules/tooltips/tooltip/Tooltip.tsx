@@ -23,6 +23,18 @@ export const coreTooltipTriggerProp = {
         default: 'hover',
     },
 };
+export const coreTooltipShowDelayProp = {
+    showDelay: {
+        type: Number,
+        default: 200,
+    },
+};
+export const coreTooltipHideDelayProp = {
+    hideDelay: {
+        type: Number,
+        default: 0,
+    },
+};
 
 export type CoreTooltipSlotProps = {
     visible: ComputedRef<boolean>;
@@ -37,6 +49,8 @@ export default defineComponent({
     props: {
         ...coreTooltipModelValueProp,
         ...coreTooltipTriggerProp,
+        ...coreTooltipShowDelayProp,
+        ...coreTooltipHideDelayProp,
         reference: {
             type: null as PropType<HTMLElement>,
             required: true,
@@ -55,11 +69,21 @@ export default defineComponent({
             ctx.emit('update:modelValue', value);
         };
 
+        let showTimeout = null;
+        let hideTimeout = null;
         const showTooltip = () => {
-            setVisible(true);
+            clearTimeout(showTimeout);
+            clearTimeout(hideTimeout);
+            showTimeout = setTimeout(() => {
+                setVisible(true);
+            }, props.showDelay);
         };
         const hideTooltip = () => {
-            setVisible(false);
+            clearTimeout(showTimeout);
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(() => {
+                setVisible(false);
+            }, props.hideDelay);
         };
         const setupListeners = (reference, show, hide) => {
             reference.addEventListener(show, showTooltip);
@@ -68,6 +92,9 @@ export default defineComponent({
         const removeListeners = (reference, show, hide) => {
             reference.removeEventListener(show, showTooltip);
             reference.removeEventListener(hide, hideTooltip);
+            setVisible(false);
+            clearTimeout(hideTimeout);
+            clearTimeout(showTimeout);
         };
         const getEvents = (trigger) => {
             if (trigger === 'hover') {

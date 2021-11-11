@@ -1,6 +1,6 @@
 <template>
     <hr-tooltip v-slot="props" v-bind="core.props" v-on="core.listeners">
-        <div ref="reference" style="display: inline-block">
+        <div ref="reference" :style="{display}">
             <slot />
         </div>
 
@@ -26,6 +26,8 @@ import {
     CorePopperComponent,
     coreTooltipModelValueProp,
     coreTooltipTriggerProp,
+    coreTooltipShowDelayProp,
+    coreTooltipHideDelayProp,
     coreTooltipSetup,
 } from '@hyrioo/hyrnatic-ui-core';
 
@@ -34,6 +36,8 @@ export default defineComponent({
     props: {
         ...coreTooltipModelValueProp,
         ...coreTooltipTriggerProp,
+        ...coreTooltipShowDelayProp,
+        ...coreTooltipHideDelayProp,
         placement: {
             type: String,
             default: 'top',
@@ -41,6 +45,10 @@ export default defineComponent({
         content: {
             type: String,
         },
+        display: {
+            type: String,
+            default: 'inline-block',
+        }
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {

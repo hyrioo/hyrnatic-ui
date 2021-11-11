@@ -49,7 +49,7 @@ export default defineComponent({
         const asProps = () => ({
             class: [componentCssHelpers.css_root.value],
         });
-        const core = coreCollapseInlineSetup().as('div', asProps).build();
+        const core = coreCollapseInlineSetup().as('div', asProps).props(['modelValue']).build();
 
         return {
             core,

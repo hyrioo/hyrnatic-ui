@@ -1,6 +1,6 @@
 <template>
-    <hr-date-picker v-show="visible" v-bind="core.props" v-on="core.listeners">
-        <h-input :ref="com => { if(com) input = com.$el }" v-model="inputValue" @change="onDateInputChanged"
+    <hr-date-picker v-show="visible" v-slot="props" v-bind="core.props" v-on="core.listeners">
+        <h-input :ref="com => { if(com) input = com.$el }" :disabled="props.disabled" v-model="inputValue" @change="onDateInputChanged"
                  @focus="onInputFocus" @blur="onInputBlur">
             <template #customSuffix>
                 <h-icon :ref="com => { if(com) icon = com.$el }" :icon="Icons.calendarMonth"
@@ -173,9 +173,14 @@ export default defineComponent({
             }
         };
 
+        watch(() => props.disabled, () => {
+            if(props.disabled) {
+                popperVisible.value = false;
+            }
+        });
+
         const asProps = (slotProps: CoreDatePickerSlotProps) => ({
             class: [componentCssHelpers.css_root.value],
-            disabled: slotProps.disabled,
         });
         const core = coreDatePickerSetup().as('div', asProps).props(['modelValue', 'disabled', 'visible']).build();
 

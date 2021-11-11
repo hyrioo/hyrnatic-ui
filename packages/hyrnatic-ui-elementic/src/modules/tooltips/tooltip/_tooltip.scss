@@ -91,4 +91,6 @@ $popper-arrow-size: 16px;
 #{$crc}__arrow{
 	position: absolute;
 	color: $c-primary;
+	width: $popper-arrow-size;
+	height: $popper-arrow-size;
 }

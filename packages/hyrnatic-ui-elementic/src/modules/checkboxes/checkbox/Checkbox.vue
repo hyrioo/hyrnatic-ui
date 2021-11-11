@@ -2,8 +2,8 @@
     <hr-checkbox v-show="visible" v-slot="props" v-bind="core.props" v-on="core.listeners">
         <span :class="[css_ec('container')]">
             <input :class="[css_ec('input')]" :checked="props.state" type="checkbox" :disabled="props.disabled" @change="props.onChange" @focus="hasFocus = true" @blur="hasFocus = false" />
-            <h-icon v-show="!props.indeterminate" :class="[css_ec('check-icon')]" :icon="CheckboxIcons.checkStroke" size="10" :fills="null" />
-            <h-icon v-show="props.indeterminate" :class="[css_ec('indeterminate-icon')]" :icon="Icons.minus" size="10" :fills="null" />
+            <h-icon v-show="!props.indeterminate" :class="[css_ec('check-icon')]" :icon="CheckboxIcons.checkStroke" size="10px" :fills="null" />
+            <h-icon v-show="props.indeterminate" :class="[css_ec('indeterminate-icon')]" :icon="Icons.minus" size="10px" :fills="null" />
         </span>
         <span v-if="$slots.default || label" :class="[css_ec('label')]">
             <slot>

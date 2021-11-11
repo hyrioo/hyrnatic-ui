@@ -1,5 +1,5 @@
 <script lang="tsx">
-import { computed, defineComponent, SetupContext, TransitionGroup } from 'vue';
+import { defineComponent, SetupContext, TransitionGroup, h } from 'vue';
 import componentCss from '../../../utils/component-css';
 
 export default defineComponent({
@@ -11,33 +11,16 @@ export default defineComponent({
         },
     },
     setup(props, ctx: SetupContext) {
-
-        const attrs = computed(() => {
-            if(props.animate){
-                return {
-                    name: 'list-complete',
-                    tag: 'ul',
-                }
-            } else {
-                return null;
-            }
-        })
-
         return {
             ...componentCss(),
-            attrs,
         };
     },
     render() {
-        return this.animate ? (
-            <TransitionGroup name="list-complete" tag="ul" class={this.css_root}>
-                {this.$slots.default()}
-            </TransitionGroup>
-        ) : (
-            <ul class={this.css_root}>
-                {this.$slots.default()}
-            </ul>
-        );
+        if(this.animate) {
+            return h(TransitionGroup, {name: 'list-complete', tag: 'ul', class: this.css_root}, this.$slots.default);
+        } else {
+            return h('ul', {class: this.css_root}, this.$slots.default());
+        }
     },
 });
 </script>

@@ -422,6 +422,8 @@ export {
     coreTooltipSetup,
     coreTooltipModelValueProp,
     coreTooltipTriggerProp,
+    coreTooltipHideDelayProp,
+    coreTooltipShowDelayProp,
 } from './modules/tooltips/tooltip/Tooltip';
 export type {
     CoreTooltipSlotProps,

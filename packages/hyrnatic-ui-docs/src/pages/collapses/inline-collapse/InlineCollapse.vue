@@ -27,6 +27,9 @@
                 </template>
                 <template #options>
                     <preview-option-form-control>
+                        <h-switch v-model="expanded" right-text="Expanded" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
                         <h-switch v-model="animate" right-text="Animate" />
                     </preview-option-form-control>
                     <preview-option-form-control>

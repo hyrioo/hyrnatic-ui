@@ -15,7 +15,7 @@ import IconButton from './pages/buttons/icon-button/IconButton.vue';
 import InlineCollapse from './pages/collapses/inline-collapse/InlineCollapse.vue';
 import Input from './pages/inputs/input/Input.vue';
 import List from './pages/lists/list/List.vue';
-import Paginator from './pages/Paginator.vue';
+import Paginator from './pages/paginators/paginator/Paginator.vue';
 import ProgressBar from './pages/ProgressBar.vue';
 import RadioButton from './pages/RadioButton.vue';
 import ScrollContainer from './pages/ScrollContainer.vue';

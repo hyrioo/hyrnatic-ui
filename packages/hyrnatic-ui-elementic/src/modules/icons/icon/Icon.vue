@@ -96,6 +96,13 @@ export default defineComponent({
             s.width = props.width || props.size || IconRegistry.icons[props.icon].width;
             s.height = props.height || props.size || IconRegistry.icons[props.icon].height;
 
+            if(isFinite(s.width)){
+                s.width = `${s.width}px`;
+            }
+            if(isFinite(s.height)){
+                s.height = `${s.height}px`;
+            }
+
             return s;
         });
 

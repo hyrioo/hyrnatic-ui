@@ -40,7 +40,7 @@ const docs: ComponentAPIDescriptor = {
             default: 'left',
         },
         {
-            property: 'nimate',
+            property: 'animate',
             origin: 'elementic',
             description: 'Whether or not the collapse should animate.',
             type: 'boolean',
