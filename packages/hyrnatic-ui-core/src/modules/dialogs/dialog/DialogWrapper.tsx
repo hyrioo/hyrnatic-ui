@@ -15,7 +15,7 @@ export interface DialogObject {
     listeners: object;
     props: object;
     stack: string;
-    promise: { resolve: Function; reject: Function };
+    promise: { resolve: (payload: any) => void; reject: (payload: any) => void };
 }
 export interface InternalDialogObject extends DialogObject {
     id: string;
@@ -23,7 +23,7 @@ export interface InternalDialogObject extends DialogObject {
     compiledListeners: ComputedRef;
     resolve: (payload: any) => void;
     reject: (payload: any) => void;
-    transitionEnd: Function;
+    transitionEnd: () => void;
 }
 export type Wrapper = {
     addDialog(dialog: DialogObject): InternalDialogObject;

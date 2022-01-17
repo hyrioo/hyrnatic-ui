@@ -1,6 +1,6 @@
 <template>
     <hr-dialog v-slot="props" v-bind="core.props" v-on="core.listeners">
-        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-visible-count-${props.visibleStackCount}`]">
+        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-visible-count-${props.visibleStackCount}`]" :style="{zIndex: zIndex}">
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
@@ -12,7 +12,7 @@
                 <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{width: width, transform: getScale(props.stackIndex, props.visibleStackCount)}">
                     <div :class="[css_ec('box')]">
                         <div v-if="showCloseButton" :class="[css_ec('close-icon')]">
-                            <h-button :icon="Icons.close" styling="none" size="small" @click="props.close" />
+                            <h-icon-button :icon="Icons.close" styling="subtle" size="small" @click="props.close" />
                         </div>
                         <div v-if="$slots.title || title" :class="[css_ec('title')]">
                             <slot name="title">
@@ -46,6 +46,9 @@ export default defineComponent({
     name: 'h-dialog',
     props: {
         ...coreDialogVisibleProp,
+        zIndex: {
+            type: Number
+        },
         title: {
             type: String,
             default: null,

@@ -1,7 +1,7 @@
 $crc: '.h-spinner';
 
 #{$crc}{
-	border-width: 4px;
+	border-width: var(--border-thickness);
 	border-style: solid;
 	border-color: var(--border-color);
 	border-right-color: transparent;

@@ -10,7 +10,8 @@
             <router-view />
         </div>
     </div>
-    <h-dialog-wrapper ref="wrapper" />
+    <h-dialog-wrapper ref="dialogWrapper" />
+    <h-notification-wrapper ref="notificationWrapper" />
 </template>
 
 <script lang="ts">
@@ -24,9 +25,10 @@ export default {
         Navigation,
     },
     setup() {
-        const wrapper = ref();
+        const dialogWrapper = ref();
+        const notificationWrapper = ref();
         nextTick(() => {
-            watch(() => wrapper.value.dialogsCount, (count) => {
+            watch(() => dialogWrapper.value.dialogsCount, (count) => {
                 if (count > 0) {
                     document.body.classList.add('has-dialogs');
                 } else {
@@ -36,7 +38,8 @@ export default {
         });
 
         return {
-            wrapper,
+            dialogWrapper,
+            notificationWrapper,
         };
     },
 };

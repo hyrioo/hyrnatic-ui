@@ -19,6 +19,7 @@ IconRegistry.registerMDI('key', mdiKey);
 IconRegistry.registerMDI('content-copy', mdiContentCopy);
 IconRegistry.registerMDI('information-outline', mdiInformationOutline);
 IconRegistry.registerMDI('spinner-circle-outline', mdiAlertCircleOutline);
+IconRegistry.registerMDI('alert-circle-outline', mdiAlertCircleOutline);
 IconRegistry.registerMDI('close-circle-outline', mdiCloseCircleOutline);
 IconRegistry.registerMDI('check-circle-outline', mdiCheckCircleOutline);
 

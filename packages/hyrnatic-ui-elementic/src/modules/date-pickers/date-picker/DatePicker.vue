@@ -36,10 +36,15 @@
                 <div :class="[css_ec('calendar-weekdays')]">
                     <div v-for="weekday in weekdayNames">{{ weekday }}</div>
                 </div>
-                <div :class="[css_ec('calendar-dates')]">
+                <div :class="[css_ec('calendar-dates'), {'-has-dots': cachedDots !== null}]">
                     <div v-for="date in daysToShow" :class="[css_ec('calendar-date'), date.classes]"
                          @click="onDateClick(date.date)">
                         {{ date.date.day }}
+                        <template v-if="cachedDots !== null && cachedDots[date.date.toISODate()]">
+                            <div :class="[css_ec('dots-container')]">
+                                <span v-for="dot in cachedDots[date.date.toISODate()]" :class="[css_ec('dot')]" :style="{background: dot.color || null}" />
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -80,6 +85,10 @@ export default defineComponent({
             type: String,
             default: 'yyyy-MM-dd',
         },
+        dots: {
+            type: null,
+            default: null,
+        }
     },
     emits: ['update:modelValue', 'focus', 'blur'],
     setup(props, ctx: SetupContext) {
@@ -97,6 +106,19 @@ export default defineComponent({
                 },
             },
         ];
+
+        const cachedDots = computed(() => {
+            if(props.dots === null) {
+                return null;
+            }
+            const obj = {};
+            props.dots.forEach((dot) => {
+                const date = dot.date.toISODate();
+                obj[date] = obj[date] || [];
+                obj[date].push(dot);
+            });
+            return obj;
+        })
 
         const weekdayNames = computed(() => {
             let w = DateTimeInfo.weekdays('short', { locale: 'en' });
@@ -203,6 +225,7 @@ export default defineComponent({
             onClickOutside,
             popperVisible,
             modifiers,
+            cachedDots,
         };
     }
 });

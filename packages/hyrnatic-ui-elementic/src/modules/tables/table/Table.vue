@@ -5,6 +5,13 @@
         </thead>
         <tbody>
             <h-table-row v-for="row in props.rows" :key="row.data[rowKey]" :row="row" :columns="props.orderedColumns" :classes="rowClasses" />
+            <template v-if="$slots['no-items'] && props.rows.length === 0">
+                <tr class="-no-hover">
+                    <td :colspan="props.orderedColumns.length">
+                        <slot name="no-items" />
+                    </td>
+                </tr>
+            </template>
         </tbody>
         <tfoot v-if="$slots.footer">
             <slot name="footer" :rows="props.rows" />

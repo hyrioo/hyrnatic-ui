@@ -10,6 +10,7 @@ import FragmentsInstall from './modules/fragments/install';
 import IconsInstall from './modules/icons/install';
 import InputsInstall from './modules/inputs/install';
 import ListsInstall from './modules/lists/install';
+import NotificationsInstall from './modules/notifications/install';
 import PaginatorsInstall from './modules/paginators/install';
 import PoppersInstall from './modules/poppers/install';
 import ProgressBarsInstall from './modules/progress-bars/install';
@@ -39,6 +40,7 @@ const modules = {
     IconsInstall,
     InputsInstall,
     ListsInstall,
+    NotificationsInstall,
     PaginatorsInstall,
     PoppersInstall,
     ProgressBarsInstall,
@@ -61,7 +63,7 @@ export default {
     },
 };
 
-export { DialogManager } from '@hyrioo/hyrnatic-ui-core';
+export { DialogManager, NotificationManager } from '@hyrioo/hyrnatic-ui-core';
 
 export { corePopperAfterUpdateModifier, corePopperApplyMaxSizeModifier, corePopperArrowPositionModifier, corePopperBroadcastSizeModifier, corePopperMatchReferenceSizeModifier, corePopperMinimumReferenceSizeModifier } from '@hyrioo/hyrnatic-ui-core';
 
@@ -69,5 +71,7 @@ export { createCoreStepItem } from '@hyrioo/hyrnatic-ui-core';
 export type { CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-core';
 
 export type { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-core';
+
+export { default as SimpleNotification } from './modules/notifications/notification/SimpleNotification.vue';
 
 export * as IconRegistry from './utils/icon-registry';

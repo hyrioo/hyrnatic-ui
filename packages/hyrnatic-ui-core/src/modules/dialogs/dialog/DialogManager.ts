@@ -14,7 +14,7 @@ export function create<P extends {} = {}, L extends {} = {}>(component, props: P
             listeners: listeners !== null ? reactive(listeners) : null,
             props: props !== null ? reactive(props) : null,
             stack,
-            promise: { resolve, reject }
+            promise: { resolve, reject },
         });
     });
 
@@ -32,16 +32,6 @@ export function getWrapper(key: string = 'default'): Wrapper {
 export function getDialog(key: string): InternalDialogObject {
     const wrapper = inject<string>('wrapper-name');
     return wrappers[wrapper].getDialog(key);
-
-    /*const keys = Object.keys(wrappers);
-    let dialog = null;
-    keys.forEach((wrapperKey) => {
-        const d = wrappers[wrapperKey].getDialog(key);
-        if(d) {
-            dialog = d;
-        }
-    });
-    return dialog;*/
 }
 
 export function setupDialog() {

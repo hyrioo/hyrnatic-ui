@@ -7,6 +7,7 @@ export { default as DialogsInstall } from './dialogs/install.ts';
 export { default as DropdownsInstall } from './dropdowns/install.ts';
 export { default as FragmentsInstall } from './fragments/install.ts';
 export { default as InputsInstall } from './inputs/install.ts';
+export { default as NotificationsInstall } from './notifications/install.ts';
 export { default as PaginatorsInstall } from './paginators/install.ts';
 export { default as PoppersInstall } from './poppers/install.ts';
 export { default as ProgressBarsInstall } from './progress-bars/install.ts';

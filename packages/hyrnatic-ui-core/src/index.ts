@@ -8,6 +8,7 @@ import DialogsInstall from './modules/dialogs/install';
 import DropdownsInstall from './modules/dropdowns/install';
 import FragmentsInstall from './modules/fragments/install';
 import InputsInstall from './modules/inputs/install';
+import NotificationsInstall from './modules/notifications/install';
 import PaginatorsInstall from './modules/paginators/install';
 import ProgressBarsInstall from './modules/progress-bars/install';
 import RadioButtonsInstall from './modules/radio-buttons/install';
@@ -28,6 +29,7 @@ const modules = {
     DropdownsInstall,
     FragmentsInstall,
     InputsInstall,
+    NotificationsInstall,
     PaginatorsInstall,
     ProgressBarsInstall,
     RadioButtonsInstall,
@@ -210,6 +212,27 @@ export type {
     CoreAutocompleteSlotProps,
     CoreAutocompleteReturn,
 } from './modules/inputs/autocomplete/Autocomplete';
+
+
+/**
+ * Notifications
+ */
+export { default as CoreNotificationsInstall } from './modules/notifications/install';
+export {
+    coreNotificationSetup,
+    coreNotificationVisibleProp,
+} from './modules/notifications/notification/Notification';
+export type {
+    CoreNotificationSlotProps,
+} from './modules/notifications/notification/Notification';
+export {
+    coreNotificationWrapperSetup,
+    coreNotificationWrapperNameProp,
+} from './modules/notifications/notification/NotificationWrapper';
+export type {
+    CoreNotificationWrapperSlotProps,
+} from './modules/notifications/notification/NotificationWrapper';
+export * as NotificationManager from './modules/notifications/notification/NotificationManager';
 
 
 /**

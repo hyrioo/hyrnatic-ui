@@ -14,6 +14,9 @@
                         <h-switch v-model="disabled" right-text="Disabled" />
                     </preview-option-form-control>
                     <preview-option-form-control>
+                        <h-switch v-model="showDots" right-text="Shot dots" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
                         <h-select v-model="firstDayOfWeek" placeholder="Select weekday" style="width: 100%;">
                             <h-select-item :value="0" label="Monday" />
                             <h-select-item :value="1" label="Tuesday" />
@@ -56,13 +59,35 @@ export default defineComponent({
         const date = ref<DateTime>(DateTime.now().minus({days: 3}));
         const highlightToday = ref(true);
         const disabled = ref(false);
+        const showDots = ref(false);
         const firstDayOfWeek = ref(0);
+        const exampleDots =[
+            {
+                date: DateTime.now().minus({days: 2}),
+            },
+            {
+                date: DateTime.now().minus({days: 5}),
+                color: '#ff8585',
+            },
+            {
+                date: DateTime.now().minus({days: 7}),
+                color: '#6ACC6A',
+            },
+            {
+                date: DateTime.now().minus({days: 7}),
+                color: '#FFBC85',
+            },
+            {
+                date: DateTime.now().minus({days: 19}),
+            },
+        ];
 
         const previewExampleOptions = computed(() => {
             return {
                 highlightToday: highlightToday.value,
                 firstDayOfWeek: firstDayOfWeek.value,
                 disabled: disabled.value,
+                dots: showDots.value ? exampleDots : null,
             };
         });
 
@@ -74,6 +99,7 @@ export default defineComponent({
             highlightToday,
             firstDayOfWeek,
             disabled,
+            showDots,
         };
     },
 });

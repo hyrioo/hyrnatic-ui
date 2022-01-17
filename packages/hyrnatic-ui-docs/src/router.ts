@@ -15,6 +15,7 @@ import IconButton from './pages/buttons/icon-button/IconButton.vue';
 import InlineCollapse from './pages/collapses/inline-collapse/InlineCollapse.vue';
 import Input from './pages/inputs/input/Input.vue';
 import List from './pages/lists/list/List.vue';
+import Notification from './pages/notifications/notification/Notification.vue';
 import Paginator from './pages/paginators/paginator/Paginator.vue';
 import ProgressBar from './pages/ProgressBar.vue';
 import RadioButton from './pages/RadioButton.vue';
@@ -51,6 +52,7 @@ const router = createRouter({
         componentPage('inline-collapse', InlineCollapse),
         componentPage('input', Input),
         componentPage('list', List),
+        componentPage('notification', Notification),
         componentPage('paginator', Paginator),
         componentPage('progress-bar', ProgressBar),
         componentPage('radio-button', RadioButton),

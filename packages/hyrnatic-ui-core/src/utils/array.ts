@@ -8,15 +8,15 @@ export default {
         return array.filter((i) => i !== item);
     },
 
-    next(array: any[], startIndex: number, filter = undefined): any {
+    next(array: any[], startIndex: number, filter: ((item: any) => boolean) | null = null): any {
         const startIndex2 = startIndex === null ? 0 : startIndex + 1;
         for (let i = startIndex2; i < array.length; i++) {
-            if (filter === undefined || filter(array[i])) {
+            if (filter === null || filter(array[i])) {
                 return array[i];
             }
         }
         for (let i = 0; i < startIndex2; i++) {
-            if (filter === undefined || filter(array[i])) {
+            if (filter === null || filter(array[i])) {
                 return array[i];
             }
         }
@@ -24,15 +24,15 @@ export default {
         return null;
     },
 
-    prev(array: any[], startIndex: number, filter = undefined): any {
+    prev(array: any[], startIndex: number, filter: ((item: any) => boolean) | null = null): any {
         const startIndex2 = startIndex === null ? array.length - 1 : startIndex - 1;
         for (let i = startIndex2; i >= 0; i--) {
-            if (filter === undefined || filter(array[i])) {
+            if (filter === null || filter(array[i])) {
                 return array[i];
             }
         }
         for (let i = array.length - 1; i > startIndex2; i--) {
-            if (filter === undefined || filter(array[i])) {
+            if (filter === null || filter(array[i])) {
                 return array[i];
             }
         }

@@ -49,7 +49,7 @@ $crc: '.h-table';
 		}
 	}
 
-	&.-hoverable tr:hover td {
+	&.-hoverable tr:hover:not(.-no-hover) td {
 		background-color: rgba($c-primary-border, $o-32);
 	}
 

@@ -1,0 +1,32 @@
+$crc: '.h-notification-wrapper';
+
+#{$crc}{
+	position: fixed;
+
+	&[data-placement*='top'] {
+		top: $g-24;
+	}
+	&[data-placement*='right'] {
+		right: $g-24;
+	}
+}
+
+#{$crc}__transition-group {
+    position: relative;
+}
+
+#{$crc}__notification{
+	transition: all $t-medium-standard;
+	display: block;
+	margin-bottom: $g-16;
+}
+
+.notification-slide-in-enter-from,
+.notification-slide-in-leave-to {
+	opacity: 0;
+	transform: translateX($g-16);
+}
+
+.notification-slide-in-leave-active {
+	position: absolute;
+}

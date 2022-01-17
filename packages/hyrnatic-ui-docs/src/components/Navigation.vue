@@ -88,6 +88,12 @@ export default defineComponent({
                 ]
             },
             {
+                name: 'Notifications',
+                pages: [
+                    { route: 'notification', text: 'Notification' },
+                ]
+            },
+            {
                 name: 'Paginators',
                 pages: [
                     { route: 'paginator', text: 'Paginator' },

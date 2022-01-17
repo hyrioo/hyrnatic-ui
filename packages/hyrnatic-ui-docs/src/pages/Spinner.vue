@@ -11,7 +11,7 @@
             <component-preview>
                 <template #preview>
                     <div style="display: flex; flex-direction: column; align-items: center">
-                        <h-spinner :color="color" />
+                        <h-spinner :color="color" :thickness="thickness" />
                     </div>
                 </template>
                 <template #options>
@@ -23,6 +23,14 @@
                             <h-select-item value="warning" label="Warning" />
                             <h-select-item value="danger" label="Danger" />
                             <h-select-item value="current" label="Current" />
+                        </h-select>
+                        <h-select v-model="thickness" placeholder="Select thickness" style="margin-right: 12px; width: 100%;">
+                            <h-select-item value="1px" label="1px" />
+                            <h-select-item value="2px" label="2px" />
+                            <h-select-item value="3px" label="3px" />
+                            <h-select-item value="4px" label="4px" />
+                            <h-select-item value="5px" label="5px" />
+                            <h-select-item value="6px" label="6px" />
                         </h-select>
                     </preview-option-form-control>
                 </template>
@@ -50,10 +58,12 @@ export default defineComponent({
     components: { PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
     setup(props, ctx: SetupContext) {
         const color = ref('primary');
+        const thickness = ref('4px');
 
         return {
             Spinner,
             color,
+            thickness,
         };
     },
 });

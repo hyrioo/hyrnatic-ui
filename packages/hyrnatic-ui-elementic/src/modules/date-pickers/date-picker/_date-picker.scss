@@ -76,13 +76,20 @@ $crc: '.h-date-picker';
 	}
 }
 
+#{$crc}__calendar-dates {
+    &.-has-dots #{$crc}__calendar-date{
+		height: $v-control-height-small + 8px;
+	}
+}
+
 #{$crc}__calendar-date {
 	width: 14.28571428571429%;
 	height: $v-control-height-small;
+	line-height: $v-control-height-small;
 	font-size: $fs-default;
 	display: inline-flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	transition: $t-fast-standard;
 	border-radius: $v-box-border-radius;
 	border-width: $v-box-border-width;
@@ -98,6 +105,10 @@ $crc: '.h-date-picker';
 
 	&.-outside-month {
 		color: rgba($c-default-text, $o-48);
+
+		#{$crc}__dot {
+			opacity: $o-48;
+		}
 	}
 
 	&.-today {
@@ -108,6 +119,25 @@ $crc: '.h-date-picker';
 		background: rgba($c-primary, $o-32);
 	}
 }
+
+#{$crc}__dots-container {
+    display: flex;
+	gap: $g-4;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: -2px;
+	overflow: hidden;
+}
+
+#{$crc}__dot {
+	background: $c-primary;
+    width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+
 
 #{$crc}__calendar-month-label {
 	margin-left: $g-8;

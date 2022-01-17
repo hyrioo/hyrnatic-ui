@@ -1,6 +1,6 @@
 <template>
     <page title="Table">
-        <h-input v-model="data[0].name" />
+        <!--<h-input v-model="data[0].name" />-->
         <h-button label="Add" style="margin-right: 16px" @click="add" />
         <h-button label="Replace" style="margin-right: 16px" @click="replace" />
         <h-checkbox v-model="selectableBoolean" />
@@ -10,6 +10,9 @@
             <h-table-column property="name" label="Name" sortable />
             <h-table-column property="email" label="E-mail" sortable />
             <h-table-column property="address" label="Address" />
+            <template #no-items>
+                Test
+            </template>
         </h-table>
     </page>
 </template>
@@ -19,8 +22,8 @@ import {
     computed, defineComponent, ref, SetupContext,
 } from 'vue';
 import { CoreTableSortDefinition } from '@hyrioo/hyrnatic-ui-elementic';
+import { ArrayHelper as Arr } from '@hyrioo/hyrnatic-ui-core';
 import Page from '../components/Page.vue';
-import Arr from '../utils/array';
 
 export default defineComponent({
     components: { Page },
@@ -64,6 +67,7 @@ export default defineComponent({
                 address: '219 Ivan Court',
             },
         ]);
+        data.value = [];
         const sort = ref<CoreTableSortDefinition>({
             key: null,
             direction: 'asc',

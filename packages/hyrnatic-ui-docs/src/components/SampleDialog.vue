@@ -1,5 +1,5 @@
 <template>
-    <h-dialog title="Some dialog title" :color="color" :show-close-button="showCloseButton">
+    <h-dialog title="Some dialog title" :z-index="2" :color="color" :show-close-button="showCloseButton">
         Dynamic counter: {{ counter }} <br /> <br />
         Nested status: {{ nested }} <br /> <br />
 

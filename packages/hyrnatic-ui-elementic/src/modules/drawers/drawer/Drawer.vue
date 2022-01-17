@@ -1,6 +1,6 @@
 <template>
     <hr-dialog v-slot="props" v-bind="core.props" v-on="core.listeners">
-        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.visibleStackCount}`]">
+        <div :class="[css_root, `-color-${color}`, `-index-${props.stackIndex}`, `-count-${props.stackCount}`, `-active-count-${props.visibleStackCount}`]" :style="{zIndex: zIndex}">
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
@@ -45,6 +45,9 @@ export default defineComponent({
     name: 'h-drawer',
     props: {
         ...coreDialogVisibleProp,
+        zIndex: {
+            type: Number
+        },
         title: {
             type: String,
             default: 'test',
