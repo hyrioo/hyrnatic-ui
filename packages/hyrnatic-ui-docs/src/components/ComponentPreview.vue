@@ -62,7 +62,7 @@ export default defineComponent({
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-grow: 3;
+        flex-grow: 5;
         flex-basis: 1px;
     }
     .main {
@@ -72,7 +72,7 @@ export default defineComponent({
         padding: 16px;
         border-left: 1px solid rgba(#319C9C, .32);
         background: rgba(#319C9C, .08);
-        flex-grow: 1;
+        flex-grow: 2;
         flex-basis: 1px;
 
         h3 {

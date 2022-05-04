@@ -1,7 +1,7 @@
 <template>
     <hr-input ref="coreInput" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners">
         <slot name="customPrefix" />
-        <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]">
+        <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]" :style="{width: prefixWidth}">
             <slot name="prefix">
                 {{ prefix }}
             </slot>
@@ -13,7 +13,7 @@
                @input="props.modelValue = $event.target.value" @focus="onFocus" @blur="onBlur"
         />
         <h-icon v-if="suffixIcon" :class="[css_ec('suffix-icon')]" :icon="suffixIcon" size="16px" />
-        <div v-if="$slots.suffix || suffix" :class="[css_ec('suffix')]">
+        <div v-if="$slots.suffix || suffix" :class="[css_ec('suffix')]" :style="{width: suffixWidth}">
             <slot name="suffix">
                 {{ suffix }}
             </slot>
@@ -67,7 +67,15 @@ export default defineComponent({
             type: String,
             default: null,
         },
+        prefixWidth: {
+            type: String,
+            default: null,
+        },
         suffix: {
+            type: String,
+            default: null,
+        },
+        suffixWidth: {
             type: String,
             default: null,
         },

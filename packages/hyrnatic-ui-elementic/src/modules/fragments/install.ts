@@ -2,7 +2,7 @@ import Fragment from './fragment/Fragment.vue';
 import FragmentContainer from './fragment-container/FragmentContainer.vue';
 import { CoreFragmentsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
-let installed = false;
+const moduleId = 'elementic-fragments';
 const components = {
     Fragment,
     FragmentContainer,
@@ -12,13 +12,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

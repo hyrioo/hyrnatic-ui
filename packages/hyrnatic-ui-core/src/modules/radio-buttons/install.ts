@@ -1,18 +1,17 @@
 import RadioButton from './radio-button/RadioButton';
-import { installComponents } from '../../utils/package';
+import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-let installed = false;
+const moduleId = 'core-radio-buttons';
 const components = {
     RadioButton,
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

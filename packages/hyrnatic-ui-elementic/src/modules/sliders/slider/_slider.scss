@@ -1,0 +1,81 @@
+$crc: '.h-slider';
+
+#{$crc}{
+	height: $v-control-height;
+	display: flex;
+	position: relative;
+	--handle-scale: 0.8;
+	--animate: #{$s-fast};
+
+	&:hover {
+		--handle-scale: 1.0;
+	}
+
+	&.-dragging {
+		--animate: 0;
+		--handle-scale: 1.0;
+
+		#{$crc}__handle {
+			border-color: $c-active--primary-border;
+		}
+		#{$crc}__filler {
+			background: $c-active--primary-border;
+		}
+	}
+
+	&.-disabled {
+		--handle-scale: 0.8;
+
+		#{$crc}__handle {
+		    cursor: not-allowed;
+			border-color: $c-primary-border;
+		}
+		#{$crc}__back {
+			background: $c-disabled--primary-background;
+		}
+		#{$crc}__filler {
+			background: $c-primary-border;
+		}
+
+
+	}
+}
+
+#{$crc}__back{
+	background: $c-primary-border;
+	position: relative;
+	height: 6px;
+	border-radius: (6px / 2);
+	overflow: hidden;
+	margin: (($v-control-height - 6px) / 2) 0;
+	flex-grow: 1;
+	display: inline-block;
+}
+
+#{$crc}__filler{
+	background: $c-primary-text;
+	border-radius: (6px / 2);
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	transition: width var(--animate) $e-deceleration, background $t-fast-standard;
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+#{$crc}__handle{
+	height: $v-control-height-tiny;
+	width: $v-control-height-tiny;
+	background: $c-fill;
+	border-width: $v-control-border-width;
+	border-style: solid;
+	border-color: $c-primary-text;
+	border-radius: 50%;
+	margin: (($v-control-height - $v-control-height-tiny) / 2) #{-($v-control-height-tiny / 2)};
+	box-sizing: border-box;
+	position: absolute;
+	overflow: hidden;
+	transition: transform $t-fast-deceleration, border-color $t-fast-standard, left var(--animate) $e-deceleration;
+	transform: scale(var(--handle-scale));
+}

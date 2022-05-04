@@ -11,7 +11,7 @@ export type NotificationOptions = {
 
 export const DefaultNotificationOptions: NotificationOptions = {
     wrapper: 'default',
-    duration: 1500,
+    duration: 4500,
     resetDurationOnInteractivity: true,
 }
 

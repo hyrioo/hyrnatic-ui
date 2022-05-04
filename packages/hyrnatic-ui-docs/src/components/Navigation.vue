@@ -124,6 +124,12 @@ export default defineComponent({
                 ]
             },
             {
+                name: 'Sliders',
+                pages: [
+                    { route: 'slider', text: 'Slider' },
+                ]
+            },
+            {
                 name: 'Spinners',
                 pages: [
                     { route: 'spinner', text: 'Spinner' },

@@ -4,7 +4,7 @@ import DropdownItemDivider from './dropdown-item-divider/DropdownItemDivider.vue
 import DropdownItemHeader from './dropdown-item-header/DropdownItemHeader.vue';
 import { CoreDropdownsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
-let installed = false;
+const moduleId = 'elementic-dropdowns';
 const components = {
     Dropdown,
     DropdownItem,
@@ -16,13 +16,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

@@ -4,3 +4,6 @@ export const previewExample = (options: { size: string, styling: string, color: 
     const code = `<h-icon-button icon="key" size="${options.size}" styling="${options.styling}" color="${options.color}" ${options.rounded?'rounded':''} ${options.disabled?'disabled':''} ${options.loading?'loading':''} />`;
     return Str.trimMultiSpaces(code);
 }
+
+export const iconOptionsExample =
+`<h-icon-button icon="key" :icon-options="{fills: '#8958ef', size: '24px'}" />`;

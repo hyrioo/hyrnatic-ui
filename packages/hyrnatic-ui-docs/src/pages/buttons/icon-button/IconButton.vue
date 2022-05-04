@@ -52,6 +52,19 @@
             </component-preview>
         </section>
 
+        <section>
+            <h2>Icon options example</h2>
+            <p>
+                You can customize the content completely by using the default slot.
+            </p>
+            <component-preview :code="iconOptionsExample">
+                <template #preview>
+                    <vue-runtime-template :template="iconOptionsExample" />
+                </template>
+            </component-preview>
+        </section>
+
+
         <section v-if="IconButton.props.length">
             <h2>Props</h2>
             <component-props-table :component="IconButton" />
@@ -79,7 +92,7 @@ import ComponentSlotsTable from '../../../components/ComponentSlotsTable.vue';
 import ComponentEventsTable from '../../../components/ComponentEventsTable.vue';
 import PreviewOptionFormControl from '../../../components/PreviewOptionFormControl.vue';
 import IconButton from '../../../../../hyrnatic-ui-elementic/src/modules/buttons/icon-button/icon-button-docs';
-import { previewExample } from './snippets';
+import { previewExample, iconOptionsExample } from './snippets';
 
 export default defineComponent({
     components: { CodeExample, PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },
@@ -99,6 +112,7 @@ export default defineComponent({
             IconButton,
             previewExample,
             previewExampleOptions,
+            iconOptionsExample,
             loading,
             rounded,
             disabled,

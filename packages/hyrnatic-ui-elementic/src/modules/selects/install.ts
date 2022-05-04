@@ -6,7 +6,7 @@ import { CoreSelectsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import PoppersInstall from '../poppers/install';
 import ScrollContainersInstall from '../scroll-containers/install';
 
-let installed = false;
+const moduleId = 'elementic-selects';
 const components = {
     Select,
     SelectItem,
@@ -20,13 +20,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

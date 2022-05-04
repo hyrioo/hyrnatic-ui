@@ -17,6 +17,7 @@ import ProgressBarsInstall from './modules/progress-bars/install';
 import RadioButtonsInstall from './modules/radio-buttons/install';
 import ScrollContainersInstall from './modules/scroll-containers/install';
 import SelectsInstall from './modules/selects/install';
+import SlidersInstall from './modules/sliders/install';
 import SpinnersInstall from './modules/spinners/install';
 import StepsInstall from './modules/steps/install';
 import SwitchesInstall from './modules/switches/install';
@@ -47,6 +48,7 @@ const modules = {
     RadioButtonsInstall,
     ScrollContainersInstall,
     SelectsInstall,
+    SlidersInstall,
     SpinnersInstall,
     StepsInstall,
     SwitchesInstall,

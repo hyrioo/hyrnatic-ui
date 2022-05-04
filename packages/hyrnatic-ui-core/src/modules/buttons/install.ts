@@ -12,6 +12,6 @@ export default {
             return;
         }
         installComponents(app, components);
-        markModuleAsInstalled(app, moduleId)
+        markModuleAsInstalled(app, moduleId);
     },
 };

@@ -1,7 +1,7 @@
 import ProgressBar from './progress-bar/ProgressBar.vue';
 import { CoreProgressBarsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
-let installed = false;
+const moduleId = 'elementic-progress-bars';
 const components = {
     ProgressBar,
 };
@@ -10,13 +10,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

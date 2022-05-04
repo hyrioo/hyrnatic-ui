@@ -1,9 +1,9 @@
 import Table from './table/Table';
 import TableColumn from './table/TableColumn';
 import TableRow from './table/TableRow';
-import { installComponents } from '../../utils/package';
+import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-let installed = false;
+const moduleId = 'core-tables';
 const components = {
     Table,
     TableColumn,
@@ -11,12 +11,11 @@ const components = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

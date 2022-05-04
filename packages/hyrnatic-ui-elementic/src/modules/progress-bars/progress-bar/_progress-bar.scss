@@ -23,7 +23,7 @@ $crc: '.h-progress-bar';
 		}
 	}
 
-	&.-styling-error {
+	&.-styling-danger {
 		#{$crc}__back{
 			background: $c-danger-border;
 		}

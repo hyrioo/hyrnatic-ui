@@ -1,20 +1,19 @@
 import Dialog from './dialog/Dialog';
 import DialogWrapper from './dialog/DialogWrapper';
-import { installComponents } from '../../utils/package';
+import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-let installed = false;
+const moduleId = 'core-dialogs';
 const components = {
     Dialog,
     DialogWrapper,
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

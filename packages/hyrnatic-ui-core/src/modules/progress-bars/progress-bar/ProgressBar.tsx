@@ -45,7 +45,7 @@ export default defineComponent({
     },
     setup(props, ctx: SetupContext) {
         const percentage = computed(() => {
-            const p = (100 / (props.maximum - props.minimum)) * props.value;
+            const p = ((props.value - props.minimum) * 100) / (props.maximum - props.minimum);
             return Math.round(p);
         });
 

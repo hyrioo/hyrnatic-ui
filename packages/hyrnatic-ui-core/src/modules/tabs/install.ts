@@ -1,20 +1,19 @@
 import TabItem from './tab/TabItem';
 import TabsNavigator from './tab/TabsNavigator';
-import { installComponents } from '../../utils/package';
+import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-let installed = false;
+const moduleId = 'core-tabs';
 const components = {
     TabItem,
     TabsNavigator,
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

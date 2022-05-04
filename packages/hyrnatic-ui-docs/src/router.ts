@@ -17,8 +17,9 @@ import Input from './pages/inputs/input/Input.vue';
 import List from './pages/lists/list/List.vue';
 import Notification from './pages/notifications/notification/Notification.vue';
 import Paginator from './pages/paginators/paginator/Paginator.vue';
-import ProgressBar from './pages/ProgressBar.vue';
+import ProgressBar from './pages/progress-bars/progress-bar/ProgressBar.vue';
 import RadioButton from './pages/RadioButton.vue';
+import Slider from './pages/sliders/slider/Slider.vue';
 import ScrollContainer from './pages/ScrollContainer.vue';
 import Select from './pages/Select.vue';
 import Spinner from './pages/Spinner.vue';
@@ -56,6 +57,7 @@ const router = createRouter({
         componentPage('paginator', Paginator),
         componentPage('progress-bar', ProgressBar),
         componentPage('radio-button', RadioButton),
+        componentPage('slider', Slider),
         componentPage('scroll-container', ScrollContainer),
         componentPage('select', Select),
         componentPage('spinner', Spinner),

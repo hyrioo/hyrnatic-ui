@@ -13,8 +13,8 @@ import PaginatorsInstall from './modules/paginators/install';
 import ProgressBarsInstall from './modules/progress-bars/install';
 import RadioButtonsInstall from './modules/radio-buttons/install';
 import ScrollContainersInstall from './modules/scroll-containers/install';
-
 import SelectsInstall from './modules/selects/install';
+import SlidersInstall from './modules/sliders/install';
 import StepsInstall from './modules/steps/install';
 import TablesInstall from './modules/tables/install';
 import TabsInstall from './modules/tabs/install';
@@ -35,6 +35,7 @@ const modules = {
     RadioButtonsInstall,
     ScrollContainersInstall,
     SelectsInstall,
+    SlidersInstall,
     StepsInstall,
     TablesInstall,
     TabsInstall,
@@ -330,7 +331,7 @@ export type {
 
 
 /**
- * Select
+ * Selects
  */
 export { default as CoreSelectsInstall } from './modules/selects/install';
 export {
@@ -356,6 +357,24 @@ export type {
     CoreSelectItemReturn,
     CoreSelectItemInstance,
 } from './modules/selects/select/SelectItem';
+
+
+/**
+ * Sliders
+ */
+export { default as CoreSlidersInstall } from './modules/sliders/install';
+export {
+    coreSliderSetup,
+    coreSliderModelValueProp,
+    coreSliderDisabledProp,
+    coreSliderMinimumProp,
+    coreSliderMaximumProp,
+    coreSliderStepSizeProp,
+} from './modules/sliders/slider/Slider';
+export type {
+    CoreSliderSlotProps,
+} from './modules/sliders/slider/Slider';
+
 
 
 /**

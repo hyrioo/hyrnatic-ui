@@ -1,9 +1,9 @@
 import Collapse from './collapse/Collapse';
 import CollapseItem from './collapse/CollapseItem';
 import InlineCollapse from './inline-collapse/InlineCollapse';
-import { installComponents } from '../../utils/package';
+import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-let installed = false;
+const moduleId = 'core-collapses';
 const components = {
     Collapse,
     CollapseItem,
@@ -11,12 +11,11 @@ const components = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

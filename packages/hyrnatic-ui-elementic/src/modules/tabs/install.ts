@@ -2,7 +2,7 @@ import TabItem from './tab-item/TabItem.vue';
 import TabsNavigator from './tabs-navigator/TabsNavigator.vue';
 import { CoreTabsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
-let installed = false;
+const moduleId = 'elementic-tabs';
 const components = {
     TabItem,
     TabsNavigator,
@@ -12,13 +12,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

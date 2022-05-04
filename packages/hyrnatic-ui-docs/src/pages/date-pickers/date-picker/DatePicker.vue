@@ -4,7 +4,7 @@
             <h2>Preview</h2>
             <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
-                    <h-date-picker v-model="date" v-bind="previewExampleOptions" />
+                    <h-date-picker v-model="date" v-bind="previewExampleOptions" @view-changed="viewChanged" />
                 </template>
                 <template #options>
                     <preview-option-form-control>
@@ -14,7 +14,7 @@
                         <h-switch v-model="disabled" right-text="Disabled" />
                     </preview-option-form-control>
                     <preview-option-form-control>
-                        <h-switch v-model="showDots" right-text="Shot dots" />
+                        <h-switch v-model="showDots" right-text="Show dots" />
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-select v-model="firstDayOfWeek" placeholder="Select weekday" style="width: 100%;">
@@ -75,7 +75,7 @@ export default defineComponent({
             },
             {
                 date: DateTime.now().minus({days: 7}),
-                color: '#FFBC85',
+                color: '#8595ff',
             },
             {
                 date: DateTime.now().minus({days: 19}),
@@ -91,6 +91,10 @@ export default defineComponent({
             };
         });
 
+        const viewChanged = (obj) => {
+            console.log('view-changed', obj);
+        };
+
         return {
             DatePicker,
             previewExample,
@@ -100,6 +104,7 @@ export default defineComponent({
             firstDayOfWeek,
             disabled,
             showDots,
+            viewChanged,
         };
     },
 });

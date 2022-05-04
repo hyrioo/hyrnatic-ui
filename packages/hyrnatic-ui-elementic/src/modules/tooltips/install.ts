@@ -4,7 +4,7 @@ import PopperInstall from '../poppers/install';
 import iconRegistry from '../../utils/icon-registry';
 import tooltipArrow from './custom-icons/tooltip-arrow';
 
-let installed = false;
+const moduleId = 'elementic-tooltips';
 const components = {
     Tooltip,
 };
@@ -14,14 +14,13 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
         ModuleHelper.installComponents(app, components);
         iconRegistry.register('tooltip-arrow', tooltipArrow);
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

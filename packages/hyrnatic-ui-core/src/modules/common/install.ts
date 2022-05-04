@@ -1,9 +1,9 @@
-import { installDirectives } from '../../utils/package';
+import { installDirectives, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 import ClickOutside from './directives/click-outside';
 import DocumentEvent from './directives/document-event';
 import Resize from './directives/resize';
 
-let installed = false;
+const moduleId = 'core-common';
 const directives = {
     ClickOutside,
     DocumentEvent,
@@ -11,13 +11,12 @@ const directives = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         // installComponents(app, components);
         installDirectives(app, directives);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

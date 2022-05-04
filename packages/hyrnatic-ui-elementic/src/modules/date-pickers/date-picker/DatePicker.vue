@@ -90,7 +90,7 @@ export default defineComponent({
             default: null,
         }
     },
-    emits: ['update:modelValue', 'focus', 'blur'],
+    emits: ['update:modelValue', 'focus', 'blur', 'view-changed'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
         const input = ref();
@@ -199,6 +199,9 @@ export default defineComponent({
             if(props.disabled) {
                 popperVisible.value = false;
             }
+        });
+        watch(daysToShow, (value) => {
+            ctx.emit('view-changed', {from: value[0].date, to: value[value.length-1].date});
         });
 
         const asProps = (slotProps: CoreDatePickerSlotProps) => ({

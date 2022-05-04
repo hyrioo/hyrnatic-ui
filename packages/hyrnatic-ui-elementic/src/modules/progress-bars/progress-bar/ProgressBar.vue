@@ -81,7 +81,7 @@ export default defineComponent({
             }
         });
         const overflowOffset = computed(() => {
-            const offset = (100 / props.value) * (props.maximum - props.minimum);
+            const offset = (100 / (props.value - props.minimum)) * (props.maximum - props.minimum);
             return Math.round(offset * 10) / 10;
         });
 

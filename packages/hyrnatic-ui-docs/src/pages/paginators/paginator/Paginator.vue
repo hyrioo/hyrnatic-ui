@@ -30,7 +30,7 @@
                         </h-select>
                     </preview-option-form-control>
                     <preview-option-form-control>
-                        <h-input v-model.number="count" placeholder="Total count" />
+                        <h-input v-model.number="count" prefix="Total count" />
                     </preview-option-form-control>
                 </template>
             </component-preview>

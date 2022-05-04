@@ -1,20 +1,19 @@
 import DropdownItem from './dropdown/DropdownItem';
 import Dropdown from './dropdown/Dropdown';
-import { installComponents } from '../../utils/package';
+import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-let installed = false;
+const moduleId = 'core-dropdowns';
 const components = {
     Dropdown,
     DropdownItem,
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

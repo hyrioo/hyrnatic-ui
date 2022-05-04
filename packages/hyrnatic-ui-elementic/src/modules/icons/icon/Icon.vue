@@ -37,7 +37,6 @@ export default defineComponent({
             type: Boolean,
         },
     },
-    emits: ['click'],
     setup(props, ctx: SetupContext) {
         const noneWhenNull = (value) => (value === null ? 'none' : value);
         const removeColorsFromTag = (tag) => {

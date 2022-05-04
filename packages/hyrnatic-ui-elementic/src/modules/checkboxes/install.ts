@@ -3,7 +3,7 @@ import { CoreCheckboxInstall, ModuleHelper, StringHelper } from '@hyrioo/hyrnati
 import checkStroke from './custom-icons/check-stroke';
 import IconRegistry from '../../utils/icon-registry';
 
-let installed = false;
+const moduleId = 'elementic-checkboxes';
 const components = {
     Checkbox,
 };
@@ -16,9 +16,8 @@ export const CheckboxIcons = {
 }
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
         ModuleHelper.installDependencies(app, options, dependencies);
@@ -28,6 +27,6 @@ export default {
             IconRegistry.register(newKey, CheckboxIcons[key]);
             CheckboxIcons[key] = newKey;
         });
-        installed = true;
+        ModuleHelper.markModuleAsInstalled(app, moduleId);
     },
 };

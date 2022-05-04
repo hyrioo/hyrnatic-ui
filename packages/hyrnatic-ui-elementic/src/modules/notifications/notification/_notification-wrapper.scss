@@ -9,6 +9,12 @@ $crc: '.h-notification-wrapper';
 	&[data-placement*='right'] {
 		right: $g-24;
 	}
+	&[data-placement*='bottom'] {
+		bottom: $g-24;
+	}
+	&[data-placement*='left'] {
+		left: $g-24;
+	}
 }
 
 #{$crc}__transition-group {

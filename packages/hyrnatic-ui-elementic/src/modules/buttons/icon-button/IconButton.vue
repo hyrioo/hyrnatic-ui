@@ -1,7 +1,7 @@
 <template>
     <hr-button v-show="visible" v-bind="core.props" v-on="core.listeners">
         <span :class="[css_ec('content')]">
-            <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16px" />
+            <h-icon :class="[css_ec('icon')]" :icon="icon" size="16px" v-bind="iconOptions" />
             <div :class="[css_ec('loading-container')]">
                 <div :class="[css_ec('loading-spinner')]" />
             </div>
@@ -29,7 +29,10 @@ export default defineComponent({
         ...coreButtonVisibleProp,
         icon: {
             type: String,
-            required: true,
+            required: true
+        },
+        iconOptions: {
+            type: Object,
         },
         rounded: {
             type: Boolean,

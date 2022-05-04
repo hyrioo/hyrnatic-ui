@@ -1,8 +1,14 @@
 import ScrollContainer from './scroll-container/ScrollContainer';
-import { installComponents, installDependencies, Module } from '../../utils/package';
+import {
+    installComponents,
+    installDependencies,
+    isModuleInstalled,
+    markModuleAsInstalled,
+    Module
+} from '../../utils/package';
 import CommonInstall from '../common/install';
 
-let installed = false;
+const moduleId = 'core-scroll-containers';
 const components = {
     ScrollContainer,
 };
@@ -11,13 +17,12 @@ const dependencies = {
 };
 
 export default {
-    installed,
     install: (app, options) => {
-        if (installed) {
+        if (isModuleInstalled(app, moduleId)) {
             return;
         }
         installDependencies(app, options, dependencies);
         installComponents(app, components);
-        installed = true;
+        markModuleAsInstalled(app, moduleId);
     },
 };

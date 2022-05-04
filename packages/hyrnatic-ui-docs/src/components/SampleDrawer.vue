@@ -1,5 +1,5 @@
 <template>
-    <h-drawer title="Some dialog title" :z-index="2" :placement="placement">
+    <h-drawer title="Some dialog title" :placement="placement">
         Counter: {{ counter }}
         <br /><br />
         <h-button label="Emit 'incrementCounter'" @click="something" />
