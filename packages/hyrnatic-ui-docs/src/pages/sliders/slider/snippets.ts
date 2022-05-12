@@ -1,5 +1,5 @@
-export const previewExample = (options: {minimum: number, maximum: number}) => {
+export const previewExample = (options: {minimum: number, maximum: number, disabled: boolean, showSteps: boolean}) => {
     const code =
-`<h-slider v-model="value" :minimum="${options.minimum}" :maximum="${options.maximum}" />`;
+`<h-slider v-model="value" :minimum="${options.minimum}" :maximum="${options.maximum}"${options.disabled?' disabled':''}${options.showSteps?' show-steps':''} />`;
     return code;
 }

@@ -11,10 +11,16 @@
             <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
                     <div style="width: 100%; max-width: 256px">
-                        <h-slider v-model="value" :step-size="1" />
+                        <h-slider v-model="value" :step-size="25" :show-steps="showSteps" :disabled="disabled" />
                     </div>
                 </template>
                 <template #options>
+                    <preview-option-form-control>
+                        <h-switch v-model="disabled" right-text="Disabled" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-switch v-model="showSteps" right-text="Show steps" />
+                    </preview-option-form-control>
                 </template>
             </component-preview>
         </section>
@@ -48,12 +54,16 @@ export default defineComponent({
         const minimum = ref(0);
         const maximum = ref(100);
         const value = ref(75);
+        const disabled = ref(false);
+        const showSteps = ref(false);
 
         const previewExampleOptions = computed(() => {
             return {
                 value: value.value,
                 minimum: minimum.value,
                 maximum: maximum.value,
+                disabled: disabled.value,
+                showSteps: showSteps.value,
             };
         });
 
@@ -65,6 +75,8 @@ export default defineComponent({
             minimum,
             maximum,
             value,
+            disabled,
+            showSteps,
         };
     },
 });

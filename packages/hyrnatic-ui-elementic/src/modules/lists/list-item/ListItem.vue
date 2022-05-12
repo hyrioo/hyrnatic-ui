@@ -1,18 +1,20 @@
 <template>
-    <span :class="[css_root]">
-        <slot>
-            <div :class="[css_ec('text')]">
-                {{ text }}
-            </div>
-            <div v-if="subText" :class="[css_ec('sub-text')]">
-                {{ subText }}
-            </div>
-        </slot>
-    </span>
+    <li :class="[css_root, `-list-style-${listStyle}`]">
+        <div :class="[css_ec('content')]">
+            <slot>
+                <div :class="[css_ec('text')]">
+                    {{ text }}
+                </div>
+                <div v-if="subText" :class="[css_ec('sub-text')]">
+                    {{ subText }}
+                </div>
+            </slot>
+        </div>
+    </li>
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from 'vue';
+import { defineComponent, inject, SetupContext } from 'vue';
 import componentCss from '../../../utils/component-css';
 
 export default defineComponent({
@@ -26,8 +28,11 @@ export default defineComponent({
         },
     },
     setup(props, ctx: SetupContext) {
+        const listStyle = inject('list-style');
+
         return {
             ...componentCss(),
+            listStyle,
         };
     },
 });

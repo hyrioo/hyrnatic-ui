@@ -3,10 +3,35 @@ $crc: '.h-list-item';
 #{$crc} {
 	padding: $g-4 0;
 	line-height: $v-control-height - $g-8;
-	border-bottom: 1px solid $c-primary-border;
 	width: 100%;
 
 	&:last-child{
 		border-bottom: none;
 	}
+
+	&.-list-style-line{
+		border-bottom: 1px solid $c-primary-border;
+	}
+
+	&.-list-style-dot{
+		#{$crc}__content {
+			padding-left: $g-16;
+
+			&:before {
+				content: '';
+				display: block;
+				@include size(8px);
+				border-radius: 50%;
+				background: $c-primary;
+				position: absolute;
+				top: 50%;
+				margin-top: -4px;
+				left: 0;
+			}
+		}
+	}
+}
+
+#{$crc}__content {
+	position: relative;
 }

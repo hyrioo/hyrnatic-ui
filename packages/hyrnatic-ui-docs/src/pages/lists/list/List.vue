@@ -8,9 +8,9 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="previewExample({showSubText, animate})" :center-preview-vertically="false">
+            <component-preview :code="previewExample(previewExampleOptions)" :center-preview-vertically="false">
                 <template #preview>
-                    <h-list :animate="animate" style="min-height: 250px; width: 50%">
+                    <h-list :animate="animate" :list-style="listStyle" style="min-height: 250px; width: 50%">
                         <h-list-item v-for="item in list" :key="item.key" :text="item.text" v-bind="{'sub-text': showSubText ? item.subText : null}" />
                     </h-list>
                 </template>
@@ -20,6 +20,12 @@
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-switch v-model="showSubText" right-text="Show sub text" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-select v-model="listStyle">
+                            <h-select-item value="line" label="Line" />
+                            <h-select-item value="dot" label="Dot" />
+                        </h-select>
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-button label="Add list item" style="width: 100%;" @click="addItem" />
@@ -74,7 +80,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from 'vue';
+import { computed, defineComponent, ref, SetupContext } from 'vue';
 import Page from '../../../components/Page.vue';
 import { previewExample } from './snippets';
 import List from '../../../../../hyrnatic-ui-elementic/src/modules/lists/list/list-docs';
@@ -88,6 +94,15 @@ export default defineComponent({
         const list = ref([]);
         const showSubText = ref(true);
         const animate = ref(true);
+        const listStyle = ref('dot');
+
+        const previewExampleOptions = computed(() => {
+            return {
+                showSubText: showSubText.value,
+                animate: animate.value,
+                listStyle: listStyle.value,
+            };
+        });
 
         const randomIndex = () => Math.floor(Math.random() * list.value.length);
         const addItem = () => {
@@ -111,10 +126,12 @@ export default defineComponent({
             List,
             ListItem,
             previewExample,
+            previewExampleOptions,
             selectedTab,
             list,
             showSubText,
             animate,
+            listStyle,
             addItem,
             removeItem,
         };

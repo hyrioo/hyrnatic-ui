@@ -1,6 +1,11 @@
 <template>
-    <hr-slider ref="coreSlider" :class="[css_root, {'-dragging': dragging, '-disabled': disabled}]" v-document-event:mouseup="handleMouseUp" v-document-event:mousemove="handleMouseMove" v-bind="core.props" v-on="core.listeners">
-        <div :class="[css_ec('back')]" @click="handleClick">
+    <hr-slider ref="coreSlider" :class="[css_root, {'-dragging': dragging, '-disabled': disabled}]"
+               v-document-event:mouseup="handleMouseUp" v-document-event:mousemove="handleMouseMove" v-bind="core.props"
+               v-on="core.listeners">
+        <div :class="[css_ec('bar')]" @click="handleClick">
+            <div :class="[css_ec('back')]">
+                <div v-for="i in steps" :class="[css_ec('step')]" />
+            </div>
             <div :class="[css_ec('filler')]" :style="{width: width}" />
         </div>
         <div :class="[css_ec('handle')]" :style="{left: `${width}`}" @mousedown="handleMouseDown" />
@@ -29,11 +34,22 @@ export default defineComponent({
         ...coreSliderMaximumProp,
         ...coreSliderMinimumProp,
         ...coreSliderStepSizeProp,
+        showSteps: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup(props, ctx: SetupContext) {
         const coreSlider = ref();
         const dragging = ref(false);
 
+        const steps = computed(() => {
+            if (coreSlider.value && props.showSteps) {
+                return coreSlider.value.steps;
+            } else {
+                return 1;
+            }
+        });
         const width = computed(() => {
             if (coreSlider.value) {
                 return `${Math.max(0, Math.min(100, coreSlider.value.percentage))}%`;
@@ -42,25 +58,16 @@ export default defineComponent({
             }
         });
 
-        const getValueFromPercentage = (percentage) => {
-            let value = ((props.maximum - props.minimum) / 100 * percentage) + props.minimum;
-            if(value < props.minimum){
-                value = props.minimum;
-            } else if(value > props.maximum) {
-                value = props.maximum;
-            }
-            return Math.round(value / props.stepSize ) * props.stepSize;
-        }
         const handleMouseDown = (e) => {
-            if(!props.disabled) {
+            if (!props.disabled) {
                 dragging.value = true;
                 e.preventDefault();
             }
         };
         const handleMouseMove = (e) => {
-            if(dragging.value) {
+            if (dragging.value) {
                 const percentage = ((100 / coreSlider.value.$el.clientWidth) * (e.pageX - coreSlider.value.$el.offsetLeft));
-                const value = getValueFromPercentage(percentage);
+                const value = coreSlider.value.getValueFromPercentage(percentage);
                 ctx.emit('update:modelValue', value);
                 e.preventDefault();
             }
@@ -69,9 +76,9 @@ export default defineComponent({
             dragging.value = false;
         };
         const handleClick = (e) => {
-            if(!props.disabled) {
+            if (!props.disabled) {
                 const percentage = ((100 / coreSlider.value.$el.clientWidth) * e.offsetX);
-                const value = getValueFromPercentage(percentage);
+                const value = coreSlider.value.getValueFromPercentage(percentage);
                 ctx.emit('update:modelValue', value);
                 e.preventDefault();
             }
@@ -83,6 +90,7 @@ export default defineComponent({
             core,
             coreSlider,
             width,
+            steps,
             handleMouseDown,
             handleMouseMove,
             handleMouseUp,

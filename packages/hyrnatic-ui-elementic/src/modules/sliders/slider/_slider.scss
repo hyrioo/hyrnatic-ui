@@ -4,11 +4,16 @@ $crc: '.h-slider';
 	height: $v-control-height;
 	display: flex;
 	position: relative;
-	--handle-scale: 0.8;
+	--handle-scale: 0.72;
 	--animate: #{$s-fast};
 
 	&:hover {
 		--handle-scale: 1.0;
+
+		#{$crc}__handle {
+			box-shadow: $sd-hover--primary-box-shadow;
+		}
+
 	}
 
 	&.-dragging {
@@ -17,6 +22,7 @@ $crc: '.h-slider';
 
 		#{$crc}__handle {
 			border-color: $c-active--primary-border;
+			box-shadow: $sd-active--primary-box-shadow;
 		}
 		#{$crc}__filler {
 			background: $c-active--primary-border;
@@ -29,28 +35,44 @@ $crc: '.h-slider';
 		#{$crc}__handle {
 		    cursor: not-allowed;
 			border-color: $c-primary-border;
+			background: $c-disabled--primary-background;
 		}
-		#{$crc}__back {
+		#{$crc}__step {
 			background: $c-disabled--primary-background;
 		}
 		#{$crc}__filler {
 			background: $c-primary-border;
 		}
-
-
 	}
 }
 
-#{$crc}__back{
-	background: $c-primary-border;
+#{$crc}__bar{
 	position: relative;
 	height: 6px;
-	border-radius: (6px / 2);
 	overflow: hidden;
 	margin: (($v-control-height - 6px) / 2) 0;
 	flex-grow: 1;
 	display: inline-block;
 }
+#{$crc}__back {
+    width: 100%;
+	height: 100%;
+	display: flex;
+	gap: $g-4;
+	position: absolute;
+	pointer-events: none;
+}
+
+
+#{$crc}__step {
+	background: $c-primary-border;
+	height: 100%;
+	border-radius: (6px / 2);
+	flex-grow: 1;
+	min-width: 1px;
+	transition: background $t-fast-standard;
+}
+
 
 #{$crc}__filler{
 	background: $c-primary-text;
@@ -65,17 +87,18 @@ $crc: '.h-slider';
 
 
 #{$crc}__handle{
-	height: $v-control-height-tiny;
-	width: $v-control-height-tiny;
+	$size: 20px;
+	height: $size;
+	width: $size;
 	background: $c-fill;
 	border-width: $v-control-border-width;
 	border-style: solid;
 	border-color: $c-primary-text;
 	border-radius: 50%;
-	margin: (($v-control-height - $v-control-height-tiny) / 2) #{-($v-control-height-tiny / 2)};
+	margin: (($v-control-height - $size) / 2) #{-($size / 2)};
 	box-sizing: border-box;
 	position: absolute;
 	overflow: hidden;
-	transition: transform $t-fast-deceleration, border-color $t-fast-standard, left var(--animate) $e-deceleration;
+	transition: transform $t-fast-deceleration, border-color $t-fast-standard, background $t-fast-standard, left var(--animate) $e-deceleration;
 	transform: scale(var(--handle-scale));
 }
