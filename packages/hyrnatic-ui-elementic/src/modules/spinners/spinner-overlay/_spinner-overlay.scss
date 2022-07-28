@@ -1,0 +1,58 @@
+$crc: '.h-spinner-overlay';
+
+#{$crc}{
+	position: relative;
+	width: 100%;
+	min-height: $v-control-height;
+
+	&.-has-label{
+		min-height: $v-control-height + $fs-default + $g-12;
+	}
+
+	&.-loading {
+		#{$crc}__overlay {
+			opacity: 1;
+			pointer-events: all;
+		}
+		#{$crc}__content {
+		    opacity: $o-32;
+			pointer-events: none;
+		}
+	}
+
+	/*&.-color-dark #{$crc}__label {
+	    color: $c-primary-text;
+	}
+
+	&.-color-light #{$crc}__label {
+		color: $c-light-text;
+	}*/
+}
+
+#{$crc}__content {
+    transition: opacity $t-medium-standard;
+	height: 100%;
+}
+
+#{$crc}__overlay {
+    position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: opacity $t-medium-standard;
+	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#{$crc}__label {
+	font-weight: $fw-bold;
+	font-size: $fs-default;
+	margin-top: $g-12;
+	color: $c-primary-text;
+}
+
+

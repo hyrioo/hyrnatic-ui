@@ -133,6 +133,7 @@ export default defineComponent({
                 name: 'Spinners',
                 pages: [
                     { route: 'spinner', text: 'Spinner' },
+                    { route: 'spinner-overlay', text: 'Spinner overlay' },
                 ]
             },
             {

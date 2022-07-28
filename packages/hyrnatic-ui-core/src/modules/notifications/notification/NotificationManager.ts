@@ -17,7 +17,6 @@ export const DefaultNotificationOptions: NotificationOptions = {
 
 export function show<P extends {} = {}, L extends {} = {}>(component, props: P = null, listeners: L = null, options?: NotificationOptions): { destroy: () => void; promise: Promise<any> } {
     const mergedOptions = {...DefaultNotificationOptions, ...options};
-    console.log(mergedOptions);
     const wrapper = mergedOptions.wrapper;
 
     let notification: InternalNotificationObject = null;
@@ -50,7 +49,6 @@ function getNotification(key: string): InternalNotificationObject {
 export function setupNotification() {
     const ctx = getCurrentInstance();
     const internalNotificationObject = getNotification(ctx.vnode.key as string);
-    console.log(internalNotificationObject);
     provide('notification-id', ctx.vnode.key);
     provide('notification-resolve', internalNotificationObject.resolve);
     provide('notification-reject', internalNotificationObject.reject);

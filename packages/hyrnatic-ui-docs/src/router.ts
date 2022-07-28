@@ -22,14 +22,15 @@ import RadioButton from './pages/RadioButton.vue';
 import Slider from './pages/sliders/slider/Slider.vue';
 import ScrollContainer from './pages/ScrollContainer.vue';
 import Select from './pages/Select.vue';
-import Spinner from './pages/Spinner.vue';
+import Spinner from './pages/spinners/spinner/Spinner.vue';
+import SpinnerOverlay from './pages/spinners/spinner-overlay/SpinnerOverlay.vue';
 import Step from './pages/Step.vue';
 import Switch from './pages/Switch.vue';
 import Tab from './pages/Tab.vue';
 import Table from './pages/Table.vue';
 import Tooltip from './pages/Tooltip.vue';
 
-const componentPage = (name, page) => ({
+const componentPage = (name: string, page: any) => ({
     name,
     path: `/${name}`,
     component: page,
@@ -61,6 +62,7 @@ const router = createRouter({
         componentPage('scroll-container', ScrollContainer),
         componentPage('select', Select),
         componentPage('spinner', Spinner),
+        componentPage('spinner-overlay', SpinnerOverlay),
         componentPage('step', Step),
         componentPage('switch', Switch),
         componentPage('tab', Tab),

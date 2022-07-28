@@ -198,6 +198,7 @@ export {
     coreInputModelModifiersProp,
     coreInputDisabledProp,
     coreInputReadonlyProp,
+    coreInputTypeProp,
 } from './modules/inputs/input/Input';
 export type {
     CoreInputSlotProps,

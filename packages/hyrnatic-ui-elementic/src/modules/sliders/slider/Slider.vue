@@ -66,7 +66,8 @@ export default defineComponent({
         };
         const handleMouseMove = (e) => {
             if (dragging.value) {
-                const percentage = ((100 / coreSlider.value.$el.clientWidth) * (e.pageX - coreSlider.value.$el.offsetLeft));
+                const bb = coreSlider.value.$el.getBoundingClientRect();
+                const percentage = ((100 / bb.width) * (e.pageX - bb.left));
                 const value = coreSlider.value.getValueFromPercentage(percentage);
                 ctx.emit('update:modelValue', value);
                 e.preventDefault();

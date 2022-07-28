@@ -1,9 +1,11 @@
 import Spinner from './spinner/Spinner.vue';
+import SpinnerOverlay from './spinner-overlay/SpinnerOverlay.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-spinners';
 const components = {
     Spinner,
+    SpinnerOverlay,
 };
 const dependencies = {
 };

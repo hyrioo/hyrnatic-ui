@@ -8,7 +8,7 @@
         </div>
         <h-icon v-if="prefixIcon" :class="[css_ec('prefix-icon')]" :icon="prefixIcon" size="16px" />
         <input ref="input" :class="[css_ec('input')]" :value="props.modelValue" :type="type"
-               :max-length="maxLength" :min-length="minLength" :disabled="props.disabled"
+               :max-length="maxLength" :min-length="minLength" :min="min" :max="max" :disabled="props.disabled"
                :placeholder="placeholder" :readonly="props.readonly" :autocomplete="autocomplete"
                @input="props.modelValue = $event.target.value" @focus="onFocus" @blur="onBlur"
         />
@@ -32,6 +32,7 @@ import {
     coreInputModelModifiersProp,
     coreInputModelValueProp,
     coreInputReadonlyProp,
+    coreInputTypeProp,
     coreInputSetup,
     CoreInputSlotProps,
 } from '@hyrioo/hyrnatic-ui-core';
@@ -41,14 +42,12 @@ export default defineComponent({
     props: {
         ...coreInputDisabledProp,
         ...coreInputReadonlyProp,
+        ...coreInputTypeProp,
         ...coreInputModelValueProp,
         ...coreInputModelModifiersProp,
         placeholder: {
             type: String,
             default: null,
-        },
-        type: {
-            type: String,
         },
         autocomplete: {
             type: String,
@@ -60,6 +59,14 @@ export default defineComponent({
             default: null,
         },
         maxLength: {
+            type: Number,
+            default: null,
+        },
+        min: {
+            type: Number,
+            default: null,
+        },
+        max: {
             type: Number,
             default: null,
         },
@@ -113,7 +120,7 @@ export default defineComponent({
             },
             onClick: slotProps.onClick,
         });
-        const core = coreInputSetup(input).as('div', asProps).props(['modelValue', 'modelModifiers', 'readonly', 'disabled']).events(['update:modelValue'])
+        const core = coreInputSetup(input).as('div', asProps).props(['modelValue', 'modelModifiers', 'readonly', 'disabled', 'type']).events(['update:modelValue'])
             .build();
 
         return {

@@ -40,7 +40,6 @@ export default defineComponent({
 
         const reject = inject<(payload: any) => void>('notification-reject');
         const close = () => {
-            console.log('close');
             reject(null);
         };
 

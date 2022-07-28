@@ -46,13 +46,13 @@
 
 <script lang="ts">
 import { ref, defineComponent, SetupContext } from 'vue';
-import Page from '../components/Page.vue';
-import ComponentPropsTable from '../components/ComponentPropsTable.vue';
-import ComponentPreview from '../components/ComponentPreview.vue';
-import ComponentSlotsTable from '../components/ComponentSlotsTable.vue';
-import ComponentEventsTable from '../components/ComponentEventsTable.vue';
-import PreviewOptionFormControl from '../components/PreviewOptionFormControl.vue';
-import Spinner from '../../../hyrnatic-ui-elementic/src/modules/spinners/spinner/spinner-docs';
+import Page from '../../../components/Page.vue';
+import ComponentPropsTable from '../../../components/ComponentPropsTable.vue';
+import ComponentPreview from '../../../components/ComponentPreview.vue';
+import ComponentSlotsTable from '../../../components/ComponentSlotsTable.vue';
+import ComponentEventsTable from '../../../components/ComponentEventsTable.vue';
+import PreviewOptionFormControl from '../../../components/PreviewOptionFormControl.vue';
+import Spinner from '../../../../../hyrnatic-ui-elementic/src/modules/spinners/spinner/spinner-docs';
 
 export default defineComponent({
     components: { PreviewOptionFormControl, ComponentEventsTable, ComponentSlotsTable, ComponentPreview, ComponentPropsTable, Page },

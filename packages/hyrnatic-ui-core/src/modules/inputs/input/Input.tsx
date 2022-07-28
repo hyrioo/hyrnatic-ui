@@ -32,6 +32,12 @@ export const coreInputReadonlyProp = {
         default: false,
     },
 };
+export const coreInputTypeProp = {
+    type: {
+        type: String,
+        default: null,
+    },
+};
 
 export type CoreInputSlotProps = {
     disabled: ComputedRef<boolean>;
@@ -51,6 +57,7 @@ export default defineComponent({
         ...coreComponentAsPropsProp,
         ...coreInputDisabledProp,
         ...coreInputReadonlyProp,
+        ...coreInputTypeProp,
         ...coreInputModelValueProp,
         ...coreInputModelModifiersProp,
         input: {
@@ -86,7 +93,9 @@ export default defineComponent({
 
             // Restore selection (Caret position)
             nextTick(() => {
-                props.input.setSelectionRange(selectionStart, selectionEnd);
+                if(props.type !== 'number') {
+                    props.input.setSelectionRange(selectionStart, selectionEnd);
+                }
             });
         };
 
