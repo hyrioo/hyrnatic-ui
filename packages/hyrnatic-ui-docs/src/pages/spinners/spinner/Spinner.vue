@@ -24,6 +24,8 @@
                             <h-select-item value="danger" label="Danger" />
                             <h-select-item value="current" label="Current" />
                         </h-select>
+                    </preview-option-form-control>
+                    <preview-option-form-control>
                         <h-select v-model="thickness" placeholder="Select thickness" style="margin-right: 12px; width: 100%;">
                             <h-select-item value="1px" label="1px" />
                             <h-select-item value="2px" label="2px" />

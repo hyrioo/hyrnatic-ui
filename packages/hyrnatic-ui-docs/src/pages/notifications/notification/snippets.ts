@@ -19,10 +19,11 @@ export const previewExample = (options: {placement: string}) => {
 
 export const usageExample =
 `// Component.vue
-import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
-import CustomDrawer from '../components/CustomDrawer.vue';
+import { NotificationManager, SimpleNotification } from '@hyrioo/hyrnatic-ui-elementic';
 const props = {
-    counter: ref(0),
+    title: 'Test',
+    text: 'Here is some content for the notification.',
+    color: color.value
 };
 const listeners = {
     something: () => {
@@ -30,40 +31,16 @@ const listeners = {
     }
 };
 const options = {
-    stack: 'dialog'
+    duration: 3500,
+    resetDurationOnInteractivity: true
 };
-DialogManager.createPromise(CustomDrawer, props, listeners, options).then(() => {
-    // Resolved successfully
-}).catch(() => {
-    // Rejected
-});`;
 
-export const drawerExample =
-`// CustomDrawer.vue
-export default defineComponent({
-    name: 'CustomDrawer',
-    props: {
-        counter: {
-            type: Number,
-        },
-    },
-    emits: ['something'],
-    setup(props, ctx: SetupContext) {
-        const { resolve } = DialogManager.setupDialog();
-        const addCounter = () => {
-            ctx.emit('something');
-        };
-        const close = () => {
-            resolve({ status: 'test', value: 1 });
-        };
+// Show notification as promise
+NotificationManager.showPromise(SimpleNotification, props, listeners, options).then(() => {}).catch(() => {});
 
-        return {
-            addCounter,
-            close,
-        };
-    },
-});`;
+// Or show notification without promise
+NotificationManager.show(SimpleNotification, props, listeners, options);`;
 
 export const wrapperExample =
 `<!-- App.vue -->
-<hr-dialog-wrapper />`;
+<h-notification-wrapper />`;

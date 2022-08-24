@@ -11,7 +11,7 @@
             <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
                     <div style="width: 100%; max-width: 256px">
-                        <h-slider v-model="value" :step-size="25" :show-steps="showSteps" :disabled="disabled" />
+                        <h-slider v-model="value" :step-size="10" :show-steps="showSteps" :disabled="disabled" />
                     </div>
                 </template>
                 <template #options>

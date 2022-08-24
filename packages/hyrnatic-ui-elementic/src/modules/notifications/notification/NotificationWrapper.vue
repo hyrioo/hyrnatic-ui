@@ -1,8 +1,8 @@
 <template>
     <hr-notification-wrapper v-slot="props" v-bind="core.props" v-on="core.listeners" :style="{width: width}">
-        <transition-group tag="div" :class="css_ec('transition-group')" name="notification-slide-in">
+        <transition-group tag="div" :class="css_ec('transition-group')" name="notification-slide-in" @after-leave="transitionEnded">
             <template v-for="notification in props.notifications" :key="notification.id">
-                <component :class="css_ec('notification')" :is="notification.component" :visible="notification.visible" v-bind="notification.props" v-on="notification.compiledListeners" />
+                <component :class="css_ec('notification')" :data-id="notification.id" :is="notification.component" :visible="notification.visible" v-bind="notification.props" v-on="notification.compiledListeners" />
             </template>
         </transition-group>
     </hr-notification-wrapper>
@@ -44,11 +44,10 @@ export default defineComponent({
         const core = coreNotificationWrapperSetup().as('div', asProps).props(['name']).build();
 
         const transitionEnded = (el: HTMLElement) => {
-            /*const notificationId = el.dataset.id;
+            const notificationId = el.dataset.id;
             const wrapper = NotificationManager.getWrapper(props.name);
             const notification = wrapper.getNotification(notificationId);
-            console.log(notification);
-            notification.transitionEnd();*/
+            notification.transitionEnd();
         };
 
         return {

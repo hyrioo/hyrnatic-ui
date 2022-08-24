@@ -8,7 +8,7 @@
         </section>
         <section>
             <h2>Preview</h2>
-            <component-preview :code="previewExample(previewExampleOptions)">
+            <component-preview>
                 <template #preview>
                     <h-button label="Show notification" @click="showNotification" />
                 </template>
@@ -39,10 +39,8 @@
             <h2>Usage</h2>
             <p>First add the wrapper to your layout component.</p>
             <code-example :code='wrapperExample' language="html-vue"/>
-            <p>To open a dialog you must use the <span class="inline-highlight">DialogManager</span>, and import the component to wish to open.</p>
+            <p>To show a notification you must use the <span class="inline-highlight">NotificationManager</span>.</p>
             <code-example :code="usageExample" language="js" />
-            <p>Your custom drawer must call <span class="inline-highlight">DialogManager.setupDialog()</span> in the setup.</p>
-            <code-example :code="drawerExample" language="js" />
         </section>
 
         <section v-if="Drawer.props.length">
@@ -66,7 +64,7 @@
 import { computed, defineComponent, ref, SetupContext } from 'vue';
 import { NotificationManager, SimpleNotification } from '@hyrioo/hyrnatic-ui-elementic';
 import Drawer from '../../../../../hyrnatic-ui-elementic/src/modules/drawers/drawer/drawer-docs';
-import { drawerExample, previewExample, usageExample, wrapperExample } from './snippets';
+import { previewExample, usageExample, wrapperExample } from './snippets';
 
 export default defineComponent({
     setup(props, ctx: SetupContext) {
@@ -89,7 +87,6 @@ export default defineComponent({
             previewExample,
             previewExampleOptions,
             usageExample,
-            drawerExample,
             wrapperExample,
             showNotification,
             color,
