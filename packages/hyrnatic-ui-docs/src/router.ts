@@ -29,6 +29,7 @@ import Switch from './pages/Switch.vue';
 import Tab from './pages/Tab.vue';
 import Table from './pages/Table.vue';
 import Tooltip from './pages/Tooltip.vue';
+import Popover from './pages/popovers/popover/Popover.vue';
 
 const componentPage = (name: string, page: any) => ({
     name,
@@ -56,6 +57,7 @@ const router = createRouter({
         componentPage('list', List),
         componentPage('notification', Notification),
         componentPage('paginator', Paginator),
+        componentPage('popover', Popover),
         componentPage('progress-bar', ProgressBar),
         componentPage('radio-button', RadioButton),
         componentPage('slider', Slider),

@@ -1,7 +1,7 @@
 <template>
     <hr-button v-show="visible" v-bind="core.props" v-on="core.listeners">
         <span :class="[css_ec('content')]">
-            <h-icon :class="[css_ec('icon')]" :icon="icon" size="16px" v-bind="iconOptions" />
+            <h-icon :class="[css_ec('icon')]" :icon="icon" :size="iconSize" v-bind="iconOptions" />
             <div :class="[css_ec('loading-container')]">
                 <div :class="[css_ec('loading-spinner')]" />
             </div>
@@ -47,7 +47,7 @@ export default defineComponent({
             default: 'simple',
         },
         size: {
-            type: String as PropType<'small' | 'normal'>,
+            type: String as PropType<'small' | 'normal' | 'large'>,
             default: 'normal',
         },
         type: {
@@ -58,6 +58,15 @@ export default defineComponent({
     emits: ['click'],
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
+
+        const iconSize = computed(() => {
+            const sizes = {
+                small: '12px',
+                normal: '16px',
+                large: '24px',
+            };
+            return sizes[props.size];
+        })
 
         const asProps = (slotProps: CoreButtonSlotProps) => ({
             class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`,  `-color-${props.color}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-rounded': props.rounded }],
@@ -70,6 +79,7 @@ export default defineComponent({
         return {
             Icons,
             core,
+            iconSize,
             ...componentCss(),
         };
     },

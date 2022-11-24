@@ -1,14 +1,15 @@
 <template>
-    <hr-slider ref="coreSlider" :class="[css_root, {'-dragging': dragging, '-disabled': disabled}]"
+    <hr-slider ref="coreSlider"
+               :class="[css_root, vertical ? '-vertical' : '-horizontal', {'-invert': invert, '-dragging': dragging, '-disabled': disabled}]"
                v-document-event:mouseup="handleMouseUp" v-document-event:mousemove="handleMouseMove" v-bind="core.props"
                v-on="core.listeners">
         <div :class="[css_ec('bar')]" @click="handleClick">
             <div :class="[css_ec('back')]">
                 <div v-for="i in steps" :class="[css_ec('step')]" />
             </div>
-            <div :class="[css_ec('filler')]" :style="{width: width}" />
+            <div :class="[css_ec('filler')]" :style="{'--size': size}" />
         </div>
-        <div :class="[css_ec('handle')]" :style="{left: `${width}`}" @mousedown="handleMouseDown" />
+        <div :class="[css_ec('handle')]" :style="{'--offset': size}" @mousedown="handleMouseDown" />
     </hr-slider>
 </template>
 
@@ -38,6 +39,14 @@ export default defineComponent({
             type: Boolean,
             default: false,
         },
+        vertical: {
+            type: Boolean,
+            default: false,
+        },
+        invert: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup(props, ctx: SetupContext) {
         const coreSlider = ref();
@@ -50,9 +59,10 @@ export default defineComponent({
                 return 1;
             }
         });
-        const width = computed(() => {
+        const size = computed(() => {
             if (coreSlider.value) {
-                return `${Math.max(0, Math.min(100, coreSlider.value.percentage))}%`;
+                let percentage = coreSlider.value.percentage;
+                return `${Math.max(0, Math.min(100, percentage))}%`;
             } else {
                 return '0%';
             }
@@ -67,7 +77,10 @@ export default defineComponent({
         const handleMouseMove = (e) => {
             if (dragging.value) {
                 const bb = coreSlider.value.$el.getBoundingClientRect();
-                const percentage = ((100 / bb.width) * (e.pageX - bb.left));
+                let percentage = props.vertical ? ((100 / bb.height) * (e.pageY - bb.top)) : ((100 / bb.width) * (e.pageX - bb.left));
+                if (props.invert) {
+                    percentage = 100 - percentage;
+                }
                 const value = coreSlider.value.getValueFromPercentage(percentage);
                 ctx.emit('update:modelValue', value);
                 e.preventDefault();
@@ -78,7 +91,10 @@ export default defineComponent({
         };
         const handleClick = (e) => {
             if (!props.disabled) {
-                const percentage = ((100 / coreSlider.value.$el.clientWidth) * e.offsetX);
+                let percentage = props.vertical ? ((100 / coreSlider.value.$el.clientHeight) * e.offsetY) : ((100 / coreSlider.value.$el.clientWidth) * e.offsetX);
+                if (props.invert) {
+                    percentage = 100 - percentage;
+                }
                 const value = coreSlider.value.getValueFromPercentage(percentage);
                 ctx.emit('update:modelValue', value);
                 e.preventDefault();
@@ -90,7 +106,7 @@ export default defineComponent({
         return {
             core,
             coreSlider,
-            width,
+            size,
             steps,
             handleMouseDown,
             handleMouseMove,

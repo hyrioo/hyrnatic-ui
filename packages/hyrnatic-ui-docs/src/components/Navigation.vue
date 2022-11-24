@@ -100,6 +100,12 @@ export default defineComponent({
                 ]
             },
             {
+                name: 'Popovers',
+                pages: [
+                    { route: 'popover', text: 'Popover' },
+                ]
+            },
+            {
                 name: 'Progress bars',
                 pages: [
                     { route: 'progress-bar', text: 'Progress bar' },

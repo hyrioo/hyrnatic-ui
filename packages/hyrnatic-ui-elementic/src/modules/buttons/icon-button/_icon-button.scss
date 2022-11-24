@@ -345,6 +345,12 @@ $crc: '.h-icon-button';
 		line-height: $v-control-height-small;
 	}
 
+	&.-size-large {
+		min-width: $v-control-height-large;
+		height: $v-control-height-large;
+		line-height: $v-control-height-large;
+	}
+
 	&.-loading {
 		pointer-events: none;
 

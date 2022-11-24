@@ -89,6 +89,11 @@ export type CorePopperComponent = {
     $el: HTMLElement;
 };
 
+export type CorePopperClickOutsideEvent = {
+    outsidePopper: Boolean,
+    outsideReference: Boolean,
+}
+
 export type CorePopperSlotProps = {}
 
 export function corePopperSetup() {

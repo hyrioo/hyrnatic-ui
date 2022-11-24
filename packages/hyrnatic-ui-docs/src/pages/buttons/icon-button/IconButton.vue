@@ -36,6 +36,7 @@
                         <h-select v-model="size" placeholder="Select size" style="margin-right: 12px; width: 100%;">
                             <h-select-item value="small" label="Small" />
                             <h-select-item value="normal" label="Normal" />
+                            <h-select-item value="large" label="Large" />
                         </h-select>
                     </preview-option-form-control>
                     <preview-option-form-control>

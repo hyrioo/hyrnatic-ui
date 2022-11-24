@@ -10,8 +10,8 @@
             <h2>Preview</h2>
             <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
-                    <div style="width: 100%; max-width: 256px">
-                        <h-slider v-model="value" :step-size="10" :show-steps="showSteps" :disabled="disabled" />
+                    <div style="width: 100%; max-width: 256px;" :style="[vertical ? {height: '150px', display: 'flex', justifyContent: 'center'} : null]">
+                        <h-slider v-model="value" :step-size="10" :show-steps="showSteps" :disabled="disabled" :vertical="vertical" :invert="invert" />
                     </div>
                 </template>
                 <template #options>
@@ -20,6 +20,12 @@
                     </preview-option-form-control>
                     <preview-option-form-control>
                         <h-switch v-model="showSteps" right-text="Show steps" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-switch v-model="vertical" right-text="Vertical" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-switch v-model="invert" right-text="Invert" />
                     </preview-option-form-control>
                 </template>
             </component-preview>
@@ -56,6 +62,8 @@ export default defineComponent({
         const value = ref(75);
         const disabled = ref(false);
         const showSteps = ref(false);
+        const vertical = ref(false);
+        const invert = ref(false);
 
         const previewExampleOptions = computed(() => {
             return {
@@ -64,6 +72,8 @@ export default defineComponent({
                 maximum: maximum.value,
                 disabled: disabled.value,
                 showSteps: showSteps.value,
+                vertical: vertical.value,
+                invert: invert.value,
             };
         });
 
@@ -77,6 +87,8 @@ export default defineComponent({
             value,
             disabled,
             showSteps,
+            vertical,
+            invert,
         };
     },
 });

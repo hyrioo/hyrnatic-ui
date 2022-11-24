@@ -12,6 +12,7 @@ import InputsInstall from './modules/inputs/install';
 import ListsInstall from './modules/lists/install';
 import NotificationsInstall from './modules/notifications/install';
 import PaginatorsInstall from './modules/paginators/install';
+import PopoversInstall from './modules/popovers/install';
 import PoppersInstall from './modules/poppers/install';
 import ProgressBarsInstall from './modules/progress-bars/install';
 import RadioButtonsInstall from './modules/radio-buttons/install';
@@ -43,6 +44,7 @@ const modules = {
     ListsInstall,
     NotificationsInstall,
     PaginatorsInstall,
+    PopoversInstall,
     PoppersInstall,
     ProgressBarsInstall,
     RadioButtonsInstall,

@@ -54,7 +54,7 @@ var indexConfig = Object.assign({}, config, {
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: "index.js",
+        filename: "hyrnatic.js",
         library: {
             type: "umd", // universal module definition
             name: "hyrnatic-ui-elementic", // string | string[]
@@ -82,7 +82,7 @@ var modulesConfig = Object.assign({}, config, {
     },
     output: {
         path: path.resolve(__dirname, './dist/modules'),
-        filename: "[name]/index.js",
+        filename: "[name]/hyrnatic.js",
         library: {
             type: "umd", // universal module definition
             name: "hyrnatic-ui-elementic", // string | string[]

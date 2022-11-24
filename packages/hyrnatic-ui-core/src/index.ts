@@ -274,6 +274,7 @@ export {
 export type {
     CorePopperSlotProps,
     CorePopperComponent,
+    CorePopperClickOutsideEvent,
 } from './modules/poppers/popper/Popper';
 export { default as corePopperAfterUpdateModifier } from './modules/poppers/modifiers/after-update';
 export { default as corePopperApplyMaxSizeModifier } from './modules/poppers/modifiers/apply-max-size';

@@ -1,0 +1,37 @@
+$crc: '.h-popover';
+
+#{$crc}{
+	border: $v-control-border-width solid $c-primary-border;
+	background: $c-primary-background;
+	border-radius: $v-box-border-radius;
+	padding: $g-8;
+	padding-top: ($g-8 + 3px - $v-control-border-width);
+	display: flex;
+	filter: drop-shadow($sd-tooltip-box);
+
+	&:after {
+		content: '';
+		position: absolute;
+		height: 3px;
+		left: 0;
+		right: 0;
+		top: 0;
+		background: $c-primary;
+		border-radius: $v-box-border-radius $v-box-border-radius 0 0;
+	}
+}
+
+
+#{$crc}__arrow{
+	$popper-arrow-size: 8px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	position: absolute;
+	border-width: 0 $popper-arrow-size $popper-arrow-size $popper-arrow-size;
+	border-color: transparent transparent $c-primary transparent;
+	top: -$popper-arrow-size;
+	left: calc(50% - #{$popper-arrow-size});
+	margin-top: 0;
+	margin-bottom: 0;
+}

@@ -1,7 +1,8 @@
 $crc: '.h-slider';
 
+$handleSize: 20px;
+
 #{$crc}{
-	height: $v-control-height;
 	display: flex;
 	position: relative;
 	--handle-scale: 0.72;
@@ -44,13 +45,86 @@ $crc: '.h-slider';
 			background: $c-primary-border;
 		}
 	}
+
+	&.-horizontal {
+		height: $v-control-height;
+
+		#{$crc}__bar {
+			height: 6px;
+			margin: (($v-control-height - 6px) / 2) 0;
+		}
+
+		#{$crc}__step {
+			height: 100%;
+		}
+
+		#{$crc}__filler {
+			height: 100%;
+			left: 0;
+			width: var(--size);
+		}
+
+		#{$crc}__handle {
+			margin: (($v-control-height - $handleSize) / 2) #{-($handleSize / 2)};
+			left: var(--offset);
+		}
+
+		&.-invert {
+			#{$crc}__filler {
+				left: auto;
+				right: 0;
+			}
+			#{$crc}__handle {
+				left: auto;
+				right: var(--offset);
+			}
+		}
+	}
+
+	&.-vertical {
+		width: $v-control-height;
+		height: 100%;
+
+		#{$crc}__bar {
+			width: 6px;
+			margin: 0 (($v-control-height - 6px) / 2);
+		}
+
+		#{$crc}__back {
+			flex-direction: column;
+		}
+
+		#{$crc}__step {
+			width: 100%;
+		}
+
+		#{$crc}__filler {
+			width: 100%;
+			top: 0;
+			height: var(--size);
+		}
+
+		#{$crc}__handle {
+			margin: #{-($handleSize / 2)} (($v-control-height - $handleSize) / 2);
+			top: var(--offset);
+		}
+
+		&.-invert {
+			#{$crc}__filler {
+				top: auto;
+				bottom: 0;
+			}
+			#{$crc}__handle {
+				top: auto;
+				bottom: var(--offset);
+			}
+		}
+	}
 }
 
 #{$crc}__bar{
 	position: relative;
-	height: 6px;
 	overflow: hidden;
-	margin: (($v-control-height - 6px) / 2) 0;
 	flex-grow: 1;
 	display: inline-block;
 }
@@ -66,10 +140,10 @@ $crc: '.h-slider';
 
 #{$crc}__step {
 	background: $c-primary-border;
-	height: 100%;
 	border-radius: (6px / 2);
 	flex-grow: 1;
 	min-width: 1px;
+	min-height: 1px;
 	transition: background $t-fast-standard;
 }
 
@@ -77,28 +151,26 @@ $crc: '.h-slider';
 #{$crc}__filler{
 	background: $c-primary-text;
 	border-radius: (6px / 2);
-	height: 100%;
-	position: relative;
+	position: absolute;
 	overflow: hidden;
-	transition: width var(--animate) $e-deceleration, background $t-fast-standard;
+	transition: width var(--animate) $e-deceleration, height var(--animate) $e-deceleration, background $t-fast-standard;
 	display: flex;
 	justify-content: flex-end;
+	pointer-events: none;
 }
 
 
 #{$crc}__handle{
-	$size: 20px;
-	height: $size;
-	width: $size;
+	height: $handleSize;
+	width: $handleSize;
 	background: $c-fill;
 	border-width: $v-control-border-width;
 	border-style: solid;
 	border-color: $c-primary-text;
 	border-radius: 50%;
-	margin: (($v-control-height - $size) / 2) #{-($size / 2)};
 	box-sizing: border-box;
 	position: absolute;
 	overflow: hidden;
-	transition: transform $t-fast-deceleration, border-color $t-fast-standard, background $t-fast-standard, left var(--animate) $e-deceleration;
+	transition: transform $t-fast-deceleration, border-color $t-fast-standard, background $t-fast-standard, left var(--animate) $e-deceleration, top var(--animate) $e-deceleration, right var(--animate) $e-deceleration, bottom var(--animate) $e-deceleration;
 	transform: scale(var(--handle-scale));
 }
