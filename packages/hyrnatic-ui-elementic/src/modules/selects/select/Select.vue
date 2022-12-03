@@ -47,10 +47,8 @@ import {
     coreSelectModelValueProp,
     coreSelectMultipleProp,
     coreSelectCompareProp,
-    coreSelectSetup, CoreSelectSlotProps,
-    corePopperMinimumReferenceSizeModifier,
-    corePopperMatchReferenceSizeModifier,
-    corePopperApplyMaxSizeModifier,
+    coreSelectSetup,
+    CoreSelectSlotProps,
     CoreSelectItemInstance,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
@@ -88,17 +86,17 @@ export default defineComponent({
         const popper = ref<CorePopperComponent>();
         const modifiers = computed( () => {
             const defaultModifiers = [
-                ...corePopperApplyMaxSizeModifier,
+                // ...corePopperApplyMaxSizeModifier,
             ];
             if (!props.autoSize && props.sizingStrategy === 'minimum'){
                 return [
                     ...defaultModifiers,
-                    ...corePopperMinimumReferenceSizeModifier,
+                    // ...corePopperMinimumReferenceSizeModifier,
                 ]
             } else if (!props.autoSize && props.sizingStrategy === 'match'){
                 return [
                     ...defaultModifiers,
-                    ...corePopperMatchReferenceSizeModifier,
+                    // ...corePopperMatchReferenceSizeModifier,
                 ]
             } else {
                 return defaultModifiers;

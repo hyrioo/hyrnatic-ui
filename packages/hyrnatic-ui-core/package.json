@@ -9,10 +9,9 @@
     "build:watch": "webpack --mode=production --watch"
   },
   "dependencies": {
-    "@popperjs/core": "^2.5.3",
-    "get-size": "^2.0.3",
+    "@floating-ui/dom": "^1.0.7",
+    "get-size": "^3.0.0",
     "luxon": "^1.27.0",
-    "popper-max-size-modifier": "^0.2.0",
     "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {

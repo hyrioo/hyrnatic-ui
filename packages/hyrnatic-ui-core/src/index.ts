@@ -6,6 +6,7 @@ import CheckboxesInstall from './modules/checkboxes/install';
 import CollapsesInstall from './modules/collapses/install';
 import DialogsInstall from './modules/dialogs/install';
 import DropdownsInstall from './modules/dropdowns/install';
+import FloatingInstall from './modules/floating/install';
 import FragmentsInstall from './modules/fragments/install';
 import InputsInstall from './modules/inputs/install';
 import NotificationsInstall from './modules/notifications/install';
@@ -27,6 +28,7 @@ const modules = {
     CollapsesInstall,
     DialogsInstall,
     DropdownsInstall,
+    FloatingInstall,
     FragmentsInstall,
     InputsInstall,
     NotificationsInstall,
@@ -176,6 +178,23 @@ export type {
 
 
 /**
+ * Floating
+ */
+export { default as CoreFloatingInstall } from './modules/floating/install';
+export {
+    coreFloatingSetup,
+    coreFloatingReferenceProp,
+    coreFloatingVisibleProp,
+    coreFloatingMiddlewareProp,
+    coreFloatingTransitionProp,
+} from './modules/floating/floating/Floating';
+export type {
+    CoreFloatingSlotProps,
+} from './modules/floating/floating/Floating';
+
+
+
+/**
  * Fragments
  */
 export { default as CoreFragmentsInstall } from './modules/fragments/install';
@@ -251,37 +270,6 @@ export {
 export type {
     CorePaginatorSlotProps,
 } from './modules/paginators/paginator/Paginator';
-
-
-/**
- * Popper
- */
-export { default as CorePoppersInstall } from './modules/poppers/install';
-export {
-    corePopperSetup,
-    corePopperReferenceProp,
-    corePopperVisibleProp,
-    corePopperMinimumWidthProp,
-    corePopperFixedWidthProp,
-    corePopperKeepProp,
-    corePopperOptionsProp,
-    corePopperModifiersProp,
-    corePopperTransitionProp,
-    corePopperClassesProp,
-    corePopperRootClassesProp,
-    defaultPopperOptions,
-} from './modules/poppers/popper/Popper';
-export type {
-    CorePopperSlotProps,
-    CorePopperComponent,
-    CorePopperClickOutsideEvent,
-} from './modules/poppers/popper/Popper';
-export { default as corePopperAfterUpdateModifier } from './modules/poppers/modifiers/after-update';
-export { default as corePopperApplyMaxSizeModifier } from './modules/poppers/modifiers/apply-max-size';
-export { default as corePopperArrowPositionModifier } from './modules/poppers/modifiers/arrow-position';
-export { default as corePopperBroadcastSizeModifier } from './modules/poppers/modifiers/broadcast-size';
-export { default as corePopperMatchReferenceSizeModifier } from './modules/poppers/modifiers/match-reference-size';
-export { default as corePopperMinimumReferenceSizeModifier } from './modules/poppers/modifiers/minimum-reference-size';
 
 
 /**

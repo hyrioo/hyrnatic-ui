@@ -1,5 +1,5 @@
 <template>
-    <h-popper ref="popper" :classes="[css_root]" :reference="reference" :arrow-reference="arrowReference" show-arrow
+    <h-floating ref="popper" :classes="[css_root]" :reference="reference" :arrow-reference="arrowReference" show-arrow
               keep transition="tiny2x-slide-up-medium"
               :visible="visible" :options="{placement}"
               :modifiers="popperModifiers"  @click-outside="onClickOutside"
@@ -10,7 +10,7 @@
         <template #arrow>
             <div :class="[css_ec('arrow')]" />
         </template>
-    </h-popper>
+    </h-floating>
 </template>
 
 <script lang="ts">

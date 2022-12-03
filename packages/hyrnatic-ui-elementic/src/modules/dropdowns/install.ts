@@ -3,7 +3,7 @@ import DropdownItem from './dropdown-item/DropdownItem.vue';
 import DropdownItemDivider from './dropdown-item-divider/DropdownItemDivider.vue';
 import DropdownItemHeader from './dropdown-item-header/DropdownItemHeader.vue';
 import { CoreDropdownsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import PoppersInstall from '../poppers/install';
+import FloatingInstall from '../floating/install';
 
 const moduleId = 'elementic-dropdowns';
 const components = {
@@ -14,7 +14,7 @@ const components = {
 };
 const dependencies = {
     CoreDropdownsInstall,
-    PoppersInstall,
+    FloatingInstall,
 };
 
 export default {

@@ -48,7 +48,7 @@ export default defineComponent({
             default: 'default',
         },
     },
-    setup: function (props, ctx: SetupContext) {
+    setup(props, ctx: SetupContext) {
         provide('wrapper-name', props.name);
 
         /**

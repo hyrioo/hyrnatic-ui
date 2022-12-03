@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <h-popper ref="popper" :classes="[css_ec('menu-container')]" :reference="button" :arrow-reference="icon" show-arrow keep transition="tiny2x-slide-up-medium"
+        <h-floating ref="popper" :classes="[css_ec('menu-container')]" :reference="button" :arrow-reference="icon" show-arrow keep transition="tiny2x-slide-up-medium"
                   :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :minimum-width="dropdownHasWidth" :modifiers="popperModifiers"
                   @popper-size-changed="popperSizeChanged" @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
         >
@@ -23,7 +23,7 @@
             <template #arrow>
                 <div :class="[css_ec('arrow')]" />
             </template>
-        </h-popper>
+        </h-floating>
     </hr-dropdown>
 </template>
 

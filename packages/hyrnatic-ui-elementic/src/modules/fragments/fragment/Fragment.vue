@@ -12,7 +12,6 @@
 import {
     computed, defineComponent, getCurrentInstance, inject, nextTick, ref, SetupContext, watch,
 } from 'vue';
-import getSize from 'get-size';
 import componentCss from '../../../utils/component-css';
 
 export default defineComponent({
@@ -31,11 +30,11 @@ export default defineComponent({
 
         const onEnter = () => {
             setTimeout(() => {
-                fragmentContainer.setNewHeight(getSize(instance.vnode.el).height);
+                fragmentContainer.setNewHeight(instance.vnode.el.getBoundingClientRect().height);
             }, 5);
         };
         const onBeforeLeave = () => {
-            fragmentContainer.setOldHeight(getSize(instance.vnode.el).height);
+            fragmentContainer.setOldHeight(instance.vnode.el.getBoundingClientRect().height);
         };
         const onAfterEnter = () => {
             fragmentContainer.clearHeights();

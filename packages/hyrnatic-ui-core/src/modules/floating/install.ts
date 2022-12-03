@@ -1,9 +1,9 @@
-import Popper from './popper/Popper';
+import Floating from './floating/Floating';
 import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
 
-const moduleId = 'core-poppers';
+const moduleId = 'core-floating';
 const components = {
-    Popper,
+    Floating,
 };
 
 export default {

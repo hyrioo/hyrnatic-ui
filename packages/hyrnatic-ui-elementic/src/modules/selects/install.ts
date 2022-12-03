@@ -3,7 +3,7 @@ import SelectItem from './select-item/SelectItem.vue';
 import SelectItemDivider from './select-item-divider/SelectItemDivider.vue';
 import SelectItemHeader from './select-item-header/SelectItemHeader.vue';
 import { CoreSelectsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import PoppersInstall from '../poppers/install';
+import FloatingInstall from '../floating/install';
 import ScrollContainersInstall from '../scroll-containers/install';
 
 const moduleId = 'elementic-selects';
@@ -15,7 +15,7 @@ const components = {
 };
 const dependencies = {
     CoreSelectsInstall,
-    PoppersInstall,
+    FloatingInstall,
     ScrollContainersInstall,
 };
 

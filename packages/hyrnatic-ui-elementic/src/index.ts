@@ -6,6 +6,7 @@ import DatePickersInstall from './modules/date-pickers/install';
 import DialogsInstall from './modules/dialogs/install';
 import DrawersInstall from './modules/drawers/install';
 import DropdownsInstall from './modules/dropdowns/install';
+import FloatingInstall from './modules/floating/install';
 import FragmentsInstall from './modules/fragments/install';
 import IconsInstall from './modules/icons/install';
 import InputsInstall from './modules/inputs/install';
@@ -13,7 +14,6 @@ import ListsInstall from './modules/lists/install';
 import NotificationsInstall from './modules/notifications/install';
 import PaginatorsInstall from './modules/paginators/install';
 import PopoversInstall from './modules/popovers/install';
-import PoppersInstall from './modules/poppers/install';
 import ProgressBarsInstall from './modules/progress-bars/install';
 import RadioButtonsInstall from './modules/radio-buttons/install';
 import ScrollContainersInstall from './modules/scroll-containers/install';
@@ -34,29 +34,29 @@ const modules = {
     ButtonsInstall,
     CheckboxesInstall,
     CollapsesInstall,
-    DatePickersInstall,
+    // DatePickersInstall,
     DialogsInstall,
     DrawersInstall,
-    DropdownsInstall,
+    // DropdownsInstall,
+    FloatingInstall,
     FragmentsInstall,
     IconsInstall,
-    InputsInstall,
+    // InputsInstall,
     ListsInstall,
     NotificationsInstall,
     PaginatorsInstall,
     PopoversInstall,
-    PoppersInstall,
     ProgressBarsInstall,
     RadioButtonsInstall,
     ScrollContainersInstall,
-    SelectsInstall,
+    // SelectsInstall,
     SlidersInstall,
     SpinnersInstall,
     StepsInstall,
     SwitchesInstall,
     TabsInstall,
     TablesInstall,
-    TooltipsInstall,
+    // TooltipsInstall,
 };
 
 export default {
@@ -69,7 +69,7 @@ export default {
 
 export { DialogManager, NotificationManager } from '@hyrioo/hyrnatic-ui-core';
 
-export { corePopperAfterUpdateModifier, corePopperApplyMaxSizeModifier, corePopperArrowPositionModifier, corePopperBroadcastSizeModifier, corePopperMatchReferenceSizeModifier, corePopperMinimumReferenceSizeModifier } from '@hyrioo/hyrnatic-ui-core';
+// export { corePopperAfterUpdateModifier, corePopperApplyMaxSizeModifier, corePopperArrowPositionModifier, corePopperBroadcastSizeModifier, corePopperMatchReferenceSizeModifier, corePopperMinimumReferenceSizeModifier } from '@hyrioo/hyrnatic-ui-core';
 
 export { createCoreStepItem } from '@hyrioo/hyrnatic-ui-core';
 export type { CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-core';

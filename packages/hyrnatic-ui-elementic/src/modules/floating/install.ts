@@ -1,12 +1,12 @@
-import Popper from './popper/Popper.vue';
-import { CorePoppersInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import Floating from './floating/Floating.vue';
+import { CoreFloatingInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
-const moduleId = 'elementic-poppers';
+const moduleId = 'elementic-floating';
 const components = {
-    Popper,
+    Floating,
 };
 const dependencies = {
-    CorePoppersInstall,
+    CoreFloatingInstall,
 };
 
 export default {

@@ -1,13 +1,13 @@
 import Popover from './popover/Popover.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import PoppersInstall from '../poppers/install';
+import FloatingInstall from '../floating/install';
 
 const moduleId = 'elementic-popovers';
 const components = {
     Popover,
 };
 const dependencies = {
-    PoppersInstall,
+    FloatingInstall,
 };
 
 export default {

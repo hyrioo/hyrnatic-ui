@@ -1,6 +1,6 @@
 import Tooltip from './tooltip/Tooltip.vue';
 import { CoreTooltipsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
-import PopperInstall from '../poppers/install';
+import FloatingInstall from '../floating/install';
 import iconRegistry from '../../utils/icon-registry';
 import tooltipArrow from './custom-icons/tooltip-arrow';
 
@@ -10,7 +10,7 @@ const components = {
 };
 const dependencies = {
     CoreTooltipsInstall,
-    PopperInstall,
+    FloatingInstall,
 };
 
 export default {

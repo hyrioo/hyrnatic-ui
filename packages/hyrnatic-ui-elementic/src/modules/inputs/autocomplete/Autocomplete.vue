@@ -50,8 +50,7 @@ import {
     coreAutocompleteModelValueProp,
     CoreAutocompleteSlotProps,
     CoreAutocompleteReturn,
-    corePopperMatchReferenceSizeModifier,
-    CorePopperComponent,
+    CoreFloatingComponent,
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
@@ -109,9 +108,8 @@ export default defineComponent({
         const items = ref<HTMLElement[]>();
         const coreAutocomplete = ref<CoreAutocompleteReturn>();
         const coreAutocompleteEl = ref<HTMLElement>();
-        const popper = ref<CorePopperComponent>();
+        const popper = ref<CoreFloatingComponent>();
         const modifiers = [
-            ...corePopperMatchReferenceSizeModifier,
         ];
         onBeforeUpdate(() => {
             items.value = [];
