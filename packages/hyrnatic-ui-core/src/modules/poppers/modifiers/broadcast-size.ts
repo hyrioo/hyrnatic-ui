@@ -1,4 +1,3 @@
-import getSize from 'get-size';
 import { ModifierArguments } from '@popperjs/core';
 import { Modifier } from '@popperjs/core/lib/types';
 
@@ -10,7 +9,7 @@ export const broadcastSize: Modifier<'broadcastSize', any> = {
             const { popper } = state.elements;
             const minWidthTemp = popper.style.minWidth;
             popper.style.minWidth = '';
-            const popperSize = getSize(popper);
+            const popperSize = popper.getBoundingClientRect();
             popper.style.minWidth = minWidthTemp;
 
             state.modifiersData[name].broadcastSizeLastWidth = state.rects.popper.width;

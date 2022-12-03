@@ -6,29 +6,28 @@
 
 <script lang="ts">
 import { defineComponent, SetupContext } from 'vue';
-import getSize from 'get-size';
 
 export default defineComponent({
     name: 'h-grow-transition',
     setup(props, ctx: SetupContext) {
-        const beforeEnter = (el) => {
-            const originalSize = getSize(el);
+        const beforeEnter = (el: HTMLElement) => {
+            const originalSize = el.getBoundingClientRect();
             el.style.removeProperty('display');
             el.style.removeProperty('height');
-            const size = getSize(el);
-            el.style.height = `${originalSize.innerHeight}px`;
-            setTimeout(() => { el.style.height = `${size.innerHeight}px`; }, 10);
+            const size = el.getBoundingClientRect();
+            el.style.height = `${originalSize.height}px`;
+            setTimeout(() => { el.style.height = `${size.height}px`; }, 10);
         };
-        const afterEnter = (el) => {
+        const afterEnter = (el: HTMLElement) => {
             el.style.removeProperty('height');
         };
 
-        const beforeLeave = (el) => {
-            const size = getSize(el);
-            el.style.height = `${size.innerHeight}px`;
+        const beforeLeave = (el: HTMLElement) => {
+            const size = el.getBoundingClientRect();
+            el.style.height = `${size.height}px`;
             setTimeout(() => { el.style.height = '0px'; }, 10);
         };
-        const afterLeave = (el) => {
+        const afterLeave = (el: HTMLElement) => {
             el.style.removeProperty('height');
         };
 
