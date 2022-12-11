@@ -4,8 +4,10 @@
             <slot />
         </div>
 
-        <h-popper ref="popper" :classes="[css_root]" :reference="reference" transition="fade-fast" show-arrow
-                  :visible="props.visible" :options="{placement: placement}" :modifiers="popperModifiers"
+        <h-floating ref="popper" as="div" :class="[css_root]" :reference="reference"
+                    transition="fade-fast" show-arrow
+                    :visible="props.visible" :placement="placement"
+                    :middleware="floatingMiddleware"
         >
             <slot name="content">
                 <span v-html="content" />
@@ -13,7 +15,7 @@
             <template #arrow>
                 <h-icon icon="tooltip-arrow" :class="[css_ec('arrow')]" />
             </template>
-        </h-popper>
+        </h-floating>
     </hr-tooltip>
 </template>
 
@@ -30,6 +32,7 @@ import {
     coreTooltipHideDelayProp,
     coreTooltipSetup,
 } from '@hyrioo/hyrnatic-ui-core';
+import { offset } from '@floating-ui/dom';
 
 export default defineComponent({
     name: 'h-tooltip',
@@ -55,21 +58,9 @@ export default defineComponent({
         const reference = ref();
         const popper = ref<CorePopperComponent>();
 
-        const popperModifiers = [
-            {
-                name: 'offset',
-                options: {
-                    offset: [0, 4],
-                },
-            },
-        ];
-
-        /*const visibleChanged = (visible) => {
-            if (visible) {
-                popper.value.updatePopper();
-            }
-            ctx.emit('update:modelValue', visible);
-        };*/
+        const floatingMiddleware = ref([
+            offset(4),
+        ]);
 
         const core = coreTooltipSetup(reference).props(['modelValue', 'trigger']).events(['update:modelValue']).build();
 
@@ -77,7 +68,7 @@ export default defineComponent({
             core,
             reference,
             popper,
-            popperModifiers,
+            floatingMiddleware,
             ...componentCss(),
         };
     },

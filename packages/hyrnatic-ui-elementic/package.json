@@ -10,9 +10,9 @@
         "test": "jest"
     },
     "dependencies": {
+        "@floating-ui/dom": "^1.0.7",
         "@hyrioo/hyrnatic-ui-core": "^0.0.1",
         "@mdi/js": "^5.9.55",
-        "get-size": "^3.0.0",
         "luxon": "^1.27.0"
     },
     "peerDependencies": {

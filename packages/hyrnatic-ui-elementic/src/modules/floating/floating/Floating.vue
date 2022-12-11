@@ -1,6 +1,10 @@
 <template>
-    <hr-floating ref="floating" :middlware="middleware" v-bind="core.props" v-on="core.listeners">
-        <span v-if="showArrow" ref="floatingArrow" :class="css_ec('arrow')">
+    <hr-floating ref="floating" :middleware="middleware"
+                 :data-floating-placement="floatingPlacement"
+                 v-bind="{...core.props, ...$attrs}" v-on="core.listeners"
+                 @computed-position="onComputedPosition">
+        <span v-if="showArrow" ref="floatingArrow" :style="{position: 'absolute', ...arrowStyle}"
+              :data-arrow-placement="arrowPlacement">
             <slot name="arrow" />
         </span>
         <slot />
@@ -10,24 +14,45 @@
 <script lang="ts">
 import {
     computed,
-    defineComponent, ref, SetupContext,
+    defineComponent, reactive, ref, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
+    coreComponentAsProp,
     coreFloatingReferenceProp,
     coreFloatingVisibleProp,
     coreFloatingMiddlewareProp,
     coreFloatingTransitionProp,
+    coreFloatingPlacementProp,
+    coreFloatingClassesProp,
+    CoreFloatingClickOutsideEvent,
     coreFloatingSetup,
 } from '@hyrioo/hyrnatic-ui-core';
+import { arrow, ComputePositionReturn } from '@floating-ui/dom';
+
+const arrowSide = {
+    top: 'bottom',
+    right: 'left',
+    bottom: 'top',
+    left: 'right'
+};
+const arrowSize = {
+    top: 'offsetHeight',
+    right: 'offsetWidth',
+    bottom: 'offsetHeight',
+    left: 'offsetWidth'
+};
 
 export default defineComponent({
     name: 'h-floating',
     props: {
+        ...coreComponentAsProp,
         ...coreFloatingReferenceProp,
         ...coreFloatingVisibleProp,
         ...coreFloatingMiddlewareProp,
         ...coreFloatingTransitionProp,
+        ...coreFloatingPlacementProp,
+        ...coreFloatingClassesProp,
         arrowReference: {
             type: null,
         },
@@ -36,24 +61,56 @@ export default defineComponent({
             default: false,
         },
     },
-    emits: ['show', 'hide', 'created', 'clickOutside', 'floatingSizeChanged', 'update:visible'],
+    emits: {
+        clickOutside: (event: CoreFloatingClickOutsideEvent) => true,
+        computedPosition: (data: ComputePositionReturn) => true,
+        'update:visible': () => true,
+    },
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
         const floating = ref();
         const floatingArrow = ref<HTMLElement>(null);
-        const middleware = computed(() => [
-            ...props.middleware,
-        ]);
-        const core = coreFloatingSetup().props(['reference', 'visible', 'placement', 'transition'])
-            .events(['show', 'hide', 'created', 'clickOutside', 'update:visible', 'floatingSizeChanged'])
+        const arrowStyle = ref({});
+        const arrowPlacement = ref(arrowSide[props.placement]);
+        const floatingPlacement = ref(props.placement);
+        const middleware = computed(() => {
+            const m = [...props.middleware];
+            if (props.showArrow) {
+                m.push(arrow({
+                    element: floatingArrow.value,
+                }));
+            }
+            return m;
+        });
+
+        const onComputedPosition = (data: ComputePositionReturn) => {
+            floatingPlacement.value = data.placement;
+            const side = data.placement.split('-')[0];
+            if (data.middlewareData.arrow) {
+                arrowStyle.value = {
+                    left: data.middlewareData.arrow.x != null ? `${data.middlewareData.arrow.x}px` : '',
+                    top: data.middlewareData.arrow.y != null ? `${data.middlewareData.arrow.y}px` : '',
+                    [arrowSide[side]]: `${-floatingArrow.value[arrowSize[side]]}px`,
+                };
+                arrowPlacement.value = arrowSide[side];
+            }
+            ctx.emit('computedPosition', data);
+        };
+
+        const core = coreFloatingSetup().props(['as', 'reference', 'visible', 'placement', 'transition', 'classes'])
+            .events(['clickOutside'])
             .build();
 
         return {
             ...componentCssHelpers,
             middleware,
             floating,
+            floatingPlacement,
             floatingArrow,
+            arrowStyle,
+            arrowPlacement,
             core,
+            onComputedPosition,
         };
     },
 });

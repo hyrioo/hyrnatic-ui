@@ -1,5 +1,6 @@
 import {
-    defineComponent, getCurrentInstance,
+    computed,
+    defineComponent, getCurrentInstance, nextTick,
     onMounted,
     onUnmounted,
     PropType,
@@ -8,18 +9,19 @@ import {
     SetupContext,
     Teleport,
     Transition,
-    watch
+    watch,
 } from 'vue';
 import {
+    autoPlacement,
     autoUpdate,
-    computePosition,
+    computePosition, ComputePositionReturn,
     flip,
     limitShift,
     Middleware,
     Placement,
     shift
 } from '@floating-ui/dom';
-import { setupBuilder } from '../../../utils/component';
+import { coreComponentAsProp, setupBuilder } from '../../../utils/component';
 
 export const coreFloatingReferenceProp = {
     reference: {
@@ -48,7 +50,7 @@ export const coreFloatingTransitionProp = {
 export const coreFloatingPlacementProp = {
     placement: {
         type: String as PropType<Placement>,
-        default: null,
+        default: 'bottom',
     },
 };
 export const coreFloatingMiddlewareProp = {
@@ -60,7 +62,16 @@ export const coreFloatingMiddlewareProp = {
         ],
     },
 };
+export const coreFloatingClassesProp = {
+    classes: {
+        type: null,
+    },
+};
 
+export type CoreFloatingClickOutsideEvent = {
+    outsideFloating: boolean;
+    outsideReference: boolean;
+}
 export type CoreFloatingSlotProps = {};
 
 export function coreFloatingSetup() {
@@ -70,80 +81,138 @@ export function coreFloatingSetup() {
 export default defineComponent({
     name: 'hr-floating',
     props: {
+        ...coreComponentAsProp,
         ...coreFloatingReferenceProp,
         ...coreFloatingVisibleProp,
         ...coreFloatingKeepProp,
         ...coreFloatingTransitionProp,
         ...coreFloatingPlacementProp,
         ...coreFloatingMiddlewareProp,
+        ...coreFloatingClassesProp,
+    },
+    emits: {
+        clickOutside: (event: CoreFloatingClickOutsideEvent) => true,
+        computedPosition: (data: ComputePositionReturn) => true,
     },
     setup(props, ctx: SetupContext) {
         const floatingElement = ref<HTMLElement>(null);
-        const cleanup = ref<() => void>();
+        const cleanup = ref<() => void>(null);
         const style = reactive({
+            position: 'absolute',
             left: '0',
             top: '0',
         });
+        const middleware = computed(() => {
+            return [
+                flip(),
+                shift({padding: 8}),
+                ...props.middleware
+            ];
+        });
+
+        const updatePosition = () => {
+            console.log('updatePosition');
+            computePosition(props.reference, floatingElement.value, {
+                placement: props.placement,
+                middleware: middleware.value
+            }).then((data) => {
+                console.log('computePosition', data);
+                ctx.emit('computedPosition', data);
+                style.left = `${data.x}px`;
+                style.top = `${data.y}px`;
+            });
+        }
 
         const setupFloating = () => {
-            cleanup.value = autoUpdate(props.reference, floatingElement.value, () => {
-                computePosition(props.reference, floatingElement.value, {
-                    placement: props.placement,
-                    middleware: props.middleware
-                }).then(({ x, y }) => {
-                    style.left = `${x}px`;
-                    style.top = `${y}px`;
-                });
-            });
+            console.log('setupFloating');
+            cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
         };
 
         watch(() => props.visible, (visible: boolean) => {
-            ctx.emit(visible ? 'show' : 'hide');
-            if (visible) {
-                // nextTick(updatePopper);
+            // ctx.emit(visible ? 'show' : 'hide');
+            if (visible && !cleanup.value) {
+                nextTick(setupFloating);
             }
         });
 
         onMounted(() => {
-            setupFloating();
         });
 
-        onUnmounted(() => {
+        const elementContains = (elm, otherElm) => {
+            if (typeof elm.contains === 'function') {
+                return elm.contains(otherElm);
+            }
+            return false;
+        };
+        const onDocumentClick = (e) => {
+            if (!props.visible) {
+                return;
+            }
+            const outsideFloating = !floatingElement.value || !elementContains(floatingElement.value, e.target);
+            const outsideReference = !props.reference || !elementContains(props.reference, e.target);
+
+            if (!outsideFloating && !outsideReference) {
+                return;
+            }
+
+            ctx.emit('clickOutside', {
+                outsideFloating,
+                outsideReference,
+            });
+        };
+
+        const destroy = () => {
             if (cleanup.value) {
                 cleanup.value();
+                cleanup.value = null;
             }
+        };
+
+        const afterHide = () => {
+            if (!props.keep) {
+                destroy();
+            }
+        };
+
+        onUnmounted(() => {
+            destroy();
         });
 
         return {
             floatingElement,
             style,
+            afterHide,
+            onDocumentClick,
         };
     },
     render() {
+        // Always access this.$attrs to prevent warning
+        const attrs = this.$attrs;
+
+        const Tag = this.$props.as || 'span';
+
         const content = () => (
             (this.$props.keep ?
-                    <div v-show={this.visible} class={[this.classes]} style={this.style}
-                         data-popper-placement={this.popperPlacement}>
+                    <Tag v-show={this.visible} ref="floatingElement" {...attrs} style={this.style}
+                         v-document-event={[this.onDocumentClick, 'click']}>
                         {this.$slots.default()}
-                    </div> :
+                    </Tag>
+                    :
                     (this.visible ?
-                            <div class={[this.classes]} style={this.style}
-                                 data-popper-placement={this.popperPlacement}>
+                            <Tag ref="floatingElement" {...attrs} style={this.style}
+                                 v-document-event={[this.onDocumentClick, 'click']}>
                                 {this.$slots.default()}
-                            </div> : null
+                            </Tag> : null
                     )
             )
         );
         return (
             <Teleport to="body">
-                <span ref="floatingElement" style={this.style} class={[this.rootClasses]}
-                      v-document-event={[this.onDocumentClick, 'click']}>
-                    {this.transition ? (
-                        <Transition name={this.transition} onAfterLeave={this.afterHide}>
-                            {content()}
-                        </Transition>
-                    ) : content()}
-                </span>
+                {this.transition ? (
+                    <Transition name={this.transition} onAfterLeave={this.afterHide}>
+                        {content()}
+                    </Transition>
+                ) : content()}
             </Teleport>
         );
     }

@@ -13,7 +13,7 @@
                     <div style="width: 100%; max-width: 256px;">
                         <h-icon-button ref="button" icon="key" styling="subtle" @click="visible = !visible" />
 
-                        <h-popover :reference="button ? button.$el : null" :visible="visible" @clickOutside="onClickOutside">
+                        <h-popover :reference="button ? button.$el : null" :visible="visible" placement="bottom" @clickOutside="onClickOutside">
                             Content
                         </h-popover>
                     </div>
@@ -58,8 +58,11 @@ export default defineComponent({
             };
         });
 
-        const onClickOutside = (value: any) => {
+        const onClickOutside = (value: CoreFloatingClickOutsideEvent) => {
             console.log(value);
+            if(value.outsideFloating && value.outsideReference) {
+                visible.value = false;
+            }
         };
 
         return {

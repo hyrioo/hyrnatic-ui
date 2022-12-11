@@ -185,8 +185,11 @@ export {
     coreFloatingSetup,
     coreFloatingReferenceProp,
     coreFloatingVisibleProp,
-    coreFloatingMiddlewareProp,
+    coreFloatingKeepProp,
     coreFloatingTransitionProp,
+    coreFloatingPlacementProp,
+    coreFloatingMiddlewareProp,
+    coreFloatingClassesProp,
 } from './modules/floating/floating/Floating';
 export type {
     CoreFloatingSlotProps,
@@ -469,3 +472,5 @@ export { default as ArrayHelper } from './utils/array';
 export { default as ObjectHelper } from './utils/object';
 export { default as StringHelper } from './utils/string';
 export { default as ModuleHelper } from './utils/package';
+
+export { coreComponentAsProp } from './utils/component';

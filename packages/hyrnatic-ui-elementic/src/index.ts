@@ -41,7 +41,7 @@ const modules = {
     FloatingInstall,
     FragmentsInstall,
     IconsInstall,
-    // InputsInstall,
+    InputsInstall,
     ListsInstall,
     NotificationsInstall,
     PaginatorsInstall,
@@ -56,7 +56,7 @@ const modules = {
     SwitchesInstall,
     TabsInstall,
     TablesInstall,
-    // TooltipsInstall,
+    TooltipsInstall,
 };
 
 export default {

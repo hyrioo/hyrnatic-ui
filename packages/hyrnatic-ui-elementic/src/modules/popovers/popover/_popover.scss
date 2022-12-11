@@ -1,4 +1,5 @@
 $crc: '.h-popover';
+$popper-arrow-size: 8px;
 
 #{$crc}{
 	border: $v-control-border-width solid $c-primary-border;
@@ -23,15 +24,23 @@ $crc: '.h-popover';
 
 
 #{$crc}__arrow{
-	$popper-arrow-size: 8px;
 	width: 0;
 	height: 0;
 	border-style: solid;
-	position: absolute;
+}
+[data-arrow-placement='top'] #{$crc}__arrow {
 	border-width: 0 $popper-arrow-size $popper-arrow-size $popper-arrow-size;
 	border-color: transparent transparent $c-primary transparent;
-	top: -$popper-arrow-size;
-	left: calc(50% - #{$popper-arrow-size});
-	margin-top: 0;
-	margin-bottom: 0;
+}
+[data-arrow-placement='right'] #{$crc}__arrow {
+	border-width: $popper-arrow-size 0 $popper-arrow-size $popper-arrow-size;
+	border-color: transparent transparent transparent $c-primary;
+}
+[data-arrow-placement='bottom'] #{$crc}__arrow {
+	border-width: $popper-arrow-size $popper-arrow-size 0 $popper-arrow-size;
+	border-color: $c-primary transparent transparent transparent;
+}
+[data-arrow-placement='left'] #{$crc}__arrow {
+	border-width: $popper-arrow-size $popper-arrow-size $popper-arrow-size 0;
+	border-color: transparent $c-primary transparent transparent;
 }
