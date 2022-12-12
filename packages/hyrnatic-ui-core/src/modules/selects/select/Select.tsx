@@ -119,6 +119,8 @@ export default defineComponent({
             });
             return texts.join(', ');
         });
+        const searchText = ref('');
+        const searchTimeout = ref();
         const focusableItems = computed(() => items.value.filter((i) => i.disabled === false));
         const clearFocusedItem = () => {
             focusedItem.value = null;
@@ -173,18 +175,19 @@ export default defineComponent({
             if (props.disabled) {
                 return false;
             }
-            const currentIndex = focusedItem.value ? focusableItems.value.findIndex((i) => i === focusedItem.value) : null;
+
+            const getCurrentIndex = () => focusedItem.value ? focusableItems.value.findIndex((i) => i === focusedItem.value) : null;
 
             if (!menuVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter')) {
                 menuVisible.value = true;
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'ArrowDown') {
-                focusedItem.value = Arr.next(focusableItems.value, currentIndex);
+                focusedItem.value = Arr.next(focusableItems.value, getCurrentIndex());
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'ArrowUp') {
-                focusedItem.value = Arr.prev(focusableItems.value, currentIndex);
+                focusedItem.value = Arr.prev(focusableItems.value, getCurrentIndex());
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'Enter' && focusedItem.value) {
@@ -197,8 +200,31 @@ export default defineComponent({
                 close();
                 e.preventDefault();
                 e.stopImmediatePropagation();
+            } else {
+                clearTimeout(searchTimeout.value);
+                const input = e.key.toLowerCase();
+                const match = input.match(/^[\p{L}]{1}$/u);
+
+                if(match) {
+                    let currentIndex = null;
+                    if(input == searchText.value) {
+                        // If the user pressed the same letter again, it should select the next item instead
+                        currentIndex = focusedItem.value ? searchItems.value.findIndex((i) => i === focusedItem.value) : null;
+                    } else {
+                        // Search for a more specific item
+                        searchText.value += input;
+                    }
+                    focusedItem.value = Arr.next(searchItems.value, currentIndex);
+                    searchTimeout.value = setTimeout(clearSearch, 1500);
+                }
             }
         };
+        const searchItems = computed(() => {
+            return items.value.filter((i) => i.label.toLowerCase().startsWith(searchText.value));
+        });
+        const clearSearch = () => {
+            searchText.value = '';
+        }
 
         const onMenuTransitioning = (state) => {
             transitioning.value = state;

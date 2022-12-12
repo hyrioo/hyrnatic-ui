@@ -21,10 +21,10 @@ import componentCss from '../../../utils/component-css';
 import {
     coreSelectItemDisabledProp,
     coreSelectItemValueProp,
+    coreSelectItemLabelProp,
     coreSelectItemSetup,
     CoreSelectItemSlotProps,
     CoreSelectProvide,
-    CoreSelectItemReturn,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
 
@@ -33,10 +33,7 @@ export default defineComponent({
     props: {
         ...coreSelectItemDisabledProp,
         ...coreSelectItemValueProp,
-        label: {
-            type: String,
-            default: '',
-        },
+        ...coreSelectItemLabelProp,
         icon: {
             type: String,
             default: null,

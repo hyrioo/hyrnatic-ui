@@ -165,6 +165,7 @@ export {
 export {
     coreDropdownItemSetup,
     coreDropdownItemDisabledProp,
+    coreDropdownItemLabelProp,
 } from './modules/dropdowns/dropdown/DropdownItem';
 export type {
     CoreDropdownSlotProps,
@@ -173,7 +174,6 @@ export type {
     CoreDropdownItemSlotProps,
     CoreDropdownItemInstance,
     CoreDropdownProvide,
-    CoreDropdownItemReturn,
 } from './modules/dropdowns/dropdown/DropdownItem';
 
 
@@ -193,6 +193,7 @@ export {
 export type {
     CoreFloatingSlotProps,
 } from './modules/floating/floating/Floating';
+export { arrowReference } from './modules/floating/middleware/arrow-reference';
 
 
 
@@ -339,6 +340,7 @@ export {
     coreSelectItemSetup,
     coreSelectItemValueProp,
     coreSelectItemDisabledProp,
+    coreSelectItemLabelProp,
 } from './modules/selects/select/SelectItem';
 export type {
     CoreSelectSlotProps,
@@ -346,7 +348,6 @@ export type {
 export type {
     CoreSelectItemSlotProps,
     CoreSelectProvide,
-    CoreSelectItemReturn,
     CoreSelectItemInstance,
 } from './modules/selects/select/SelectItem';
 

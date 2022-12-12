@@ -37,7 +37,7 @@ const modules = {
     // DatePickersInstall,
     DialogsInstall,
     DrawersInstall,
-    // DropdownsInstall,
+    DropdownsInstall,
     FloatingInstall,
     FragmentsInstall,
     IconsInstall,

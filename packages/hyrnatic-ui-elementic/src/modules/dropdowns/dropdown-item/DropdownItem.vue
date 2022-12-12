@@ -1,5 +1,6 @@
 <template>
-    <hr-dropdown-item :ref="com => setElement(com)" :class="[css_root]" tabindex="-1" v-bind="core.props" v-on="core.listeners">
+    <hr-dropdown-item :class="[css_root]" tabindex="-1" v-bind="core.props"
+                      v-on="core.listeners">
         <slot>
             <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" />
             <span :class="[css_ec('label')]">{{ label }}</span>
@@ -19,6 +20,7 @@ import {
     coreDropdownItemDisabledProp,
     coreDropdownItemSetup,
     CoreDropdownItemSlotProps,
+    coreDropdownItemLabelProp,
     CoreDropdownItemReturn
 } from '@hyrioo/hyrnatic-ui-core';
 
@@ -26,10 +28,7 @@ export default defineComponent({
     name: 'h-dropdown-item',
     props: {
         ...coreDropdownItemDisabledProp,
-        label: {
-            type: String,
-            default: '',
-        },
+        ...coreDropdownItemLabelProp,
         icon: {
             type: String,
             default: null,
@@ -37,18 +36,6 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const updatePopper = inject<Function>('updatePopper');
-
-        const setElement = (component: CoreDropdownItemReturn) => {
-            if (component) {
-                component.setElement(component.$el);
-            }
-        };
-
-        onMounted(() => updatePopper());
-        onUnmounted(() => updatePopper());
-        onUpdated(() => updatePopper());
-
         const asProps = (slotProps: CoreDropdownItemSlotProps) => ({
             class: {
                 '-focused': slotProps.focused, '-disabled': slotProps.disabled,
@@ -59,7 +46,6 @@ export default defineComponent({
             .build();
 
         return {
-            setElement,
             core,
             ...componentCss(),
         };

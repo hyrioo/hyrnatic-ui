@@ -10,7 +10,7 @@
 <script lang="ts">
 import {
     computed,
-    defineComponent, inject, onMounted, onUnmounted, onUpdated, SetupContext,
+    defineComponent, inject, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import { CoreSelectProvide } from '@hyrioo/hyrnatic-ui-core';

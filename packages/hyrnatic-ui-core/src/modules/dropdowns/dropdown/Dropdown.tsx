@@ -50,6 +50,8 @@ export type CoreDropdownSlotProps = {
     onButtonClick: (e) => any;
     onIconClick: (e) => any;
     onItemClick: (e) => any;
+
+    onMenuTransitioning: (state: boolean) => void;
 }
 
 export function coreDropdownSetup() {
@@ -69,6 +71,7 @@ export default defineComponent({
     emits: ['click', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
+        const transitioning = ref(false);
         const items = ref<CoreDropdownItemInstance[]>([]);
         const focusedItem = ref<CoreDropdownItemInstance>();
         const focusableItems = computed(() => items.value.filter((i) => i.disabled === false));
@@ -107,7 +110,7 @@ export default defineComponent({
             if (interactivityDisabled.value) {
                 return false;
             }
-            const currentIndex = focusedItem.value ? focusableItems.value.findIndex((i) => i === focusedItem.value) : null;
+            const getCurrentIndex = () => focusedItem.value ? focusableItems.value.findIndex((i) => i === focusedItem.value) : null;
 
             if (!menuVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter')) {
                 if (e.key === 'Enter') {
@@ -122,11 +125,11 @@ export default defineComponent({
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'ArrowDown') {
-                focusedItem.value = Arr.next(focusableItems.value, currentIndex);
+                focusedItem.value = Arr.next(focusableItems.value, getCurrentIndex());
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'ArrowUp') {
-                focusedItem.value = Arr.prev(focusableItems.value, currentIndex);
+                focusedItem.value = Arr.prev(focusableItems.value, getCurrentIndex());
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'Enter' && focusedItem.value) {
@@ -159,11 +162,21 @@ export default defineComponent({
             menuVisible.value = !menuVisible.value;
         };
 
+        const onMenuTransitioning = (state) => {
+            transitioning.value = state;
+        }
+
+        const itemsVisible = computed(() => {
+            return menuVisible.value || transitioning.value;
+        });
+
         provide<CoreDropdownProvide>('dropdown', {
             focusedItem,
             onItemClick,
             addItemInstance,
             removeItemInstance,
+            menuVisible: computed(() => menuVisible.value),
+            itemsVisible,
         });
 
         const slotProps = reactive<CoreDropdownSlotProps>({
@@ -176,6 +189,8 @@ export default defineComponent({
             onButtonClick,
             onIconClick,
             onItemClick,
+
+            onMenuTransitioning,
         });
         const defaultRender = () => ctx.slots.default(slotProps);
 

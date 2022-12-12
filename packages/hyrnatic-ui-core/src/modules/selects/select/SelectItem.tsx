@@ -43,6 +43,12 @@ export const coreSelectItemDisabledProp = {
         default: false,
     },
 };
+export const coreSelectItemLabelProp = {
+    label: {
+        type: String,
+        default: null,
+    },
+};
 
 export type CoreSelectItemSlotProps = {
     selected: ComputedRef<boolean>;
@@ -50,11 +56,6 @@ export type CoreSelectItemSlotProps = {
     disabled: ComputedRef<boolean>;
     value: ComputedRef;
     onClick: (e) => any;
-}
-
-export type CoreSelectItemReturn = {
-    setElement: (element: HTMLElement) => void;
-    $el: HTMLElement;
 }
 
 export function coreSelectItemSetup() {
@@ -68,10 +69,7 @@ const SelectItem = defineComponent({
         ...coreComponentAsPropsProp,
         ...coreSelectItemDisabledProp,
         ...coreSelectItemValueProp,
-        label: {
-            type: String,
-            default: '',
-        },
+        ...coreSelectItemLabelProp,
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {

@@ -90,6 +90,8 @@ export default defineComponent({
         clickOutside: (event: CoreFloatingClickOutsideEvent) => true,
         computedPosition: (data: ComputePositionReturn) => true,
         'transitionStateChanged': (state: boolean) => true,
+        show: () => true,
+        hide: () => true,
     },
     setup(props, ctx: SetupContext) {
         const floatingElement = ref<HTMLElement>(null);
@@ -104,26 +106,18 @@ export default defineComponent({
         const middleware = computed(() => {
             return [
                 flip(),
-                size({
-                    apply(data) {
-                        console.log(data);
-                        // ctx.emit('requestSize', data);
-                        // style.maxWidth = `${data.availableWidth}px`;
-                        style.maxHeight = `${data.availableHeight}px`;
-                    }
-                }),
                 shift({ padding: 8 }),
                 ...props.middleware
             ];
         });
 
         const updatePosition = () => {
-            console.log('updatePosition');
+            // console.log('updatePosition');
             computePosition(props.reference, floatingElement.value, {
                 placement: props.placement,
                 middleware: middleware.value
             }).then((data) => {
-                console.log('computePosition', data);
+                // console.log('computePosition', data);
                 ctx.emit('computedPosition', data);
                 style.left = `${data.x}px`;
                 style.top = `${data.y}px`;
@@ -131,12 +125,12 @@ export default defineComponent({
         };
 
         const setupFloating = () => {
-            console.log('setupFloating');
+            // console.log('setupFloating');
             cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
         };
 
         watch(() => props.visible, (visible: boolean) => {
-            // ctx.emit(visible ? 'show' : 'hide');
+            ctx.emit(visible ? 'show' : 'hide');
             if (visible && !cleanup.value) {
                 nextTick(setupFloating);
             }
@@ -173,11 +167,9 @@ export default defineComponent({
         };
 
         const onLeave = () => {
-            console.log('onLeave');
             ctx.emit('transitionStateChanged', true);
         };
         const onAfterLeave = () => {
-            console.log('onAfterLeave');
             ctx.emit('transitionStateChanged', false);
             if (!props.keep) {
                 destroy();

@@ -6,14 +6,15 @@ import {
     getCurrentInstance,
     Ref,
     inject,
-    onMounted, onUnmounted, ComputedRef, h,
+    onMounted, onUnmounted, ComputedRef, h, ComponentInternalInstance,
 } from 'vue';
 import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 
 export type CoreDropdownItemInstance = {
     onClick(e: any): void;
+    label?: string;
     disabled: boolean;
-    element?: HTMLElement;
+    component?: ComponentInternalInstance;
 };
 
 export type CoreDropdownProvide = {
@@ -21,6 +22,8 @@ export type CoreDropdownProvide = {
     onItemClick(e: any): void;
     addItemInstance(instance: CoreDropdownItemInstance): void;
     removeItemInstance(instance: CoreDropdownItemInstance): void;
+    menuVisible: ComputedRef<boolean>;
+    itemsVisible: ComputedRef<boolean>;
 };
 
 export const coreDropdownItemDisabledProp = {
@@ -29,17 +32,18 @@ export const coreDropdownItemDisabledProp = {
         default: false,
     },
 };
+export const coreDropdownItemLabelProp = {
+    label: {
+        type: String,
+        default: null,
+    },
+};
 
 export type CoreDropdownItemSlotProps = {
     disabled: ComputedRef<boolean>;
     focused: ComputedRef<boolean>;
     onClick: (e) => any;
 }
-export type CoreDropdownItemReturn = {
-    setElement: (element: HTMLElement) => void;
-    $el: HTMLElement;
-}
-
 
 export function coreDropdownItemSetup() {
     return setupBuilder<CoreDropdownItemSlotProps>(getCurrentInstance());
@@ -51,6 +55,7 @@ export default defineComponent({
         ...coreComponentAsProp,
         ...coreComponentAsPropsProp,
         ...coreDropdownItemDisabledProp,
+        ...coreDropdownItemLabelProp,
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
@@ -65,13 +70,10 @@ export default defineComponent({
 
         const instance = reactive<CoreDropdownItemInstance>({
             disabled: props.disabled,
+            label: props.label,
             onClick,
-            element: null,
+            component: getCurrentInstance(),
         });
-
-        const setElement = (element: HTMLElement) => {
-            instance.element = element;
-        }
 
         onMounted(() => {
             dropdown.addItemInstance(instance);
@@ -90,16 +92,18 @@ export default defineComponent({
         const defaultRender = () => ctx.slots.default(slotProps);
 
         return {
-            setElement,
+            dropdown,
             slotProps,
             defaultRender,
         };
     },
     render() {
-        if (this.$props.as) {
-            const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-            return h(this.$props.as, { ...p }, this.defaultRender());
+        if(this.dropdown.itemsVisible.value) {
+            if (this.$props.as) {
+                const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
+                return h(this.$props.as, { ...p }, this.defaultRender());
+            }
+            return this.defaultRender();
         }
-        return this.defaultRender();
     },
 });

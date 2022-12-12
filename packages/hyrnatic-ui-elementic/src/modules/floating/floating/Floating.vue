@@ -3,7 +3,7 @@
                  :data-floating-placement="floatingPlacement"
                  v-bind="{...core.props, ...$attrs}" v-on="core.listeners"
                  @computed-position="onComputedPosition">
-        <span v-if="showArrow" ref="floatingArrow" :style="{position: 'absolute', ...arrowStyle}"
+        <span v-if="showArrow" ref="floatingArrow" :style="{display: 'flex', position: 'absolute', ...arrowStyle}"
               :data-arrow-placement="arrowPlacement">
             <slot name="arrow" />
         </span>
@@ -29,6 +29,7 @@ import {
     coreFloatingSetup,
 } from '@hyrioo/hyrnatic-ui-core';
 import { arrow, ComputePositionReturn } from '@floating-ui/dom';
+import { arrowReference } from '@hyrioo/hyrnatic-ui-core';
 
 const arrowSide = {
     top: 'bottom',
@@ -64,6 +65,8 @@ export default defineComponent({
         clickOutside: (event: CoreFloatingClickOutsideEvent) => true,
         computedPosition: (data: ComputePositionReturn) => true,
         'update:visible': () => true,
+        show: () => true,
+        hide: () => true,
     },
     setup(props, ctx: SetupContext) {
         const componentCssHelpers = componentCss();
@@ -75,7 +78,8 @@ export default defineComponent({
         const middleware = computed(() => {
             const m = [...props.middleware];
             if (props.showArrow) {
-                m.push(arrow({
+                m.push(arrowReference({
+                    reference: props.arrowReference,
                     element: floatingArrow.value,
                 }));
             }
@@ -85,22 +89,19 @@ export default defineComponent({
         const onComputedPosition = (data: ComputePositionReturn) => {
             floatingPlacement.value = data.placement;
             const side = data.placement.split('-')[0];
-            if (data.middlewareData.arrow) {
+            if (data.middlewareData.arrowReference) {
                 arrowStyle.value = {
-                    left: data.middlewareData.arrow.x != null ? `${data.middlewareData.arrow.x}px` : '',
-                    top: data.middlewareData.arrow.y != null ? `${data.middlewareData.arrow.y}px` : '',
+                    left: data.middlewareData.arrowReference.x != null ? `${data.middlewareData.arrowReference.x}px` : '',
+                    top: data.middlewareData.arrowReference.y != null ? `${data.middlewareData.arrowReference.y}px` : '',
                     [arrowSide[side]]: `${-floatingArrow.value[arrowSize[side]]}px`,
                 };
                 arrowPlacement.value = arrowSide[side];
             }
             ctx.emit('computedPosition', data);
         };
-        const onRequestSize = (data) => {
-
-        }
 
         const core = coreFloatingSetup().props(['as', 'reference', 'visible', 'placement', 'transition'])
-            .events(['clickOutside'])
+            .events(['clickOutside', 'show', 'hide'])
             .build();
 
         return {

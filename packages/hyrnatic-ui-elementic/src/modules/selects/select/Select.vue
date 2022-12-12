@@ -32,6 +32,7 @@
                     :middleware="floatingMiddleware"
                     @click-outside="onClickOutside"
                     @computed-position="onComputedPosition"
+                    @hide="props.clearFocusedItem()"
                     @transition-state-changed="props.onMenuTransitioning"
                     :data-floating-placement="floatingPlacement"
         >
@@ -108,7 +109,6 @@ export default defineComponent({
         };
 
         const onFocusedItemChanged = (item: CoreSelectItemInstance) => {
-            console.log(item);
             if (item && item.component && item.component.vnode && item.component.vnode.el) {
                 item.component.vnode.el.scrollIntoView({
                     behavior: 'smooth',

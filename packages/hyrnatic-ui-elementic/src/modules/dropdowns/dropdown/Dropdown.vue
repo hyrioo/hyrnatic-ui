@@ -1,27 +1,38 @@
 <template>
-    <hr-dropdown v-show="visible" ref="dropdown" v-slot="props" :class="[css_root]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
-        <div ref="button" tabindex="0" :class="[css_ec('button'), {'-split-button': props.splitButton}]" :style="{...popperWidth}" @click="props.onButtonClick" @keydown="props.onKeyEvents($event, 'main')">
+    <hr-dropdown v-show="visible" ref="dropdown" v-slot="props" :class="[css_root]" v-bind="core.props"
+                 v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
+        <div ref="button" tabindex="0" :class="[css_ec('button'), {'-split-button': props.splitButton}]"
+             @click="props.onButtonClick" @keydown="props.onKeyEvents($event, 'main')">
             <span :class="[css_ec('label')]">
                 <slot name="label">
                     {{ label }}
                 </slot>
             </span>
-            <div ref="icon" tabindex="0" :class="[css_ec('icon')]" @click.stop="props.onIconClick" @keydown.stop="props.onKeyEvents($event, 'split')">
-                <h-icon :icon="Icons.dotsHorizontal" size="16px" />
+            <div tabindex="0" :class="[css_ec('icon')]" @click.stop="props.onIconClick"
+                 @keydown.stop="props.onKeyEvents($event, 'split')">
+                <div>
+                    <h-icon ref="icon" :icon="Icons.dotsHorizontal" size="16px" />
+                </div>
             </div>
         </div>
 
-        <h-floating ref="popper" :classes="[css_ec('menu-container')]" :reference="button" :arrow-reference="icon" show-arrow keep transition="tiny2x-slide-up-medium"
-                  :visible="props.menuVisible" :options="{placement: `bottom-${align}`}" :minimum-width="dropdownHasWidth" :modifiers="popperModifiers"
-                  @popper-size-changed="popperSizeChanged" @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
+        <h-floating as="div" :class="[css_ec('menu-container')]" :reference="button"
+                    :arrow-reference="icon ? icon.$el : null" show-arrow keep transition="tiny2x-slide-up-medium"
+                    :visible="props.menuVisible" :placement="`bottom-${align}`"
+                    :middleware="floatingMiddleware"
+                    @hide="props.clearFocusedItem()"
+                    @click-outside="onClickOutside"
+                    @computed-position="onComputedPosition"
+                    @transition-state-changed="props.onMenuTransitioning"
+                    :data-floating-placement="floatingPlacement"
         >
-            <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents">
+            <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents" :style="{maxHeight: menuMaxHeight}">
                 <h-scroll-container>
                     <slot />
                 </h-scroll-container>
             </div>
             <template #arrow>
-                <div :class="[css_ec('arrow')]" />
+                <h-icon icon="tooltip-arrow" :class="[css_ec('arrow')]" />
             </template>
         </h-floating>
     </hr-dropdown>
@@ -40,9 +51,10 @@ import {
     coreDropdownVisibleProp,
     coreDropdownSetup,
     CoreDropdownSlotProps,
-    CoreDropdownItemInstance,
+    CoreDropdownItemInstance, CoreFloatingClickOutsideEvent,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
+import { ComputePositionReturn, offset, size } from '@floating-ui/dom';
 
 export default defineComponent({
     name: 'h-dropdown',
@@ -65,60 +77,41 @@ export default defineComponent({
         const dropdown = ref();
         const button = ref<HTMLElement>();
         const icon = ref<HTMLElement>();
-        const popper = ref<CorePopperComponent>();
+        const menuMaxHeight = ref('');
+        const floatingPlacement = ref('bottom');
+        const floatingMiddleware = computed(() => {
+            return [
+                offset(4),
+                size({
+                    padding: 8,
+                    apply(data) {
+                        Object.assign(data.elements.floating.style, {
+                            minWidth: `${data.rects.reference.width}px`,
+                        });
+                        menuMaxHeight.value = `${data.availableHeight}px`;
+                    }
+                })
+            ];
+        });
 
-        /*onMounted(() => {
-            nextTick(() => {
-                popper.value.updatePopper();
-            });
-        });*/
-
-        const popperWidth = ref({});
-        const popperModifiers = [
-            {
-                name: 'offset',
-                options: {
-                    offset: [0, 4],
-                },
-            },
-        ];
-        const dropdownHasWidth = computed(() => (dropdown.value && dropdown.value.$el.style.width ? dropdown.value.$el.style.width : null));
-        const popperSizeChanged = (size) => {
-            if (dropdownHasWidth.value || size.width === 0) {
-                popperWidth.value = null;
-                return;
-            }
-            popperWidth.value = { minWidth: `${size.width}px` };
-        };
-        let scheduledUpdatePopper = false;
-        const updatePopper = () => {
-            if (scheduledUpdatePopper) {
-                return;
-            }
-            nextTick(() => {
-                if (popper.value) {
-                    popper.value.updatePopper();
-                }
-                scheduledUpdatePopper = false;
-            });
-            scheduledUpdatePopper = true;
-        };
-        const onClickOutside = (value) => {
-            if (value.outsidePopper && value.outsideReference) {
+        const onClickOutside = (value: CoreFloatingClickOutsideEvent) => {
+            if (value.outsideFloating && value.outsideReference) {
                 dropdown.value.close();
             }
         };
 
+        const onComputedPosition = (data: ComputePositionReturn) => {
+            floatingPlacement.value = data.placement.split('-')[0];
+        };
+
         const onFocusedItemChanged = (item: CoreDropdownItemInstance) => {
-            if(item && item.element) {
-                item.element.scrollIntoView({
+            if (item && item.component && item.component.vnode && item.component.vnode.el) {
+                item.component.vnode.el.scrollIntoView({
                     behavior: 'smooth',
                     block: 'nearest',
-                })
+                });
             }
-        }
-
-        provide('updatePopper', updatePopper);
+        };
 
         const asProps = (slotProps: CoreDropdownSlotProps) => ({
             class: {
@@ -134,14 +127,13 @@ export default defineComponent({
             dropdown,
             button,
             icon,
-            popper,
 
-            popperWidth,
-            popperModifiers,
-            popperSizeChanged,
-            dropdownHasWidth,
+            floatingPlacement,
+            floatingMiddleware,
+            menuMaxHeight,
 
             onClickOutside,
+            onComputedPosition,
             onFocusedItemChanged,
 
             ...componentCss(),

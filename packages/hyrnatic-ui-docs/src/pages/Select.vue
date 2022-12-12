@@ -18,6 +18,17 @@
             <h-select-item value="4" label="Option 4" />
         </h-select>
         <br /><br />
+        <h-select v-model="value" placeholder="Select option..." style="width: 100%;">
+            <h-select-item-header v-if="showHeader" :label="header" />
+            <h-select-item value="1" label="Denmark" />
+            <h-select-item value="2" label="Sweden" />
+            <h-select-item value="7" label="United kingdom" />
+            <h-select-item value="3" label="Norway" disabled />
+            <h-select-item value="4" label="Finland" />
+            <h-select-item value="5" label="Germany" />
+            <h-select-item value="6" label="United states" />
+        </h-select>
+        <br /><br />
         <h-select v-model="value" placeholder="Select option..." style="width: 175px;">
             <h-select-item-header v-if="showHeader" label="Header" />
             <h-select-item value="1" label="Looooooooooooooooooooooooooong option 1" />
