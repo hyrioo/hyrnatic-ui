@@ -51,8 +51,7 @@ export default defineComponent({
         ...coreFloatingVisibleProp,
         ...coreFloatingMiddlewareProp,
         ...coreFloatingTransitionProp,
-        ...coreFloatingPlacementProp,
-        ...coreFloatingClassesProp,
+        ...coreFloatingPlacementProp(),
         arrowReference: {
             type: null,
         },
@@ -96,8 +95,11 @@ export default defineComponent({
             }
             ctx.emit('computedPosition', data);
         };
+        const onRequestSize = (data) => {
 
-        const core = coreFloatingSetup().props(['as', 'reference', 'visible', 'placement', 'transition', 'classes'])
+        }
+
+        const core = coreFloatingSetup().props(['as', 'reference', 'visible', 'placement', 'transition'])
             .events(['clickOutside'])
             .build();
 

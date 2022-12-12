@@ -1,5 +1,5 @@
 <template>
-    <hr-select-item :ref="com => setElement(com)" v-slot="props" tabindex="-1" :class="[css_root]" v-bind="core.props"
+    <hr-select-item v-slot="props" tabindex="-1" :class="[css_root]" v-bind="core.props"
                     v-on="core.listeners">
         <slot>
             <h-icon v-if="icon" :class="[css_ec('icon')]" :icon="icon" size="16" />
@@ -43,18 +43,6 @@ export default defineComponent({
         },
     },
     setup(props, ctx: SetupContext) {
-        const updatePopper = inject<Function>('updatePopper');
-
-        const setElement = (component: CoreSelectItemReturn) => {
-            if (component) {
-                component.setElement(component.$el);
-            }
-        };
-
-        onMounted(() => updatePopper());
-        onUnmounted(() => updatePopper());
-        onUpdated(() => updatePopper());
-
         const asProps = (slotProps: CoreSelectItemSlotProps) => ({
             class: { '-selected': slotProps.selected, '-focused': slotProps.focused, '-disabled': slotProps.disabled },
             onClick: slotProps.onClick,
@@ -64,7 +52,6 @@ export default defineComponent({
         return {
             Icons,
             core,
-            setElement,
             ...componentCss(),
         };
     },

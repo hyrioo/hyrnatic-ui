@@ -69,6 +69,7 @@ export type CoreSelectSlotProps = {
     onButtonClick: (e) => any;
     onItemClick: (e) => any;
     onKeyEvents: (e) => any;
+    onMenuTransitioning: (state: boolean) => void;
 }
 
 export function coreSelectSetup() {
@@ -90,6 +91,7 @@ export default defineComponent({
     emits: ['update:modelValue', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
         const menuVisible = ref(false);
+        const transitioning = ref(false);
         const items = ref<CoreSelectItemInstance[]>([]);
         const focusedItem = ref<CoreSelectItemInstance>();
         const selectedItems = computed(() => {
@@ -198,12 +200,22 @@ export default defineComponent({
             }
         };
 
+        const onMenuTransitioning = (state) => {
+            transitioning.value = state;
+        }
+
+        const itemsVisible = computed(() => {
+            return menuVisible.value || transitioning.value;
+        });
+
         provide<CoreSelectProvide>('select', {
             selectedItems,
             focusedItem,
             onItemClick,
             addItemInstance,
             removeItemInstance,
+            menuVisible: computed(() => menuVisible.value),
+            itemsVisible,
         });
 
         const slotProps = reactive<CoreSelectSlotProps>({
@@ -223,6 +235,7 @@ export default defineComponent({
             onButtonClick,
             onItemClick,
             onKeyEvents,
+            onMenuTransitioning,
         });
         const defaultRender = () => ctx.slots.default(slotProps);
 

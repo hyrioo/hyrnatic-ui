@@ -1,5 +1,5 @@
 <template>
-    <h-floating ref="popper" as="div" :class="[css_root]" :reference="reference"
+    <h-floating as="div" :class="[css_root]" :reference="reference"
                 :transition="transition" show-arrow
                 :visible="visible" :placement="placement"
                 :middleware="floatingMiddleware"
@@ -36,7 +36,7 @@ const transitions = {
 export default defineComponent({
     name: 'h-popover',
     props: {
-        ...coreFloatingPlacementProp,
+        ...coreFloatingPlacementProp(),
         reference: {
             type: null,
             required: true,

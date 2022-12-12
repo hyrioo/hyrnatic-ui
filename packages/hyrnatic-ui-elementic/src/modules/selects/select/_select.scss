@@ -86,32 +86,35 @@ $crc: '.h-select';
 
 #{$crc}__menu-container {
 	box-shadow: $sd-active--primary-box-shadow;
-	margin-top: -($v-control-height) !important;
-	padding-top: $v-control-height;
 	pointer-events: none;
+
+	&[data-floating-placement='top'] {
+		margin-top: $v-control-height !important;
+		padding-bottom: $v-control-height;
+
+		#{$crc}__menu {
+			border-bottom: none;
+			border-radius: $v-box-border-radius $v-box-border-radius 0 0;
+		}
+	}
+	&[data-floating-placement='bottom'] {
+		margin-top: -($v-control-height) !important;
+		padding-top: $v-control-height;
+
+		#{$crc}__menu {
+			border-top: none;
+			border-radius: 0 0 $v-box-border-radius $v-box-border-radius;
+		}
+	}
 
 	#{$crc}__menu {
 		border: $v-control-border-width solid $c-primary-border;
-		border-top: none;
 		background: $c-primary-background;
-		border-radius: 0 0 $v-box-border-radius $v-box-border-radius;
 		pointer-events: all;
 		display: flex;
-		max-height: 300px;
 
 		.h-scroll-container{
 			flex-grow: 1;
 		}
-
-		/*&:after {
-			content: '';
-			position: absolute;
-			height: 3px;
-			left: -$v-control-border-width;
-			right: -$v-control-border-width;
-			top: -$v-control-border-width;
-			background: $c-primary;
-			border-radius: 3px 3px 0 0;
-		}*/
 	}
 }

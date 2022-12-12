@@ -9,15 +9,6 @@
             <h-select-item value="4" label="Option 4" />
         </h-select>
         <br /><br />
-        <h-select v-model="value" placeholder="Select option..." style="width: 250px;">
-            <h-select-item-header v-if="showHeader" :label="header" />
-            <h-select-item value="1" label="Loooong option 1" />
-            <h-select-item value="2" label="Option 2" />
-            <h-select-item-divider />
-            <h-select-item value="3" label="Option 3" disabled />
-            <h-select-item value="4" label="Option 4" />
-        </h-select>
-        <br /><br />
         <h-select v-model="value" placeholder="Select option..." style="width: 100%;">
             <h-select-item-header v-if="showHeader" :label="header" />
             <h-select-item value="1" label="Loooong option 1" />

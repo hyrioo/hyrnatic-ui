@@ -5,9 +5,10 @@
         </div>
 
         <h-floating ref="popper" as="div" :class="[css_root]" :reference="reference"
-                    transition="fade-fast" show-arrow
+                    :transition="transition" show-arrow
                     :visible="props.visible" :placement="placement"
                     :middleware="floatingMiddleware"
+                    @computed-position="onComputedPosition"
         >
             <slot name="content">
                 <span v-html="content" />
@@ -31,20 +32,25 @@ import {
     coreTooltipShowDelayProp,
     coreTooltipHideDelayProp,
     coreTooltipSetup,
+    coreFloatingPlacementProp,
 } from '@hyrioo/hyrnatic-ui-core';
-import { offset } from '@floating-ui/dom';
+import { ComputePositionReturn, offset } from '@floating-ui/dom';
+
+const transitions = {
+    top: 'tiny2x-slide-down-medium',
+    right: 'tiny2x-slide-to-left-medium',
+    bottom: 'tiny2x-slide-up-medium',
+    left: 'tiny2x-slide-to-right-medium',
+};
 
 export default defineComponent({
     name: 'h-tooltip',
     props: {
+        ...coreFloatingPlacementProp('top'),
         ...coreTooltipModelValueProp,
         ...coreTooltipTriggerProp,
         ...coreTooltipShowDelayProp,
         ...coreTooltipHideDelayProp,
-        placement: {
-            type: String,
-            default: 'top',
-        },
         content: {
             type: String,
         },
@@ -57,10 +63,17 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const reference = ref();
         const popper = ref<CorePopperComponent>();
+        const transition = ref(transitions[props.placement]);
 
         const floatingMiddleware = ref([
             offset(4),
         ]);
+
+        const onComputedPosition = (data: ComputePositionReturn) => {
+            const side = data.placement.split('-')[0];
+            transition.value = transitions[side];
+            ctx.emit('computedPosition', data);
+        };
 
         const core = coreTooltipSetup(reference).props(['modelValue', 'trigger']).events(['update:modelValue']).build();
 
@@ -69,6 +82,8 @@ export default defineComponent({
             reference,
             popper,
             floatingMiddleware,
+            onComputedPosition,
+            transition,
             ...componentCss(),
         };
     },

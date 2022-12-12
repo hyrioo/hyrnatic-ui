@@ -19,7 +19,7 @@ import {
     limitShift,
     Middleware,
     Placement,
-    shift
+    shift, size
 } from '@floating-ui/dom';
 import { coreComponentAsProp, setupBuilder } from '../../../utils/component';
 
@@ -47,11 +47,13 @@ export const coreFloatingTransitionProp = {
         default: null,
     },
 };
-export const coreFloatingPlacementProp = {
-    placement: {
-        type: String as PropType<Placement>,
-        default: 'bottom',
-    },
+export const coreFloatingPlacementProp = (defaultValue: Placement = 'bottom') => {
+    return {
+        placement: {
+            type: String as PropType<Placement>,
+            default: defaultValue,
+        },
+    };
 };
 export const coreFloatingMiddlewareProp = {
     middleware: {
@@ -60,11 +62,6 @@ export const coreFloatingMiddlewareProp = {
             flip(),
             shift({ limiter: limitShift() }),
         ],
-    },
-};
-export const coreFloatingClassesProp = {
-    classes: {
-        type: null,
     },
 };
 
@@ -86,13 +83,13 @@ export default defineComponent({
         ...coreFloatingVisibleProp,
         ...coreFloatingKeepProp,
         ...coreFloatingTransitionProp,
-        ...coreFloatingPlacementProp,
+        ...coreFloatingPlacementProp(),
         ...coreFloatingMiddlewareProp,
-        ...coreFloatingClassesProp,
     },
     emits: {
         clickOutside: (event: CoreFloatingClickOutsideEvent) => true,
         computedPosition: (data: ComputePositionReturn) => true,
+        'transitionStateChanged': (state: boolean) => true,
     },
     setup(props, ctx: SetupContext) {
         const floatingElement = ref<HTMLElement>(null);
@@ -101,11 +98,21 @@ export default defineComponent({
             position: 'absolute',
             left: '0',
             top: '0',
+            maxWidth: '',
+            maxHeight: '',
         });
         const middleware = computed(() => {
             return [
                 flip(),
-                shift({padding: 8}),
+                size({
+                    apply(data) {
+                        console.log(data);
+                        // ctx.emit('requestSize', data);
+                        // style.maxWidth = `${data.availableWidth}px`;
+                        style.maxHeight = `${data.availableHeight}px`;
+                    }
+                }),
+                shift({ padding: 8 }),
                 ...props.middleware
             ];
         });
@@ -121,7 +128,7 @@ export default defineComponent({
                 style.left = `${data.x}px`;
                 style.top = `${data.y}px`;
             });
-        }
+        };
 
         const setupFloating = () => {
             console.log('setupFloating');
@@ -133,9 +140,6 @@ export default defineComponent({
             if (visible && !cleanup.value) {
                 nextTick(setupFloating);
             }
-        });
-
-        onMounted(() => {
         });
 
         const elementContains = (elm, otherElm) => {
@@ -168,7 +172,13 @@ export default defineComponent({
             }
         };
 
-        const afterHide = () => {
+        const onLeave = () => {
+            console.log('onLeave');
+            ctx.emit('transitionStateChanged', true);
+        };
+        const onAfterLeave = () => {
+            console.log('onAfterLeave');
+            ctx.emit('transitionStateChanged', false);
             if (!props.keep) {
                 destroy();
             }
@@ -181,7 +191,8 @@ export default defineComponent({
         return {
             floatingElement,
             style,
-            afterHide,
+            onLeave,
+            onAfterLeave,
             onDocumentClick,
         };
     },
@@ -209,7 +220,8 @@ export default defineComponent({
         return (
             <Teleport to="body">
                 {this.transition ? (
-                    <Transition name={this.transition} onAfterLeave={this.afterHide}>
+                    <Transition name={this.transition}
+                                onLeave={this.onLeave} onAfterLeave={this.onAfterLeave}>
                         {content()}
                     </Transition>
                 ) : content()}

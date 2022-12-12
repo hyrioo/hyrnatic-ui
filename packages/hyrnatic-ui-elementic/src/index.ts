@@ -49,7 +49,7 @@ const modules = {
     ProgressBarsInstall,
     RadioButtonsInstall,
     ScrollContainersInstall,
-    // SelectsInstall,
+    SelectsInstall,
     SlidersInstall,
     SpinnersInstall,
     StepsInstall,

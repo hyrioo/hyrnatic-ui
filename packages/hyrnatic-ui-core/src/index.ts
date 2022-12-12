@@ -189,7 +189,6 @@ export {
     coreFloatingTransitionProp,
     coreFloatingPlacementProp,
     coreFloatingMiddlewareProp,
-    coreFloatingClassesProp,
 } from './modules/floating/floating/Floating';
 export type {
     CoreFloatingSlotProps,

@@ -6,6 +6,7 @@ import {
     onUnmounted,
     reactive, ref, Ref,
     SetupContext, watch,
+    Component, ComponentInternalInstance,
 } from 'vue';
 import {
     coreComponentAsProp,
@@ -17,7 +18,7 @@ export type CoreSelectItemInstance = {
     value: any;
     label: string;
     disabled: boolean;
-    element?: HTMLElement;
+    component?: ComponentInternalInstance;
 };
 
 export type CoreSelectProvide = {
@@ -26,6 +27,8 @@ export type CoreSelectProvide = {
     onItemClick(instance: CoreSelectItemInstance): void;
     addItemInstance(instance: CoreSelectItemInstance): void;
     removeItemInstance(instance: CoreSelectItemInstance): void;
+    menuVisible: ComputedRef<boolean>;
+    itemsVisible: ComputedRef<boolean>;
 };
 
 export const coreSelectItemValueProp = {
@@ -58,7 +61,7 @@ export function coreSelectItemSetup() {
     return setupBuilder<CoreSelectItemSlotProps>(getCurrentInstance());
 }
 
-export default defineComponent({
+const SelectItem = defineComponent({
     name: 'hr-select-item',
     props: {
         ...coreComponentAsProp,
@@ -77,12 +80,8 @@ export default defineComponent({
             value: props.value,
             label: props.label,
             disabled: props.disabled,
-            element: null,
+            component: getCurrentInstance(),
         });
-
-        const setElement = (element: HTMLElement) => {
-            instance.element = element;
-        }
 
         onMounted(() => {
             select.addItemInstance(instance);
@@ -110,16 +109,19 @@ export default defineComponent({
         const defaultRender = () => ctx.slots.default(slotProps);
 
         return {
-            setElement,
+            select,
             slotProps,
             defaultRender,
         };
     },
     render() {
-        if (this.$props.as) {
-            const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-            return h(this.$props.as, { ...p }, this.defaultRender());
+        if(this.select.itemsVisible.value) {
+            if (this.$props.as) {
+                const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
+                return h(this.$props.as, { ...p }, this.defaultRender());
+            }
+            return this.defaultRender();
         }
-        return this.defaultRender();
     },
 });
+export default SelectItem;
