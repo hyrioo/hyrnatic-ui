@@ -1,0 +1,182 @@
+import { PropType } from 'vue';
+import { DateTime, Duration } from 'luxon';
+import { ComputePositionReturn } from '@floating-ui/dom';
+declare const _default: import("vue").DefineComponent<{
+    highlightToday: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    displayFormat: {
+        type: StringConstructor;
+        default: string;
+    };
+    align: {
+        type: PropType<"end" | "start">;
+        default: string;
+    };
+    dots: {
+        type: any;
+        default: any;
+    };
+    firstDayOfWeek: {
+        type: NumberConstructor;
+        default: number;
+    };
+    visible: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    modelValue: {
+        type: any;
+        required: boolean;
+    };
+}, {
+    onInputFocus: () => void;
+    onInputBlur: () => void;
+    transition: import("vue").Ref<string>;
+    onClickOutside: (value: any) => void;
+    onComputedPosition: (data: ComputePositionReturn) => void;
+    floatingVisible: import("vue").Ref<boolean>;
+    floatingMiddleware: import("vue").ComputedRef<import("@floating-ui/core").Middleware[]>;
+    cachedDots: import("vue").ComputedRef<{}>;
+    css_root: import("vue").ComputedRef<string>;
+    css_ec: (element: any) => string;
+    Icons: {
+        arrowLeft: string;
+        arrowRight: string;
+        calendarMonth: string;
+        check: string;
+        chevronDoubleLeft: string;
+        chevronDoubleRight: string;
+        chevronDown: string;
+        chevronLeft: string;
+        chevronRight: string;
+        chevronUp: string;
+        close: string;
+        dotsHorizontal: string;
+        loading: string;
+        minus: string;
+        plus: string;
+    };
+    input: import("vue").Ref<any>;
+    icon: import("vue").Ref<any>;
+    inputValue: any;
+    weekdayNames: import("vue").ComputedRef<string[]>;
+    daysToShow: import("vue").ComputedRef<{
+        date: DateTime;
+        classes: any;
+    }[]>;
+    shownDate: import("vue").Ref<{
+        day: number;
+        daysInMonth: number;
+        daysInYear: number;
+        hour: number;
+        invalidReason: string;
+        invalidExplanation: string;
+        isInDST: boolean;
+        isInLeapYear: boolean;
+        isOffsetFixed: boolean;
+        isValid: boolean;
+        locale: string;
+        millisecond: number;
+        minute: number;
+        month: number;
+        monthLong: string;
+        monthShort: string;
+        numberingSystem: string;
+        offset: number;
+        offsetNameLong: string;
+        offsetNameShort: string;
+        ordinal: number;
+        outputCalendar: string;
+        quarter: number;
+        second: number;
+        weekNumber: number;
+        weekYear: number;
+        weekday: number;
+        weekdayLong: string;
+        weekdayShort: string;
+        weeksInWeekYear: number;
+        year: number;
+        zoneName: string;
+        zone: {
+            type: string;
+            name: string;
+            universal: boolean;
+            offsetName: (ts: number, options: import("luxon").ZoneOffsetOptions) => string;
+            formatOffset: (ts: number, format: import("luxon").ZoneOffsetFormat) => string;
+            offset: (ts: number) => number;
+            equals: (other: import("luxon").Zone) => boolean;
+            isValid: boolean;
+        };
+        diff: (other: DateTime, unit?: import("luxon").DurationUnits, options?: import("luxon").DiffOptions) => Duration;
+        diffNow: (unit?: import("luxon").DurationUnits, options?: import("luxon").DiffOptions) => Duration;
+        endOf: (unit: keyof import("luxon").DurationObjectUnits) => DateTime;
+        equals: (other: DateTime) => boolean;
+        get: (unit: keyof DateTime) => number;
+        hasSame: (other: DateTime, unit: keyof import("luxon").DurationObjectUnits) => boolean;
+        minus: (duration: import("luxon").DurationInput) => DateTime;
+        plus: (duration: import("luxon").DurationInput) => DateTime;
+        reconfigure: (properties: import("luxon").LocaleOptions) => DateTime;
+        resolvedLocaleOpts: (options?: import("luxon").LocaleOptions & Intl.DateTimeFormatOptions) => Intl.ResolvedDateTimeFormatOptions;
+        set: (values: import("luxon").DateObjectUnits) => DateTime;
+        setLocale: (locale: string) => DateTime;
+        setZone: (zone: string | import("luxon").Zone, options?: import("luxon").ZoneOptions) => DateTime;
+        startOf: (unit: keyof import("luxon").DurationObjectUnits) => DateTime;
+        toBSON: () => Date;
+        toFormat: (format: string, options?: import("luxon").LocaleOptions & Intl.DateTimeFormatOptions) => string;
+        toHTTP: () => string;
+        toISO: (options?: import("luxon").ToISOTimeOptions) => string;
+        toISODate: (options?: import("luxon").ToISODateOptions) => string;
+        toISOTime: (options?: import("luxon").ToISOTimeOptions) => string;
+        toISOWeekDate: () => string;
+        toJSDate: () => Date;
+        toJSON: () => string;
+        toLocal: () => DateTime;
+        toLocaleParts: (options?: import("luxon").LocaleOptions & Intl.DateTimeFormatOptions) => any[];
+        toLocaleString: (options?: import("luxon").LocaleOptions & Intl.DateTimeFormatOptions) => string;
+        toMillis: () => number;
+        toObject: (options?: {
+            includeConfig?: boolean;
+        }) => import("luxon").DateObject;
+        toRelative: (options?: import("luxon").ToRelativeOptions) => string;
+        toRelativeCalendar: (options?: import("luxon").ToRelativeCalendarOptions) => string;
+        toRFC2822: () => string;
+        toSeconds: () => number;
+        toSQL: (options?: import("luxon").ToSQLOptions) => string;
+        toSQLDate: () => string;
+        toSQLTime: (options?: import("luxon").ToSQLOptions) => string;
+        toString: () => string;
+        toUTC: (offset?: number, options?: import("luxon").ZoneOptions) => DateTime;
+        until: (other: DateTime) => import("luxon").Interval;
+        valueOf: () => number;
+    }>;
+    plusShownDate: (duration: Duration) => void;
+    minusShownDate: (duration: Duration) => void;
+    onDateClick: (date: DateTime) => void;
+    onDateInputChanged: () => void;
+    core: any;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focus" | "blur" | "view-changed", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    modelValue: any;
+    disabled: boolean;
+    visible: boolean;
+    highlightToday: boolean;
+    displayFormat: string;
+    align: "end" | "start";
+    dots: any;
+    firstDayOfWeek: number;
+} & {}>, {
+    modelValue: any;
+    disabled: boolean;
+    visible: boolean;
+    highlightToday: boolean;
+    displayFormat: string;
+    align: "end" | "start";
+    dots: any;
+    firstDayOfWeek: number;
+}>;
+export default _default;
