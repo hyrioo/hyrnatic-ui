@@ -1,5 +1,4 @@
 $crc: '.h-scroll-container';
-$track-color: lighten(desaturate($c-primary, 100), 20);
 
 #{$crc} {
 	&:hover, &.-hover, &.-dragging {
@@ -13,10 +12,55 @@ $track-color: lighten(desaturate($c-primary, 100), 20);
 			opacity: $o-0;
 		}
 	}
+
+	&.-color-primary {
+		$track-color: lighten(desaturate($c-primary, 100), 20);
+		#{$crc}__track {
+			background: rgba($track-color, $o-0);
+
+			&.-hover, &.-dragging {
+				background: rgba($track-color, $o-32);
+			}
+		}
+
+		#{$crc}__thumb {
+			background: $track-color;
+
+			&.-hover{
+				background: $c-hover--primary-border;
+			}
+
+			&.-dragging {
+				background: $c-active--primary-border;
+			}
+		}
+	}
+
+	&.-color-light {
+		$track-color: lighten(desaturate($c-fill, 100), 20);
+		#{$crc}__track {
+			background: rgba($track-color, $o-0);
+
+			&.-hover, &.-dragging {
+				background: rgba($track-color, $o-32);
+			}
+		}
+
+		#{$crc}__thumb {
+			background: $track-color;
+
+			&.-hover{
+				background: rgba($track-color, $o-80);
+			}
+
+			&.-dragging {
+				background: rgba($track-color, $o-100);
+			}
+		}
+	}
 }
 
 #{$crc}__track {
-	background: rgba($track-color, $o-0);
 	position: absolute;
 	border-radius: 2px;
 	transition: background $t-fast-standard, opacity $t-fast-standard, width $t-fast-standard, height $t-fast-standard;
@@ -47,7 +91,6 @@ $track-color: lighten(desaturate($c-primary, 100), 20);
 
 	&.-hover, &.-dragging {
 		border-radius: 3px;
-		background: rgba($track-color, $o-32);
 
 		#{$crc}__thumb {
 			border-radius: 3px;
@@ -80,17 +123,8 @@ $track-color: lighten(desaturate($c-primary, 100), 20);
 }
 
 #{$crc}__thumb {
-	background: $track-color;
 	border-radius: 2px;
 	cursor: pointer;
 	opacity: $o-32;
 	transition: opacity $t-fast-standard, background $t-fast-standard, width $t-fast-standard, height $t-fast-standard;
-
-	&.-hover{
-		background: $c-hover--primary-border;
-	}
-
-	&.-dragging {
-		background: $c-active--primary-border;
-	}
 }

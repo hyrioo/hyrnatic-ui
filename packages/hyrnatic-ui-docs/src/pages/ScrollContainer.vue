@@ -1,7 +1,7 @@
 <template>
     <page title="Scroll Container">
         <h-checkbox v-model="largerContainer" label="Larger container" />
-        <h-scroll-container :auto-hide="true" style="width: 200px;" :style="{height: largerContainer ? '600px' : '400px'}">
+        <h-scroll-container :auto-hide="true" :style="{width: '200px', height: largerContainer ? '600px' : '400px'}">
             <h-checkbox v-model="moreContent" label="More content" />
             <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in tristique est. Duis ullamcorper leo non

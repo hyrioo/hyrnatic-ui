@@ -17,14 +17,14 @@
         </div>
 
         <h-floating as="div" :class="[css_ec('menu-container')]" :reference="button"
-                    :arrow-reference="icon ? icon.$el : null" show-arrow transition="tiny2x-slide-up-medium"
+                    :arrow-reference="icon ? icon.$el : null" show-arrow
+                    :transition="transition"
                     :visible="props.menuVisible" :placement="`bottom-${align}`"
                     :middleware="floatingMiddleware"
                     @hide="props.clearFocusedItem()"
                     @click-outside="onClickOutside"
                     @computed-position="onComputedPosition"
                     @transition-state-changed="props.onMenuTransitioning"
-                    :data-floating-placement="floatingPlacement"
                     :style="floatingStyle"
         >
             <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents" :style="{maxHeight: menuMaxHeight}">
@@ -52,10 +52,17 @@ import {
     coreDropdownVisibleProp,
     coreDropdownSetup,
     CoreDropdownSlotProps,
-    CoreDropdownItemInstance, CoreFloatingClickOutsideEvent,
+    CoreDropdownItemInstance,
+    CoreFloatingClickOutsideEvent,
+    splitPlacement,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
 import { ComputePositionReturn, offset, size } from '@floating-ui/dom';
+
+const transitions = {
+    top: 'tiny2x-slide-down-medium',
+    bottom: 'tiny2x-slide-up-medium',
+};
 
 export default defineComponent({
     name: 'h-dropdown',
@@ -84,7 +91,7 @@ export default defineComponent({
         const icon = ref<HTMLElement>();
         const menuMaxHeight = ref('');
         const floatingStyle = ref({});
-        const floatingPlacement = ref('bottom');
+        const transition = ref(transitions['bottom']);
         const floatingMiddleware = computed(() => {
             return [
                 offset(4),
@@ -107,7 +114,7 @@ export default defineComponent({
         };
 
         const onComputedPosition = (data: ComputePositionReturn) => {
-            floatingPlacement.value = data.placement.split('-')[0];
+            transition.value = transitions[splitPlacement(data.placement).placement];
         };
 
         const onFocusedItemChanged = (item: CoreDropdownItemInstance) => {
@@ -134,7 +141,7 @@ export default defineComponent({
             button,
             icon,
 
-            floatingPlacement,
+            transition,
             floatingMiddleware,
             floatingStyle,
             menuMaxHeight,

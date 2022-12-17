@@ -31,6 +31,7 @@ $crc: '.h-date-picker';
 	display: flex;
 	flex-direction: column;
 	filter: drop-shadow($sd-active--primary-box-shadow);
+	width: 270px;
 
 	.h-scroll-container{
 		flex-grow: 1;
@@ -45,6 +46,10 @@ $crc: '.h-date-picker';
 		top: 0;
 		background: $c-primary;
 		border-radius: $v-box-border-radius $v-box-border-radius 0 0;
+	}
+
+	&[data-floating-placement='top'] #{$crc}__arrow{
+		transform: rotate(180deg);
 	}
 }
 
@@ -145,15 +150,8 @@ $crc: '.h-date-picker';
 
 
 #{$crc}__arrow{
-	$popper-arrow-size: 8px;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	position: absolute;
-	border-width: 0 $popper-arrow-size $popper-arrow-size $popper-arrow-size;
-	border-color: transparent transparent $c-primary transparent;
-	top: -$popper-arrow-size;
-	left: calc(50% - #{$popper-arrow-size});
-	margin-top: 0;
-	margin-bottom: 0;
+	$popper-arrow-size: 16px;
+	color: $c-primary;
+	width: $popper-arrow-size;
+	height: $popper-arrow-size;
 }

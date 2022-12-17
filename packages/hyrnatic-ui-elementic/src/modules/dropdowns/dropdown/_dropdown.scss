@@ -1,5 +1,4 @@
 $crc: '.h-dropdown';
-$popper-arrow-size: 16px;
 
 #{$crc} {
 	display: inline-block;
@@ -119,6 +118,7 @@ $popper-arrow-size: 16px;
 }
 
 #{$crc}__arrow{
+	$popper-arrow-size: 16px;
 	color: $c-primary;
 	width: $popper-arrow-size;
 	height: $popper-arrow-size;

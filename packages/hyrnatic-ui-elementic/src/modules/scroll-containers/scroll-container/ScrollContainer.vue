@@ -1,5 +1,5 @@
 <template>
-    <hr-scroll-container ref="scrollContainer" :class="css_root" v-bind="core.props" v-on="core.listeners">
+    <hr-scroll-container ref="scrollContainer" :class="[css_root, `-color-${color}`]" v-bind="core.props" v-on="core.listeners">
         <slot />
         <template #verticalBar="props">
             <div v-show="props.visible" ref="verticalTrack" :class="[css_ec('track'), '-vertical', { '-hover': props.trackHover, '-dragging': props.dragging }]">
@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import {
-    defineComponent,
+    defineComponent, PropType,
     ref,
     SetupContext, watch,
 } from 'vue';
@@ -41,6 +41,10 @@ export default defineComponent({
         ...coreScrollContainerAutoHideDelayProp,
         ...coreScrollContainerMinimumSizeProp,
         ...coreScrollContainerClassesProp,
+        color: {
+            type: String as PropType<'primary' | 'light'>,
+            default: 'primary',
+        },
     },
     setup(props, ctx: SetupContext) {
         const scrollContainer = ref();

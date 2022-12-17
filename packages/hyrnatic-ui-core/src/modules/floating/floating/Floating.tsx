@@ -75,6 +75,14 @@ export function coreFloatingSetup() {
     return setupBuilder<CoreFloatingSlotProps>(getCurrentInstance());
 }
 
+export function splitPlacement(value) {
+    const parts = value.split('-');
+    return {
+        placement: parts[0],
+        alignment: parts.length === 2 ? parts[1] : null,
+    }
+}
+
 export default defineComponent({
     name: 'hr-floating',
     props: {
@@ -117,7 +125,7 @@ export default defineComponent({
                 placement: props.placement,
                 middleware: middleware.value
             }).then((data) => {
-                console.log('computePosition', data);
+                // console.log('computePosition', data);
                 ctx.emit('computedPosition', data);
                 style.position = data.strategy;
                 style.left = `${data.x ?? 0}px`;
@@ -126,7 +134,7 @@ export default defineComponent({
         };
 
         const setupFloating = () => {
-            console.log('setupFloating');
+            // console.log('setupFloating');
             cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
         };
 

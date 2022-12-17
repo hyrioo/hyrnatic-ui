@@ -34,7 +34,7 @@ const modules = {
     ButtonsInstall,
     CheckboxesInstall,
     CollapsesInstall,
-    // DatePickersInstall,
+    DatePickersInstall,
     DialogsInstall,
     DrawersInstall,
     DropdownsInstall,
@@ -69,7 +69,7 @@ export default {
 
 export { DialogManager, NotificationManager } from '@hyrioo/hyrnatic-ui-core';
 
-// export { corePopperAfterUpdateModifier, corePopperApplyMaxSizeModifier, corePopperArrowPositionModifier, corePopperBroadcastSizeModifier, corePopperMatchReferenceSizeModifier, corePopperMinimumReferenceSizeModifier } from '@hyrioo/hyrnatic-ui-core';
+export { coreFloatingArrowReference } from '@hyrioo/hyrnatic-ui-core';
 
 export { createCoreStepItem } from '@hyrioo/hyrnatic-ui-core';
 export type { CoreStepsNavigatorStepItem } from '@hyrioo/hyrnatic-ui-core';

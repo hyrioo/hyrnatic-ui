@@ -182,6 +182,7 @@ export type {
  */
 export { default as CoreFloatingInstall } from './modules/floating/install';
 export {
+    splitPlacement,
     coreFloatingSetup,
     coreFloatingReferenceProp,
     coreFloatingVisibleProp,
@@ -193,7 +194,7 @@ export {
 export type {
     CoreFloatingSlotProps,
 } from './modules/floating/floating/Floating';
-export { arrowReference } from './modules/floating/middleware/arrow-reference';
+export { arrowReference as coreFloatingArrowReference } from './modules/floating/middleware/arrow-reference';
 
 
 

@@ -28,9 +28,10 @@ import {
     coreFloatingClassesProp,
     CoreFloatingClickOutsideEvent,
     coreFloatingSetup,
+    splitPlacement,
+    coreFloatingArrowReference,
 } from '@hyrioo/hyrnatic-ui-core';
 import { arrow, ComputePositionReturn } from '@floating-ui/dom';
-import { arrowReference } from '@hyrioo/hyrnatic-ui-core';
 
 const arrowSide = {
     top: 'bottom',
@@ -75,21 +76,13 @@ export default defineComponent({
         const floatingArrow = ref<HTMLElement>(null);
         const arrowStyle = ref({});
 
-        const getPlacement = (value) => {
-            const parts = value.split('-');
-            return {
-                placement: parts[0],
-                alignment: parts.length === 2 ? parts[1] : null,
-            }
-        }
-
-        const arrowPlacement = ref(arrowSide[getPlacement(props.placement).placement]);
-        const floatingPlacement = ref(getPlacement(props.placement).placement);
-        const floatingAlignment = ref(getPlacement(props.placement).alignment);
+        const arrowPlacement = ref(arrowSide[splitPlacement(props.placement).placement]);
+        const floatingPlacement = ref(splitPlacement(props.placement).placement);
+        const floatingAlignment = ref(splitPlacement(props.placement).alignment);
         const middleware = computed(() => {
             const m = [...props.middleware];
             if (props.showArrow) {
-                m.push(arrowReference({
+                m.push(coreFloatingArrowReference({
                     reference: props.arrowReference,
                     element: floatingArrow.value,
                 }));
@@ -99,7 +92,7 @@ export default defineComponent({
 
 
         const onComputedPosition = (data: ComputePositionReturn) => {
-            const placement = getPlacement(data.placement);
+            const placement = splitPlacement(data.placement);
             floatingPlacement.value = placement.placement;
             floatingAlignment.value = placement.alignment;
             const side = floatingPlacement.value;
