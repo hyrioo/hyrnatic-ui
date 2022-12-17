@@ -7,6 +7,8 @@ $crc: '.h-dropdown-item';
 	white-space: nowrap;
 	transition: $t-fast-standard;
 	outline: none;
+	text-overflow: ellipsis;
+	overflow: hidden;
 
 	&:hover, &.-focused {
 		color: $c-primary-text;

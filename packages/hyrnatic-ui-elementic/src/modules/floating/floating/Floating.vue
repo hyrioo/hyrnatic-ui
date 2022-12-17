@@ -1,6 +1,7 @@
 <template>
     <hr-floating ref="floating" :middleware="middleware"
                  :data-floating-placement="floatingPlacement"
+                 :data-floating-alignment="floatingAlignment"
                  v-bind="{...core.props, ...$attrs}" v-on="core.listeners"
                  @computed-position="onComputedPosition">
         <span v-if="showArrow" ref="floatingArrow" :style="{display: 'flex', position: 'absolute', ...arrowStyle}"
@@ -73,8 +74,18 @@ export default defineComponent({
         const floating = ref();
         const floatingArrow = ref<HTMLElement>(null);
         const arrowStyle = ref({});
-        const arrowPlacement = ref(arrowSide[props.placement]);
-        const floatingPlacement = ref(props.placement);
+
+        const getPlacement = (value) => {
+            const parts = value.split('-');
+            return {
+                placement: parts[0],
+                alignment: parts.length === 2 ? parts[1] : null,
+            }
+        }
+
+        const arrowPlacement = ref(arrowSide[getPlacement(props.placement).placement]);
+        const floatingPlacement = ref(getPlacement(props.placement).placement);
+        const floatingAlignment = ref(getPlacement(props.placement).alignment);
         const middleware = computed(() => {
             const m = [...props.middleware];
             if (props.showArrow) {
@@ -86,9 +97,12 @@ export default defineComponent({
             return m;
         });
 
+
         const onComputedPosition = (data: ComputePositionReturn) => {
-            floatingPlacement.value = data.placement;
-            const side = data.placement.split('-')[0];
+            const placement = getPlacement(data.placement);
+            floatingPlacement.value = placement.placement;
+            floatingAlignment.value = placement.alignment;
+            const side = floatingPlacement.value;
             if (data.middlewareData.arrowReference) {
                 arrowStyle.value = {
                     left: data.middlewareData.arrowReference.x != null ? `${data.middlewareData.arrowReference.x}px` : '',
@@ -109,6 +123,7 @@ export default defineComponent({
             middleware,
             floating,
             floatingPlacement,
+            floatingAlignment,
             floatingArrow,
             arrowStyle,
             arrowPlacement,

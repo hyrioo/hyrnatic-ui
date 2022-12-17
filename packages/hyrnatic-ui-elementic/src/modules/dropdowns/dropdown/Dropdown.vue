@@ -17,7 +17,7 @@
         </div>
 
         <h-floating as="div" :class="[css_ec('menu-container')]" :reference="button"
-                    :arrow-reference="icon ? icon.$el : null" show-arrow keep transition="tiny2x-slide-up-medium"
+                    :arrow-reference="icon ? icon.$el : null" show-arrow transition="tiny2x-slide-up-medium"
                     :visible="props.menuVisible" :placement="`bottom-${align}`"
                     :middleware="floatingMiddleware"
                     @hide="props.clearFocusedItem()"
@@ -25,6 +25,7 @@
                     @computed-position="onComputedPosition"
                     @transition-state-changed="props.onMenuTransitioning"
                     :data-floating-placement="floatingPlacement"
+                    :style="floatingStyle"
         >
             <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents" :style="{maxHeight: menuMaxHeight}">
                 <h-scroll-container>
@@ -71,6 +72,10 @@ export default defineComponent({
             type: String as PropType<'start' | 'end'>,
             default: 'start',
         },
+        autoSize: {
+            type: Boolean,
+            default: true,
+        }
     },
     emits: ['click', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
@@ -78,6 +83,7 @@ export default defineComponent({
         const button = ref<HTMLElement>();
         const icon = ref<HTMLElement>();
         const menuMaxHeight = ref('');
+        const floatingStyle = ref({});
         const floatingPlacement = ref('bottom');
         const floatingMiddleware = computed(() => {
             return [
@@ -85,9 +91,9 @@ export default defineComponent({
                 size({
                     padding: 8,
                     apply(data) {
-                        Object.assign(data.elements.floating.style, {
-                            minWidth: `${data.rects.reference.width}px`,
-                        });
+                        floatingStyle.value = {
+                            [props.autoSize?'minWidth':'width']: `${data.rects.reference.width}px`,
+                        };
                         menuMaxHeight.value = `${data.availableHeight}px`;
                     }
                 })
@@ -130,6 +136,7 @@ export default defineComponent({
 
             floatingPlacement,
             floatingMiddleware,
+            floatingStyle,
             menuMaxHeight,
 
             onClickOutside,

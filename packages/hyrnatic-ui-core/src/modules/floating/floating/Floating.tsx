@@ -117,15 +117,16 @@ export default defineComponent({
                 placement: props.placement,
                 middleware: middleware.value
             }).then((data) => {
-                // console.log('computePosition', data);
+                console.log('computePosition', data);
                 ctx.emit('computedPosition', data);
-                style.left = `${data.x}px`;
-                style.top = `${data.y}px`;
+                style.position = data.strategy;
+                style.left = `${data.x ?? 0}px`;
+                style.top = `${data.y ?? 0}px`;
             });
         };
 
         const setupFloating = () => {
-            // console.log('setupFloating');
+            console.log('setupFloating');
             cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
         };
 
@@ -181,6 +182,7 @@ export default defineComponent({
         });
 
         return {
+            middleware,
             floatingElement,
             style,
             onLeave,

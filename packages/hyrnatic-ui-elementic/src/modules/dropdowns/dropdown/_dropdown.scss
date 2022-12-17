@@ -87,6 +87,10 @@ $popper-arrow-size: 16px;
 
 #{$crc}__menu-container {
 	filter: drop-shadow($sd-active--primary-box-shadow);
+
+	&[data-floating-placement='top'] #{$crc}__arrow{
+		transform: rotate(180deg);
+	}
 }
 
 
@@ -119,3 +123,4 @@ $popper-arrow-size: 16px;
 	width: $popper-arrow-size;
 	height: $popper-arrow-size;
 }
+

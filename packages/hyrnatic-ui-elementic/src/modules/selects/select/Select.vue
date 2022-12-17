@@ -31,11 +31,8 @@
                     :visible="props.menuVisible" placement="bottom"
                     :middleware="floatingMiddleware"
                     @click-outside="onClickOutside"
-                    @computed-position="onComputedPosition"
                     @hide="props.clearFocusedItem()"
-                    @transition-state-changed="props.onMenuTransitioning"
-                    :data-floating-placement="floatingPlacement"
-        >
+                    @transition-state-changed="props.onMenuTransitioning">
             <div :class="[css_ec('menu')]" @keydown="props.onKeyEvents" :style="{maxHeight: menuMaxHeight}">
                 <h-scroll-container>
                     <slot />
@@ -83,7 +80,6 @@ export default defineComponent({
         const select = ref();
         const button = ref<HTMLButtonElement>();
         const menuMaxHeight = ref('');
-        const floatingPlacement = ref('bottom');
         const floatingMiddleware = computed(() => {
             return [
                 size({
@@ -102,10 +98,6 @@ export default defineComponent({
             if (value.outsideFloating && value.outsideReference) {
                 select.value.close();
             }
-        };
-
-        const onComputedPosition = (data: ComputePositionReturn) => {
-            floatingPlacement.value = data.placement.split('-')[0];
         };
 
         const onFocusedItemChanged = (item: CoreSelectItemInstance) => {
@@ -128,8 +120,6 @@ export default defineComponent({
             core,
             select,
             button,
-            floatingPlacement,
-            onComputedPosition,
             menuMaxHeight,
             floatingMiddleware,
 

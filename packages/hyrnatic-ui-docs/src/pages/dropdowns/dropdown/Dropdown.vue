@@ -28,7 +28,10 @@
                         <h-switch v-model="hideOnClick" right-text="Hide on click" style="margin-right: 12px" />
                     </preview-option-form-control>
                     <preview-option-form-control>
-                        <h-select v-model="align" placeholder="Select alignment" style="width: 100%;">
+                        <h-switch v-model="autoSize" right-text="Auto size" style="margin-right: 12px" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-select v-model="align" placeholder="Select alignment" style="width: 100%;" :disabled="!autoSize">
                             <h-select-item value="start" label="Start" />
                             <h-select-item value="end" label="End" />
                         </h-select>
@@ -131,6 +134,7 @@ export default defineComponent({
         const align = ref('start');
         const split = ref(true);
         const hideOnClick = ref(true);
+        const autoSize = ref(true);
 
         const onClick = (text) => {
             // eslint-disable-next-line no-spinner
@@ -142,6 +146,7 @@ export default defineComponent({
                 splitButton: split.value,
                 hideOnClick: hideOnClick.value,
                 align: align.value,
+                autoSize: autoSize.value,
             };
         });
 
@@ -159,6 +164,7 @@ export default defineComponent({
             split,
             hideOnClick,
             onClick,
+            autoSize,
         };
     },
 });
