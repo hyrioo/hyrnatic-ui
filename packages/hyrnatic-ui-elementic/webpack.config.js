@@ -1,3 +1,4 @@
+const { ProgressPlugin } = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
 
 const path = require('path')
@@ -45,7 +46,13 @@ var config = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new ProgressPlugin({
+            handler: (percentage) => {
+                const _percentage = Math.round(percentage * 100);
+                process.stdout.write(`Building package... ${_percentage}%\r`);
+            }
+        })
     ]
 }
 
@@ -54,7 +61,7 @@ var indexConfig = Object.assign({}, config, {
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: "hyrnatic.js",
+        filename: "index.js",
         library: {
             type: "umd", // universal module definition
             name: "hyrnatic-ui-elementic", // string | string[]

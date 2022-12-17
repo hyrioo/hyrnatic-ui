@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts">
-// import { DialogManager } from '@hyrioo/hyrnatic-ui-elementic';
 import { nextTick, ref, watch } from 'vue';
 import Navigation from './components/Navigation.vue';
 

@@ -4,6 +4,7 @@
     "target": "esnext",
     "jsx": "preserve",
     "strict": false,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "skipLibCheck": true,
