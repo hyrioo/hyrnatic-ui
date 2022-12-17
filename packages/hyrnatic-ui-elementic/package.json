@@ -9,6 +9,11 @@
         "dist/*",
         "src/scss/*"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hyrioo/hyrnatic-ui.git",
+        "directory": "packages/hyrnatic-ui-elementic"
+    },
     "scripts": {
         "build": "webpack --mode=production",
         "build:watch": "webpack --mode=production --watch",

@@ -1,9 +1,18 @@
 {
   "name": "@hyrioo/hyrnatic-ui-core",
   "version": "0.0.1",
+  "description": "UI-kit for vue 3",
   "main": "dist/index.js",
   "module": "src/index.ts",
   "license": "MIT",
+  "files": [
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyrioo/hyrnatic-ui.git",
+    "directory": "packages/hyrnatic-ui-core"
+  },
   "scripts": {
     "build": "webpack --mode=production",
     "build:watch": "webpack --mode=production --watch"
