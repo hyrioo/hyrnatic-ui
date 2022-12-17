@@ -1,7 +1,7 @@
 import { ComputedRef } from 'vue';
 export declare const coreCheckboxModelValueProp: {
     modelValue: {
-        type: (StringConstructor | ArrayConstructor | BooleanConstructor)[];
+        type: (StringConstructor | BooleanConstructor | ArrayConstructor)[];
         required: boolean;
     };
 };
@@ -67,7 +67,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     modelValue: {
-        type: (StringConstructor | ArrayConstructor | BooleanConstructor)[];
+        type: (StringConstructor | BooleanConstructor | ArrayConstructor)[];
         required: boolean;
     };
     indeterminate: {
@@ -117,18 +117,18 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    visible: boolean;
     disabled: boolean;
     value: any;
-    visible: boolean;
     indeterminate: boolean;
     as: string;
     asProps: (slotProps: any) => any;
 } & {
     modelValue?: string | boolean | unknown[];
 }>, {
+    visible: boolean;
     disabled: boolean;
     value: any;
-    visible: boolean;
     indeterminate: boolean;
     as: string;
     asProps: (slotProps: any) => any;

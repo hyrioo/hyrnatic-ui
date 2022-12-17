@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import './scss/_sshpre.scss';
 import './scss/global.scss';
+import '../../hyrnatic-ui-elementic/src/scss/build.scss';
 import HyrnaticUIElementic,  { IconRegistry } from '@hyrioo/hyrnatic-ui-elementic';
 import {
     mdiKey,

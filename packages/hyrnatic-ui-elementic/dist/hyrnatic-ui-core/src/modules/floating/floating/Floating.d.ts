@@ -98,16 +98,16 @@ declare const _default: import("vue").DefineComponent<{
     onAfterLeave: () => void;
     onDocumentClick: (e: any) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    placement: Placement;
     visible: boolean;
+    placement: Placement;
     transition: string;
     middleware: Middleware[];
     reference: any;
     as: string;
     keep: boolean;
 } & {}>, {
-    placement: Placement;
     visible: boolean;
+    placement: Placement;
     transition: string;
     middleware: Middleware[];
     reference: any;

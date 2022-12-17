@@ -1000,16 +1000,16 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "focusedItemChanged" | "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click" | "focusedItemChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     visible: boolean;
+    disabled: boolean;
     hideOnClick: boolean;
     splitButton: boolean;
     as: string;
     asProps: (slotProps: any) => any;
 } & {}>, {
-    disabled: boolean;
     visible: boolean;
+    disabled: boolean;
     hideOnClick: boolean;
     splitButton: boolean;
     as: string;

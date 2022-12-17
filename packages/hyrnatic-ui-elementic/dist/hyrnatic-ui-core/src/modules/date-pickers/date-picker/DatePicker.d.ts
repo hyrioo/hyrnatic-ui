@@ -102,22 +102,22 @@ declare const _default: import("vue").DefineComponent<{
 }> | import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }>[], unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modelValue: any;
-    disabled: boolean;
     visible: boolean;
+    disabled: boolean;
+    modelValue: any;
     firstDayOfWeek: number;
-    multiple: boolean;
     as: string;
+    multiple: boolean;
     asProps: (slotProps: any) => any;
     disabledDate: Function;
     clearable: boolean;
 } & {}>, {
-    modelValue: any;
-    disabled: boolean;
     visible: boolean;
+    disabled: boolean;
+    modelValue: any;
     firstDayOfWeek: number;
-    multiple: boolean;
     as: string;
+    multiple: boolean;
     asProps: (slotProps: any) => any;
     disabledDate: Function;
     clearable: boolean;

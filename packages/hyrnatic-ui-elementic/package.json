@@ -1,9 +1,14 @@
 {
     "name": "@hyrioo/hyrnatic-ui-elementic",
-    "version": "0.0.0",
-    "main": "dist/index.js",
+    "version": "0.0.1",
+    "description": "UI-kit for vue 3",
+    "main": "./dist/index.js",
     "module": "src/index.ts",
     "license": "MIT",
+    "files": [
+        "dist/*",
+        "src/scss/*"
+    ],
     "scripts": {
         "build": "webpack --mode=production",
         "build:watch": "webpack --mode=production --watch",

@@ -7,7 +7,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     align: {
-        type: PropType<"end" | "start">;
+        type: PropType<"start" | "end">;
         default: string;
     };
     autoSize: {
@@ -61,19 +61,19 @@ declare const _default: import("vue").DefineComponent<{
     onClickOutside: (value: CoreFloatingClickOutsideEvent) => void;
     onComputedPosition: (data: ComputePositionReturn) => void;
     onFocusedItemChanged: (item: CoreDropdownItemInstance) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "focusedItemChanged" | "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click" | "focusedItemChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     label: string;
     visible: boolean;
-    align: "end" | "start";
+    disabled: boolean;
+    align: "start" | "end";
     autoSize: boolean;
     hideOnClick: boolean;
     splitButton: boolean;
 } & {}>, {
-    disabled: boolean;
     label: string;
     visible: boolean;
-    align: "end" | "start";
+    disabled: boolean;
+    align: "start" | "end";
     autoSize: boolean;
     hideOnClick: boolean;
     splitButton: boolean;

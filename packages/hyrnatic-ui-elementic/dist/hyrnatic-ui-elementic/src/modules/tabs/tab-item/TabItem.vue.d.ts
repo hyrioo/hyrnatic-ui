@@ -17,8 +17,8 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
     tab: import("vue").Ref<any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
     label: string;
+    disabled: boolean;
 } & {
     id?: string;
 }>, {

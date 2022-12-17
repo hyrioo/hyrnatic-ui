@@ -12,7 +12,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     placement: {
-        type: PropType<"right" | "left">;
+        type: PropType<"left" | "right">;
         default: string;
     };
     visible: {
@@ -36,16 +36,16 @@ declare const _default: import("vue").DefineComponent<{
         };
     };
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    placement: "right" | "left";
     title: string;
-    visible: boolean;
     color: "primary" | "danger";
+    visible: boolean;
+    placement: "left" | "right";
 } & {
     zIndex?: number;
 }>, {
-    placement: "right" | "left";
     title: string;
-    visible: boolean;
     color: "primary" | "danger";
+    visible: boolean;
+    placement: "left" | "right";
 }>;
 export default _default;

@@ -50,14 +50,14 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "rowClick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    row: Row;
     as: string;
+    row: Row;
     asProps: (slotProps: any) => any;
 } & {
     columns?: unknown[];
 }>, {
-    row: Row;
     as: string;
+    row: Row;
     asProps: (slotProps: any) => any;
 }>;
 export default _default;

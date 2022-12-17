@@ -116,20 +116,20 @@ declare const _default: import("vue").DefineComponent<{
     registerBar: (type: 'vertical' | 'horizontal', track: HTMLElement, thumb: HTMLElement) => void;
     scrollTo: (x: any, y: any) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    classes: any;
-    vertical: boolean;
     as: string;
+    classes: any;
     minimumSize: number;
     autoHideDelay: number;
     autoHide: boolean;
+    vertical: boolean;
     horizontal: boolean;
     asProps: (slotProps: any) => any;
 } & {}>, {
     classes: any;
-    vertical: boolean;
     minimumSize: number;
     autoHideDelay: number;
     autoHide: boolean;
+    vertical: boolean;
     horizontal: boolean;
     asProps: (slotProps: any) => any;
 }>;

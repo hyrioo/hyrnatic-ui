@@ -115,13 +115,13 @@ declare const _default: import("vue").DefineComponent<{
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     modelValue: string;
-    steps: CoreStepsNavigatorStepItem[];
     as: string;
+    steps: CoreStepsNavigatorStepItem[];
     asProps: (slotProps: any) => any;
 } & {}>, {
     modelValue: string;
-    steps: CoreStepsNavigatorStepItem[];
     as: string;
+    steps: CoreStepsNavigatorStepItem[];
     asProps: (slotProps: any) => any;
 }>;
 export default _default;

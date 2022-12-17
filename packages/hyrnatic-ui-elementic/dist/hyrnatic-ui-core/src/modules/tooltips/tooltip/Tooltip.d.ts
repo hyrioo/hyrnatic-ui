@@ -66,10 +66,10 @@ declare const _default: import("vue").DefineComponent<{
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     modelValue: boolean;
+    reference: HTMLElement;
     hideDelay: number;
     showDelay: number;
     trigger: "hover";
-    reference: HTMLElement;
 } & {}>, {
     modelValue: boolean;
     hideDelay: number;

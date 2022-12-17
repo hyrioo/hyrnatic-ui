@@ -42,12 +42,12 @@ declare const _default: import("vue").DefineComponent<{
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     title: string;
     showCloseButton: boolean;
-    visible: boolean;
     color: "primary" | "danger";
+    visible: boolean;
 } & {}>, {
     title: string;
     showCloseButton: boolean;
-    visible: boolean;
     color: "primary" | "danger";
+    visible: boolean;
 }>;
 export default _default;

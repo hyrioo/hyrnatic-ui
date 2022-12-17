@@ -9,7 +9,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     textAlign: {
-        type: PropType<"right" | "left">;
+        type: PropType<"left" | "right">;
         default: string;
     };
     animate: {
@@ -26,15 +26,15 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     modelValue: boolean;
-    animate: boolean;
     expandText: string;
     collapseText: string;
-    textAlign: "right" | "left";
+    textAlign: "left" | "right";
+    animate: boolean;
 } & {}>, {
     modelValue: boolean;
-    animate: boolean;
     expandText: string;
     collapseText: string;
-    textAlign: "right" | "left";
+    textAlign: "left" | "right";
+    animate: boolean;
 }>;
 export default _default;

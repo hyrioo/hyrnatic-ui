@@ -58,15 +58,15 @@ declare const _default: import("vue").DefineComponent<{
 }> | import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }>[], unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
     visible: boolean;
     loading: boolean;
+    disabled: boolean;
     as: string;
     asProps: (slotProps: any) => any;
 } & {}>, {
-    disabled: boolean;
     visible: boolean;
     loading: boolean;
+    disabled: boolean;
     as: string;
     asProps: (slotProps: any) => any;
 }>;

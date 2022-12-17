@@ -36,22 +36,22 @@ declare const _default: import("vue").DefineComponent<{
     css_ec: (element: any) => string;
     core: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:sort" | "update:selectedRows", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    sort: import("@hyrioo/hyrnatic-ui-core").CoreTableSortDefinition;
-    data: object[];
-    rowClasses: string | Function;
     striped: boolean;
+    sort: import("@hyrioo/hyrnatic-ui-core").CoreTableSortDefinition;
+    rowClasses: string | Function;
     hover: boolean;
     selectedRows: object[];
     selectable: boolean | Function;
+    data: object[];
 } & {
     rowKey?: string;
 }>, {
-    sort: import("@hyrioo/hyrnatic-ui-core").CoreTableSortDefinition;
-    data: object[];
-    rowClasses: string | Function;
     striped: boolean;
+    sort: import("@hyrioo/hyrnatic-ui-core").CoreTableSortDefinition;
+    rowClasses: string | Function;
     hover: boolean;
     selectedRows: object[];
     selectable: boolean | Function;
+    data: object[];
 }>;
 export default _default;

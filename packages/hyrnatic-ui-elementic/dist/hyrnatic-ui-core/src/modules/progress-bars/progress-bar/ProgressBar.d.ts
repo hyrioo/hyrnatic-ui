@@ -60,16 +60,16 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    minimum: number;
     as: string;
     maximum: number;
+    minimum: number;
     asProps: (slotProps: any) => any;
 } & {
     value?: number;
 }>, {
-    minimum: number;
     as: string;
     maximum: number;
+    minimum: number;
     asProps: (slotProps: any) => any;
 }>;
 export default _default;

@@ -11,7 +11,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     align: {
-        type: PropType<"end" | "start">;
+        type: PropType<"start" | "end">;
         default: string;
     };
     dots: {
@@ -161,21 +161,21 @@ declare const _default: import("vue").DefineComponent<{
     onDateInputChanged: () => void;
     core: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focus" | "blur" | "view-changed", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modelValue: any;
-    disabled: boolean;
     visible: boolean;
+    disabled: boolean;
+    modelValue: any;
     highlightToday: boolean;
     displayFormat: string;
-    align: "end" | "start";
+    align: "start" | "end";
     dots: any;
     firstDayOfWeek: number;
 } & {}>, {
-    modelValue: any;
-    disabled: boolean;
     visible: boolean;
+    disabled: boolean;
+    modelValue: any;
     highlightToday: boolean;
     displayFormat: string;
-    align: "end" | "start";
+    align: "start" | "end";
     dots: any;
     firstDayOfWeek: number;
 }>;

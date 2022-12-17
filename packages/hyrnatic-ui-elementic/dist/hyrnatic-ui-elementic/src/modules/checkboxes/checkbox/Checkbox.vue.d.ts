@@ -13,7 +13,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     modelValue: {
-        type: (StringConstructor | ArrayConstructor | BooleanConstructor)[];
+        type: (StringConstructor | BooleanConstructor | ArrayConstructor)[];
         required: boolean;
     };
     visible: {
@@ -82,20 +82,20 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
     hasFocus: import("vue").Ref<boolean>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
-    value: any;
     label: string;
-    bordered: boolean;
     visible: boolean;
+    disabled: boolean;
+    bordered: boolean;
+    value: any;
     indeterminate: boolean;
 } & {
     modelValue?: string | boolean | unknown[];
 }>, {
-    disabled: boolean;
-    value: any;
     label: string;
-    bordered: boolean;
     visible: boolean;
+    disabled: boolean;
+    bordered: boolean;
+    value: any;
     indeterminate: boolean;
 }>;
 export default _default;

@@ -55,19 +55,19 @@ declare const _default: import("vue").DefineComponent<{
     onClickOutside: (value: CoreFloatingClickOutsideEvent) => void;
     onFocusedItemChanged: (item: CoreSelectItemInstance) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focusedItemChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    placeholder: string;
-    modelValue: any;
     disabled: boolean;
-    compare: string | ((modelValue: any[], itemValue: any) => boolean);
+    modelValue: any;
+    placeholder: string;
     multiple: boolean;
+    compare: string | ((modelValue: any[], itemValue: any) => boolean);
     hideOnSelect: boolean;
     allowClear: boolean;
 } & {}>, {
-    placeholder: string;
-    modelValue: any;
     disabled: boolean;
-    compare: string | ((modelValue: any[], itemValue: any) => boolean);
+    modelValue: any;
+    placeholder: string;
     multiple: boolean;
+    compare: string | ((modelValue: any[], itemValue: any) => boolean);
     hideOnSelect: boolean;
     allowClear: boolean;
 }>;

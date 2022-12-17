@@ -63,10 +63,10 @@ declare const _default: DefineComponent<{
     getStackVisibleCount(stack: string): ComputedRef<number>;
     getStackIndex(stack: string, id: string): ComputedRef<number>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    name: string;
     teleport: string;
+    name: string;
 } & {}>, {
-    name: string;
     teleport: string;
+    name: string;
 }>;
 export default _default;

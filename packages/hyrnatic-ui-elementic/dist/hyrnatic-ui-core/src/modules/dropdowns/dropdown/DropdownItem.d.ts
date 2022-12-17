@@ -68,13 +68,13 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
     label: string;
+    disabled: boolean;
     as: string;
     asProps: (slotProps: any) => any;
 } & {}>, {
-    disabled: boolean;
     label: string;
+    disabled: boolean;
     as: string;
     asProps: (slotProps: any) => any;
 }>;

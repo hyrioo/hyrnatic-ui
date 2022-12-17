@@ -24,7 +24,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     type: {
-        type: PropType<"reset" | "submit" | "button">;
+        type: PropType<"button" | "submit" | "reset">;
         default: string;
     };
     visible: {
@@ -62,25 +62,25 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
     iconSize: import("vue").ComputedRef<string>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    type: "reset" | "submit" | "button";
-    size: "small" | "normal" | "large";
-    disabled: boolean;
     icon: string;
     styling: "subtle" | "simple" | "block";
-    visible: boolean;
     rounded: boolean;
     color: "primary" | "negative" | "success" | "warning" | "danger" | "none";
+    size: "small" | "normal" | "large";
+    type: "button" | "submit" | "reset";
+    visible: boolean;
     loading: boolean;
+    disabled: boolean;
 } & {
     iconOptions?: Record<string, any>;
 }>, {
-    type: "reset" | "submit" | "button";
-    size: "small" | "normal" | "large";
-    disabled: boolean;
     styling: "subtle" | "simple" | "block";
-    visible: boolean;
     rounded: boolean;
     color: "primary" | "negative" | "success" | "warning" | "danger" | "none";
+    size: "small" | "normal" | "large";
+    type: "button" | "submit" | "reset";
+    visible: boolean;
     loading: boolean;
+    disabled: boolean;
 }>;
 export default _default;

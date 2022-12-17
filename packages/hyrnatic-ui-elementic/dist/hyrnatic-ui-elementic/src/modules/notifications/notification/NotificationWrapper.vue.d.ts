@@ -17,12 +17,12 @@ declare const _default: import("vue").DefineComponent<{
     css_ec: (element: any) => string;
     core: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    placement: string;
-    name: string;
     width: string;
+    name: string;
+    placement: string;
 } & {}>, {
-    placement: string;
-    name: string;
     width: string;
+    name: string;
+    placement: string;
 }>;
 export default _default;

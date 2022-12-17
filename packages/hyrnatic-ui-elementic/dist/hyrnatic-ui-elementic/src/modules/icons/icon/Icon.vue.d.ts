@@ -32,10 +32,10 @@ declare const _default: import("vue").DefineComponent<{
     viewBox: import("vue").ComputedRef<string>;
     style: import("vue").ComputedRef<any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    icon: string;
     size: string;
     width: string;
     height: string;
-    icon: string;
     fills: string | unknown[];
     spin: boolean;
 } & {

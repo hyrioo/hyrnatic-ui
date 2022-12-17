@@ -48,26 +48,26 @@ declare const _default: import("vue").DefineComponent<{
     label: import("vue").ComputedRef<string | number>;
     width: import("vue").ComputedRef<string>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    size: string;
-    minimum: number;
     styling: string;
-    striped: boolean;
+    size: string;
     showOverflowIndicator: boolean;
+    striped: boolean;
     animated: boolean;
     showPercentage: boolean;
     showValue: boolean;
     maximum: number;
+    minimum: number;
 } & {
     value?: number;
 }>, {
-    size: string;
-    minimum: number;
     styling: string;
-    striped: boolean;
+    size: string;
     showOverflowIndicator: boolean;
+    striped: boolean;
     animated: boolean;
     showPercentage: boolean;
     showValue: boolean;
     maximum: number;
+    minimum: number;
 }>;
 export default _default;

@@ -12,8 +12,8 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "something", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    text: string;
     color: "primary" | "danger";
+    text: string;
 } & {
     title?: string;
 }>, {

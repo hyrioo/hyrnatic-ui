@@ -56,18 +56,18 @@ declare const _default: import("vue").DefineComponent<{
         };
     };
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    width: string;
     title: string;
     showCloseButton: boolean;
-    visible: boolean;
     color: "primary" | "danger";
+    visible: boolean;
+    width: string;
 } & {
     zIndex?: number;
 }>, {
-    width: string;
     title: string;
     showCloseButton: boolean;
-    visible: boolean;
     color: "primary" | "danger";
+    visible: boolean;
+    width: string;
 }>;
 export default _default;

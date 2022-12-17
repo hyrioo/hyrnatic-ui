@@ -73,9 +73,10 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
     onClickOutside: (value: CoreFloatingClickOutsideEvent) => void;
     onFocusedItemChanged: (item: any) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focus" | "blur" | "itemSelected" | "focusedItemChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    placeholder: string;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focus" | "blur" | "focusedItemChanged" | "itemSelected", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     size: string;
+    disabled: boolean;
+    placeholder: string;
     autocomplete: string;
     minLength: number;
     maxLength: number;
@@ -85,13 +86,13 @@ declare const _default: import("vue").DefineComponent<{
     suffixIcon: string;
     modelModifiers: Record<string, any>;
     items: unknown[];
-    disabled: boolean;
 } & {
     type?: string;
     modelValue?: string;
 }>, {
-    placeholder: string;
     size: string;
+    disabled: boolean;
+    placeholder: string;
     autocomplete: string;
     minLength: number;
     maxLength: number;
@@ -101,6 +102,5 @@ declare const _default: import("vue").DefineComponent<{
     suffixIcon: string;
     modelModifiers: Record<string, any>;
     items: unknown[];
-    disabled: boolean;
 }>;
 export default _default;

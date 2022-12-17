@@ -75,16 +75,16 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    delta: number;
     as: string;
+    delta: number;
     asProps: (slotProps: any) => any;
 } & {
     modelValue?: number;
     count?: number;
     pageSize?: number;
 }>, {
-    delta: number;
     as: string;
+    delta: number;
     asProps: (slotProps: any) => any;
 }>;
 export default _default;

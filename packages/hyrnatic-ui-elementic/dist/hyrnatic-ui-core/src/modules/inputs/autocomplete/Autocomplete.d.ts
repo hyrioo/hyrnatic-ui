@@ -95,20 +95,20 @@ declare const _default: import("vue").DefineComponent<{
     }>[];
     hideList: () => void;
     showList: () => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "itemSelected" | "focusedItemChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focusedItemChanged" | "itemSelected", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    disabled: boolean;
+    as: string;
     modelModifiers: Record<string, any>;
     items: unknown[];
-    disabled: boolean;
     input: HTMLInputElement;
-    as: string;
     asProps: (slotProps: any) => any;
 } & {
     modelValue?: string;
 }>, {
-    modelModifiers: Record<string, any>;
-    items: unknown[];
     disabled: boolean;
     as: string;
+    modelModifiers: Record<string, any>;
+    items: unknown[];
     asProps: (slotProps: any) => any;
 }>;
 export default _default;

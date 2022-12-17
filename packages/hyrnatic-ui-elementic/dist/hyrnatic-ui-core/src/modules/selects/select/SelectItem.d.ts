@@ -83,15 +83,15 @@ declare const SelectItem: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    label: string;
     disabled: boolean;
     value: any;
-    label: string;
     as: string;
     asProps: (slotProps: any) => any;
 } & {}>, {
+    label: string;
     disabled: boolean;
     value: any;
-    label: string;
     as: string;
     asProps: (slotProps: any) => any;
 }>;

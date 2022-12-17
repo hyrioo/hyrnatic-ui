@@ -942,16 +942,16 @@ declare const _default: import("vue").DefineComponent<{
         };
     };
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    width: string;
     label: string;
+    width: string;
     order: number;
     sortable: boolean;
     formatter: Function;
 } & {
     property?: string;
 }>, {
-    width: string;
     label: string;
+    width: string;
     order: number;
     sortable: boolean;
     formatter: Function;

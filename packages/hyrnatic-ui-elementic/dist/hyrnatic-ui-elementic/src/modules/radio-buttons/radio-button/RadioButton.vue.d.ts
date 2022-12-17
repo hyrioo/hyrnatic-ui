@@ -25,16 +25,16 @@ declare const _default: import("vue").DefineComponent<{
     core: any;
     hasFocus: import("vue").Ref<boolean>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modelValue: any;
-    disabled: boolean;
-    value: any;
     label: string;
+    disabled: boolean;
     bordered: boolean;
+    value: any;
+    modelValue: any;
 } & {}>, {
-    modelValue: any;
-    disabled: boolean;
-    value: any;
     label: string;
+    disabled: boolean;
     bordered: boolean;
+    value: any;
+    modelValue: any;
 }>;
 export default _default;

@@ -2854,22 +2854,22 @@ declare const _default: import("vue").DefineComponent<{
         };
     }[]>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focusedItemChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modelValue: any;
     disabled: boolean;
-    compare: string | ((modelValue: any[], itemValue: any) => boolean);
+    modelValue: any;
+    as: string;
     multiple: boolean;
+    compare: string | ((modelValue: any[], itemValue: any) => boolean);
     hideOnSelect: boolean;
     allowClear: boolean;
-    as: string;
     asProps: (slotProps: any) => any;
 } & {}>, {
-    modelValue: any;
     disabled: boolean;
-    compare: string | ((modelValue: any[], itemValue: any) => boolean);
+    modelValue: any;
+    as: string;
     multiple: boolean;
+    compare: string | ((modelValue: any[], itemValue: any) => boolean);
     hideOnSelect: boolean;
     allowClear: boolean;
-    as: string;
     asProps: (slotProps: any) => any;
 }>;
 export default _default;

@@ -43,20 +43,20 @@ declare const _default: import("vue").DefineComponent<{
     handleClick: (e: any) => void;
     dragging: import("vue").Ref<boolean>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modelValue: any;
     disabled: boolean;
+    modelValue: any;
+    maximum: number;
     minimum: number;
     vertical: boolean;
-    maximum: number;
     showSteps: boolean;
     invert: boolean;
     stepSize: number;
 } & {}>, {
-    modelValue: any;
     disabled: boolean;
+    modelValue: any;
+    maximum: number;
     minimum: number;
     vertical: boolean;
-    maximum: number;
     showSteps: boolean;
     invert: boolean;
     stepSize: number;

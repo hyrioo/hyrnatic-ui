@@ -39,20 +39,20 @@ declare const _default: import("vue").DefineComponent<{
     horizontalTrack: import("vue").Ref<any>;
     horizontalThumb: import("vue").Ref<any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    classes: any;
     color: "primary" | "light";
-    vertical: boolean;
+    classes: any;
     minimumSize: number;
     autoHideDelay: number;
     autoHide: boolean;
+    vertical: boolean;
     horizontal: boolean;
 } & {}>, {
-    classes: any;
     color: "primary" | "light";
-    vertical: boolean;
+    classes: any;
     minimumSize: number;
     autoHideDelay: number;
     autoHide: boolean;
+    vertical: boolean;
     horizontal: boolean;
 }>;
 export default _default;

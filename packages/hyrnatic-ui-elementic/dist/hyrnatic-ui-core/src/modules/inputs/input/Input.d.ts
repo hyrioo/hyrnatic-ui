@@ -91,19 +91,19 @@ declare const _default: import("vue").DefineComponent<{
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     type: string;
-    modelModifiers: Record<string, any>;
-    modelValue: any;
     disabled: boolean;
-    input: HTMLInputElement;
+    modelValue: any;
     as: string;
+    modelModifiers: Record<string, any>;
     readonly: boolean;
+    input: HTMLInputElement;
     asProps: (slotProps: any) => any;
 } & {}>, {
     type: string;
-    modelModifiers: Record<string, any>;
-    modelValue: any;
     disabled: boolean;
+    modelValue: any;
     as: string;
+    modelModifiers: Record<string, any>;
     readonly: boolean;
     asProps: (slotProps: any) => any;
 }>;

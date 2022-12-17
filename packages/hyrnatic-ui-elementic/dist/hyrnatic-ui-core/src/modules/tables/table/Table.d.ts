@@ -1026,20 +1026,20 @@ declare const _default: import("vue").DefineComponent<{
         [key: string]: any;
     }>[];
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:sort" | "update:selectedRows", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+    as: string;
     sort: SortDefinition;
-    data: object[];
     selectedRows: object[];
     selectable: boolean | Function;
-    as: string;
+    data: object[];
     asProps: (slotProps: any) => any;
 } & {
     rowKey?: string;
 }>, {
+    as: string;
     sort: SortDefinition;
-    data: object[];
     selectedRows: object[];
     selectable: boolean | Function;
-    as: string;
+    data: object[];
     asProps: (slotProps: any) => any;
 }>;
 export default _default;
