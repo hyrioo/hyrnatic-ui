@@ -21,7 +21,6 @@ import {
     coreDropdownItemSetup,
     CoreDropdownItemSlotProps,
     coreDropdownItemLabelProp,
-    CoreDropdownItemReturn
 } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({

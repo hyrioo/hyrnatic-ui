@@ -1,5 +1,6 @@
 <template>
-    <hr-autocomplete :ref="(com) => setCoreInput(com)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]" v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
+    <hr-autocomplete :ref="(com) => setCoreInput(com)" v-slot="props" :class="[css_root, {'-focus': hasFocus}]"
+                     v-bind="core.props" v-on="core.listeners" @focused-item-changed="onFocusedItemChanged">
         <slot name="customPrefix" />
         <div v-if="$slots.prefix || prefix" :class="[css_ec('prefix')]">
             <slot name="prefix">
@@ -10,7 +11,8 @@
         <input ref="input" :class="[css_ec('input')]" :value="props.modelValue" :type="type"
                :max-length="maxLength" :min-length="minLength" :disabled="props.disabled"
                :placeholder="placeholder" :readonly="props.readonly" :autocomplete="autocomplete"
-               @input="props.modelValue = $event.target.value" @focus="onFocus" @blur="onBlur" @keydown="props.onKeyEvents"
+               @input="props.modelValue = $event.target.value" @focus="onFocus" @blur="onBlur"
+               @keydown="props.onKeyEvents"
         />
         <h-icon v-if="suffixIcon" :class="[css_ec('suffix-icon')]" :icon="suffixIcon" size="16px" />
         <div v-if="$slots.suffix || suffix" :class="[css_ec('suffix')]">
@@ -20,25 +22,30 @@
         </div>
         <slot name="customSuffix" />
 
-        <h-popper ref="popper" :classes="[css_ec('list-container')]" :reference="coreAutocompleteEl" transition="fade-fast"
-                  :visible="props.listVisible" :options="{placement: `bottom-start`}" :modifiers="modifiers"
-                  @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
+        <h-floating as="div" :class="[css_ec('list-container')]"
+                    :reference="coreAutocompleteEl" transition="fade-fast"
+                    :visible="props.listVisible" placement="bottom-start" :middleware="floatingMiddleware"
+                    @hide="props.clearFocusedItem()" @click-outside="onClickOutside"
         >
-            <div :class="[css_ec('list-box')]" @keydown="props.onKeyEvents">
+            <div :class="[css_ec('list-box')]" @keydown="props.onKeyEvents" :style="{maxHeight: listMaxHeight}">
                 <h-scroll-container ref="scrollContainer">
                     <slot :items="props.items" :focused-item="props.focusedItem" :on-item-click="props.onItemClick">
                         <ul :class="[css_ec('list')]">
-                            <li v-for="(item, index) in props.items" :ref="el => items[index] = el" :class="[css_ec('list-item'), {'-focused': item === props.focusedItem}]" @click="props.onItemClick(item)">{{ item }}</li>
+                            <li v-for="(item, index) in props.items" :ref="el => items[index] = el"
+                                :class="[css_ec('list-item'), {'-focused': item === props.focusedItem}]"
+                                @click="props.onItemClick(item)">{{ item }}
+                            </li>
                         </ul>
                     </slot>
                 </h-scroll-container>
             </div>
-        </h-popper>
+        </h-floating>
     </hr-autocomplete>
 </template>
 
 <script lang="ts">
 import {
+    computed,
     defineComponent, nextTick, onBeforeUpdate, onMounted, ref, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
@@ -50,8 +57,9 @@ import {
     coreAutocompleteModelValueProp,
     CoreAutocompleteSlotProps,
     CoreAutocompleteReturn,
-    CoreFloatingComponent,
+    CoreFloatingClickOutsideEvent,
 } from '@hyrioo/hyrnatic-ui-core';
+import { size } from '@floating-ui/dom';
 
 export default defineComponent({
     name: 'h-autocomplete',
@@ -108,23 +116,29 @@ export default defineComponent({
         const items = ref<HTMLElement[]>();
         const coreAutocomplete = ref<CoreAutocompleteReturn>();
         const coreAutocompleteEl = ref<HTMLElement>();
-        const popper = ref<CoreFloatingComponent>();
-        const modifiers = [
-        ];
+        const listMaxHeight = ref('');
+        const floatingMiddleware = computed(() => {
+            return [
+                size({
+                    padding: 8,
+                    apply(data) {
+                        Object.assign(data.elements.floating.style, {
+                            width: `${data.rects.reference.width}px`,
+                        });
+                        listMaxHeight.value = `${data.availableHeight}px`;
+                    }
+                })
+            ];
+        });
+
         onBeforeUpdate(() => {
             items.value = [];
         });
 
-        /*onMounted(() => {
-            nextTick(() => {
-                popper.value.updatePopper();
-            });
-        });*/
-
         const setCoreInput = (com) => {
             coreAutocomplete.value = com;
             coreAutocompleteEl.value = com ? com.$el : null;
-        }
+        };
 
         const hasFocus = ref(false);
         const onFocus = () => {
@@ -143,8 +157,8 @@ export default defineComponent({
             coreAutocomplete.value.hideList();
         };
 
-        const onClickOutside = (value) => {
-            if (value.outsidePopper && value.outsideReference) {
+        const onClickOutside = (value: CoreFloatingClickOutsideEvent) => {
+            if (value.outsideFloating && value.outsideReference) {
                 hideList();
             }
         };
@@ -152,13 +166,13 @@ export default defineComponent({
         const onFocusedItemChanged = (item: any) => {
             const index = props.items.findIndex((i) => i === item);
             const el = items.value[index];
-            if(el) {
+            if (el) {
                 el.scrollIntoView({
                     behavior: 'smooth',
                     block: 'nearest',
-                })
+                });
             }
-        }
+        };
 
         const asProps = (slotProps: CoreAutocompleteSlotProps) => ({
             class: {
@@ -171,14 +185,14 @@ export default defineComponent({
         return {
             setCoreInput,
             coreAutocompleteEl,
-            modifiers,
+            floatingMiddleware,
+            listMaxHeight,
             input,
             items,
             scrollContainer,
             hasFocus,
             onFocus,
             onBlur,
-            popper,
             core,
             onClickOutside,
             onFocusedItemChanged,

@@ -70,7 +70,6 @@ import {
     coreDatePickerFirstDayOfWeekProp,
     coreDatePickerSetup,
     CoreDatePickerSlotProps,
-    corePopperMatchReferenceSizeModifier,
     splitPlacement,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';

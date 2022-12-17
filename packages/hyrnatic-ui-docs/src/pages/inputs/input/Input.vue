@@ -55,12 +55,11 @@
             <component-events-table :component="Input" />
         </section>
         <!--<h-autocomplete v-model="value" :items="items" @item-selected="alert">-->
-<!--            <template v-slot="props">-->
-<!--                <span>{{ props.focusedItem }}</span>-->
-<!--                <li v-for="item in props.items" :class="{'-focused': item === props.focusedItem}">{{ item }}</li>-->
-<!--            </template>-->
-<!--        </h-autocomplete>-->
-        <!--<h-file-input v-model="value4" multiple />-->
+        <!--    &lt;!&ndash;<template v-slot="props">&ndash;&gt;-->
+        <!--    &lt;!&ndash;    <span>{{ props.focusedItem }}</span>&ndash;&gt;-->
+        <!--    &lt;!&ndash;    <li v-for="item in props.items" :class="{'-focused': item === props.focusedItem}">{{ item }}</li>&ndash;&gt;-->
+        <!--    &lt;!&ndash;</template>&ndash;&gt;-->
+        <!--</h-autocomplete>-->
     </page>
 </template>
 
@@ -82,7 +81,7 @@ export default defineComponent({
             return ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six', 'twenty-seven', 'twenty-eight', 'twenty-nine'].filter((s) => s.toLowerCase().indexOf(value.value.toLowerCase()) !== -1);
         });
 
-        const alert = (item) => {
+        const alert = (item: string) => {
             console.log('Alert', item);
         }
 

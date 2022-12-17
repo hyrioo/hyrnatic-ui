@@ -193,6 +193,7 @@ export {
 } from './modules/floating/floating/Floating';
 export type {
     CoreFloatingSlotProps,
+    CoreFloatingClickOutsideEvent,
 } from './modules/floating/floating/Floating';
 export { arrowReference as coreFloatingArrowReference } from './modules/floating/middleware/arrow-reference';
 

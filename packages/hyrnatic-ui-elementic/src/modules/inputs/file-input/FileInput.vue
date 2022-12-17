@@ -11,20 +11,9 @@
 <script lang="ts">
 import {
     computed,
-    defineComponent, nextTick, onBeforeUpdate, onMounted, ref, SetupContext,
+    defineComponent, ref, SetupContext,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
-import {
-    coreAutocompleteSetup,
-    coreAutocompleteDisabledProp,
-    coreAutocompleteItemsProp,
-    coreAutocompleteModelModifiersProp,
-    coreAutocompleteModelValueProp,
-    CoreAutocompleteSlotProps,
-    CoreAutocompleteReturn,
-    corePopperMatchReferenceSizeModifier,
-    CorePopperComponent,
-} from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-file-input',

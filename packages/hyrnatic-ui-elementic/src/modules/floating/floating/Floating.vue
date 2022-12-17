@@ -25,7 +25,6 @@ import {
     coreFloatingMiddlewareProp,
     coreFloatingTransitionProp,
     coreFloatingPlacementProp,
-    coreFloatingClassesProp,
     CoreFloatingClickOutsideEvent,
     coreFloatingSetup,
     splitPlacement,

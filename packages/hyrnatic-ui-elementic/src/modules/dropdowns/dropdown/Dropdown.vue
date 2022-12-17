@@ -45,7 +45,6 @@ import {
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
-    CorePopperComponent,
     coreDropdownDisabledProp,
     coreDropdownHideOnClickProp,
     coreDropdownSplitButtonProp,

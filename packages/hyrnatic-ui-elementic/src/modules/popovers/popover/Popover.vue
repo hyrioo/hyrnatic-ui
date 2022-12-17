@@ -21,7 +21,7 @@ import {
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
-    CorePopperClickOutsideEvent,
+    CoreFloatingClickOutsideEvent,
     coreFloatingPlacementProp,
 } from '@hyrioo/hyrnatic-ui-core';
 import { ComputePositionReturn, offset } from '@floating-ui/dom';
@@ -54,7 +54,7 @@ export default defineComponent({
         },
     },
     emits: {
-        'clickOutside': (event: CorePopperClickOutsideEvent) => true,
+        'clickOutside': (event: CoreFloatingClickOutsideEvent) => true,
         'computedPosition': (data: ComputePositionReturn) => true,
     },
     setup(props, ctx: SetupContext) {

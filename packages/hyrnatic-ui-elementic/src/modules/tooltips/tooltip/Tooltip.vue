@@ -4,7 +4,7 @@
             <slot />
         </div>
 
-        <h-floating ref="popper" as="div" :class="[css_root]" :reference="reference"
+        <h-floating as="div" :class="[css_root]" :reference="reference"
                     :transition="transition" show-arrow
                     :visible="props.visible" :placement="placement"
                     :middleware="floatingMiddleware"
@@ -26,7 +26,6 @@ import {
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
-    CorePopperComponent,
     coreTooltipModelValueProp,
     coreTooltipTriggerProp,
     coreTooltipShowDelayProp,
@@ -62,7 +61,6 @@ export default defineComponent({
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
         const reference = ref();
-        const popper = ref<CorePopperComponent>();
         const transition = ref(transitions[props.placement]);
 
         const floatingMiddleware = ref([
@@ -80,7 +78,6 @@ export default defineComponent({
         return {
             core,
             reference,
-            popper,
             floatingMiddleware,
             onComputedPosition,
             transition,
