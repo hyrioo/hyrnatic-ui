@@ -1,5 +1,6 @@
 import Checkbox from './checkbox/Checkbox';
 import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
+import { App } from 'vue';
 
 const moduleId = 'core-checkboxes';
 const components = {
@@ -9,7 +10,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (isModuleInstalled(app, moduleId)) {
             return;
         }

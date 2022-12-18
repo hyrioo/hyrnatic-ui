@@ -44,18 +44,18 @@ export type CoreDropdownSlotProps = {
     menuVisible: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     splitButton: ComputedRef<boolean>;
-    focusedItem: ComputedRef<CoreDropdownItemInstance>;
-    clearFocusedItem: (e) => any;
-    onKeyEvents: (e, target: 'main' | 'split') => any;
-    onButtonClick: (e) => any;
-    onIconClick: (e) => any;
-    onItemClick: (e) => any;
+    focusedItem: ComputedRef<CoreDropdownItemInstance | null>;
+    clearFocusedItem: () => any;
+    onKeyEvents: (e: KeyboardEvent, target: 'main' | 'split') => any;
+    onButtonClick: () => any;
+    onIconClick: () => any;
+    onItemClick: () => any;
 
     onMenuTransitioning: (state: boolean) => void;
 }
 
 export function coreDropdownSetup() {
-    return setupBuilder<CoreDropdownSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreDropdownSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -73,7 +73,7 @@ export default defineComponent({
         const menuVisible = ref(false);
         const transitioning = ref(false);
         const items = ref<CoreDropdownItemInstance[]>([]);
-        const focusedItem = ref<CoreDropdownItemInstance>();
+        const focusedItem = ref<CoreDropdownItemInstance | null>(null);
         const focusableItems = computed(() => items.value.filter((i) => i.disabled === false));
         const clearFocusedItem = () => {
             focusedItem.value = null;
@@ -106,7 +106,7 @@ export default defineComponent({
                 close();
             }
         };
-        const onKeyEvents = (e, target: 'main' | 'split') => {
+        const onKeyEvents = (e: KeyboardEvent, target: 'main' | 'split') => {
             if (interactivityDisabled.value) {
                 return false;
             }
@@ -144,13 +144,13 @@ export default defineComponent({
                 e.stopImmediatePropagation();
             }
         };
-        const onButtonClick = (e) => {
+        const onButtonClick = () => {
             if (interactivityDisabled.value) {
                 return false;
             }
 
             if (props.splitButton) {
-                ctx.emit('click', e);
+                ctx.emit('click');
             } else {
                 menuVisible.value = !menuVisible.value;
             }
@@ -162,7 +162,7 @@ export default defineComponent({
             menuVisible.value = !menuVisible.value;
         };
 
-        const onMenuTransitioning = (state) => {
+        const onMenuTransitioning = (state: boolean) => {
             transitioning.value = state;
         }
 
@@ -192,7 +192,7 @@ export default defineComponent({
 
             onMenuTransitioning,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             close,

@@ -1,7 +1,7 @@
 export declare type Module = {
     install(app: any, options: any): void;
 };
-export declare function isModuleInstalled(app: any, id: any): boolean;
+export declare function isModuleInstalled(app: any, id: any): any;
 export declare function markModuleAsInstalled(app: any, id: any): void;
 export declare function installComponents(app: any, components: any): void;
 export declare function installComponentAlias(app: any, alias: any, component: any): void;

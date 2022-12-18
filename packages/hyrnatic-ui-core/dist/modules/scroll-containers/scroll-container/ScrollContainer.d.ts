@@ -1,5 +1,4 @@
 import { ComputedRef } from 'vue';
-import './scroll-container.scss';
 export declare const coreScrollContainerHorizontalProp: {
     horizontal: {
         type: BooleanConstructor;
@@ -32,8 +31,8 @@ export declare const coreScrollContainerMinimumSizeProp: {
 };
 export declare const coreScrollContainerClassesProp: {
     classes: {
-        type: any;
-        default: any;
+        type: null;
+        default: null;
     };
 };
 export declare type CoreScrollContainerSlotProps = {
@@ -53,8 +52,8 @@ export declare function coreScrollContainerSetup(): {
 };
 declare const _default: import("vue").DefineComponent<{
     classes: {
-        type: any;
-        default: any;
+        type: null;
+        default: null;
     };
     minimumSize: {
         type: NumberConstructor;
@@ -78,14 +77,14 @@ declare const _default: import("vue").DefineComponent<{
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
         required: true;
     };
 }, {
-    wrapper: import("vue").Ref<HTMLElement>;
+    wrapper: import("vue").Ref<HTMLElement | undefined>;
     verticalBar: {
         offset: number;
         size: number;
@@ -115,16 +114,40 @@ declare const _default: import("vue").DefineComponent<{
     };
     registerBar: (type: 'vertical' | 'horizontal', track: HTMLElement, thumb: HTMLElement) => void;
     scrollTo: (x: any, y: any) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    asProps: (slotProps: any) => any;
-    as: string;
-    classes: any;
-    minimumSize: number;
-    autoHideDelay: number;
-    autoHide: boolean;
-    vertical: boolean;
-    horizontal: boolean;
-} & {}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    classes: {
+        type: null;
+        default: null;
+    };
+    minimumSize: {
+        type: NumberConstructor;
+        default: number;
+    };
+    autoHideDelay: {
+        type: NumberConstructor;
+        default: number;
+    };
+    autoHide: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    vertical: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    horizontal: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        required: true;
+    };
+}>>, {
     asProps: (slotProps: any) => any;
     classes: any;
     minimumSize: number;

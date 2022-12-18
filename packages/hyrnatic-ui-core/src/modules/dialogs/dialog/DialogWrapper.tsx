@@ -1,19 +1,17 @@
 import {
     h,
     defineComponent,
-    SetupContext,
-    ref,
     DefineComponent,
     computed,
     Teleport,
-    ComputedRef, reactive, Ref, provide,
+    ComputedRef, reactive, provide,
 } from 'vue';
 import Str from '../../../utils/string';
 
 export interface DialogObject {
     component: DefineComponent;
-    listeners: object;
-    props: object;
+    listeners: object | null;
+    props: object | null;
     stack: string;
     promise: { resolve: (payload: any) => void; reject: (payload: any) => void };
 }
@@ -48,7 +46,7 @@ export default defineComponent({
             default: 'default',
         },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props) {
         provide('wrapper-name', props.name);
 
         /**
@@ -65,7 +63,7 @@ export default defineComponent({
          * Computed count of dialogs for each stack in the wrapper
          */
         const dialogsCount = computed(() => {
-            const counts = [];
+            const counts: {[key: string]: number} = {};
             Object.keys(stacks).forEach((key) => {
                 counts[key] = stacks[key].length;
             });
@@ -76,7 +74,7 @@ export default defineComponent({
          * Computed count of visible (non transitioning) dialogs for each stack in the wrapper
          */
         const visibleDialogsCount = computed(() => {
-            const counts = [];
+            const counts: {[key: string]: number} = {};
             Object.keys(stacks).forEach((key) => {
                 counts[key] = stacks[key].filter((d) => d.visible).length;
             });
@@ -106,8 +104,8 @@ export default defineComponent({
          * Convert listeners to JSX type listener eg. click => onClick
          * @param listeners
          */
-        const convertListeners = (listeners) => {
-            const l = {};
+        const convertListeners = (listeners: { [key: string]: any }) => {
+            const l: { [key: string]: any } = {};
             Object.keys(listeners).forEach((key) => {
                 l[`on${pascalize(key)}`] = listeners[key];
             });
@@ -118,7 +116,7 @@ export default defineComponent({
          * Trigger hide transition
          * @param id
          */
-        const hideDialog = (id) => {
+        const hideDialog = (id: string) => {
             const dialog = dialogs[id];
             dialog.visible = false;
         };
@@ -127,7 +125,7 @@ export default defineComponent({
          * Remove the dialog from the DOM
          * @param id
          */
-        const removeDialog = (id) => {
+        const removeDialog = (id: string) => {
             const dialog = dialogs[id];
             delete dialogs[id];
             stacks[dialog.stack] = stacks[dialog.stack].filter((d) => d.id !== id);
@@ -137,7 +135,7 @@ export default defineComponent({
          * Hide and remove dialog without trigger reject and resolve
          * @param id
          */
-        const destroyDialog = (id) => {
+        const destroyDialog = (id: string) => {
             hideDialog(id);
         };
 
@@ -174,26 +172,26 @@ export default defineComponent({
          * Get the InternalDialogObject for a dialog id
          * @param id
          */
-        const getDialog = (id): InternalDialogObject => dialogs[id];
+        const getDialog = (id: string): InternalDialogObject => dialogs[id];
 
         /**
          * Get count for all dialogs for a specific stack, even the ones that are transitioning away
          * @param stack
          */
-        const getStackCount = (stack) => computed(() => dialogsCount.value[stack]);
+        const getStackCount = (stack: string) => computed(() => dialogsCount.value[stack]);
 
         /**
          * Get count for all active dialogs for a specific stack, without the ones that are transitioning away
          * @param stack
          */
-        const getStackVisibleCount = (stack) => computed(() => visibleDialogsCount.value[stack]);
+        const getStackVisibleCount = (stack: string) => computed(() => visibleDialogsCount.value[stack]);
 
         /**
          * Get the index for a dialog in a specific stack
          * @param stack
          * @param id
          */
-        const getStackIndex = (stack, id) => computed(() => stacks[stack].findIndex((d) => d.id === id));
+        const getStackIndex = (stack: string, id: string) => computed(() => stacks[stack].findIndex((d) => d.id === id));
 
         const wrapper: Wrapper = {
             addDialog,

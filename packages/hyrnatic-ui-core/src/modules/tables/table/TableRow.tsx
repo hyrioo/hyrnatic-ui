@@ -18,11 +18,11 @@ export const coreTableRowRowProp = {
 };
 
 export type CoreTableRowSlotProps = {
-    onClick: (e) => any;
+    onClick: () => any;
 }
 
 export function coreTableRowSetup() {
-    return setupBuilder<CoreTableRowSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreTableRowSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -42,7 +42,7 @@ export default defineComponent({
         const slotProps = reactive<CoreTableRowSlotProps>({
             onClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

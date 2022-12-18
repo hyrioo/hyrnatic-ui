@@ -8,7 +8,6 @@ import {
     reactive,
     Ref,
     ref,
-    toRef,
     SetupContext,
     watch,
 } from 'vue';
@@ -23,7 +22,7 @@ import Row from './Row';
 
 export const coreTableDataProp = {
     data: {
-        type: Array as PropType<object[]>,
+        type: Array as PropType<{ [key: string]: object }[]>,
         default: true,
     },
 };
@@ -41,7 +40,7 @@ export const coreTableSelectableProp = {
 };
 export const coreTableSelectedRowsProp = {
     selectedRows: {
-        type: Array as PropType<object[]>,
+        type: Array as PropType<{ [key: string]: object }[]>,
         default: () => [],
     },
 };
@@ -65,7 +64,7 @@ export type CoreTableSlotProps = {
 }
 
 export function coreTableSetup() {
-    return setupBuilder<CoreTableSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreTableSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -93,17 +92,20 @@ export default defineComponent({
         const anySelectable = computed(() => rows.value.filter((r) => r.selectable).length > 0);
         const setRowSelectionState = (rowId: string, state: boolean) => {
             const row = rows.value.find((r) => r.id === rowId);
-            const index = props.selectedRows.findIndex((r) => r === row.data);
-            row.selected = state;
-            if (index === -1 && state) { // Not found
-                ctx.emit('update:selectedRows', [...props.selectedRows, row.data]);
-            } else if (index !== -1 && !state) {
-                ctx.emit('update:selectedRows', props.selectedRows.filter((r) => r !== row.data));
+            if(row)
+            {
+                const index = props.selectedRows.findIndex((r) => r === row.data);
+                row.selected = state;
+                if (index === -1 && state) { // Not found
+                    ctx.emit('update:selectedRows', [...props.selectedRows, row.data]);
+                } else if (index !== -1 && !state) {
+                    ctx.emit('update:selectedRows', props.selectedRows.filter((r) => r !== row.data));
+                }
             }
         };
         const toggleAllSelection = () => {
             const state = !allRowsSelected.value;
-            const newArray = [];
+            const newArray: object[] = [];
             rows.value.forEach((r) => {
                 if (state) {
                     if (r.selectable) {
@@ -128,10 +130,10 @@ export default defineComponent({
         const mapDataToRows = () => {
             const oldRows = rows.value;
             rows.value = props.data.map((rowData) => {
-                let row = oldRows.find((r) => r.data[props.rowKey] === rowData[props.rowKey]);
+                let row = oldRows.find((r) => r.data[props.rowKey!] === rowData[props.rowKey!]);
                 if (row === undefined) {
-                    row = new Row(rowData[props.rowKey], rowData, props, setRowSelectionState);
-                    row.selected = props.selectedRows.findIndex((sr) => sr === row.data) !== -1;
+                    row = new Row(rowData[props.rowKey!] as unknown as string, rowData, props, setRowSelectionState);
+                    row.selected = props.selectedRows.findIndex((sr) => sr === row!.data) !== -1;
                 } else if(row.data !== rowData) {
                     row.data = rowData;
                 }
@@ -145,7 +147,7 @@ export default defineComponent({
         });
 
         // Sorting
-        const setSorting = (key) => {
+        const setSorting = (key: string) => {
             let direction: 'desc' | 'asc';
             if (props.sort.key === key) {
                 direction = props.sort.direction === 'desc' ? 'asc' : 'desc';
@@ -167,7 +169,7 @@ export default defineComponent({
 
         // Columns
         const columns: Ref<Column[]> = ref([]);
-        let tempColumns = null;
+        let tempColumns: Column[] | null = null;
         const updateColumns = () => {
             if (tempColumns === null) {
                 return;
@@ -177,12 +179,12 @@ export default defineComponent({
         };
         const addColumn = (id: string, component: ComponentInternalInstance, data: any) => {
             if (tempColumns === null) {
-                tempColumns = [].concat(columns.value);
+                tempColumns = ([] as Column[]).concat(columns.value);
             }
             tempColumns.push(new Column(id, component, data));
             nextTick(updateColumns);
         };
-        const removeColumn = (id) => {
+        const removeColumn = (id: string) => {
             if (tempColumns === null) {
                 tempColumns = columns.value;
             }
@@ -209,7 +211,7 @@ export default defineComponent({
             setSorting,
             clearSorting,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             toggleAllSelection,

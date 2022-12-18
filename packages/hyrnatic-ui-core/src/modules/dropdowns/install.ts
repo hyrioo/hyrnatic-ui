@@ -1,6 +1,7 @@
 import DropdownItem from './dropdown/DropdownItem';
 import Dropdown from './dropdown/Dropdown';
 import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
+import { App } from 'vue';
 
 const moduleId = 'core-dropdowns';
 const components = {
@@ -9,7 +10,7 @@ const components = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (isModuleInstalled(app, moduleId)) {
             return;
         }

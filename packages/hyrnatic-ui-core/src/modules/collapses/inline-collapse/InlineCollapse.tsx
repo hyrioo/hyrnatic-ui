@@ -12,10 +12,10 @@ export const coreInlineCollapseModelValueProp = {
 
 export type CoreCollapseInlineSlotProps = {
     expanded: ComputedRef<boolean>;
-    onClick: (e) => void;
+    onClick: () => void;
 }
 export function coreCollapseInlineSetup() {
-    return setupBuilder<CoreCollapseInlineSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreCollapseInlineSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -41,7 +41,7 @@ export default defineComponent({
             expanded: computed(() => expanded.value),
             onClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

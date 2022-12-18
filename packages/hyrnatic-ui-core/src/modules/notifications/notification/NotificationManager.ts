@@ -1,4 +1,4 @@
-import { InternalNotificationObject, NotificationObject, Wrapper, wrappers } from './NotificationWrapper';
+import { InternalNotificationObject, Wrapper, wrappers } from './NotificationWrapper';
 import {
     getCurrentInstance, inject, provide, reactive, shallowRef,
 } from 'vue';
@@ -15,16 +15,16 @@ export const DefaultNotificationOptions: NotificationOptions = {
     resetDurationOnInteractivity: true,
 }
 
-export function show<P extends {} = {}, L extends {} = {}>(component, props: P = null, listeners: L = null, options?: NotificationOptions): { destroy: () => void; promise: Promise<any> } {
+export function show<P extends {} = {}, L extends {} = {}>(component: any, props?: P, listeners?: L, options?: NotificationOptions): { destroy: () => void; promise: Promise<any> } {
     const mergedOptions = {...DefaultNotificationOptions, ...options};
-    const wrapper = mergedOptions.wrapper;
+    const wrapper = mergedOptions.wrapper!;
 
-    let notification: InternalNotificationObject = null;
+    let notification: InternalNotificationObject | null = null;
     const promise = new Promise((resolve, reject) => {
         notification = wrappers[wrapper].addNotification({
             component: shallowRef(component),
-            listeners: listeners !== null ? reactive(listeners) : null,
-            props: props !== null ? reactive(props) : null,
+            listeners: listeners !== undefined ? reactive(listeners) : null,
+            props: props !== undefined ? reactive(props) : null,
             options: mergedOptions,
             promise: { resolve, reject },
         });
@@ -32,22 +32,22 @@ export function show<P extends {} = {}, L extends {} = {}>(component, props: P =
 
     return {
         promise,
-        destroy: () => wrappers[wrapper].destroyNotification(notification.id),
+        destroy: () => wrappers[wrapper].destroyNotification(notification!.id),
     };
 }
-export function showPromise<P extends {} = {}, L extends {} = {}>(component, props: P = null, listeners: L = null, options?: NotificationOptions): Promise<any> {
+export function showPromise<P extends {} = {}, L extends {} = {}>(component: any, props?: P, listeners?: L, options?: NotificationOptions): Promise<any> {
     return show<P, L>(component, props, listeners, options).promise;
 }
 export function getWrapper(key: string = 'default'): Wrapper {
     return wrappers[key];
 }
 function getNotification(key: string): InternalNotificationObject {
-    const wrapper = inject<string>('wrapper-name');
+    const wrapper = inject<string>('wrapper-name')!;
     return wrappers[wrapper].getNotification(key);
 }
 
 export function setupNotification() {
-    const ctx = getCurrentInstance();
+    const ctx = getCurrentInstance()!;
     const internalNotificationObject = getNotification(ctx.vnode.key as string);
     provide('notification-id', ctx.vnode.key);
     provide('notification-resolve', internalNotificationObject.resolve);

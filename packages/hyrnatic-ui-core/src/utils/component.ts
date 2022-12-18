@@ -1,4 +1,5 @@
 import { computed, PropType, reactive } from 'vue';
+import { ComponentInternalInstance } from '@vue/runtime-core';
 
 export const coreComponentAsProp = {
     as: {
@@ -8,7 +9,7 @@ export const coreComponentAsProp = {
 };
 export const coreComponentAsPropsProp = {
     asProps: {
-        type: Function as PropType<(slotProps) => any>,
+        type: Function as PropType<(slotProps: any) => any>,
         default: null,
     },
 };
@@ -28,12 +29,12 @@ export function proxyProps(props: { [key: string]: any }, proxies: string[]) {
 export function proxyEvents(instance: any, events: string[]) {
     const obj: { [key: string]: any } = {};
     events.forEach((key) => {
-        obj[key] = (...args) => instance.emit(key, ...args);
+        obj[key] = (...args: any[]) => instance.emit(key, ...args);
     });
     return obj;
 }
 
-export function setupBuilder<SP>(instance) {
+export function setupBuilder<SP>(instance: ComponentInternalInstance) {
     const props: any = reactive({});
     const listeners: any = {};
     const setup = {
@@ -72,7 +73,7 @@ export function setupBuilder<SP>(instance) {
          */
         events(events: string[]) {
             events.forEach((key) => {
-                listeners[key] = (...args) => instance.emit(key, ...args);
+                listeners[key] = (...args: any[]) => instance.emit(key, ...args);
             });
             return setup;
         },

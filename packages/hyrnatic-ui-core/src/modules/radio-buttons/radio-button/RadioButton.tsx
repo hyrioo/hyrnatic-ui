@@ -29,11 +29,11 @@ export const coreRadioButtonValueProp = {
 export type CoreRadioButtonSlotProps = {
     state: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
-    onChange: (e) => any;
+    onChange: () => any;
 }
 
 export function coreRadioButtonSetup() {
-    return setupBuilder<CoreRadioButtonSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreRadioButtonSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -58,7 +58,7 @@ export default defineComponent({
             state,
             onChange,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

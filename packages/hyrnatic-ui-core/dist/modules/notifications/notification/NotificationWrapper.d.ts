@@ -58,74 +58,43 @@ declare const _default: DefineComponent<{
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     slotProps: {
         name: string;
         notifications: {
-            [x: string]: {
-                id: string;
-                visible: boolean;
-                compiledListeners: any;
-                resolve: (payload?: any) => void;
-                reject: (payload?: any) => void;
-                transitionEnd: () => void;
-                durationTimeout: any;
-                component: DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{} & {}>, {}>;
-                listeners: object & {};
-                props: object & {};
-                options: {
-                    wrapper?: string;
-                    duration?: number;
-                    resetDurationOnInteractivity?: boolean;
-                };
-                promise: {
-                    resolve: (payload: any) => void;
-                    reject: (payload: any) => void;
-                };
-            };
+            [key: string]: InternalNotificationObject;
         };
     };
     INotifications: {
-        [x: string]: {
-            id: string;
-            visible: boolean;
-            compiledListeners: any;
-            resolve: (payload?: any) => void;
-            reject: (payload?: any) => void;
-            transitionEnd: () => void;
-            durationTimeout: any;
-            component: DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{} & {}>, {}>;
-            listeners: object & {};
-            props: object & {};
-            options: {
-                wrapper?: string;
-                duration?: number;
-                resetDurationOnInteractivity?: boolean;
-            };
-            promise: {
-                resolve: (payload: any) => void;
-                reject: (payload: any) => void;
-            };
-        };
+        [key: string]: InternalNotificationObject;
     };
     addNotification(notification: NotificationObject): InternalNotificationObject;
     getNotification(id: string): InternalNotificationObject;
     destroyNotification(id: string): void;
     pauseDuration(id: string): any;
     resumeDuration(id: string): any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    name: {
+        type: StringConstructor;
+        default: string;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
+    name: string;
     asProps: (slotProps: any) => any;
     as: string;
-    name: string;
-} & {}>, {
-    asProps: (slotProps: any) => any;
-    as: string;
-    name: string;
 }>;
 export default _default;

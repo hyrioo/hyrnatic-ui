@@ -16,7 +16,7 @@ export declare type CoreSelectProvide = {
 };
 export declare const coreSelectItemValueProp: {
     value: {
-        type: any;
+        type: null;
         required: boolean;
     };
 };
@@ -29,7 +29,7 @@ export declare const coreSelectItemDisabledProp: {
 export declare const coreSelectItemLabelProp: {
     label: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare type CoreSelectItemSlotProps = {
@@ -52,10 +52,10 @@ export declare function coreSelectItemSetup(): {
 declare const SelectItem: import("vue").DefineComponent<{
     label: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
     value: {
-        type: any;
+        type: null;
         required: boolean;
     };
     disabled: {
@@ -64,14 +64,14 @@ declare const SelectItem: import("vue").DefineComponent<{
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
-    select: CoreSelectProvide;
+    select: CoreSelectProvide | undefined;
     slotProps: {
         selected: boolean;
         focused: boolean;
@@ -82,14 +82,28 @@ declare const SelectItem: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    value: any;
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-    label: string;
-} & {}>, {
-    value: any;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    label: {
+        type: StringConstructor;
+        default: null;
+    };
+    value: {
+        type: null;
+        required: boolean;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;

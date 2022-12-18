@@ -28,21 +28,30 @@ declare const _default: import("vue").DefineComponent<{
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }> | import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
-}>[], unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    visible: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-} & {}>, {
+}>[], unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    visible: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;

@@ -3,16 +3,16 @@ import {
     getCurrentInstance, inject, provide, reactive, shallowRef,
 } from 'vue';
 
-export function create<P extends {} = {}, L extends {} = {}>(component, props: P = null, listeners: L = null, options?: { wrapper?: string; stack?: string }): { destroy: () => void; promise: Promise<any> } {
+export function create<P extends {} = {}, L extends {} = {}>(component: any, props?: P, listeners?: L, options?: { wrapper?: string; stack?: string }): { destroy: () => void; promise: Promise<any> } {
     const wrapper = options && options.wrapper ? options.wrapper : 'default';
     const stack = options && options.stack ? options.stack : 'default';
 
-    let dialog: InternalDialogObject = null;
+    let dialog: InternalDialogObject | null = null;
     const promise = new Promise((resolve, reject) => {
         dialog = wrappers[wrapper].addDialog({
             component: shallowRef(component),
-            listeners: listeners !== null ? reactive(listeners) : null,
-            props: props !== null ? reactive(props) : null,
+            listeners: listeners !== undefined ? reactive(listeners) : null,
+            props: props !== undefined ? reactive(props) : null,
             stack,
             promise: { resolve, reject },
         });
@@ -20,10 +20,10 @@ export function create<P extends {} = {}, L extends {} = {}>(component, props: P
 
     return {
         promise,
-        destroy: () => wrappers[wrapper].destroyDialog(dialog.id),
+        destroy: () => wrappers[wrapper].destroyDialog(dialog!.id),
     };
 }
-export function createPromise<P extends {} = {}, L extends {} = {}>(component, props: P = null, listeners: L = null, options?: { wrapper?: string; stack?: string }): Promise<any> {
+export function createPromise<P extends {} = {}, L extends {} = {}>(component: any, props?: P, listeners?: L, options?: { wrapper?: string; stack?: string }): Promise<any> {
     return create<P, L>(component, props, listeners, options).promise;
 }
 export function getWrapper(key: string = 'default'): Wrapper {
@@ -31,11 +31,11 @@ export function getWrapper(key: string = 'default'): Wrapper {
 }
 export function getDialog(key: string): InternalDialogObject {
     const wrapper = inject<string>('wrapper-name');
-    return wrappers[wrapper].getDialog(key);
+    return wrappers[wrapper!].getDialog(key);
 }
 
 export function setupDialog() {
-    const ctx = getCurrentInstance();
+    const ctx = getCurrentInstance()!;
     const internalDialogObject = getDialog(ctx.vnode.key as string);
     provide('dialog-id', ctx.vnode.key);
     provide('dialog-resolve', internalDialogObject.resolve);

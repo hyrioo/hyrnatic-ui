@@ -35,12 +35,12 @@ export const corePaginatorDeltaProp = {
 export type CorePaginatorSlotProps = {
     currentPage: ComputedRef<number>;
     pages: ComputedRef<number>;
-    buttons: ComputedRef<number[]>;
+    buttons: ComputedRef<(number|null)[]>;
     onPaginationButtonClick: (page: number) => void;
 }
 
 export function corePaginatorSetup() {
-    return setupBuilder<CorePaginatorSlotProps>(getCurrentInstance());
+    return setupBuilder<CorePaginatorSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -55,13 +55,13 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const pages = computed(() => Math.ceil(props.count / props.pageSize));
-        const paginationButtons = computed<number[]>(() => {
-            const c = props.modelValue;
+        const pages = computed(() => Math.ceil(props.count! / props.pageSize!));
+        const paginationButtons = computed<(number|null)[]>(() => {
+            const c = props.modelValue as number;
             const p = pages.value;
             const range = [];
-            const rangeWithDots = [];
-            let l;
+            const rangeWithDots: (number|null)[] = [];
+            let l: number;
             range.push(1);
             for (let i = c - props.delta; i <= c + props.delta; i++) {
                 if (i < p && i > 1) {
@@ -86,19 +86,19 @@ export default defineComponent({
             return rangeWithDots;
         });
 
-        const onPaginationButtonClick = (page) => {
+        const onPaginationButtonClick = (page: number) => {
             if (page !== null) {
                 ctx.emit('update:modelValue', page);
             }
         };
 
         const slotProps = reactive<CorePaginatorSlotProps>({
-            currentPage: computed(() => props.modelValue),
+            currentPage: computed(() => props.modelValue as number),
             pages,
             buttons: paginationButtons,
             onPaginationButtonClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

@@ -22,7 +22,7 @@ export type CoreNotificationSlotProps = {
     close: () => void;
 }
 export function coreNotificationSetup() {
-    return setupBuilder<CoreNotificationSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreNotificationSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -33,12 +33,12 @@ export default defineComponent({
         ...coreNotificationVisibleProp,
     },
     setup(props, ctx: SetupContext) {
-        const id = inject<string>('notification-id');
+        const id = inject<string>('notification-id') as string;
         if (!id) {
             console.warn('You must call NotificationManager.setupNotification() in the notification setup');
         }
 
-        const reject = inject<(payload: any) => void>('notification-reject');
+        const reject = inject<(payload: any) => void>('notification-reject') as (payload: any) => void;
         const close = () => {
             reject(null);
         };
@@ -52,7 +52,7 @@ export default defineComponent({
             close,
         });
 
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
         return () => {
             if (props.as) {
                 const p = props.asProps ? props.asProps(slotProps) : {};

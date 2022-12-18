@@ -31,7 +31,7 @@ export type CoreProgressBarSlotProps = {
 }
 
 export function coreProgressBarSetup() {
-    return setupBuilder<CoreProgressBarSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreProgressBarSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -45,14 +45,14 @@ export default defineComponent({
     },
     setup(props, ctx: SetupContext) {
         const percentage = computed(() => {
-            const p = ((props.value - props.minimum) * 100) / (props.maximum - props.minimum);
+            const p = ((props.value! - props.minimum) * 100) / (props.maximum - props.minimum);
             return Math.round(p);
         });
 
         const slotProps = reactive<CoreProgressBarSlotProps>({
             percentage,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             percentage,

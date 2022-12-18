@@ -7,8 +7,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hyrioo/hyrnatic-ui-core": "file:../hyrnatic-ui-core",
-    "@hyrioo/hyrnatic-ui-elementic": "file:../hyrnatic-ui-elementic",
+    "@hyrioo/hyrnatic-ui-core": "*",
+    "@hyrioo/hyrnatic-ui-elementic": "*",
     "luxon": "^1.27.0",
     "prism": "^4.1.2",
     "prismjs": "^1.24.1",

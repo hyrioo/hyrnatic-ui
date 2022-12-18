@@ -18,7 +18,7 @@ export default {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
-        ModuleHelper.installDependencies(app, options, dependencies);
+        ModuleHelper.installDependencies(app, dependencies, options);
         ModuleHelper.installComponents(app, components);
         ModuleHelper.markModuleAsInstalled(app, moduleId);
     },

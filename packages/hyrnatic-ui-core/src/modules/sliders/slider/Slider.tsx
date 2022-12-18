@@ -49,7 +49,7 @@ export type CoreSliderSlotProps = {
 }
 
 export function coreSliderSetup() {
-    return setupBuilder<CoreSliderSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreSliderSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -73,7 +73,7 @@ export default defineComponent({
             return Math.round((props.maximum - props.minimum) / props.stepSize);
         });
 
-        const getValueFromPercentage = (percentage) => {
+        const getValueFromPercentage = (percentage: number) => {
             let value = ((props.maximum - props.minimum) / 100 * percentage) + props.minimum;
             if (value < props.minimum) {
                 value = props.minimum;
@@ -88,7 +88,7 @@ export default defineComponent({
             percentage,
             steps,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             percentage,

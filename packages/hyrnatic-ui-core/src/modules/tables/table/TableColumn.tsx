@@ -2,7 +2,6 @@ import {
     defineComponent,
     getCurrentInstance, inject, onMounted, onUnmounted,
     reactive,
-    SetupContext,
 
 } from 'vue';
 import { proxyEvents, proxyProps } from '../../../utils/component';
@@ -47,7 +46,7 @@ export const coreTableColumnComponentProp = {
 };
 
 export function coreTableColumnSetup(data: object, props: string[] = [], events: string[] = []) {
-    const instance = getCurrentInstance();
+    const instance = getCurrentInstance()!;
     return {
         props: reactive({
             data,
@@ -68,15 +67,15 @@ export default defineComponent({
         ...coreTableColumnComponentProp,
         ...coreTableColumnOrderProp,
     },
-    setup(props, ctx: SetupContext) {
+    setup(props) {
         const table = inject<TableProvide>('table');
         const id = Str.random();
 
         onMounted(() => {
-            table.addColumn(id, props.component, props.data);
+            table!.addColumn(id, props.component, props.data);
         });
         onUnmounted(() => {
-            table.removeColumn(id);
+            table!.removeColumn(id);
         });
 
         return {};

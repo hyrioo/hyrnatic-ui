@@ -7,6 +7,7 @@ import {
     Module
 } from '../../utils/package';
 import CommonInstall from '../common/install';
+import { App } from 'vue';
 
 const moduleId = 'core-scroll-containers';
 const components = {
@@ -17,11 +18,11 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (isModuleInstalled(app, moduleId)) {
             return;
         }
-        installDependencies(app, options, dependencies);
+        installDependencies(app, dependencies, options);
         installComponents(app, components);
         markModuleAsInstalled(app, moduleId);
     },

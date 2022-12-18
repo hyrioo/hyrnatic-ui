@@ -27,10 +27,10 @@ export const coreButtonLoadingProp = {
 export type CoreButtonSlotProps = {
     disabled: ComputedRef<boolean>;
     loading: ComputedRef<boolean>;
-    onClick: (e) => any;
+    onClick: (e: MouseEvent) => any;
 }
 export function coreButtonSetup() {
-    return setupBuilder<CoreButtonSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreButtonSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -44,7 +44,7 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const onClick = (e) => {
+        const onClick = (e: MouseEvent) => {
             if (!props.disabled && !props.loading && props.visible) {
                 ctx.emit('click', e);
             }
@@ -56,7 +56,7 @@ export default defineComponent({
             onClick,
         });
 
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
         return () => {
             if (props.as) {
                 const p = props.asProps ? props.asProps(slotProps) : {};

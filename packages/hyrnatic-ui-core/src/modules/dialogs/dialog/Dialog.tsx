@@ -19,7 +19,7 @@ export type CoreDialogSlotProps = {
     close: () => void;
 }
 export function coreDialogSetup(props: string[] = [], events: string[] = []) {
-    const instance = getCurrentInstance();
+    const instance = getCurrentInstance()!;
     return {
         props: reactive({
             ...proxyProps(instance.props, props),
@@ -34,12 +34,12 @@ export default defineComponent({
         ...coreDialogVisibleProp,
     },
     setup(props, ctx: SetupContext) {
-        const id = inject<string>('dialog-id');
+        const id = inject<string>('dialog-id') as  string;
         if (!id) {
             console.warn('You must call DialogManager.setupDialog() in the dialog setup');
         }
 
-        const reject = inject<(payload: any) => void>('dialog-reject');
+        const reject = inject<(payload: any) => void>('dialog-reject') as (payload: any) => void;
         const close = () => {
             reject(null);
         };
@@ -55,6 +55,6 @@ export default defineComponent({
             close,
         });
 
-        return () => ctx.slots.default(slotProps);
+        return () => ctx.slots.default!(slotProps);
     },
 });

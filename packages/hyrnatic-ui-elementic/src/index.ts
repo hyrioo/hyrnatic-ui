@@ -60,7 +60,7 @@ const modules = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         Object.values(modules).forEach((module) => {
             module.install(app, options);
         });

@@ -36,11 +36,11 @@ declare const _default: import("vue").DefineComponent<{
     };
     asProps: {
         type: PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     slotProps: {
@@ -49,13 +49,24 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "rowClick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    asProps: (slotProps: any) => any;
-    as: string;
-    row: Row;
-} & {
-    columns?: unknown[];
-}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "rowClick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    row: {
+        type: PropType<Row>;
+        default: boolean;
+    };
+    columns: {
+        type: ArrayConstructor;
+        required: boolean;
+    };
+    asProps: {
+        type: PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     asProps: (slotProps: any) => any;
     as: string;
     row: Row;

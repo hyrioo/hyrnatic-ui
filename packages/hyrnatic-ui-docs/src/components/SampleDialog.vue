@@ -5,6 +5,13 @@
 
         <h-button label="Increment counter" @click="addCounter" style="margin-right: 12px" />
         <h-button label="Open nested dialog" @click="openNestedDialog" />
+        <h-select v-model="value" placeholder="Select option..." style="width: 100%;">
+            <h-select-item value="1" label="Loooong option 1" />
+            <h-select-item value="2" label="Option 2" />
+            <h-select-item-divider />
+            <h-select-item value="3" label="Option 3" disabled />
+            <h-select-item value="4" label="Option 4" />
+        </h-select>
 
         <template #footer>
             <h-button label="Close" @click="close" />
@@ -37,6 +44,7 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const nested = ref('-');
         const { resolve } = DialogManager.setupDialog();
+        const value = ref();
         const addCounter = () => {
             ctx.emit('something');
         };
@@ -52,6 +60,7 @@ export default defineComponent({
         };
 
         return {
+            value,
             addCounter,
             openNestedDialog,
             close,

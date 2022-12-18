@@ -9,11 +9,11 @@ export default {
         return text;
     },
 
-    kebabize(string) {
+    kebabize(string: string) {
         return string.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
     },
 
-    trimMultiSpaces(string) {
+    trimMultiSpaces(string: string) {
         return string.replace(/ +(?= )/g,'');
     }
 };

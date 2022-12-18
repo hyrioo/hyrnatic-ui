@@ -12,17 +12,17 @@ export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorSt
     isLast: boolean;
     isLocked: boolean;
 }
-export declare function createCoreStepItem(id: any, data: any, validator?: any, visible?: boolean): CoreStepsNavigatorStepItem;
+export declare function createCoreStepItem(id: any, data: any, validator?: null, visible?: boolean): CoreStepsNavigatorStepItem;
 export declare const coreStepsNavigatorModelValueProp: {
     modelValue: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare const coreStepsNavigatorStepsProp: {
     steps: {
         type: PropType<CoreStepsNavigatorStepItem[]>;
-        default: any;
+        default: null;
     };
 };
 export declare type CoreStepsNavigatorReturn = {
@@ -53,59 +53,29 @@ export declare function coreStepsNavigatorSetup(): {
 declare const _default: import("vue").DefineComponent<{
     steps: {
         type: PropType<CoreStepsNavigatorStepItem[]>;
-        default: any;
+        default: null;
     };
     modelValue: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
     asProps: {
         type: PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     nextStep: () => void;
     previousStep: () => void;
     visibleSteps: ComputedRef<CoreStepsNavigatorDetailedStepItem[]>;
     slotProps: {
-        steps: {
-            stepIndex: number;
-            isCurrent: boolean;
-            isDone: boolean;
-            isLast: boolean;
-            isLocked: boolean;
-            id: string;
-            data: any;
-            visible: boolean;
-            validator: () => boolean;
-        }[];
-        currentStep: {
-            stepIndex: number;
-            isCurrent: boolean;
-            isDone: boolean;
-            isLast: boolean;
-            isLocked: boolean;
-            id: string;
-            data: any;
-            visible: boolean;
-            validator: () => boolean;
-        };
+        steps: CoreStepsNavigatorDetailedStepItem[];
+        currentStep: CoreStepsNavigatorDetailedStepItem;
         currentIndex: number;
-        visibleSteps: {
-            stepIndex: number;
-            isCurrent: boolean;
-            isDone: boolean;
-            isLast: boolean;
-            isLocked: boolean;
-            id: string;
-            data: any;
-            visible: boolean;
-            validator: () => boolean;
-        }[];
+        visibleSteps: CoreStepsNavigatorDetailedStepItem[];
         nextStep: () => void;
         previousStep: () => void;
         onStepClick: (step: CoreStepsNavigatorDetailedStepItem) => void;
@@ -113,12 +83,24 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    asProps: (slotProps: any) => any;
-    as: string;
-    modelValue: string;
-    steps: CoreStepsNavigatorStepItem[];
-} & {}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    steps: {
+        type: PropType<CoreStepsNavigatorStepItem[]>;
+        default: null;
+    };
+    modelValue: {
+        type: StringConstructor;
+        default: null;
+    };
+    asProps: {
+        type: PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     asProps: (slotProps: any) => any;
     as: string;
     modelValue: string;

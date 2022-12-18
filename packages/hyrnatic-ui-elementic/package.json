@@ -1,10 +1,18 @@
 {
     "name": "@hyrioo/hyrnatic-ui-elementic",
-    "version": "0.0.1-beta.0",
+    "version": "0.0.1-beta.1",
     "description": "UI-kit for vue 3",
-    "main": "./dist/index.js",
-    "module": "src/index.ts",
+    "type": "module",
+    "main": "./dist/index.umd.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "license": "MIT",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.umd.cjs"
+        }
+    },
     "files": [
         "dist/*",
         "src/**/*.scss"
@@ -15,18 +23,18 @@
         "directory": "packages/hyrnatic-ui-elementic"
     },
     "scripts": {
-        "build": "webpack --mode=production",
-        "build:watch": "webpack --mode=production --watch",
+        "build": "vite build",
+        "preview": "vite preview",
         "test": "jest"
     },
     "dependencies": {
         "@floating-ui/dom": "^1.0.7",
-        "@hyrioo/hyrnatic-ui-core": "^0.0.1",
+        "@hyrioo/hyrnatic-ui-core": "*",
         "@mdi/js": "^5.9.55",
         "luxon": "^1.27.0"
     },
     "peerDependencies": {
-        "vue": "^3.0.7"
+        "vue": "^3.2.25"
     },
     "devDependencies": {
         "@babel/core": "^7.13.10",
@@ -34,6 +42,8 @@
         "@babel/preset-env": "^7.13.10",
         "@babel/preset-typescript": "^7.13.0",
         "@types/luxon": "^1.27.0",
+        "@vitejs/plugin-vue": "^4.0.0",
+        "@vitejs/plugin-vue-jsx": "^3.0.0",
         "@vue/babel-plugin-jsx": "^1.0.3",
         "@vue/cli-plugin-unit-jest": "5.0.0-beta.2",
         "@vue/test-utils": "^2.0.0-rc.10",
@@ -43,8 +53,13 @@
         "jest": "^26.5.6",
         "ts-jest": "^26.5.6",
         "ts-node": "^10.1.0",
+        "typescript": "^4.9.4",
+        "vite": "^4.0.2",
+        "vite-plugin-dts": "^1.7.1",
+        "vue": "^3.2.45",
         "vue-jest": "^5.0.0-alpha.10",
         "vue-loader": "^16.2.0",
+        "vue-tsc": "^1.0.14",
         "webpack": "^5.37.0",
         "webpack-cli": "^4.7.0"
     }

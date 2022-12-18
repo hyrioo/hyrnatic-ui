@@ -1,7 +1,7 @@
 import { PropType, Ref, ComputedRef, WritableComputedRef } from 'vue';
 export declare const coreInputModelValueProp: {
     modelValue: {
-        type: any;
+        type: null;
         required: boolean;
     };
 };
@@ -26,7 +26,7 @@ export declare const coreInputReadonlyProp: {
 export declare const coreInputTypeProp: {
     type: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare type CoreInputSlotProps = {
@@ -55,12 +55,12 @@ declare const _default: import("vue").DefineComponent<{
         default: () => {};
     };
     modelValue: {
-        type: any;
+        type: null;
         required: boolean;
     };
     type: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
     readonly: {
         type: BooleanConstructor;
@@ -72,11 +72,11 @@ declare const _default: import("vue").DefineComponent<{
     };
     asProps: {
         type: PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     slotProps: {
@@ -89,21 +89,44 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    input: {
+        type: PropType<HTMLInputElement>;
+        required: true;
+    };
+    modelModifiers: {
+        type: ObjectConstructor;
+        default: () => {};
+    };
+    modelValue: {
+        type: null;
+        required: boolean;
+    };
+    type: {
+        type: StringConstructor;
+        default: null;
+    };
+    readonly: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    asProps: {
+        type: PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
+    type: string;
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: any;
-    type: string;
-    input: HTMLInputElement;
-    modelModifiers: Record<string, any>;
-    readonly: boolean;
-} & {}>, {
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-    modelValue: any;
-    type: string;
     modelModifiers: Record<string, any>;
     readonly: boolean;
 }>;

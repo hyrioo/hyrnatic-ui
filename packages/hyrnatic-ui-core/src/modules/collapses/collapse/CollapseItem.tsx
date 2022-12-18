@@ -17,10 +17,10 @@ export const coreCollapseItemIdProp = {
 
 export type CoreCollapseItemSlotProps = {
     expanded: ComputedRef<boolean>;
-    onClick: (e) => void;
+    onClick: () => void;
 }
 export function coreCollapseItemSetup() {
-    return setupBuilder<CoreCollapseItemSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreCollapseItemSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -31,18 +31,18 @@ export default defineComponent({
         ...coreCollapseItemIdProp,
     },
     setup(props, ctx: SetupContext) {
-        const collapse = inject<CollapseProvide>('collapse');
+        const collapse = inject<CollapseProvide>('collapse')!;
         const expanded = computed(() => collapse.expandedItems.value.indexOf(props.id) !== -1);
 
         const onClick = () => {
-            collapse.onItemClick(props.id);
+            collapse.onItemClick(props.id!);
         };
 
         const slotProps = reactive<CoreCollapseItemSlotProps>({
             expanded,
             onClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

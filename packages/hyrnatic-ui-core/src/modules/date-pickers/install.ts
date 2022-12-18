@@ -1,5 +1,6 @@
 import DatePicker from './date-picker/DatePicker';
 import { installComponents, isModuleInstalled, markModuleAsInstalled } from '../../utils/package';
+import { App } from 'vue';
 
 const moduleId = 'core-date-pickers';
 const components = {
@@ -7,7 +8,7 @@ const components = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (isModuleInstalled(app, moduleId)) {
             return;
         }

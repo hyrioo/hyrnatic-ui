@@ -2,6 +2,7 @@ import { installDirectives, isModuleInstalled, markModuleAsInstalled } from '../
 import ClickOutside from './directives/click-outside';
 import DocumentEvent from './directives/document-event';
 import Resize from './directives/resize';
+import { App } from 'vue';
 
 const moduleId = 'core-common';
 const directives = {
@@ -11,11 +12,12 @@ const directives = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (isModuleInstalled(app, moduleId)) {
             return;
         }
         // installComponents(app, components);
+        // @ts-ignore
         installDirectives(app, directives);
         markModuleAsInstalled(app, moduleId);
     },

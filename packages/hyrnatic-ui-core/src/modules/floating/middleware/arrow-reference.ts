@@ -81,7 +81,7 @@ export const arrowReference = (options: Options): Middleware => ({
         let referenceRect = rects.reference;
 
         if(options.reference) {
-            const arrowReferenceRect = await platform.getClientRects(options.reference);
+            const arrowReferenceRect = await platform.getClientRects!(options.reference);
             referenceRect = arrowReferenceRect[0];
         }
 

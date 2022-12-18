@@ -18,7 +18,7 @@ export type CoreDropdownItemInstance = {
 };
 
 export type CoreDropdownProvide = {
-    focusedItem: Ref<CoreDropdownItemInstance>;
+    focusedItem: Ref<CoreDropdownItemInstance | null>;
     onItemClick(e: any): void;
     addItemInstance(instance: CoreDropdownItemInstance): void;
     removeItemInstance(instance: CoreDropdownItemInstance): void;
@@ -42,11 +42,11 @@ export const coreDropdownItemLabelProp = {
 export type CoreDropdownItemSlotProps = {
     disabled: ComputedRef<boolean>;
     focused: ComputedRef<boolean>;
-    onClick: (e) => any;
+    onClick: (e: MouseEvent) => any;
 }
 
 export function coreDropdownItemSetup() {
-    return setupBuilder<CoreDropdownItemSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreDropdownItemSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -59,9 +59,9 @@ export default defineComponent({
     },
     emits: ['click'],
     setup(props, ctx: SetupContext) {
-        const dropdown = inject<CoreDropdownProvide>('dropdown');
+        const dropdown = inject<CoreDropdownProvide>('dropdown') as CoreDropdownProvide;
 
-        const onClick = (e) => {
+        const onClick = (e: MouseEvent) => {
             if (!props.disabled) {
                 ctx.emit('click', e);
                 dropdown.onItemClick(e);
@@ -72,7 +72,7 @@ export default defineComponent({
             disabled: props.disabled,
             label: props.label,
             onClick,
-            component: getCurrentInstance(),
+            component: getCurrentInstance()!,
         });
 
         onMounted(() => {
@@ -89,7 +89,7 @@ export default defineComponent({
             focused: isFocused,
             onClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             dropdown,

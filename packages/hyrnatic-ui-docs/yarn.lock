@@ -485,15 +485,20 @@
   dependencies:
     "@floating-ui/core" "^1.0.4"
 
-"@hyrioo/hyrnatic-ui-core@^0.0.1", "@hyrioo/hyrnatic-ui-core@file:../hyrnatic-ui-core":
+"@hyrioo/hyrnatic-ui-core@^0.0.1":
   version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@hyrioo/hyrnatic-ui-core/-/hyrnatic-ui-core-0.0.1.tgz#650104c2f467710f66fd5a7dc3f3d4689d98e05f"
+  integrity sha512-azYR/yMsSVBtia/elPUdde6IhCZKW73McRe8yPM24DGb2sKoy/lVU3Bj2ia1m+oFNtZIgvbg6vyRFPDESUGt4g==
   dependencies:
     "@floating-ui/dom" "^1.0.7"
+    get-size "^3.0.0"
     luxon "^1.27.0"
     resize-observer-polyfill "^1.5.1"
 
-"@hyrioo/hyrnatic-ui-elementic@file:../hyrnatic-ui-elementic":
-  version "0.0.1-beta.0"
+"@hyrioo/hyrnatic-ui-elementic@*":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@hyrioo/hyrnatic-ui-elementic/-/hyrnatic-ui-elementic-0.0.1.tgz#476518ca38218f81a3fdff5453cd0687b118fed0"
+  integrity sha512-EWbTyCXP1SCaffhOviBcHn3kWRpQ4njE8USlFIkPnzoq9dVwfXPuU/eL4oxgInrrwUB3cypSVfzXLC2KbWJ6LA==
   dependencies:
     "@floating-ui/dom" "^1.0.7"
     "@hyrioo/hyrnatic-ui-core" "^0.0.1"
@@ -948,6 +953,11 @@ gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
+
+get-size@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/get-size/-/get-size-3.0.0.tgz#00e39a8042a3de237b2fcf288eaf55d3f472417c"
+  integrity sha512-Y8aiXLq4leR7807UY0yuKEwif5s3kbVp1nTv+i4jBeoUzByTLKkLWu/HorS6/pB+7gsB0o7OTogC8AoOOeT0Hw==
 
 globals@^11.1.0:
   version "11.12.0"

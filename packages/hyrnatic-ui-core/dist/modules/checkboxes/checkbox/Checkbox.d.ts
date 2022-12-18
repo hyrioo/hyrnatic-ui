@@ -7,7 +7,7 @@ export declare const coreCheckboxModelValueProp: {
 };
 export declare const coreCheckboxValueProp: {
     value: {
-        type: any;
+        type: null;
         default: boolean;
     };
 };
@@ -19,7 +19,7 @@ export declare const coreCheckboxDisabledProp: {
             origin: string;
             description: string;
             type: string;
-            values: any;
+            values: null;
             default: boolean;
         };
     };
@@ -32,7 +32,7 @@ export declare const coreCheckboxVisibleProp: {
             origin: string;
             description: string;
             type: string;
-            values: any;
+            values: null;
             default: boolean;
         };
     };
@@ -63,7 +63,7 @@ export declare function coreCheckboxSetup(): {
 };
 declare const _default: import("vue").DefineComponent<{
     value: {
-        type: any;
+        type: null;
         default: boolean;
     };
     modelValue: {
@@ -81,7 +81,7 @@ declare const _default: import("vue").DefineComponent<{
             origin: string;
             description: string;
             type: string;
-            values: any;
+            values: null;
             default: boolean;
         };
     };
@@ -92,17 +92,17 @@ declare const _default: import("vue").DefineComponent<{
             origin: string;
             description: string;
             type: string;
-            values: any;
+            values: null;
             default: boolean;
         };
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     slotProps: {
@@ -116,21 +116,55 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    value: any;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    value: {
+        type: null;
+        default: boolean;
+    };
+    modelValue: {
+        type: (ArrayConstructor | StringConstructor | BooleanConstructor)[];
+        required: boolean;
+    };
+    indeterminate: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    visible: {
+        type: BooleanConstructor;
+        default: boolean;
+        docs: {
+            origin: string;
+            description: string;
+            type: string;
+            values: null;
+            default: boolean;
+        };
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+        docs: {
+            origin: string;
+            description: string;
+            type: string;
+            values: null;
+            default: boolean;
+        };
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     disabled: boolean;
     visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;
-    indeterminate: boolean;
-} & {
-    modelValue?: string | boolean | unknown[];
-}>, {
     value: any;
-    disabled: boolean;
-    visible: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
     indeterminate: boolean;
 }>;
 export default _default;

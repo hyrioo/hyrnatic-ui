@@ -4,9 +4,8 @@ import {
     inject,
     onMounted,
     onUnmounted,
-    reactive, ref, Ref,
-    SetupContext, watch,
-    Component, ComponentInternalInstance,
+    reactive, Ref,
+    SetupContext, ComponentInternalInstance,
 } from 'vue';
 import {
     coreComponentAsProp,
@@ -23,7 +22,7 @@ export type CoreSelectItemInstance = {
 
 export type CoreSelectProvide = {
     selectedItems: ComputedRef<CoreSelectItemInstance[]>;
-    focusedItem: Ref<CoreSelectItemInstance>;
+    focusedItem: Ref<CoreSelectItemInstance | null>;
     onItemClick(instance: CoreSelectItemInstance): void;
     addItemInstance(instance: CoreSelectItemInstance): void;
     removeItemInstance(instance: CoreSelectItemInstance): void;
@@ -55,11 +54,11 @@ export type CoreSelectItemSlotProps = {
     focused: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     value: ComputedRef;
-    onClick: (e) => any;
+    onClick: () => any;
 }
 
 export function coreSelectItemSetup() {
-    return setupBuilder<CoreSelectItemSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreSelectItemSlotProps>(getCurrentInstance()!);
 }
 
 const SelectItem = defineComponent({
@@ -78,22 +77,22 @@ const SelectItem = defineComponent({
             value: props.value,
             label: props.label,
             disabled: props.disabled,
-            component: getCurrentInstance(),
+            component: getCurrentInstance()!,
         });
 
         onMounted(() => {
-            select.addItemInstance(instance);
+            select!.addItemInstance(instance);
         });
         onUnmounted(() => {
-            select.removeItemInstance(instance);
+            select!.removeItemInstance(instance);
         });
 
-        const isSelected = computed(() => select.selectedItems.value.indexOf(instance) !== -1);
-        const isFocused = computed(() => select.focusedItem.value === instance);
+        const isSelected = computed(() => select!.selectedItems.value.indexOf(instance) !== -1);
+        const isFocused = computed(() => select!.focusedItem.value === instance);
 
         const onClick = () => {
             if (!props.disabled) {
-                select.onItemClick(instance);
+                select!.onItemClick(instance);
             }
         };
 
@@ -104,7 +103,7 @@ const SelectItem = defineComponent({
             value: computed(() => props.value),
             onClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             select,
@@ -113,7 +112,7 @@ const SelectItem = defineComponent({
         };
     },
     render() {
-        if(this.select.itemsVisible.value) {
+        if(this.select!.itemsVisible.value) {
             if (this.$props.as) {
                 const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
                 return h(this.$props.as, { ...p }, this.defaultRender());

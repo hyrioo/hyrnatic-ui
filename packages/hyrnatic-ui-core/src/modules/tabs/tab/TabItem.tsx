@@ -6,7 +6,7 @@ import {
     inject,
     onMounted,
     onUnmounted,
-    reactive, Ref, UnwrapRef,
+    reactive,
     SetupContext,
 } from 'vue';
 import {
@@ -51,7 +51,7 @@ export type CoreTabItemSlotProps = {
 }
 
 export function coreTabItemSetup() {
-    return setupBuilder<CoreTabItemSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreTabItemSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -65,21 +65,21 @@ export default defineComponent({
     setup(props, ctx: SetupContext) {
         const tabsNavigator = inject<CoreTabsNavigatorProvide>('coreTabsNavigator');
         const instance = reactive<CoreTabItemInstance>({
-            id: props.id,
+            id: props.id as string,
         });
 
         onMounted(() => {
-            tabsNavigator.addTabInstance(instance);
+            tabsNavigator!.addTabInstance(instance);
         });
         onUnmounted(() => {
-            tabsNavigator.removeTabInstance(instance);
+            tabsNavigator!.removeTabInstance(instance);
         });
 
-        const active = computed(() => instance === tabsNavigator.activeTab.value);
+        const active = computed(() => instance === tabsNavigator!.activeTab.value);
 
         const onClick = () => {
             if (!props.disabled) {
-                tabsNavigator.onTabClick(instance);
+                tabsNavigator!.onTabClick(instance);
             }
         };
 
@@ -88,7 +88,7 @@ export default defineComponent({
             active,
             onClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

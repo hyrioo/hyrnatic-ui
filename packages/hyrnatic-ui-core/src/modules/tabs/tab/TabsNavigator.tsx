@@ -27,7 +27,7 @@ export type CoreTabsNavigatorSlotProps = {
 }
 
 export function coreTabsNavigatorSetup() {
-    return setupBuilder<CoreTabsNavigatorSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreTabsNavigatorSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -40,7 +40,7 @@ export default defineComponent({
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
         const tabs = ref<CoreTabItemInstance[]>([]);
-        const activeTab = computed<CoreTabItemInstance>(() => tabs.value.find((t) => t.id === props.modelValue));
+        const activeTab = computed<CoreTabItemInstance>(() => (tabs.value.find((t) => t.id === props.modelValue) as CoreTabItemInstance));
         const addTabInstance = (instance: CoreTabItemInstance) => {
             tabs.value.push(instance);
         };
@@ -63,7 +63,7 @@ export default defineComponent({
             tabs,
             activeTab,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             activeTab,

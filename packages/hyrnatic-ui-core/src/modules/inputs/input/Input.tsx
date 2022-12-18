@@ -43,11 +43,11 @@ export type CoreInputSlotProps = {
     disabled: ComputedRef<boolean>;
     readonly: ComputedRef<boolean>;
     modelValue: WritableComputedRef<string>;
-    onClick: (e) => any;
+    onClick: (e: MouseEvent) => any;
 }
 
 export function coreInputSetup(input: Ref<HTMLInputElement>) {
-    return setupBuilder<CoreInputSlotProps>(getCurrentInstance()).setProp('input', input);
+    return setupBuilder<CoreInputSlotProps>(getCurrentInstance()!).setProp('input', input);
 }
 
 export default defineComponent({
@@ -61,16 +61,16 @@ export default defineComponent({
         ...coreInputModelValueProp,
         ...coreInputModelModifiersProp,
         input: {
-            type: null as PropType<HTMLInputElement>,
+            type: Object as PropType<HTMLInputElement>,
             required: true,
         },
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const focusInput = (e) => {
+        const focusInput = (e: MouseEvent) => {
             if (props.readonly) {
                 // If nothing is selected, then select all text
-                if (e.target.selectionEnd === e.target.selectionStart) {
+                if ((e.target as HTMLInputElement).selectionEnd === (e.target as HTMLInputElement).selectionStart) {
                     props.input.select();
                 }
             } else {
@@ -78,7 +78,7 @@ export default defineComponent({
             }
         };
 
-        const emitValue = (value) => {
+        const emitValue = (value: string) => {
             let newValue = value;
             if (props.modelModifiers.capitalize) {
                 newValue = newValue.charAt(0).toUpperCase() + newValue.slice(1);
@@ -105,7 +105,7 @@ export default defineComponent({
             modelValue: computed({ get: () => props.modelValue, set: (value) => emitValue(value) }),
             onClick: focusInput,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

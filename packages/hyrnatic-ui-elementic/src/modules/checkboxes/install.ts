@@ -20,7 +20,7 @@ export default {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
-        ModuleHelper.installDependencies(app, options, dependencies);
+        ModuleHelper.installDependencies(app, dependencies, options);
         ModuleHelper.installComponents(app, components);
         Object.keys(CheckboxIcons).forEach((key) => {
             const newKey = StringHelper.kebabize(key);

@@ -22,7 +22,7 @@ export declare const coreDropdownItemDisabledProp: {
 export declare const coreDropdownItemLabelProp: {
     label: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare type CoreDropdownItemSlotProps = {
@@ -43,7 +43,7 @@ export declare function coreDropdownItemSetup(): {
 declare const _default: import("vue").DefineComponent<{
     label: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
     disabled: {
         type: BooleanConstructor;
@@ -51,14 +51,14 @@ declare const _default: import("vue").DefineComponent<{
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
-    dropdown: CoreDropdownProvide;
+    dropdown: CoreDropdownProvide | undefined;
     slotProps: {
         disabled: boolean;
         focused: boolean;
@@ -67,12 +67,24 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-    label: string;
-} & {}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    label: {
+        type: StringConstructor;
+        default: null;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;

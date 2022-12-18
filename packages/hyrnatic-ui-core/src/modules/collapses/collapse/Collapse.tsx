@@ -26,12 +26,12 @@ export type CoreCollapseSlotProps = {
     expandedItems: ComputedRef<any[]>;
 }
 export type CollapseProvide = {
-    onItemClick(id: string);
+    onItemClick(id: string): void;
     expandedItems: Ref<any[]>;
 }
 
 export function coreCollapseSetup() {
-    return setupBuilder<CoreCollapseSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreCollapseSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -44,9 +44,9 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const expandedItems = computed(() => [].concat(props.modelValue));
+        const expandedItems = computed(() => ([] as any[]).concat(props.modelValue));
 
-        const onItemClick = (id) => {
+        const onItemClick = (id: string) => {
             if (props.accordion) {
                 ctx.emit('update:modelValue', props.modelValue === id ? null : id);
             } else if (Array.isArray(props.modelValue)) {
@@ -72,7 +72,7 @@ export default defineComponent({
             accordion: computed(() => props.accordion),
             expandedItems,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

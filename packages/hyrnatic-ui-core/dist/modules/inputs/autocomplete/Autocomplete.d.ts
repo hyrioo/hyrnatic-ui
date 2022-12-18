@@ -20,7 +20,7 @@ export declare const coreAutocompleteDisabledProp: {
 export declare const coreAutocompleteItemsProp: {
     items: {
         type: ArrayConstructor;
-        default: () => any[];
+        default: () => never[];
     };
 };
 export declare type CoreAutocompleteSlotProps = {
@@ -64,7 +64,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     items: {
         type: ArrayConstructor;
-        default: () => any[];
+        default: () => never[];
     };
     disabled: {
         type: BooleanConstructor;
@@ -72,11 +72,11 @@ declare const _default: import("vue").DefineComponent<{
     };
     asProps: {
         type: PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     slotProps: {
@@ -95,16 +95,36 @@ declare const _default: import("vue").DefineComponent<{
     }>[];
     hideList: () => void;
     showList: () => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focusedItemChanged" | "itemSelected", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-    input: HTMLInputElement;
-    modelModifiers: Record<string, any>;
-    items: unknown[];
-} & {
-    modelValue?: string;
-}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue" | "focusedItemChanged" | "itemSelected", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    input: {
+        type: PropType<HTMLInputElement>;
+        required: true;
+    };
+    modelModifiers: {
+        type: ObjectConstructor;
+        default: () => {};
+    };
+    modelValue: {
+        type: StringConstructor;
+        required: boolean;
+    };
+    items: {
+        type: ArrayConstructor;
+        default: () => never[];
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    asProps: {
+        type: PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;

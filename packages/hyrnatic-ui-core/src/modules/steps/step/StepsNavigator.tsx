@@ -15,7 +15,7 @@ export interface CoreStepsNavigatorStepItem {
     id: string;
     data: any;
     visible: boolean;
-    validator(): boolean;
+    validator: (() => boolean) | null;
 }
 export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorStepItem {
     stepIndex: number;
@@ -25,7 +25,7 @@ export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorSt
     isLocked: boolean;
 }
 
-export function createCoreStepItem(id, data, validator = null, visible = true) : CoreStepsNavigatorStepItem {
+export function createCoreStepItem(id: string, data: any, validator: (() => boolean) | null = null, visible = true) : CoreStepsNavigatorStepItem {
     return reactive<CoreStepsNavigatorStepItem>({
         id,
         visible,
@@ -64,7 +64,7 @@ export type CoreStepsNavigatorSlotProps = {
 }
 
 export function coreStepsNavigatorSetup() {
-    return setupBuilder<CoreStepsNavigatorSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreStepsNavigatorSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -105,7 +105,7 @@ export default defineComponent({
         };
 
         const nextStep = () => {
-            if (typeof currentStep.value.validator === 'function' && currentStep.value.validator() === false) {
+            if (typeof currentStep.value.validator === 'function' && !currentStep.value.validator()) {
                 // this.active_step.spinner.$emit('validation-failed');
             } else {
                 const newStep = Arr.next(steps.value, currentIndex.value, (step) => step.visible);
@@ -126,7 +126,7 @@ export default defineComponent({
             previousStep,
             onStepClick,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             nextStep,

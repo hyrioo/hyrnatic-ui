@@ -2,13 +2,13 @@ import { PropType } from 'vue';
 export declare const coreComponentAsProp: {
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare const coreComponentAsPropsProp: {
     asProps: {
         type: PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
 };
 export declare function proxyProps(props: {

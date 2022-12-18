@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // import transitions from './transitions';
 import CommonInstall from './modules/common/install';
 
@@ -20,6 +22,7 @@ import StepsInstall from './modules/steps/install';
 import TablesInstall from './modules/tables/install';
 import TabsInstall from './modules/tabs/install';
 import TooltipsInstall from './modules/tooltips/install';
+import { App } from 'vue';
 
 const modules = {
     CommonInstall,
@@ -45,7 +48,7 @@ const modules = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         Object.values(modules).forEach((module) => {
             module.install(app, options);
         });

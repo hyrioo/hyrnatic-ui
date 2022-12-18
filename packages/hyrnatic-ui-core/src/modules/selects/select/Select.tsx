@@ -57,23 +57,23 @@ export type CoreSelectSlotProps = {
     disabled: ComputedRef<boolean>;
     allowClear: ComputedRef<boolean>;
     menuVisible: ComputedRef<boolean>;
-    focusedItem: ComputedRef<CoreSelectItemInstance>;
-    clearFocusedItem: (e) => any;
+    focusedItem: ComputedRef<CoreSelectItemInstance | null>;
+    clearFocusedItem: () => any;
     anythingSelected: ComputedRef<boolean>;
     selectedItems: ComputedRef<CoreSelectItemInstance[]>;
     selectedText: ComputedRef<string>;
 
-    clearValue: (e) => any;
-    close: (e) => any;
+    clearValue: () => any;
+    close: () => any;
 
-    onButtonClick: (e) => any;
-    onItemClick: (e) => any;
-    onKeyEvents: (e) => any;
+    onButtonClick: () => any;
+    onItemClick: (item: CoreSelectItemInstance) => any;
+    onKeyEvents: (e: KeyboardEvent) => any;
     onMenuTransitioning: (state: boolean) => void;
 }
 
 export function coreSelectSetup() {
-    return setupBuilder<CoreSelectSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreSelectSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -93,9 +93,9 @@ export default defineComponent({
         const menuVisible = ref(false);
         const transitioning = ref(false);
         const items = ref<CoreSelectItemInstance[]>([]);
-        const focusedItem = ref<CoreSelectItemInstance>();
+        const focusedItem = ref<CoreSelectItemInstance|null>(null);
         const selectedItems = computed(() => {
-            const copy = [].concat(props.modelValue);
+            const copy: any[] = [].concat(props.modelValue);
             return items.value.filter((i) => {
                 const index = copy.indexOf(i.value);
                 if(index !== -1) {
@@ -113,7 +113,7 @@ export default defineComponent({
         });
         const anythingSelected = computed(() => selectedItems.value.length > 0);
         const selectedText = computed(() => {
-            const texts = [];
+            const texts: string[] = [];
             selectedItems.value.forEach((selected) => {
                 texts.push(selected.label);
             });
@@ -129,10 +129,10 @@ export default defineComponent({
             ctx.emit('focusedItemChanged', focusedItem.value);
         });
 
-        const addItemInstance = (instance) => {
+        const addItemInstance = (instance: CoreSelectItemInstance) => {
             items.value.push(instance);
         };
-        const removeItemInstance = (instance) => {
+        const removeItemInstance = (instance: CoreSelectItemInstance) => {
             items.value = Arr.remove(items.value, instance);
         };
 
@@ -171,7 +171,7 @@ export default defineComponent({
         const clearValue = () => {
             ctx.emit('update:modelValue', props.multiple ? [] : undefined);
         };
-        const onKeyEvents = (e) => {
+        const onKeyEvents = (e: KeyboardEvent) => {
             if (props.disabled) {
                 return false;
             }
@@ -203,7 +203,7 @@ export default defineComponent({
             } else {
                 clearTimeout(searchTimeout.value);
                 const input = e.key.toLowerCase();
-                const match = input.match(/^[\p{L}]{1}$/u);
+                const match = input.match(/^\p{L}$/u);
 
                 if(match) {
                     let currentIndex = null;
@@ -226,7 +226,7 @@ export default defineComponent({
             searchText.value = '';
         }
 
-        const onMenuTransitioning = (state) => {
+        const onMenuTransitioning = (state: boolean) => {
             transitioning.value = state;
         }
 
@@ -263,7 +263,7 @@ export default defineComponent({
             onKeyEvents,
             onMenuTransitioning,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             close,
@@ -275,6 +275,7 @@ export default defineComponent({
     render() {
         if (this.$props.as) {
             const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
+            // @ts-ignore
             return h(this.$props.as, { ...p }, this.defaultRender());
         }
         return this.defaultRender();

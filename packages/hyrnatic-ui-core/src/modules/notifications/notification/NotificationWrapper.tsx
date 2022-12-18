@@ -1,12 +1,9 @@
 import {
     h,
     defineComponent,
-    SetupContext,
-    ref,
     DefineComponent,
     computed,
-    Teleport,
-    ComputedRef, reactive, Ref, provide, getCurrentInstance, render,
+    ComputedRef, reactive, provide, getCurrentInstance,
 } from 'vue';
 import Str from '../../../utils/string';
 import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
@@ -14,8 +11,8 @@ import { NotificationOptions } from './NotificationManager';
 
 export interface NotificationObject {
     component: DefineComponent;
-    listeners: object;
-    props: object;
+    listeners: object | null;
+    props: object | null;
     options: NotificationOptions;
     promise: { resolve: (payload: any) => void; reject: (payload: any) => void };
 }
@@ -32,8 +29,8 @@ export type Wrapper = {
     addNotification(notification: NotificationObject): InternalNotificationObject;
     getNotification(id: string): InternalNotificationObject;
     destroyNotification(id: string): void;
-    pauseDuration(id: string);
-    resumeDuration(id: string);
+    pauseDuration(id: string): void;
+    resumeDuration(id: string): void;
 }
 
 export const wrappers: { [key: string]: Wrapper } = {};
@@ -49,7 +46,7 @@ export type CoreNotificationWrapperSlotProps = {
     notifications: ComputedRef<{ [key: string]: InternalNotificationObject }>;
 }
 export function coreNotificationWrapperSetup() {
-    return setupBuilder<CoreNotificationWrapperSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreNotificationWrapperSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -59,7 +56,7 @@ export default defineComponent({
         ...coreComponentAsPropsProp,
         ...coreNotificationWrapperNameProp,
     },
-    setup: function (props, ctx: SetupContext) {
+    setup: function (props) {
         provide('wrapper-name', props.name);
 
         /**
@@ -90,8 +87,8 @@ export default defineComponent({
          * Convert listeners to JSX type listener eg. click => onClick
          * @param listeners
          */
-        const convertListeners = (listeners) => {
-            const l = {};
+        const convertListeners = (listeners: { [key: string]: any }) => {
+            const l: { [key: string]: any } = {};
             Object.keys(listeners).forEach((key) => {
                 l[`on${pascalize(key)}`] = listeners[key];
             });
@@ -102,7 +99,7 @@ export default defineComponent({
          * Trigger hide transition
          * @param id
          */
-        const hideNotification = (id) => {
+        const hideNotification = (id: string) => {
             const notification = notifications[id];
             notification.visible = false;
         };
@@ -111,7 +108,7 @@ export default defineComponent({
          * Remove the notification from the DOM
          * @param id
          */
-        const removeNotification = (id) => {
+        const removeNotification = (id: string) => {
             delete notifications[id];
         };
 
@@ -119,18 +116,18 @@ export default defineComponent({
          * Hide and remove notification without trigger reject and resolve
          * @param id
          */
-        const destroyNotification = (id) => {
+        const destroyNotification = (id: string) => {
             hideNotification(id);
         };
 
-        const pauseDuration = (id) => {
+        const pauseDuration = (id: string) => {
             const notification = notifications[id];
             if(notification.durationTimeout !== null && notification.options.resetDurationOnInteractivity) {
                 clearTimeout(notification.durationTimeout);
                 notification.durationTimeout = null;
             }
         }
-        const resumeDuration = (id) => {
+        const resumeDuration = (id: string) => {
             pauseDuration(id);
             const notification = notifications[id];
             if(notification.options.duration !== null && notification.durationTimeout === null) {
@@ -172,7 +169,7 @@ export default defineComponent({
          * Get the InternalNotificationObject for a notification id
          * @param id
          */
-        const getNotification = (id): InternalNotificationObject => notifications[id];
+        const getNotification = (id: string): InternalNotificationObject => notifications[id];
 
 
         const wrapper: Wrapper = {
@@ -196,7 +193,7 @@ export default defineComponent({
         };
     },
     render() {
-        const defaultRender = () => this.$slots.default(this.slotProps);
+        const defaultRender = () => this.$slots.default!(this.slotProps);
         if (this.$props.as) {
             const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
             return h(this.$props.as, { ...p }, defaultRender());

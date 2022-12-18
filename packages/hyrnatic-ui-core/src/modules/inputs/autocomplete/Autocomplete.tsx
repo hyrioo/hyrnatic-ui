@@ -40,8 +40,8 @@ export type CoreAutocompleteSlotProps = {
     listVisible: ComputedRef<boolean>;
     items: ComputedRef;
     focusedItem: ComputedRef;
-    onItemClick: (item) => void;
-    onKeyEvents: (e) => void;
+    onItemClick: (item: string) => void;
+    onKeyEvents: (e: KeyboardEvent) => void;
     clearFocusedItem: () => void;
 }
 export type CoreAutocompleteReturn = {
@@ -53,7 +53,7 @@ export type CoreAutocompleteReturn = {
 }
 
 export function coreAutocompleteSetup(input: Ref<HTMLInputElement>) {
-    return setupBuilder<CoreAutocompleteSlotProps>(getCurrentInstance()).setProp('input', input);
+    return setupBuilder<CoreAutocompleteSlotProps>(getCurrentInstance()!).setProp('input', input);
 }
 
 export default defineComponent({
@@ -66,17 +66,17 @@ export default defineComponent({
         ...coreAutocompleteModelValueProp,
         ...coreAutocompleteModelModifiersProp,
         input: {
-            type: null as PropType<HTMLInputElement>,
+            type: Object as PropType<HTMLInputElement>,
             required: true,
         },
     },
     emits: ['update:modelValue', 'itemSelected', 'focusedItemChanged'],
     setup(props, ctx: SetupContext) {
-        const focusInput = (e) => {
+        const focusInput = () => {
             props.input.focus();
         };
 
-        const emitValue = (value) => {
+        const emitValue = (value: string) => {
             let newValue = value;
             if (props.modelModifiers.capitalize) {
                 newValue = newValue.charAt(0).toUpperCase() + newValue.slice(1);
@@ -101,7 +101,7 @@ export default defineComponent({
             ctx.emit('focusedItemChanged', focusedItem.value);
         });
 
-        const onItemClick = (item) => {
+        const onItemClick = (item: string) => {
             ctx.emit('itemSelected', item);
         };
         const hideList = () => {
@@ -110,22 +110,22 @@ export default defineComponent({
         const showList = () => {
             listVisible.value = true;
         };
-        const onKeyEvents = (e) => {
+        const onKeyEvents = (e: KeyboardEvent) => {
             if (props.disabled) {
                 return false;
             }
-            const currentIndex = focusedItem.value ? props.items.findIndex((i) => i === focusedItem.value) : null;
+            const getCurrentIndex = () => focusedItem.value ? props.items.findIndex((i) => i === focusedItem.value) : null;
 
-            if (!listVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter') && props.modelValue.length > 0) {
+            if (!listVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter') && props.modelValue!.length > 0) {
                 showList();
                 e.preventDefault();
                 e.stopImmediatePropagation();
-            } else if (e.key === 'ArrowDown' && props.modelValue.length > 0) {
-                focusedItem.value = Arr.next(props.items, currentIndex);
+            } else if (e.key === 'ArrowDown' && props.modelValue!.length > 0) {
+                focusedItem.value = Arr.next(props.items, getCurrentIndex());
                 e.preventDefault();
                 e.stopImmediatePropagation();
-            } else if (e.key === 'ArrowUp' && props.modelValue.length > 0) {
-                focusedItem.value = Arr.prev(props.items, currentIndex);
+            } else if (e.key === 'ArrowUp' && props.modelValue!.length > 0) {
+                focusedItem.value = Arr.prev(props.items, getCurrentIndex());
                 e.preventDefault();
                 e.stopImmediatePropagation();
             } else if (e.key === 'Enter' && focusedItem.value) {
@@ -145,16 +145,16 @@ export default defineComponent({
         };
 
         const slotProps = reactive<CoreAutocompleteSlotProps>({
-            modelValue: computed({ get: () => props.modelValue, set: (value) => emitValue(value) }),
+            modelValue: computed({ get: () => props.modelValue as string, set: (value) => emitValue(value) }),
             disabled: computed(() => props.disabled),
             items: computed(() => props.items),
             focusedItem: computed(() => focusedItem.value),
-            listVisible: computed(() => listVisible.value && props.items.length > 0 && props.modelValue.length > 0),
+            listVisible: computed(() => listVisible.value && props.items.length > 0 && props.modelValue!.length > 0),
             onItemClick: onItemClick,
             onKeyEvents: onKeyEvents,
             clearFocusedItem: clearFocusedItem,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

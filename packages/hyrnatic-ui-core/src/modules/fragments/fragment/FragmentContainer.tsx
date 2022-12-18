@@ -20,7 +20,7 @@ export type CoreFragmentContainerSlotProps = {
 }
 
 export function coreFragmentContainerSetup() {
-    return setupBuilder<CoreFragmentContainerSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreFragmentContainerSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -33,9 +33,9 @@ export default defineComponent({
     emits: ['click'],
     setup(props, ctx: SetupContext) {
         const slotProps = reactive<CoreFragmentContainerSlotProps>({
-            active: computed(() => props.active),
+            active: computed(() => props.active as string),
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         provide('coreFragmentContainer', {
             active: computed(() => props.active),

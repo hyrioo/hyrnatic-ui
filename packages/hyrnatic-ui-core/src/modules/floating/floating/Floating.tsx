@@ -1,7 +1,6 @@
 import {
     computed,
     defineComponent, getCurrentInstance, nextTick,
-    onMounted,
     onUnmounted,
     PropType,
     reactive,
@@ -12,14 +11,13 @@ import {
     watch,
 } from 'vue';
 import {
-    autoPlacement,
     autoUpdate,
     computePosition, ComputePositionReturn,
     flip,
     limitShift,
     Middleware,
     Placement,
-    shift, size
+    shift
 } from '@floating-ui/dom';
 import { coreComponentAsProp, setupBuilder } from '../../../utils/component';
 
@@ -72,10 +70,10 @@ export type CoreFloatingClickOutsideEvent = {
 export type CoreFloatingSlotProps = {};
 
 export function coreFloatingSetup() {
-    return setupBuilder<CoreFloatingSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreFloatingSlotProps>(getCurrentInstance()!);
 }
 
-export function splitPlacement(value) {
+export function splitPlacement(value: string) {
     const parts = value.split('-');
     return {
         placement: parts[0],
@@ -102,14 +100,15 @@ export default defineComponent({
         hide: () => true,
     },
     setup(props, ctx: SetupContext) {
-        const floatingElement = ref<HTMLElement>(null);
-        const cleanup = ref<() => void>(null);
+        const floatingElement = ref<HTMLElement|null>(null);
+        const cleanup = ref<(() => void)|null>(null);
         const style = reactive({
             position: 'absolute',
             left: '0',
             top: '0',
             maxWidth: '',
             maxHeight: '',
+            zIndex: 1,
         });
         const middleware = computed(() => {
             return [
@@ -121,21 +120,26 @@ export default defineComponent({
 
         const updatePosition = () => {
             // console.log('updatePosition');
-            computePosition(props.reference, floatingElement.value, {
-                placement: props.placement,
-                middleware: middleware.value
-            }).then((data) => {
-                // console.log('computePosition', data);
-                ctx.emit('computedPosition', data);
-                style.position = data.strategy;
-                style.left = `${data.x ?? 0}px`;
-                style.top = `${data.y ?? 0}px`;
-            });
+            if(floatingElement.value) {
+                computePosition(props.reference, floatingElement.value, {
+                    placement: props.placement,
+                    middleware: middleware.value
+                }).then((data) => {
+                    // console.log('computePosition', data);
+                    ctx.emit('computedPosition', data);
+                    style.position = data.strategy;
+                    style.left = `${data.x ?? 0}px`;
+                    style.top = `${data.y ?? 0}px`;
+                    style.zIndex = 1;
+                });
+            }
         };
 
         const setupFloating = () => {
             // console.log('setupFloating');
-            cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
+            if(floatingElement.value) {
+                cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
+            }
         };
 
         watch(() => props.visible, (visible: boolean) => {
@@ -145,18 +149,18 @@ export default defineComponent({
             }
         });
 
-        const elementContains = (elm, otherElm) => {
+        const elementContains = (elm: HTMLElement, otherElm: Element) => {
             if (typeof elm.contains === 'function') {
                 return elm.contains(otherElm);
             }
             return false;
         };
-        const onDocumentClick = (e) => {
+        const onDocumentClick = (e: MouseEvent) => {
             if (!props.visible) {
                 return;
             }
-            const outsideFloating = !floatingElement.value || !elementContains(floatingElement.value, e.target);
-            const outsideReference = !props.reference || !elementContains(props.reference, e.target);
+            const outsideFloating = !floatingElement.value || (e.target && !elementContains(floatingElement.value, e.target as Element));
+            const outsideReference = !props.reference || (e.target && !elementContains(props.reference, e.target as Element));
 
             if (!outsideFloating && !outsideReference) {
                 return;
@@ -200,21 +204,21 @@ export default defineComponent({
     },
     render() {
         // Always access this.$attrs to prevent warning
-        const attrs = this.$attrs;
+        const attrs = { ...this.$attrs, style: {...this.style} };
 
         const Tag = this.$props.as || 'span';
 
         const content = () => (
             (this.$props.keep ?
-                    <Tag v-show={this.visible} ref="floatingElement" {...attrs} style={this.style}
+                    <Tag v-show={this.visible} ref="floatingElement" {...attrs}
                          v-document-event={[this.onDocumentClick, 'click']}>
-                        {this.$slots.default()}
+                        {this.$slots.default ? this.$slots.default() : null}
                     </Tag>
                     :
                     (this.visible ?
-                            <Tag ref="floatingElement" {...attrs} style={this.style}
+                            <Tag ref="floatingElement" {...attrs}
                                  v-document-event={[this.onDocumentClick, 'click']}>
-                                {this.$slots.default()}
+                                {this.$slots.default ? this.$slots.default() : null}
                             </Tag> : null
                     )
             )

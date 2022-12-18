@@ -3,7 +3,7 @@ import { CoreTabItemInstance } from './TabItem';
 export declare const coreTabsNavigatorModelValueProp: {
     modelValue: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare type CoreTabsNavigatorSlotProps = {
@@ -23,36 +23,39 @@ export declare function coreTabsNavigatorSetup(): {
 declare const _default: import("vue").DefineComponent<{
     modelValue: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     activeTab: ComputedRef<CoreTabItemInstance>;
     slotProps: {
-        tabs: {
-            id: string;
-            ref?: HTMLElement;
-        }[];
-        activeTab: {
-            id: string;
-            ref?: HTMLElement;
-        };
+        tabs: CoreTabItemInstance[];
+        activeTab: CoreTabItemInstance;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    asProps: (slotProps: any) => any;
-    as: string;
-    modelValue: string;
-} & {}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    modelValue: {
+        type: StringConstructor;
+        default: null;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     asProps: (slotProps: any) => any;
     as: string;
     modelValue: string;

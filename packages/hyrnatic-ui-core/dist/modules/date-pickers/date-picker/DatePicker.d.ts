@@ -1,14 +1,14 @@
 import { ComputedRef } from 'vue';
 export declare const coreDatePickerModelValueProp: {
     modelValue: {
-        type: any;
+        type: null;
         required: boolean;
     };
 };
 export declare const coreDatePickerValueFormatProp: {
     valueFormat: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare const coreDatePickerDisabledProp: {
@@ -38,7 +38,7 @@ export declare const coreDatePickerClearableProp: {
 export declare const coreDatePickerDisabledDateProp: {
     disabledDate: {
         type: FunctionConstructor;
-        default: any;
+        default: null;
     };
 };
 export declare const coreDatePickerFirstDayOfWeekProp: {
@@ -67,7 +67,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     disabledDate: {
         type: FunctionConstructor;
-        default: any;
+        default: null;
     };
     clearable: {
         type: BooleanConstructor;
@@ -86,40 +86,66 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     modelValue: {
-        type: any;
+        type: null;
         required: boolean;
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }> | import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
-}>[], unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+}>[], unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    firstDayOfWeek: {
+        type: NumberConstructor;
+        default: number;
+    };
+    disabledDate: {
+        type: FunctionConstructor;
+        default: null;
+    };
+    clearable: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    multiple: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    visible: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    modelValue: {
+        type: null;
+        required: boolean;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     disabled: boolean;
     visible: boolean;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: any;
-    multiple: boolean;
     firstDayOfWeek: number;
     disabledDate: Function;
     clearable: boolean;
-} & {}>, {
-    disabled: boolean;
-    visible: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-    modelValue: any;
     multiple: boolean;
-    firstDayOfWeek: number;
-    disabledDate: Function;
-    clearable: boolean;
 }>;
 export default _default;

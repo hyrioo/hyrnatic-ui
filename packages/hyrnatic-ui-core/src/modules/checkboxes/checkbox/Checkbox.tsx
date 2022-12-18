@@ -2,7 +2,7 @@ import {
     computed, ComputedRef, defineComponent, getCurrentInstance, h, reactive, SetupContext,
 } from 'vue';
 import {
-    coreComponentAsProp, coreComponentAsPropsProp, proxyEvents, proxyProps, setupBuilder,
+    coreComponentAsProp, coreComponentAsPropsProp, setupBuilder,
 } from '../../../utils/component';
 
 export const coreCheckboxModelValueProp = {
@@ -54,13 +54,13 @@ export type CoreCheckboxSlotProps = {
     state: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     indeterminate: ComputedRef<boolean>;
-    check: (e) => any;
-    uncheck: (e) => any;
-    onChange: (e) => any;
+    check: () => any;
+    uncheck: () => any;
+    onChange: () => any;
 }
 
 export function coreCheckboxSetup() {
-    return setupBuilder<CoreCheckboxSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreCheckboxSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -124,7 +124,7 @@ export default defineComponent({
             uncheck,
             onChange,
         });
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
 
         return {
             slotProps,

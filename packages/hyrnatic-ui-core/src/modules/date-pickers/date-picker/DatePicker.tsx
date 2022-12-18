@@ -1,9 +1,9 @@
 import {
     computed, ComputedRef,
-    defineComponent, getCurrentInstance, h, reactive, Ref, SetupContext,
+    defineComponent, getCurrentInstance, h, reactive, SetupContext,
 } from 'vue';
 import {
-    coreComponentAsProp, coreComponentAsPropsProp, proxyEvents, proxyProps, setupBuilder,
+    coreComponentAsProp, coreComponentAsPropsProp, setupBuilder,
 } from '../../../utils/component';
 
 export const coreDatePickerModelValueProp = {
@@ -58,7 +58,7 @@ export type CoreDatePickerSlotProps = {
     disabled: ComputedRef<boolean>;
 }
 export function coreDatePickerSetup() {
-    return setupBuilder<CoreDatePickerSlotProps>(getCurrentInstance());
+    return setupBuilder<CoreDatePickerSlotProps>(getCurrentInstance()!);
 }
 
 export default defineComponent({
@@ -81,7 +81,7 @@ export default defineComponent({
             disabled: computed(() => props.disabled),
         });
 
-        const defaultRender = () => ctx.slots.default(slotProps);
+        const defaultRender = () => ctx.slots.default!(slotProps);
         return () => {
             if (props.as) {
                 const p = props.asProps ? props.asProps(slotProps) : {};

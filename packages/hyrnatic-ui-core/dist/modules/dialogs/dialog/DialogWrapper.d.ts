@@ -39,22 +39,7 @@ declare const _default: DefineComponent<{
     };
 }, {
     IDialogs: {
-        [x: string]: {
-            id: string;
-            visible: boolean;
-            compiledListeners: any;
-            resolve: (payload: any) => void;
-            reject: (payload: any) => void;
-            transitionEnd: () => void;
-            component: DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{} & {}>, {}>;
-            listeners: object & {};
-            props: object & {};
-            stack: string;
-            promise: {
-                resolve: (payload: any) => void;
-                reject: (payload: any) => void;
-            };
-        };
+        [key: string]: InternalDialogObject;
     };
     addDialog(dialog: DialogObject): InternalDialogObject;
     getDialog(id: string): InternalDialogObject;
@@ -62,11 +47,17 @@ declare const _default: DefineComponent<{
     getStackCount(stack: string): ComputedRef<number>;
     getStackVisibleCount(stack: string): ComputedRef<number>;
     getStackIndex(stack: string, id: string): ComputedRef<number>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    teleport: string;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    teleport: {
+        type: StringConstructor;
+        default: string;
+    };
+    name: {
+        type: StringConstructor;
+        default: string;
+    };
+}>>, {
     name: string;
-} & {}>, {
     teleport: string;
-    name: string;
 }>;
 export default _default;

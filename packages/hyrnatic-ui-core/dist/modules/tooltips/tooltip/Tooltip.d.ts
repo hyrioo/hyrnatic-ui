@@ -64,13 +64,28 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    modelValue: boolean;
-    reference: HTMLElement;
-    hideDelay: number;
-    showDelay: number;
-    trigger: "hover";
-} & {}>, {
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    reference: {
+        type: PropType<HTMLElement>;
+        required: true;
+    };
+    hideDelay: {
+        type: NumberConstructor;
+        default: number;
+    };
+    showDelay: {
+        type: NumberConstructor;
+        default: number;
+    };
+    trigger: {
+        type: PropType<"hover">;
+        default: string;
+    };
+    modelValue: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>>, {
     modelValue: boolean;
     hideDelay: number;
     showDelay: number;

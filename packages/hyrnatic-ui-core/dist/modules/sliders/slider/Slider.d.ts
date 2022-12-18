@@ -1,7 +1,7 @@
 import { ComputedRef } from 'vue';
 export declare const coreSliderModelValueProp: {
     modelValue: {
-        type: any;
+        type: null;
     };
 };
 export declare const coreSliderDisabledProp: {
@@ -61,15 +61,15 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     modelValue: {
-        type: any;
+        type: null;
     };
     asProps: {
         type: import("vue").PropType<(slotProps: any) => any>;
-        default: any;
+        default: null;
     };
     as: {
         type: StringConstructor;
-        default: any;
+        default: null;
     };
 }, {
     percentage: ComputedRef<number>;
@@ -83,19 +83,38 @@ declare const _default: import("vue").DefineComponent<{
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    stepSize: {
+        type: NumberConstructor;
+        default: number;
+    };
+    maximum: {
+        type: NumberConstructor;
+        default: number;
+    };
+    minimum: {
+        type: NumberConstructor;
+        default: number;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    modelValue: {
+        type: null;
+    };
+    asProps: {
+        type: import("vue").PropType<(slotProps: any) => any>;
+        default: null;
+    };
+    as: {
+        type: StringConstructor;
+        default: null;
+    };
+}>>, {
     disabled: boolean;
     asProps: (slotProps: any) => any;
     as: string;
-    modelValue: any;
-    maximum: number;
-    minimum: number;
-    stepSize: number;
-} & {}>, {
-    disabled: boolean;
-    asProps: (slotProps: any) => any;
-    as: string;
-    modelValue: any;
     maximum: number;
     minimum: number;
     stepSize: number;

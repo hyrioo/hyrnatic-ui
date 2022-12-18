@@ -8,7 +8,7 @@ export default {
         return array.filter((i) => i !== item);
     },
 
-    next(array: any[], startIndex: number, filter: ((item: any) => boolean) | null = null): any {
+    next(array: any[], startIndex: number | null, filter: ((item: any) => boolean) | null = null): any {
         const startIndex2 = startIndex === null ? 0 : startIndex + 1;
         for (let i = startIndex2; i < array.length; i++) {
             if (filter === null || filter(array[i])) {
@@ -24,7 +24,7 @@ export default {
         return null;
     },
 
-    prev(array: any[], startIndex: number, filter: ((item: any) => boolean) | null = null): any {
+    prev(array: any[], startIndex: number | null, filter: ((item: any) => boolean) | null = null): any {
         const startIndex2 = startIndex === null ? array.length - 1 : startIndex - 1;
         for (let i = startIndex2; i >= 0; i--) {
             if (filter === null || filter(array[i])) {
@@ -40,8 +40,8 @@ export default {
         return null;
     },
 
-    simpleSort(a, b, invert): number {
-        const isNumber = (value) => !Number.isNaN(Number(value));
+    simpleSort(a: any, b: any, invert: boolean): number {
+        const isNumber = (value: any) => !Number.isNaN(Number(value));
         let result;
         if (!isNumber(a)) {
             if (!isNumber(b)) { // a and b are strings
