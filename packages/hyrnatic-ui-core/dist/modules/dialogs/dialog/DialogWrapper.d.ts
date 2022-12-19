@@ -1,8 +1,8 @@
 import { DefineComponent, ComputedRef } from 'vue';
 export interface DialogObject {
     component: DefineComponent;
-    listeners: object;
-    props: object;
+    listeners: object | null;
+    props: object | null;
     stack: string;
     promise: {
         resolve: (payload: any) => void;
@@ -47,7 +47,7 @@ declare const _default: DefineComponent<{
     getStackCount(stack: string): ComputedRef<number>;
     getStackVisibleCount(stack: string): ComputedRef<number>;
     getStackIndex(stack: string, id: string): ComputedRef<number>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     teleport: {
         type: StringConstructor;
         default: string;

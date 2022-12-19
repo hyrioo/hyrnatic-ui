@@ -4,7 +4,9 @@ import Column from './Column';
 import Row from './Row';
 export declare const coreTableDataProp: {
     data: {
-        type: PropType<object[]>;
+        type: PropType<{
+            [key: string]: object;
+        }[]>;
         default: boolean;
     };
 };
@@ -22,7 +24,9 @@ export declare const coreTableSelectableProp: {
 };
 export declare const coreTableSelectedRowsProp: {
     selectedRows: {
-        type: PropType<object[]>;
+        type: PropType<{
+            [key: string]: object;
+        }[]>;
         default: () => never[];
     };
 };
@@ -59,7 +63,9 @@ declare const _default: import("vue").DefineComponent<{
         default: null;
     };
     selectedRows: {
-        type: PropType<object[]>;
+        type: PropType<{
+            [key: string]: object;
+        }[]>;
         default: () => never[];
     };
     selectable: {
@@ -71,7 +77,9 @@ declare const _default: import("vue").DefineComponent<{
         required: boolean;
     };
     data: {
-        type: PropType<object[]>;
+        type: PropType<{
+            [key: string]: object;
+        }[]>;
         default: boolean;
     };
     asProps: {
@@ -84,7 +92,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, {
     toggleAllSelection: () => void;
-    setSorting: (key: any) => void;
+    setSorting: (key: string) => void;
     clearSorting: () => void;
     slotProps: {
         orderedColumns: Column[];
@@ -106,7 +114,9 @@ declare const _default: import("vue").DefineComponent<{
         default: null;
     };
     selectedRows: {
-        type: PropType<object[]>;
+        type: PropType<{
+            [key: string]: object;
+        }[]>;
         default: () => never[];
     };
     selectable: {
@@ -118,7 +128,9 @@ declare const _default: import("vue").DefineComponent<{
         required: boolean;
     };
     data: {
-        type: PropType<object[]>;
+        type: PropType<{
+            [key: string]: object;
+        }[]>;
         default: boolean;
     };
     asProps: {
@@ -133,8 +145,12 @@ declare const _default: import("vue").DefineComponent<{
     sort: SortDefinition;
     asProps: (slotProps: any) => any;
     as: string;
-    data: object[];
-    selectedRows: object[];
+    data: {
+        [key: string]: object;
+    }[];
+    selectedRows: {
+        [key: string]: object;
+    }[];
     selectable: boolean | Function;
 }>;
 export default _default;

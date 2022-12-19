@@ -13,7 +13,7 @@ export declare const coreTableRowRowProp: {
     };
 };
 export declare type CoreTableRowSlotProps = {
-    onClick: (e: any) => any;
+    onClick: () => any;
 };
 export declare function coreTableRowSetup(): {
     as(tag: string, func?: (slotProps: CoreTableRowSlotProps) => any): any;
@@ -44,7 +44,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, {
     slotProps: {
-        onClick: (e: any) => any;
+        onClick: () => any;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;

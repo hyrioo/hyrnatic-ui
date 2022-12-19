@@ -7,7 +7,7 @@ export declare type CoreSelectItemInstance = {
 };
 export declare type CoreSelectProvide = {
     selectedItems: ComputedRef<CoreSelectItemInstance[]>;
-    focusedItem: Ref<CoreSelectItemInstance>;
+    focusedItem: Ref<CoreSelectItemInstance | null>;
     onItemClick(instance: CoreSelectItemInstance): void;
     addItemInstance(instance: CoreSelectItemInstance): void;
     removeItemInstance(instance: CoreSelectItemInstance): void;
@@ -37,7 +37,7 @@ export declare type CoreSelectItemSlotProps = {
     focused: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     value: ComputedRef;
-    onClick: (e: any) => any;
+    onClick: () => any;
 };
 export declare function coreSelectItemSetup(): {
     as(tag: string, func?: (slotProps: CoreSelectItemSlotProps) => any): any;
@@ -77,7 +77,7 @@ declare const SelectItem: import("vue").DefineComponent<{
         focused: boolean;
         disabled: boolean;
         value: any;
-        onClick: (e: any) => any;
+        onClick: () => any;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;

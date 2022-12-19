@@ -1,5 +1,5 @@
 declare const _default: {
-    install: (app: any, options: any) => void;
+    install: (app: App, options?: object) => void;
 };
 export default _default;
 export { DialogManager, NotificationManager } from '@hyrioo/hyrnatic-ui-core';

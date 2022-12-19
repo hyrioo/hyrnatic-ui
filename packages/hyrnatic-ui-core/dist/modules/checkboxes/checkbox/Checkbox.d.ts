@@ -47,9 +47,9 @@ export declare type CoreCheckboxSlotProps = {
     state: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     indeterminate: ComputedRef<boolean>;
-    check: (e: any) => any;
-    uncheck: (e: any) => any;
-    onChange: (e: any) => any;
+    check: () => any;
+    uncheck: () => any;
+    onChange: () => any;
 };
 export declare function coreCheckboxSetup(): {
     as(tag: string, func?: (slotProps: CoreCheckboxSlotProps) => any): any;
@@ -109,9 +109,9 @@ declare const _default: import("vue").DefineComponent<{
         state: boolean;
         disabled: boolean;
         indeterminate: boolean;
-        check: (e: any) => any;
-        uncheck: (e: any) => any;
-        onChange: (e: any) => any;
+        check: () => any;
+        uncheck: () => any;
+        onChange: () => any;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;

@@ -16,7 +16,7 @@ export declare type CoreCollapseSlotProps = {
     expandedItems: ComputedRef<any[]>;
 };
 export declare type CollapseProvide = {
-    onItemClick(id: string): any;
+    onItemClick(id: string): void;
     expandedItems: Ref<any[]>;
 };
 export declare function coreCollapseSetup(): {

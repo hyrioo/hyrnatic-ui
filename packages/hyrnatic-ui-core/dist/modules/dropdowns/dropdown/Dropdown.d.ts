@@ -28,12 +28,12 @@ export declare type CoreDropdownSlotProps = {
     menuVisible: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
     splitButton: ComputedRef<boolean>;
-    focusedItem: ComputedRef<CoreDropdownItemInstance>;
-    clearFocusedItem: (e: any) => any;
-    onKeyEvents: (e: any, target: 'main' | 'split') => any;
-    onButtonClick: (e: any) => any;
-    onIconClick: (e: any) => any;
-    onItemClick: (e: any) => any;
+    focusedItem: ComputedRef<CoreDropdownItemInstance | null>;
+    clearFocusedItem: () => any;
+    onKeyEvents: (e: KeyboardEvent, target: 'main' | 'split') => any;
+    onButtonClick: () => any;
+    onIconClick: () => any;
+    onItemClick: () => any;
     onMenuTransitioning: (state: boolean) => void;
 };
 export declare function coreDropdownSetup(): {
@@ -77,12 +77,12 @@ declare const _default: import("vue").DefineComponent<{
         menuVisible: boolean;
         disabled: boolean;
         splitButton: boolean;
-        focusedItem: CoreDropdownItemInstance;
-        clearFocusedItem: (e: any) => any;
-        onKeyEvents: (e: any, target: "main" | "split") => any;
-        onButtonClick: (e: any) => any;
-        onIconClick: (e: any) => any;
-        onItemClick: (e: any) => any;
+        focusedItem: CoreDropdownItemInstance | null;
+        clearFocusedItem: () => any;
+        onKeyEvents: (e: KeyboardEvent, target: "main" | "split") => any;
+        onButtonClick: () => any;
+        onIconClick: () => any;
+        onItemClick: () => any;
         onMenuTransitioning: (state: boolean) => void;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {

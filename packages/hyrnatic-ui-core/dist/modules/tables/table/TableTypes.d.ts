@@ -5,9 +5,9 @@ export declare type SortDefinition = {
 };
 export declare type TableProvide = {
     setSorting(key: string): void;
-    setRowSelectionState(rowId: string, state: boolean): any;
+    setRowSelectionState(rowId: string, state: boolean): void;
     addColumn(id: string, component: ComponentInternalInstance, data: any): void;
-    removeColumn(id: string): any;
+    removeColumn(id: string): void;
 };
 export declare type TableColumnProps = {
     prop: string;

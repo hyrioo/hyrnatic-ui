@@ -103,8 +103,8 @@ declare const _default: import("vue").DefineComponent<{
     };
     anyHover: ComputedRef<boolean>;
     anyDragging: ComputedRef<boolean>;
-    onMouseMove: (e: any) => void;
-    onMouseDown: (e: any) => void;
+    onMouseMove: (e: MouseEvent) => void;
+    onMouseDown: (e: MouseEvent) => void;
     startAutoHideTimer: () => void;
     updateThumbs: () => void;
     slotProps: {
@@ -113,7 +113,7 @@ declare const _default: import("vue").DefineComponent<{
         hidden: boolean;
     };
     registerBar: (type: 'vertical' | 'horizontal', track: HTMLElement, thumb: HTMLElement) => void;
-    scrollTo: (x: any, y: any) => void;
+    scrollTo: (x: number, y: number) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     classes: {
         type: null;

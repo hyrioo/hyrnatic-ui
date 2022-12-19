@@ -20,7 +20,7 @@ export declare const coreButtonLoadingProp: {
 export declare type CoreButtonSlotProps = {
     disabled: ComputedRef<boolean>;
     loading: ComputedRef<boolean>;
-    onClick: (e: any) => any;
+    onClick: (e: MouseEvent) => any;
 };
 export declare function coreButtonSetup(): {
     as(tag: string, func?: (slotProps: CoreButtonSlotProps) => any): any;

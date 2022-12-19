@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@hyrioo/hyrnatic-ui-core",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.2",
   "description": "UI-kit for vue 3",
   "type": "module",
   "main": "./dist/index.umd.js",

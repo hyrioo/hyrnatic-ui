@@ -2,7 +2,6 @@ import {
     defineComponent,
     getCurrentInstance, inject, onMounted, onUnmounted,
     reactive,
-
 } from 'vue';
 import { proxyEvents, proxyProps } from '../../../utils/component';
 import { TableProvide } from './TableTypes';

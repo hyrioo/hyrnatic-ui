@@ -7,7 +7,7 @@ export declare const coreCollapseItemIdProp: {
 };
 export declare type CoreCollapseItemSlotProps = {
     expanded: ComputedRef<boolean>;
-    onClick: (e: any) => void;
+    onClick: () => void;
 };
 export declare function coreCollapseItemSetup(): {
     as(tag: string, func?: (slotProps: CoreCollapseItemSlotProps) => any): any;
@@ -35,7 +35,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     slotProps: {
         expanded: boolean;
-        onClick: (e: any) => void;
+        onClick: () => void;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;

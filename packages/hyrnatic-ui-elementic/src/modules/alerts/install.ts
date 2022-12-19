@@ -1,5 +1,6 @@
 import Alert from './alert/Alert.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-alerts';
 const components = {
@@ -9,7 +10,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

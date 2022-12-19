@@ -1,10 +1,8 @@
 declare const _default: {
     name: string;
-    mounted(el: any, { value, arg, modifiers }: {
+    mounted(el: HTMLElement, { value }: {
         value: any;
-        arg: any;
-        modifiers: any;
     }): void;
-    beforeUnmount(el: any): void;
+    beforeUnmount(el: HTMLElement): void;
 };
 export default _default;

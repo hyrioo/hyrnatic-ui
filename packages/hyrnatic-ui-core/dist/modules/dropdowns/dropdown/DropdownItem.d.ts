@@ -6,7 +6,7 @@ export declare type CoreDropdownItemInstance = {
     component?: ComponentInternalInstance;
 };
 export declare type CoreDropdownProvide = {
-    focusedItem: Ref<CoreDropdownItemInstance>;
+    focusedItem: Ref<CoreDropdownItemInstance | null>;
     onItemClick(e: any): void;
     addItemInstance(instance: CoreDropdownItemInstance): void;
     removeItemInstance(instance: CoreDropdownItemInstance): void;
@@ -28,7 +28,7 @@ export declare const coreDropdownItemLabelProp: {
 export declare type CoreDropdownItemSlotProps = {
     disabled: ComputedRef<boolean>;
     focused: ComputedRef<boolean>;
-    onClick: (e: any) => any;
+    onClick: (e: MouseEvent) => any;
 };
 export declare function coreDropdownItemSetup(): {
     as(tag: string, func?: (slotProps: CoreDropdownItemSlotProps) => any): any;
@@ -58,11 +58,11 @@ declare const _default: import("vue").DefineComponent<{
         default: null;
     };
 }, {
-    dropdown: CoreDropdownProvide | undefined;
+    dropdown: CoreDropdownProvide;
     slotProps: {
         disabled: boolean;
         focused: boolean;
-        onClick: (e: any) => any;
+        onClick: (e: MouseEvent) => any;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;

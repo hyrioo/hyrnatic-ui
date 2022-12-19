@@ -4,6 +4,6 @@ declare const _default: {
      * @param obj
      * @param property
      */
-    getProperty(obj: object, property: string): any;
+    getProperty(obj: any, property: string): any;
 };
 export default _default;

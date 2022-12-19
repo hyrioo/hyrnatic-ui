@@ -20,7 +20,7 @@ export declare const coreRadioButtonValueProp: {
 export declare type CoreRadioButtonSlotProps = {
     state: ComputedRef<boolean>;
     disabled: ComputedRef<boolean>;
-    onChange: (e: any) => any;
+    onChange: () => any;
 };
 export declare function coreRadioButtonSetup(): {
     as(tag: string, func?: (slotProps: CoreRadioButtonSlotProps) => any): any;
@@ -57,7 +57,7 @@ declare const _default: import("vue").DefineComponent<{
     slotProps: {
         state: boolean;
         disabled: boolean;
-        onChange: (e: any) => any;
+        onChange: () => any;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;

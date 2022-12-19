@@ -3,7 +3,7 @@ export interface CoreStepsNavigatorStepItem {
     id: string;
     data: any;
     visible: boolean;
-    validator(): boolean;
+    validator: (() => boolean) | null;
 }
 export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorStepItem {
     stepIndex: number;
@@ -12,7 +12,7 @@ export interface CoreStepsNavigatorDetailedStepItem extends CoreStepsNavigatorSt
     isLast: boolean;
     isLocked: boolean;
 }
-export declare function createCoreStepItem(id: any, data: any, validator?: null, visible?: boolean): CoreStepsNavigatorStepItem;
+export declare function createCoreStepItem(id: string, data: any, validator?: (() => boolean) | null, visible?: boolean): CoreStepsNavigatorStepItem;
 export declare const coreStepsNavigatorModelValueProp: {
     modelValue: {
         type: StringConstructor;

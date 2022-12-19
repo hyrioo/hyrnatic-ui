@@ -29,8 +29,8 @@ export declare type CoreAutocompleteSlotProps = {
     listVisible: ComputedRef<boolean>;
     items: ComputedRef;
     focusedItem: ComputedRef;
-    onItemClick: (item: any) => void;
-    onKeyEvents: (e: any) => void;
+    onItemClick: (item: string) => void;
+    onKeyEvents: (e: KeyboardEvent) => void;
     clearFocusedItem: () => void;
 };
 export declare type CoreAutocompleteReturn = {
@@ -85,11 +85,11 @@ declare const _default: import("vue").DefineComponent<{
         listVisible: boolean;
         items: any;
         focusedItem: any;
-        onItemClick: (item: any) => void;
-        onKeyEvents: (e: any) => void;
+        onItemClick: (item: string) => void;
+        onKeyEvents: (e: KeyboardEvent) => void;
         clearFocusedItem: () => void;
     };
-    focusInput: (e: any) => void;
+    focusInput: () => void;
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];

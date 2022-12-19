@@ -1,14 +1,24 @@
+import { App, Directive } from 'vue';
+import { Component } from '@vue/runtime-core';
 export declare type Module = {
-    install(app: any, options: any): void;
+    install(app: App, options?: object): void;
 };
-export declare function isModuleInstalled(app: any, id: any): any;
-export declare function markModuleAsInstalled(app: any, id: any): void;
-export declare function installComponents(app: any, components: any): void;
-export declare function installComponentAlias(app: any, alias: any, component: any): void;
-export declare function installDirectives(app: any, directives: any): void;
-export declare function installDependencies(app: any, options: object, dependencies: {
-    [key: string]: Module;
+export declare function isModuleInstalled(app: App, id: string): any;
+export declare function markModuleAsInstalled(app: App, id: string): void;
+export declare function installComponents(app: App, components: {
+    [key: string]: Component & {
+        name: string;
+    };
 }): void;
+export declare function installComponentAlias(app: App, alias: string, component: Component): void;
+export declare function installDirectives(app: App, directives: {
+    [key: string]: Directive & {
+        name: string;
+    };
+}): void;
+export declare function installDependencies(app: App, dependencies: {
+    [key: string]: Module;
+}, options?: object): void;
 declare const _default: {
     installComponents: typeof installComponents;
     installComponentAlias: typeof installComponentAlias;

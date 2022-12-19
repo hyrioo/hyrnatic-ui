@@ -74,7 +74,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     percentage: ComputedRef<number>;
     steps: ComputedRef<number>;
-    getValueFromPercentage: (percentage: any) => number;
+    getValueFromPercentage: (percentage: number) => number;
     slotProps: {
         modelValue: any;
         percentage: number;

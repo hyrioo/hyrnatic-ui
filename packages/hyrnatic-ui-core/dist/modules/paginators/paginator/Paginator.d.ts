@@ -26,7 +26,7 @@ export declare const corePaginatorDeltaProp: {
 export declare type CorePaginatorSlotProps = {
     currentPage: ComputedRef<number>;
     pages: ComputedRef<number>;
-    buttons: ComputedRef<number[]>;
+    buttons: ComputedRef<(number | null)[]>;
     onPaginationButtonClick: (page: number) => void;
 };
 export declare function corePaginatorSetup(): {
@@ -68,7 +68,7 @@ declare const _default: import("vue").DefineComponent<{
     slotProps: {
         currentPage: number;
         pages: number;
-        buttons: number[];
+        buttons: (number | null)[];
         onPaginationButtonClick: (page: number) => void;
     };
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {

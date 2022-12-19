@@ -33,7 +33,7 @@ export declare type CoreInputSlotProps = {
     disabled: ComputedRef<boolean>;
     readonly: ComputedRef<boolean>;
     modelValue: WritableComputedRef<string>;
-    onClick: (e: any) => any;
+    onClick: (e: MouseEvent) => any;
 };
 export declare function coreInputSetup(input: Ref<HTMLInputElement>): {
     as(tag: string, func?: (slotProps: CoreInputSlotProps) => any): any;
@@ -83,9 +83,9 @@ declare const _default: import("vue").DefineComponent<{
         disabled: boolean;
         readonly: boolean;
         modelValue: string;
-        onClick: (e: any) => any;
+        onClick: (e: MouseEvent) => any;
     };
-    focusInput: (e: any) => void;
+    focusInput: (e: MouseEvent) => void;
     defaultRender: () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>[];

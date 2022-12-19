@@ -1,4 +1,5 @@
 import { PropType } from 'vue';
+import { ComponentInternalInstance } from '@vue/runtime-core';
 export declare const coreComponentAsProp: {
     as: {
         type: StringConstructor;
@@ -19,7 +20,7 @@ export declare function proxyProps(props: {
 export declare function proxyEvents(instance: any, events: string[]): {
     [key: string]: any;
 };
-export declare function setupBuilder<SP>(instance: any): {
+export declare function setupBuilder<SP>(instance: ComponentInternalInstance): {
     /**
      * Render the renderless spinner with a wrapper
      * @param tag HTML tag to use as wrapper

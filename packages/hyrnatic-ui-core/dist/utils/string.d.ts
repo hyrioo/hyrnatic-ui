@@ -1,6 +1,6 @@
 declare const _default: {
     random(length?: number): string;
-    kebabize(string: any): any;
-    trimMultiSpaces(string: any): any;
+    kebabize(string: string): string;
+    trimMultiSpaces(string: string): string;
 };
 export default _default;
