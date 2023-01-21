@@ -2,7 +2,7 @@ import ScrollContainer from './scroll-container/ScrollContainer.vue';
 import { CoreScrollContainersInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-scroll-containers';
-const components = {
+export const components = {
     ScrollContainer,
 };
 const dependencies = {

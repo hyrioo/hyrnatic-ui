@@ -2,7 +2,7 @@ import Drawer from './drawer/Drawer.vue';
 import { CoreDialogsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-drawers';
-const components = {
+export const components = {
     Drawer,
 };
 const dependencies = {

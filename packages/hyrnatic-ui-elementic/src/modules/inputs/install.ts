@@ -4,7 +4,7 @@ import FileInput from './file-input/FileInput.vue';
 import { CoreInputsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-inputs';
-const components = {
+export const components = {
     Input,
     Autocomplete,
     FileInput,

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-paginator';
 
 #{$crc}{
@@ -46,7 +48,7 @@ $crc: '.h-paginator';
 		width: 1px;
 		height: $v-control-height-tiny;
 		right: 0;
-		top: ($v-control-height - ($v-control-border-width * 2) - $v-control-height-tiny) / 2;
+		top: math.div(($v-control-height - ($v-control-border-width * 2) - $v-control-height-tiny), 2);
 		background: $c-primary-border;
 	}
 

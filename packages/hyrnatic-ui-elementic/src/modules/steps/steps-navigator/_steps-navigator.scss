@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-steps-navigator';
 
 #{$crc} {
@@ -29,5 +31,5 @@ $crc: '.h-steps-navigator';
 	height: 2px;
 	width: calc(100% - #{$v-control-height});
 	max-width: 172px;
-	margin-top: $v-control-height / 2;
+	margin-top: math.div($v-control-height, 2);
 }

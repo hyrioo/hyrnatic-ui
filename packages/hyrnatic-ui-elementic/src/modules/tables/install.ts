@@ -4,7 +4,7 @@ import CheckboxInstall from '../checkboxes/install';
 import { CoreTablesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-tables';
-const components = {
+export const components = {
     Table,
     TableColumn,
 };

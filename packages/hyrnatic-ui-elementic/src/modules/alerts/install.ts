@@ -3,7 +3,7 @@ import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import { App } from 'vue';
 
 const moduleId = 'elementic-alerts';
-const components = {
+export const components = {
     Alert,
 };
 const dependencies = {

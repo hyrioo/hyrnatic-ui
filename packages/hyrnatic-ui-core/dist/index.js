@@ -2037,7 +2037,7 @@ const Xo = /* @__PURE__ */ D({
     ...qo,
     ...Uo,
     input: {
-      type: Object,
+      type: null,
       required: !0
     }
   },
@@ -2391,14 +2391,20 @@ const gs = /* @__PURE__ */ D({
     const n = h(() => Math.ceil(e.count / e.pageSize)), o = h(() => {
       const l = e.modelValue, a = n.value, p = [], g = [];
       let m;
-      p.push(1);
-      for (let f = l - e.delta; f <= l + e.delta; f++)
-        f < a && f > 1 && p.push(f);
-      return a !== 1 && p.push(a), p.forEach((f) => {
+      if (p.push(1), a > 1) {
+        for (let f = l - e.delta; f <= l + e.delta; f++)
+          f < a && f > 1 && p.push(f);
+        a !== 1 && p.push(a);
+      }
+      return p.forEach((f) => {
         m && (f - m === 2 ? g.push(m + 1) : f - m !== 1 && g.push(null)), g.push(f), m = f;
       }), g;
-    }), s = (l) => {
-      l !== null && t.emit("update:modelValue", l);
+    });
+    F(n, () => {
+      e.modelValue > n.value && t.emit("update:modelValue", 1);
+    });
+    const s = (l) => {
+      l !== null && l >= 1 && l <= n.value && t.emit("update:modelValue", l);
     }, r = R({
       currentPage: h(() => e.modelValue),
       pages: n,
@@ -3540,7 +3546,7 @@ const qr = /* @__PURE__ */ D({
     ...Fr,
     ...Wr,
     reference: {
-      type: Object,
+      type: null,
       required: !0
     }
   },

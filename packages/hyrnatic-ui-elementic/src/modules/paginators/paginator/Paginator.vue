@@ -1,23 +1,23 @@
 <template>
     <hr-paginator v-slot="props" v-bind="core.props" :class="[css_root]" v-on="core.listeners">
         <div :class="[css_ec('indicator'), {'-hidden': activeButton === null}]" :style="indicatorStyle" />
-        <button :class="[css_ec('button')]" :disabled="props.currentPage === 1" @click="props.onPaginationButtonClick(props.currentPage-1)">
+        <button :class="[css_ec('button')]" :disabled="props.currentPage === 1 || props.pages === 0" @click="props.onPaginationButtonClick(props.currentPage-1)">
             <h-icon :icon="Icons.arrowLeft" size="16px" />
         </button>
-        <template v-for="page of props.buttons">
+        <template v-for="(page, index) of props.buttons">
             <template v-if="page === props.currentPage">
-                <button :key="page" ref="activeButton" :class="[css_ec('button'), '-active']" @click="props.onPaginationButtonClick(page)">
+                <button :key="page !== null ? page : `dots-${index}`" :ref="com => activeButton = com" :class="[css_ec('button'), '-active']" @click="props.onPaginationButtonClick(page)">
                     {{ page !== null ? page : '...' }}
                 </button>
             </template>
             <template v-else>
-                <button :key="page" :class="[css_ec('button')]" @click="props.onPaginationButtonClick(page)">
+                <button :key="page !== null ? page : `dots-${index}`" :class="[css_ec('button')]" @click="props.onPaginationButtonClick(page)">
                     {{ page !== null ? page : '...' }}
                 </button>
             </template>
         </template>
 
-        <button :class="[css_ec('button')]" :disabled="props.currentPage === props.pages" @click="props.onPaginationButtonClick(props.currentPage+1)">
+        <button :class="[css_ec('button')]" :disabled="props.currentPage === props.pages || props.pages === 0" @click="props.onPaginationButtonClick(props.currentPage+1)">
             <h-icon :icon="Icons.arrowRight" size="16px" />
         </button>
     </hr-paginator>
@@ -47,7 +47,7 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, ctx: SetupContext) {
-        const activeButton = ref<HTMLElement>(null);
+        const activeButton = ref<HTMLElement | null>(null);
 
         const indicatorSize = ref(0);
         const indicatorOffset = ref(0);

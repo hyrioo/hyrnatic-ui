@@ -2,14 +2,14 @@ import {
     computed,
     ComputedRef,
     defineComponent,
-    getCurrentInstance, h, reactive,
-    SetupContext,
+    getCurrentInstance, h, PropType, reactive,
+    SetupContext, watch,
 } from 'vue';
 import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
 
 export const corePaginatorModelValueProp = {
     modelValue: {
-        type: Number,
+        type: Number as PropType<number>,
         required: true,
     },
 };
@@ -63,13 +63,15 @@ export default defineComponent({
             const rangeWithDots: (number|null)[] = [];
             let l: number;
             range.push(1);
-            for (let i = c - props.delta; i <= c + props.delta; i++) {
-                if (i < p && i > 1) {
-                    range.push(i);
+            if(p > 1) {
+                for (let i = c - props.delta; i <= c + props.delta; i++) {
+                    if (i < p && i > 1) {
+                        range.push(i);
+                    }
                 }
-            }
-            if (p !== 1) {
-                range.push(p);
+                if (p !== 1) {
+                    range.push(p);
+                }
             }
 
             range.forEach((i) => {
@@ -86,8 +88,14 @@ export default defineComponent({
             return rangeWithDots;
         });
 
+        watch(pages, () => {
+            if(props.modelValue! > pages.value){
+                ctx.emit('update:modelValue', 1);
+            }
+        })
+
         const onPaginationButtonClick = (page: number) => {
-            if (page !== null) {
+            if (page !== null && page >= 1 && page <= pages.value) {
                 ctx.emit('update:modelValue', page);
             }
         };

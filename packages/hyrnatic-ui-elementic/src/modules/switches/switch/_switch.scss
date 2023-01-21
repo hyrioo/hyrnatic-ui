@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-switch';
 
 #{$crc}{
@@ -5,7 +7,7 @@ $crc: '.h-switch';
 	cursor: pointer;
 	height: $v-control-height-tiny;
 	line-height: $v-control-height-tiny;
-	margin: ($v-control-height - $v-control-height-tiny) / 2 0;
+	margin: math.div(($v-control-height - $v-control-height-tiny), 2) 0;
 	display: inline-flex;
 	box-sizing: border-box;
 	vertical-align: middle;
@@ -29,7 +31,7 @@ $crc: '.h-switch';
 		}
 
 		#{$crc}__dot{
-			left: $v-control-height / 2;
+			left: math.div($v-control-height, 2);
 			background: $c-fill;
 		}
 	}
@@ -73,7 +75,7 @@ $crc: '.h-switch';
 	border-style: solid;
 	border-width: $v-control-border-width;
 	border-color: $c-primary-border;
-	border-radius: $v-control-height-tiny / 2;
+	border-radius: math.div($v-control-height-tiny, 2);
 	background: $c-hover--primary-border;
 	appearance: none;
 	outline: none;
@@ -89,7 +91,7 @@ $crc: '.h-switch';
 	height: $v-control-height-tiny - ($v-control-border-width * 2);
 	margin: $v-control-border-width;
 	background: #fff; //TODO: Replace with variable
-	border-radius: ($v-control-height-tiny - ($v-control-border-width * 2)) / 2;
+	border-radius: math.div(($v-control-height-tiny - ($v-control-border-width * 2)), 2);
 	transition: transform $t-fast-standard;
 }
 
@@ -97,8 +99,8 @@ $crc: '.h-switch';
 	position: absolute;
 	left: 0;
 	top: 0;
-	@include size($v-control-height-tiny / 2);
-	margin: $v-control-height-tiny / 4;
+	@include size(math.div($v-control-height-tiny, 2));
+	margin: math.div($v-control-height-tiny, 4);
 	background: $c-primary-border;
 	border-radius: 50%;
 	transition: left $t-fast-standard, background $t-fast-standard;

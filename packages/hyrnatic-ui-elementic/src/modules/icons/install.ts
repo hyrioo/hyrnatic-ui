@@ -2,7 +2,7 @@ import Icon from './icon/Icon.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-icons';
-const components = {
+export const components = {
     Icon,
 };
 

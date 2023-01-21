@@ -2,7 +2,7 @@ import Paginator from './paginator/Paginator.vue';
 import { CorePaginatorsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-paginators';
-const components = {
+export const components = {
     Paginator,
 };
 const dependencies = {

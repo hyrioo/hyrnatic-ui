@@ -5,7 +5,7 @@ import TransitionsInstall from '../transitions/install';
 import { CoreCollapsesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-collapses';
-const components = {
+export const components = {
     Collapse,
     CollapseItem,
     InlineCollapse,

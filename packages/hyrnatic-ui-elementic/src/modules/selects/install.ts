@@ -7,7 +7,7 @@ import FloatingInstall from '../floating/install';
 import ScrollContainersInstall from '../scroll-containers/install';
 
 const moduleId = 'elementic-selects';
-const components = {
+export const components = {
     Select,
     SelectItem,
     SelectItemDivider,

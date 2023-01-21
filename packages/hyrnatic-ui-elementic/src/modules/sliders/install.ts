@@ -2,7 +2,7 @@ import Slider from './slider/Slider.vue';
 import { CoreSlidersInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-sliders';
-const components = {
+export const components = {
     Slider,
 };
 const dependencies = {

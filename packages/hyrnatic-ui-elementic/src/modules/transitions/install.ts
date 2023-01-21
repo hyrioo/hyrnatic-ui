@@ -1,15 +1,16 @@
 import Grow from './Grow.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-transitions';
-const components = {
+export const components = {
     Grow,
 };
 const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

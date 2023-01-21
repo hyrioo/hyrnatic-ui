@@ -52,7 +52,7 @@ export default defineComponent({
         ...coreTooltipShowDelayProp,
         ...coreTooltipHideDelayProp,
         reference: {
-            type: null as PropType<HTMLElement | null>,
+            type: null,
             required: true,
         },
     },

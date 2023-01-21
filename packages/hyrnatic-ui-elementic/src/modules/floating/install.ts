@@ -2,7 +2,7 @@ import Floating from './floating/Floating.vue';
 import { CoreFloatingInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-floating';
-const components = {
+export const components = {
     Floating,
 };
 const dependencies = {

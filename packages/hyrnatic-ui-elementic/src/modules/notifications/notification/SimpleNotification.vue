@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, SetupContext } from 'vue';
-import { NotificationManager } from '@hyrioo/hyrnatic-ui-elementic';
+import { NotificationManager } from '../../../index';
 
 export default defineComponent({
     name: 'SimpleNotification',

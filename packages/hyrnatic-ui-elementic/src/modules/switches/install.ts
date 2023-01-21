@@ -2,7 +2,7 @@ import Switch from './switch/Switch.vue';
 import { CoreCheckboxInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-switches';
-const components = {
+export const components = {
     Switch,
 };
 const dependencies = {

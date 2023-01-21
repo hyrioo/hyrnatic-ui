@@ -21,5 +21,5 @@ export default defineConfig({
             },
         },
     },
-    plugins: [vue(), vueJsx(), dts()]
+    plugins: [vue(), vueJsx()]//, dts()]
 });

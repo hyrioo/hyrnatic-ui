@@ -2,7 +2,7 @@ import Dialog from './dialog/Dialog.vue';
 import { CoreDialogsInstall, coreDialogWrapper, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-dialgos';
-const components = {
+export const components = {
     Dialog,
 };
 const dependencies = {

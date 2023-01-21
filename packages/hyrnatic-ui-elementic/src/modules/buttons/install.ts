@@ -3,9 +3,10 @@ import IconButton from './icon-button/IconButton.vue';
 import LinkButton from './link-button/LinkButton.vue';
 import IconInstall from '../icons/install';
 import { ModuleHelper, CoreButtonsInstall } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-buttons';
-const components = {
+export const components = {
     Button,
     IconButton,
     LinkButton,
@@ -16,7 +17,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

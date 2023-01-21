@@ -2,21 +2,29 @@ import Checkbox from './checkbox/Checkbox.vue';
 import { CoreCheckboxInstall, ModuleHelper, StringHelper } from '@hyrioo/hyrnatic-ui-core';
 import checkStroke from './custom-icons/check-stroke';
 import IconRegistry from '../../utils/icon-registry';
+import { App } from 'vue';
 
 const moduleId = 'elementic-checkboxes';
-const components = {
+export const components = {
     Checkbox,
 };
 const dependencies = {
     CoreCheckboxInstall,
 };
 
-export const CheckboxIcons = {
+export const CheckboxIcons: {
+    [key: string]: {
+        width: number,
+        height: number,
+        viewBox: string,
+        data: string,
+    } | string
+} = {
     checkStroke: checkStroke,
-}
+};
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

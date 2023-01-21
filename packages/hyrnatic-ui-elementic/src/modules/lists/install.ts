@@ -3,7 +3,7 @@ import ListItem from './list-item/ListItem.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-lists';
-const components = {
+export const components = {
     List,
     ListItem,
 };

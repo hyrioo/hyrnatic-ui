@@ -6,7 +6,7 @@ import { CoreDropdownsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import FloatingInstall from '../floating/install';
 
 const moduleId = 'elementic-dropdowns';
-const components = {
+export const components = {
     Dropdown,
     DropdownItem,
     DropdownItemDivider,

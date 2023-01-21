@@ -1,9 +1,10 @@
 import Notification from './notification/Notification.vue';
 import NotificationWrapper from './notification/NotificationWrapper.vue';
 import { CoreNotificationsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-notifications';
-const components = {
+export const components = {
     Notification,
     NotificationWrapper,
 };
@@ -12,7 +13,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options: {}) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

@@ -1,13 +1,14 @@
+@use "sass:math";
 
 @function rgba-solid($rgba, $background: #fff) {
     @return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%)
 }
 
 @function default-box-shadow($color, $opacity: 32, $spread: 4px) {
-    @return 0 0 $spread rgba($color, $opacity/100)
+    @return 0 0 $spread rgba($color, math.div($opacity, 100))
 }
 @function default-text-shadow($color, $opacity: 32, $spread: 4px) {
-    @return 0 0 $spread rgba($color, $opacity/100)
+    @return 0 0 $spread rgba($color, math.div($opacity, 100))
 }
 
 @mixin size($size){

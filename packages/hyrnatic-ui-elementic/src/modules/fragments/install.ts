@@ -3,7 +3,7 @@ import FragmentContainer from './fragment-container/FragmentContainer.vue';
 import { CoreFragmentsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-fragments';
-const components = {
+export const components = {
     Fragment,
     FragmentContainer,
 };

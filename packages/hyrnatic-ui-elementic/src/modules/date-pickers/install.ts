@@ -4,7 +4,7 @@ import InputsInstall from '../inputs/install';
 import { ModuleHelper, CoreDatePickersInstall } from '@hyrioo/hyrnatic-ui-core';
 
 const moduleId = 'elementic-date-pickers';
-const components = {
+export const components = {
     DatePicker,
 };
 const dependencies = {

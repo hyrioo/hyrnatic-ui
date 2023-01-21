@@ -26,10 +26,11 @@ import TabsInstall from './modules/tabs/install';
 import TablesInstall from './modules/tables/install';
 import TooltipsInstall from './modules/tooltips/install';
 import './icons';
+import { App } from 'vue';
 // import './scss/build.scss';
 
 
-const modules = {
+export const modules = {
     AlertsInstall,
     ButtonsInstall,
     CheckboxesInstall,

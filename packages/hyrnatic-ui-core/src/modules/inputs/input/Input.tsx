@@ -61,7 +61,7 @@ export default defineComponent({
         ...coreInputModelValueProp,
         ...coreInputModelModifiersProp,
         input: {
-            type: Object as PropType<HTMLInputElement>,
+            type: null,
             required: true,
         },
     },

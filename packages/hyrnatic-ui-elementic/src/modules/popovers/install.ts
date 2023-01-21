@@ -3,7 +3,7 @@ import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import FloatingInstall from '../floating/install';
 
 const moduleId = 'elementic-popovers';
-const components = {
+export const components = {
     Popover,
 };
 const dependencies = {
