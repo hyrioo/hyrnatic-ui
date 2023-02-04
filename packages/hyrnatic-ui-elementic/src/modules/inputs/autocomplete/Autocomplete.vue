@@ -9,7 +9,7 @@
         </div>
         <h-icon v-if="prefixIcon" :class="[css_ec('prefix-icon')]" :icon="prefixIcon" size="16px" />
         <input ref="input" :class="[css_ec('input')]" :value="props.modelValue" :type="type"
-               :max-length="maxLength" :min-length="minLength" :disabled="props.disabled"
+               :maxlength="maxLength" :minlength="minLength" :disabled="props.disabled"
                :placeholder="placeholder" :readonly="props.readonly" :autocomplete="autocomplete"
                @input="props.modelValue = $event.target.value" @focus="onFocus" @blur="onBlur"
                @keydown="props.onKeyEvents"
