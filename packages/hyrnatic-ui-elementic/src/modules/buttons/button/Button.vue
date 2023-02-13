@@ -54,7 +54,7 @@ export default defineComponent({
             default: 'simple',
         },
         size: {
-            type: String as PropType<'small' | 'normal'>,
+            type: String as PropType<'small' | 'normal' | 'large'>,
             default: 'normal',
         },
         type: {

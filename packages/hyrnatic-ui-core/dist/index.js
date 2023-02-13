@@ -1709,7 +1709,6 @@ const Lo = /* @__PURE__ */ $({
   },
   emits: ["update:modelValue"],
   setup(e, t) {
-    console.log("setup8");
     const n = (i) => {
       e.readonly ? i.target.selectionEnd === i.target.selectionStart && e.input.select() : e.input.focus();
     }, o = (i) => {

@@ -5986,7 +5986,6 @@ const yu = /* @__PURE__ */ L(mu, [["render", pu]]), gu = M({
   },
   emits: ["update:modelValue", "focus", "blur"],
   setup(e, t) {
-    console.log("Setup7");
     const n = k(), s = k(), o = k(!1), r = () => {
       o.value = !0, t.emit("focus");
     }, i = () => {

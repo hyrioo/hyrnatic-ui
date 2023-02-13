@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-checkbox';
 
 #{$crc} {
@@ -54,11 +56,11 @@ $crc: '.h-checkbox';
 		#{$crc}__check-icon {
 			stroke-dashoffset: 0;
 			opacity: 1;
-			transition: stroke-dashoffset $t-fast-standard ($s-fast / 2);
+			transition: stroke-dashoffset $t-fast-standard math.div($s-fast, 2);
 		}
 		#{$crc}__indeterminate-icon {
 			opacity: 1;
-			transition: opacity $t-fast-standard ($s-fast / 2), transform $t-fast-standard ($s-fast / 2);
+			transition: opacity $t-fast-standard math.div($s-fast, 2), transform $t-fast-standard math.div($s-fast, 2);
 			transform: scale(1, 1);
 		}
 

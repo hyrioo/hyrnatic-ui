@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-slider';
 
 $handleSize: 20px;
@@ -51,7 +53,7 @@ $handleSize: 20px;
 
 		#{$crc}__bar {
 			height: 6px;
-			margin: (($v-control-height - 6px) / 2) 0;
+			margin: math.div($v-control-height - 6px, 2) 0;
 		}
 
 		#{$crc}__step {
@@ -65,7 +67,7 @@ $handleSize: 20px;
 		}
 
 		#{$crc}__handle {
-			margin: (($v-control-height - $handleSize) / 2) #{-($handleSize / 2)};
+			margin: math.div($v-control-height - $handleSize, 2) #{-(math.div($handleSize, 2))};
 			left: var(--offset);
 		}
 
@@ -87,7 +89,7 @@ $handleSize: 20px;
 
 		#{$crc}__bar {
 			width: 6px;
-			margin: 0 (($v-control-height - 6px) / 2);
+			margin: 0 math.div($v-control-height - 6px, 2);
 		}
 
 		#{$crc}__back {
@@ -105,7 +107,7 @@ $handleSize: 20px;
 		}
 
 		#{$crc}__handle {
-			margin: #{-($handleSize / 2)} (($v-control-height - $handleSize) / 2);
+			margin: #{-(math.div($handleSize, 2))} math.div($v-control-height - $handleSize, 2);
 			top: var(--offset);
 		}
 
@@ -140,7 +142,7 @@ $handleSize: 20px;
 
 #{$crc}__step {
 	background: $c-primary-border;
-	border-radius: (6px / 2);
+	border-radius: math.div(6px, 2);
 	flex-grow: 1;
 	min-width: 1px;
 	min-height: 1px;
@@ -150,7 +152,7 @@ $handleSize: 20px;
 
 #{$crc}__filler{
 	background: $c-primary-text;
-	border-radius: (6px / 2);
+	border-radius: math.div(6px, 2);
 	position: absolute;
 	overflow: hidden;
 	transition: width var(--animate) $e-deceleration, height var(--animate) $e-deceleration, background $t-fast-standard;

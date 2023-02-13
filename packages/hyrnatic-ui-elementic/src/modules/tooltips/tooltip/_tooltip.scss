@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-tooltip';
 $popper-arrow-size: 16px;
 
@@ -32,7 +34,7 @@ $popper-arrow-size: 16px;
 
 		#{$crc}__arrow{
 			bottom: -$popper-arrow-size;
-			left: calc(50% - #{$popper-arrow-size / 2});
+			left: calc(50% - #{math.div($popper-arrow-size, 2)});
 			transform: rotate(180deg);
 		}
 	}
@@ -48,7 +50,7 @@ $popper-arrow-size: 16px;
 		}
 		#{$crc}__arrow{
 			right: -$popper-arrow-size;
-			top: calc(50% - #{$popper-arrow-size / 2});
+			top: calc(50% - #{math.div($popper-arrow-size, 2)});
 			transform: rotate(90deg);
 		}
 	}
@@ -66,7 +68,7 @@ $popper-arrow-size: 16px;
 
 		#{$crc}__arrow{
 			top: -$popper-arrow-size;
-			left: calc(50% - #{$popper-arrow-size / 2});
+			left: calc(50% - #{math.div($popper-arrow-size, 2)});
 		}
 	}
 	&[data-floating-placement^='right'] {
@@ -82,7 +84,7 @@ $popper-arrow-size: 16px;
 
 		#{$crc}__arrow{
 			left: -$popper-arrow-size;
-			top: calc(50% - #{$popper-arrow-size / 2});
+			top: calc(50% - #{math.div($popper-arrow-size, 2)});
 			transform: rotate(-90deg);
 		}
 	}

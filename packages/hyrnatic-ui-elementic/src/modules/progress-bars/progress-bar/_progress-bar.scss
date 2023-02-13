@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $crc: '.h-progress-bar';
 
 #{$crc}{
@@ -6,12 +8,12 @@ $crc: '.h-progress-bar';
 
 	&.-size-large{
 		#{$crc}__back{
-			border-radius: $v-control-height-tiny / 2;
+			border-radius: math.div($v-control-height-tiny, 2);
 			height: $v-control-height-tiny;
 			margin: $g-8 0;
 		}
 		#{$crc}__filler{
-			border-radius: $v-control-height-tiny / 2;
+			border-radius: math.div($v-control-height-tiny, 2);
 		}
 		#{$crc}__label{
 			font-size: $fs-small;
@@ -71,7 +73,7 @@ $crc: '.h-progress-bar';
 	background: $c-primary-border;
 	position: relative;
 	height: $v-control-height-tiny2x;
-	border-radius: $v-control-height-tiny2x / 2;
+	border-radius: math.div($v-control-height-tiny2x, 2);
 	overflow: hidden;
 	margin: $g-12 0;
 	flex-grow: 1;
@@ -80,7 +82,7 @@ $crc: '.h-progress-bar';
 
 #{$crc}__filler{
 	background: $c-primary-text;
-	border-radius: $v-control-height-tiny2x / 2;
+	border-radius: math.div($v-control-height-tiny2x, 2);
 	height: 100%;
 	position: relative;
 	overflow: hidden;
