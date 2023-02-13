@@ -44,7 +44,7 @@ export const coreTableColumnComponentProp = {
     },
 };
 
-export function coreTableColumnSetup(data: object, props: string[] = [], events: string[] = []) {
+export function coreTableColumnSetup(data: object, props: string[] = [], events: string[] = []): any {
     const instance = getCurrentInstance()!;
     return {
         props: reactive({

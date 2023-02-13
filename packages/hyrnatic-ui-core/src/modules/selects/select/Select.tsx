@@ -72,7 +72,7 @@ export type CoreSelectSlotProps = {
     onMenuTransitioning: (state: boolean) => void;
 }
 
-export function coreSelectSetup() {
+export function coreSelectSetup(): any {
     return setupBuilder<CoreSelectSlotProps>(getCurrentInstance()!);
 }
 

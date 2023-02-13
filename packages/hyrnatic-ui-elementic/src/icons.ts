@@ -13,7 +13,7 @@ import {
 import IconRegistry from './utils/icon-registry';
 import { StringHelper } from '@hyrioo/hyrnatic-ui-core';
 
-const icons = {
+const icons: {[key: string]: string|any} = {
     arrowLeft: mdiArrowLeft,
     arrowRight: mdiArrowRight,
     calendarMonth: mdiCalendarMonth,

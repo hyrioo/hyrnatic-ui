@@ -1,5 +1,6 @@
 import Icon from './icon/Icon.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-icons';
 const components = {
@@ -7,7 +8,7 @@ const components = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

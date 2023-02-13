@@ -71,7 +71,7 @@ export default defineComponent({
         const activeTransitions = reactive({});
 
         watch(activeTransitions, () => {
-            if (Object.keys(activeTransitions).length === 0) {
+            if (Object.keys(activeTransitions).length === 0 && transitionEnd) {
                 transitionEnd();
             }
         });

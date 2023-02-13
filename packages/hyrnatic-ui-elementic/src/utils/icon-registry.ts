@@ -7,11 +7,11 @@ declare type SvgIcon = {
 
 export const icons: { [key: string]: SvgIcon } = {};
 
-export function register(name, data) {
-    icons[name] = data;
+export function register(name: string, svg: SvgIcon) {
+    icons[name] = svg;
 }
 
-export function registerMDI(name, path) {
+export function registerMDI(name: string, path: string) {
     icons[name] = {
         viewBox: '0 0 24 24',
         width: 24,

@@ -1,6 +1,7 @@
 import Spinner from './spinner/Spinner.vue';
 import SpinnerOverlay from './spinner-overlay/SpinnerOverlay.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-spinners';
 const components = {
@@ -11,7 +12,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

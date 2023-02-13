@@ -3,6 +3,7 @@ import CollapseItem from './collapse-item/CollapseItem.vue';
 import InlineCollapse from './inline-collapse/InlineCollapse.vue';
 import TransitionsInstall from '../transitions/install';
 import { CoreCollapsesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-collapses';
 const components = {
@@ -16,7 +17,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

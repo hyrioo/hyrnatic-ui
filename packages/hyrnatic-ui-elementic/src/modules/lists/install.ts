@@ -1,6 +1,7 @@
 import List from './list/List.vue';
 import ListItem from './list-item/ListItem.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-lists';
 const components = {
@@ -9,7 +10,7 @@ const components = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

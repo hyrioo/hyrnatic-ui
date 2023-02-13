@@ -26,8 +26,8 @@ import TabsInstall from './modules/tabs/install';
 import TablesInstall from './modules/tables/install';
 import TooltipsInstall from './modules/tooltips/install';
 import './icons';
-// import './scss/build.scss';
 
+import { App } from 'vue';
 
 const modules = {
     AlertsInstall,

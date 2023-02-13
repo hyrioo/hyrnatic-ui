@@ -9,17 +9,18 @@ export default defineConfig({
     build: {
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
-            name: 'hyrnatic-ui-elementic',
+            name: '@hyrioo/hyrnatic-ui-elementic',
             fileName: 'index',
         },
         rollupOptions: {
             external: ['vue', '@hyrioo/hyrnatic-ui-core'],
             output: {
+                exports: 'named',
                 globals: {
                     vue: 'Vue',
                 },
             },
         },
     },
-    plugins: [vue(), vueJsx(), dts()]
+    plugins: [vue(), vueJsx()]//, dts()]
 });

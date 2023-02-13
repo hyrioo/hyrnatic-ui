@@ -5,6 +5,7 @@ import SelectItemHeader from './select-item-header/SelectItemHeader.vue';
 import { CoreSelectsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import FloatingInstall from '../floating/install';
 import ScrollContainersInstall from '../scroll-containers/install';
+import { App } from 'vue';
 
 const moduleId = 'elementic-selects';
 const components = {
@@ -20,7 +21,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

@@ -2,6 +2,7 @@ import Table from './table/Table.vue';
 import TableColumn from './table/TableColumn.vue';
 import CheckboxInstall from '../checkboxes/install';
 import { CoreTablesInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-tables';
 const components = {
@@ -14,7 +15,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

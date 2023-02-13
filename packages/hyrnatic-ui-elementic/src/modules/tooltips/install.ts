@@ -3,6 +3,7 @@ import { CoreTooltipsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import FloatingInstall from '../floating/install';
 import iconRegistry from '../../utils/icon-registry';
 import tooltipArrow from './custom-icons/tooltip-arrow';
+import { App } from 'vue';
 
 const moduleId = 'elementic-tooltips';
 const components = {
@@ -14,7 +15,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

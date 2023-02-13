@@ -1,6 +1,7 @@
 import StepItem from './step-item/StepItem.vue';
 import StepsNavigator from './steps-navigator/StepsNavigator.vue';
 import { CoreStepsInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-steps';
 const components = {
@@ -12,7 +13,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

@@ -52,7 +52,7 @@ export default defineComponent({
         ...coreTooltipShowDelayProp,
         ...coreTooltipHideDelayProp,
         reference: {
-            type: null as PropType<HTMLElement | null>,
+            type: null as unknown as PropType<HTMLElement | null>,
             required: true,
         },
     },
@@ -125,13 +125,13 @@ export default defineComponent({
         watch(() => props.trigger, (newTrigger, oldTrigger) => {
             if (oldTrigger) {
                 const events = getEvents(oldTrigger);
-                if(events) {
+                if(events && props.reference) {
                     removeListeners(props.reference, events.show, events.hide);
                 }
             }
             if (newTrigger) {
                 const events = getEvents(newTrigger);
-                if(events) {
+                if(events && props.reference) {
                     setupListeners(props.reference, events.show, events.hide);
                 }
             }

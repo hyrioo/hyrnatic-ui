@@ -5,6 +5,7 @@ $crc: '.h-dropdown-item';
 	padding: 0 $g-12 0 $g-8;
 	cursor: pointer;
 	white-space: nowrap;
+	font-size: $fs-default;
 	transition: $t-fast-standard;
 	outline: none;
 	text-overflow: ellipsis;

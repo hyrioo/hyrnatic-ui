@@ -1,5 +1,6 @@
 import ScrollContainer from './scroll-container/ScrollContainer.vue';
 import { CoreScrollContainersInstall, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-scroll-containers';
 const components = {
@@ -10,7 +11,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

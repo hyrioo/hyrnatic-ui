@@ -1,6 +1,7 @@
 import Popover from './popover/Popover.vue';
 import { ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
 import FloatingInstall from '../floating/install';
+import { App } from 'vue';
 
 const moduleId = 'elementic-popovers';
 const components = {
@@ -11,7 +12,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }

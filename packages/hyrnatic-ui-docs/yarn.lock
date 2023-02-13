@@ -485,7 +485,7 @@
   dependencies:
     "@floating-ui/core" "^1.0.4"
 
-"@hyrioo/hyrnatic-ui-core@^0.0.1":
+"@hyrioo/hyrnatic-ui-core@*", "@hyrioo/hyrnatic-ui-core@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@hyrioo/hyrnatic-ui-core/-/hyrnatic-ui-core-0.0.1.tgz#650104c2f467710f66fd5a7dc3f3d4689d98e05f"
   integrity sha512-azYR/yMsSVBtia/elPUdde6IhCZKW73McRe8yPM24DGb2sKoy/lVU3Bj2ia1m+oFNtZIgvbg6vyRFPDESUGt4g==

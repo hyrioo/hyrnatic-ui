@@ -1,5 +1,6 @@
 import Dialog from './dialog/Dialog.vue';
 import { CoreDialogsInstall, coreDialogWrapper, ModuleHelper } from '@hyrioo/hyrnatic-ui-core';
+import { App } from 'vue';
 
 const moduleId = 'elementic-dialgos';
 const components = {
@@ -10,7 +11,7 @@ const dependencies = {
 };
 
 export default {
-    install: (app, options) => {
+    install: (app: App, options?: object) => {
         if (ModuleHelper.isModuleInstalled(app, moduleId)) {
             return;
         }
