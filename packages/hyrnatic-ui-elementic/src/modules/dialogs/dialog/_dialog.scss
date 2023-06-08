@@ -1,15 +1,13 @@
 $crc: '.h-dialog';
 
 #{$crc}{
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-height: calc(100% - (#{$g-32} * 2));
-	padding: $g-32 0;
+	height: 100%;
 	//z-index: 1000;
-	display: flex;
-	align-items: center;
+	//align-items: center;
 	justify-content: center;
 
 
@@ -44,9 +42,29 @@ $crc: '.h-dialog';
 	transition: opacity $t-medium-standard;
 }
 
+#{$crc}__scroll-container{
+	position: relative;
+	padding: $g-32 0;
+	height: 100%;
+	width: 100%;
+	overflow-y: auto;
+	display: flex;
+	box-sizing: border-box;
+
+	&.-transitioning {
+		overflow-y: hidden;
+		padding-right: calc(var(--h-scrollbar-width) - var(--h-global-scrollbar-width));
+
+		&.-body-has-scrollbar {
+			width: calc(100% + (var(--h-global-scrollbar-width) - var(--h-scrollbar-width)));
+			padding-right: 0;
+		}
+	}
+}
 #{$crc}__box-container{
 	position: relative;
 	transition: transform $t-medium-standard;
+	margin: auto;
 }
 #{$crc}__box{
 	min-height: 100px;

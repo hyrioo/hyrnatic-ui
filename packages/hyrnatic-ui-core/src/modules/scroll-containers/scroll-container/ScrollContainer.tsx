@@ -43,8 +43,14 @@ export const coreScrollContainerMinimumSizeProp = {
         default: 20,
     },
 };
-export const coreScrollContainerClassesProp = {
-    classes: {
+export const coreScrollContainerContainerClassesProp = {
+    containerClasses: {
+        type: null,
+        default: null,
+    },
+};
+export const coreScrollContainerWrapperClassesProp = {
+    wrapperClasses: {
         type: null,
         default: null,
     },
@@ -73,7 +79,8 @@ export default defineComponent({
         ...coreScrollContainerAutoHideProp,
         ...coreScrollContainerAutoHideDelayProp,
         ...coreScrollContainerMinimumSizeProp,
-        ...coreScrollContainerClassesProp,
+        ...coreScrollContainerContainerClassesProp,
+        ...coreScrollContainerWrapperClassesProp,
     },
     setup(props) {
         const wrapper = ref<HTMLElement>();
@@ -294,8 +301,8 @@ export default defineComponent({
         const TagName = this.as;
         return (
             <TagName {...this.$props.asProps(this.slotProps)} class={['hr-scroll-container', { '-disable-selection': this.anyHover || this.anyDragging }]} onMouseenter={this.startAutoHideTimer}>
-                <div ref="wrapper" v-resize={this.updateThumbs} class={['hr-scroll-container__wrapper']} onMousemove={this.onMouseMove} onMouseleave={this.onMouseMove} onMousedown={this.onMouseDown}>
-                    <div v-resize={this.updateThumbs} class={['hr-scroll-container__container', this.classes]}>
+                <div ref="wrapper" v-resize={this.updateThumbs} class={['hr-scroll-container__wrapper', this.wrapperClasses]} onMousemove={this.onMouseMove} onMouseleave={this.onMouseMove} onMousedown={this.onMouseDown}>
+                    <div v-resize={this.updateThumbs} class={['hr-scroll-container__container', this.containerClasses]}>
                         { this.$slots.default!() }
                     </div>
                 </div>

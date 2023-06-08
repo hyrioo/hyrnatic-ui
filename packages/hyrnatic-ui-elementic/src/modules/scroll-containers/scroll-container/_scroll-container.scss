@@ -66,6 +66,7 @@ $crc: '.h-scroll-container';
 	transition: background $t-fast-standard, opacity $t-fast-standard, width $t-fast-standard, height $t-fast-standard;
 	pointer-events: none;
 	transform: translateZ(0);
+	z-index: 1;
 
 	&.-vertical {
 		top: $g-4;

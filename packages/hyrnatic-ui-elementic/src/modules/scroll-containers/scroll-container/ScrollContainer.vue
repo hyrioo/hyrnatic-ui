@@ -24,7 +24,8 @@ import componentCss from '../../../utils/component-css';
 import {
     coreScrollContainerAutoHideDelayProp,
     coreScrollContainerAutoHideProp,
-    coreScrollContainerClassesProp,
+    coreScrollContainerContainerClassesProp,
+    coreScrollContainerWrapperClassesProp,
     coreScrollContainerHorizontalProp,
     coreScrollContainerMinimumSizeProp,
     coreScrollContainerVerticalProp,
@@ -40,11 +41,13 @@ export default defineComponent({
         ...coreScrollContainerAutoHideProp,
         ...coreScrollContainerAutoHideDelayProp,
         ...coreScrollContainerMinimumSizeProp,
-        ...coreScrollContainerClassesProp,
+        ...coreScrollContainerContainerClassesProp,
+        ...coreScrollContainerWrapperClassesProp,
         color: {
             type: String as PropType<'primary' | 'light'>,
             default: 'primary',
         },
+
     },
     setup(props, ctx: SetupContext) {
         const scrollContainer = ref();
@@ -67,7 +70,7 @@ export default defineComponent({
         const asProps = (slotProps: CoreScrollContainerSlotProps) => ({
             class: { '-hover': slotProps.anyHover, '-dragging': slotProps.anyDragging, '-is-hidden': slotProps.hidden },
         });
-        const core = coreScrollContainerSetup().as('div', asProps).props(['horizontal', 'vertical', 'autoHide', 'autoHideDelay', 'minimumSize', 'classes']).build();
+        const core = coreScrollContainerSetup().as('div', asProps).props(['horizontal', 'vertical', 'autoHide', 'autoHideDelay', 'minimumSize', 'containerClasses', 'wrapperClasses']).build();
 
         return {
             core,

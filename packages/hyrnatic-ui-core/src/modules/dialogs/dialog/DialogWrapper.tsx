@@ -1,10 +1,11 @@
+import { useCssVar, useResizeObserver, useScrollLock, useStyleTag } from '@vueuse/core';
 import {
     h,
     defineComponent,
     DefineComponent,
     computed,
     Teleport,
-    ComputedRef, reactive, provide,
+    ComputedRef, reactive, provide, ref, onMounted, onUnmounted, shallowReactive, watch,
 } from 'vue';
 import Str from '../../../utils/string';
 
@@ -15,6 +16,7 @@ export interface DialogObject {
     stack: string;
     promise: { resolve: (payload: any) => void; reject: (payload: any) => void };
 }
+
 export interface InternalDialogObject extends DialogObject {
     id: string;
     visible: boolean;
@@ -23,6 +25,7 @@ export interface InternalDialogObject extends DialogObject {
     reject: (payload: any) => void;
     transitionEnd: () => void;
 }
+
 export type Wrapper = {
     addDialog(dialog: DialogObject): InternalDialogObject;
     getDialog(id: string): InternalDialogObject;
@@ -30,9 +33,11 @@ export type Wrapper = {
     getStackCount(stack: string): ComputedRef<number>;
     getStackVisibleCount(stack: string): ComputedRef<number>;
     getStackIndex(stack: string, id: string): ComputedRef<number>;
+    count: ComputedRef<number>,
+    visibleCount: ComputedRef<number>,
 }
 
-export const wrappers: { [key: string]: Wrapper } = {};
+export const wrappers: { [key: string]: Wrapper } = shallowReactive({});
 
 export default defineComponent({
     name: 'hr-dialog-wrapper',
@@ -45,9 +50,16 @@ export default defineComponent({
             type: String,
             default: 'default',
         },
+        lockWindowScroll: {
+            type: Boolean,
+            default: true,
+        },
     },
     setup(props) {
         provide('wrapper-name', props.name);
+
+        const scrollbarWidth = ref(0);
+        provide('global-scrollbar-width', scrollbarWidth);
 
         /**
          * Collection of all dialogs in the wrapper
@@ -63,7 +75,7 @@ export default defineComponent({
          * Computed count of dialogs for each stack in the wrapper
          */
         const dialogsCount = computed(() => {
-            const counts: {[key: string]: number} = {};
+            const counts: { [key: string]: number } = {};
             Object.keys(stacks).forEach((key) => {
                 counts[key] = stacks[key].length;
             });
@@ -74,7 +86,7 @@ export default defineComponent({
          * Computed count of visible (non transitioning) dialogs for each stack in the wrapper
          */
         const visibleDialogsCount = computed(() => {
-            const counts: {[key: string]: number} = {};
+            const counts: { [key: string]: number } = {};
             Object.keys(stacks).forEach((key) => {
                 counts[key] = stacks[key].filter((d) => d.visible).length;
             });
@@ -180,11 +192,15 @@ export default defineComponent({
          */
         const getStackCount = (stack: string) => computed(() => dialogsCount.value[stack]);
 
+        const getCount = computed(() => Object.values(dialogsCount.value).reduce((sum, item) => sum + item, 0));
+
         /**
          * Get count for all active dialogs for a specific stack, without the ones that are transitioning away
          * @param stack
          */
         const getStackVisibleCount = (stack: string) => computed(() => visibleDialogsCount.value[stack]);
+
+        const getVisibleCount = computed(() => Object.values(visibleDialogsCount.value).reduce((sum, item) => sum + item, 0));
 
         /**
          * Get the index for a dialog in a specific stack
@@ -200,8 +216,40 @@ export default defineComponent({
             getStackCount,
             getStackVisibleCount,
             getStackIndex,
+            count: getCount,
+            visibleCount: getVisibleCount,
         };
-        wrappers[props.name] = wrapper;
+
+        onMounted(() => {
+            wrappers[props.name] = wrapper;
+        });
+        onUnmounted(() => {
+            delete wrappers[props.name];
+        });
+
+
+        if(props.lockWindowScroll) {
+            const scrollbarWidthVar = useCssVar('--h-global-scrollbar-width', document.body);
+            useResizeObserver(document.body, (entries) => {
+                const result = window.innerWidth - document.documentElement.clientWidth;
+                scrollbarWidthVar.value = `${result}px`;
+                scrollbarWidth.value = result;
+            });
+
+            useStyleTag('body.has-dialogs {padding-right: var(--h-global-scrollbar-width);}');
+            const el = ref<HTMLElement | null>(document.body);
+            const isScrollLocked = useScrollLock(el);
+            watch(() => getVisibleCount.value, (count) => {
+                if (count > 0) {
+                    document.body.classList.add('has-dialogs');
+                    isScrollLocked.value = true;
+                } else {
+                    document.body.classList.remove('has-dialogs');
+                    isScrollLocked.value = false;
+                }
+            });
+        }
+
 
         return {
             ...wrapper,

@@ -17,6 +17,7 @@
 <script lang="ts">
 import { nextTick, ref, watch } from 'vue';
 import Navigation from './components/Navigation.vue';
+import { useScrollLock } from '@vueuse/core';
 
 export default {
     name: 'App',
@@ -26,15 +27,6 @@ export default {
     setup() {
         const dialogWrapper = ref();
         const notificationWrapper = ref();
-        nextTick(() => {
-            watch(() => dialogWrapper.value.dialogsCount, (count) => {
-                if (count > 0) {
-                    document.body.classList.add('has-dialogs');
-                } else {
-                    document.body.classList.remove('has-dialogs');
-                }
-            });
-        });
 
         return {
             dialogWrapper,

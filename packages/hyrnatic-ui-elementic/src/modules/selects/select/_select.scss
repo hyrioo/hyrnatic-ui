@@ -38,7 +38,6 @@ $crc: '.h-select';
 	border-style: solid;
 	padding: 0 $g-8;
 	padding-right: $g-32 + $g-8;
-	background: transparent;
 	transition: border-color $t-fast-standard, border-radius $t-fast-standard;
 	outline: none;
 	font-size: $fs-default;
@@ -112,6 +111,7 @@ $crc: '.h-select';
 		background: $c-primary-background;
 		pointer-events: all;
 		display: flex;
+		overflow: hidden;
 
 		.h-scroll-container{
 			flex-grow: 1;

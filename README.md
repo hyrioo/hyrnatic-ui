@@ -1,0 +1,1 @@
+`yarn --cwd packages/hyrnatic-ui-docs dev`

@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@hyrioo/hyrnatic-ui-elementic",
-    "version": "0.0.1-beta.11   ",
+    "version": "0.0.1-beta.13",
     "description": "UI-kit for vue 3",
     "type": "module",
     "main": "./dist/index.umd.js",
@@ -30,8 +30,9 @@
     },
     "dependencies": {
         "@floating-ui/dom": "^1.0.7",
-        "@hyrioo/hyrnatic-ui-core": "0.0.1-beta.5",
+        "@hyrioo/hyrnatic-ui-core": "0.0.1-beta.6",
         "@mdi/js": "^5.9.55",
+        "@vueuse/core": "^10.1.2",
         "luxon": "^1.27.0"
     },
     "peerDependencies": {

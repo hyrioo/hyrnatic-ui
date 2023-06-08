@@ -321,7 +321,8 @@ export {
     coreScrollContainerAutoHideProp,
     coreScrollContainerAutoHideDelayProp,
     coreScrollContainerMinimumSizeProp,
-    coreScrollContainerClassesProp,
+    coreScrollContainerContainerClassesProp,
+    coreScrollContainerWrapperClassesProp,
 } from './modules/scroll-containers/scroll-container/ScrollContainer';
 export type {
     CoreScrollContainerSlotProps,

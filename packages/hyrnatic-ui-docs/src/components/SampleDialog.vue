@@ -5,6 +5,14 @@
 
         <h-button label="Increment counter" @click="addCounter" style="margin-right: 12px" />
         <h-button label="Open nested dialog" @click="openNestedDialog" />
+        <h-checkbox v-model="expandHeight" label="Height" />
+        <template v-if="expandHeight">
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </template>
         <h-select v-model="value" placeholder="Select option..." style="width: 100%;">
             <h-select-item value="1" label="Loooong option 1" />
             <h-select-item value="2" label="Option 2" />
@@ -39,12 +47,17 @@ export default defineComponent({
         counter: {
             type: Number,
         },
+        expandHeight: {
+            type: Boolean,
+        },
     },
     emits: ['something'],
     setup(props, ctx: SetupContext) {
         const nested = ref('-');
         const { resolve } = DialogManager.setupDialog();
         const value = ref();
+        const expandHeight = ref(props.expandHeight);
+
         const addCounter = () => {
             ctx.emit('something');
         };
@@ -65,6 +78,7 @@ export default defineComponent({
             openNestedDialog,
             close,
             nested,
+            expandHeight,
         };
     },
 });

@@ -26,7 +26,7 @@ function pt(e, t, n) {
     o.install(e, n);
   });
 }
-const ni = {
+const oi = {
   installComponents: H,
   installComponentAlias: Kt,
   installDependencies: pt,
@@ -467,7 +467,7 @@ const yn = {
     default: !1
   }
 };
-function oi() {
+function si() {
   return T(k());
 }
 const _n = /* @__PURE__ */ $({
@@ -544,7 +544,7 @@ const _n = /* @__PURE__ */ $({
     default: !1
   }
 };
-function si() {
+function ri() {
   return T(k());
 }
 const Dn = /* @__PURE__ */ $({
@@ -645,7 +645,7 @@ const Dn = /* @__PURE__ */ $({
     required: !0
   }
 };
-function ri() {
+function ii() {
   return T(k());
 }
 const Bn = /* @__PURE__ */ $({
@@ -695,7 +695,7 @@ const Bn = /* @__PURE__ */ $({
     required: !0
   }
 };
-function ii() {
+function li() {
   return T(k());
 }
 const Mn = /* @__PURE__ */ $({
@@ -732,7 +732,7 @@ const Mn = /* @__PURE__ */ $({
     default: !1
   }
 };
-function li() {
+function ai() {
   return T(k());
 }
 const Ln = /* @__PURE__ */ $({
@@ -893,7 +893,7 @@ function Wn() {
     reject: t.reject
   };
 }
-const ai = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const ci = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   create: _t,
   createPromise: Fn,
@@ -906,7 +906,7 @@ const ai = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     default: !1
   }
 };
-function ci(e = [], t = []) {
+function ui(e = [], t = []) {
   const n = k();
   return {
     props: C({
@@ -952,7 +952,7 @@ const Un = /* @__PURE__ */ $({
     default: null
   }
 };
-function ui() {
+function di() {
   return T(k());
 }
 const Zn = /* @__PURE__ */ $({
@@ -1021,7 +1021,7 @@ const Zn = /* @__PURE__ */ $({
     default: !0
   }
 };
-function di() {
+function fi() {
   return T(k());
 }
 const no = /* @__PURE__ */ $({
@@ -1509,10 +1509,10 @@ const Po = {
     })]
   }
 };
-function fi() {
+function pi() {
   return T(k());
 }
-function pi(e) {
+function mi(e) {
   const t = e.split("-");
   return {
     placement: t[0],
@@ -1626,7 +1626,7 @@ const ko = /* @__PURE__ */ $({
     required: !0
   }
 };
-function mi() {
+function hi() {
   return T(k());
 }
 const To = /* @__PURE__ */ $({
@@ -1689,7 +1689,7 @@ const To = /* @__PURE__ */ $({
     default: null
   }
 };
-function hi(e) {
+function vi(e) {
   return T(k()).setProp("input", e);
 }
 const Lo = /* @__PURE__ */ $({
@@ -1767,7 +1767,7 @@ const Lo = /* @__PURE__ */ $({
     default: () => []
   }
 };
-function vi(e) {
+function gi(e) {
   return T(k()).setProp("input", e);
 }
 const Wo = /* @__PURE__ */ $({
@@ -1859,7 +1859,7 @@ const Wo = /* @__PURE__ */ $({
     default: "default"
   }
 };
-function gi() {
+function bi() {
   return T(k());
 }
 const Go = /* @__PURE__ */ $({
@@ -1967,7 +1967,7 @@ function Zo() {
     reject: t.reject
   };
 }
-const bi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const yi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   DefaultNotificationOptions: At,
   getWrapper: zt,
@@ -1980,7 +1980,7 @@ const bi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     default: !1
   }
 };
-function yi() {
+function wi() {
   return T(k());
 }
 const Qo = /* @__PURE__ */ $({
@@ -2039,7 +2039,7 @@ const Qo = /* @__PURE__ */ $({
     default: 1
   }
 };
-function wi() {
+function Pi() {
   return T(k());
 }
 const is = /* @__PURE__ */ $({
@@ -2107,7 +2107,7 @@ const is = /* @__PURE__ */ $({
     default: 100
   }
 };
-function Pi() {
+function _i() {
   return T(k());
 }
 const fs = /* @__PURE__ */ $({
@@ -2163,7 +2163,7 @@ const fs = /* @__PURE__ */ $({
     default: !0
   }
 };
-function _i() {
+function Ii() {
   return T(k());
 }
 const bs = /* @__PURE__ */ $({
@@ -2231,15 +2231,20 @@ const Ps = {
     default: 20
   }
 }, Ss = {
-  classes: {
+  containerClasses: {
+    type: null,
+    default: null
+  }
+}, ks = {
+  wrapperClasses: {
     type: null,
     default: null
   }
 };
-function Ii() {
+function Ri() {
   return T(k());
 }
-const ks = /* @__PURE__ */ $({
+const xs = /* @__PURE__ */ $({
   name: "hr-scroll-container",
   props: {
     as: {
@@ -2252,7 +2257,8 @@ const ks = /* @__PURE__ */ $({
     ...Is,
     ...Rs,
     ...Cs,
-    ...Ss
+    ...Ss,
+    ...ks
   },
   setup(e) {
     const t = D(), n = D(), o = D(), s = D(), r = D(), i = C({
@@ -2373,22 +2379,22 @@ const ks = /* @__PURE__ */ $({
     }), {
       default: () => [pe(ne("div", {
         ref: "wrapper",
-        class: ["hr-scroll-container__wrapper"],
+        class: ["hr-scroll-container__wrapper", this.wrapperClasses],
         onMousemove: this.onMouseMove,
         onMouseleave: this.onMouseMove,
         onMousedown: this.onMouseDown
       }, [pe(ne("div", {
-        class: ["hr-scroll-container__container", this.classes]
+        class: ["hr-scroll-container__container", this.containerClasses]
       }, [this.$slots.default()]), [[me("resize"), this.updateThumbs]])]), [[me("resize"), this.updateThumbs]]), this.$slots.verticalBar ? this.$slots.verticalBar(this.verticalBar) : null, this.$slots.horizontalBar ? this.$slots.horizontalBar(this.horizontalBar) : null]
     });
   }
-}), nt = "core-scroll-containers", xs = {
-  ScrollContainer: ks
-}, $s = {
-  CommonInstall: yt
+}), nt = "core-scroll-containers", $s = {
+  ScrollContainer: xs
 }, Ds = {
+  CommonInstall: yt
+}, Ts = {
   install: (e, t) => {
-    M(e, nt) || (pt(e, $s, t), H(e, xs), z(e, nt));
+    M(e, nt) || (pt(e, Ds, t), H(e, $s), z(e, nt));
   }
 }, xe = {
   /**
@@ -2400,50 +2406,50 @@ const ks = /* @__PURE__ */ $({
     let n = e;
     return t.split(".").every((s) => n[s] === void 0 ? null : (n = n[s], n !== null)), n;
   }
-}, Ts = {
+}, Vs = {
   modelValue: {
     type: null
   }
-}, Vs = {
+}, Es = {
   disabled: {
     type: Boolean,
     default: !1
   }
-}, Es = {
+}, Os = {
   multiple: {
     type: Boolean,
     default: !1
   }
-}, Os = {
+}, Bs = {
   allowClear: {
     type: Boolean,
     default: !1
   }
-}, Bs = {
+}, As = {
   hideOnSelect: {
     type: Boolean,
     default: !0
   }
-}, As = {
+}, Ms = {
   compare: {
     type: [Function, String],
     default: null
   }
 };
-function Ri() {
+function Ci() {
   return T(k());
 }
-const Ms = /* @__PURE__ */ $({
+const zs = /* @__PURE__ */ $({
   name: "hr-select",
   props: {
     ...O,
     ...B,
-    ...Vs,
     ...Es,
     ...Os,
     ...Bs,
-    ...Ts,
-    ...As
+    ...As,
+    ...Vs,
+    ...Ms
   },
   emits: ["update:modelValue", "focusedItemChanged"],
   setup(e, t) {
@@ -2551,33 +2557,33 @@ const Ms = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), zs = {
+}), Ls = {
   value: {
     type: null,
     required: !0
   }
-}, Ls = {
+}, Hs = {
   disabled: {
     type: Boolean,
     default: !1
   }
-}, Hs = {
+}, Ns = {
   label: {
     type: String,
     default: null
   }
 };
-function Ci() {
+function Si() {
   return T(k());
 }
-const Ns = /* @__PURE__ */ $({
+const js = /* @__PURE__ */ $({
   name: "hr-select-item",
   props: {
     ...O,
     ...B,
+    ...Hs,
     ...Ls,
-    ...zs,
-    ...Hs
+    ...Ns
   },
   emits: ["update:modelValue"],
   setup(e, t) {
@@ -2618,51 +2624,51 @@ const Ns = /* @__PURE__ */ $({
       return this.defaultRender();
     }
   }
-}), ot = "core-selects", js = {
-  Select: Ms,
-  SelectItem: Ns
-}, Fs = {
-  install: (e, t) => {
-    M(e, ot) || (H(e, js), z(e, ot));
-  }
+}), ot = "core-selects", Fs = {
+  Select: zs,
+  SelectItem: js
 }, Ws = {
+  install: (e, t) => {
+    M(e, ot) || (H(e, Fs), z(e, ot));
+  }
+}, qs = {
   modelValue: {
     type: null
   }
-}, qs = {
+}, Us = {
   disabled: {
     type: Boolean,
     default: !1
   }
-}, Us = {
+}, Ks = {
   minimum: {
     type: Number,
     default: 0
   }
-}, Ks = {
+}, Gs = {
   maximum: {
     type: Number,
     default: 100
   }
-}, Gs = {
+}, Ys = {
   stepSize: {
     type: Number,
     default: 1
   }
 };
-function Si() {
+function ki() {
   return T(k());
 }
-const Ys = /* @__PURE__ */ $({
+const Xs = /* @__PURE__ */ $({
   name: "hr-slider",
   props: {
     ...O,
     ...B,
-    ...Ws,
     ...qs,
     ...Us,
     ...Ks,
-    ...Gs
+    ...Gs,
+    ...Ys
   },
   emits: ["update:modelValue"],
   setup(e, t) {
@@ -2694,14 +2700,14 @@ const Ys = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), st = "core-sliders", Xs = {
-  Slider: Ys
-}, Zs = {
+}), st = "core-sliders", Zs = {
+  Slider: Xs
+}, Js = {
   install: (e, t) => {
-    M(e, st) || (H(e, Xs), z(e, st));
+    M(e, st) || (H(e, Zs), z(e, st));
   }
 };
-function ki(e, t, n = null, o = !0) {
+function xi(e, t, n = null, o = !0) {
   return C({
     id: e,
     visible: o,
@@ -2709,27 +2715,27 @@ function ki(e, t, n = null, o = !0) {
     data: t
   });
 }
-const Js = {
+const Qs = {
   modelValue: {
     type: String,
     default: null
   }
-}, Qs = {
+}, er = {
   steps: {
     type: Array,
     default: null
   }
 };
-function xi() {
+function $i() {
   return T(k());
 }
-const er = /* @__PURE__ */ $({
+const tr = /* @__PURE__ */ $({
   name: "hr-steps-navigator",
   props: {
     ...O,
     ...B,
-    ...Js,
-    ...Qs
+    ...Qs,
+    ...er
   },
   emits: ["update:modelValue"],
   setup(e, t) {
@@ -2785,14 +2791,14 @@ const er = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), rt = "core-steps", tr = {
-  StepsNavigator: er
-}, nr = {
+}), rt = "core-steps", nr = {
+  StepsNavigator: tr
+}, or = {
   install: (e, t) => {
-    M(e, rt) || (H(e, tr), z(e, rt));
+    M(e, rt) || (H(e, nr), z(e, rt));
   }
 };
-class or {
+class sr {
   constructor(t, n, o) {
     q(this, "id");
     q(this, "property");
@@ -2806,7 +2812,7 @@ class or {
     this.id = t, this.property = n.props.property, this.order = n.props.order, this.component = n, this.template = n.slots.default, this.headerTemplate = n.slots.header, this.formatter = n.props.formatter, this.sortable = n.props.sortable, this.data = o;
   }
 }
-class sr {
+class rr {
   constructor(t, n, o, s) {
     q(this, "id");
     q(this, "data");
@@ -2825,45 +2831,45 @@ class sr {
     return t !== void 0 && (o = xe.getProperty(o, t)), typeof n == "function" ? o = n(o) : n !== null && console.warn("[hr-table-column] Unsupported value for formatter"), o;
   }
 }
-const rr = {
+const ir = {
   data: {
     type: Array,
     default: !0
   }
-}, ir = {
+}, lr = {
   rowKey: {
     type: String,
     required: !0
   }
-}, lr = {
+}, ar = {
   selectable: {
     type: [Boolean, Function],
     default: !1
   }
-}, ar = {
+}, cr = {
   selectedRows: {
     type: Array,
     default: () => []
   }
-}, cr = {
+}, ur = {
   sort: {
     type: Object,
     default: null
   }
 };
-function $i() {
+function Di() {
   return T(k());
 }
-const ur = /* @__PURE__ */ $({
+const dr = /* @__PURE__ */ $({
   name: "hr-table",
   props: {
     ...O,
     ...B,
-    ...rr,
     ...ir,
     ...lr,
     ...ar,
-    ...cr
+    ...cr,
+    ...ur
   },
   emits: ["update:sort", "update:selectedRows"],
   setup(e, t) {
@@ -2893,7 +2899,7 @@ const ur = /* @__PURE__ */ $({
       const w = n.value;
       n.value = e.data.map((v) => {
         let P = w.find((x) => x.data[e.rowKey] === v[e.rowKey]);
-        return P === void 0 ? (P = new sr(v[e.rowKey], v, e, i), P.selected = e.selectedRows.findIndex((x) => x === P.data) !== -1) : P.data !== v && (P.data = v), P;
+        return P === void 0 ? (P = new rr(v[e.rowKey], v, e, i), P.selected = e.selectedRows.findIndex((x) => x === P.data) !== -1) : P.data !== v && (P.data = v), P;
       });
     };
     F([() => e.data, () => [...e.data]], () => {
@@ -2919,7 +2925,7 @@ const ur = /* @__PURE__ */ $({
     const a = () => {
       m !== null && (d.value = m, m = null);
     }, p = (w, v, P) => {
-      m === null && (m = [].concat(d.value)), m.push(new or(w, v, P)), oe(a);
+      m === null && (m = [].concat(d.value)), m.push(new sr(w, v, P)), oe(a);
     }, u = (w) => {
       m === null && (m = d.value), m = m.filter((v) => v.id !== w), oe(a);
     }, R = h(() => d.value.sort((w, v) => w.order - v.order));
@@ -2957,37 +2963,37 @@ const ur = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), dr = {
+}), fr = {
   property: {
     type: String
   }
-}, fr = {
+}, pr = {
   formatter: {
     type: Function,
     default: null
   }
-}, pr = {
+}, mr = {
   sortable: {
     type: Boolean,
     default: !1
   }
-}, mr = {
+}, hr = {
   data: {
     type: Object,
     default: null
   }
-}, hr = {
+}, vr = {
   order: {
     type: Number,
     default: 0
   }
-}, vr = {
+}, gr = {
   component: {
     type: null,
     required: !0
   }
 };
-function Di(e, t = [], n = []) {
+function Ti(e, t = [], n = []) {
   const o = k();
   return {
     props: C({
@@ -2998,15 +3004,15 @@ function Di(e, t = [], n = []) {
     listeners: Pt(o, n)
   };
 }
-const gr = /* @__PURE__ */ $({
+const br = /* @__PURE__ */ $({
   name: "hr-table-column",
   props: {
-    ...dr,
     ...fr,
     ...pr,
     ...mr,
-    ...vr,
-    ...hr
+    ...hr,
+    ...gr,
+    ...vr
   },
   setup(e) {
     const t = K("table"), n = $e.random();
@@ -3019,27 +3025,27 @@ const gr = /* @__PURE__ */ $({
   render() {
     return null;
   }
-}), br = {
+}), yr = {
   columns: {
     type: Array,
     required: !0
   }
-}, yr = {
+}, wr = {
   row: {
     type: Object,
     default: !1
   }
 };
-function Ti() {
+function Vi() {
   return T(k());
 }
-const wr = /* @__PURE__ */ $({
+const Pr = /* @__PURE__ */ $({
   name: "hr-table-row",
   props: {
     ...O,
     ...B,
-    ...br,
-    ...yr
+    ...yr,
+    ...wr
   },
   emits: ["update:modelValue", "rowClick"],
   setup(e, t) {
@@ -3062,35 +3068,35 @@ const wr = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), it = "core-tables", Pr = {
-  Table: ur,
-  TableColumn: gr,
-  TableRow: wr
-}, _r = {
-  install: (e, t) => {
-    M(e, it) || (H(e, Pr), z(e, it));
-  }
+}), it = "core-tables", _r = {
+  Table: dr,
+  TableColumn: br,
+  TableRow: Pr
 }, Ir = {
+  install: (e, t) => {
+    M(e, it) || (H(e, _r), z(e, it));
+  }
+}, Rr = {
   id: {
     type: String,
     required: !0
   }
-}, Rr = {
+}, Cr = {
   disabled: {
     type: Boolean,
     default: !1
   }
 };
-function Vi() {
+function Ei() {
   return T(k());
 }
-const Cr = /* @__PURE__ */ $({
+const Sr = /* @__PURE__ */ $({
   name: "hr-tab-item",
   props: {
     ...O,
     ...B,
-    ...Ir,
-    ...Rr
+    ...Rr,
+    ...Cr
   },
   setup(e, t) {
     const n = K("coreTabsNavigator"), o = C({
@@ -3122,21 +3128,21 @@ const Cr = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), Sr = {
+}), kr = {
   modelValue: {
     type: String,
     default: null
   }
 };
-function Ei() {
+function Oi() {
   return T(k());
 }
-const kr = /* @__PURE__ */ $({
+const xr = /* @__PURE__ */ $({
   name: "hr-tabs-navigator",
   props: {
     ...O,
     ...B,
-    ...Sr
+    ...kr
   },
   emits: ["update:modelValue"],
   setup(e, t) {
@@ -3172,44 +3178,44 @@ const kr = /* @__PURE__ */ $({
     }
     return this.defaultRender();
   }
-}), lt = "core-tabs", xr = {
-  TabItem: Cr,
-  TabsNavigator: kr
-}, $r = {
-  install: (e, t) => {
-    M(e, lt) || (H(e, xr), z(e, lt));
-  }
+}), lt = "core-tabs", $r = {
+  TabItem: Sr,
+  TabsNavigator: xr
 }, Dr = {
+  install: (e, t) => {
+    M(e, lt) || (H(e, $r), z(e, lt));
+  }
+}, Tr = {
   modelValue: {
     type: Boolean,
     default: !1
   }
-}, Tr = {
+}, Vr = {
   trigger: {
     type: String,
     default: "hover"
   }
-}, Vr = {
+}, Er = {
   showDelay: {
     type: Number,
     default: 200
   }
-}, Er = {
+}, Or = {
   hideDelay: {
     type: Number,
     default: 0
   }
 };
-function Oi(e) {
+function Bi(e) {
   return T(k()).setProp("reference", e);
 }
-const Or = /* @__PURE__ */ $({
+const Br = /* @__PURE__ */ $({
   name: "hr-tooltip",
   props: {
-    ...Dr,
     ...Tr,
     ...Vr,
     ...Er,
+    ...Or,
     reference: {
       type: null,
       required: !0
@@ -3268,68 +3274,68 @@ const Or = /* @__PURE__ */ $({
   render() {
     return this.defaultRender();
   }
-}), at = "core-tooltips", Br = {
-  Tooltip: Or
-}, Ar = {
-  install: (e, t) => {
-    M(e, at) || (H(e, Br), z(e, at));
-  }
+}), at = "core-tooltips", Ar = {
+  Tooltip: Br
 }, Mr = {
+  install: (e, t) => {
+    M(e, at) || (H(e, Ar), z(e, at));
+  }
+}, zr = {
   modelValue: {
     type: null,
     required: !0
   }
-}, Bi = {
+}, Ai = {
   valueFormat: {
     type: String,
     default: null
   }
-}, zr = {
+}, Lr = {
   disabled: {
     type: Boolean,
     default: !1
   }
-}, Lr = {
+}, Hr = {
   visible: {
     type: Boolean,
     default: !0
   }
-}, Hr = {
+}, Nr = {
   multiple: {
     type: Boolean,
     default: !1
   }
-}, Nr = {
+}, jr = {
   clearable: {
     type: Boolean,
     default: !1
   }
-}, jr = {
+}, Fr = {
   disabledDate: {
     type: Function,
     default: null
   }
-}, Fr = {
+}, Wr = {
   firstDayOfWeek: {
     type: Number,
     default: 0
   }
 };
-function Ai() {
+function Mi() {
   return T(k());
 }
-const Wr = /* @__PURE__ */ $({
+const qr = /* @__PURE__ */ $({
   name: "hr-date-picker",
   props: {
     ...O,
     ...B,
-    ...Mr,
-    ...Lr,
     ...zr,
     ...Hr,
+    ...Lr,
     ...Nr,
     ...jr,
-    ...Fr
+    ...Fr,
+    ...Wr
   },
   emits: ["click"],
   setup(e, t) {
@@ -3346,35 +3352,35 @@ const Wr = /* @__PURE__ */ $({
       return o();
     };
   }
-}), ct = "core-date-pickers", qr = {
-  DatePicker: Wr
-}, Mi = {
+}), ct = "core-date-pickers", Ur = {
+  DatePicker: qr
+}, zi = {
   install: (e, t) => {
-    M(e, ct) || (H(e, qr), z(e, ct));
+    M(e, ct) || (H(e, Ur), z(e, ct));
   }
 };
-function Ur(e) {
+function Kr(e) {
   return { top: 0, right: 0, bottom: 0, left: 0, ...e };
 }
-function Kr(e) {
-  return typeof e != "number" ? Ur(e) : { top: e, right: e, bottom: e, left: e };
-}
 function Gr(e) {
-  return e.split("-")[0];
+  return typeof e != "number" ? Kr(e) : { top: e, right: e, bottom: e, left: e };
 }
 function Yr(e) {
-  return e.split("-")[1];
+  return e.split("-")[0];
 }
 function Xr(e) {
-  return e === "y" ? "height" : "width";
+  return e.split("-")[1];
 }
 function Zr(e) {
-  return ["top", "bottom"].includes(Gr(e)) ? "x" : "y";
+  return e === "y" ? "height" : "width";
 }
-function Jr(e, t, n) {
+function Jr(e) {
+  return ["top", "bottom"].includes(Yr(e)) ? "x" : "y";
+}
+function Qr(e, t, n) {
   return Math.max(e, Math.min(t, n));
 }
-const zi = (e) => ({
+const Li = (e) => ({
   name: "arrowReference",
   options: e,
   async fn(t) {
@@ -3384,13 +3390,13 @@ const zi = (e) => ({
       return console.warn(
         "Floating UI: No `element` was passed to the `arrow` middleware."
       ), {};
-    const f = Kr(o), g = { x: s, y: r }, d = Zr(i), m = Yr(i), a = Xr(d), p = await c.getDimensions(n), u = d === "y" ? "top" : "left", R = d === "y" ? "bottom" : "right";
+    const f = Gr(o), g = { x: s, y: r }, d = Jr(i), m = Xr(i), a = Zr(d), p = await c.getDimensions(n), u = d === "y" ? "top" : "left", R = d === "y" ? "bottom" : "right";
     let b = l.reference;
     e.reference && (b = (await c.getClientRects(e.reference))[0]);
     const y = b[a] + b[d] - g[d] - l.floating[a], w = g[d] - b[d], v = await ((W = c.getOffsetParent) == null ? void 0 : W.call(c, n));
     let P = v ? d === "y" ? v.clientHeight || 0 : v.clientWidth || 0 : 0;
     P === 0 && (P = l.floating[a]);
-    const x = y / 2 - w / 2, A = f[u], L = P - p[a] - f[R], N = P / 2 - p[a] / 2 + x, _ = Jr(A, N, L), V = (m === "start" ? f[u] : f[R]) > 0 && N !== _ && b[a] <= l.floating[a] ? N < A ? A - N : L - N : 0;
+    const x = y / 2 - w / 2, A = f[u], L = P - p[a] - f[R], N = P / 2 - p[a] / 2 + x, _ = Qr(A, N, L), V = (m === "start" ? f[u] : f[R]) > 0 && N !== _ && b[a] <= l.floating[a] ? N < A ? A - N : L - N : 0;
     return {
       [d]: g[d] - V,
       data: {
@@ -3399,7 +3405,7 @@ const zi = (e) => ({
       }
     };
   }
-}), Qr = {
+}), ei = {
   CommonInstall: yt,
   ButtonsInstall: Rn,
   CheckboxesInstall: Vn,
@@ -3413,16 +3419,16 @@ const zi = (e) => ({
   PaginatorsInstall: as,
   ProgressBarsInstall: ms,
   RadioButtonsInstall: ws,
-  ScrollContainersInstall: Ds,
-  SelectsInstall: Fs,
-  SlidersInstall: Zs,
-  StepsInstall: nr,
-  TablesInstall: _r,
-  TabsInstall: $r,
-  TooltipsInstall: Ar
-}, Li = {
+  ScrollContainersInstall: Ts,
+  SelectsInstall: Ws,
+  SlidersInstall: Js,
+  StepsInstall: or,
+  TablesInstall: Ir,
+  TabsInstall: Dr,
+  TooltipsInstall: Mr
+}, Hi = {
   install: (e, t) => {
-    Object.values(Qr).forEach((n) => {
+    Object.values(ei).forEach((n) => {
       n.install(e, t);
     });
   }
@@ -3432,7 +3438,7 @@ export {
   Rn as CoreButtonsInstall,
   Vn as CoreCheckboxInstall,
   Nn as CoreCollapsesInstall,
-  Mi as CoreDatePickersInstall,
+  zi as CoreDatePickersInstall,
   Gn as CoreDialogsInstall,
   so as CoreDropdownsInstall,
   $o as CoreFloatingInstall,
@@ -3442,151 +3448,152 @@ export {
   as as CorePaginatorsInstall,
   ms as CoreProgressBarsInstall,
   ws as CoreRadioButtonsInstall,
-  Ds as CoreScrollContainersInstall,
-  Fs as CoreSelectsInstall,
-  Zs as CoreSlidersInstall,
-  nr as CoreStepsInstall,
-  or as CoreTableColumn,
-  sr as CoreTableRow,
-  _r as CoreTablesInstall,
-  $r as CoreTabsInstall,
-  Ar as CoreTooltipsInstall,
-  ai as DialogManager,
-  ni as ModuleHelper,
-  bi as NotificationManager,
+  Ts as CoreScrollContainersInstall,
+  Ws as CoreSelectsInstall,
+  Js as CoreSlidersInstall,
+  or as CoreStepsInstall,
+  sr as CoreTableColumn,
+  rr as CoreTableRow,
+  Ir as CoreTablesInstall,
+  Dr as CoreTabsInstall,
+  Mr as CoreTooltipsInstall,
+  ci as DialogManager,
+  oi as ModuleHelper,
+  yi as NotificationManager,
   xe as ObjectHelper,
   $e as StringHelper,
   jo as coreAutocompleteDisabledProp,
   Fo as coreAutocompleteItemsProp,
   No as coreAutocompleteModelModifiersProp,
   Ho as coreAutocompleteModelValueProp,
-  vi as coreAutocompleteSetup,
+  gi as coreAutocompleteSetup,
   _n as coreButton,
   yn as coreButtonDisabledProp,
   Pn as coreButtonLoadingProp,
-  oi as coreButtonSetup,
+  si as coreButtonSetup,
   wn as coreButtonVisibleProp,
   kn as coreCheckboxDisabledProp,
   $n as coreCheckboxIndeterminateProp,
   Cn as coreCheckboxModelValueProp,
-  si as coreCheckboxSetup,
+  ri as coreCheckboxSetup,
   Sn as coreCheckboxValueProp,
   xn as coreCheckboxVisibleProp,
   En as coreCollapseAccordionProp,
-  li as coreCollapseInlineSetup,
+  ai as coreCollapseInlineSetup,
   An as coreCollapseItemIdProp,
-  ii as coreCollapseItemSetup,
+  li as coreCollapseItemSetup,
   On as coreCollapseModelValueProp,
-  ri as coreCollapseSetup,
+  ii as coreCollapseSetup,
   O as coreComponentAsProp,
-  Nr as coreDatePickerClearableProp,
-  jr as coreDatePickerDisabledDateProp,
-  zr as coreDatePickerDisabledProp,
-  Fr as coreDatePickerFirstDayOfWeekProp,
-  Mr as coreDatePickerModelValueProp,
-  Hr as coreDatePickerMultipleProp,
-  Ai as coreDatePickerSetup,
-  Bi as coreDatePickerValueFormatProp,
-  Lr as coreDatePickerVisibleProp,
-  ci as coreDialogSetup,
+  jr as coreDatePickerClearableProp,
+  Fr as coreDatePickerDisabledDateProp,
+  Lr as coreDatePickerDisabledProp,
+  Wr as coreDatePickerFirstDayOfWeekProp,
+  zr as coreDatePickerModelValueProp,
+  Nr as coreDatePickerMultipleProp,
+  Mi as coreDatePickerSetup,
+  Ai as coreDatePickerValueFormatProp,
+  Hr as coreDatePickerVisibleProp,
+  ui as coreDialogSetup,
   qn as coreDialogVisibleProp,
   jn as coreDialogWrapper,
   Jn as coreDropdownDisabledProp,
   Qn as coreDropdownHideOnClickProp,
   Yn as coreDropdownItemDisabledProp,
   Xn as coreDropdownItemLabelProp,
-  ui as coreDropdownItemSetup,
-  di as coreDropdownSetup,
+  di as coreDropdownItemSetup,
+  fi as coreDropdownSetup,
   eo as coreDropdownSplitButtonProp,
   to as coreDropdownVisibleProp,
-  zi as coreFloatingArrowReference,
+  Li as coreFloatingArrowReference,
   Io as coreFloatingKeepProp,
   So as coreFloatingMiddlewareProp,
   Co as coreFloatingPlacementProp,
   Po as coreFloatingReferenceProp,
-  fi as coreFloatingSetup,
+  pi as coreFloatingSetup,
   Ro as coreFloatingTransitionProp,
   _o as coreFloatingVisibleProp,
   Do as coreFragmentContainerActiveProp,
-  mi as coreFragmentContainerSetup,
+  hi as coreFragmentContainerSetup,
   zn as coreInlineCollapseModelValueProp,
   Ao as coreInputDisabledProp,
   Bo as coreInputModelModifiersProp,
   Oo as coreInputModelValueProp,
   Mo as coreInputReadonlyProp,
-  hi as coreInputSetup,
+  vi as coreInputSetup,
   zo as coreInputTypeProp,
-  yi as coreNotificationSetup,
+  wi as coreNotificationSetup,
   Jo as coreNotificationVisibleProp,
   Ko as coreNotificationWrapperNameProp,
-  gi as coreNotificationWrapperSetup,
+  bi as coreNotificationWrapperSetup,
   ss as corePaginatorCountProp,
   rs as corePaginatorDeltaProp,
   ns as corePaginatorModelValueProp,
   os as corePaginatorPageSizeProp,
-  wi as corePaginatorSetup,
+  Pi as corePaginatorSetup,
   ds as coreProgressBarMaximumProp,
   us as coreProgressBarMinimumProp,
-  Pi as coreProgressBarSetup,
+  _i as coreProgressBarSetup,
   cs as coreProgressBarValueProp,
   hs as coreRadioButtonDisabledProp,
   vs as coreRadioButtonModelValueProp,
-  _i as coreRadioButtonSetup,
+  Ii as coreRadioButtonSetup,
   gs as coreRadioButtonValueProp,
   Rs as coreScrollContainerAutoHideDelayProp,
   Is as coreScrollContainerAutoHideProp,
-  Ss as coreScrollContainerClassesProp,
+  Ss as coreScrollContainerContainerClassesProp,
   Ps as coreScrollContainerHorizontalProp,
   Cs as coreScrollContainerMinimumSizeProp,
-  Ii as coreScrollContainerSetup,
+  Ri as coreScrollContainerSetup,
   _s as coreScrollContainerVerticalProp,
-  Os as coreSelectAllowClearProp,
-  As as coreSelectCompareProp,
-  Vs as coreSelectDisabledProp,
-  Bs as coreSelectHideOnSelectProp,
-  Ls as coreSelectItemDisabledProp,
-  Hs as coreSelectItemLabelProp,
-  Ci as coreSelectItemSetup,
-  zs as coreSelectItemValueProp,
-  Ts as coreSelectModelValueProp,
-  Es as coreSelectMultipleProp,
-  Ri as coreSelectSetup,
-  qs as coreSliderDisabledProp,
-  Ks as coreSliderMaximumProp,
-  Us as coreSliderMinimumProp,
-  Ws as coreSliderModelValueProp,
-  Si as coreSliderSetup,
-  Gs as coreSliderStepSizeProp,
-  Js as coreStepsNavigatorModelValueProp,
-  xi as coreStepsNavigatorSetup,
-  Qs as coreStepsNavigatorStepsProp,
-  Rr as coreTabItemIdDisabledProp,
-  Ir as coreTabItemIdProp,
-  Vi as coreTabItemSetup,
-  vr as coreTableColumnComponentProp,
-  mr as coreTableColumnDataProp,
-  fr as coreTableColumnFormatterProp,
-  hr as coreTableColumnOrderProp,
-  dr as coreTableColumnPropertyProp,
-  Di as coreTableColumnSetup,
-  pr as coreTableColumnSortableProp,
-  rr as coreTableDataProp,
-  br as coreTableRowColumnsProp,
-  ir as coreTableRowKeyProp,
-  yr as coreTableRowRowProp,
-  Ti as coreTableRowSetup,
-  lr as coreTableSelectableProp,
-  ar as coreTableSelectedRowsProp,
-  $i as coreTableSetup,
-  cr as coreTableSortProp,
-  Sr as coreTabsNavigatorModelValueProp,
-  Ei as coreTabsNavigatorSetup,
-  Er as coreTooltipHideDelayProp,
-  Dr as coreTooltipModelValueProp,
-  Oi as coreTooltipSetup,
-  Vr as coreTooltipShowDelayProp,
-  Tr as coreTooltipTriggerProp,
-  ki as createCoreStepItem,
-  Li as default,
-  pi as splitPlacement
+  ks as coreScrollContainerWrapperClassesProp,
+  Bs as coreSelectAllowClearProp,
+  Ms as coreSelectCompareProp,
+  Es as coreSelectDisabledProp,
+  As as coreSelectHideOnSelectProp,
+  Hs as coreSelectItemDisabledProp,
+  Ns as coreSelectItemLabelProp,
+  Si as coreSelectItemSetup,
+  Ls as coreSelectItemValueProp,
+  Vs as coreSelectModelValueProp,
+  Os as coreSelectMultipleProp,
+  Ci as coreSelectSetup,
+  Us as coreSliderDisabledProp,
+  Gs as coreSliderMaximumProp,
+  Ks as coreSliderMinimumProp,
+  qs as coreSliderModelValueProp,
+  ki as coreSliderSetup,
+  Ys as coreSliderStepSizeProp,
+  Qs as coreStepsNavigatorModelValueProp,
+  $i as coreStepsNavigatorSetup,
+  er as coreStepsNavigatorStepsProp,
+  Cr as coreTabItemIdDisabledProp,
+  Rr as coreTabItemIdProp,
+  Ei as coreTabItemSetup,
+  gr as coreTableColumnComponentProp,
+  hr as coreTableColumnDataProp,
+  pr as coreTableColumnFormatterProp,
+  vr as coreTableColumnOrderProp,
+  fr as coreTableColumnPropertyProp,
+  Ti as coreTableColumnSetup,
+  mr as coreTableColumnSortableProp,
+  ir as coreTableDataProp,
+  yr as coreTableRowColumnsProp,
+  lr as coreTableRowKeyProp,
+  wr as coreTableRowRowProp,
+  Vi as coreTableRowSetup,
+  ar as coreTableSelectableProp,
+  cr as coreTableSelectedRowsProp,
+  Di as coreTableSetup,
+  ur as coreTableSortProp,
+  kr as coreTabsNavigatorModelValueProp,
+  Oi as coreTabsNavigatorSetup,
+  Or as coreTooltipHideDelayProp,
+  Tr as coreTooltipModelValueProp,
+  Bi as coreTooltipSetup,
+  Er as coreTooltipShowDelayProp,
+  Vr as coreTooltipTriggerProp,
+  xi as createCoreStepItem,
+  Hi as default,
+  mi as splitPlacement
 };

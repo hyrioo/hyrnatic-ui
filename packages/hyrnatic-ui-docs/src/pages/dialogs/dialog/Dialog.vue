@@ -17,6 +17,12 @@
                         <h-switch v-model="showCloseButton" right-text="Show close button" />
                     </preview-option-form-control>
                     <preview-option-form-control>
+                        <h-switch v-model="expandHeight" right-text="Expand height" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-switch v-model="hide" right-text="Hide" />
+                    </preview-option-form-control>
+                    <preview-option-form-control>
                         <h-select v-model="color" placeholder="Select color" style="width: 100%;">
                             <h-select-item value="primary" label="Primary" />
                             <h-select-item value="danger" label="Danger" />
@@ -26,7 +32,7 @@
             </component-preview>
         </section>
 
-        <section>
+        <section v-if="!hide">
             <h2>Usage</h2>
             <p>First add the wrapper to your layout component.</p>
             <code-example :code='wrapperExample' language="html-vue"/>
@@ -36,17 +42,17 @@
             <code-example :code="dialogExample" language="js" />
         </section>
 
-        <section v-if="Dialog.props.length">
+        <section v-if="!hide && Dialog.props.length">
             <h2>Props</h2>
             <component-props-table :component="Dialog" />
         </section>
 
-        <section v-if="Dialog.slots.length">
+        <section v-if="!hide && Dialog.slots.length">
             <h2>Slots</h2>
             <component-slots-table :component="Dialog" />
         </section>
 
-        <section v-if="Dialog.events.length">
+        <section v-if="!hide && Dialog.events.length">
             <h2>Events</h2>
             <component-events-table :component="Dialog" />
         </section>
@@ -63,21 +69,31 @@ import { dialogExample, previewExample, usageExample, wrapperExample } from './s
 export default defineComponent({
     setup(props, ctx: SetupContext) {
         const showCloseButton = ref(true);
+        const expandHeight = ref(false);
+        const hide = ref(false);
         const color = ref('primary');
         const counter = ref(0);
 
         const onClick = async () => {
-            const dialog = DialogManager.create(SampleDialog, { showCloseButton: showCloseButton, color: color, text: '1', counter: counter  }, {
-                something: () => {
-                    counter.value++;
-                },
-            }, { stack: 'dialog' });
+            setTimeout(() => {
+                const dialog = DialogManager.create(SampleDialog, {
+                    showCloseButton: showCloseButton,
+                    color: color,
+                    text: '1',
+                    counter: counter,
+                    expandHeight: expandHeight,
+                }, {
+                    something: () => {
+                        counter.value++;
+                    },
+                }, { stack: 'dialog' });
 
-            dialog.promise.then((result: any) => {
-                console.log('resolve', result);
-            }).catch((reason: any) => {
-                console.log('reject', reason);
-            });
+                dialog.promise.then((result: any) => {
+                    console.log('resolve', result);
+                }).catch((reason: any) => {
+                    console.log('reject', reason);
+                });
+            }, 1);
         };
 
         const previewExampleOptions = computed(() => {
@@ -96,7 +112,9 @@ export default defineComponent({
             wrapperExample,
             onClick,
             showCloseButton,
+            expandHeight,
             color,
+            hide,
         };
     },
 });
