@@ -6,8 +6,9 @@ import { resolve } from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
     build: {
-        outDir: '../../docs'
+        outDir: '../../docs',
     },
+    base: 'https://hyrioo.github.io/hyrnatic-ui/',
     resolve: {
         alias: {
             'vue': 'vue/dist/vue.esm-bundler.js',
