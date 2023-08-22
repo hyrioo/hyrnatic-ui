@@ -38,7 +38,7 @@ const componentPage = (name: string, page: any) => ({
 });
 
 const router = createRouter({
-    history: createWebHistory('https://hyrioo.github.io/hyrnatic-ui/'),
+    history: createWebHistory('/hyrnatic-ui/'),
     routes: [
         componentPage('installation', Installation),
 
