@@ -35,7 +35,7 @@ import {
 } from '@hyrioo/hyrnatic-ui-core';
 import { ComputePositionReturn, offset } from '@floating-ui/dom';
 
-const transitions = {
+const transitions: {[key: string]: string} = {
     top: 'tiny2x-slide-down-medium',
     right: 'tiny2x-slide-to-left-medium',
     bottom: 'tiny2x-slide-up-medium',

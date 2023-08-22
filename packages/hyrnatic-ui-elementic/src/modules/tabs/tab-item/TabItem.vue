@@ -37,7 +37,7 @@ export default defineComponent({
         const updateIndicator = inject<Function>('updateIndicator');
         const tabsNavigator = inject<any>('tabsNavigator');
         const instance = reactive<CoreTabItemInstance>({
-            id: props.id,
+            id: props.id!,
         });
 
         onMounted(() => {
@@ -48,7 +48,9 @@ export default defineComponent({
             tabsNavigator.removeTabInstance(instance);
         });
         onUpdated(() => {
-            updateIndicator();
+            if(updateIndicator) {
+                updateIndicator();
+            }
         });
 
         const asProps = (slotProps: CoreTabItemSlotProps) => ({

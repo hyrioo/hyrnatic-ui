@@ -70,13 +70,13 @@ import {
     coreDatePickerFirstDayOfWeekProp,
     coreDatePickerSetup,
     CoreDatePickerSlotProps,
-    splitPlacement,
+    splitPlacement, CoreFloatingClickOutsideEvent,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
 import { DateTime, Duration, Info as DateTimeInfo } from 'luxon';
 import { ComputePositionReturn, offset, size } from '@floating-ui/dom';
 
-const transitions = {
+const transitions: {[key: string]: string} = {
     top: 'tiny2x-slide-down-medium',
     bottom: 'tiny2x-slide-up-medium',
 };
@@ -124,8 +124,8 @@ export default defineComponent({
             if (props.dots === null) {
                 return null;
             }
-            const obj = {};
-            props.dots.forEach((dot) => {
+            const obj: {[key:string]: { date: DateTime, color?: string }[]} = {};
+            props.dots.forEach((dot: { date: DateTime, color?: string }) => {
                 const date = dot.date.toISODate();
                 obj[date] = obj[date] || [];
                 obj[date].push(dot);
@@ -205,7 +205,7 @@ export default defineComponent({
         const onComputedPosition = (data: ComputePositionReturn) => {
             transition.value = transitions[splitPlacement(data.placement).placement];
         };
-        const onClickOutside = (value) => {
+        const onClickOutside = (value: CoreFloatingClickOutsideEvent) => {
             if (value.outsideFloating && value.outsideReference) {
                 floatingVisible.value = false;
             }

@@ -51,14 +51,15 @@ export default defineComponent({
 
         const updateIndicator = () => {
             if (tabsNavigator.value && tabsNavigator.value.activeTab) {
-                const activeTab = tabs.value.find((t) => t.id === tabsNavigator.value.activeTab.id);
-                if (activeTab) {
+                const tabId = tabsNavigator.value.activeTab.id;
+                const activeTab = tabs.value.find((t) => t.id === tabId);
+                if (activeTab && activeTab.ref) {
                     indicatorOffset.value = props.vertical ? activeTab.ref.offsetTop : activeTab.ref.offsetLeft;
                     indicatorSize.value = props.vertical ? activeTab.ref.offsetHeight : activeTab.ref.offsetWidth;
                 }
             }
         };
-        const setNavigator = (el) => {
+        const setNavigator = (el: CoreTabsNavigatorReturn) => {
             tabsNavigator.value = el;
             watch(() => tabsNavigator.value ? tabsNavigator.value.activeTab : null, updateIndicator);
         }

@@ -66,7 +66,7 @@ export default defineComponent({
         ...coreAutocompleteModelValueProp,
         ...coreAutocompleteModelModifiersProp,
         input: {
-            type: Object as PropType<HTMLInputElement>,
+            type: null as unknown as PropType<HTMLInputElement>,
             required: true,
         },
     },

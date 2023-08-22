@@ -10,7 +10,7 @@
                 <transition name="small-slide-up-medium" appear
                             @before-leave="transitionStarted('box')" @after-leave="transitionEnded('box')"
                 >
-                    <div v-show="props.visible" :class="[css_ec('box-container')]" :style="{width: width, transform: getScale(props.stackIndex, props.visibleStackCount)}">
+                    <div v-show="props.visible" :class="[css_ec('box-container'), boxClasses]" :style="{transform: getScale(props.stackIndex, props.visibleStackCount)}">
                         <div :class="[css_ec('box')]">
                             <div v-if="showCloseButton" :class="[css_ec('close-icon')]">
                                 <h-icon-button :icon="Icons.close" styling="subtle" size="small" @click="props.close" />
@@ -60,9 +60,9 @@ export default defineComponent({
             type: String as PropType<'primary' | 'danger'>,
             default: 'primary',
         },
-        width: {
+        boxClasses: {
             type: String,
-            default: '400px',
+            default: null,
         },
         showCloseButton: {
             type: Boolean,
@@ -75,7 +75,7 @@ export default defineComponent({
     },
     setup(props, ctx: SetupContext) {
         const transitionEnd = inject<() => void>('dialog-transition-end');
-        const activeTransitions = reactive({});
+        const activeTransitions = reactive<{[key: string]: boolean}>({});
         const scrollContainer = ref();
 
         const bodyScrollbarWidth = inject<number>('global-scrollbar-width');
@@ -93,25 +93,25 @@ export default defineComponent({
             }
         });
 
-        const transitionEnded = (key) => {
+        const transitionEnded = (key: string) => {
             if (props.visible === false) {
                 delete activeTransitions[key];
             }
         };
-        const transitionStarted = (key) => {
+        const transitionStarted = (key: string) => {
             if (props.visible === false) {
                 activeTransitions[key] = true;
             }
         };
 
-        const getScale = (index, count) => {
+        const getScale = (index: number, count: number) => {
             if (index < count - 1) {
                 return `scale(${1 - (0.1 * (count - index - 1))})`;
             } else {
                 return null;
             }
         };
-        const getOpacity = (index, count) => {
+        const getOpacity = (index: number, count: number) => {
             if (index < count - 1) {
                 return 1 - (0.25 * (count - index));
             } else {

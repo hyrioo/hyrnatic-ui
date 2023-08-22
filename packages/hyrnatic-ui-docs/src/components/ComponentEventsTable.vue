@@ -25,7 +25,7 @@ export default defineComponent({
         }
     },
     setup(props, ctx: SetupContext) {
-        const valuesFormatter = (cellValue) => {
+        const valuesFormatter = (cellValue: any) => {
             if(cellValue === null) {
                 return '-';
             } else if (Array.isArray(cellValue)) {

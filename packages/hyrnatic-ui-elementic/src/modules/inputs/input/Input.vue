@@ -55,19 +55,19 @@ export default defineComponent({
         },
 
         minLength: {
-            type: Number,
+            type: [String, Number],
             default: null,
         },
         maxLength: {
-            type: Number,
+            type: [String, Number],
             default: null,
         },
         min: {
-            type: Number,
+            type: [String, Number],
             default: null,
         },
         max: {
-            type: Number,
+            type: [String, Number],
             default: null,
         },
         prefix: {

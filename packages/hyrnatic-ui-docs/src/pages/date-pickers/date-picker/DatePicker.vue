@@ -91,7 +91,7 @@ export default defineComponent({
             };
         });
 
-        const viewChanged = (obj) => {
+        const viewChanged = (obj: any) => {
             console.log('view-changed', obj);
         };
 

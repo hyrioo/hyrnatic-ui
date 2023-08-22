@@ -1,0 +1,57 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+    "framework": "vue",
+    "name": "@hyrioo/hyrnatic-ui-elementic",
+    "version": "0.0.1-beta.14",
+    "js-types-syntax": "typescript",
+    "description-markup": "markdown",
+    "contributions": {
+        "html": {
+            "vue-components": [
+                {
+                    "name": "HButton",
+                    "source": {
+                        "module": "@hyrioo/hyrnatic-ui-elementic",
+                        "symbol": "HButton"
+                    },
+                    "props": [
+                        {
+                            "name": "loading",
+                            "type": ["boolean"]
+                        },
+                        {
+                            "name": "label",
+                            "type": ["string", "number"],
+                            "default": "null"
+                        },
+                        {
+                            "name": "icon",
+                            "type": ["string"],
+                            "default": "null"
+                        },
+                        {
+                            "name": "rounded",
+                            "type": ["boolean"]
+                        },
+                        {
+                            "name": "color",
+                            "type": ["string"]
+                        },
+                        {
+                            "name": "styling",
+                            "type": ["string"]
+                        },
+                        {
+                            "name": "size",
+                            "type": ["string"]
+                        },
+                        {
+                            "name": "type",
+                            "type": ["string"]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -20,7 +20,7 @@ export type ComponentAPIDescriptor = {
         property: string;
         description: string;
         type: Array<string> | string;
-        values?: Array<string>;
+        values?: Array<string> | null;
         default?: string | boolean | null | number;
         required?: boolean;
     }>;

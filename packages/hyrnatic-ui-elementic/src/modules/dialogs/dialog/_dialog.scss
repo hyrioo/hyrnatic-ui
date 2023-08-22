@@ -44,20 +44,21 @@ $crc: '.h-dialog';
 
 #{$crc}__scroll-container{
 	position: relative;
-	padding: $g-32 0;
+	padding: $g-32;
 	height: 100%;
 	width: 100%;
 	overflow-y: auto;
 	display: flex;
 	box-sizing: border-box;
+	scrollbar-gutter: stable;
 
 	&.-transitioning {
 		overflow-y: hidden;
-		padding-right: calc(var(--h-scrollbar-width) - var(--h-global-scrollbar-width));
+		padding-right:#{$g-32} + calc(var(--h-scrollbar-width) - var(--h-global-scrollbar-width));
 
 		&.-body-has-scrollbar {
-			width: calc(100% + (var(--h-global-scrollbar-width) - var(--h-scrollbar-width)));
-			padding-right: 0;
+			width: calc(100% - #{$g-32} + (var(--h-global-scrollbar-width) - var(--h-scrollbar-width)));
+			padding-right: $g-32;
 		}
 	}
 }

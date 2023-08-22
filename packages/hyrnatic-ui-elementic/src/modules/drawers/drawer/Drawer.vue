@@ -63,34 +63,34 @@ export default defineComponent({
     },
     setup(props, ctx: SetupContext) {
         const transitionEnd = inject<() => void>('dialog-transition-end');
-        const activeTransitions = reactive({});
+        const activeTransitions = reactive<{[key: string]: boolean}>({});
         const slideTransition = computed(() => (props.placement === 'right' ? 'large2x-slide-to-left-medium' : 'large2x-slide-to-right-medium'));
 
         watch(activeTransitions, () => {
-            if (Object.keys(activeTransitions).length === 0) {
+            if (Object.keys(activeTransitions).length === 0 && transitionEnd) {
                 transitionEnd();
             }
         });
 
-        const transitionEnded = (key) => {
+        const transitionEnded = (key: string) => {
             if (props.visible === false) {
                 delete activeTransitions[key];
             }
         };
-        const transitionStarted = (key) => {
+        const transitionStarted = (key: string) => {
             if (props.visible === false) {
                 activeTransitions[key] = true;
             }
         };
 
-        const getScale = (index, count) => {
+        const getScale = (index: number, count: number) => {
             if (index < count - 1) {
                 return `translateX(${props.placement === 'right' ? '-' : ''}${(count - index - 1) * 64}px)`;
             } else {
                 return null;
             }
         };
-        const getOpacity = (index, count) => {
+        const getOpacity = (index: number, count: number) => {
             if (index < count - 1) {
                 return 1 - (0.25 * (count - index));
             } else {
