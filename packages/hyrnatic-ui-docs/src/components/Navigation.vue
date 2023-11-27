@@ -79,6 +79,7 @@ export default defineComponent({
                 name: 'Inputs',
                 pages: [
                     { route: 'input', text: 'Input' },
+                    { route: 'autocomplete', text: 'Autocomplete' },
                 ]
             },
             {
@@ -127,6 +128,7 @@ export default defineComponent({
                 name: 'Selects',
                 pages: [
                     { route: 'select', text: 'Select' },
+                    { route: 'simple-select', text: 'Simple select' },
                 ]
             },
             {

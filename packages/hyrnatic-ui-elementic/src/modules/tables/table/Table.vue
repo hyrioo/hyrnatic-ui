@@ -34,7 +34,7 @@
 <script lang="ts">
 import {
     defineComponent,
-    SetupContext, watch,
+
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -71,7 +71,7 @@ export default defineComponent({
         },
     },
     emits: ['update:sort', 'update:selectedRows'],
-    setup(props, ctx: SetupContext) {
+    setup() {
         const core = coreTableSetup().as('table').props(['data', 'rowKey', 'selectable', 'sort', 'selectedRows']).events(['update:sort', 'update:selectedRows'])
             .build();
 

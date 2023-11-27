@@ -43,7 +43,7 @@ export default defineComponent({
         ...coreButtonLoadingProp,
     },
     emits: ['click'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const onClick = (e: MouseEvent) => {
             if (!props.disabled && !props.loading && props.visible) {
                 ctx.emit('click', e);

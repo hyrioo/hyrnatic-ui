@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     label: {
         type: StringConstructor;
         default: null;
@@ -25,7 +25,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }, {
     core: any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     label: {
         type: StringConstructor;
         default: null;
@@ -53,8 +53,8 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }>>, {
     label: string;
     width: string;
-    order: number;
     sortable: boolean;
+    order: number;
     formatter: Function;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

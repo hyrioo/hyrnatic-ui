@@ -69,19 +69,33 @@ $crc: '.h-select';
 	}
 }
 
-#{$crc}__icon, #{$crc}__clear-icon{
-	padding: 0 $g-8;
+#{$crc}__icon{
 	position: absolute;
 	right: 0;
 	top: 0;
+	bottom: 0;
+	width: 30px;
 	transition: transform $t-fast-standard;
-
-	> svg{
-		margin: ($g-8 - $v-control-border-width) 0;
-		vertical-align: top;
-	}
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
+#{$crc}__clear-icon{
+	position: absolute;
+	right: $g-4;
+	top: $g-4;
+	bottom: $g-4;
+	width: 22px;
+	transition: transform $t-fast-standard, background $t-fast-standard;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover {
+		background: rgba($c-primary-border, $o-48);
+	}
+}
 
 #{$crc}__menu-container {
 	box-shadow: $sd-active--primary-box-shadow;

@@ -26,7 +26,7 @@ export default defineComponent({
         ...coreInlineCollapseModelValueProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const expanded = ref(props.modelValue);
         watch(() => props.modelValue, (newValue) => {
             expanded.value = newValue;

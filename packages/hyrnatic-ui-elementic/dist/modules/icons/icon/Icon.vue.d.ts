@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     icon: {
         type: StringConstructor;
         required: true;
@@ -31,7 +31,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     content: import("vue").ComputedRef<any>;
     viewBox: import("vue").ComputedRef<string>;
     style: import("vue").ComputedRef<any>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     icon: {
         type: StringConstructor;
         required: true;
@@ -60,9 +60,9 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }>>, {
     size: string;
+    fills: string | unknown[];
     width: string;
     height: string;
-    fills: string | unknown[];
     spin: boolean;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

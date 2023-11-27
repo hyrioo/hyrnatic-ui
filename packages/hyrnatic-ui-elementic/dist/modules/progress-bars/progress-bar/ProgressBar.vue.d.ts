@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     showOverflowIndicator: {
         type: BooleanConstructor;
         default: boolean;
@@ -47,7 +47,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     overflowOffset: import("vue").ComputedRef<number>;
     label: import("vue").ComputedRef<string | number | undefined>;
     width: import("vue").ComputedRef<string>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     showOverflowIndicator: {
         type: BooleanConstructor;
         default: boolean;
@@ -98,5 +98,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     showValue: boolean;
     maximum: number;
     minimum: number;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

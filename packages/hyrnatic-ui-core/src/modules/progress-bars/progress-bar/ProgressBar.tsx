@@ -43,7 +43,7 @@ export default defineComponent({
         ...coreProgressBarMinimumProp,
         ...coreProgressBarMaximumProp,
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const percentage = computed(() => {
             const p = ((props.value! - props.minimum) * 100) / (props.maximum - props.minimum);
             return Math.round(p);

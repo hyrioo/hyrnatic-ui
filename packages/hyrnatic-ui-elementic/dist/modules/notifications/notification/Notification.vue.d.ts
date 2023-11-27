@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     title: {
         type: StringConstructor;
         default: null;
@@ -25,7 +25,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         [key: string]: any;
     };
     core: any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     title: {
         type: StringConstructor;
         default: null;
@@ -47,5 +47,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     showCloseButton: boolean;
     color: "primary" | "danger";
     visible: boolean;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

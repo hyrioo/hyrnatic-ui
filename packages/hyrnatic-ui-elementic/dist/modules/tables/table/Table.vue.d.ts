@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     rowClasses: {
         type: (StringConstructor | FunctionConstructor)[];
         default: null;
@@ -39,7 +39,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     css_root: import("vue").ComputedRef<string | null | undefined>;
     css_ec: (element: string) => string;
     core: any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:sort" | "update:selectedRows", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:sort" | "update:selectedRows")[], "update:sort" | "update:selectedRows", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     rowClasses: {
         type: (StringConstructor | FunctionConstructor)[];
         default: null;
@@ -76,17 +76,20 @@ declare const _sfc_main: import("vue").DefineComponent<{
         }[]>;
         default: boolean;
     };
-}>>, {
+}>> & {
+    "onUpdate:sort"?: ((...args: any[]) => any) | undefined;
+    "onUpdate:selectedRows"?: ((...args: any[]) => any) | undefined;
+}, {
     sort: import("@hyrioo/hyrnatic-ui-core").CoreTableSortDefinition;
-    striped: boolean;
     data: {
         [key: string]: object;
     }[];
+    striped: boolean;
     rowClasses: string | Function;
     hover: boolean;
     selectedRows: {
         [key: string]: object;
     }[];
     selectable: boolean | Function;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

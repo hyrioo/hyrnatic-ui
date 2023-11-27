@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     color: {
         type: PropType<"primary" | "light">;
         default: string;
@@ -42,7 +42,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     verticalThumb: import("vue").Ref<any>;
     horizontalTrack: import("vue").Ref<any>;
     horizontalThumb: import("vue").Ref<any>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     color: {
         type: PropType<"primary" | "light">;
         default: string;
@@ -84,5 +84,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     autoHide: boolean;
     vertical: boolean;
     horizontal: boolean;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

@@ -58,8 +58,8 @@ export default defineComponent({
             default: 'inline-block',
         }
     },
-    emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    emits: ['update:modelValue', 'computedPosition'],
+    setup(props, ctx) {
         const reference = ref();
         const transition = ref(transitions[props.placement]);
 

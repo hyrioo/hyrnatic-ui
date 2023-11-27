@@ -62,7 +62,7 @@ export default defineComponent({
         ...coreTabItemIdProp,
         ...coreTabItemIdDisabledProp,
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const tabsNavigator = inject<CoreTabsNavigatorProvide>('coreTabsNavigator');
         const instance = reactive<CoreTabItemInstance>({
             id: props.id as string,

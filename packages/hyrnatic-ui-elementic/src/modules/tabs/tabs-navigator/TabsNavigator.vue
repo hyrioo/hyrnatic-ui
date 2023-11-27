@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, ref, computed, SetupContext, onMounted, provide, watch, watchEffect, nextTick, onUnmounted
+    defineComponent, ref, computed, onMounted, provide, watch
 } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
@@ -28,7 +28,7 @@ export default defineComponent({
         },
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props) {
         const tabsNavigator = ref<CoreTabsNavigatorReturn>();
         const tabs = ref<CoreTabItemInstance[]>([]);
         const addTabInstance = (instance: CoreTabItemInstance) => {

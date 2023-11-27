@@ -8,7 +8,7 @@ export default defineConfig({
     build: {
         outDir: '../../docs',
     },
-    base: 'https://hyrioo.github.io/hyrnatic-ui/',
+    // base: 'https://hyrioo.github.io/hyrnatic-ui/',
     resolve: {
         alias: {
             'vue': 'vue/dist/vue.esm-bundler.js',

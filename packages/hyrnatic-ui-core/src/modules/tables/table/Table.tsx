@@ -79,7 +79,7 @@ export default defineComponent({
         ...coreTableSortProp,
     },
     emits: ['update:sort', 'update:selectedRows'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const rows: Ref<Row[]> = ref([]);
 
         // Selection

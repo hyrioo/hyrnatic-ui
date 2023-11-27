@@ -89,7 +89,7 @@ export default defineComponent({
         ...coreSelectCompareProp,
     },
     emits: ['update:modelValue', 'focusedItemChanged'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const menuVisible = ref(false);
         const transitioning = ref(false);
         const items = ref<CoreSelectItemInstance[]>([]);

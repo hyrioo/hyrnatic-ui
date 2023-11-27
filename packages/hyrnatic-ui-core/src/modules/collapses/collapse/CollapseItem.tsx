@@ -30,7 +30,7 @@ export default defineComponent({
         ...coreComponentAsPropsProp,
         ...coreCollapseItemIdProp,
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const collapse = inject<CollapseProvide>('collapse')!;
         const expanded = computed(() => collapse.expandedItems.value.indexOf(props.id) !== -1);
 

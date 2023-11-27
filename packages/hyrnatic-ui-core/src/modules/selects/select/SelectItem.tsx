@@ -71,7 +71,7 @@ const SelectItem = defineComponent({
         ...coreSelectItemLabelProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const select = inject<CoreSelectProvide>('select');
         const instance = reactive<CoreSelectItemInstance>({
             value: props.value,

@@ -6,10 +6,10 @@
 
 <script lang="ts">
 import {
-    defineComponent, SetupContext, PropType, computed, watch,
+    defineComponent, computed,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
-import { coreTableRowSetup, CoreTableRowSlotProps, CoreTableRow, CoreTableColumn } from '@hyrioo/hyrnatic-ui-core';
+import { coreTableRowSetup, CoreTableRowSlotProps } from '@hyrioo/hyrnatic-ui-core';
 import HTableCell from './TableCell';
 
 export default defineComponent({
@@ -30,7 +30,7 @@ export default defineComponent({
         },
     },
     emits: ['rowClick'],
-    setup(props, ctx: SetupContext) {
+    setup(props) {
         const rowClasses = computed(() => {
             if (typeof props.classes === 'function') {
                 return props.classes(props.row.data);

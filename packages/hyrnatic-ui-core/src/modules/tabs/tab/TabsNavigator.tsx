@@ -38,7 +38,7 @@ export default defineComponent({
         ...coreTabsNavigatorModelValueProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const tabs = ref<CoreTabItemInstance[]>([]);
         const activeTab = computed<CoreTabItemInstance>(() => (tabs.value.find((t) => t.id === props.modelValue) as CoreTabItemInstance));
         const addTabInstance = (instance: CoreTabItemInstance) => {

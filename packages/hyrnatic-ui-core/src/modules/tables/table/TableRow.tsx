@@ -34,7 +34,7 @@ export default defineComponent({
         ...coreTableRowRowProp,
     },
     emits: ['update:modelValue', 'rowClick'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const onClick = () => {
             ctx.emit('rowClick', props.row);
         };

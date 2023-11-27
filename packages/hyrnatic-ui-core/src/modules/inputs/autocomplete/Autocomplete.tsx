@@ -71,23 +71,18 @@ export default defineComponent({
         },
     },
     emits: ['update:modelValue', 'itemSelected', 'focusedItemChanged'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const focusInput = () => {
             props.input.focus();
         };
 
-        const emitValue = (value: string) => {
-            let newValue = value;
-            if (props.modelModifiers.capitalize) {
-                newValue = newValue.charAt(0).toUpperCase() + newValue.slice(1);
-            }
-
+        const emitValue = (value: any) => {
             // Remember selection (Caret position)
             const { selectionStart } = props.input;
             const { selectionEnd } = props.input;
 
             // Update prop
-            ctx.emit('update:modelValue', newValue);
+            ctx.emit('update:modelValue', value);
 
             // Restore selection (Caret position)
             nextTick(() => {
@@ -101,7 +96,7 @@ export default defineComponent({
             ctx.emit('focusedItemChanged', focusedItem.value);
         });
 
-        const onItemClick = (item: string) => {
+        const onItemClick = (item: any) => {
             ctx.emit('itemSelected', item);
         };
         const hideList = () => {
@@ -114,12 +109,11 @@ export default defineComponent({
             if (props.disabled) {
                 return false;
             }
+
             const getCurrentIndex = () => focusedItem.value ? props.items.findIndex((i) => i === focusedItem.value) : null;
 
-            if (!listVisible.value && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter') && props.modelValue!.length > 0) {
+            if (!listVisible.value && (e.key !== 'Escape') && props.modelValue!.length > 0) {
                 showList();
-                e.preventDefault();
-                e.stopImmediatePropagation();
             } else if (e.key === 'ArrowDown' && props.modelValue!.length > 0) {
                 focusedItem.value = Arr.next(props.items, getCurrentIndex());
                 e.preventDefault();

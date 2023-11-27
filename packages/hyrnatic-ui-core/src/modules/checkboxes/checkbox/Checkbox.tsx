@@ -75,7 +75,7 @@ export default defineComponent({
         ...coreCheckboxValueProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const state = computed(() => {
             if (Array.isArray(props.modelValue)) {
                 return props.modelValue.indexOf(props.value) > -1;

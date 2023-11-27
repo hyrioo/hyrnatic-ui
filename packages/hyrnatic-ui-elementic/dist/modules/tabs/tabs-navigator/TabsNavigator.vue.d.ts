@@ -1,5 +1,5 @@
 import { CoreTabsNavigatorReturn } from '@hyrioo/hyrnatic-ui-core';
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     vertical: {
         type: BooleanConstructor;
         default: boolean;
@@ -23,7 +23,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         height?: undefined;
     }>;
     updateIndicator: () => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     vertical: {
         type: BooleanConstructor;
         default: boolean;
@@ -32,8 +32,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         default: null;
     };
-}>>, {
+}>> & {
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+}, {
     modelValue: string;
     vertical: boolean;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

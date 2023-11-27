@@ -356,6 +356,20 @@ export type {
     CoreSelectProvide,
     CoreSelectItemInstance,
 } from './modules/selects/select/SelectItem';
+export {
+    coreSimpleSelectSetup,
+    coreSimpleSelectModelValueProp,
+    coreSimpleSelectItemsProp,
+    coreSimpleSelectDisabledProp,
+    coreSimpleSelectMultipleProp,
+    coreSimpleSelectAllowClearProp,
+    coreSimpleSelectHideOnSelectProp,
+    coreSimpleSelectLabelProp,
+    coreSimpleSelectCompareProp,
+} from './modules/selects/simple-select/SimpleSelect';
+export type {
+    CoreSimpleSelectSlotProps,
+} from './modules/selects/simple-select/SimpleSelect';
 
 
 /**

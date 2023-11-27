@@ -8,7 +8,7 @@
 <script lang="ts">
 import {
     computed,
-    defineComponent, reactive, SetupContext,
+    defineComponent, reactive,
 } from 'vue';
 import {
     coreTableColumnFormatterProp,
@@ -35,7 +35,7 @@ export default defineComponent({
             validator: (e: string) => ['auto', 'minimum'].indexOf(e) !== -1 || !Number.isNaN(parseInt(e, 10)),
         },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props) {
         const data = reactive({
             label: computed(() => props.label),
             width: computed(() => props.width),

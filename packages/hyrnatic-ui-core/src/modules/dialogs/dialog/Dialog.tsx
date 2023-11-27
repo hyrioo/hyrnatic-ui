@@ -33,7 +33,7 @@ export default defineComponent({
     props: {
         ...coreDialogVisibleProp,
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const id = inject<string>('dialog-id') as  string;
         if (!id) {
             console.warn('You must call DialogManager.setupDialog() in the dialog setup');

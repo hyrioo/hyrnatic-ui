@@ -58,7 +58,7 @@ export default defineComponent({
         ...coreDropdownItemLabelProp,
     },
     emits: ['click'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const dropdown = inject<CoreDropdownProvide>('dropdown') as CoreDropdownProvide;
 
         const onClick = (e: MouseEvent) => {

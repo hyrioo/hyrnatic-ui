@@ -69,7 +69,7 @@ export default defineComponent({
         ...coreDropdownVisibleProp,
     },
     emits: ['click', 'focusedItemChanged'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const menuVisible = ref(false);
         const transitioning = ref(false);
         const items = ref<CoreDropdownItemInstance[]>([]);

@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     loading: {
         type: BooleanConstructor;
         required: true;
@@ -14,7 +14,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }, {
     css_root: import("vue").ComputedRef<string | null | undefined>;
     css_ec: (element: string) => string;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     loading: {
         type: BooleanConstructor;
         required: true;
@@ -28,5 +28,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }>>, {
     color: "light" | "dark";
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

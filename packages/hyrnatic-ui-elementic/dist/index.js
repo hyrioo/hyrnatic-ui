@@ -1,19 +1,19 @@
-import { getCurrentInstance as Bt, computed as V, defineComponent as O, resolveComponent as v, openBlock as m, createElementBlock as S, normalizeClass as d, createVNode as C, createCommentVNode as M, createElementVNode as g, toDisplayString as N, createBlock as I, withDirectives as K, mergeProps as _, toHandlers as A, withCtx as $, renderSlot as T, vShow as J, createTextVNode as se, normalizeStyle as W, ref as k, withKeys as Vs, Transition as pe, resolveDynamicComponent as Ns, watch as ee, Fragment as oe, renderList as he, onBeforeUpdate as _s, getCurrentScope as Ro, onScopeDispose as Bo, unref as Zo, onMounted as st, inject as ie, reactive as je, withModifiers as Tn, provide as ht, nextTick as Re, h as On, TransitionGroup as Ps, resolveDirective as Wo, onUnmounted as qo, onUpdated as jo } from "vue";
-import { StringHelper as Fs, ModuleHelper as p, coreButtonDisabledProp as Zt, coreButtonLoadingProp as Wt, coreButtonVisibleProp as qt, coreButtonSetup as jt, CoreButtonsInstall as Uo, coreCheckboxDisabledProp as As, coreCheckboxIndeterminateProp as Yo, coreCheckboxVisibleProp as Hs, coreCheckboxModelValueProp as zs, coreCheckboxValueProp as Rs, coreCheckboxSetup as Bs, CoreCheckboxInstall as Zs, coreCollapseAccordionProp as Go, coreCollapseModelValueProp as Ko, coreCollapseSetup as Jo, coreCollapseItemIdProp as Qo, coreCollapseItemSetup as Xo, coreInlineCollapseModelValueProp as xo, coreCollapseInlineSetup as er, CoreCollapsesInstall as tr, coreDatePickerModelValueProp as nr, coreDatePickerDisabledProp as sr, coreDatePickerVisibleProp as or, coreDatePickerFirstDayOfWeekProp as rr, coreDatePickerSetup as ir, splitPlacement as Be, coreInputDisabledProp as ar, coreInputReadonlyProp as lr, coreInputTypeProp as cr, coreInputModelValueProp as ur, coreInputModelModifiersProp as dr, coreInputSetup as fr, coreAutocompleteDisabledProp as mr, coreAutocompleteItemsProp as hr, coreAutocompleteModelValueProp as pr, coreAutocompleteModelModifiersProp as yr, coreAutocompleteSetup as gr, CoreInputsInstall as vr, CoreDatePickersInstall as br, coreDialogVisibleProp as Ws, coreDialogSetup as qs, coreDialogWrapper as wr, CoreDialogsInstall as js, coreDropdownDisabledProp as $r, coreDropdownVisibleProp as Sr, coreDropdownSplitButtonProp as kr, coreDropdownHideOnClickProp as Ir, coreDropdownSetup as Cr, coreDropdownItemDisabledProp as Tr, coreDropdownItemLabelProp as Or, coreDropdownItemSetup as Mr, coreComponentAsProp as Dr, coreFloatingReferenceProp as Er, coreFloatingVisibleProp as Lr, coreFloatingMiddlewareProp as Vr, coreFloatingTransitionProp as Nr, coreFloatingPlacementProp as Ut, coreFloatingArrowReference as _r, coreFloatingSetup as Pr, CoreFloatingInstall as Fr, CoreDropdownsInstall as Ar, coreFragmentContainerActiveProp as Hr, coreFragmentContainerSetup as zr, CoreFragmentsInstall as Rr, coreNotificationVisibleProp as Br, coreNotificationSetup as Zr, coreNotificationWrapperNameProp as Wr, coreNotificationWrapperSetup as qr, NotificationManager as Us, CoreNotificationsInstall as jr, corePaginatorModelValueProp as Ur, corePaginatorPageSizeProp as Yr, corePaginatorCountProp as Gr, corePaginatorDeltaProp as Kr, corePaginatorSetup as Jr, CorePaginatorsInstall as Qr, coreProgressBarValueProp as Xr, coreProgressBarMinimumProp as xr, coreProgressBarMaximumProp as ei, coreProgressBarSetup as ti, CoreProgressBarsInstall as ni, coreRadioButtonDisabledProp as si, coreRadioButtonModelValueProp as oi, coreRadioButtonValueProp as ri, coreRadioButtonSetup as ii, CoreRadioButtonsInstall as ai, coreScrollContainerHorizontalProp as li, coreScrollContainerVerticalProp as ci, coreScrollContainerAutoHideProp as ui, coreScrollContainerAutoHideDelayProp as di, coreScrollContainerMinimumSizeProp as fi, coreScrollContainerContainerClassesProp as mi, coreScrollContainerWrapperClassesProp as hi, coreScrollContainerSetup as pi, CoreScrollContainersInstall as yi, coreSelectDisabledProp as gi, coreSelectAllowClearProp as vi, coreSelectHideOnSelectProp as bi, coreSelectMultipleProp as wi, coreSelectModelValueProp as $i, coreSelectCompareProp as Si, coreSelectSetup as ki, coreSelectItemDisabledProp as Ii, coreSelectItemValueProp as Ci, coreSelectItemLabelProp as Ti, coreSelectItemSetup as Oi, CoreSelectsInstall as Mi, coreSliderModelValueProp as Di, coreSliderDisabledProp as Ei, coreSliderMaximumProp as Li, coreSliderMinimumProp as Vi, coreSliderStepSizeProp as Ni, coreSliderSetup as _i, CoreSlidersInstall as Pi, coreStepsNavigatorModelValueProp as Fi, coreStepsNavigatorStepsProp as Ai, coreStepsNavigatorSetup as Hi, CoreStepsInstall as zi, coreTabItemIdProp as Ri, coreTabItemIdDisabledProp as Bi, coreTabItemSetup as Zi, coreTabsNavigatorModelValueProp as Wi, coreTabsNavigatorSetup as qi, ArrayHelper as ji, CoreTabsInstall as Ui, CoreTableColumn as Yi, CoreTableRow as Gi, coreTableRowSetup as Ki, coreTableDataProp as Ji, coreTableRowKeyProp as Qi, coreTableSelectableProp as Xi, coreTableSelectedRowsProp as xi, coreTableSortProp as ea, coreTableSetup as ta, coreTableColumnPropertyProp as na, coreTableColumnFormatterProp as sa, coreTableColumnSortableProp as oa, coreTableColumnOrderProp as ra, coreTableColumnSetup as ia, CoreTablesInstall as aa, coreTooltipModelValueProp as la, coreTooltipTriggerProp as ca, coreTooltipShowDelayProp as ua, coreTooltipHideDelayProp as da, coreTooltipSetup as fa, CoreTooltipsInstall as ma } from "@hyrioo/hyrnatic-ui-core";
-import { DialogManager as _h, NotificationManager as Ph, coreFloatingArrowReference as Fh, createCoreStepItem as Ah } from "@hyrioo/hyrnatic-ui-core";
+import { getCurrentInstance as Bt, computed as L, defineComponent as O, resolveComponent as v, openBlock as h, createElementBlock as $, normalizeClass as d, createVNode as I, createCommentVNode as M, createElementVNode as y, toDisplayString as N, createBlock as C, withDirectives as G, mergeProps as F, toHandlers as P, withCtx as w, renderSlot as T, vShow as K, createTextVNode as ee, normalizeStyle as z, ref as k, withKeys as Es, Transition as pe, resolveDynamicComponent as Ls, watch as ne, Fragment as le, renderList as me, onBeforeUpdate as Ns, getCurrentScope as Ro, onScopeDispose as Bo, unref as Zo, onMounted as st, inject as ce, reactive as je, withModifiers as Tn, provide as ht, nextTick as Re, h as Mn, TransitionGroup as _s, resolveDirective as Wo, onUnmounted as qo, onUpdated as jo } from "vue";
+import { StringHelper as Fs, ModuleHelper as p, coreButtonDisabledProp as Zt, coreButtonLoadingProp as Wt, coreButtonVisibleProp as qt, coreButtonSetup as jt, CoreButtonsInstall as Uo, coreCheckboxDisabledProp as Ps, coreCheckboxIndeterminateProp as Yo, coreCheckboxVisibleProp as As, coreCheckboxModelValueProp as Hs, coreCheckboxValueProp as zs, coreCheckboxSetup as Rs, CoreCheckboxInstall as Bs, coreCollapseAccordionProp as Go, coreCollapseModelValueProp as Ko, coreCollapseSetup as Jo, coreCollapseItemIdProp as Qo, coreCollapseItemSetup as Xo, coreInlineCollapseModelValueProp as xo, coreCollapseInlineSetup as er, CoreCollapsesInstall as tr, coreDatePickerModelValueProp as nr, coreDatePickerDisabledProp as sr, coreDatePickerVisibleProp as or, coreDatePickerFirstDayOfWeekProp as rr, coreDatePickerSetup as ir, splitPlacement as Be, coreInputDisabledProp as lr, coreInputReadonlyProp as ar, coreInputTypeProp as cr, coreInputModelValueProp as ur, coreInputModelModifiersProp as dr, coreInputSetup as fr, coreAutocompleteDisabledProp as mr, coreAutocompleteItemsProp as hr, coreAutocompleteModelValueProp as pr, coreAutocompleteModelModifiersProp as yr, coreAutocompleteSetup as gr, CoreInputsInstall as vr, CoreDatePickersInstall as br, coreDialogVisibleProp as Zs, coreDialogSetup as Ws, coreDialogWrapper as wr, CoreDialogsInstall as qs, coreDropdownDisabledProp as $r, coreDropdownVisibleProp as Sr, coreDropdownSplitButtonProp as kr, coreDropdownHideOnClickProp as Ir, coreDropdownSetup as Cr, coreDropdownItemDisabledProp as Tr, coreDropdownItemLabelProp as Mr, coreDropdownItemSetup as Or, coreComponentAsProp as Dr, coreFloatingReferenceProp as Vr, coreFloatingVisibleProp as Er, coreFloatingMiddlewareProp as Lr, coreFloatingTransitionProp as Nr, coreFloatingPlacementProp as Ut, coreFloatingArrowReference as _r, coreFloatingSetup as Fr, CoreFloatingInstall as Pr, CoreDropdownsInstall as Ar, coreFragmentContainerActiveProp as Hr, coreFragmentContainerSetup as zr, CoreFragmentsInstall as Rr, coreNotificationVisibleProp as Br, coreNotificationSetup as Zr, coreNotificationWrapperNameProp as Wr, coreNotificationWrapperSetup as qr, NotificationManager as js, CoreNotificationsInstall as jr, corePaginatorModelValueProp as Ur, corePaginatorPageSizeProp as Yr, corePaginatorCountProp as Gr, corePaginatorDeltaProp as Kr, corePaginatorSetup as Jr, CorePaginatorsInstall as Qr, coreProgressBarValueProp as Xr, coreProgressBarMinimumProp as xr, coreProgressBarMaximumProp as ei, coreProgressBarSetup as ti, CoreProgressBarsInstall as ni, coreRadioButtonDisabledProp as si, coreRadioButtonModelValueProp as oi, coreRadioButtonValueProp as ri, coreRadioButtonSetup as ii, CoreRadioButtonsInstall as li, coreScrollContainerHorizontalProp as ai, coreScrollContainerVerticalProp as ci, coreScrollContainerAutoHideProp as ui, coreScrollContainerAutoHideDelayProp as di, coreScrollContainerMinimumSizeProp as fi, coreScrollContainerContainerClassesProp as mi, coreScrollContainerWrapperClassesProp as hi, coreScrollContainerSetup as pi, CoreScrollContainersInstall as yi, coreSelectDisabledProp as gi, coreSelectAllowClearProp as vi, coreSelectHideOnSelectProp as bi, coreSelectMultipleProp as wi, coreSelectModelValueProp as $i, coreSelectCompareProp as Si, coreSelectSetup as ki, coreSelectItemDisabledProp as Ii, coreSelectItemValueProp as Ci, coreSelectItemLabelProp as Ti, coreSelectItemSetup as Mi, coreSimpleSelectDisabledProp as Oi, coreSimpleSelectAllowClearProp as Di, coreSimpleSelectHideOnSelectProp as Vi, coreSimpleSelectMultipleProp as Ei, coreSimpleSelectModelValueProp as Li, coreSimpleSelectCompareProp as Ni, coreSimpleSelectItemsProp as _i, coreSimpleSelectSetup as Fi, CoreSelectsInstall as Pi, coreSliderModelValueProp as Ai, coreSliderDisabledProp as Hi, coreSliderMaximumProp as zi, coreSliderMinimumProp as Ri, coreSliderStepSizeProp as Bi, coreSliderSetup as Zi, CoreSlidersInstall as Wi, coreStepsNavigatorModelValueProp as qi, coreStepsNavigatorStepsProp as ji, coreStepsNavigatorSetup as Ui, CoreStepsInstall as Yi, coreTabItemIdProp as Gi, coreTabItemIdDisabledProp as Ki, coreTabItemSetup as Ji, coreTabsNavigatorModelValueProp as Qi, coreTabsNavigatorSetup as Xi, ArrayHelper as xi, CoreTabsInstall as el, CoreTableColumn as tl, CoreTableRow as nl, coreTableRowSetup as sl, coreTableDataProp as ol, coreTableRowKeyProp as rl, coreTableSelectableProp as il, coreTableSelectedRowsProp as ll, coreTableSortProp as al, coreTableSetup as cl, coreTableColumnPropertyProp as ul, coreTableColumnFormatterProp as dl, coreTableColumnSortableProp as fl, coreTableColumnOrderProp as ml, coreTableColumnSetup as hl, CoreTablesInstall as pl, coreTooltipModelValueProp as yl, coreTooltipTriggerProp as gl, coreTooltipShowDelayProp as vl, coreTooltipHideDelayProp as bl, coreTooltipSetup as wl, CoreTooltipsInstall as $l } from "@hyrioo/hyrnatic-ui-core";
+import { DialogManager as qh, NotificationManager as jh, coreFloatingArrowReference as Uh, createCoreStepItem as Yh } from "@hyrioo/hyrnatic-ui-core";
 const D = () => {
-  const e = Bt(), t = V(() => e ? e.type.name : null);
+  const e = Bt(), t = L(() => e ? e.type.name : null);
   return {
     css_root: t,
     css_ec: (s) => `${t.value}__${s}`
   };
 };
-var ha = "M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z", pa = "M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z", ya = "M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z", ga = "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z", va = "M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z", ba = "M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z", wa = "M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z", $a = "M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z", Sa = "M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z", ka = "M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z", Ia = "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z", Ca = "M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z", Ta = "M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z", Oa = "M19,13H5V11H19V13Z", Ma = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
+var Sl = "M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z", kl = "M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z", Il = "M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z", Cl = "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z", Tl = "M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z", Ml = "M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z", Ol = "M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z", Dl = "M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z", Vl = "M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z", El = "M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z", Ll = "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z", Nl = "M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z", _l = "M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z", Fl = "M19,13H5V11H19V13Z", Pl = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
 const $t = {};
-function Ys(e, t) {
+function Us(e, t) {
   $t[e] = t;
 }
-function Gs(e, t) {
+function Ys(e, t) {
   $t[e] = {
     viewBox: "0 0 24 24",
     width: 24,
@@ -21,38 +21,38 @@ function Gs(e, t) {
     data: `<path d="${t}" />`
   };
 }
-const be = {
-  register: Ys,
-  registerMDI: Gs,
+const ke = {
+  register: Us,
+  registerMDI: Ys,
   icons: $t
-}, Dh = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, zh = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: be,
+  default: ke,
   icons: $t,
-  register: Ys,
-  registerMDI: Gs
-}, Symbol.toStringTag, { value: "Module" })), x = {
-  arrowLeft: ha,
-  arrowRight: pa,
-  calendarMonth: ya,
-  check: ga,
-  chevronDoubleLeft: va,
-  chevronDoubleRight: ba,
-  chevronDown: wa,
-  chevronLeft: $a,
-  chevronRight: Sa,
-  chevronUp: ka,
-  close: Ia,
-  dotsHorizontal: Ca,
-  loading: Ta,
-  minus: Oa,
-  plus: Ma
+  register: Us,
+  registerMDI: Ys
+}, Symbol.toStringTag, { value: "Module" })), Q = {
+  arrowLeft: Sl,
+  arrowRight: kl,
+  calendarMonth: Il,
+  check: Cl,
+  chevronDoubleLeft: Tl,
+  chevronDoubleRight: Ml,
+  chevronDown: Ol,
+  chevronLeft: Dl,
+  chevronRight: Vl,
+  chevronUp: El,
+  close: Ll,
+  dotsHorizontal: Nl,
+  loading: _l,
+  minus: Fl,
+  plus: Pl
 };
-Object.keys(x).forEach((e) => {
+Object.keys(Q).forEach((e) => {
   const t = Fs.kebabize(e);
-  be.registerMDI(t, x[e]), x[e] = t;
+  ke.registerMDI(t, Q[e]), Q[e] = t;
 });
-const Da = O({
+const Al = O({
   name: "h-alert",
   props: {
     title: {
@@ -81,64 +81,64 @@ const Da = O({
   emits: ["close"],
   setup(e, t) {
     return {
-      Icons: x,
+      Icons: Q,
       onClose: () => {
         t.emit("close");
       },
       ...D()
     };
   }
-}), E = (e, t) => {
+}), V = (e, t) => {
   const n = e.__vccOpts || e;
   for (const [s, o] of t)
     n[s] = o;
   return n;
-}, Ea = { key: 1 };
-function La(e, t, n, s, o, i) {
+}, Hl = { key: 1 };
+function zl(e, t, n, s, o, i) {
   const r = v("h-icon");
-  return m(), S("div", {
+  return h(), $("div", {
     class: d([e.css_root, `-styling-${e.styling}`])
   }, [
-    e.icon ? (m(), S("div", {
+    e.icon ? (h(), $("div", {
       key: 0,
       class: d([e.css_ec("icon")])
     }, [
-      C(r, {
+      I(r, {
         icon: e.icon,
         size: e.description ? "24px" : "16px"
       }, null, 8, ["icon", "size"])
     ], 2)) : M("", !0),
-    g("div", {
+    y("div", {
       class: d([e.css_ec("container")])
     }, [
-      g("div", {
+      y("div", {
         class: d([e.css_ec("title")])
       }, N(e.title), 3),
-      e.description ? (m(), S("div", {
+      e.description ? (h(), $("div", {
         key: 0,
         class: d([e.css_ec("description")])
       }, N(e.description), 3)) : M("", !0)
     ], 2),
-    e.showCloseButton || e.closeText ? (m(), S("div", {
+    e.showCloseButton || e.closeText ? (h(), $("div", {
       key: 1,
       class: d([e.css_ec("close")]),
-      onClick: t[0] || (t[0] = (...a) => e.onClose && e.onClose(...a))
+      onClick: t[0] || (t[0] = (...l) => e.onClose && e.onClose(...l))
     }, [
-      e.showCloseButton ? (m(), I(r, {
+      e.showCloseButton ? (h(), C(r, {
         key: 0,
         icon: e.Icons.close,
         size: "16px"
-      }, null, 8, ["icon"])) : e.closeText ? (m(), S("span", Ea, N(e.closeText), 1)) : M("", !0)
+      }, null, 8, ["icon"])) : e.closeText ? (h(), $("span", Hl, N(e.closeText), 1)) : M("", !0)
     ], 2)) : M("", !0)
   ], 2);
 }
-const Va = /* @__PURE__ */ E(Da, [["render", La]]), Mn = "elementic-alerts", Na = {
-  Alert: Va
-}, _a = {}, Pa = {
+const Rl = /* @__PURE__ */ V(Al, [["render", zl]]), On = "elementic-alerts", Bl = {
+  Alert: Rl
+}, Zl = {}, Wl = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Mn) || (p.installDependencies(e, _a, t), p.installComponents(e, Na), p.markModuleAsInstalled(e, Mn));
+    p.isModuleInstalled(e, On) || (p.installDependencies(e, Zl, t), p.installComponents(e, Bl), p.markModuleAsInstalled(e, On));
   }
-}, Fa = /* @__PURE__ */ O({
+}, ql = /* @__PURE__ */ O({
   name: "h-button",
   emits: ["click"],
   props: {
@@ -175,7 +175,7 @@ const Va = /* @__PURE__ */ E(Da, [["render", La]]), Mn = "elementic-alerts", Na 
     }
   },
   setup(e, t) {
-    const n = D(), s = V(() => !t.slots.default && !e.label), o = (r) => ({
+    const n = D(), s = L(() => !t.slots.default && !e.label), o = (r) => ({
       class: [n.css_root.value, `-styling-${e.styling}`, `-color-${e.color}`, `-size-${e.size}`, {
         "-loading": r.loading,
         "-icon-only": s.value,
@@ -187,34 +187,34 @@ const Va = /* @__PURE__ */ E(Da, [["render", La]]), Mn = "elementic-alerts", Na 
       type: e.type
     }), i = jt().as("button", o).props(["disabled", "loading", "visible"]).events(["click"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       core: i,
       ...n
     };
   }
 });
-function Aa(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-button");
-  return K((m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $(() => [
-      g("span", {
+function jl(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-button");
+  return G((h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w(() => [
+      y("span", {
         class: d([e.css_ec("content")])
       }, [
-        e.icon ? (m(), I(r, {
+        e.icon ? (h(), C(r, {
           key: 0,
           class: d([e.css_ec("icon")]),
           icon: e.icon,
           size: "16px"
         }, null, 8, ["class", "icon"])) : M("", !0),
-        g("div", {
+        y("div", {
           class: d([e.css_ec("loading-container")])
         }, [
-          g("div", {
+          y("div", {
             class: d([e.css_ec("loading-spinner")])
           }, null, 2)
         ], 2),
         T(e.$slots, "default", {}, () => [
-          e.$slots.default || e.label ? (m(), S("span", {
+          e.$slots.default || e.label ? (h(), $("span", {
             key: 0,
             class: d([e.css_ec("text")])
           }, N(e.label), 3)) : M("", !0)
@@ -223,10 +223,10 @@ function Aa(e, t, n, s, o, i) {
     ]),
     _: 3
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const Ha = /* @__PURE__ */ E(Fa, [["render", Aa]]), za = O({
+const Ul = /* @__PURE__ */ V(ql, [["render", jl]]), Yl = O({
   name: "h-icon-button",
   props: {
     ...Zt,
@@ -262,7 +262,7 @@ const Ha = /* @__PURE__ */ E(Fa, [["render", Aa]]), za = O({
   },
   emits: ["click"],
   setup(e, t) {
-    const n = D(), s = V(() => ({
+    const n = D(), s = L(() => ({
       small: "12px",
       normal: "16px",
       large: "24px"
@@ -273,29 +273,29 @@ const Ha = /* @__PURE__ */ E(Fa, [["render", Aa]]), za = O({
       type: e.type
     }), i = jt().as("button", o).props(["disabled", "loading", "visible"]).events(["click"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       core: i,
       iconSize: s,
       ...D()
     };
   }
 });
-function Ra(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-button");
-  return K((m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $(() => [
-      g("span", {
+function Gl(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-button");
+  return G((h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w(() => [
+      y("span", {
         class: d([e.css_ec("content")])
       }, [
-        C(r, _({
+        I(r, F({
           class: [e.css_ec("icon")],
           icon: e.icon,
           size: e.iconSize
         }, e.iconOptions), null, 16, ["class", "icon", "size"]),
-        g("div", {
+        y("div", {
           class: d([e.css_ec("loading-container")])
         }, [
-          g("div", {
+          y("div", {
             class: d([e.css_ec("loading-spinner")])
           }, null, 2)
         ], 2)
@@ -303,10 +303,10 @@ function Ra(e, t, n, s, o, i) {
     ]),
     _: 1
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const Ba = /* @__PURE__ */ E(za, [["render", Ra]]), Za = /* @__PURE__ */ O({
+const Kl = /* @__PURE__ */ V(Yl, [["render", Gl]]), Jl = /* @__PURE__ */ O({
   name: "h-link-button",
   props: {
     ...Zt,
@@ -340,35 +340,35 @@ const Ba = /* @__PURE__ */ E(za, [["render", Ra]]), Za = /* @__PURE__ */ O({
       type: e.type
     }), o = jt().as("button", s).props(["disabled", "loading", "visible"]).events(["click"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       core: o,
       ...n
     };
   }
 });
-function Wa(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-button");
-  return K((m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $(() => [
-      C(r, {
+function Ql(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-button");
+  return G((h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w(() => [
+      I(r, {
         class: d([e.css_ec("loading-icon")]),
         icon: e.Icons.loading,
         size: "16px"
       }, null, 8, ["class", "icon"]),
-      g("span", {
+      y("span", {
         class: d([e.css_ec("text")])
       }, [
         T(e.$slots, "default", {}, () => [
-          se(N(e.label), 1)
+          ee(N(e.label), 1)
         ])
       ], 2)
     ]),
     _: 3
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const qa = /* @__PURE__ */ E(Za, [["render", Wa]]), ja = O({
+const Xl = /* @__PURE__ */ V(Jl, [["render", Ql]]), xl = O({
   name: "h-icon",
   props: {
     icon: {
@@ -400,64 +400,64 @@ const qa = /* @__PURE__ */ E(Za, [["render", Wa]]), ja = O({
   },
   setup(e, t) {
     const n = (c) => c === null ? "none" : c, s = (c) => {
-      const u = /(\w*)="(.*?)"/gi, h = /([^:]+?):([^;]+);?/gi;
-      return c.replace(u, (f, y, w) => y === "fill" || y === "stroke" ? "" : y === "style" ? (w = w.replace(h, (z, R) => R === "fill" || R === "stroke" ? "" : z), w.length !== 0 ? `${y}="${w}"` : "") : f);
-    }, o = (c, u, h) => Array.isArray(u) ? u.length - 1 >= h ? `${c}="${n(u[h])}"` : "" : `${c}="${n(u)}"`, i = (c, u, h) => {
-      const f = /<(path|rect|circle|polygon|line|polyline|ellipse).*?>/gi;
-      let y = 0;
-      return c.replace(f, (w, z) => {
-        const R = o("fill", h, y), Q = o("stroke", u, y);
-        let G = s(w);
-        return G = `<${z} ${R} ${Q} ${G.substr(z.length + 1)}`, y++, G;
+      const u = /(\w*)="(.*?)"/gi, f = /([^:]+?):([^;]+);?/gi;
+      return c.replace(u, (m, g, S) => g === "fill" || g === "stroke" ? "" : g === "style" ? (S = S.replace(f, (Z, W) => W === "fill" || W === "stroke" ? "" : Z), S.length !== 0 ? `${g}="${S}"` : "") : m);
+    }, o = (c, u, f) => Array.isArray(u) ? u.length - 1 >= f ? `${c}="${n(u[f])}"` : "" : `${c}="${n(u)}"`, i = (c, u, f) => {
+      const m = /<(path|rect|circle|polygon|line|polyline|ellipse).*?>/gi;
+      let g = 0;
+      return c.replace(m, (S, Z) => {
+        const W = o("fill", f, g), J = o("stroke", u, g);
+        let X = s(S);
+        return X = `<${Z} ${W} ${J} ${X.substr(Z.length + 1)}`, g++, X;
       });
-    }, r = V(() => {
+    }, r = L(() => {
       const c = e.strokes ? e.strokes : [], u = e.fills ? e.fills : [];
-      return i(be.icons[e.icon].data, c, u);
-    }), a = V(() => be.icons[e.icon] ? be.icons[e.icon].viewBox : (console.warn(`No icon has been registered with the key "${e.icon}"`), "")), l = V(() => {
+      return i(ke.icons[e.icon].data, c, u);
+    }), l = L(() => ke.icons[e.icon] ? ke.icons[e.icon].viewBox : (console.warn(`No icon has been registered with the key "${e.icon}"`), "")), a = L(() => {
       const c = {};
-      return c.width = e.width || e.size || be.icons[e.icon].width, c.height = e.height || e.size || be.icons[e.icon].height, isFinite(c.width) && (c.width = `${c.width}px`), isFinite(c.height) && (c.height = `${c.height}px`), c;
+      return c.width = e.width || e.size || ke.icons[e.icon].width, c.height = e.height || e.size || ke.icons[e.icon].height, isFinite(c.width) && (c.width = `${c.width}px`), isFinite(c.height) && (c.height = `${c.height}px`), c;
     });
     return {
       content: r,
-      viewBox: a,
-      style: l,
+      viewBox: l,
+      style: a,
       ...D()
     };
   }
-}), Ua = ["viewBox", "innerHTML"];
-function Ya(e, t, n, s, o, i) {
-  return m(), S("svg", {
+}), ea = ["viewBox", "innerHTML"];
+function ta(e, t, n, s, o, i) {
+  return h(), $("svg", {
     class: d([e.css_root, { "-spin": e.spin }]),
     viewBox: e.viewBox,
-    style: W(e.style),
+    style: z(e.style),
     innerHTML: e.content
-  }, null, 14, Ua);
+  }, null, 14, ea);
 }
-const Ga = /* @__PURE__ */ E(ja, [["render", Ya]]), Dn = "elementic-icons", Ka = {
-  Icon: Ga
+const na = /* @__PURE__ */ V(xl, [["render", ta]]), Dn = "elementic-icons", sa = {
+  Icon: na
 }, Yt = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Dn) || (p.installComponents(e, Ka), p.markModuleAsInstalled(e, Dn));
+    p.isModuleInstalled(e, Dn) || (p.installComponents(e, sa), p.markModuleAsInstalled(e, Dn));
   }
-}, En = "elementic-buttons", Ja = {
-  Button: Ha,
-  IconButton: Ba,
-  LinkButton: qa
-}, Qa = {
+}, Vn = "elementic-buttons", oa = {
+  Button: Ul,
+  IconButton: Kl,
+  LinkButton: Xl
+}, ra = {
   CoreButtonsInstall: Uo,
   IconInstall: Yt
-}, Xa = {
+}, ia = {
   install: (e, t) => {
-    p.isModuleInstalled(e, En) || (p.installDependencies(e, Qa, t), p.installComponents(e, Ja), p.markModuleAsInstalled(e, En));
+    p.isModuleInstalled(e, Vn) || (p.installDependencies(e, ra, t), p.installComponents(e, oa), p.markModuleAsInstalled(e, Vn));
   }
-}, xa = O({
+}, la = O({
   name: "h-checkbox",
   props: {
-    ...As,
+    ...Ps,
     ...Yo,
+    ...As,
     ...Hs,
     ...zs,
-    ...Rs,
     label: {
       type: String,
       default: null
@@ -477,9 +477,9 @@ const Ga = /* @__PURE__ */ E(ja, [["render", Ya]]), Dn = "elementic-icons", Ka =
         "-indeterminate": r.indeterminate,
         "-disabled": r.disabled
       }]
-    }), i = Bs().as("label", o).props(["modelValue", "value", "indeterminate", "disabled", "visible"]).events(["update:modelValue"]).build();
+    }), i = Rs().as("label", o).props(["modelValue", "value", "indeterminate", "disabled", "visible"]).events(["update:modelValue"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       CheckboxIcons: dt,
       asProps: o,
       core: i,
@@ -487,73 +487,73 @@ const Ga = /* @__PURE__ */ E(ja, [["render", Ya]]), Dn = "elementic-icons", Ka =
       ...n
     };
   }
-}), el = ["checked", "disabled", "onChange"];
-function tl(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-checkbox");
-  return K((m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
-      g("span", {
+}), aa = ["checked", "disabled", "onChange"];
+function ca(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-checkbox");
+  return G((h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
+      y("span", {
         class: d([e.css_ec("container")])
       }, [
-        g("input", {
+        y("input", {
           class: d([e.css_ec("input")]),
-          checked: l.state,
+          checked: a.state,
           type: "checkbox",
-          disabled: l.disabled,
-          onChange: l.onChange,
+          disabled: a.disabled,
+          onChange: a.onChange,
           onFocus: t[0] || (t[0] = (c) => e.hasFocus = !0),
           onBlur: t[1] || (t[1] = (c) => e.hasFocus = !1)
-        }, null, 42, el),
-        K(C(r, {
+        }, null, 42, aa),
+        G(I(r, {
           class: d([e.css_ec("check-icon")]),
           icon: e.CheckboxIcons.checkStroke,
           size: "10px",
           fills: null
         }, null, 8, ["class", "icon"]), [
-          [J, !l.indeterminate]
+          [K, !a.indeterminate]
         ]),
-        K(C(r, {
+        G(I(r, {
           class: d([e.css_ec("indeterminate-icon")]),
           icon: e.Icons.minus,
           size: "10px",
           fills: null
         }, null, 8, ["class", "icon"]), [
-          [J, l.indeterminate]
+          [K, a.indeterminate]
         ])
       ], 2),
-      e.$slots.default || e.label ? (m(), S("span", {
+      e.$slots.default || e.label ? (h(), $("span", {
         key: 0,
         class: d([e.css_ec("label")])
       }, [
         T(e.$slots, "default", {}, () => [
-          se(N(e.label), 1)
+          ee(N(e.label), 1)
         ])
       ], 2)) : M("", !0)
     ]),
     _: 3
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const nl = /* @__PURE__ */ E(xa, [["render", tl]]), sl = {
+const ua = /* @__PURE__ */ V(la, [["render", ca]]), da = {
   width: 24,
   height: 24,
   viewBox: "0 0 24 24",
   data: '<polyline points="4.2,12.8 9,17.6 20.3,6.3 "/>'
-}, Ln = "elementic-checkboxes", ol = {
-  Checkbox: nl
-}, rl = {
-  CoreCheckboxInstall: Zs
+}, En = "elementic-checkboxes", fa = {
+  Checkbox: ua
+}, ma = {
+  CoreCheckboxInstall: Bs
 }, dt = {
-  checkStroke: sl
-}, Ks = {
+  checkStroke: da
+}, Gs = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Ln) || (p.installDependencies(e, rl, t), p.installComponents(e, ol), Object.keys(dt).forEach((n) => {
+    p.isModuleInstalled(e, En) || (p.installDependencies(e, ma, t), p.installComponents(e, fa), Object.keys(dt).forEach((n) => {
       const s = Fs.kebabize(n);
-      be.register(s, dt[n]), dt[n] = s;
-    }), p.markModuleAsInstalled(e, Ln));
+      ke.register(s, dt[n]), dt[n] = s;
+    }), p.markModuleAsInstalled(e, En));
   }
-}, il = O({
+}, ha = O({
   name: "h-collapse",
   props: {
     ...Go,
@@ -569,16 +569,16 @@ const nl = /* @__PURE__ */ E(xa, [["render", tl]]), sl = {
     };
   }
 });
-function al(e, t, n, s, o, i) {
+function pa(e, t, n, s, o, i) {
   const r = v("hr-collapse");
-  return m(), I(r, _(e.core.props, A(e.core.listeners)), {
-    default: $(() => [
+  return h(), C(r, F(e.core.props, P(e.core.listeners)), {
+    default: w(() => [
       T(e.$slots, "default")
     ]),
     _: 3
   }, 16);
 }
-const ll = /* @__PURE__ */ E(il, [["render", al]]), cl = O({
+const ya = /* @__PURE__ */ V(ha, [["render", pa]]), ga = O({
   name: "h-collapse-item",
   props: {
     ...Qo,
@@ -593,37 +593,37 @@ const ll = /* @__PURE__ */ E(il, [["render", al]]), cl = O({
       }]
     }), o = Xo().as("div", s).props(["id"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       core: o,
       ...n
     };
   }
-}), ul = ["onClick", "onKeydown"];
-function dl(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("h-grow-transition"), l = v("hr-collapse-item");
-  return m(), I(l, _(e.core.props, A(e.core.listeners)), {
-    default: $((c) => [
-      g("div", {
+}), va = ["onClick", "onKeydown"];
+function ba(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-grow-transition"), a = v("hr-collapse-item");
+  return h(), C(a, F(e.core.props, P(e.core.listeners)), {
+    default: w((c) => [
+      y("div", {
         tabindex: "0",
         class: d([e.css_ec("header")]),
         onClick: c.onClick,
-        onKeydown: Vs(c.onClick, ["enter"])
+        onKeydown: Es(c.onClick, ["enter"])
       }, [
         T(e.$slots, "header", {}, () => [
-          g("span", {
+          y("span", {
             class: d([e.css_ec("header-text")])
           }, N(e.header), 3)
         ]),
-        g("div", {
+        y("div", {
           class: d([e.css_ec("expand-icon")])
         }, [
-          C(pe, { name: "fade-medium" }, {
-            default: $(() => [
-              c.expanded ? (m(), I(r, {
+          I(pe, { name: "fade-medium" }, {
+            default: w(() => [
+              c.expanded ? (h(), C(r, {
                 key: "contract",
                 icon: e.Icons.minus,
                 size: "16px"
-              }, null, 8, ["icon"])) : (m(), I(r, {
+              }, null, 8, ["icon"])) : (h(), C(r, {
                 key: "expand",
                 icon: e.Icons.plus,
                 size: "16px"
@@ -632,19 +632,19 @@ function dl(e, t, n, s, o, i) {
             _: 2
           }, 1024)
         ], 2)
-      ], 42, ul),
-      C(a, null, {
-        default: $(() => [
-          K(g("div", {
+      ], 42, va),
+      I(l, null, {
+        default: w(() => [
+          G(y("div", {
             class: d([e.css_ec("expanded-content")])
           }, [
-            g("div", {
+            y("div", {
               class: d([e.css_ec("expanded-content-inner")])
             }, [
               T(e.$slots, "default")
             ], 2)
           ], 2), [
-            [J, c.expanded]
+            [K, c.expanded]
           ])
         ]),
         _: 2
@@ -653,7 +653,7 @@ function dl(e, t, n, s, o, i) {
     _: 3
   }, 16);
 }
-const fl = /* @__PURE__ */ E(cl, [["render", dl]]), ml = O({
+const wa = /* @__PURE__ */ V(ga, [["render", ba]]), $a = O({
   name: "h-inline-collapse",
   props: {
     ...xo,
@@ -684,39 +684,39 @@ const fl = /* @__PURE__ */ E(cl, [["render", dl]]), ml = O({
       ...n
     };
   }
-}), hl = ["onClick", "onKeydown"];
-function pl(e, t, n, s, o, i) {
+}), Sa = ["onClick", "onKeydown"];
+function ka(e, t, n, s, o, i) {
   const r = v("hr-inline-collapse");
-  return m(), I(r, _(e.core.props, A(e.core.listeners)), {
-    default: $((a) => [
-      g("div", {
+  return h(), C(r, F(e.core.props, P(e.core.listeners)), {
+    default: w((l) => [
+      y("div", {
         tabindex: "0",
         class: d([e.css_ec("toggle-line"), `-align-${e.textAlign}`]),
-        onClick: a.onClick,
-        onKeydown: Vs(a.onClick, ["enter"])
+        onClick: l.onClick,
+        onKeydown: Es(l.onClick, ["enter"])
       }, [
-        g("div", {
+        y("div", {
           class: d([e.css_ec("left-filler")])
         }, null, 2),
-        g("div", {
+        y("div", {
           class: d([e.css_ec("toggle-text")])
-        }, N(a.expanded ? e.collapseText : e.expandText), 3),
-        g("div", {
+        }, N(l.expanded ? e.collapseText : e.expandText), 3),
+        y("div", {
           class: d([e.css_ec("right-filler")])
         }, null, 2)
-      ], 42, hl),
-      (m(), I(Ns(e.animate ? "h-grow-transition" : "div"), null, {
-        default: $(() => [
-          K(g("div", {
+      ], 42, Sa),
+      (h(), C(Ls(e.animate ? "h-grow-transition" : "div"), null, {
+        default: w(() => [
+          G(y("div", {
             class: d([e.css_ec("expanded-content")])
           }, [
-            g("div", {
+            y("div", {
               class: d([e.css_ec("expanded-content-inner")])
             }, [
               T(e.$slots, "default")
             ], 2)
           ], 2), [
-            [J, a.expanded]
+            [K, l.expanded]
           ])
         ]),
         _: 2
@@ -725,24 +725,24 @@ function pl(e, t, n, s, o, i) {
     _: 3
   }, 16);
 }
-const yl = /* @__PURE__ */ E(ml, [["render", pl]]), gl = O({
+const Ia = /* @__PURE__ */ V($a, [["render", ka]]), Ca = O({
   name: "h-grow-transition",
   setup(e, t) {
     return {
       beforeEnter: (r) => {
-        const a = r.getBoundingClientRect();
-        r.style.removeProperty("display"), r.style.removeProperty("height");
         const l = r.getBoundingClientRect();
-        r.style.height = `${a.height}px`, setTimeout(() => {
-          r.style.height = `${l.height}px`;
+        r.style.removeProperty("display"), r.style.removeProperty("height");
+        const a = r.getBoundingClientRect();
+        r.style.height = `${l.height}px`, setTimeout(() => {
+          r.style.height = `${a.height}px`;
         }, 10);
       },
       afterEnter: (r) => {
         r.style.removeProperty("height");
       },
       beforeLeave: (r) => {
-        const a = r.getBoundingClientRect();
-        r.style.height = `${a.height}px`, setTimeout(() => {
+        const l = r.getBoundingClientRect();
+        r.style.height = `${l.height}px`, setTimeout(() => {
           r.style.height = "0px";
         }, 10);
       },
@@ -752,91 +752,91 @@ const yl = /* @__PURE__ */ E(ml, [["render", pl]]), gl = O({
     };
   }
 });
-function vl(e, t, n, s, o, i) {
-  return m(), I(pe, {
+function Ta(e, t, n, s, o, i) {
+  return h(), C(pe, {
     name: "grow",
     onBeforeEnter: e.beforeEnter,
     onAfterEnter: e.afterEnter,
     onBeforeLeave: e.beforeLeave,
     onAfterLeave: e.afterLeave
   }, {
-    default: $(() => [
+    default: w(() => [
       T(e.$slots, "default", {}, void 0, !0)
     ]),
     _: 3
   }, 8, ["onBeforeEnter", "onAfterEnter", "onBeforeLeave", "onAfterLeave"]);
 }
-const bl = /* @__PURE__ */ E(gl, [["render", vl], ["__scopeId", "data-v-7765f9ec"]]), Vn = "elementic-transitions", wl = {
-  Grow: bl
-}, $l = {
+const Ma = /* @__PURE__ */ V(Ca, [["render", Ta], ["__scopeId", "data-v-7765f9ec"]]), Ln = "elementic-transitions", Oa = {
+  Grow: Ma
+}, Da = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Vn) || (p.installComponents(e, wl), p.markModuleAsInstalled(e, Vn));
+    p.isModuleInstalled(e, Ln) || (p.installComponents(e, Oa), p.markModuleAsInstalled(e, Ln));
   }
-}, Nn = "elementic-collapses", Sl = {
-  Collapse: ll,
-  CollapseItem: fl,
-  InlineCollapse: yl
-}, kl = {
+}, Nn = "elementic-collapses", Va = {
+  Collapse: ya,
+  CollapseItem: wa,
+  InlineCollapse: Ia
+}, Ea = {
   CoreCollapsesInstall: tr,
-  TransitionsInstall: $l
-}, Il = {
+  TransitionsInstall: Da
+}, La = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Nn) || (p.installDependencies(e, kl, t), p.installComponents(e, Sl), p.markModuleAsInstalled(e, Nn));
+    p.isModuleInstalled(e, Nn) || (p.installDependencies(e, Ea, t), p.installComponents(e, Va), p.markModuleAsInstalled(e, Nn));
   }
 };
-class Ee extends Error {
+class Le extends Error {
 }
-class Cl extends Ee {
+class Na extends Le {
   constructor(t) {
     super(`Invalid DateTime: ${t.toMessage()}`);
   }
 }
-class Tl extends Ee {
+class _a extends Le {
   constructor(t) {
     super(`Invalid Interval: ${t.toMessage()}`);
   }
 }
-class Ol extends Ee {
+class Fa extends Le {
   constructor(t) {
     super(`Invalid Duration: ${t.toMessage()}`);
   }
 }
-class xe extends Ee {
+class xe extends Le {
 }
-class Js extends Ee {
+class Ks extends Le {
   constructor(t) {
     super(`Invalid unit ${t}`);
   }
 }
-class le extends Ee {
+class de extends Le {
 }
-class Se extends Ee {
+class Te extends Le {
   constructor() {
     super("Zone is an abstract class");
   }
 }
-const b = "numeric", ye = "short", re = "long", pt = {
+const b = "numeric", be = "short", ae = "long", pt = {
   year: b,
   month: b,
   day: b
 }, Gt = {
   year: b,
-  month: ye,
+  month: be,
   day: b
-}, Qs = {
+}, Js = {
   year: b,
-  month: ye,
+  month: be,
   day: b,
-  weekday: ye
+  weekday: be
 }, Kt = {
   year: b,
-  month: re,
+  month: ae,
   day: b
 }, Jt = {
   year: b,
-  month: re,
+  month: ae,
   day: b,
-  weekday: re
+  weekday: ae
 }, Qt = {
   hour: b,
   minute: b
@@ -848,12 +848,12 @@ const b = "numeric", ye = "short", re = "long", pt = {
   hour: b,
   minute: b,
   second: b,
-  timeZoneName: ye
+  timeZoneName: be
 }, en = {
   hour: b,
   minute: b,
   second: b,
-  timeZoneName: re
+  timeZoneName: ae
 }, tn = {
   hour: b,
   minute: b,
@@ -868,95 +868,95 @@ const b = "numeric", ye = "short", re = "long", pt = {
   minute: b,
   second: b,
   hour12: !1,
-  timeZoneName: ye
+  timeZoneName: be
 }, on = {
   hour: b,
   minute: b,
   second: b,
   hour12: !1,
-  timeZoneName: re
+  timeZoneName: ae
 }, rn = {
   year: b,
   month: b,
   day: b,
   hour: b,
   minute: b
-}, an = {
+}, ln = {
   year: b,
   month: b,
   day: b,
   hour: b,
   minute: b,
   second: b
-}, ln = {
+}, an = {
   year: b,
-  month: ye,
+  month: be,
   day: b,
   hour: b,
   minute: b
 }, cn = {
   year: b,
-  month: ye,
+  month: be,
   day: b,
   hour: b,
   minute: b,
   second: b
-}, Xs = {
+}, Qs = {
   year: b,
-  month: ye,
+  month: be,
   day: b,
-  weekday: ye,
+  weekday: be,
   hour: b,
   minute: b
 }, un = {
   year: b,
-  month: re,
+  month: ae,
   day: b,
   hour: b,
   minute: b,
-  timeZoneName: ye
+  timeZoneName: be
 }, dn = {
   year: b,
-  month: re,
+  month: ae,
   day: b,
   hour: b,
   minute: b,
   second: b,
-  timeZoneName: ye
+  timeZoneName: be
 }, fn = {
   year: b,
-  month: re,
+  month: ae,
   day: b,
-  weekday: re,
+  weekday: ae,
   hour: b,
   minute: b,
-  timeZoneName: re
+  timeZoneName: ae
 }, mn = {
   year: b,
-  month: re,
+  month: ae,
   day: b,
-  weekday: re,
+  weekday: ae,
   hour: b,
   minute: b,
   second: b,
-  timeZoneName: re
+  timeZoneName: ae
 };
-function F(e) {
+function A(e) {
   return typeof e > "u";
 }
-function De(e) {
+function Ee(e) {
   return typeof e == "number";
 }
 function St(e) {
   return typeof e == "number" && e % 1 === 0;
 }
-function Ml(e) {
+function Pa(e) {
   return typeof e == "string";
 }
-function Dl(e) {
+function Aa(e) {
   return Object.prototype.toString.call(e) === "[object Date]";
 }
-function ve() {
+function $e() {
   try {
     return typeof Intl < "u" && Intl.DateTimeFormat;
   } catch {
@@ -964,16 +964,16 @@ function ve() {
   }
 }
 function ot() {
-  return !F(Intl.DateTimeFormat.prototype.formatToParts);
+  return !A(Intl.DateTimeFormat.prototype.formatToParts);
 }
-function xs() {
+function Xs() {
   try {
     return typeof Intl < "u" && !!Intl.RelativeTimeFormat;
   } catch {
     return !1;
   }
 }
-function El(e) {
+function Ha(e) {
   return Array.isArray(e) ? e : [e];
 }
 function _n(e, t, n) {
@@ -983,16 +983,16 @@ function _n(e, t, n) {
       return s && n(s[0], i[0]) === s[0] ? s : i;
     }, null)[1];
 }
-function eo(e, t) {
+function xs(e, t) {
   return t.reduce((n, s) => (n[s] = e[s], n), {});
 }
 function qe(e, t) {
   return Object.prototype.hasOwnProperty.call(e, t);
 }
-function we(e, t, n) {
+function Ie(e, t, n) {
   return St(e) && e >= t && e <= n;
 }
-function Ll(e, t) {
+function za(e, t) {
   return e - t * Math.floor(e / t);
 }
 function Ze(e, t = 2) {
@@ -1000,12 +1000,12 @@ function Ze(e, t = 2) {
   let o;
   return s.toString().length < t ? o = ("0".repeat(t) + s).slice(-t) : o = s.toString(), `${n}${o}`;
 }
-function te(e) {
-  if (!(F(e) || e === null || e === ""))
+function se(e) {
+  if (!(A(e) || e === null || e === ""))
     return parseInt(e, 10);
 }
 function hn(e) {
-  if (!(F(e) || e === null || e === "")) {
+  if (!(A(e) || e === null || e === "")) {
     const t = parseFloat("0." + e) * 1e3;
     return Math.floor(t);
   }
@@ -1021,7 +1021,7 @@ function nt(e) {
   return rt(e) ? 366 : 365;
 }
 function yt(e, t) {
-  const n = Ll(t - 1, 12) + 1, s = e + (t - n) / 12;
+  const n = za(t - 1, 12) + 1, s = e + (t - n) / 12;
   return n === 2 ? rt(s) ? 29 : 28 : [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][n - 1];
 }
 function yn(e) {
@@ -1040,10 +1040,10 @@ function gt(e) {
   const t = (e + Math.floor(e / 4) - Math.floor(e / 100) + Math.floor(e / 400)) % 7, n = e - 1, s = (n + Math.floor(n / 4) - Math.floor(n / 100) + Math.floor(n / 400)) % 7;
   return t === 4 || s === 3 ? 53 : 52;
 }
-function Pt(e) {
+function Ft(e) {
   return e > 99 ? e : e > 60 ? 1900 + e : 2e3 + e;
 }
-function to(e, t, n, s = null) {
+function eo(e, t, n, s = null) {
   const o = new Date(e), i = {
     hour12: !1,
     year: "numeric",
@@ -1053,13 +1053,13 @@ function to(e, t, n, s = null) {
     minute: "2-digit"
   };
   s && (i.timeZone = s);
-  const r = Object.assign({ timeZoneName: t }, i), a = ve();
-  if (a && ot()) {
-    const l = new Intl.DateTimeFormat(n, r).formatToParts(o).find((c) => c.type.toLowerCase() === "timezonename");
-    return l ? l.value : null;
-  } else if (a) {
-    const l = new Intl.DateTimeFormat(n, i).format(o);
-    return new Intl.DateTimeFormat(n, r).format(o).substring(l.length).replace(/^[, \u200e]+/, "");
+  const r = Object.assign({ timeZoneName: t }, i), l = $e();
+  if (l && ot()) {
+    const a = new Intl.DateTimeFormat(n, r).formatToParts(o).find((c) => c.type.toLowerCase() === "timezonename");
+    return a ? a.value : null;
+  } else if (l) {
+    const a = new Intl.DateTimeFormat(n, i).format(o);
+    return new Intl.DateTimeFormat(n, r).format(o).substring(a.length).replace(/^[, \u200e]+/, "");
   } else
     return null;
 }
@@ -1069,10 +1069,10 @@ function kt(e, t) {
   const s = parseInt(t, 10) || 0, o = n < 0 || Object.is(n, -0) ? -s : s;
   return n * 60 + o;
 }
-function no(e) {
+function to(e) {
   const t = Number(e);
   if (typeof e == "boolean" || e === "" || Number.isNaN(t))
-    throw new le(`Invalid unit value ${e}`);
+    throw new de(`Invalid unit value ${e}`);
   return t;
 }
 function vt(e, t, n) {
@@ -1084,7 +1084,7 @@ function vt(e, t, n) {
       const i = e[o];
       if (i == null)
         continue;
-      s[t(o)] = no(i);
+      s[t(o)] = to(i);
     }
   return s;
 }
@@ -1102,13 +1102,13 @@ function bt(e, t) {
   }
 }
 function It(e) {
-  return eo(e, ["hour", "minute", "second", "millisecond"]);
+  return xs(e, ["hour", "minute", "second", "millisecond"]);
 }
-const so = /[A-Za-z_+-]{1,256}(:?\/[A-Za-z_+-]{1,256}(\/[A-Za-z_+-]{1,256})?)?/;
+const no = /[A-Za-z_+-]{1,256}(:?\/[A-Za-z_+-]{1,256}(\/[A-Za-z_+-]{1,256})?)?/;
 function q(e) {
   return JSON.stringify(e, Object.keys(e).sort());
 }
-const Vl = [
+const Ra = [
   "January",
   "February",
   "March",
@@ -1121,7 +1121,7 @@ const Vl = [
   "October",
   "November",
   "December"
-], oo = [
+], so = [
   "Jan",
   "Feb",
   "Mar",
@@ -1134,15 +1134,15 @@ const Vl = [
   "Oct",
   "Nov",
   "Dec"
-], Nl = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
-function ro(e) {
+], Ba = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+function oo(e) {
   switch (e) {
     case "narrow":
-      return [...Nl];
+      return [...Ba];
     case "short":
-      return [...oo];
+      return [...so];
     case "long":
-      return [...Vl];
+      return [...Ra];
     case "numeric":
       return ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
     case "2-digit":
@@ -1151,7 +1151,7 @@ function ro(e) {
       return null;
   }
 }
-const io = [
+const ro = [
   "Monday",
   "Tuesday",
   "Wednesday",
@@ -1159,47 +1159,47 @@ const io = [
   "Friday",
   "Saturday",
   "Sunday"
-], ao = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], _l = ["M", "T", "W", "T", "F", "S", "S"];
+], io = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], Za = ["M", "T", "W", "T", "F", "S", "S"];
 function lo(e) {
   switch (e) {
     case "narrow":
-      return [..._l];
+      return [...Za];
     case "short":
-      return [...ao];
-    case "long":
       return [...io];
+    case "long":
+      return [...ro];
     case "numeric":
       return ["1", "2", "3", "4", "5", "6", "7"];
     default:
       return null;
   }
 }
-const co = ["AM", "PM"], Pl = ["Before Christ", "Anno Domini"], Fl = ["BC", "AD"], Al = ["B", "A"];
-function uo(e) {
+const ao = ["AM", "PM"], Wa = ["Before Christ", "Anno Domini"], qa = ["BC", "AD"], ja = ["B", "A"];
+function co(e) {
   switch (e) {
     case "narrow":
-      return [...Al];
+      return [...ja];
     case "short":
-      return [...Fl];
+      return [...qa];
     case "long":
-      return [...Pl];
+      return [...Wa];
     default:
       return null;
   }
 }
-function Hl(e) {
-  return co[e.hour < 12 ? 0 : 1];
+function Ua(e) {
+  return ao[e.hour < 12 ? 0 : 1];
 }
-function zl(e, t) {
+function Ya(e, t) {
   return lo(t)[e.weekday - 1];
 }
-function Rl(e, t) {
-  return ro(t)[e.month - 1];
+function Ga(e, t) {
+  return oo(t)[e.month - 1];
 }
-function Bl(e, t) {
-  return uo(t)[e.year < 0 ? 0 : 1];
+function Ka(e, t) {
+  return co(t)[e.year < 0 ? 0 : 1];
 }
-function Zl(e, t, n = "always", s = !1) {
+function Ja(e, t, n = "always", s = !1) {
   const o = {
     years: ["year", "yr."],
     quarters: ["quarter", "qtr."],
@@ -1211,21 +1211,21 @@ function Zl(e, t, n = "always", s = !1) {
     seconds: ["second", "sec."]
   }, i = ["hours", "minutes", "seconds"].indexOf(e) === -1;
   if (n === "auto" && i) {
-    const h = e === "days";
+    const f = e === "days";
     switch (t) {
       case 1:
-        return h ? "tomorrow" : `next ${o[e][0]}`;
+        return f ? "tomorrow" : `next ${o[e][0]}`;
       case -1:
-        return h ? "yesterday" : `last ${o[e][0]}`;
+        return f ? "yesterday" : `last ${o[e][0]}`;
       case 0:
-        return h ? "today" : `this ${o[e][0]}`;
+        return f ? "today" : `this ${o[e][0]}`;
     }
   }
-  const r = Object.is(t, -0) || t < 0, a = Math.abs(t), l = a === 1, c = o[e], u = s ? l ? c[1] : c[2] || c[1] : l ? o[e][0] : e;
-  return r ? `${a} ${u} ago` : `in ${a} ${u}`;
+  const r = Object.is(t, -0) || t < 0, l = Math.abs(t), a = l === 1, c = o[e], u = s ? a ? c[1] : c[2] || c[1] : a ? o[e][0] : e;
+  return r ? `${l} ${u} ago` : `in ${l} ${u}`;
 }
-function Wl(e) {
-  const t = eo(e, [
+function Qa(e) {
+  const t = xs(e, [
     "weekday",
     "era",
     "year",
@@ -1242,7 +1242,7 @@ function Wl(e) {
       return "M/d/yyyy";
     case q(Gt):
       return "LLL d, yyyy";
-    case q(Qs):
+    case q(Js):
       return "EEE, LLL d, yyyy";
     case q(Kt):
       return "LLLL d, yyyy";
@@ -1266,17 +1266,17 @@ function Wl(e) {
       return "HH:mm";
     case q(rn):
       return "M/d/yyyy, h:mm a";
-    case q(ln):
+    case q(an):
       return "LLL d, yyyy, h:mm a";
     case q(un):
       return "LLLL d, yyyy, h:mm a";
     case q(fn):
       return s;
-    case q(an):
+    case q(ln):
       return "M/d/yyyy, h:mm:ss a";
     case q(cn):
       return "LLL d, yyyy, h:mm:ss a";
-    case q(Xs):
+    case q(Qs):
       return "EEE, d LLL yyyy, h:mm a";
     case q(dn):
       return "LLLL d, yyyy, h:mm:ss a";
@@ -1286,13 +1286,13 @@ function Wl(e) {
       return s;
   }
 }
-function Pn(e, t) {
+function Fn(e, t) {
   let n = "";
   for (const s of e)
     s.literal ? n += s.val : n += t(s.val);
   return n;
 }
-const ql = {
+const Xa = {
   D: pt,
   DD: Gt,
   DDD: Kt,
@@ -1306,29 +1306,29 @@ const ql = {
   TTT: sn,
   TTTT: on,
   f: rn,
-  ff: ln,
+  ff: an,
   fff: un,
   ffff: fn,
-  F: an,
+  F: ln,
   FF: cn,
   FFF: dn,
   FFFF: mn
 };
-class ne {
+class oe {
   static create(t, n = {}) {
-    return new ne(t, n);
+    return new oe(t, n);
   }
   static parseFormat(t) {
     let n = null, s = "", o = !1;
     const i = [];
     for (let r = 0; r < t.length; r++) {
-      const a = t.charAt(r);
-      a === "'" ? (s.length > 0 && i.push({ literal: o, val: s }), n = null, s = "", o = !o) : o || a === n ? s += a : (s.length > 0 && i.push({ literal: !1, val: s }), s = a, n = a);
+      const l = t.charAt(r);
+      l === "'" ? (s.length > 0 && i.push({ literal: o, val: s }), n = null, s = "", o = !o) : o || l === n ? s += l : (s.length > 0 && i.push({ literal: !1, val: s }), s = l, n = l);
     }
     return s.length > 0 && i.push({ literal: o, val: s }), i;
   }
   static macroTokenToFormatOpts(t) {
-    return ql[t];
+    return Xa[t];
   }
   constructor(t, n) {
     this.opts = n, this.loc = t, this.systemLoc = null;
@@ -1352,14 +1352,14 @@ class ne {
     return n > 0 && (s.padTo = n), this.loc.numberFormatter(s).format(t);
   }
   formatDateTimeFromString(t, n) {
-    const s = this.loc.listingMode() === "en", o = this.loc.outputCalendar && this.loc.outputCalendar !== "gregory" && ot(), i = (y, w) => this.loc.extract(t, y, w), r = (y) => t.isOffsetFixed && t.offset === 0 && y.allowZ ? "Z" : t.isValid ? t.zone.formatOffset(t.ts, y.format) : "", a = () => s ? Hl(t) : i({ hour: "numeric", hour12: !0 }, "dayperiod"), l = (y, w) => s ? Rl(t, y) : i(w ? { month: y } : { month: y, day: "numeric" }, "month"), c = (y, w) => s ? zl(t, y) : i(
-      w ? { weekday: y } : { weekday: y, month: "long", day: "numeric" },
+    const s = this.loc.listingMode() === "en", o = this.loc.outputCalendar && this.loc.outputCalendar !== "gregory" && ot(), i = (g, S) => this.loc.extract(t, g, S), r = (g) => t.isOffsetFixed && t.offset === 0 && g.allowZ ? "Z" : t.isValid ? t.zone.formatOffset(t.ts, g.format) : "", l = () => s ? Ua(t) : i({ hour: "numeric", hour12: !0 }, "dayperiod"), a = (g, S) => s ? Ga(t, g) : i(S ? { month: g } : { month: g, day: "numeric" }, "month"), c = (g, S) => s ? Ya(t, g) : i(
+      S ? { weekday: g } : { weekday: g, month: "long", day: "numeric" },
       "weekday"
-    ), u = (y) => {
-      const w = ne.macroTokenToFormatOpts(y);
-      return w ? this.formatWithSystemDefault(t, w) : y;
-    }, h = (y) => s ? Bl(t, y) : i({ era: y }, "era"), f = (y) => {
-      switch (y) {
+    ), u = (g) => {
+      const S = oe.macroTokenToFormatOpts(g);
+      return S ? this.formatWithSystemDefault(t, S) : g;
+    }, f = (g) => s ? Ka(t, g) : i({ era: g }, "era"), m = (g) => {
+      switch (g) {
         case "S":
           return this.num(t.millisecond);
         case "u":
@@ -1394,7 +1394,7 @@ class ne {
         case "z":
           return t.zoneName;
         case "a":
-          return a();
+          return l();
         case "d":
           return o ? i({ day: "numeric" }, "day") : this.num(t.day);
         case "dd":
@@ -1420,21 +1420,21 @@ class ne {
         case "LL":
           return o ? i({ month: "2-digit", day: "numeric" }, "month") : this.num(t.month, 2);
         case "LLL":
-          return l("short", !0);
+          return a("short", !0);
         case "LLLL":
-          return l("long", !0);
+          return a("long", !0);
         case "LLLLL":
-          return l("narrow", !0);
+          return a("narrow", !0);
         case "M":
           return o ? i({ month: "numeric" }, "month") : this.num(t.month);
         case "MM":
           return o ? i({ month: "2-digit" }, "month") : this.num(t.month, 2);
         case "MMM":
-          return l("short", !1);
+          return a("short", !1);
         case "MMMM":
-          return l("long", !1);
+          return a("long", !1);
         case "MMMMM":
-          return l("narrow", !1);
+          return a("narrow", !1);
         case "y":
           return o ? i({ year: "numeric" }, "year") : this.num(t.year);
         case "yy":
@@ -1444,11 +1444,11 @@ class ne {
         case "yyyyyy":
           return o ? i({ year: "numeric" }, "year") : this.num(t.year, 6);
         case "G":
-          return h("short");
+          return f("short");
         case "GG":
-          return h("long");
+          return f("long");
         case "GGGGG":
-          return h("narrow");
+          return f("narrow");
         case "kk":
           return this.num(t.weekYear.toString().slice(-2), 2);
         case "kkkk":
@@ -1470,14 +1470,14 @@ class ne {
         case "x":
           return this.num(t.ts);
         default:
-          return u(y);
+          return u(g);
       }
     };
-    return Pn(ne.parseFormat(n), f);
+    return Fn(oe.parseFormat(n), m);
   }
   formatDurationFromString(t, n) {
-    const s = (l) => {
-      switch (l[0]) {
+    const s = (a) => {
+      switch (a[0]) {
         case "S":
           return "millisecond";
         case "s":
@@ -1495,17 +1495,17 @@ class ne {
         default:
           return null;
       }
-    }, o = (l) => (c) => {
+    }, o = (a) => (c) => {
       const u = s(c);
-      return u ? this.num(l.get(u), c.length) : c;
-    }, i = ne.parseFormat(n), r = i.reduce(
-      (l, { literal: c, val: u }) => c ? l : l.concat(u),
+      return u ? this.num(a.get(u), c.length) : c;
+    }, i = oe.parseFormat(n), r = i.reduce(
+      (a, { literal: c, val: u }) => c ? a : a.concat(u),
       []
-    ), a = t.shiftTo(...r.map(s).filter((l) => l));
-    return Pn(i, o(a));
+    ), l = t.shiftTo(...r.map(s).filter((a) => a));
+    return Fn(i, o(l));
   }
 }
-class me {
+class ve {
   constructor(t, n) {
     this.reason = t, this.explanation = n;
   }
@@ -1520,7 +1520,7 @@ class it {
    * @type {string}
    */
   get type() {
-    throw new Se();
+    throw new Te();
   }
   /**
    * The name of this zone.
@@ -1528,7 +1528,7 @@ class it {
    * @type {string}
    */
   get name() {
-    throw new Se();
+    throw new Te();
   }
   /**
    * Returns whether the offset is known to be fixed for the whole year.
@@ -1536,7 +1536,7 @@ class it {
    * @type {boolean}
    */
   get universal() {
-    throw new Se();
+    throw new Te();
   }
   /**
    * Returns the offset's common name (such as EST) at the specified timestamp
@@ -1548,7 +1548,7 @@ class it {
    * @return {string}
    */
   offsetName(t, n) {
-    throw new Se();
+    throw new Te();
   }
   /**
    * Returns the offset's value as a string
@@ -1559,7 +1559,7 @@ class it {
    * @return {string}
    */
   formatOffset(t, n) {
-    throw new Se();
+    throw new Te();
   }
   /**
    * Return the offset in minutes for this zone at the specified timestamp.
@@ -1568,7 +1568,7 @@ class it {
    * @return {number}
    */
   offset(t) {
-    throw new Se();
+    throw new Te();
   }
   /**
    * Return whether this Zone is equal to another zone
@@ -1577,7 +1577,7 @@ class it {
    * @return {boolean}
    */
   equals(t) {
-    throw new Se();
+    throw new Te();
   }
   /**
    * Return whether this Zone is valid.
@@ -1585,17 +1585,17 @@ class it {
    * @type {boolean}
    */
   get isValid() {
-    throw new Se();
+    throw new Te();
   }
 }
-let Ot = null;
+let Mt = null;
 class gn extends it {
   /**
    * Get a singleton instance of the local zone
    * @return {LocalZone}
    */
   static get instance() {
-    return Ot === null && (Ot = new gn()), Ot;
+    return Mt === null && (Mt = new gn()), Mt;
   }
   /** @override **/
   get type() {
@@ -1603,7 +1603,7 @@ class gn extends it {
   }
   /** @override **/
   get name() {
-    return ve() ? new Intl.DateTimeFormat().resolvedOptions().timeZone : "local";
+    return $e() ? new Intl.DateTimeFormat().resolvedOptions().timeZone : "local";
   }
   /** @override **/
   get universal() {
@@ -1611,7 +1611,7 @@ class gn extends it {
   }
   /** @override **/
   offsetName(t, { format: n, locale: s }) {
-    return to(t, n, s);
+    return eo(t, n, s);
   }
   /** @override **/
   formatOffset(t, n) {
@@ -1630,9 +1630,9 @@ class gn extends it {
     return !0;
   }
 }
-const jl = RegExp(`^${so.source}$`);
+const xa = RegExp(`^${no.source}$`);
 let ft = {};
-function Ul(e) {
+function ec(e) {
   return ft[e] || (ft[e] = new Intl.DateTimeFormat("en-US", {
     hour12: !1,
     timeZone: e,
@@ -1644,7 +1644,7 @@ function Ul(e) {
     second: "2-digit"
   })), ft[e];
 }
-const Yl = {
+const tc = {
   year: 0,
   month: 1,
   day: 2,
@@ -1652,33 +1652,33 @@ const Yl = {
   minute: 4,
   second: 5
 };
-function Gl(e, t) {
-  const n = e.format(t).replace(/\u200E/g, ""), s = /(\d+)\/(\d+)\/(\d+),? (\d+):(\d+):(\d+)/.exec(n), [, o, i, r, a, l, c] = s;
-  return [r, o, i, a, l, c];
+function nc(e, t) {
+  const n = e.format(t).replace(/\u200E/g, ""), s = /(\d+)\/(\d+)\/(\d+),? (\d+):(\d+):(\d+)/.exec(n), [, o, i, r, l, a, c] = s;
+  return [r, o, i, l, a, c];
 }
-function Kl(e, t) {
+function sc(e, t) {
   const n = e.formatToParts(t), s = [];
   for (let o = 0; o < n.length; o++) {
-    const { type: i, value: r } = n[o], a = Yl[i];
-    F(a) || (s[a] = parseInt(r, 10));
+    const { type: i, value: r } = n[o], l = tc[i];
+    A(l) || (s[l] = parseInt(r, 10));
   }
   return s;
 }
-let lt = {};
-class ue extends it {
+let at = {};
+class he extends it {
   /**
    * @param {string} name - Zone name
    * @return {IANAZone}
    */
   static create(t) {
-    return lt[t] || (lt[t] = new ue(t)), lt[t];
+    return at[t] || (at[t] = new he(t)), at[t];
   }
   /**
    * Reset local caches. Should only be necessary in testing scenarios.
    * @return {void}
    */
   static resetCache() {
-    lt = {}, ft = {};
+    at = {}, ft = {};
   }
   /**
    * Returns whether the provided string is a valid specifier. This only checks the string's format, not that the specifier identifies a known zone; see isValidZone for that.
@@ -1689,7 +1689,7 @@ class ue extends it {
    * @return {boolean}
    */
   static isValidSpecifier(t) {
-    return !!(t && t.match(jl));
+    return !!(t && t.match(xa));
   }
   /**
    * Returns whether the provided string identifies a real zone
@@ -1717,7 +1717,7 @@ class ue extends it {
     return null;
   }
   constructor(t) {
-    super(), this.zoneName = t, this.valid = ue.isValidZone(t);
+    super(), this.zoneName = t, this.valid = he.isValidZone(t);
   }
   /** @override **/
   get type() {
@@ -1733,7 +1733,7 @@ class ue extends it {
   }
   /** @override **/
   offsetName(t, { format: n, locale: s }) {
-    return to(t, n, s, this.name);
+    return eo(t, n, s, this.name);
   }
   /** @override **/
   formatOffset(t, n) {
@@ -1744,18 +1744,18 @@ class ue extends it {
     const n = new Date(t);
     if (isNaN(n))
       return NaN;
-    const s = Ul(this.name), [o, i, r, a, l, c] = s.formatToParts ? Kl(s, n) : Gl(s, n), h = yn({
+    const s = ec(this.name), [o, i, r, l, a, c] = s.formatToParts ? sc(s, n) : nc(s, n), f = yn({
       year: o,
       month: i,
       day: r,
-      hour: a === 24 ? 0 : a,
-      minute: l,
+      hour: l === 24 ? 0 : l,
+      minute: a,
       second: c,
       millisecond: 0
     });
-    let f = +n;
-    const y = f % 1e3;
-    return f -= y >= 0 ? y : 1e3 + y, (h - f) / (60 * 1e3);
+    let m = +n;
+    const g = m % 1e3;
+    return m -= g >= 0 ? g : 1e3 + g, (f - m) / (60 * 1e3);
   }
   /** @override **/
   equals(t) {
@@ -1766,14 +1766,14 @@ class ue extends it {
     return this.valid;
   }
 }
-let Mt = null;
-class X extends it {
+let Ot = null;
+class x extends it {
   /**
    * Get a singleton instance of UTC
    * @return {FixedOffsetZone}
    */
   static get utcInstance() {
-    return Mt === null && (Mt = new X(0)), Mt;
+    return Ot === null && (Ot = new x(0)), Ot;
   }
   /**
    * Get an instance with a specified offset
@@ -1781,7 +1781,7 @@ class X extends it {
    * @return {FixedOffsetZone}
    */
   static instance(t) {
-    return t === 0 ? X.utcInstance : new X(t);
+    return t === 0 ? x.utcInstance : new x(t);
   }
   /**
    * Get an instance of FixedOffsetZone from a UTC offset string, like "UTC+6"
@@ -1795,7 +1795,7 @@ class X extends it {
     if (t) {
       const n = t.match(/^utc(?:([+-]\d{1,2})(?::(\d{2}))?)?$/i);
       if (n)
-        return new X(kt(n[1], n[2]));
+        return new x(kt(n[1], n[2]));
     }
     return null;
   }
@@ -1835,7 +1835,7 @@ class X extends it {
     return !0;
   }
 }
-class Fn extends it {
+class Pn extends it {
   constructor(t) {
     super(), this.zoneName = t;
   }
@@ -1872,17 +1872,17 @@ class Fn extends it {
     return !1;
   }
 }
-function Oe(e, t) {
+function De(e, t) {
   let n;
-  if (F(e) || e === null)
+  if (A(e) || e === null)
     return t;
   if (e instanceof it)
     return e;
-  if (Ml(e)) {
+  if (Pa(e)) {
     const s = e.toLowerCase();
-    return s === "local" ? t : s === "utc" || s === "gmt" ? X.utcInstance : (n = ue.parseGMTOffset(e)) != null ? X.instance(n) : ue.isValidSpecifier(s) ? ue.create(e) : X.parseSpecifier(s) || new Fn(e);
+    return s === "local" ? t : s === "utc" || s === "gmt" ? x.utcInstance : (n = he.parseGMTOffset(e)) != null ? x.instance(n) : he.isValidSpecifier(s) ? he.create(e) : x.parseSpecifier(s) || new Pn(e);
   } else
-    return De(e) ? X.instance(e) : typeof e == "object" && e.offset && typeof e.offset == "number" ? e : new Fn(e);
+    return Ee(e) ? x.instance(e) : typeof e == "object" && e.offset && typeof e.offset == "number" ? e : new Pn(e);
 }
 let An = () => Date.now(), Dt = null, Hn = null, zn = null, Rn = null, Bn = !1;
 class Y {
@@ -1915,7 +1915,7 @@ class Y {
    * @type {string}
    */
   static set defaultZoneName(t) {
-    t ? Dt = Oe(t) : Dt = null;
+    t ? Dt = De(t) : Dt = null;
   }
   /**
    * Get the default time zone object to create DateTimes in. Does not affect existing instances.
@@ -1985,38 +1985,38 @@ class Y {
    * @return {void}
    */
   static resetCaches() {
-    j.resetCache(), ue.resetCache();
+    j.resetCache(), he.resetCache();
   }
 }
-let Ft = {};
+let Pt = {};
 function At(e, t = {}) {
   const n = JSON.stringify([e, t]);
-  let s = Ft[n];
-  return s || (s = new Intl.DateTimeFormat(e, t), Ft[n] = s), s;
+  let s = Pt[n];
+  return s || (s = new Intl.DateTimeFormat(e, t), Pt[n] = s), s;
 }
 let Ht = {};
-function Jl(e, t = {}) {
+function oc(e, t = {}) {
   const n = JSON.stringify([e, t]);
   let s = Ht[n];
   return s || (s = new Intl.NumberFormat(e, t), Ht[n] = s), s;
 }
 let zt = {};
-function Ql(e, t = {}) {
+function rc(e, t = {}) {
   const { base: n, ...s } = t, o = JSON.stringify([e, s]);
   let i = zt[o];
   return i || (i = new Intl.RelativeTimeFormat(e, t), zt[o] = i), i;
 }
-let Te = null;
-function Xl() {
-  if (Te)
-    return Te;
-  if (ve()) {
+let Oe = null;
+function ic() {
+  if (Oe)
+    return Oe;
+  if ($e()) {
     const e = new Intl.DateTimeFormat().resolvedOptions().locale;
-    return Te = !e || e === "und" ? "en-US" : e, Te;
+    return Oe = !e || e === "und" ? "en-US" : e, Oe;
   } else
-    return Te = "en-US", Te;
+    return Oe = "en-US", Oe;
 }
-function xl(e) {
+function lc(e) {
   const t = e.indexOf("-u-");
   if (t === -1)
     return [e];
@@ -2032,21 +2032,21 @@ function xl(e) {
     return [s, o, i];
   }
 }
-function ec(e, t, n) {
-  return ve() ? ((n || t) && (e += "-u", n && (e += `-ca-${n}`), t && (e += `-nu-${t}`)), e) : [];
+function ac(e, t, n) {
+  return $e() ? ((n || t) && (e += "-u", n && (e += `-ca-${n}`), t && (e += `-nu-${t}`)), e) : [];
 }
-function tc(e) {
+function cc(e) {
   const t = [];
   for (let n = 1; n <= 12; n++) {
-    const s = L.utc(2016, n, 1);
+    const s = E.utc(2016, n, 1);
     t.push(e(s));
   }
   return t;
 }
-function nc(e) {
+function uc(e) {
   const t = [];
   for (let n = 1; n <= 7; n++) {
-    const s = L.utc(2016, 11, 13 + n);
+    const s = E.utc(2016, 11, 13 + n);
     t.push(e(s));
   }
   return t;
@@ -2055,14 +2055,14 @@ function ct(e, t, n, s, o) {
   const i = e.listingMode(n);
   return i === "error" ? null : i === "en" ? s(t) : o(t);
 }
-function sc(e) {
-  return e.numberingSystem && e.numberingSystem !== "latn" ? !1 : e.numberingSystem === "latn" || !e.locale || e.locale.startsWith("en") || ve() && new Intl.DateTimeFormat(e.intl).resolvedOptions().numberingSystem === "latn";
+function dc(e) {
+  return e.numberingSystem && e.numberingSystem !== "latn" ? !1 : e.numberingSystem === "latn" || !e.locale || e.locale.startsWith("en") || $e() && new Intl.DateTimeFormat(e.intl).resolvedOptions().numberingSystem === "latn";
 }
-class oc {
+class fc {
   constructor(t, n, s) {
-    if (this.padTo = s.padTo || 0, this.floor = s.floor || !1, !n && ve()) {
+    if (this.padTo = s.padTo || 0, this.floor = s.floor || !1, !n && $e()) {
       const o = { useGrouping: !1 };
-      s.padTo > 0 && (o.minimumIntegerDigits = s.padTo), this.inf = Jl(t, o);
+      s.padTo > 0 && (o.minimumIntegerDigits = s.padTo), this.inf = oc(t, o);
     }
   }
   format(t) {
@@ -2075,13 +2075,13 @@ class oc {
     }
   }
 }
-class rc {
+class mc {
   constructor(t, n, s) {
-    this.opts = s, this.hasIntl = ve();
+    this.opts = s, this.hasIntl = $e();
     let o;
     if (t.zone.universal && this.hasIntl) {
-      const i = -1 * (t.offset / 60), r = i >= 0 ? `Etc/GMT+${i}` : `Etc/GMT${i}`, a = ue.isValidZone(r);
-      t.offset !== 0 && a ? (o = r, this.dt = t) : (o = "UTC", s.timeZoneName ? this.dt = t : this.dt = t.offset === 0 ? t : L.fromMillis(t.ts + t.offset * 60 * 1e3));
+      const i = -1 * (t.offset / 60), r = i >= 0 ? `Etc/GMT+${i}` : `Etc/GMT${i}`, l = he.isValidZone(r);
+      t.offset !== 0 && l ? (o = r, this.dt = t) : (o = "UTC", s.timeZoneName ? this.dt = t : this.dt = t.offset === 0 ? t : E.fromMillis(t.ts + t.offset * 60 * 1e3));
     } else
       t.zone.type === "local" ? this.dt = t : (this.dt = t, o = t.zone.name);
     if (this.hasIntl) {
@@ -2093,8 +2093,8 @@ class rc {
     if (this.hasIntl)
       return this.dtf.format(this.dt.toJSDate());
     {
-      const t = Wl(this.opts), n = j.create("en-US");
-      return ne.create(n).formatDateTimeFromString(this.dt, t);
+      const t = Qa(this.opts), n = j.create("en-US");
+      return oe.create(n).formatDateTimeFromString(this.dt, t);
     }
   }
   formatToParts() {
@@ -2108,12 +2108,12 @@ class rc {
     };
   }
 }
-class ic {
+class hc {
   constructor(t, n, s) {
-    this.opts = Object.assign({ style: "long" }, s), !n && xs() && (this.rtf = Ql(t, s));
+    this.opts = Object.assign({ style: "long" }, s), !n && Xs() && (this.rtf = rc(t, s));
   }
   format(t, n) {
-    return this.rtf ? this.rtf.format(t, n) : Zl(n, t, this.opts.numeric, this.opts.style !== "long");
+    return this.rtf ? this.rtf.format(t, n) : Ja(n, t, this.opts.numeric, this.opts.style !== "long");
   }
   formatToParts(t, n) {
     return this.rtf ? this.rtf.formatToParts(t, n) : [];
@@ -2124,24 +2124,24 @@ class j {
     return j.create(t.locale, t.numberingSystem, t.outputCalendar, t.defaultToEN);
   }
   static create(t, n, s, o = !1) {
-    const i = t || Y.defaultLocale, r = i || (o ? "en-US" : Xl()), a = n || Y.defaultNumberingSystem, l = s || Y.defaultOutputCalendar;
-    return new j(r, a, l, i);
+    const i = t || Y.defaultLocale, r = i || (o ? "en-US" : ic()), l = n || Y.defaultNumberingSystem, a = s || Y.defaultOutputCalendar;
+    return new j(r, l, a, i);
   }
   static resetCache() {
-    Te = null, Ft = {}, Ht = {}, zt = {};
+    Oe = null, Pt = {}, Ht = {}, zt = {};
   }
   static fromObject({ locale: t, numberingSystem: n, outputCalendar: s } = {}) {
     return j.create(t, n, s);
   }
   constructor(t, n, s, o) {
-    const [i, r, a] = xl(t);
-    this.locale = i, this.numberingSystem = n || r || null, this.outputCalendar = s || a || null, this.intl = ec(this.locale, this.numberingSystem, this.outputCalendar), this.weekdaysCache = { format: {}, standalone: {} }, this.monthsCache = { format: {}, standalone: {} }, this.meridiemCache = null, this.eraCache = {}, this.specifiedLocale = o, this.fastNumbersCached = null;
+    const [i, r, l] = lc(t);
+    this.locale = i, this.numberingSystem = n || r || null, this.outputCalendar = s || l || null, this.intl = ac(this.locale, this.numberingSystem, this.outputCalendar), this.weekdaysCache = { format: {}, standalone: {} }, this.monthsCache = { format: {}, standalone: {} }, this.meridiemCache = null, this.eraCache = {}, this.specifiedLocale = o, this.fastNumbersCached = null;
   }
   get fastNumbers() {
-    return this.fastNumbersCached == null && (this.fastNumbersCached = sc(this)), this.fastNumbersCached;
+    return this.fastNumbersCached == null && (this.fastNumbersCached = dc(this)), this.fastNumbersCached;
   }
   listingMode(t = !0) {
-    const n = ve(), s = n && ot(), o = this.isEnglish(), i = (this.numberingSystem === null || this.numberingSystem === "latn") && (this.outputCalendar === null || this.outputCalendar === "gregory");
+    const n = $e(), s = n && ot(), o = this.isEnglish(), i = (this.numberingSystem === null || this.numberingSystem === "latn") && (this.outputCalendar === null || this.outputCalendar === "gregory");
     return !s && !(o && i) && !t ? "error" : !s || o && i ? "en" : "intl";
   }
   clone(t) {
@@ -2159,15 +2159,15 @@ class j {
     return this.clone(Object.assign({}, t, { defaultToEN: !1 }));
   }
   months(t, n = !1, s = !0) {
-    return ct(this, t, s, ro, () => {
+    return ct(this, t, s, oo, () => {
       const o = n ? { month: t, day: "numeric" } : { month: t }, i = n ? "format" : "standalone";
-      return this.monthsCache[i][t] || (this.monthsCache[i][t] = tc((r) => this.extract(r, o, "month"))), this.monthsCache[i][t];
+      return this.monthsCache[i][t] || (this.monthsCache[i][t] = cc((r) => this.extract(r, o, "month"))), this.monthsCache[i][t];
     });
   }
   weekdays(t, n = !1, s = !0) {
     return ct(this, t, s, lo, () => {
       const o = n ? { weekday: t, year: "numeric", month: "long", day: "numeric" } : { weekday: t }, i = n ? "format" : "standalone";
-      return this.weekdaysCache[i][t] || (this.weekdaysCache[i][t] = nc(
+      return this.weekdaysCache[i][t] || (this.weekdaysCache[i][t] = uc(
         (r) => this.extract(r, o, "weekday")
       )), this.weekdaysCache[i][t];
     });
@@ -2177,11 +2177,11 @@ class j {
       this,
       void 0,
       t,
-      () => co,
+      () => ao,
       () => {
         if (!this.meridiemCache) {
           const n = { hour: "numeric", hour12: !0 };
-          this.meridiemCache = [L.utc(2016, 11, 13, 9), L.utc(2016, 11, 13, 19)].map(
+          this.meridiemCache = [E.utc(2016, 11, 13, 9), E.utc(2016, 11, 13, 19)].map(
             (s) => this.extract(s, n, "dayperiod")
           );
         }
@@ -2190,28 +2190,28 @@ class j {
     );
   }
   eras(t, n = !0) {
-    return ct(this, t, n, uo, () => {
+    return ct(this, t, n, co, () => {
       const s = { era: t };
-      return this.eraCache[t] || (this.eraCache[t] = [L.utc(-40, 1, 1), L.utc(2017, 1, 1)].map(
+      return this.eraCache[t] || (this.eraCache[t] = [E.utc(-40, 1, 1), E.utc(2017, 1, 1)].map(
         (o) => this.extract(o, s, "era")
       )), this.eraCache[t];
     });
   }
   extract(t, n, s) {
-    const o = this.dtFormatter(t, n), i = o.formatToParts(), r = i.find((a) => a.type.toLowerCase() === s);
+    const o = this.dtFormatter(t, n), i = o.formatToParts(), r = i.find((l) => l.type.toLowerCase() === s);
     return r ? r.value : null;
   }
   numberFormatter(t = {}) {
-    return new oc(this.intl, t.forceSimple || this.fastNumbers, t);
+    return new fc(this.intl, t.forceSimple || this.fastNumbers, t);
   }
   dtFormatter(t, n = {}) {
-    return new rc(t, this.intl, n);
+    return new mc(t, this.intl, n);
   }
   relFormatter(t = {}) {
-    return new ic(this.intl, this.isEnglish(), t);
+    return new hc(this.intl, this.isEnglish(), t);
   }
   isEnglish() {
-    return this.locale === "en" || this.locale.toLowerCase() === "en-us" || ve() && new Intl.DateTimeFormat(this.intl).resolvedOptions().locale.startsWith("en-us");
+    return this.locale === "en" || this.locale.toLowerCase() === "en-us" || $e() && new Intl.DateTimeFormat(this.intl).resolvedOptions().locale.startsWith("en-us");
   }
   equals(t) {
     return this.locale === t.locale && this.numberingSystem === t.numberingSystem && this.outputCalendar === t.outputCalendar;
@@ -2221,11 +2221,11 @@ function Ue(...e) {
   const t = e.reduce((n, s) => n + s.source, "");
   return RegExp(`^${t}$`);
 }
-function Le(...e) {
+function Ne(...e) {
   return (t) => e.reduce(
     ([n, s, o], i) => {
-      const [r, a, l] = i(t, o);
-      return [Object.assign(n, r), s || a, l];
+      const [r, l, a] = i(t, o);
+      return [Object.assign(n, r), s || l, a];
     },
     [{}, null, 1]
   ).slice(0, 2);
@@ -2240,30 +2240,30 @@ function Ye(e, ...t) {
   }
   return [null, null];
 }
-function fo(...e) {
+function uo(...e) {
   return (t, n) => {
     const s = {};
     let o;
     for (o = 0; o < e.length; o++)
-      s[e[o]] = te(t[n + o]);
+      s[e[o]] = se(t[n + o]);
     return [s, null, n + o];
   };
 }
-const mo = /(?:(Z)|([+-]\d\d)(?::?(\d\d))?)/, vn = /(\d\d)(?::?(\d\d)(?::?(\d\d)(?:[.,](\d{1,30}))?)?)?/, ho = RegExp(`${vn.source}${mo.source}?`), bn = RegExp(`(?:T${ho.source})?`), ac = /([+-]\d{6}|\d{4})(?:-?(\d\d)(?:-?(\d\d))?)?/, lc = /(\d{4})-?W(\d\d)(?:-?(\d))?/, cc = /(\d{4})-?(\d{3})/, uc = fo("weekYear", "weekNumber", "weekDay"), dc = fo("year", "ordinal"), fc = /(\d{4})-(\d\d)-(\d\d)/, po = RegExp(
-  `${vn.source} ?(?:${mo.source}|(${so.source}))?`
-), mc = RegExp(`(?: ${po.source})?`);
+const fo = /(?:(Z)|([+-]\d\d)(?::?(\d\d))?)/, vn = /(\d\d)(?::?(\d\d)(?::?(\d\d)(?:[.,](\d{1,30}))?)?)?/, mo = RegExp(`${vn.source}${fo.source}?`), bn = RegExp(`(?:T${mo.source})?`), pc = /([+-]\d{6}|\d{4})(?:-?(\d\d)(?:-?(\d\d))?)?/, yc = /(\d{4})-?W(\d\d)(?:-?(\d))?/, gc = /(\d{4})-?(\d{3})/, vc = uo("weekYear", "weekNumber", "weekDay"), bc = uo("year", "ordinal"), wc = /(\d{4})-(\d\d)-(\d\d)/, ho = RegExp(
+  `${vn.source} ?(?:${fo.source}|(${no.source}))?`
+), $c = RegExp(`(?: ${ho.source})?`);
 function We(e, t, n) {
   const s = e[t];
-  return F(s) ? n : te(s);
+  return A(s) ? n : se(s);
 }
-function yo(e, t) {
+function po(e, t) {
   return [{
     year: We(e, t),
     month: We(e, t + 1, 1),
     day: We(e, t + 2, 1)
   }, null, t + 3];
 }
-function Ve(e, t) {
+function _e(e, t) {
   return [{
     hours: We(e, t, 0),
     minutes: We(e, t + 1, 0),
@@ -2272,15 +2272,15 @@ function Ve(e, t) {
   }, null, t + 4];
 }
 function Ge(e, t) {
-  const n = !e[t] && !e[t + 1], s = kt(e[t + 1], e[t + 2]), o = n ? null : X.instance(s);
+  const n = !e[t] && !e[t + 1], s = kt(e[t + 1], e[t + 2]), o = n ? null : x.instance(s);
   return [{}, o, t + 3];
 }
-function go(e, t) {
-  const n = e[t] ? ue.create(e[t]) : null;
+function yo(e, t) {
+  const n = e[t] ? he.create(e[t]) : null;
   return [{}, n, t + 1];
 }
-const hc = RegExp(`^T?${vn.source}$`), pc = /^-?P(?:(?:(-?\d{1,9})Y)?(?:(-?\d{1,9})M)?(?:(-?\d{1,9})W)?(?:(-?\d{1,9})D)?(?:T(?:(-?\d{1,9})H)?(?:(-?\d{1,9})M)?(?:(-?\d{1,20})(?:[.,](-?\d{1,9}))?S)?)?)$/;
-function yc(e) {
+const Sc = RegExp(`^T?${vn.source}$`), kc = /^-?P(?:(?:(-?\d{1,9})Y)?(?:(-?\d{1,9})M)?(?:(-?\d{1,9})W)?(?:(-?\d{1,9})D)?(?:T(?:(-?\d{1,9})H)?(?:(-?\d{1,9})M)?(?:(-?\d{1,20})(?:[.,](-?\d{1,9}))?S)?)?)$/;
+function Ic(e) {
   const [
     t,
     n,
@@ -2288,24 +2288,24 @@ function yc(e) {
     o,
     i,
     r,
-    a,
     l,
+    a,
     c
-  ] = e, u = t[0] === "-", h = l && l[0] === "-", f = (y, w = !1) => y !== void 0 && (w || y && u) ? -y : y;
+  ] = e, u = t[0] === "-", f = a && a[0] === "-", m = (g, S = !1) => g !== void 0 && (S || g && u) ? -g : g;
   return [
     {
-      years: f(te(n)),
-      months: f(te(s)),
-      weeks: f(te(o)),
-      days: f(te(i)),
-      hours: f(te(r)),
-      minutes: f(te(a)),
-      seconds: f(te(l), l === "-0"),
-      milliseconds: f(hn(c), h)
+      years: m(se(n)),
+      months: m(se(s)),
+      weeks: m(se(o)),
+      days: m(se(i)),
+      hours: m(se(r)),
+      minutes: m(se(l)),
+      seconds: m(se(a), a === "-0"),
+      milliseconds: m(hn(c), f)
     }
   ];
 }
-const gc = {
+const Cc = {
   GMT: 0,
   EDT: -4 * 60,
   EST: -5 * 60,
@@ -2317,17 +2317,17 @@ const gc = {
   PST: -8 * 60
 };
 function wn(e, t, n, s, o, i, r) {
-  const a = {
-    year: t.length === 2 ? Pt(te(t)) : te(t),
-    month: oo.indexOf(n) + 1,
-    day: te(s),
-    hour: te(o),
-    minute: te(i)
+  const l = {
+    year: t.length === 2 ? Ft(se(t)) : se(t),
+    month: so.indexOf(n) + 1,
+    day: se(s),
+    hour: se(o),
+    minute: se(i)
   };
-  return r && (a.second = te(r)), e && (a.weekday = e.length > 3 ? io.indexOf(e) + 1 : ao.indexOf(e) + 1), a;
+  return r && (l.second = se(r)), e && (l.weekday = e.length > 3 ? ro.indexOf(e) + 1 : io.indexOf(e) + 1), l;
 }
-const vc = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|(?:([+-]\d\d)(\d\d)))$/;
-function bc(e) {
+const Tc = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|(?:([+-]\d\d)(\d\d)))$/;
+function Mc(e) {
   const [
     ,
     t,
@@ -2336,85 +2336,85 @@ function bc(e) {
     o,
     i,
     r,
-    a,
     l,
+    a,
     c,
     u,
-    h
-  ] = e, f = wn(t, o, s, n, i, r, a);
-  let y;
-  return l ? y = gc[l] : c ? y = 0 : y = kt(u, h), [f, new X(y)];
+    f
+  ] = e, m = wn(t, o, s, n, i, r, l);
+  let g;
+  return a ? g = Cc[a] : c ? g = 0 : g = kt(u, f), [m, new x(g)];
 }
-function wc(e) {
-  return e.replace(/\([^)]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ").trim();
+function Oc(e) {
+  return e.replace(/\([^()]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ").trim();
 }
-const $c = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d\d) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d\d):(\d\d):(\d\d) GMT$/, Sc = /^(Monday|Tuesday|Wedsday|Thursday|Friday|Saturday|Sunday), (\d\d)-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d\d) (\d\d):(\d\d):(\d\d) GMT$/, kc = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( \d|\d\d) (\d\d):(\d\d):(\d\d) (\d{4})$/;
+const Dc = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d\d) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d\d):(\d\d):(\d\d) GMT$/, Vc = /^(Monday|Tuesday|Wedsday|Thursday|Friday|Saturday|Sunday), (\d\d)-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d\d) (\d\d):(\d\d):(\d\d) GMT$/, Ec = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( \d|\d\d) (\d\d):(\d\d):(\d\d) (\d{4})$/;
 function Zn(e) {
-  const [, t, n, s, o, i, r, a] = e;
-  return [wn(t, o, s, n, i, r, a), X.utcInstance];
+  const [, t, n, s, o, i, r, l] = e;
+  return [wn(t, o, s, n, i, r, l), x.utcInstance];
 }
-function Ic(e) {
-  const [, t, n, s, o, i, r, a] = e;
-  return [wn(t, a, n, s, o, i, r), X.utcInstance];
+function Lc(e) {
+  const [, t, n, s, o, i, r, l] = e;
+  return [wn(t, l, n, s, o, i, r), x.utcInstance];
 }
-const Cc = Ue(ac, bn), Tc = Ue(lc, bn), Oc = Ue(cc, bn), Mc = Ue(ho), Dc = Le(
-  yo,
-  Ve,
+const Nc = Ue(pc, bn), _c = Ue(yc, bn), Fc = Ue(gc, bn), Pc = Ue(mo), Ac = Ne(
+  po,
+  _e,
   Ge
-), Ec = Le(
-  uc,
-  Ve,
+), Hc = Ne(
+  vc,
+  _e,
   Ge
-), Lc = Le(
-  dc,
-  Ve,
+), zc = Ne(
+  bc,
+  _e,
   Ge
-), Vc = Le(Ve, Ge);
-function Nc(e) {
+), Rc = Ne(_e, Ge);
+function Bc(e) {
   return Ye(
     e,
-    [Cc, Dc],
-    [Tc, Ec],
-    [Oc, Lc],
-    [Mc, Vc]
+    [Nc, Ac],
+    [_c, Hc],
+    [Fc, zc],
+    [Pc, Rc]
   );
 }
-function _c(e) {
-  return Ye(wc(e), [vc, bc]);
+function Zc(e) {
+  return Ye(Oc(e), [Tc, Mc]);
 }
-function Pc(e) {
-  return Ye(
-    e,
-    [$c, Zn],
-    [Sc, Zn],
-    [kc, Ic]
-  );
-}
-function Fc(e) {
-  return Ye(e, [pc, yc]);
-}
-const Ac = Le(Ve);
-function Hc(e) {
-  return Ye(e, [hc, Ac]);
-}
-const zc = Ue(fc, mc), Rc = Ue(po), Bc = Le(
-  yo,
-  Ve,
-  Ge,
-  go
-), Zc = Le(
-  Ve,
-  Ge,
-  go
-);
 function Wc(e) {
   return Ye(
     e,
-    [zc, Bc],
-    [Rc, Zc]
+    [Dc, Zn],
+    [Vc, Zn],
+    [Ec, Lc]
   );
 }
-const qc = "Invalid Duration", vo = {
+function qc(e) {
+  return Ye(e, [kc, Ic]);
+}
+const jc = Ne(_e);
+function Uc(e) {
+  return Ye(e, [Sc, jc]);
+}
+const Yc = Ue(wc, $c), Gc = Ue(ho), Kc = Ne(
+  po,
+  _e,
+  Ge,
+  yo
+), Jc = Ne(
+  _e,
+  Ge,
+  yo
+);
+function Qc(e) {
+  return Ye(
+    e,
+    [Yc, Kc],
+    [Gc, Jc]
+  );
+}
+const Xc = "Invalid Duration", go = {
   weeks: {
     days: 7,
     hours: 7 * 24,
@@ -2431,7 +2431,7 @@ const qc = "Invalid Duration", vo = {
   hours: { minutes: 60, seconds: 60 * 60, milliseconds: 60 * 60 * 1e3 },
   minutes: { seconds: 60, milliseconds: 60 * 1e3 },
   seconds: { milliseconds: 1e3 }
-}, jc = Object.assign(
+}, xc = Object.assign(
   {
     years: {
       quarters: 4,
@@ -2461,38 +2461,38 @@ const qc = "Invalid Duration", vo = {
       milliseconds: 30 * 24 * 60 * 60 * 1e3
     }
   },
-  vo
-), ae = 146097 / 400, Fe = 146097 / 4800, Uc = Object.assign(
+  go
+), ue = 146097 / 400, Pe = 146097 / 4800, eu = Object.assign(
   {
     years: {
       quarters: 4,
       months: 12,
-      weeks: ae / 7,
-      days: ae,
-      hours: ae * 24,
-      minutes: ae * 24 * 60,
-      seconds: ae * 24 * 60 * 60,
-      milliseconds: ae * 24 * 60 * 60 * 1e3
+      weeks: ue / 7,
+      days: ue,
+      hours: ue * 24,
+      minutes: ue * 24 * 60,
+      seconds: ue * 24 * 60 * 60,
+      milliseconds: ue * 24 * 60 * 60 * 1e3
     },
     quarters: {
       months: 3,
-      weeks: ae / 28,
-      days: ae / 4,
-      hours: ae * 24 / 4,
-      minutes: ae * 24 * 60 / 4,
-      seconds: ae * 24 * 60 * 60 / 4,
-      milliseconds: ae * 24 * 60 * 60 * 1e3 / 4
+      weeks: ue / 28,
+      days: ue / 4,
+      hours: ue * 24 / 4,
+      minutes: ue * 24 * 60 / 4,
+      seconds: ue * 24 * 60 * 60 / 4,
+      milliseconds: ue * 24 * 60 * 60 * 1e3 / 4
     },
     months: {
-      weeks: Fe / 7,
-      days: Fe,
-      hours: Fe * 24,
-      minutes: Fe * 24 * 60,
-      seconds: Fe * 24 * 60 * 60,
-      milliseconds: Fe * 24 * 60 * 60 * 1e3
+      weeks: Pe / 7,
+      days: Pe,
+      hours: Pe * 24,
+      minutes: Pe * 24 * 60,
+      seconds: Pe * 24 * 60 * 60,
+      milliseconds: Pe * 24 * 60 * 60 * 1e3
     }
   },
-  vo
+  go
 ), He = [
   "years",
   "quarters",
@@ -2503,32 +2503,32 @@ const qc = "Invalid Duration", vo = {
   "minutes",
   "seconds",
   "milliseconds"
-], Yc = He.slice(0).reverse();
-function Ce(e, t, n = !1) {
+], tu = He.slice(0).reverse();
+function Me(e, t, n = !1) {
   const s = {
     values: n ? t.values : Object.assign({}, e.values, t.values || {}),
     loc: e.loc.clone(t.loc),
     conversionAccuracy: t.conversionAccuracy || e.conversionAccuracy
   };
-  return new Z(s);
+  return new B(s);
 }
-function Gc(e) {
+function nu(e) {
   return e < 0 ? Math.floor(e) : Math.ceil(e);
 }
-function bo(e, t, n, s, o) {
-  const i = e[o][n], r = t[n] / i, a = Math.sign(r) === Math.sign(s[o]), l = !a && s[o] !== 0 && Math.abs(r) <= 1 ? Gc(r) : Math.trunc(r);
-  s[o] += l, t[n] -= l * i;
+function vo(e, t, n, s, o) {
+  const i = e[o][n], r = t[n] / i, l = Math.sign(r) === Math.sign(s[o]), a = !l && s[o] !== 0 && Math.abs(r) <= 1 ? nu(r) : Math.trunc(r);
+  s[o] += a, t[n] -= a * i;
 }
-function Kc(e, t) {
-  Yc.reduce((n, s) => F(t[s]) ? n : (n && bo(e, t, n, t, s), s), null);
+function su(e, t) {
+  tu.reduce((n, s) => A(t[s]) ? n : (n && vo(e, t, n, t, s), s), null);
 }
-class Z {
+class B {
   /**
    * @private
    */
   constructor(t) {
     const n = t.conversionAccuracy === "longterm" || !1;
-    this.values = t.values, this.loc = t.loc || j.create(), this.conversionAccuracy = n ? "longterm" : "casual", this.invalid = t.invalid || null, this.matrix = n ? Uc : jc, this.isLuxonDuration = !0;
+    this.values = t.values, this.loc = t.loc || j.create(), this.conversionAccuracy = n ? "longterm" : "casual", this.invalid = t.invalid || null, this.matrix = n ? eu : xc, this.isLuxonDuration = !0;
   }
   /**
    * Create Duration from a number of milliseconds.
@@ -2540,7 +2540,7 @@ class Z {
    * @return {Duration}
    */
   static fromMillis(t, n) {
-    return Z.fromObject(Object.assign({ milliseconds: t }, n));
+    return B.fromObject(Object.assign({ milliseconds: t }, n));
   }
   /**
    * Create a Duration from a JavaScript object with keys like 'years' and 'hours'.
@@ -2562,11 +2562,11 @@ class Z {
    */
   static fromObject(t) {
     if (t == null || typeof t != "object")
-      throw new le(
+      throw new de(
         `Duration.fromObject: argument expected to be an object, got ${t === null ? "null" : typeof t}`
       );
-    return new Z({
-      values: vt(t, Z.normalizeUnit, [
+    return new B({
+      values: vt(t, B.normalizeUnit, [
         "locale",
         "numberingSystem",
         "conversionAccuracy",
@@ -2591,12 +2591,12 @@ class Z {
    * @return {Duration}
    */
   static fromISO(t, n) {
-    const [s] = Fc(t);
+    const [s] = qc(t);
     if (s) {
       const o = Object.assign(s, n);
-      return Z.fromObject(o);
+      return B.fromObject(o);
     } else
-      return Z.invalid("unparsable", `the input "${t}" can't be parsed as ISO 8601`);
+      return B.invalid("unparsable", `the input "${t}" can't be parsed as ISO 8601`);
   }
   /**
    * Create a Duration from an ISO 8601 time string.
@@ -2614,12 +2614,12 @@ class Z {
    * @return {Duration}
    */
   static fromISOTime(t, n) {
-    const [s] = Hc(t);
+    const [s] = Uc(t);
     if (s) {
       const o = Object.assign(s, n);
-      return Z.fromObject(o);
+      return B.fromObject(o);
     } else
-      return Z.invalid("unparsable", `the input "${t}" can't be parsed as ISO 8601`);
+      return B.invalid("unparsable", `the input "${t}" can't be parsed as ISO 8601`);
   }
   /**
    * Create an invalid Duration.
@@ -2629,11 +2629,11 @@ class Z {
    */
   static invalid(t, n = null) {
     if (!t)
-      throw new le("need to specify a reason the Duration is invalid");
-    const s = t instanceof me ? t : new me(t, n);
+      throw new de("need to specify a reason the Duration is invalid");
+    const s = t instanceof ve ? t : new ve(t, n);
     if (Y.throwOnInvalid)
-      throw new Ol(s);
-    return new Z({ invalid: s });
+      throw new Fa(s);
+    return new B({ invalid: s });
   }
   /**
    * @private
@@ -2660,7 +2660,7 @@ class Z {
       milliseconds: "milliseconds"
     }[t && t.toLowerCase()];
     if (!n)
-      throw new Js(t);
+      throw new Ks(t);
     return n;
   }
   /**
@@ -2710,7 +2710,7 @@ class Z {
     const s = Object.assign({}, n, {
       floor: n.round !== !1 && n.floor !== !1
     });
-    return this.isValid ? ne.create(this.loc, s).formatDurationFromString(this, t) : qc;
+    return this.isValid ? oe.create(this.loc, s).formatDurationFromString(this, t) : Xc;
   }
   /**
    * Returns a JavaScript object with this Duration's values.
@@ -2814,10 +2814,10 @@ class Z {
   plus(t) {
     if (!this.isValid)
       return this;
-    const n = Me(t), s = {};
+    const n = Ve(t), s = {};
     for (const o of He)
       (qe(n.values, o) || qe(this.values, o)) && (s[o] = n.get(o) + this.get(o));
-    return Ce(this, { values: s }, !0);
+    return Me(this, { values: s }, !0);
   }
   /**
    * Make this Duration shorter by the specified amount. Return a newly-constructed Duration.
@@ -2827,7 +2827,7 @@ class Z {
   minus(t) {
     if (!this.isValid)
       return this;
-    const n = Me(t);
+    const n = Ve(t);
     return this.plus(n.negate());
   }
   /**
@@ -2842,8 +2842,8 @@ class Z {
       return this;
     const n = {};
     for (const s of Object.keys(this.values))
-      n[s] = no(t(this.values[s], s));
-    return Ce(this, { values: n }, !0);
+      n[s] = to(t(this.values[s], s));
+    return Me(this, { values: n }, !0);
   }
   /**
    * Get the value of unit.
@@ -2854,7 +2854,7 @@ class Z {
    * @return {number}
    */
   get(t) {
-    return this[Z.normalizeUnit(t)];
+    return this[B.normalizeUnit(t)];
   }
   /**
    * "Set" the values of specified units. Return a newly-constructed Duration.
@@ -2866,8 +2866,8 @@ class Z {
   set(t) {
     if (!this.isValid)
       return this;
-    const n = Object.assign(this.values, vt(t, Z.normalizeUnit, []));
-    return Ce(this, { values: n });
+    const n = Object.assign(this.values, vt(t, B.normalizeUnit, []));
+    return Me(this, { values: n });
   }
   /**
    * "Set" the locale and/or numberingSystem.  Returns a newly-constructed Duration.
@@ -2876,7 +2876,7 @@ class Z {
    */
   reconfigure({ locale: t, numberingSystem: n, conversionAccuracy: s } = {}) {
     const o = this.loc.clone({ locale: t, numberingSystem: n }), i = { loc: o };
-    return s && (i.conversionAccuracy = s), Ce(this, i);
+    return s && (i.conversionAccuracy = s), Me(this, i);
   }
   /**
    * Return the length of the duration in the specified unit.
@@ -2899,7 +2899,7 @@ class Z {
     if (!this.isValid)
       return this;
     const t = this.toObject();
-    return Kc(this.matrix, t), Ce(this, { values: t }, !0);
+    return su(this.matrix, t), Me(this, { values: t }, !0);
   }
   /**
    * Convert this Duration into its representation in a different set of units.
@@ -2911,25 +2911,25 @@ class Z {
       return this;
     if (t.length === 0)
       return this;
-    t = t.map((r) => Z.normalizeUnit(r));
+    t = t.map((r) => B.normalizeUnit(r));
     const n = {}, s = {}, o = this.toObject();
     let i;
     for (const r of He)
       if (t.indexOf(r) >= 0) {
         i = r;
-        let a = 0;
+        let l = 0;
         for (const c in s)
-          a += this.matrix[c][r] * s[c], s[c] = 0;
-        De(o[r]) && (a += o[r]);
-        const l = Math.trunc(a);
-        n[r] = l, s[r] = a - l;
+          l += this.matrix[c][r] * s[c], s[c] = 0;
+        Ee(o[r]) && (l += o[r]);
+        const a = Math.trunc(l);
+        n[r] = a, s[r] = l - a;
         for (const c in o)
-          He.indexOf(c) > He.indexOf(r) && bo(this.matrix, o, c, n, r);
+          He.indexOf(c) > He.indexOf(r) && vo(this.matrix, o, c, n, r);
       } else
-        De(o[r]) && (s[r] = o[r]);
+        Ee(o[r]) && (s[r] = o[r]);
     for (const r in s)
       s[r] !== 0 && (n[i] += r === i ? s[r] : s[r] / this.matrix[i][r]);
-    return Ce(this, { values: n }, !0).normalize();
+    return Me(this, { values: n }, !0).normalize();
   }
   /**
    * Return the negative of this Duration.
@@ -2942,7 +2942,7 @@ class Z {
     const t = {};
     for (const n of Object.keys(this.values))
       t[n] = -this.values[n];
-    return Ce(this, { values: t }, !0);
+    return Me(this, { values: t }, !0);
   }
   /**
    * Get the years.
@@ -3047,19 +3047,19 @@ class Z {
     return !0;
   }
 }
-function Me(e) {
-  if (De(e))
-    return Z.fromMillis(e);
-  if (Z.isDuration(e))
+function Ve(e) {
+  if (Ee(e))
+    return B.fromMillis(e);
+  if (B.isDuration(e))
     return e;
   if (typeof e == "object")
-    return Z.fromObject(e);
-  throw new le(
+    return B.fromObject(e);
+  throw new de(
     `Unknown duration argument ${e} of type ${typeof e}`
   );
 }
 const Ke = "Invalid Interval";
-function Jc(e, t) {
+function ou(e, t) {
   return !e || !e.isValid ? U.invalid("missing or invalid start") : !t || !t.isValid ? U.invalid("missing or invalid end") : t < e ? U.invalid(
     "end before start",
     `The end of an interval must be after its start, but you had start=${e.toISO()} and end=${t.toISO()}`
@@ -3080,10 +3080,10 @@ class U {
    */
   static invalid(t, n = null) {
     if (!t)
-      throw new le("need to specify a reason the Interval is invalid");
-    const s = t instanceof me ? t : new me(t, n);
+      throw new de("need to specify a reason the Interval is invalid");
+    const s = t instanceof ve ? t : new ve(t, n);
     if (Y.throwOnInvalid)
-      throw new Tl(s);
+      throw new _a(s);
     return new U({ invalid: s });
   }
   /**
@@ -3093,7 +3093,7 @@ class U {
    * @return {Interval}
    */
   static fromDateTimes(t, n) {
-    const s = Xe(t), o = Xe(n), i = Jc(s, o);
+    const s = Xe(t), o = Xe(n), i = ou(s, o);
     return i ?? new U({
       start: s,
       end: o
@@ -3106,7 +3106,7 @@ class U {
    * @return {Interval}
    */
   static after(t, n) {
-    const s = Me(n), o = Xe(t);
+    const s = Ve(n), o = Xe(t);
     return U.fromDateTimes(o, o.plus(s));
   }
   /**
@@ -3116,7 +3116,7 @@ class U {
    * @return {Interval}
    */
   static before(t, n) {
-    const s = Me(n), o = Xe(t);
+    const s = Ve(n), o = Xe(t);
     return U.fromDateTimes(o.minus(s), o);
   }
   /**
@@ -3132,26 +3132,26 @@ class U {
     if (s && o) {
       let i, r;
       try {
-        i = L.fromISO(s, n), r = i.isValid;
+        i = E.fromISO(s, n), r = i.isValid;
       } catch {
         r = !1;
       }
-      let a, l;
+      let l, a;
       try {
-        a = L.fromISO(o, n), l = a.isValid;
+        l = E.fromISO(o, n), a = l.isValid;
       } catch {
-        l = !1;
+        a = !1;
       }
-      if (r && l)
-        return U.fromDateTimes(i, a);
+      if (r && a)
+        return U.fromDateTimes(i, l);
       if (r) {
-        const c = Z.fromISO(o, n);
+        const c = B.fromISO(o, n);
         if (c.isValid)
           return U.after(i, c);
-      } else if (l) {
-        const c = Z.fromISO(s, n);
+      } else if (a) {
+        const c = B.fromISO(s, n);
         if (c.isValid)
-          return U.before(a, c);
+          return U.before(l, c);
       }
     }
     return U.invalid("unparsable", `the input "${t}" can't be parsed as ISO 8601`);
@@ -3280,8 +3280,8 @@ class U {
     const n = t.map(Xe).filter((r) => this.contains(r)).sort(), s = [];
     let { s: o } = this, i = 0;
     for (; o < this.e; ) {
-      const r = n[i] || this.e, a = +r > +this.e ? this.e : r;
-      s.push(U.fromDateTimes(o, a)), o = a, i += 1;
+      const r = n[i] || this.e, l = +r > +this.e ? this.e : r;
+      s.push(U.fromDateTimes(o, l)), o = l, i += 1;
     }
     return s;
   }
@@ -3292,14 +3292,14 @@ class U {
    * @return {[Interval]}
    */
   splitBy(t) {
-    const n = Me(t);
+    const n = Ve(t);
     if (!this.isValid || !n.isValid || n.as("milliseconds") === 0)
       return [];
     let { s } = this, o = 1, i;
     const r = [];
     for (; s < this.e; ) {
-      const a = this.start.plus(n.mapUnits((l) => l * o));
-      i = +a > +this.e ? this.e : a, r.push(U.fromDateTimes(s, i)), s = i, o += 1;
+      const l = this.start.plus(n.mapUnits((a) => a * o));
+      i = +l > +this.e ? this.e : l, r.push(U.fromDateTimes(s, i)), s = i, o += 1;
     }
     return r;
   }
@@ -3396,9 +3396,9 @@ class U {
    */
   static xor(t) {
     let n = null, s = 0;
-    const o = [], i = t.map((l) => [{ time: l.s, type: "s" }, { time: l.e, type: "e" }]), r = Array.prototype.concat(...i), a = r.sort((l, c) => l.time - c.time);
-    for (const l of a)
-      s += l.type === "s" ? 1 : -1, s === 1 ? n = l.time : (n && +n != +l.time && o.push(U.fromDateTimes(n, l.time)), n = null);
+    const o = [], i = t.map((a) => [{ time: a.s, type: "s" }, { time: a.e, type: "e" }]), r = Array.prototype.concat(...i), l = r.sort((a, c) => a.time - c.time);
+    for (const a of l)
+      s += a.type === "s" ? 1 : -1, s === 1 ? n = a.time : (n && +n != +a.time && o.push(U.fromDateTimes(n, a.time)), n = null);
     return U.merge(o);
   }
   /**
@@ -3467,7 +3467,7 @@ class U {
    * @return {Duration}
    */
   toDuration(t, n) {
-    return this.isValid ? this.e.diff(this.s, t, n) : Z.invalid(this.invalidReason);
+    return this.isValid ? this.e.diff(this.s, t, n) : B.invalid(this.invalidReason);
   }
   /**
    * Run mapFn on the interval start and end, returning a new Interval from the resulting DateTimes
@@ -3487,7 +3487,7 @@ class et {
    * @return {boolean}
    */
   static hasDST(t = Y.defaultZone) {
-    const n = L.now().setZone(t).set({ month: 12 });
+    const n = E.now().setZone(t).set({ month: 12 });
     return !t.universal && n.offset !== n.set({ month: 6 }).offset;
   }
   /**
@@ -3496,7 +3496,7 @@ class et {
    * @return {boolean}
    */
   static isValidIANAZone(t) {
-    return ue.isValidSpecifier(t) && ue.isValidZone(t);
+    return he.isValidSpecifier(t) && he.isValidZone(t);
   }
   /**
    * Converts the input into a {@link Zone} instance.
@@ -3513,7 +3513,7 @@ class et {
    * @return {Zone}
    */
   static normalizeZone(t) {
-    return Oe(t, Y.defaultZone);
+    return De(t, Y.defaultZone);
   }
   /**
    * Return an array of standalone month names.
@@ -3620,8 +3620,8 @@ class et {
    */
   static features() {
     let t = !1, n = !1, s = !1, o = !1;
-    if (ve()) {
-      t = !0, n = ot(), o = xs();
+    if ($e()) {
+      t = !0, n = ot(), o = Xs();
       try {
         s = new Intl.DateTimeFormat("en", { timeZone: "America/New_York" }).resolvedOptions().timeZone === "America/New_York";
       } catch {
@@ -3633,39 +3633,39 @@ class et {
 }
 function Wn(e, t) {
   const n = (o) => o.toUTC(0, { keepLocalTime: !0 }).startOf("day").valueOf(), s = n(t) - n(e);
-  return Math.floor(Z.fromMillis(s).as("days"));
+  return Math.floor(B.fromMillis(s).as("days"));
 }
-function Qc(e, t, n) {
+function ru(e, t, n) {
   const s = [
-    ["years", (a, l) => l.year - a.year],
-    ["quarters", (a, l) => l.quarter - a.quarter],
-    ["months", (a, l) => l.month - a.month + (l.year - a.year) * 12],
+    ["years", (l, a) => a.year - l.year],
+    ["quarters", (l, a) => a.quarter - l.quarter],
+    ["months", (l, a) => a.month - l.month + (a.year - l.year) * 12],
     [
       "weeks",
-      (a, l) => {
-        const c = Wn(a, l);
+      (l, a) => {
+        const c = Wn(l, a);
         return (c - c % 7) / 7;
       }
     ],
     ["days", Wn]
   ], o = {};
   let i, r;
-  for (const [a, l] of s)
-    if (n.indexOf(a) >= 0) {
-      i = a;
-      let c = l(e, t);
-      r = e.plus({ [a]: c }), r > t ? (e = e.plus({ [a]: c - 1 }), c -= 1) : e = r, o[a] = c;
+  for (const [l, a] of s)
+    if (n.indexOf(l) >= 0) {
+      i = l;
+      let c = a(e, t);
+      r = e.plus({ [l]: c }), r > t ? (e = e.plus({ [l]: c - 1 }), c -= 1) : e = r, o[l] = c;
     }
   return [e, o, r, i];
 }
-function Xc(e, t, n, s) {
-  let [o, i, r, a] = Qc(e, t, n);
-  const l = t - o, c = n.filter(
-    (h) => ["hours", "minutes", "seconds", "milliseconds"].indexOf(h) >= 0
+function iu(e, t, n, s) {
+  let [o, i, r, l] = ru(e, t, n);
+  const a = t - o, c = n.filter(
+    (f) => ["hours", "minutes", "seconds", "milliseconds"].indexOf(f) >= 0
   );
-  c.length === 0 && (r < t && (r = o.plus({ [a]: 1 })), r !== o && (i[a] = (i[a] || 0) + l / (r - o)));
-  const u = Z.fromObject(Object.assign(i, s));
-  return c.length > 0 ? Z.fromMillis(l, s).shiftTo(...c).plus(u) : u;
+  c.length === 0 && (r < t && (r = o.plus({ [l]: 1 })), r !== o && (i[l] = (i[l] || 0) + a / (r - o)));
+  const u = B.fromObject(Object.assign(i, s));
+  return c.length > 0 ? B.fromMillis(a, s).shiftTo(...c).plus(u) : u;
 }
 const $n = {
   arab: "[٠-٩]",
@@ -3709,15 +3709,15 @@ const $n = {
   telu: [3174, 3183],
   thai: [3664, 3673],
   tibt: [3872, 3881]
-}, xc = $n.hanidec.replace(/[\[|\]]/g, "").split("");
-function eu(e) {
+}, lu = $n.hanidec.replace(/[\[|\]]/g, "").split("");
+function au(e) {
   let t = parseInt(e, 10);
   if (isNaN(t)) {
     t = "";
     for (let n = 0; n < e.length; n++) {
       const s = e.charCodeAt(n);
       if (e[n].search($n.hanidec) !== -1)
-        t += xc.indexOf(e[n]);
+        t += lu.indexOf(e[n]);
       else
         for (const o in qn) {
           const [i, r] = qn[o];
@@ -3728,23 +3728,23 @@ function eu(e) {
   } else
     return t;
 }
-function de({ numberingSystem: e }, t = "") {
+function ye({ numberingSystem: e }, t = "") {
   return new RegExp(`${$n[e || "latn"]}${t}`);
 }
-const tu = "missing Intl.DateTimeFormat.formatToParts support";
+const cu = "missing Intl.DateTimeFormat.formatToParts support";
 function H(e, t = (n) => n) {
-  return { regex: e, deser: ([n]) => t(eu(n)) };
+  return { regex: e, deser: ([n]) => t(au(n)) };
 }
-const nu = String.fromCharCode(160), wo = `( |${nu})`, $o = new RegExp(wo, "g");
-function su(e) {
-  return e.replace(/\./g, "\\.?").replace($o, wo);
+const uu = String.fromCharCode(160), bo = `( |${uu})`, wo = new RegExp(bo, "g");
+function du(e) {
+  return e.replace(/\./g, "\\.?").replace(wo, bo);
 }
 function jn(e) {
-  return e.replace(/\./g, "").replace($o, " ").toLowerCase();
+  return e.replace(/\./g, "").replace(wo, " ").toLowerCase();
 }
-function fe(e, t) {
+function ge(e, t) {
   return e === null ? null : {
-    regex: RegExp(e.map(su).join("|")),
+    regex: RegExp(e.map(du).join("|")),
     deser: ([n]) => e.findIndex((s) => jn(n) === jn(s)) + t
   };
 }
@@ -3754,115 +3754,115 @@ function Un(e, t) {
 function Yn(e) {
   return { regex: e, deser: ([t]) => t };
 }
-function ou(e) {
+function fu(e) {
   return e.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
 }
-function ru(e, t) {
-  const n = de(t), s = de(t, "{2}"), o = de(t, "{3}"), i = de(t, "{4}"), r = de(t, "{6}"), a = de(t, "{1,2}"), l = de(t, "{1,3}"), c = de(t, "{1,6}"), u = de(t, "{1,9}"), h = de(t, "{2,4}"), f = de(t, "{4,6}"), y = (R) => ({ regex: RegExp(ou(R.val)), deser: ([Q]) => Q, literal: !0 }), z = ((R) => {
+function mu(e, t) {
+  const n = ye(t), s = ye(t, "{2}"), o = ye(t, "{3}"), i = ye(t, "{4}"), r = ye(t, "{6}"), l = ye(t, "{1,2}"), a = ye(t, "{1,3}"), c = ye(t, "{1,6}"), u = ye(t, "{1,9}"), f = ye(t, "{2,4}"), m = ye(t, "{4,6}"), g = (W) => ({ regex: RegExp(fu(W.val)), deser: ([J]) => J, literal: !0 }), Z = ((W) => {
     if (e.literal)
-      return y(R);
-    switch (R.val) {
+      return g(W);
+    switch (W.val) {
       case "G":
-        return fe(t.eras("short", !1), 0);
+        return ge(t.eras("short", !1), 0);
       case "GG":
-        return fe(t.eras("long", !1), 0);
+        return ge(t.eras("long", !1), 0);
       case "y":
         return H(c);
       case "yy":
-        return H(h, Pt);
+        return H(f, Ft);
       case "yyyy":
         return H(i);
       case "yyyyy":
-        return H(f);
+        return H(m);
       case "yyyyyy":
         return H(r);
       case "M":
-        return H(a);
+        return H(l);
       case "MM":
         return H(s);
       case "MMM":
-        return fe(t.months("short", !0, !1), 1);
+        return ge(t.months("short", !0, !1), 1);
       case "MMMM":
-        return fe(t.months("long", !0, !1), 1);
+        return ge(t.months("long", !0, !1), 1);
       case "L":
-        return H(a);
+        return H(l);
       case "LL":
         return H(s);
       case "LLL":
-        return fe(t.months("short", !1, !1), 1);
+        return ge(t.months("short", !1, !1), 1);
       case "LLLL":
-        return fe(t.months("long", !1, !1), 1);
+        return ge(t.months("long", !1, !1), 1);
       case "d":
-        return H(a);
+        return H(l);
       case "dd":
         return H(s);
       case "o":
-        return H(l);
+        return H(a);
       case "ooo":
         return H(o);
       case "HH":
         return H(s);
       case "H":
-        return H(a);
+        return H(l);
       case "hh":
         return H(s);
       case "h":
-        return H(a);
+        return H(l);
       case "mm":
         return H(s);
       case "m":
-        return H(a);
+        return H(l);
       case "q":
-        return H(a);
+        return H(l);
       case "qq":
         return H(s);
       case "s":
-        return H(a);
+        return H(l);
       case "ss":
         return H(s);
       case "S":
-        return H(l);
+        return H(a);
       case "SSS":
         return H(o);
       case "u":
         return Yn(u);
       case "a":
-        return fe(t.meridiems(), 0);
+        return ge(t.meridiems(), 0);
       case "kkkk":
         return H(i);
       case "kk":
-        return H(h, Pt);
+        return H(f, Ft);
       case "W":
-        return H(a);
+        return H(l);
       case "WW":
         return H(s);
       case "E":
       case "c":
         return H(n);
       case "EEE":
-        return fe(t.weekdays("short", !1, !1), 1);
+        return ge(t.weekdays("short", !1, !1), 1);
       case "EEEE":
-        return fe(t.weekdays("long", !1, !1), 1);
+        return ge(t.weekdays("long", !1, !1), 1);
       case "ccc":
-        return fe(t.weekdays("short", !0, !1), 1);
+        return ge(t.weekdays("short", !0, !1), 1);
       case "cccc":
-        return fe(t.weekdays("long", !0, !1), 1);
+        return ge(t.weekdays("long", !0, !1), 1);
       case "Z":
       case "ZZ":
-        return Un(new RegExp(`([+-]${a.source})(?::(${s.source}))?`), 2);
+        return Un(new RegExp(`([+-]${l.source})(?::(${s.source}))?`), 2);
       case "ZZZ":
-        return Un(new RegExp(`([+-]${a.source})(${s.source})?`), 2);
+        return Un(new RegExp(`([+-]${l.source})(${s.source})?`), 2);
       case "z":
         return Yn(/[a-z_+-/]{1,256}?/i);
       default:
-        return y(R);
+        return g(W);
     }
   })(e) || {
-    invalidReason: tu
+    invalidReason: cu
   };
-  return z.token = e, z;
+  return Z.token = e, Z;
 }
-const iu = {
+const hu = {
   year: {
     "2-digit": "yy",
     numeric: "yyyyy"
@@ -3896,7 +3896,7 @@ const iu = {
     "2-digit": "ss"
   }
 };
-function au(e, t, n) {
+function pu(e, t, n) {
   const { type: s, value: o } = e;
   if (s === "literal")
     return {
@@ -3904,31 +3904,31 @@ function au(e, t, n) {
       val: o
     };
   const i = n[s];
-  let r = iu[s];
+  let r = hu[s];
   if (typeof r == "object" && (r = r[i]), r)
     return {
       literal: !1,
       val: r
     };
 }
-function lu(e) {
+function yu(e) {
   return [`^${e.map((n) => n.regex).reduce((n, s) => `${n}(${s.source})`, "")}$`, e];
 }
-function cu(e, t, n) {
+function gu(e, t, n) {
   const s = e.match(t);
   if (s) {
     const o = {};
     let i = 1;
     for (const r in n)
       if (qe(n, r)) {
-        const a = n[r], l = a.groups ? a.groups + 1 : 1;
-        !a.literal && a.token && (o[a.token.val[0]] = a.deser(s.slice(i, i + l))), i += l;
+        const l = n[r], a = l.groups ? l.groups + 1 : 1;
+        !l.literal && l.token && (o[l.token.val[0]] = l.deser(s.slice(i, i + a))), i += a;
       }
     return [s, o];
   } else
     return [s, {}];
 }
-function uu(e) {
+function vu(e) {
   const t = (o) => {
     switch (o) {
       case "S":
@@ -3963,101 +3963,101 @@ function uu(e) {
     }
   };
   let n;
-  return F(e.Z) ? F(e.z) ? n = null : n = ue.create(e.z) : n = new X(e.Z), F(e.q) || (e.M = (e.q - 1) * 3 + 1), F(e.h) || (e.h < 12 && e.a === 1 ? e.h += 12 : e.h === 12 && e.a === 0 && (e.h = 0)), e.G === 0 && e.y && (e.y = -e.y), F(e.u) || (e.S = hn(e.u)), [Object.keys(e).reduce((o, i) => {
+  return A(e.Z) ? A(e.z) ? n = null : n = he.create(e.z) : n = new x(e.Z), A(e.q) || (e.M = (e.q - 1) * 3 + 1), A(e.h) || (e.h < 12 && e.a === 1 ? e.h += 12 : e.h === 12 && e.a === 0 && (e.h = 0)), e.G === 0 && e.y && (e.y = -e.y), A(e.u) || (e.S = hn(e.u)), [Object.keys(e).reduce((o, i) => {
     const r = t(i);
     return r && (o[r] = e[i]), o;
   }, {}), n];
 }
-let Et = null;
-function du() {
-  return Et || (Et = L.fromMillis(1555555555555)), Et;
+let Vt = null;
+function bu() {
+  return Vt || (Vt = E.fromMillis(1555555555555)), Vt;
 }
-function fu(e, t) {
+function wu(e, t) {
   if (e.literal)
     return e;
-  const n = ne.macroTokenToFormatOpts(e.val);
+  const n = oe.macroTokenToFormatOpts(e.val);
   if (!n)
     return e;
-  const i = ne.create(t, n).formatDateTimeParts(du()).map((r) => au(r, t, n));
+  const i = oe.create(t, n).formatDateTimeParts(bu()).map((r) => pu(r, t, n));
   return i.includes(void 0) ? e : i;
 }
-function mu(e, t) {
-  return Array.prototype.concat(...e.map((n) => fu(n, t)));
+function $u(e, t) {
+  return Array.prototype.concat(...e.map((n) => wu(n, t)));
 }
-function So(e, t, n) {
-  const s = mu(ne.parseFormat(n), e), o = s.map((r) => ru(r, e)), i = o.find((r) => r.invalidReason);
+function $o(e, t, n) {
+  const s = $u(oe.parseFormat(n), e), o = s.map((r) => mu(r, e)), i = o.find((r) => r.invalidReason);
   if (i)
     return { input: t, tokens: s, invalidReason: i.invalidReason };
   {
-    const [r, a] = lu(o), l = RegExp(r, "i"), [c, u] = cu(t, l, a), [h, f] = u ? uu(u) : [null, null];
+    const [r, l] = yu(o), a = RegExp(r, "i"), [c, u] = gu(t, a, l), [f, m] = u ? vu(u) : [null, null];
     if (qe(u, "a") && qe(u, "H"))
       throw new xe(
         "Can't include meridiem when specifying 24-hour format"
       );
-    return { input: t, tokens: s, regex: l, rawMatches: c, matches: u, result: h, zone: f };
+    return { input: t, tokens: s, regex: a, rawMatches: c, matches: u, result: f, zone: m };
   }
 }
-function hu(e, t, n) {
-  const { result: s, zone: o, invalidReason: i } = So(e, t, n);
+function Su(e, t, n) {
+  const { result: s, zone: o, invalidReason: i } = $o(e, t, n);
   return [s, o, i];
 }
-const ko = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334], Io = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
-function ce(e, t) {
-  return new me(
+const So = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334], ko = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
+function fe(e, t) {
+  return new ve(
     "unit out of range",
     `you specified ${t} (of type ${typeof t}) as a ${e}, which is invalid`
   );
 }
-function Co(e, t, n) {
+function Io(e, t, n) {
   const s = new Date(Date.UTC(e, t - 1, n)).getUTCDay();
   return s === 0 ? 7 : s;
 }
-function To(e, t, n) {
-  return n + (rt(e) ? Io : ko)[t - 1];
+function Co(e, t, n) {
+  return n + (rt(e) ? ko : So)[t - 1];
 }
-function Oo(e, t) {
-  const n = rt(e) ? Io : ko, s = n.findIndex((i) => i < t), o = t - n[s];
+function To(e, t) {
+  const n = rt(e) ? ko : So, s = n.findIndex((i) => i < t), o = t - n[s];
   return { month: s + 1, day: o };
 }
 function Rt(e) {
-  const { year: t, month: n, day: s } = e, o = To(t, n, s), i = Co(t, n, s);
-  let r = Math.floor((o - i + 10) / 7), a;
-  return r < 1 ? (a = t - 1, r = gt(a)) : r > gt(t) ? (a = t + 1, r = 1) : a = t, Object.assign({ weekYear: a, weekNumber: r, weekday: i }, It(e));
+  const { year: t, month: n, day: s } = e, o = Co(t, n, s), i = Io(t, n, s);
+  let r = Math.floor((o - i + 10) / 7), l;
+  return r < 1 ? (l = t - 1, r = gt(l)) : r > gt(t) ? (l = t + 1, r = 1) : l = t, Object.assign({ weekYear: l, weekNumber: r, weekday: i }, It(e));
 }
 function Gn(e) {
-  const { weekYear: t, weekNumber: n, weekday: s } = e, o = Co(t, 1, 4), i = nt(t);
-  let r = n * 7 + s - o - 3, a;
-  r < 1 ? (a = t - 1, r += nt(a)) : r > i ? (a = t + 1, r -= nt(t)) : a = t;
-  const { month: l, day: c } = Oo(a, r);
-  return Object.assign({ year: a, month: l, day: c }, It(e));
+  const { weekYear: t, weekNumber: n, weekday: s } = e, o = Io(t, 1, 4), i = nt(t);
+  let r = n * 7 + s - o - 3, l;
+  r < 1 ? (l = t - 1, r += nt(l)) : r > i ? (l = t + 1, r -= nt(t)) : l = t;
+  const { month: a, day: c } = To(l, r);
+  return Object.assign({ year: l, month: a, day: c }, It(e));
 }
-function Lt(e) {
-  const { year: t, month: n, day: s } = e, o = To(t, n, s);
+function Et(e) {
+  const { year: t, month: n, day: s } = e, o = Co(t, n, s);
   return Object.assign({ year: t, ordinal: o }, It(e));
 }
 function Kn(e) {
-  const { year: t, ordinal: n } = e, { month: s, day: o } = Oo(t, n);
+  const { year: t, ordinal: n } = e, { month: s, day: o } = To(t, n);
   return Object.assign({ year: t, month: s, day: o }, It(e));
 }
-function pu(e) {
-  const t = St(e.weekYear), n = we(e.weekNumber, 1, gt(e.weekYear)), s = we(e.weekday, 1, 7);
-  return t ? n ? s ? !1 : ce("weekday", e.weekday) : ce("week", e.week) : ce("weekYear", e.weekYear);
+function ku(e) {
+  const t = St(e.weekYear), n = Ie(e.weekNumber, 1, gt(e.weekYear)), s = Ie(e.weekday, 1, 7);
+  return t ? n ? s ? !1 : fe("weekday", e.weekday) : fe("week", e.week) : fe("weekYear", e.weekYear);
 }
-function yu(e) {
-  const t = St(e.year), n = we(e.ordinal, 1, nt(e.year));
-  return t ? n ? !1 : ce("ordinal", e.ordinal) : ce("year", e.year);
+function Iu(e) {
+  const t = St(e.year), n = Ie(e.ordinal, 1, nt(e.year));
+  return t ? n ? !1 : fe("ordinal", e.ordinal) : fe("year", e.year);
 }
 function Mo(e) {
-  const t = St(e.year), n = we(e.month, 1, 12), s = we(e.day, 1, yt(e.year, e.month));
-  return t ? n ? s ? !1 : ce("day", e.day) : ce("month", e.month) : ce("year", e.year);
+  const t = St(e.year), n = Ie(e.month, 1, 12), s = Ie(e.day, 1, yt(e.year, e.month));
+  return t ? n ? s ? !1 : fe("day", e.day) : fe("month", e.month) : fe("year", e.year);
 }
-function Do(e) {
-  const { hour: t, minute: n, second: s, millisecond: o } = e, i = we(t, 0, 23) || t === 24 && n === 0 && s === 0 && o === 0, r = we(n, 0, 59), a = we(s, 0, 59), l = we(o, 0, 999);
-  return i ? r ? a ? l ? !1 : ce("millisecond", o) : ce("second", s) : ce("minute", n) : ce("hour", t);
+function Oo(e) {
+  const { hour: t, minute: n, second: s, millisecond: o } = e, i = Ie(t, 0, 23) || t === 24 && n === 0 && s === 0 && o === 0, r = Ie(n, 0, 59), l = Ie(s, 0, 59), a = Ie(o, 0, 999);
+  return i ? r ? l ? a ? !1 : fe("millisecond", o) : fe("second", s) : fe("minute", n) : fe("hour", t);
 }
-const Vt = "Invalid DateTime", Jn = 864e13;
+const Lt = "Invalid DateTime", Jn = 864e13;
 function ut(e) {
-  return new me("unsupported zone", `the zone "${e.name}" is not supported`);
+  return new ve("unsupported zone", `the zone "${e.name}" is not supported`);
 }
 function Nt(e) {
   return e.weekData === null && (e.weekData = Rt(e.c)), e.weekData;
@@ -4071,9 +4071,9 @@ function Je(e, t) {
     loc: e.loc,
     invalid: e.invalid
   };
-  return new L(Object.assign({}, n, t, { old: n }));
+  return new E(Object.assign({}, n, t, { old: n }));
 }
-function Eo(e, t, n) {
+function Do(e, t, n) {
   let s = e - t * 60 * 1e3;
   const o = n.offset(s);
   if (t === o)
@@ -4096,14 +4096,14 @@ function Qn(e, t) {
   };
 }
 function mt(e, t, n) {
-  return Eo(yn(e), t, n);
+  return Do(yn(e), t, n);
 }
 function Xn(e, t) {
   const n = e.o, s = e.c.year + Math.trunc(t.years), o = e.c.month + Math.trunc(t.months) + Math.trunc(t.quarters) * 3, i = Object.assign({}, e.c, {
     year: s,
     month: o,
     day: Math.min(e.c.day, yt(s, o)) + Math.trunc(t.days) + Math.trunc(t.weeks) * 7
-  }), r = Z.fromObject({
+  }), r = B.fromObject({
     years: t.years - Math.trunc(t.years),
     quarters: t.quarters - Math.trunc(t.quarters),
     months: t.months - Math.trunc(t.months),
@@ -4113,28 +4113,28 @@ function Xn(e, t) {
     minutes: t.minutes,
     seconds: t.seconds,
     milliseconds: t.milliseconds
-  }).as("milliseconds"), a = yn(i);
-  let [l, c] = Eo(a, n, e.zone);
-  return r !== 0 && (l += r, c = e.zone.offset(l)), { ts: l, o: c };
+  }).as("milliseconds"), l = yn(i);
+  let [a, c] = Do(l, n, e.zone);
+  return r !== 0 && (a += r, c = e.zone.offset(a)), { ts: a, o: c };
 }
 function Qe(e, t, n, s, o) {
   const { setZone: i, zone: r } = n;
   if (e && Object.keys(e).length !== 0) {
-    const a = t || r, l = L.fromObject(
+    const l = t || r, a = E.fromObject(
       Object.assign(e, n, {
-        zone: a,
+        zone: l,
         // setZone is a valid option in the calling methods, but not in fromObject
         setZone: void 0
       })
     );
-    return i ? l : l.setZone(r);
+    return i ? a : a.setZone(r);
   } else
-    return L.invalid(
-      new me("unparsable", `the input "${o}" can't be parsed as ${s}`)
+    return E.invalid(
+      new ve("unparsable", `the input "${o}" can't be parsed as ${s}`)
     );
 }
 function ze(e, t, n = !0) {
-  return e.isValid ? ne.create(j.create("en-US"), {
+  return e.isValid ? oe.create(j.create("en-US"), {
     allowZ: n,
     forceSimple: !0
   }).formatDateTimeFromString(e, t) : null;
@@ -4146,34 +4146,34 @@ function xn(e, {
   includePrefix: o = !1,
   includeZone: i = !1,
   spaceZone: r = !1,
-  format: a = "extended"
+  format: l = "extended"
 }) {
-  let l = a === "basic" ? "HHmm" : "HH:mm";
-  (!t || e.second !== 0 || e.millisecond !== 0) && (l += a === "basic" ? "ss" : ":ss", (!n || e.millisecond !== 0) && (l += ".SSS")), (i || s) && r && (l += " "), i ? l += "z" : s && (l += a === "basic" ? "ZZZ" : "ZZ");
-  let c = ze(e, l);
+  let a = l === "basic" ? "HHmm" : "HH:mm";
+  (!t || e.second !== 0 || e.millisecond !== 0) && (a += l === "basic" ? "ss" : ":ss", (!n || e.millisecond !== 0) && (a += ".SSS")), (i || s) && r && (a += " "), i ? a += "z" : s && (a += l === "basic" ? "ZZZ" : "ZZ");
+  let c = ze(e, a);
   return o && (c = "T" + c), c;
 }
-const Lo = {
+const Vo = {
   month: 1,
   day: 1,
   hour: 0,
   minute: 0,
   second: 0,
   millisecond: 0
-}, gu = {
+}, Cu = {
   weekNumber: 1,
   weekday: 1,
   hour: 0,
   minute: 0,
   second: 0,
   millisecond: 0
-}, vu = {
+}, Tu = {
   ordinal: 1,
   hour: 0,
   minute: 0,
   second: 0,
   millisecond: 0
-}, Vo = ["year", "month", "day", "hour", "minute", "second", "millisecond"], bu = [
+}, Eo = ["year", "month", "day", "hour", "minute", "second", "millisecond"], Mu = [
   "weekYear",
   "weekNumber",
   "weekday",
@@ -4181,7 +4181,7 @@ const Lo = {
   "minute",
   "second",
   "millisecond"
-], wu = ["year", "ordinal", "hour", "minute", "second", "millisecond"];
+], Ou = ["year", "ordinal", "hour", "minute", "second", "millisecond"];
 function es(e) {
   const t = {
     year: "year",
@@ -4210,48 +4210,48 @@ function es(e) {
     ordinal: "ordinal"
   }[e.toLowerCase()];
   if (!t)
-    throw new Js(e);
+    throw new Ks(e);
   return t;
 }
 function ts(e, t) {
-  for (const a of Vo)
-    F(e[a]) && (e[a] = Lo[a]);
-  const n = Mo(e) || Do(e);
+  for (const l of Eo)
+    A(e[l]) && (e[l] = Vo[l]);
+  const n = Mo(e) || Oo(e);
   if (n)
-    return L.invalid(n);
+    return E.invalid(n);
   const s = Y.now(), o = t.offset(s), [i, r] = mt(e, o, t);
-  return new L({
+  return new E({
     ts: i,
     zone: t,
     o: r
   });
 }
 function ns(e, t, n) {
-  const s = F(n.round) ? !0 : n.round, o = (r, a) => (r = pn(r, s || n.calendary ? 0 : 2, !0), t.loc.clone(n).relFormatter(n).format(r, a)), i = (r) => n.calendary ? t.hasSame(e, r) ? 0 : t.startOf(r).diff(e.startOf(r), r).get(r) : t.diff(e, r).get(r);
+  const s = A(n.round) ? !0 : n.round, o = (r, l) => (r = pn(r, s || n.calendary ? 0 : 2, !0), t.loc.clone(n).relFormatter(n).format(r, l)), i = (r) => n.calendary ? t.hasSame(e, r) ? 0 : t.startOf(r).diff(e.startOf(r), r).get(r) : t.diff(e, r).get(r);
   if (n.unit)
     return o(i(n.unit), n.unit);
   for (const r of n.units) {
-    const a = i(r);
-    if (Math.abs(a) >= 1)
-      return o(a, r);
+    const l = i(r);
+    if (Math.abs(l) >= 1)
+      return o(l, r);
   }
   return o(e > t ? -0 : 0, n.units[n.units.length - 1]);
 }
-class L {
+class E {
   /**
    * @access private
    */
   constructor(t) {
     const n = t.zone || Y.defaultZone;
-    let s = t.invalid || (Number.isNaN(t.ts) ? new me("invalid input") : null) || (n.isValid ? null : ut(n));
-    this.ts = F(t.ts) ? Y.now() : t.ts;
+    let s = t.invalid || (Number.isNaN(t.ts) ? new ve("invalid input") : null) || (n.isValid ? null : ut(n));
+    this.ts = A(t.ts) ? Y.now() : t.ts;
     let o = null, i = null;
     if (!s)
       if (t.old && t.old.ts === this.ts && t.old.zone.equals(n))
         [o, i] = [t.old.c, t.old.o];
       else {
-        const a = n.offset(this.ts);
-        o = Qn(this.ts, a), s = Number.isNaN(o.year) ? new me("invalid input") : null, o = s ? null : o, i = s ? null : a;
+        const l = n.offset(this.ts);
+        o = Qn(this.ts, l), s = Number.isNaN(o.year) ? new ve("invalid input") : null, o = s ? null : o, i = s ? null : l;
       }
     this._zone = n, this.loc = t.loc || j.create(), this.invalid = s, this.weekData = null, this.c = o, this.o = i, this.isLuxonDateTime = !0;
   }
@@ -4264,7 +4264,7 @@ class L {
    * @return {DateTime}
    */
   static now() {
-    return new L({});
+    return new E({});
   }
   /**
    * Create a local DateTime
@@ -4285,8 +4285,8 @@ class L {
    * @example DateTime.local(2017, 3, 12, 5, 45, 10, 765) //~> 2017-03-12T05:45:10.765
    * @return {DateTime}
    */
-  static local(t, n, s, o, i, r, a) {
-    return F(t) ? L.now() : ts(
+  static local(t, n, s, o, i, r, l) {
+    return A(t) ? E.now() : ts(
       {
         year: t,
         month: n,
@@ -4294,7 +4294,7 @@ class L {
         hour: o,
         minute: i,
         second: r,
-        millisecond: a
+        millisecond: l
       },
       Y.defaultZone
     );
@@ -4318,10 +4318,10 @@ class L {
    * @example DateTime.utc(2017, 3, 12, 5, 45, 10, 765) //~> 2017-03-12T05:45:10.765Z
    * @return {DateTime}
    */
-  static utc(t, n, s, o, i, r, a) {
-    return F(t) ? new L({
+  static utc(t, n, s, o, i, r, l) {
+    return A(t) ? new E({
       ts: Y.now(),
-      zone: X.utcInstance
+      zone: x.utcInstance
     }) : ts(
       {
         year: t,
@@ -4330,9 +4330,9 @@ class L {
         hour: o,
         minute: i,
         second: r,
-        millisecond: a
+        millisecond: l
       },
-      X.utcInstance
+      x.utcInstance
     );
   }
   /**
@@ -4343,15 +4343,15 @@ class L {
    * @return {DateTime}
    */
   static fromJSDate(t, n = {}) {
-    const s = Dl(t) ? t.valueOf() : NaN;
+    const s = Aa(t) ? t.valueOf() : NaN;
     if (Number.isNaN(s))
-      return L.invalid("invalid input");
-    const o = Oe(n.zone, Y.defaultZone);
-    return o.isValid ? new L({
+      return E.invalid("invalid input");
+    const o = De(n.zone, Y.defaultZone);
+    return o.isValid ? new E({
       ts: s,
       zone: o,
       loc: j.fromObject(n)
-    }) : L.invalid(ut(o));
+    }) : E.invalid(ut(o));
   }
   /**
    * Create a DateTime from a number of milliseconds since the epoch (meaning since 1 January 1970 00:00:00 UTC). Uses the default zone.
@@ -4364,13 +4364,13 @@ class L {
    * @return {DateTime}
    */
   static fromMillis(t, n = {}) {
-    if (De(t))
-      return t < -Jn || t > Jn ? L.invalid("Timestamp out of range") : new L({
+    if (Ee(t))
+      return t < -Jn || t > Jn ? E.invalid("Timestamp out of range") : new E({
         ts: t,
-        zone: Oe(n.zone, Y.defaultZone),
+        zone: De(n.zone, Y.defaultZone),
         loc: j.fromObject(n)
       });
-    throw new le(
+    throw new de(
       `fromMillis requires a numerical input, but received a ${typeof t} with value ${t}`
     );
   }
@@ -4385,13 +4385,13 @@ class L {
    * @return {DateTime}
    */
   static fromSeconds(t, n = {}) {
-    if (De(t))
-      return new L({
+    if (Ee(t))
+      return new E({
         ts: t * 1e3,
-        zone: Oe(n.zone, Y.defaultZone),
+        zone: De(n.zone, Y.defaultZone),
         loc: j.fromObject(n)
       });
-    throw new le("fromSeconds requires a numerical input");
+    throw new de("fromSeconds requires a numerical input");
   }
   /**
    * Create a DateTime from a JavaScript object with keys like 'year' and 'hour' with reasonable defaults.
@@ -4421,42 +4421,42 @@ class L {
    * @return {DateTime}
    */
   static fromObject(t) {
-    const n = Oe(t.zone, Y.defaultZone);
+    const n = De(t.zone, Y.defaultZone);
     if (!n.isValid)
-      return L.invalid(ut(n));
+      return E.invalid(ut(n));
     const s = Y.now(), o = n.offset(s), i = vt(t, es, [
       "zone",
       "locale",
       "outputCalendar",
       "numberingSystem"
-    ]), r = !F(i.ordinal), a = !F(i.year), l = !F(i.month) || !F(i.day), c = a || l, u = i.weekYear || i.weekNumber, h = j.fromObject(t);
+    ]), r = !A(i.ordinal), l = !A(i.year), a = !A(i.month) || !A(i.day), c = l || a, u = i.weekYear || i.weekNumber, f = j.fromObject(t);
     if ((c || r) && u)
       throw new xe(
         "Can't mix weekYear/weekNumber units with year/month/day or ordinals"
       );
-    if (l && r)
+    if (a && r)
       throw new xe("Can't mix ordinal dates with month/day");
-    const f = u || i.weekday && !c;
-    let y, w, z = Qn(s, o);
-    f ? (y = bu, w = gu, z = Rt(z)) : r ? (y = wu, w = vu, z = Lt(z)) : (y = Vo, w = Lo);
-    let R = !1;
-    for (const Ie of y) {
-      const P = i[Ie];
-      F(P) ? R ? i[Ie] = w[Ie] : i[Ie] = z[Ie] : R = !0;
+    const m = u || i.weekday && !c;
+    let g, S, Z = Qn(s, o);
+    m ? (g = Mu, S = Cu, Z = Rt(Z)) : r ? (g = Ou, S = Tu, Z = Et(Z)) : (g = Eo, S = Vo);
+    let W = !1;
+    for (const we of g) {
+      const _ = i[we];
+      A(_) ? W ? i[we] = S[we] : i[we] = Z[we] : W = !0;
     }
-    const Q = f ? pu(i) : r ? yu(i) : Mo(i), G = Q || Do(i);
-    if (G)
-      return L.invalid(G);
-    const B = f ? Gn(i) : r ? Kn(i) : i, [ge, Ne] = mt(B, o, n), ke = new L({
-      ts: ge,
+    const J = m ? ku(i) : r ? Iu(i) : Mo(i), X = J || Oo(i);
+    if (X)
+      return E.invalid(X);
+    const R = m ? Gn(i) : r ? Kn(i) : i, [re, ie] = mt(R, o, n), te = new E({
+      ts: re,
       zone: n,
-      o: Ne,
-      loc: h
+      o: ie,
+      loc: f
     });
-    return i.weekday && c && t.weekday !== ke.weekday ? L.invalid(
+    return i.weekday && c && t.weekday !== te.weekday ? E.invalid(
       "mismatched weekday",
-      `you can't specify both a weekday of ${i.weekday} and a date of ${ke.toISO()}`
-    ) : ke;
+      `you can't specify both a weekday of ${i.weekday} and a date of ${te.toISO()}`
+    ) : te;
   }
   /**
    * Create a DateTime from an ISO 8601 string
@@ -4475,7 +4475,7 @@ class L {
    * @return {DateTime}
    */
   static fromISO(t, n = {}) {
-    const [s, o] = Nc(t);
+    const [s, o] = Bc(t);
     return Qe(s, o, n, "ISO 8601", t);
   }
   /**
@@ -4493,7 +4493,7 @@ class L {
    * @return {DateTime}
    */
   static fromRFC2822(t, n = {}) {
-    const [s, o] = _c(t);
+    const [s, o] = Zc(t);
     return Qe(s, o, n, "RFC 2822", t);
   }
   /**
@@ -4512,7 +4512,7 @@ class L {
    * @return {DateTime}
    */
   static fromHTTP(t, n = {}) {
-    const [s, o] = Pc(t);
+    const [s, o] = Wc(t);
     return Qe(s, o, n, "HTTP", n);
   }
   /**
@@ -4530,20 +4530,20 @@ class L {
    * @return {DateTime}
    */
   static fromFormat(t, n, s = {}) {
-    if (F(t) || F(n))
-      throw new le("fromFormat requires an input string and a format");
+    if (A(t) || A(n))
+      throw new de("fromFormat requires an input string and a format");
     const { locale: o = null, numberingSystem: i = null } = s, r = j.fromOpts({
       locale: o,
       numberingSystem: i,
       defaultToEN: !0
-    }), [a, l, c] = hu(r, t, n);
-    return c ? L.invalid(c) : Qe(a, l, s, `format ${n}`, t);
+    }), [l, a, c] = Su(r, t, n);
+    return c ? E.invalid(c) : Qe(l, a, s, `format ${n}`, t);
   }
   /**
    * @deprecated use fromFormat instead
    */
   static fromString(t, n, s = {}) {
-    return L.fromFormat(t, n, s);
+    return E.fromFormat(t, n, s);
   }
   /**
    * Create a DateTime from a SQL date, time, or datetime
@@ -4566,7 +4566,7 @@ class L {
    * @return {DateTime}
    */
   static fromSQL(t, n = {}) {
-    const [s, o] = Wc(t);
+    const [s, o] = Qc(t);
     return Qe(s, o, n, "SQL", t);
   }
   /**
@@ -4577,11 +4577,11 @@ class L {
    */
   static invalid(t, n = null) {
     if (!t)
-      throw new le("need to specify a reason the DateTime is invalid");
-    const s = t instanceof me ? t : new me(t, n);
+      throw new de("need to specify a reason the DateTime is invalid");
+    const s = t instanceof ve ? t : new ve(t, n);
     if (Y.throwOnInvalid)
-      throw new Cl(s);
-    return new L({ invalid: s });
+      throw new Na(s);
+    return new E({ invalid: s });
   }
   /**
    * Check if an object is a DateTime. Works across context boundaries
@@ -4761,7 +4761,7 @@ class L {
    * @type {number|DateTime}
    */
   get ordinal() {
-    return this.isValid ? Lt(this.c).ordinal : NaN;
+    return this.isValid ? Et(this.c).ordinal : NaN;
   }
   /**
    * Get the human readable short month name, such as 'Oct'.
@@ -4888,7 +4888,7 @@ class L {
    * @return {Object}
    */
   resolvedLocaleOpts(t = {}) {
-    const { locale: n, numberingSystem: s, calendar: o } = ne.create(
+    const { locale: n, numberingSystem: s, calendar: o } = oe.create(
       this.loc.clone(t),
       t
     ).resolvedOptions(this);
@@ -4904,7 +4904,7 @@ class L {
    * @return {DateTime}
    */
   toUTC(t = 0, n = {}) {
-    return this.setZone(X.instance(t), n);
+    return this.setZone(x.instance(t), n);
   }
   /**
    * "Set" the DateTime's zone to the host's local zone. Returns a newly-constructed DateTime.
@@ -4925,7 +4925,7 @@ class L {
    * @return {DateTime}
    */
   setZone(t, { keepLocalTime: n = !1, keepCalendarTime: s = !1 } = {}) {
-    if (t = Oe(t, Y.defaultZone), t.equals(this.zone))
+    if (t = De(t, Y.defaultZone), t.equals(this.zone))
       return this;
     if (t.isValid) {
       let o = this.ts;
@@ -4935,7 +4935,7 @@ class L {
       }
       return Je(this, { ts: o, zone: t });
     } else
-      return L.invalid(ut(t));
+      return E.invalid(ut(t));
   }
   /**
    * "Set" the locale, numberingSystem, or outputCalendar. Returns a newly-constructed DateTime.
@@ -4969,17 +4969,17 @@ class L {
   set(t) {
     if (!this.isValid)
       return this;
-    const n = vt(t, es, []), s = !F(n.weekYear) || !F(n.weekNumber) || !F(n.weekday), o = !F(n.ordinal), i = !F(n.year), r = !F(n.month) || !F(n.day), a = i || r, l = n.weekYear || n.weekNumber;
-    if ((a || o) && l)
+    const n = vt(t, es, []), s = !A(n.weekYear) || !A(n.weekNumber) || !A(n.weekday), o = !A(n.ordinal), i = !A(n.year), r = !A(n.month) || !A(n.day), l = i || r, a = n.weekYear || n.weekNumber;
+    if ((l || o) && a)
       throw new xe(
         "Can't mix weekYear/weekNumber units with year/month/day or ordinals"
       );
     if (r && o)
       throw new xe("Can't mix ordinal dates with month/day");
     let c;
-    s ? c = Gn(Object.assign(Rt(this.c), n)) : F(n.ordinal) ? (c = Object.assign(this.toObject(), n), F(n.day) && (c.day = Math.min(yt(c.year, c.month), c.day))) : c = Kn(Object.assign(Lt(this.c), n));
-    const [u, h] = mt(c, this.o, this.zone);
-    return Je(this, { ts: u, o: h });
+    s ? c = Gn(Object.assign(Rt(this.c), n)) : A(n.ordinal) ? (c = Object.assign(this.toObject(), n), A(n.day) && (c.day = Math.min(yt(c.year, c.month), c.day))) : c = Kn(Object.assign(Et(this.c), n));
+    const [u, f] = mt(c, this.o, this.zone);
+    return Je(this, { ts: u, o: f });
   }
   /**
    * Add a period of time to this DateTime and return the resulting DateTime
@@ -4997,7 +4997,7 @@ class L {
   plus(t) {
     if (!this.isValid)
       return this;
-    const n = Me(t);
+    const n = Ve(t);
     return Je(this, Xn(this, n));
   }
   /**
@@ -5009,7 +5009,7 @@ class L {
   minus(t) {
     if (!this.isValid)
       return this;
-    const n = Me(t).negate();
+    const n = Ve(t).negate();
     return Je(this, Xn(this, n));
   }
   /**
@@ -5025,7 +5025,7 @@ class L {
   startOf(t) {
     if (!this.isValid)
       return this;
-    const n = {}, s = Z.normalizeUnit(t);
+    const n = {}, s = B.normalizeUnit(t);
     switch (s) {
       case "years":
         n.month = 1;
@@ -5077,7 +5077,7 @@ class L {
    * @return {string}
    */
   toFormat(t, n = {}) {
-    return this.isValid ? ne.create(this.loc.redefaultToEN(n)).formatDateTimeFromString(this, t) : Vt;
+    return this.isValid ? oe.create(this.loc.redefaultToEN(n)).formatDateTimeFromString(this, t) : Lt;
   }
   /**
    * Returns a localized string representing this date. Accepts the same options as the Intl.DateTimeFormat constructor and any presets defined by Luxon, such as `DateTime.DATE_FULL` or `DateTime.TIME_SIMPLE`.
@@ -5098,7 +5098,7 @@ class L {
    * @return {string}
    */
   toLocaleString(t = pt) {
-    return this.isValid ? ne.create(this.loc.clone(t), t).formatDateTime(this) : Vt;
+    return this.isValid ? oe.create(this.loc.clone(t), t).formatDateTime(this) : Lt;
   }
   /**
    * Returns an array of format "parts", meaning individual tokens along with metadata. This is allows callers to post-process individual sections of the formatted output.
@@ -5114,7 +5114,7 @@ class L {
    *                                   //=> ]
    */
   toLocaleParts(t = {}) {
-    return this.isValid ? ne.create(this.loc.clone(t), t).formatDateTimeParts(this) : [];
+    return this.isValid ? oe.create(this.loc.clone(t), t).formatDateTimeParts(this) : [];
   }
   /**
    * Returns an ISO 8601-compliant string representation of this DateTime
@@ -5246,7 +5246,7 @@ class L {
    * @return {string}
    */
   toString() {
-    return this.isValid ? this.toISO() : Vt;
+    return this.isValid ? this.toISO() : Lt;
   }
   /**
    * Returns the epoch milliseconds of this DateTime. Alias of {@link toMillis}
@@ -5321,14 +5321,14 @@ class L {
    */
   diff(t, n = "milliseconds", s = {}) {
     if (!this.isValid || !t.isValid)
-      return Z.invalid(
+      return B.invalid(
         this.invalid || t.invalid,
         "created by diffing an invalid DateTime"
       );
     const o = Object.assign(
       { locale: this.locale, numberingSystem: this.numberingSystem },
       s
-    ), i = El(n).map(Z.normalizeUnit), r = t.valueOf() > this.valueOf(), a = r ? this : t, l = r ? t : this, c = Xc(a, l, i, o);
+    ), i = Ha(n).map(B.normalizeUnit), r = t.valueOf() > this.valueOf(), l = r ? this : t, a = r ? t : this, c = iu(l, a, i, o);
     return r ? c.negate() : c;
   }
   /**
@@ -5340,7 +5340,7 @@ class L {
    * @return {Duration}
    */
   diffNow(t = "milliseconds", n = {}) {
-    return this.diff(L.now(), t, n);
+    return this.diff(E.now(), t, n);
   }
   /**
    * Return an Interval spanning between this DateTime and another DateTime
@@ -5396,7 +5396,7 @@ class L {
   toRelative(t = {}) {
     if (!this.isValid)
       return null;
-    const n = t.base || L.fromObject({ zone: this.zone }), s = t.padding ? this < n ? -t.padding : t.padding : 0;
+    const n = t.base || E.fromObject({ zone: this.zone }), s = t.padding ? this < n ? -t.padding : t.padding : 0;
     let o = ["years", "months", "days", "hours", "minutes", "seconds"], i = t.unit;
     return Array.isArray(t.unit) && (o = t.unit, i = void 0), ns(
       n,
@@ -5423,7 +5423,7 @@ class L {
    */
   toRelativeCalendar(t = {}) {
     return this.isValid ? ns(
-      t.base || L.fromObject({ zone: this.zone }),
+      t.base || E.fromObject({ zone: this.zone }),
       this,
       Object.assign(t, {
         numeric: "auto",
@@ -5438,8 +5438,8 @@ class L {
    * @return {DateTime} the min DateTime, or undefined if called with no argument
    */
   static min(...t) {
-    if (!t.every(L.isDateTime))
-      throw new le("min requires all arguments be DateTimes");
+    if (!t.every(E.isDateTime))
+      throw new de("min requires all arguments be DateTimes");
     return _n(t, (n) => n.valueOf(), Math.min);
   }
   /**
@@ -5448,8 +5448,8 @@ class L {
    * @return {DateTime} the max DateTime, or undefined if called with no argument
    */
   static max(...t) {
-    if (!t.every(L.isDateTime))
-      throw new le("max requires all arguments be DateTimes");
+    if (!t.every(E.isDateTime))
+      throw new de("max requires all arguments be DateTimes");
     return _n(t, (n) => n.valueOf(), Math.max);
   }
   // MISC
@@ -5466,13 +5466,13 @@ class L {
       numberingSystem: i,
       defaultToEN: !0
     });
-    return So(r, t, n);
+    return $o(r, t, n);
   }
   /**
    * @deprecated use fromFormatExplain instead
    */
   static fromStringExplain(t, n, s = {}) {
-    return L.fromFormatExplain(t, n, s);
+    return E.fromFormatExplain(t, n, s);
   }
   // FORMAT PRESETS
   /**
@@ -5494,7 +5494,7 @@ class L {
    * @type {Object}
    */
   static get DATE_MED_WITH_WEEKDAY() {
-    return Qs;
+    return Js;
   }
   /**
    * {@link toLocaleString} format like 'October 14, 1983'
@@ -5578,14 +5578,14 @@ class L {
    * @type {Object}
    */
   static get DATETIME_SHORT_WITH_SECONDS() {
-    return an;
+    return ln;
   }
   /**
    * {@link toLocaleString} format like 'Oct 14, 1983, 9:30 AM'. Only 12-hour if the locale is.
    * @type {Object}
    */
   static get DATETIME_MED() {
-    return ln;
+    return an;
   }
   /**
    * {@link toLocaleString} format like 'Oct 14, 1983, 9:30:33 AM'. Only 12-hour if the locale is.
@@ -5599,7 +5599,7 @@ class L {
    * @type {Object}
    */
   static get DATETIME_MED_WITH_WEEKDAY() {
-    return Xs;
+    return Qs;
   }
   /**
    * {@link toLocaleString} format like 'October 14, 1983, 9:30 AM EDT'. Only 12-hour if the locale is.
@@ -5631,65 +5631,192 @@ class L {
   }
 }
 function Xe(e) {
-  if (L.isDateTime(e))
+  if (E.isDateTime(e))
     return e;
-  if (e && e.valueOf && De(e.valueOf()))
-    return L.fromJSDate(e);
+  if (e && e.valueOf && Ee(e.valueOf()))
+    return E.fromJSDate(e);
   if (e && typeof e == "object")
-    return L.fromObject(e);
-  throw new le(
+    return E.fromObject(e);
+  throw new de(
     `Unknown datetime argument: ${e}, of type ${typeof e}`
   );
 }
-function Sn(e) {
+const ss = Math.min, Ae = Math.max;
+function Sn(e, t) {
+  return typeof e == "function" ? e(t) : e;
+}
+function kn(e) {
   return e.split("-")[0];
 }
-function No(e) {
+function Lo(e) {
   return e.split("-")[1];
 }
-function $u(e) {
-  return ["top", "bottom"].includes(Sn(e)) ? "x" : "y";
+function No(e) {
+  return ["top", "bottom"].includes(kn(e)) ? "y" : "x";
 }
-function Su(e) {
-  return typeof e != "number" ? function(t) {
-    return { top: 0, right: 0, bottom: 0, left: 0, ...t };
-  }(e) : { top: e, right: e, bottom: e, left: e };
+function Du(e) {
+  return {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    ...e
+  };
 }
-function ss(e) {
-  return { ...e, top: e.y, left: e.x, right: e.x + e.width, bottom: e.y + e.height };
+function Vu(e) {
+  return typeof e != "number" ? Du(e) : {
+    top: e,
+    right: e,
+    bottom: e,
+    left: e
+  };
 }
-async function ku(e, t) {
+function os(e) {
+  return {
+    ...e,
+    top: e.y,
+    left: e.x,
+    right: e.x + e.width,
+    bottom: e.y + e.height
+  };
+}
+async function Eu(e, t) {
   var n;
   t === void 0 && (t = {});
-  const { x: s, y: o, platform: i, rects: r, elements: a, strategy: l } = e, { boundary: c = "clippingAncestors", rootBoundary: u = "viewport", elementContext: h = "floating", altBoundary: f = !1, padding: y = 0 } = t, w = Su(y), z = a[f ? h === "floating" ? "reference" : "floating" : h], R = ss(await i.getClippingRect({ element: (n = await (i.isElement == null ? void 0 : i.isElement(z))) == null || n ? z : z.contextElement || await (i.getDocumentElement == null ? void 0 : i.getDocumentElement(a.floating)), boundary: c, rootBoundary: u, strategy: l })), Q = h === "floating" ? { ...r.floating, x: s, y: o } : r.reference, G = await (i.getOffsetParent == null ? void 0 : i.getOffsetParent(a.floating)), B = await (i.isElement == null ? void 0 : i.isElement(G)) && await (i.getScale == null ? void 0 : i.getScale(G)) || { x: 1, y: 1 }, ge = ss(i.convertOffsetParentRelativeRectToViewportRelativeRect ? await i.convertOffsetParentRelativeRectToViewportRelativeRect({ rect: Q, offsetParent: G, strategy: l }) : Q);
-  return { top: (R.top - ge.top + w.top) / B.y, bottom: (ge.bottom - R.bottom + w.bottom) / B.y, left: (R.left - ge.left + w.left) / B.x, right: (ge.right - R.right + w.right) / B.x };
+  const {
+    x: s,
+    y: o,
+    platform: i,
+    rects: r,
+    elements: l,
+    strategy: a
+  } = e, {
+    boundary: c = "clippingAncestors",
+    rootBoundary: u = "viewport",
+    elementContext: f = "floating",
+    altBoundary: m = !1,
+    padding: g = 0
+  } = Sn(t, e), S = Vu(g), W = l[m ? f === "floating" ? "reference" : "floating" : f], J = os(await i.getClippingRect({
+    element: (n = await (i.isElement == null ? void 0 : i.isElement(W))) == null || n ? W : W.contextElement || await (i.getDocumentElement == null ? void 0 : i.getDocumentElement(l.floating)),
+    boundary: c,
+    rootBoundary: u,
+    strategy: a
+  })), X = f === "floating" ? {
+    ...r.floating,
+    x: s,
+    y: o
+  } : r.reference, R = await (i.getOffsetParent == null ? void 0 : i.getOffsetParent(l.floating)), re = await (i.isElement == null ? void 0 : i.isElement(R)) ? await (i.getScale == null ? void 0 : i.getScale(R)) || {
+    x: 1,
+    y: 1
+  } : {
+    x: 1,
+    y: 1
+  }, ie = os(i.convertOffsetParentRelativeRectToViewportRelativeRect ? await i.convertOffsetParentRelativeRectToViewportRelativeRect({
+    rect: X,
+    offsetParent: R,
+    strategy: a
+  }) : X);
+  return {
+    top: (J.top - ie.top + S.top) / re.y,
+    bottom: (ie.bottom - J.bottom + S.bottom) / re.y,
+    left: (J.left - ie.left + S.left) / re.x,
+    right: (ie.right - J.right + S.right) / re.x
+  };
 }
-const Ae = Math.max, Iu = ["top", "right", "bottom", "left"];
-Iu.reduce((e, t) => e.concat(t, t + "-start", t + "-end"), []);
+async function Lu(e, t) {
+  const {
+    placement: n,
+    platform: s,
+    elements: o
+  } = e, i = await (s.isRTL == null ? void 0 : s.isRTL(o.floating)), r = kn(n), l = Lo(n), a = No(n) === "y", c = ["left", "top"].includes(r) ? -1 : 1, u = i && a ? -1 : 1, f = Sn(t, e);
+  let {
+    mainAxis: m,
+    crossAxis: g,
+    alignmentAxis: S
+  } = typeof f == "number" ? {
+    mainAxis: f,
+    crossAxis: 0,
+    alignmentAxis: null
+  } : {
+    mainAxis: 0,
+    crossAxis: 0,
+    alignmentAxis: null,
+    ...f
+  };
+  return l && typeof S == "number" && (g = l === "end" ? S * -1 : S), a ? {
+    x: g * u,
+    y: m * c
+  } : {
+    x: m * c,
+    y: g * u
+  };
+}
 const Ct = function(e) {
-  return e === void 0 && (e = 0), { name: "offset", options: e, async fn(t) {
-    const { x: n, y: s } = t, o = await async function(i, r) {
-      const { placement: a, platform: l, elements: c } = i, u = await (l.isRTL == null ? void 0 : l.isRTL(c.floating)), h = Sn(a), f = No(a), y = $u(a) === "x", w = ["left", "top"].includes(h) ? -1 : 1, z = u && y ? -1 : 1, R = typeof r == "function" ? r(i) : r;
-      let { mainAxis: Q, crossAxis: G, alignmentAxis: B } = typeof R == "number" ? { mainAxis: R, crossAxis: 0, alignmentAxis: null } : { mainAxis: 0, crossAxis: 0, alignmentAxis: null, ...R };
-      return f && typeof B == "number" && (G = f === "end" ? -1 * B : B), y ? { x: G * z, y: Q * w } : { x: Q * w, y: G * z };
-    }(t, e);
-    return { x: n + o.x, y: s + o.y, data: o };
-  } };
-}, kn = function(e) {
-  return e === void 0 && (e = {}), { name: "size", options: e, async fn(t) {
-    const { placement: n, rects: s, platform: o, elements: i } = t, { apply: r = () => {
-    }, ...a } = e, l = await ku(t, a), c = Sn(n), u = No(n);
-    let h, f;
-    c === "top" || c === "bottom" ? (h = c, f = u === (await (o.isRTL == null ? void 0 : o.isRTL(i.floating)) ? "start" : "end") ? "left" : "right") : (f = c, h = u === "end" ? "top" : "bottom");
-    const y = Ae(l.left, 0), w = Ae(l.right, 0), z = Ae(l.top, 0), R = Ae(l.bottom, 0), Q = { availableHeight: s.floating.height - (["left", "right"].includes(n) ? 2 * (z !== 0 || R !== 0 ? z + R : Ae(l.top, l.bottom)) : l[h]), availableWidth: s.floating.width - (["top", "bottom"].includes(n) ? 2 * (y !== 0 || w !== 0 ? y + w : Ae(l.left, l.right)) : l[f]) };
-    await r({ ...t, ...Q });
-    const G = await o.getDimensions(i.floating);
-    return s.floating.width !== G.width || s.floating.height !== G.height ? { reset: { rects: !0 } } : {};
-  } };
-}, os = {
+  return e === void 0 && (e = 0), {
+    name: "offset",
+    options: e,
+    async fn(t) {
+      const {
+        x: n,
+        y: s
+      } = t, o = await Lu(t, e);
+      return {
+        x: n + o.x,
+        y: s + o.y,
+        data: o
+      };
+    }
+  };
+}, Tt = function(e) {
+  return e === void 0 && (e = {}), {
+    name: "size",
+    options: e,
+    async fn(t) {
+      const {
+        placement: n,
+        rects: s,
+        platform: o,
+        elements: i
+      } = t, {
+        apply: r = () => {
+        },
+        ...l
+      } = Sn(e, t), a = await Eu(t, l), c = kn(n), u = Lo(n), f = No(n) === "y", {
+        width: m,
+        height: g
+      } = s.floating;
+      let S, Z;
+      c === "top" || c === "bottom" ? (S = c, Z = u === (await (o.isRTL == null ? void 0 : o.isRTL(i.floating)) ? "start" : "end") ? "left" : "right") : (Z = c, S = u === "end" ? "top" : "bottom");
+      const W = g - a[S], J = m - a[Z], X = !t.middlewareData.shift;
+      let R = W, re = J;
+      if (f) {
+        const te = m - a.left - a.right;
+        re = u || X ? ss(J, te) : te;
+      } else {
+        const te = g - a.top - a.bottom;
+        R = u || X ? ss(W, te) : te;
+      }
+      if (X && !u) {
+        const te = Ae(a.left, 0), we = Ae(a.right, 0), _ = Ae(a.top, 0), Se = Ae(a.bottom, 0);
+        f ? re = m - 2 * (te !== 0 || we !== 0 ? te + we : Ae(a.left, a.right)) : R = g - 2 * (_ !== 0 || Se !== 0 ? _ + Se : Ae(a.top, a.bottom));
+      }
+      await r({
+        ...t,
+        availableWidth: re,
+        availableHeight: R
+      });
+      const ie = await o.getDimensions(i.floating);
+      return m !== ie.width || g !== ie.height ? {
+        reset: {
+          rects: !0
+        }
+      } : {};
+    }
+  };
+}, rs = {
   top: "tiny2x-slide-down-medium",
   bottom: "tiny2x-slide-up-medium"
-}, Cu = /* @__PURE__ */ O({
+}, Nu = /* @__PURE__ */ O({
   name: "h-date-picker",
   props: {
     ...nr,
@@ -5715,116 +5842,116 @@ const Ct = function(e) {
   },
   emits: ["update:modelValue", "focus", "blur", "view-changed"],
   setup(e, t) {
-    const n = D(), s = k(), o = k(), i = k(e.modelValue ? e.modelValue.toISODate() : ""), r = k(!1), a = k(L.now()), l = k(os.bottom), c = V(() => [Ct(4)]), u = V(() => {
+    const n = D(), s = k(), o = k(), i = k(e.modelValue ? e.modelValue.toISODate() : ""), r = k(!1), l = k(E.now()), a = k(rs.bottom), c = L(() => [Ct(4)]), u = L(() => {
       if (e.dots === null)
         return null;
-      const P = {};
-      return e.dots.forEach((_e) => {
-        const $e = _e.date.toISODate();
-        P[$e] = P[$e] || [], P[$e].push(_e);
-      }), P;
-    }), h = V(() => {
-      let P = et.weekdays("short", {
+      const _ = {};
+      return e.dots.forEach((Se) => {
+        const Ce = Se.date.toISODate();
+        _[Ce] = _[Ce] || [], _[Ce].push(Se);
+      }), _;
+    }), f = L(() => {
+      let _ = et.weekdays("short", {
         locale: "en"
       });
-      return e.firstDayOfWeek !== 0 && P.unshift(...P.splice(e.firstDayOfWeek, 7 - e.firstDayOfWeek)), P;
-    }), f = V(() => {
-      const P = [], _e = a.value.startOf("month");
-      let $e = _e.weekday - 1;
-      $e < e.firstDayOfWeek ? $e += 7 - e.firstDayOfWeek : $e -= e.firstDayOfWeek;
-      const zo = L.now();
-      let Pe = _e.minus({
-        days: $e
+      return e.firstDayOfWeek !== 0 && _.unshift(..._.splice(e.firstDayOfWeek, 7 - e.firstDayOfWeek)), _;
+    }), m = L(() => {
+      const _ = [], Se = l.value.startOf("month");
+      let Ce = Se.weekday - 1;
+      Ce < e.firstDayOfWeek ? Ce += 7 - e.firstDayOfWeek : Ce -= e.firstDayOfWeek;
+      const zo = E.now();
+      let Fe = Se.minus({
+        days: Ce
       });
       for (let Cn = 0; Cn < 6 * 7; Cn++)
-        P.push({
-          date: Pe,
+        _.push({
+          date: Fe,
           classes: {
-            "-outside-month": Pe.month !== _e.month,
-            "-today": e.highlightToday && Pe.hasSame(zo, "day"),
-            "-selected": e.modelValue && Pe.hasSame(e.modelValue, "day")
+            "-outside-month": Fe.month !== Se.month,
+            "-today": e.highlightToday && Fe.hasSame(zo, "day"),
+            "-selected": e.modelValue && Fe.hasSame(e.modelValue, "day")
           }
-        }), Pe = Pe.plus({
+        }), Fe = Fe.plus({
           days: 1
         });
-      return P;
-    }), y = (P) => {
-      a.value = a.value.plus(P);
-    }, w = (P) => {
-      a.value = a.value.minus(P);
+      return _;
+    }), g = (_) => {
+      l.value = l.value.plus(_);
+    }, S = (_) => {
+      l.value = l.value.minus(_);
     };
-    ee(() => e.modelValue, () => {
+    ne(() => e.modelValue, () => {
       i.value = e.modelValue ? e.modelValue.toISODate() : "";
     });
-    const z = (P) => {
-      i.value = P.toISODate(), t.emit("update:modelValue", P), r.value = !1;
+    const Z = (_) => {
+      i.value = _.toISODate(), t.emit("update:modelValue", _), r.value = !1;
+    }, W = () => {
+      const _ = E.fromISO(i.value);
+      _.isValid && (l.value = _, t.emit("update:modelValue", _));
+    }, J = k(!1), X = () => {
+      r.value === !1 && (l.value = e.modelValue ? e.modelValue : E.now()), J.value = !0, r.value = !0, t.emit("focus");
     }, R = () => {
-      const P = L.fromISO(i.value);
-      P.isValid && (a.value = P, t.emit("update:modelValue", P));
-    }, Q = k(!1), G = () => {
-      r.value === !1 && (a.value = e.modelValue ? e.modelValue : L.now()), Q.value = !0, r.value = !0, t.emit("focus");
-    }, B = () => {
-      Q.value = !1, t.emit("blur");
-    }, ge = (P) => {
-      l.value = os[Be(P.placement).placement];
-    }, Ne = (P) => {
-      P.outsideFloating && P.outsideReference && (r.value = !1);
+      J.value = !1, t.emit("blur");
+    }, re = (_) => {
+      a.value = rs[Be(_.placement).placement];
+    }, ie = (_) => {
+      _.outsideFloating && _.outsideReference && (r.value = !1);
     };
-    ee(() => e.disabled, () => {
+    ne(() => e.disabled, () => {
       e.disabled && (r.value = !1);
-    }), ee(f, (P) => {
+    }), ne(m, (_) => {
       t.emit("view-changed", {
-        from: P[0].date,
-        to: P[P.length - 1].date
+        from: _[0].date,
+        to: _[_.length - 1].date
       });
     });
-    const ke = (P) => ({
+    const te = (_) => ({
       class: [n.css_root.value]
-    }), Ie = ir().as("div", ke).props(["modelValue", "disabled", "visible"]).build();
+    }), we = ir().as("div", te).props(["modelValue", "disabled", "visible"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       input: s,
       icon: o,
       inputValue: i,
-      weekdayNames: h,
-      daysToShow: f,
-      shownDate: a,
-      plusShownDate: y,
-      minusShownDate: w,
-      onDateClick: z,
-      onDateInputChanged: R,
-      core: Ie,
+      weekdayNames: f,
+      daysToShow: m,
+      shownDate: l,
+      plusShownDate: g,
+      minusShownDate: S,
+      onDateClick: Z,
+      onDateInputChanged: W,
+      core: we,
       ...n,
-      onInputFocus: G,
-      onInputBlur: B,
-      transition: l,
-      onClickOutside: Ne,
-      onComputedPosition: ge,
+      onInputFocus: X,
+      onInputBlur: R,
+      transition: a,
+      onClickOutside: ie,
+      onComputedPosition: re,
       floatingVisible: r,
       floatingMiddleware: c,
       cachedDots: u
     };
   }
-}), Tu = ["onClick"];
-function Ou(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("h-input"), l = v("h-icon-button"), c = v("h-floating"), u = v("hr-date-picker");
-  return K((m(), I(u, _(e.core.props, A(e.core.listeners)), {
-    default: $((h) => [
-      C(a, {
-        ref: (f) => {
-          f && (e.input = f.$el);
+}), _u = ["onClick"];
+function Fu(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-input"), a = v("h-icon-button"), c = v("h-floating"), u = v("hr-date-picker");
+  return G((h(), C(u, F(e.core.props, P(e.core.listeners)), {
+    default: w((f) => [
+      I(l, {
+        ref: (m) => {
+          m && (e.input = m.$el);
         },
-        disabled: h.disabled,
+        disabled: f.disabled,
         modelValue: e.inputValue,
-        "onUpdate:modelValue": t[0] || (t[0] = (f) => e.inputValue = f),
+        "onUpdate:modelValue": t[0] || (t[0] = (m) => e.inputValue = m),
         onChange: e.onDateInputChanged,
         onFocus: e.onInputFocus,
         onBlur: e.onInputBlur
       }, {
-        customSuffix: $(() => [
-          C(r, {
-            ref: (f) => {
-              f && (e.icon = f.$el);
+        customSuffix: w(() => [
+          I(r, {
+            ref: (m) => {
+              m && (e.icon = m.$el);
             },
             icon: e.Icons.calendarMonth,
             class: d(["h-input__suffix-icon"]),
@@ -5833,7 +5960,7 @@ function Ou(e, t, n, s, o, i) {
         ]),
         _: 2
       }, 1032, ["disabled", "modelValue", "onChange", "onFocus", "onBlur"]),
-      C(c, {
+      I(c, {
         class: d([e.css_ec("calendar-container")]),
         reference: e.input,
         "arrow-reference": e.icon,
@@ -5845,77 +5972,77 @@ function Ou(e, t, n, s, o, i) {
         onClickOutside: e.onClickOutside,
         onComputedPosition: e.onComputedPosition
       }, {
-        arrow: $(() => [
-          C(r, {
+        arrow: w(() => [
+          I(r, {
             icon: "tooltip-arrow",
             class: d([e.css_ec("arrow")])
           }, null, 8, ["class"])
         ]),
-        default: $(() => [
-          g("div", {
+        default: w(() => [
+          y("div", {
             class: d([e.css_ec("calendar-header")])
           }, [
-            g("div", null, [
-              C(l, {
+            y("div", null, [
+              I(a, {
                 icon: e.Icons.chevronLeft,
                 size: "normal",
                 styling: "subtle",
-                onClick: t[1] || (t[1] = (f) => e.minusShownDate({ months: 1 }))
+                onClick: t[1] || (t[1] = (m) => e.minusShownDate({ months: 1 }))
               }, null, 8, ["icon"]),
-              C(l, {
+              I(a, {
                 icon: e.Icons.chevronDoubleLeft,
                 size: "normal",
                 styling: "subtle",
-                onClick: t[2] || (t[2] = (f) => e.minusShownDate({ years: 1 }))
+                onClick: t[2] || (t[2] = (m) => e.minusShownDate({ years: 1 }))
               }, null, 8, ["icon"])
             ]),
-            g("div", null, [
-              g("span", {
+            y("div", null, [
+              y("span", {
                 class: d([e.css_ec("calendar-year-label")])
               }, N(`${e.shownDate.monthLong} ${e.shownDate.year}`), 3)
             ]),
-            g("div", null, [
-              C(l, {
+            y("div", null, [
+              I(a, {
                 icon: e.Icons.chevronDoubleRight,
                 size: "normal",
                 styling: "subtle",
-                onClick: t[3] || (t[3] = (f) => e.plusShownDate({ years: 1 }))
+                onClick: t[3] || (t[3] = (m) => e.plusShownDate({ years: 1 }))
               }, null, 8, ["icon"]),
-              C(l, {
+              I(a, {
                 icon: e.Icons.chevronRight,
                 size: "normal",
                 styling: "subtle",
-                onClick: t[4] || (t[4] = (f) => e.plusShownDate({ months: 1 }))
+                onClick: t[4] || (t[4] = (m) => e.plusShownDate({ months: 1 }))
               }, null, 8, ["icon"])
             ])
           ], 2),
-          g("div", {
+          y("div", {
             class: d([e.css_ec("calendar")])
           }, [
-            g("div", {
+            y("div", {
               class: d([e.css_ec("calendar-weekdays")])
             }, [
-              (m(!0), S(oe, null, he(e.weekdayNames, (f) => (m(), S("div", null, N(f), 1))), 256))
+              (h(!0), $(le, null, me(e.weekdayNames, (m) => (h(), $("div", null, N(m), 1))), 256))
             ], 2),
-            g("div", {
+            y("div", {
               class: d([e.css_ec("calendar-dates"), { "-has-dots": e.cachedDots !== null }])
             }, [
-              (m(!0), S(oe, null, he(e.daysToShow, (f) => (m(), S("div", {
-                key: `${f.date.toISODate()}-${e.shownDate.toISODate()}`,
-                class: d([e.css_ec("calendar-date"), f.classes]),
-                onClick: (y) => e.onDateClick(f.date)
+              (h(!0), $(le, null, me(e.daysToShow, (m) => (h(), $("div", {
+                key: `${m.date.toISODate()}-${e.shownDate.toISODate()}`,
+                class: d([e.css_ec("calendar-date"), m.classes]),
+                onClick: (g) => e.onDateClick(m.date)
               }, [
-                se(N(f.date.day) + " ", 1),
-                e.cachedDots !== null && e.cachedDots[f.date.toISODate()] ? (m(), S("div", {
+                ee(N(m.date.day) + " ", 1),
+                e.cachedDots !== null && e.cachedDots[m.date.toISODate()] ? (h(), $("div", {
                   key: 0,
                   class: d([e.css_ec("dots-container")])
                 }, [
-                  (m(!0), S(oe, null, he(e.cachedDots[f.date.toISODate()], (y) => (m(), S("span", {
+                  (h(!0), $(le, null, me(e.cachedDots[m.date.toISODate()], (g) => (h(), $("span", {
                     class: d([e.css_ec("dot")]),
-                    style: W({ background: y.color || null })
+                    style: z({ background: g.color || null })
                   }, null, 6))), 256))
                 ], 2)) : M("", !0)
-              ], 10, Tu))), 128))
+              ], 10, _u))), 128))
             ], 2)
           ], 2)
         ]),
@@ -5924,14 +6051,14 @@ function Ou(e, t, n, s, o, i) {
     ]),
     _: 1
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const Mu = /* @__PURE__ */ E(Cu, [["render", Ou]]), Du = O({
+const Pu = /* @__PURE__ */ V(Nu, [["render", Fu]]), Au = O({
   name: "h-input",
   props: {
-    ...ar,
     ...lr,
+    ...ar,
     ...cr,
     ...ur,
     ...dr,
@@ -5944,19 +6071,19 @@ const Mu = /* @__PURE__ */ E(Cu, [["render", Ou]]), Du = O({
       default: null
     },
     minLength: {
-      type: Number,
+      type: [String, Number],
       default: null
     },
     maxLength: {
-      type: Number,
+      type: [String, Number],
       default: null
     },
     min: {
-      type: Number,
+      type: [String, Number],
       default: null
     },
     max: {
-      type: Number,
+      type: [String, Number],
       default: null
     },
     prefix: {
@@ -5990,80 +6117,80 @@ const Mu = /* @__PURE__ */ E(Cu, [["render", Ou]]), Du = O({
       o.value = !0, t.emit("focus");
     }, r = () => {
       o.value = !1, t.emit("blur");
-    }, a = () => {
+    }, l = () => {
       s.value.focusInput();
-    }, l = (u) => ({
+    }, a = (u) => ({
       class: {
         "-readonly": u.readonly,
         "-disabled": u.disabled
       },
       onClick: u.onClick
-    }), c = fr(n).as("div", l).props(["modelValue", "modelModifiers", "readonly", "disabled", "type"]).events(["update:modelValue"]).build();
+    }), c = fr(n).as("div", a).props(["modelValue", "modelModifiers", "readonly", "disabled", "type"]).events(["update:modelValue"]).build();
     return {
       coreInput: s,
       input: n,
       hasFocus: o,
       onFocus: i,
       onBlur: r,
-      focus: a,
+      focus: l,
       core: c,
       ...D()
     };
   }
-}), Eu = ["value", "type", "maxlength", "minlength", "min", "max", "disabled", "placeholder", "readonly", "autocomplete", "onInput"];
-function Lu(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-input");
-  return m(), I(a, _({
+}), Hu = ["value", "type", "maxlength", "minlength", "min", "max", "disabled", "placeholder", "readonly", "autocomplete", "onInput"];
+function zu(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-input");
+  return h(), C(l, F({
     ref: "coreInput",
     class: [e.css_root, { "-focus": e.hasFocus }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
       T(e.$slots, "customPrefix"),
-      e.$slots.prefix || e.prefix ? (m(), S("div", {
+      e.$slots.prefix || e.prefix ? (h(), $("div", {
         key: 0,
         class: d([e.css_ec("prefix")]),
-        style: W({ width: e.prefixWidth })
+        style: z({ width: e.prefixWidth })
       }, [
         T(e.$slots, "prefix", {}, () => [
-          se(N(e.prefix), 1)
+          ee(N(e.prefix), 1)
         ])
       ], 6)) : M("", !0),
-      e.prefixIcon ? (m(), I(r, {
+      e.prefixIcon ? (h(), C(r, {
         key: 1,
         class: d([e.css_ec("prefix-icon")]),
         icon: e.prefixIcon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      g("input", {
+      y("input", {
         ref: "input",
         class: d([e.css_ec("input")]),
-        value: l.modelValue,
+        value: a.modelValue,
         type: e.type,
         maxlength: e.maxLength,
         minlength: e.minLength,
         min: e.min,
         max: e.max,
-        disabled: l.disabled,
+        disabled: a.disabled,
         placeholder: e.placeholder,
-        readonly: l.readonly,
+        readonly: a.readonly,
         autocomplete: e.autocomplete,
-        onInput: (c) => l.modelValue = c.target.value,
+        onInput: (c) => a.modelValue = c.target.value,
         onFocus: t[0] || (t[0] = (...c) => e.onFocus && e.onFocus(...c)),
         onBlur: t[1] || (t[1] = (...c) => e.onBlur && e.onBlur(...c))
-      }, null, 42, Eu),
-      e.suffixIcon ? (m(), I(r, {
+      }, null, 42, Hu),
+      e.suffixIcon ? (h(), C(r, {
         key: 2,
         class: d([e.css_ec("suffix-icon")]),
         icon: e.suffixIcon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      e.$slots.suffix || e.suffix ? (m(), S("div", {
+      e.$slots.suffix || e.suffix ? (h(), $("div", {
         key: 3,
         class: d([e.css_ec("suffix")]),
-        style: W({ width: e.suffixWidth })
+        style: z({ width: e.suffixWidth })
       }, [
         T(e.$slots, "suffix", {}, () => [
-          se(N(e.suffix), 1)
+          ee(N(e.suffix), 1)
         ])
       ], 6)) : M("", !0),
       T(e.$slots, "customSuffix")
@@ -6071,7 +6198,7 @@ function Lu(e, t, n, s, o, i) {
     _: 3
   }, 16, ["class"]);
 }
-const Vu = /* @__PURE__ */ E(Du, [["render", Lu]]), Nu = O({
+const Ru = /* @__PURE__ */ V(Au, [["render", zu]]), Bu = O({
   name: "h-autocomplete",
   props: {
     ...mr,
@@ -6120,85 +6247,85 @@ const Vu = /* @__PURE__ */ E(Du, [["render", Lu]]), Nu = O({
   },
   emits: ["update:modelValue", "focus", "blur", "itemSelected", "focusedItemChanged"],
   setup(e, t) {
-    const n = k(), s = k(), o = k(), i = k(), r = k(), a = k(""), l = V(() => [
-      kn({
+    const n = k(), s = k(), o = k(), i = k(), r = k(), l = k(""), a = L(() => [
+      Tt({
         padding: 8,
-        apply(B) {
-          Object.assign(B.elements.floating.style, {
-            width: `${B.rects.reference.width}px`
-          }), a.value = `${B.availableHeight}px`;
+        apply(R) {
+          Object.assign(R.elements.floating.style, {
+            width: `${R.rects.reference.width}px`
+          }), l.value = `${R.availableHeight}px`;
         }
       })
     ]);
-    _s(() => {
+    Ns(() => {
       o.value = [];
     });
-    const c = (B) => {
-      i.value = B, r.value = B ? B.$el : null;
-    }, u = k(!1), h = () => {
+    const c = (R) => {
+      i.value = R, r.value = R ? R.$el : null;
+    }, u = k(!1), f = () => {
       u.value = !0, i.value.showList(), t.emit("focus");
-    }, f = () => {
+    }, m = () => {
       u.value = !1, t.emit("blur");
-    }, y = () => {
+    }, g = () => {
       i.value.focusInput();
-    }, w = () => {
+    }, S = () => {
       i.value.hideList();
-    }, z = (B) => {
-      B.outsideFloating && B.outsideReference && w();
-    }, R = (B) => {
-      const ge = e.items.findIndex((ke) => ke === B), Ne = o.value[ge];
-      Ne && Ne.scrollIntoView({
+    }, Z = (R) => {
+      R.outsideFloating && R.outsideReference && S();
+    }, W = (R) => {
+      const re = e.items.findIndex((te) => te === R), ie = o.value[re];
+      ie && ie.scrollIntoView({
         behavior: "smooth",
         block: "nearest"
       });
-    }, Q = (B) => ({
+    }, J = (R) => ({
       class: {
-        "-disabled": B.disabled
+        "-disabled": R.disabled
       }
-    }), G = gr(n).as("div", Q).props(["modelValue", "modelModifiers", "disabled", "items"]).events(["update:modelValue", "itemSelected", "focusedItemChanged"]).build();
+    }), X = gr(n).as("div", J).props(["modelValue", "modelModifiers", "disabled", "items"]).events(["update:modelValue", "itemSelected", "focusedItemChanged"]).build();
     return {
       setCoreInput: c,
       coreAutocompleteEl: r,
-      floatingMiddleware: l,
-      listMaxHeight: a,
+      floatingMiddleware: a,
+      listMaxHeight: l,
       input: n,
       items: o,
       scrollContainer: s,
       hasFocus: u,
-      onFocus: h,
-      onBlur: f,
-      core: G,
-      onClickOutside: z,
-      onFocusedItemChanged: R,
+      onFocus: f,
+      onBlur: m,
+      core: X,
+      onClickOutside: Z,
+      onFocusedItemChanged: W,
       ...D(),
-      focus: y,
-      hideList: w
+      focus: g,
+      hideList: S
     };
   }
-}), _u = ["value", "type", "maxlength", "minlength", "disabled", "placeholder", "readonly", "autocomplete", "onInput", "onKeydown"], Pu = ["onKeydown"], Fu = ["onClick"];
-function Au(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("h-scroll-container"), l = v("h-floating"), c = v("hr-autocomplete");
-  return m(), I(c, _({
+}), Zu = ["value", "type", "maxlength", "minlength", "disabled", "placeholder", "readonly", "autocomplete", "onInput", "onKeydown"], Wu = ["onKeydown"], qu = ["onClick"];
+function ju(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-scroll-container"), a = v("h-floating"), c = v("hr-autocomplete");
+  return h(), C(c, F({
     ref: (u) => e.setCoreInput(u),
     class: [e.css_root, { "-focus": e.hasFocus }]
-  }, e.core.props, A(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
-    default: $((u) => [
+  }, e.core.props, P(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
+    default: w((u) => [
       T(e.$slots, "customPrefix"),
-      e.$slots.prefix || e.prefix ? (m(), S("div", {
+      e.$slots.prefix || e.prefix ? (h(), $("div", {
         key: 0,
         class: d([e.css_ec("prefix")])
       }, [
         T(e.$slots, "prefix", {}, () => [
-          se(N(e.prefix), 1)
+          ee(N(e.prefix), 1)
         ])
       ], 2)) : M("", !0),
-      e.prefixIcon ? (m(), I(r, {
+      e.prefixIcon ? (h(), C(r, {
         key: 1,
         class: d([e.css_ec("prefix-icon")]),
         icon: e.prefixIcon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      g("input", {
+      y("input", {
         ref: "input",
         class: d([e.css_ec("input")]),
         value: u.modelValue,
@@ -6209,27 +6336,27 @@ function Au(e, t, n, s, o, i) {
         placeholder: e.placeholder,
         readonly: u.readonly,
         autocomplete: e.autocomplete,
-        onInput: (h) => u.modelValue = h.target.value,
-        onFocus: t[0] || (t[0] = (...h) => e.onFocus && e.onFocus(...h)),
-        onBlur: t[1] || (t[1] = (...h) => e.onBlur && e.onBlur(...h)),
+        onInput: (f) => u.modelValue = f.target.value,
+        onFocus: t[0] || (t[0] = (...f) => e.onFocus && e.onFocus(...f)),
+        onBlur: t[1] || (t[1] = (...f) => e.onBlur && e.onBlur(...f)),
         onKeydown: u.onKeyEvents
-      }, null, 42, _u),
-      e.suffixIcon ? (m(), I(r, {
+      }, null, 42, Zu),
+      e.suffixIcon ? (h(), C(r, {
         key: 2,
         class: d([e.css_ec("suffix-icon")]),
         icon: e.suffixIcon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      e.$slots.suffix || e.suffix ? (m(), S("div", {
+      e.$slots.suffix || e.suffix ? (h(), $("div", {
         key: 3,
         class: d([e.css_ec("suffix")])
       }, [
         T(e.$slots, "suffix", {}, () => [
-          se(N(e.suffix), 1)
+          ee(N(e.suffix), 1)
         ])
       ], 2)) : M("", !0),
       T(e.$slots, "customSuffix"),
-      C(l, {
+      I(a, {
         as: "div",
         class: d([e.css_ec("list-container")]),
         reference: e.coreAutocompleteEl,
@@ -6237,37 +6364,37 @@ function Au(e, t, n, s, o, i) {
         visible: u.listVisible,
         placement: "bottom-start",
         middleware: e.floatingMiddleware,
-        onHide: (h) => u.clearFocusedItem(),
+        onHide: (f) => u.clearFocusedItem(),
         onClickOutside: e.onClickOutside
       }, {
-        default: $(() => [
-          g("div", {
+        default: w(() => [
+          y("div", {
             class: d([e.css_ec("list-box")]),
             onKeydown: u.onKeyEvents,
-            style: W({ maxHeight: e.listMaxHeight })
+            style: z({ maxHeight: e.listMaxHeight })
           }, [
-            C(a, { ref: "scrollContainer" }, {
-              default: $(() => [
+            I(l, { ref: "scrollContainer" }, {
+              default: w(() => [
                 T(e.$slots, "default", {
                   items: u.items,
                   focusedItem: u.focusedItem,
                   onItemClick: u.onItemClick
                 }, () => [
-                  g("ul", {
+                  y("ul", {
                     class: d([e.css_ec("list")])
                   }, [
-                    (m(!0), S(oe, null, he(u.items, (h, f) => (m(), S("li", {
+                    (h(!0), $(le, null, me(u.items, (f, m) => (h(), $("li", {
                       ref_for: !0,
-                      ref: (y) => e.items[f] = y,
-                      class: d([e.css_ec("list-item"), { "-focused": h === u.focusedItem }]),
-                      onClick: (y) => u.onItemClick(h)
-                    }, N(h), 11, Fu))), 256))
+                      ref: (g) => e.items[m] = g,
+                      class: d([e.css_ec("list-item"), { "-focused": f === u.focusedItem }]),
+                      onClick: (g) => u.onItemClick(f)
+                    }, N(f), 11, qu))), 256))
                   ], 2)
                 ])
               ]),
               _: 2
             }, 1536)
-          ], 46, Pu)
+          ], 46, Wu)
         ]),
         _: 2
       }, 1032, ["class", "reference", "visible", "middleware", "onHide", "onClickOutside"])
@@ -6275,7 +6402,7 @@ function Au(e, t, n, s, o, i) {
     _: 3
   }, 16, ["class", "onFocusedItemChanged"]);
 }
-const Hu = /* @__PURE__ */ E(Nu, [["render", Au]]), zu = O({
+const Uu = /* @__PURE__ */ V(Bu, [["render", ju]]), Yu = O({
   name: "h-file-input",
   props: {
     modelValue: {
@@ -6295,7 +6422,7 @@ const Hu = /* @__PURE__ */ E(Nu, [["render", Au]]), zu = O({
   },
   emits: ["update:modelValue"],
   setup(e, t) {
-    const n = k(), s = V(() => {
+    const n = k(), s = L(() => {
       if (e.modelValue === null)
         return null;
       if (e.modelValue.constructor.name === "FileList") {
@@ -6304,9 +6431,9 @@ const Hu = /* @__PURE__ */ E(Nu, [["render", Au]]), zu = O({
       } else
         return e.modelValue.name;
     }), o = (i) => {
-      const a = i.target.files;
-      let l = null;
-      a.length && (l = e.multiple ? a : a[0]), t.emit("update:modelValue", l);
+      const l = i.target.files;
+      let a = null;
+      l.length && (a = e.multiple ? l : l[0]), t.emit("update:modelValue", a);
     };
     return {
       ...D(),
@@ -6315,167 +6442,144 @@ const Hu = /* @__PURE__ */ E(Nu, [["render", Au]]), zu = O({
       text: s
     };
   }
-}), Ru = ["multiple", "accept"];
-function Bu(e, t, n, s, o, i) {
-  return m(), S("label", {
+}), Gu = ["multiple", "accept"];
+function Ku(e, t, n, s, o, i) {
+  return h(), $("label", {
     class: d([e.css_root])
   }, [
-    g("span", {
+    y("span", {
       class: d([e.css_ec("text")])
     }, N(e.text), 3),
-    g("input", {
+    y("input", {
       class: d([e.css_ec("input")]),
       multiple: e.multiple,
       type: "file",
       accept: e.accept,
       onChange: t[0] || (t[0] = (...r) => e.filesChanged && e.filesChanged(...r))
-    }, null, 42, Ru),
-    g("div", {
+    }, null, 42, Gu),
+    y("div", {
       class: d([e.css_ec("suffix")])
     }, N(e.label), 3)
   ], 2);
 }
-const Zu = /* @__PURE__ */ E(zu, [["render", Bu]]), rs = "elementic-inputs", Wu = {
-  Input: Vu,
-  Autocomplete: Hu,
-  FileInput: Zu
-}, qu = {
+const Ju = /* @__PURE__ */ V(Yu, [["render", Ku]]), is = "elementic-inputs", Qu = {
+  Input: Ru,
+  Autocomplete: Uu,
+  FileInput: Ju
+}, Xu = {
   CoreInputsInstall: vr
 }, _o = {
   install: (e, t) => {
-    p.isModuleInstalled(e, rs) || (p.installDependencies(e, qu, t), p.installComponents(e, Wu), p.markModuleAsInstalled(e, rs));
+    p.isModuleInstalled(e, is) || (p.installDependencies(e, Xu, t), p.installComponents(e, Qu), p.markModuleAsInstalled(e, is));
   }
-}, is = "elementic-date-pickers", ju = {
-  DatePicker: Mu
-}, Uu = {
+}, ls = "elementic-date-pickers", xu = {
+  DatePicker: Pu
+}, ed = {
   CoreDatePickersInstall: br,
   IconsInstall: Yt,
   InputsInstall: _o
-}, Yu = {
+}, td = {
   install: (e, t) => {
-    p.isModuleInstalled(e, is) || (p.installDependencies(e, Uu, t), p.installComponents(e, ju), p.markModuleAsInstalled(e, is));
+    p.isModuleInstalled(e, ls) || (p.installDependencies(e, ed, t), p.installComponents(e, xu), p.markModuleAsInstalled(e, ls));
   }
 };
-function Po(e) {
+function Fo(e) {
   return Ro() ? (Bo(e), !0) : !1;
 }
 function tt(e) {
   return typeof e == "function" ? e() : Zo(e);
 }
-const Tt = typeof window < "u";
+const nd = typeof window < "u" && typeof document < "u";
 function wt(e) {
   var t;
   const n = tt(e);
   return (t = n == null ? void 0 : n.$el) != null ? t : n;
 }
-const In = Tt ? window : void 0;
-Tt && window.document;
-Tt && window.navigator;
-Tt && window.location;
-function Gu() {
+const In = nd ? window : void 0;
+function sd() {
   const e = k(!1);
   return Bt() && st(() => {
     e.value = !0;
   }), e;
 }
-function Fo(e) {
-  const t = Gu();
-  return V(() => (t.value, Boolean(e())));
+function Po(e) {
+  const t = sd();
+  return L(() => (t.value, !!e()));
 }
-var as = Object.getOwnPropertySymbols, Ku = Object.prototype.hasOwnProperty, Ju = Object.prototype.propertyIsEnumerable, Qu = (e, t) => {
-  var n = {};
-  for (var s in e)
-    Ku.call(e, s) && t.indexOf(s) < 0 && (n[s] = e[s]);
-  if (e != null && as)
-    for (var s of as(e))
-      t.indexOf(s) < 0 && Ju.call(e, s) && (n[s] = e[s]);
-  return n;
-};
-function Xu(e, t, n = {}) {
-  const s = n, { window: o = In } = s, i = Qu(s, ["window"]);
-  let r;
-  const a = Fo(() => o && "MutationObserver" in o), l = () => {
-    r && (r.disconnect(), r = void 0);
-  }, c = ee(
+function od(e, t, n = {}) {
+  const { window: s = In, ...o } = n;
+  let i;
+  const r = Po(() => s && "MutationObserver" in s), l = () => {
+    i && (i.disconnect(), i = void 0);
+  }, a = ne(
     () => wt(e),
-    (h) => {
-      l(), a.value && o && h && (r = new MutationObserver(t), r.observe(h, i));
+    (u) => {
+      l(), r.value && s && u && (i = new MutationObserver(t), i.observe(u, o));
     },
     { immediate: !0 }
-  ), u = () => {
-    l(), c();
+  ), c = () => {
+    l(), a();
   };
-  return Po(u), {
-    isSupported: a,
-    stop: u
+  return Fo(c), {
+    isSupported: r,
+    stop: c
   };
 }
-function xu(e, t, n = {}) {
-  const { window: s = In, initialValue: o = "", observe: i = !1 } = n, r = k(o), a = V(() => {
+function rd(e, t, n = {}) {
+  const { window: s = In, initialValue: o = "", observe: i = !1 } = n, r = k(o), l = L(() => {
     var c;
     return wt(t) || ((c = s == null ? void 0 : s.document) == null ? void 0 : c.documentElement);
   });
-  function l() {
+  function a() {
     var c;
-    const u = tt(e), h = tt(a);
-    if (h && s) {
-      const f = (c = s.getComputedStyle(h).getPropertyValue(u)) == null ? void 0 : c.trim();
-      r.value = f || o;
+    const u = tt(e), f = tt(l);
+    if (f && s) {
+      const m = (c = s.getComputedStyle(f).getPropertyValue(u)) == null ? void 0 : c.trim();
+      r.value = m || o;
     }
   }
-  return i && Xu(a, l, {
-    attributes: !0,
+  return i && od(l, a, {
+    attributeFilter: ["style", "class"],
     window: s
-  }), ee(
-    [a, () => tt(e)],
-    l,
+  }), ne(
+    [l, () => tt(e)],
+    a,
     { immediate: !0 }
-  ), ee(
+  ), ne(
     r,
     (c) => {
       var u;
-      (u = a.value) != null && u.style && a.value.style.setProperty(tt(e), c);
+      (u = l.value) != null && u.style && l.value.style.setProperty(tt(e), c);
     }
   ), r;
 }
-var ls = Object.getOwnPropertySymbols, ed = Object.prototype.hasOwnProperty, td = Object.prototype.propertyIsEnumerable, nd = (e, t) => {
-  var n = {};
-  for (var s in e)
-    ed.call(e, s) && t.indexOf(s) < 0 && (n[s] = e[s]);
-  if (e != null && ls)
-    for (var s of ls(e))
-      t.indexOf(s) < 0 && td.call(e, s) && (n[s] = e[s]);
-  return n;
-};
-function sd(e, t, n = {}) {
-  const s = n, { window: o = In } = s, i = nd(s, ["window"]);
-  let r;
-  const a = Fo(() => o && "ResizeObserver" in o), l = () => {
-    r && (r.disconnect(), r = void 0);
-  }, c = V(
-    () => Array.isArray(e) ? e.map((f) => wt(f)) : [wt(e)]
-  ), u = ee(
-    c,
+function id(e, t, n = {}) {
+  const { window: s = In, ...o } = n;
+  let i;
+  const r = Po(() => s && "ResizeObserver" in s), l = () => {
+    i && (i.disconnect(), i = void 0);
+  }, a = L(() => Array.isArray(e) ? e.map((f) => wt(f)) : [wt(e)]), c = ne(
+    a,
     (f) => {
-      if (l(), a.value && o) {
-        r = new ResizeObserver(t);
-        for (const y of f)
-          y && r.observe(y, i);
+      if (l(), r.value && s) {
+        i = new ResizeObserver(t);
+        for (const m of f)
+          m && i.observe(m, o);
       }
     },
     { immediate: !0, flush: "post", deep: !0 }
-  ), h = () => {
-    l(), u();
+  ), u = () => {
+    l(), c();
   };
-  return Po(h), {
-    isSupported: a,
-    stop: h
+  return Fo(u), {
+    isSupported: r,
+    stop: u
   };
 }
-const od = O({
+const ld = O({
   name: "h-dialog",
   props: {
-    ...Ws,
+    ...Zs,
     zIndex: {
       type: Number
     },
@@ -6487,9 +6591,9 @@ const od = O({
       type: String,
       default: "primary"
     },
-    width: {
+    boxClasses: {
       type: String,
-      default: "400px"
+      default: null
     },
     showCloseButton: {
       type: Boolean,
@@ -6501,23 +6605,23 @@ const od = O({
     }
   },
   setup(e, t) {
-    const n = ie("dialog-transition-end"), s = je({}), o = k(), i = ie("global-scrollbar-width"), r = xu("--h-scrollbar-width", o);
-    sd(o, (f) => {
+    const n = ce("dialog-transition-end"), s = je({}), o = k(), i = ce("global-scrollbar-width"), r = rd("--h-scrollbar-width", o);
+    id(o, (m) => {
       e.visible && (r.value = `${o.value.offsetWidth - o.value.clientWidth}px`, console.log(r.value));
-    }), ee(s, () => {
+    }), ne(s, () => {
       Object.keys(s).length === 0 && n && n();
     });
-    const a = (f) => {
-      e.visible === !1 && delete s[f];
-    }, l = (f) => {
-      e.visible === !1 && (s[f] = !0);
-    }, c = (f, y) => f < y - 1 ? `scale(${1 - 0.1 * (y - f - 1)})` : null, u = (f, y) => f < y - 1 ? 1 - 0.25 * (y - f) : null, h = qs(["visible"]);
+    const l = (m) => {
+      e.visible === !1 && delete s[m];
+    }, a = (m) => {
+      e.visible === !1 && (s[m] = !0);
+    }, c = (m, g) => m < g - 1 ? `scale(${1 - 0.1 * (g - m - 1)})` : null, u = (m, g) => m < g - 1 ? 1 - 0.25 * (g - m) : null, f = Ws(["visible"]);
     return {
-      Icons: x,
-      core: h,
+      Icons: Q,
+      core: f,
       ...D(),
-      transitionEnded: a,
-      transitionStarted: l,
+      transitionEnded: l,
+      transitionStarted: a,
       activeTransitions: s,
       getScale: c,
       getOpacity: u,
@@ -6525,74 +6629,74 @@ const od = O({
       bodyScrollbarWidth: i
     };
   }
-}), rd = ["innerHTML"];
-function id(e, t, n, s, o, i) {
-  const r = v("h-icon-button"), a = v("hr-dialog");
-  return m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
-      g("div", {
-        class: d([e.css_root, `-color-${e.color}`, `-index-${l.stackIndex}`, `-count-${l.stackCount}`, `-visible-count-${l.visibleStackCount}`]),
-        style: W({ zIndex: e.zIndex })
+}), ad = ["innerHTML"];
+function cd(e, t, n, s, o, i) {
+  const r = v("h-icon-button"), l = v("hr-dialog");
+  return h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
+      y("div", {
+        class: d([e.css_root, `-color-${e.color}`, `-index-${a.stackIndex}`, `-count-${a.stackCount}`, `-visible-count-${a.visibleStackCount}`]),
+        style: z({ zIndex: e.zIndex })
       }, [
-        C(pe, {
+        I(pe, {
           name: "fade-medium",
           appear: "",
           onBeforeLeave: t[0] || (t[0] = (c) => e.transitionStarted("backdrop")),
           onAfterLeave: t[1] || (t[1] = (c) => e.transitionEnded("backdrop"))
         }, {
-          default: $(() => [
-            K(g("div", {
+          default: w(() => [
+            G(y("div", {
               class: d([e.css_ec("backdrop")]),
-              style: W({ opacity: e.getOpacity(l.stackIndex, l.visibleStackCount) })
+              style: z({ opacity: e.getOpacity(a.stackIndex, a.visibleStackCount) })
             }, null, 6), [
-              [J, l.visible]
+              [K, a.visible]
             ])
           ]),
           _: 2
         }, 1024),
-        g("div", {
+        y("div", {
           ref: "scrollContainer",
           class: d([e.css_ec("scroll-container"), { "-transitioning": e.lockScroll && e.activeTransitions.box, "-body-has-scrollbar": e.lockScroll && e.bodyScrollbarWidth > 0 }])
         }, [
-          C(pe, {
+          I(pe, {
             name: "small-slide-up-medium",
             appear: "",
             onBeforeLeave: t[2] || (t[2] = (c) => e.transitionStarted("box")),
             onAfterLeave: t[3] || (t[3] = (c) => e.transitionEnded("box"))
           }, {
-            default: $(() => [
-              K(g("div", {
-                class: d([e.css_ec("box-container")]),
-                style: W({ width: e.width, transform: e.getScale(l.stackIndex, l.visibleStackCount) })
+            default: w(() => [
+              G(y("div", {
+                class: d([e.css_ec("box-container"), e.boxClasses]),
+                style: z({ transform: e.getScale(a.stackIndex, a.visibleStackCount) })
               }, [
-                g("div", {
+                y("div", {
                   class: d([e.css_ec("box")])
                 }, [
-                  e.showCloseButton ? (m(), S("div", {
+                  e.showCloseButton ? (h(), $("div", {
                     key: 0,
                     class: d([e.css_ec("close-icon")])
                   }, [
-                    C(r, {
+                    I(r, {
                       icon: e.Icons.close,
                       styling: "subtle",
                       size: "small",
-                      onClick: l.close
+                      onClick: a.close
                     }, null, 8, ["icon", "onClick"])
                   ], 2)) : M("", !0),
-                  e.$slots.title || e.title ? (m(), S("div", {
+                  e.$slots.title || e.title ? (h(), $("div", {
                     key: 1,
                     class: d([e.css_ec("title")])
                   }, [
                     T(e.$slots, "title", {}, () => [
-                      g("span", { innerHTML: e.title }, null, 8, rd)
+                      y("span", { innerHTML: e.title }, null, 8, ad)
                     ])
                   ], 2)) : M("", !0),
-                  g("div", {
+                  y("div", {
                     class: d([e.css_ec("content")])
                   }, [
                     T(e.$slots, "default")
                   ], 2),
-                  e.$slots.footer ? (m(), S("div", {
+                  e.$slots.footer ? (h(), $("div", {
                     key: 2,
                     class: d([e.css_ec("footer")])
                   }, [
@@ -6600,7 +6704,7 @@ function id(e, t, n, s, o, i) {
                   ], 2)) : M("", !0)
                 ], 2)
               ], 6), [
-                [J, l.visible]
+                [K, a.visible]
               ])
             ]),
             _: 2
@@ -6611,18 +6715,18 @@ function id(e, t, n, s, o, i) {
     _: 3
   }, 16);
 }
-const ad = /* @__PURE__ */ E(od, [["render", id]]), cs = "elementic-dialgos", ld = {
-  Dialog: ad
-}, cd = {
-  CoreDialogsInstall: js
-}, ud = {
+const ud = /* @__PURE__ */ V(ld, [["render", cd]]), as = "elementic-dialgos", dd = {
+  Dialog: ud
+}, fd = {
+  CoreDialogsInstall: qs
+}, md = {
   install: (e, t) => {
-    p.isModuleInstalled(e, cs) || (p.installDependencies(e, cd, t), p.installComponentAlias(e, "h-dialog-wrapper", wr), p.installComponents(e, ld), p.markModuleAsInstalled(e, cs));
+    p.isModuleInstalled(e, as) || (p.installDependencies(e, fd, t), p.installComponentAlias(e, "h-dialog-wrapper", wr), p.installComponents(e, dd), p.markModuleAsInstalled(e, as));
   }
-}, dd = O({
+}, hd = O({
   name: "h-drawer",
   props: {
-    ...Ws,
+    ...Zs,
     zIndex: {
       type: Number
     },
@@ -6640,75 +6744,75 @@ const ad = /* @__PURE__ */ E(od, [["render", id]]), cs = "elementic-dialgos", ld
     }
   },
   setup(e, t) {
-    const n = ie("dialog-transition-end"), s = je({}), o = V(() => e.placement === "right" ? "large2x-slide-to-left-medium" : "large2x-slide-to-right-medium");
-    ee(s, () => {
+    const n = ce("dialog-transition-end"), s = je({}), o = L(() => e.placement === "right" ? "large2x-slide-to-left-medium" : "large2x-slide-to-right-medium");
+    ne(s, () => {
       Object.keys(s).length === 0 && n && n();
     });
     const i = (u) => {
       e.visible === !1 && delete s[u];
     }, r = (u) => {
       e.visible === !1 && (s[u] = !0);
-    }, a = (u, h) => u < h - 1 ? `translateX(${e.placement === "right" ? "-" : ""}${(h - u - 1) * 64}px)` : null, l = (u, h) => u < h - 1 ? 1 - 0.25 * (h - u) : null;
+    }, l = (u, f) => u < f - 1 ? `translateX(${e.placement === "right" ? "-" : ""}${(f - u - 1) * 64}px)` : null, a = (u, f) => u < f - 1 ? 1 - 0.25 * (f - u) : null;
     return {
-      core: qs(["visible"]),
+      core: Ws(["visible"]),
       ...D(),
       slideTransition: o,
       transitionEnded: i,
       transitionStarted: r,
-      getScale: a,
-      getOpacity: l
+      getScale: l,
+      getOpacity: a
     };
   }
-}), fd = ["innerHTML"];
-function md(e, t, n, s, o, i) {
-  const r = v("h-scroll-container"), a = v("hr-dialog");
-  return m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
-      g("div", {
-        class: d([e.css_root, `-color-${e.color}`, `-index-${l.stackIndex}`, `-count-${l.stackCount}`, `-active-count-${l.visibleStackCount}`]),
-        style: W({ zIndex: e.zIndex })
+}), pd = ["innerHTML"];
+function yd(e, t, n, s, o, i) {
+  const r = v("h-scroll-container"), l = v("hr-dialog");
+  return h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
+      y("div", {
+        class: d([e.css_root, `-color-${e.color}`, `-index-${a.stackIndex}`, `-count-${a.stackCount}`, `-active-count-${a.visibleStackCount}`]),
+        style: z({ zIndex: e.zIndex })
       }, [
-        C(pe, {
+        I(pe, {
           name: "fade-medium",
           appear: "",
           onBeforeLeave: t[0] || (t[0] = (c) => e.transitionStarted("backdrop")),
           onAfterLeave: t[1] || (t[1] = (c) => e.transitionEnded("backdrop"))
         }, {
-          default: $(() => [
-            K(g("div", {
+          default: w(() => [
+            G(y("div", {
               class: d([e.css_ec("backdrop")]),
-              style: W({ opacity: e.getOpacity(l.stackIndex, l.visibleStackCount) })
+              style: z({ opacity: e.getOpacity(a.stackIndex, a.visibleStackCount) })
             }, null, 6), [
-              [J, l.visible]
+              [K, a.visible]
             ])
           ]),
           _: 2
         }, 1024),
-        C(pe, {
+        I(pe, {
           name: e.slideTransition,
           appear: "",
           onBeforeLeave: t[2] || (t[2] = (c) => e.transitionStarted("box")),
           onAfterLeave: t[3] || (t[3] = (c) => e.transitionEnded("box"))
         }, {
-          default: $(() => [
-            K(g("div", {
+          default: w(() => [
+            G(y("div", {
               class: d([e.css_ec("box"), `-placement-${e.placement}`, { "-has-footer": e.$slots.footer }]),
-              style: W({ transform: e.getScale(l.stackIndex, l.visibleStackCount) })
+              style: z({ transform: e.getScale(a.stackIndex, a.visibleStackCount) })
             }, [
-              e.$slots.title || e.title ? (m(), S("div", {
+              e.$slots.title || e.title ? (h(), $("div", {
                 key: 0,
                 class: d([e.css_ec("title")])
               }, [
                 T(e.$slots, "title", {}, () => [
-                  g("span", { innerHTML: e.title }, null, 8, fd)
+                  y("span", { innerHTML: e.title }, null, 8, pd)
                 ])
               ], 2)) : M("", !0),
-              g("div", {
+              y("div", {
                 class: d([e.css_ec("content")])
               }, [
-                C(r, null, {
-                  default: $(() => [
-                    g("div", {
+                I(r, null, {
+                  default: w(() => [
+                    y("div", {
                       class: d([e.css_ec("inner-content")])
                     }, [
                       T(e.$slots, "default")
@@ -6717,14 +6821,14 @@ function md(e, t, n, s, o, i) {
                   _: 3
                 })
               ], 2),
-              e.$slots.footer ? (m(), S("div", {
+              e.$slots.footer ? (h(), $("div", {
                 key: 1,
                 class: d([e.css_ec("footer")])
               }, [
                 T(e.$slots, "footer")
               ], 2)) : M("", !0)
             ], 6), [
-              [J, l.visible]
+              [K, a.visible]
             ])
           ]),
           _: 2
@@ -6734,18 +6838,18 @@ function md(e, t, n, s, o, i) {
     _: 3
   }, 16);
 }
-const hd = /* @__PURE__ */ E(dd, [["render", md]]), us = "elementic-drawers", pd = {
-  Drawer: hd
-}, yd = {
-  CoreDialogsInstall: js
-}, gd = {
+const gd = /* @__PURE__ */ V(hd, [["render", yd]]), cs = "elementic-drawers", vd = {
+  Drawer: gd
+}, bd = {
+  CoreDialogsInstall: qs
+}, wd = {
   install: (e, t) => {
-    p.isModuleInstalled(e, us) || (p.installDependencies(e, yd, t), p.installComponents(e, pd), p.markModuleAsInstalled(e, us));
+    p.isModuleInstalled(e, cs) || (p.installDependencies(e, bd, t), p.installComponents(e, vd), p.markModuleAsInstalled(e, cs));
   }
-}, ds = {
+}, us = {
   top: "tiny2x-slide-down-medium",
   bottom: "tiny2x-slide-up-medium"
-}, vd = O({
+}, $d = O({
   name: "h-dropdown",
   props: {
     ...$r,
@@ -6767,85 +6871,85 @@ const hd = /* @__PURE__ */ E(dd, [["render", md]]), us = "elementic-drawers", pd
   },
   emits: ["click", "focusedItemChanged"],
   setup(e, t) {
-    const n = k(), s = k(), o = k(), i = k(""), r = k({}), a = k(ds.bottom), l = V(() => [
+    const n = k(), s = k(), o = k(), i = k(""), r = k({}), l = k(us.bottom), a = L(() => [
       Ct(4),
-      kn({
+      Tt({
         padding: 8,
-        apply(w) {
+        apply(S) {
           r.value = {
-            [e.autoSize ? "minWidth" : "width"]: `${w.rects.reference.width}px`
-          }, i.value = `${w.availableHeight}px`;
+            [e.autoSize ? "minWidth" : "width"]: `${S.rects.reference.width}px`
+          }, i.value = `${S.availableHeight}px`;
         }
       })
-    ]), c = (w) => {
-      w.outsideFloating && w.outsideReference && n.value.close();
-    }, u = (w) => {
-      a.value = ds[Be(w.placement).placement];
-    }, h = (w) => {
-      w && w.component && w.component.vnode && w.component.vnode.el && w.component.vnode.el.scrollIntoView({
+    ]), c = (S) => {
+      S.outsideFloating && S.outsideReference && n.value.close();
+    }, u = (S) => {
+      l.value = us[Be(S.placement).placement];
+    }, f = (S) => {
+      S && S.component && S.component.vnode && S.component.vnode.el && S.component.vnode.el.scrollIntoView({
         behavior: "smooth",
         block: "nearest"
       });
-    }, f = (w) => ({
+    }, m = (S) => ({
       class: {
-        "-active": w.menuVisible,
-        "-disabled": w.disabled
+        "-active": S.menuVisible,
+        "-disabled": S.disabled
       }
-    }), y = Cr().as("div", f).props(["disabled", "hideOnClick", "splitButton", "visible"]).events(["click", "focusedItemChanged"]).build();
+    }), g = Cr().as("div", m).props(["disabled", "hideOnClick", "splitButton", "visible"]).events(["click", "focusedItemChanged"]).build();
     return {
-      Icons: x,
-      core: y,
+      Icons: Q,
+      core: g,
       dropdown: n,
       button: s,
       icon: o,
-      transition: a,
-      floatingMiddleware: l,
+      transition: l,
+      floatingMiddleware: a,
       floatingStyle: r,
       menuMaxHeight: i,
       onClickOutside: c,
       onComputedPosition: u,
-      onFocusedItemChanged: h,
+      onFocusedItemChanged: f,
       ...D()
     };
   }
-}), bd = ["onClick", "onKeydown"], wd = ["onClick", "onKeydown"], $d = ["onKeydown"];
-function Sd(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("h-scroll-container"), l = v("h-floating"), c = v("hr-dropdown");
-  return K((m(), I(c, _({
+}), Sd = ["onClick", "onKeydown"], kd = ["onClick", "onKeydown"], Id = ["onKeydown"];
+function Cd(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-scroll-container"), a = v("h-floating"), c = v("hr-dropdown");
+  return G((h(), C(c, F({
     ref: "dropdown",
     class: [e.css_root]
-  }, e.core.props, A(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
-    default: $((u) => [
-      g("div", {
+  }, e.core.props, P(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
+    default: w((u) => [
+      y("div", {
         ref: "button",
         tabindex: "0",
         class: d([e.css_ec("button"), { "-split-button": u.splitButton }]),
         onClick: u.onButtonClick,
-        onKeydown: (h) => u.onKeyEvents(h, "main")
+        onKeydown: (f) => u.onKeyEvents(f, "main")
       }, [
-        g("span", {
+        y("span", {
           class: d([e.css_ec("label")])
         }, [
           T(e.$slots, "label", {}, () => [
-            se(N(e.label), 1)
+            ee(N(e.label), 1)
           ])
         ], 2),
-        g("div", {
+        y("div", {
           tabindex: "0",
           class: d([e.css_ec("icon")]),
           onClick: Tn(u.onIconClick, ["stop"]),
-          onKeydown: Tn((h) => u.onKeyEvents(h, "split"), ["stop"])
+          onKeydown: Tn((f) => u.onKeyEvents(f, "split"), ["stop"])
         }, [
-          g("div", null, [
-            C(r, {
+          y("div", null, [
+            I(r, {
               ref: "icon",
               icon: e.Icons.dotsHorizontal,
               size: "16px"
             }, null, 8, ["icon"])
           ])
-        ], 42, wd)
-      ], 42, bd),
-      C(l, {
+        ], 42, kd)
+      ], 42, Sd),
+      I(a, {
         as: "div",
         class: d([e.css_ec("menu-container")]),
         reference: e.button,
@@ -6855,45 +6959,45 @@ function Sd(e, t, n, s, o, i) {
         visible: u.menuVisible,
         placement: `bottom-${e.align}`,
         middleware: e.floatingMiddleware,
-        onHide: (h) => u.clearFocusedItem(),
+        onHide: (f) => u.clearFocusedItem(),
         onClickOutside: e.onClickOutside,
         onComputedPosition: e.onComputedPosition,
         onTransitionStateChanged: u.onMenuTransitioning,
-        style: W(e.floatingStyle)
+        style: z(e.floatingStyle)
       }, {
-        arrow: $(() => [
-          C(r, {
+        arrow: w(() => [
+          I(r, {
             icon: "tooltip-arrow",
             class: d([e.css_ec("arrow")])
           }, null, 8, ["class"])
         ]),
-        default: $(() => [
-          g("div", {
+        default: w(() => [
+          y("div", {
             class: d([e.css_ec("menu")]),
             onKeydown: u.onKeyEvents,
-            style: W({ maxHeight: e.menuMaxHeight })
+            style: z({ maxHeight: e.menuMaxHeight })
           }, [
-            C(a, null, {
-              default: $(() => [
+            I(l, null, {
+              default: w(() => [
                 T(e.$slots, "default")
               ]),
               _: 3
             })
-          ], 46, $d)
+          ], 46, Id)
         ]),
         _: 2
       }, 1032, ["class", "reference", "arrow-reference", "transition", "visible", "placement", "middleware", "onHide", "onClickOutside", "onComputedPosition", "onTransitionStateChanged", "style"])
     ]),
     _: 3
   }, 16, ["class", "onFocusedItemChanged"])), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const kd = /* @__PURE__ */ E(vd, [["render", Sd]]), Id = O({
+const Td = /* @__PURE__ */ V($d, [["render", Cd]]), Md = O({
   name: "h-dropdown-item",
   props: {
     ...Tr,
-    ...Or,
+    ...Mr,
     icon: {
       type: String,
       default: null
@@ -6909,25 +7013,25 @@ const kd = /* @__PURE__ */ E(vd, [["render", Sd]]), Id = O({
       onClick: o.onClick
     });
     return {
-      core: Mr().as("div", n).props(["disabled"]).events(["click"]).build(),
+      core: Or().as("div", n).props(["disabled"]).events(["click"]).build(),
       ...D()
     };
   }
 });
-function Cd(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-dropdown-item");
-  return m(), I(a, _({
+function Od(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-dropdown-item");
+  return h(), C(l, F({
     class: [e.css_root],
     tabindex: "-1"
-  }, e.core.props, A(e.core.listeners)), {
-    default: $(() => [
+  }, e.core.props, P(e.core.listeners)), {
+    default: w(() => [
       T(e.$slots, "default", {}, () => [
-        e.icon ? (m(), I(r, {
+        e.icon ? (h(), C(r, {
           key: 0,
           class: d([e.css_ec("icon")]),
           icon: e.icon
         }, null, 8, ["class", "icon"])) : M("", !0),
-        g("span", {
+        y("span", {
           class: d([e.css_ec("label")])
         }, N(e.label), 3)
       ])
@@ -6935,23 +7039,23 @@ function Cd(e, t, n, s, o, i) {
     _: 3
   }, 16, ["class"]);
 }
-const Td = /* @__PURE__ */ E(Id, [["render", Cd]]), Od = O({
+const Dd = /* @__PURE__ */ V(Md, [["render", Od]]), Vd = O({
   name: "h-dropdown-item-divider",
   setup(e, t) {
-    const n = ie("dropdown"), s = V(() => n.itemsVisible.value);
+    const n = ce("dropdown"), s = L(() => n.itemsVisible.value);
     return {
       ...D(),
       visible: s
     };
   }
 });
-function Md(e, t, n, s, o, i) {
-  return e.visible ? (m(), S("div", {
+function Ed(e, t, n, s, o, i) {
+  return e.visible ? (h(), $("div", {
     key: 0,
     class: d([e.css_root])
   }, null, 2)) : M("", !0);
 }
-const Dd = /* @__PURE__ */ E(Od, [["render", Md]]), Ed = O({
+const Ld = /* @__PURE__ */ V(Vd, [["render", Ed]]), Nd = O({
   name: "h-dropdown-item-header",
   props: {
     label: {
@@ -6964,49 +7068,49 @@ const Dd = /* @__PURE__ */ E(Od, [["render", Md]]), Ed = O({
     }
   },
   setup(e, t) {
-    const n = ie("dropdown"), s = V(() => n.itemsVisible.value);
+    const n = ce("dropdown"), s = L(() => n.itemsVisible.value);
     return {
       ...D(),
       visible: s
     };
   }
 });
-function Ld(e, t, n, s, o, i) {
+function _d(e, t, n, s, o, i) {
   const r = v("h-icon");
-  return e.visible ? (m(), S("div", {
+  return e.visible ? (h(), $("div", {
     key: 0,
     class: d([e.css_root])
   }, [
     T(e.$slots, "default", {}, () => [
-      e.icon ? (m(), I(r, {
+      e.icon ? (h(), C(r, {
         key: 0,
         class: d([e.css_ec("icon")]),
         icon: e.icon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      g("span", {
+      y("span", {
         class: d([e.css_ec("text")])
       }, N(e.label), 3)
     ])
   ], 2)) : M("", !0);
 }
-const Vd = /* @__PURE__ */ E(Ed, [["render", Ld]]), _t = {
+const Fd = /* @__PURE__ */ V(Nd, [["render", _d]]), _t = {
   top: "bottom",
   right: "left",
   bottom: "top",
   left: "right"
-}, Nd = {
+}, Pd = {
   top: "offsetHeight",
   right: "offsetWidth",
   bottom: "offsetHeight",
   left: "offsetWidth"
-}, _d = O({
+}, Ad = O({
   name: "h-floating",
   props: {
     ...Dr,
+    ...Vr,
     ...Er,
     ...Lr,
-    ...Vr,
     ...Nr,
     ...Ut(),
     arrowReference: {
@@ -7025,79 +7129,79 @@ const Vd = /* @__PURE__ */ E(Ed, [["render", Ld]]), _t = {
     hide: () => !0
   },
   setup(e, t) {
-    const n = D(), s = k(), o = k(null), i = k({}), r = k(_t[Be(e.placement).placement]), a = k(Be(e.placement).placement), l = k(Be(e.placement).alignment), c = V(() => {
-      const f = [...e.middleware];
-      return e.showArrow && f.push(_r({
+    const n = D(), s = k(), o = k(null), i = k({}), r = k(_t[Be(e.placement).placement]), l = k(Be(e.placement).placement), a = k(Be(e.placement).alignment), c = L(() => {
+      const m = [...e.middleware];
+      return e.showArrow && m.push(_r({
         reference: e.arrowReference,
         element: o.value
-      })), f;
-    }), u = (f) => {
-      const y = Be(f.placement);
-      a.value = y.placement, l.value = y.alignment;
-      const w = a.value;
-      f.middlewareData.arrowReference && (i.value = {
-        left: f.middlewareData.arrowReference.x != null ? `${f.middlewareData.arrowReference.x}px` : "",
-        top: f.middlewareData.arrowReference.y != null ? `${f.middlewareData.arrowReference.y}px` : "",
-        [_t[w]]: `${-o.value[Nd[w]]}px`
-      }, r.value = _t[w]), t.emit("computedPosition", f);
-    }, h = Pr().props(["as", "reference", "visible", "placement", "transition"]).events(["clickOutside", "show", "hide"]).build();
+      })), m;
+    }), u = (m) => {
+      const g = Be(m.placement);
+      l.value = g.placement, a.value = g.alignment;
+      const S = l.value;
+      m.middlewareData.arrowReference && (i.value = {
+        left: m.middlewareData.arrowReference.x != null ? `${m.middlewareData.arrowReference.x}px` : "",
+        top: m.middlewareData.arrowReference.y != null ? `${m.middlewareData.arrowReference.y}px` : "",
+        [_t[S]]: `${-o.value[Pd[S]]}px`
+      }, r.value = _t[S]), t.emit("computedPosition", m);
+    }, f = Fr().props(["as", "reference", "visible", "placement", "transition"]).events(["clickOutside", "show", "hide"]).build();
     return {
       ...n,
       middleware: c,
       floating: s,
-      floatingPlacement: a,
-      floatingAlignment: l,
+      floatingPlacement: l,
+      floatingAlignment: a,
       floatingArrow: o,
       arrowStyle: i,
       arrowPlacement: r,
-      core: h,
+      core: f,
       onComputedPosition: u
     };
   }
-}), Pd = ["data-arrow-placement"];
-function Fd(e, t, n, s, o, i) {
+}), Hd = ["data-arrow-placement"];
+function zd(e, t, n, s, o, i) {
   const r = v("hr-floating");
-  return m(), I(r, _({
+  return h(), C(r, F({
     ref: "floating",
     middleware: e.middleware,
     "data-floating-placement": e.floatingPlacement,
     "data-floating-alignment": e.floatingAlignment
-  }, { ...e.core.props, ...e.$attrs }, A(e.core.listeners), { onComputedPosition: e.onComputedPosition }), {
-    default: $(() => [
-      e.showArrow ? (m(), S("span", {
+  }, { ...e.core.props, ...e.$attrs }, P(e.core.listeners), { onComputedPosition: e.onComputedPosition }), {
+    default: w(() => [
+      e.showArrow ? (h(), $("span", {
         key: 0,
         ref: "floatingArrow",
-        style: W({ display: "flex", position: "absolute", ...e.arrowStyle }),
+        style: z({ display: "flex", position: "absolute", ...e.arrowStyle }),
         "data-arrow-placement": e.arrowPlacement
       }, [
         T(e.$slots, "arrow")
-      ], 12, Pd)) : M("", !0),
+      ], 12, Hd)) : M("", !0),
       T(e.$slots, "default")
     ]),
     _: 3
   }, 16, ["middleware", "data-floating-placement", "data-floating-alignment", "onComputedPosition"]);
 }
-const Ad = /* @__PURE__ */ E(_d, [["render", Fd]]), fs = "elementic-floating", Hd = {
-  Floating: Ad
-}, zd = {
-  CoreFloatingInstall: Fr
-}, at = {
-  install: (e, t) => {
-    p.isModuleInstalled(e, fs) || (p.installDependencies(e, zd, t), p.installComponents(e, Hd), p.markModuleAsInstalled(e, fs));
-  }
-}, ms = "elementic-dropdowns", Rd = {
-  Dropdown: kd,
-  DropdownItem: Td,
-  DropdownItemDivider: Dd,
-  DropdownItemHeader: Vd
-}, Bd = {
-  CoreDropdownsInstall: Ar,
-  FloatingInstall: at
+const Rd = /* @__PURE__ */ V(Ad, [["render", zd]]), ds = "elementic-floating", Bd = {
+  Floating: Rd
 }, Zd = {
+  CoreFloatingInstall: Pr
+}, lt = {
   install: (e, t) => {
-    p.isModuleInstalled(e, ms) || (p.installDependencies(e, Bd, t), p.installComponents(e, Rd), p.markModuleAsInstalled(e, ms));
+    p.isModuleInstalled(e, ds) || (p.installDependencies(e, Zd, t), p.installComponents(e, Bd), p.markModuleAsInstalled(e, ds));
   }
-}, Wd = O({
+}, fs = "elementic-dropdowns", Wd = {
+  Dropdown: Td,
+  DropdownItem: Dd,
+  DropdownItemDivider: Ld,
+  DropdownItemHeader: Fd
+}, qd = {
+  CoreDropdownsInstall: Ar,
+  FloatingInstall: lt
+}, jd = {
+  install: (e, t) => {
+    p.isModuleInstalled(e, fs) || (p.installDependencies(e, qd, t), p.installComponents(e, Wd), p.markModuleAsInstalled(e, fs));
+  }
+}, Ud = O({
   name: "h-fragment",
   props: {
     id: {
@@ -7106,7 +7210,7 @@ const Ad = /* @__PURE__ */ E(_d, [["render", Fd]]), fs = "elementic-floating", H
     }
   },
   setup(e, t) {
-    const n = Bt(), s = ie("fragmentContainer"), o = V(() => e.id === s.active.value), i = V(() => s.transition);
+    const n = Bt(), s = ce("fragmentContainer"), o = L(() => e.id === s.active.value), i = L(() => s.transition);
     return {
       isActive: o,
       transitionName: i,
@@ -7125,8 +7229,8 @@ const Ad = /* @__PURE__ */ E(_d, [["render", Fd]]), fs = "elementic-floating", H
     };
   }
 });
-function qd(e, t, n, s, o, i) {
-  return m(), I(pe, {
+function Yd(e, t, n, s, o, i) {
+  return h(), C(pe, {
     name: e.transitionName,
     onEnter: e.onEnter,
     onAfterEnter: e.onAfterEnter,
@@ -7134,8 +7238,8 @@ function qd(e, t, n, s, o, i) {
     "enter-active-class": `${e.transitionName}-enter-active -transitioning`,
     "leave-active-class": `${e.transitionName}-leave-active -transitioning`
   }, {
-    default: $(() => [
-      e.isActive ? (m(), S("div", {
+    default: w(() => [
+      e.isActive ? (h(), $("div", {
         key: 0,
         class: d([e.css_root])
       }, [
@@ -7145,7 +7249,7 @@ function qd(e, t, n, s, o, i) {
     _: 3
   }, 8, ["name", "onEnter", "onAfterEnter", "onBeforeLeave", "enter-active-class", "leave-active-class"]);
 }
-const jd = /* @__PURE__ */ E(Wd, [["render", qd]]), Ud = O({
+const Gd = /* @__PURE__ */ V(Ud, [["render", Yd]]), Kd = O({
   name: "h-fragment-container",
   props: {
     ...Hr,
@@ -7159,7 +7263,7 @@ const jd = /* @__PURE__ */ E(Wd, [["render", qd]]), Ud = O({
       old: null,
       new: null,
       target: null
-    }), s = V(() => n.target === null ? null : `${n.target}px`), o = () => {
+    }), s = L(() => n.target === null ? null : `${n.target}px`), o = () => {
       n.target = n.old, Re(() => {
         Re(() => {
           n.target = n.new;
@@ -7169,45 +7273,45 @@ const jd = /* @__PURE__ */ E(Wd, [["render", qd]]), Ud = O({
       n.new = c, n.old !== null && Re(o);
     }, r = (c) => {
       n.old = c, n.new !== null && Re(o);
-    }, a = () => {
+    }, l = () => {
       n.old = null, n.new = null, n.target = null;
-    }, l = zr().as("div").props(["active"]).build();
+    }, a = zr().as("div").props(["active"]).build();
     return ht("fragmentContainer", {
-      active: V(() => e.active),
+      active: L(() => e.active),
       transition: e.transition,
       setNewHeight: i,
       setOldHeight: r,
-      clearHeights: a
+      clearHeights: l
     }), {
-      core: l,
+      core: a,
       actualHeight: s,
       heights: n,
       ...D()
     };
   }
 });
-function Yd(e, t, n, s, o, i) {
+function Jd(e, t, n, s, o, i) {
   const r = v("hr-fragment-container");
-  return m(), I(r, _(e.core.props, {
+  return h(), C(r, F(e.core.props, {
     class: [e.css_root, e.transition ? `${e.transition}-container` : null],
     style: { height: e.actualHeight }
   }), {
-    default: $(() => [
+    default: w(() => [
       T(e.$slots, "default")
     ]),
     _: 3
   }, 16, ["class", "style"]);
 }
-const Gd = /* @__PURE__ */ E(Ud, [["render", Yd]]), hs = "elementic-fragments", Kd = {
-  Fragment: jd,
-  FragmentContainer: Gd
-}, Jd = {
+const Qd = /* @__PURE__ */ V(Kd, [["render", Jd]]), ms = "elementic-fragments", Xd = {
+  Fragment: Gd,
+  FragmentContainer: Qd
+}, xd = {
   CoreFragmentsInstall: Rr
-}, Qd = {
+}, ef = {
   install: (e, t) => {
-    p.isModuleInstalled(e, hs) || (p.installDependencies(e, Jd, t), p.installComponents(e, Kd), p.markModuleAsInstalled(e, hs));
+    p.isModuleInstalled(e, ms) || (p.installDependencies(e, xd, t), p.installComponents(e, Xd), p.markModuleAsInstalled(e, ms));
   }
-}, Xd = /* @__PURE__ */ O({
+}, tf = /* @__PURE__ */ O({
   name: "h-list",
   props: {
     animate: {
@@ -7220,21 +7324,21 @@ const Gd = /* @__PURE__ */ E(Ud, [["render", Yd]]), hs = "elementic-fragments", 
     }
   },
   setup(e, t) {
-    const n = V(() => e.listStyle);
+    const n = L(() => e.listStyle);
     return ht("list-style", n), {
       ...D()
     };
   },
   render() {
-    return this.animate ? On(Ps, {
+    return this.animate ? Mn(_s, {
       name: "list-complete",
       tag: "ul",
       class: [this.css_root]
-    }, this.$slots.default) : On("ul", {
+    }, this.$slots.default) : Mn("ul", {
       class: [this.css_root]
     }, this.$slots.default());
   }
-}), xd = O({
+}), nf = O({
   name: "h-list-item",
   props: {
     text: {
@@ -7245,25 +7349,25 @@ const Gd = /* @__PURE__ */ E(Ud, [["render", Yd]]), hs = "elementic-fragments", 
     }
   },
   setup(e, t) {
-    const n = ie("list-style");
+    const n = ce("list-style");
     return {
       ...D(),
       listStyle: n
     };
   }
 });
-function ef(e, t, n, s, o, i) {
-  return m(), S("li", {
+function sf(e, t, n, s, o, i) {
+  return h(), $("li", {
     class: d([e.css_root, `-list-style-${e.listStyle}`])
   }, [
-    g("div", {
+    y("div", {
       class: d([e.css_ec("content")])
     }, [
       T(e.$slots, "default", {}, () => [
-        g("div", {
+        y("div", {
           class: d([e.css_ec("text")])
         }, N(e.text), 3),
-        e.subText ? (m(), S("div", {
+        e.subText ? (h(), $("div", {
           key: 0,
           class: d([e.css_ec("sub-text")])
         }, N(e.subText), 3)) : M("", !0)
@@ -7271,14 +7375,14 @@ function ef(e, t, n, s, o, i) {
     ], 2)
   ], 2);
 }
-const tf = /* @__PURE__ */ E(xd, [["render", ef]]), ps = "elementic-lists", nf = {
-  List: Xd,
-  ListItem: tf
-}, sf = {
+const of = /* @__PURE__ */ V(nf, [["render", sf]]), hs = "elementic-lists", rf = {
+  List: tf,
+  ListItem: of
+}, lf = {
   install: (e, t) => {
-    p.isModuleInstalled(e, ps) || (p.installComponents(e, nf), p.markModuleAsInstalled(e, ps));
+    p.isModuleInstalled(e, hs) || (p.installComponents(e, rf), p.markModuleAsInstalled(e, hs));
   }
-}, of = O({
+}, af = O({
   name: "h-notification",
   props: {
     ...Br,
@@ -7296,68 +7400,68 @@ const tf = /* @__PURE__ */ E(xd, [["render", ef]]), ps = "elementic-lists", nf =
     }
   },
   setup(e, t) {
-    const n = D(), s = ie("notification-transition-end"), o = je({});
-    ee(o, () => {
+    const n = D(), s = ce("notification-transition-end"), o = je({});
+    ne(o, () => {
       Object.keys(o).length === 0 && s();
     });
     const i = (c) => {
       e.visible === !1 && delete o[c];
     }, r = (c) => {
       e.visible === !1 && (o[c] = !0);
-    }, a = (c) => ({
+    }, l = (c) => ({
       class: [n.css_root.value, `-color-${e.color}`]
-    }), l = Zr().as("div", a).props(["visible"]).build();
+    }), a = Zr().as("div", l).props(["visible"]).build();
     return {
-      Icons: x,
-      core: l,
+      Icons: Q,
+      core: a,
       ...D(),
       transitionEnded: i,
       transitionStarted: r
     };
   }
-}), rf = ["onMouseenter", "onMouseleave"], af = ["innerHTML"];
-function lf(e, t, n, s, o, i) {
-  const r = v("h-icon-button"), a = v("hr-notification");
-  return K((m(), I(a, _(e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
-      g("div", {
+}), cf = ["onMouseenter", "onMouseleave"], uf = ["innerHTML"];
+function df(e, t, n, s, o, i) {
+  const r = v("h-icon-button"), l = v("hr-notification");
+  return G((h(), C(l, F(e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
+      y("div", {
         class: d([e.css_ec("box")]),
-        onMouseenter: l.pauseDuration,
-        onMouseleave: l.resumeDuration
+        onMouseenter: a.pauseDuration,
+        onMouseleave: a.resumeDuration
       }, [
-        e.showCloseButton ? (m(), S("div", {
+        e.showCloseButton ? (h(), $("div", {
           key: 0,
           class: d([e.css_ec("close-icon")])
         }, [
-          C(r, {
+          I(r, {
             icon: e.Icons.close,
             styling: "subtle",
             color: e.color,
             size: "small",
-            onClick: l.close
+            onClick: a.close
           }, null, 8, ["icon", "color", "onClick"])
         ], 2)) : M("", !0),
-        e.$slots.title || e.title ? (m(), S("div", {
+        e.$slots.title || e.title ? (h(), $("div", {
           key: 1,
           class: d([e.css_ec("title")])
         }, [
           T(e.$slots, "title", {}, () => [
-            g("span", { innerHTML: e.title }, null, 8, af)
+            y("span", { innerHTML: e.title }, null, 8, uf)
           ])
         ], 2)) : M("", !0),
-        g("div", {
+        y("div", {
           class: d([e.css_ec("content")])
         }, [
           T(e.$slots, "default")
         ], 2)
-      ], 42, rf)
+      ], 42, cf)
     ]),
     _: 3
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const cf = /* @__PURE__ */ E(of, [["render", lf]]), uf = /* @__PURE__ */ O({
+const ff = /* @__PURE__ */ V(af, [["render", df]]), mf = /* @__PURE__ */ O({
   name: "h-notification-wrapper",
   components: {},
   props: {
@@ -7380,8 +7484,8 @@ const cf = /* @__PURE__ */ E(of, [["render", lf]]), uf = /* @__PURE__ */ O({
       core: qr().as("div", s).props(["name"]).build(),
       ...n,
       transitionEnded: (r) => {
-        const a = r.dataset.id;
-        Us.getWrapper(e.name).getNotification(a).transitionEnd();
+        const l = r.dataset.id;
+        js.getWrapper(e.name).getNotification(l).transitionEnd();
       }
     };
   }
@@ -7403,25 +7507,25 @@ const cf = /* @__PURE__ */ E(of, [["render", lf]]), uf = /* @__PURE__ */ O({
       );
   }*/
 });
-function df(e, t, n, s, o, i) {
+function hf(e, t, n, s, o, i) {
   const r = v("hr-notification-wrapper");
-  return m(), I(r, _(e.core.props, A(e.core.listeners), {
+  return h(), C(r, F(e.core.props, P(e.core.listeners), {
     style: { width: e.width }
   }), {
-    default: $((a) => [
-      C(Ps, {
+    default: w((l) => [
+      I(_s, {
         tag: "div",
         class: d(e.css_ec("transition-group")),
         name: "notification-slide-in",
         onAfterLeave: e.transitionEnded
       }, {
-        default: $(() => [
-          (m(!0), S(oe, null, he(a.notifications, (l) => (m(), I(Ns(l.component), _({
-            key: l.id,
+        default: w(() => [
+          (h(!0), $(le, null, me(l.notifications, (a) => (h(), C(Ls(a.component), F({
+            key: a.id,
             class: e.css_ec("notification"),
-            "data-id": l.id,
-            visible: l.visible
-          }, l.props, A(l.compiledListeners)), null, 16, ["class", "data-id", "visible"]))), 128))
+            "data-id": a.id,
+            visible: a.visible
+          }, a.props, P(a.compiledListeners)), null, 16, ["class", "data-id", "visible"]))), 128))
         ]),
         _: 2
       }, 1032, ["class", "onAfterLeave"])
@@ -7429,16 +7533,16 @@ function df(e, t, n, s, o, i) {
     _: 1
   }, 16, ["style"]);
 }
-const ff = /* @__PURE__ */ E(uf, [["render", df]]), ys = "elementic-notifications", mf = {
-  Notification: cf,
-  NotificationWrapper: ff
-}, hf = {
+const pf = /* @__PURE__ */ V(mf, [["render", hf]]), ps = "elementic-notifications", yf = {
+  Notification: ff,
+  NotificationWrapper: pf
+}, gf = {
   CoreNotificationsInstall: jr
-}, pf = {
+}, vf = {
   install: (e, t) => {
-    p.isModuleInstalled(e, ys) || (p.installDependencies(e, hf, t), p.installComponents(e, mf), p.markModuleAsInstalled(e, ys));
+    p.isModuleInstalled(e, ps) || (p.installDependencies(e, gf, t), p.installComponents(e, yf), p.markModuleAsInstalled(e, ps));
   }
-}, yf = O({
+}, bf = O({
   name: "h-paginator",
   props: {
     ...Ur,
@@ -7448,86 +7552,86 @@ const ff = /* @__PURE__ */ E(uf, [["render", df]]), ys = "elementic-notification
   },
   emits: ["update:modelValue"],
   setup(e, t) {
-    const n = k(null), s = k(0), o = k(0), i = V(() => ({
+    const n = k(null), s = k(0), o = k(0), i = L(() => ({
       transform: `translate(${o.value}px, 0)`,
       width: `${s.value}px`
     })), r = () => {
       n.value && (o.value = n.value.offsetLeft + 4, s.value = n.value.offsetWidth - 8);
     };
-    ee(() => e.modelValue, () => {
+    ne(() => e.modelValue, () => {
       Re(r);
     }), st(r);
-    const a = Jr().as("div").props(["modelValue", "pageSize", "count", "delta"]).events(["update:modelValue"]).build();
+    const l = Jr().as("div").props(["modelValue", "pageSize", "count", "delta"]).events(["update:modelValue"]).build();
     return {
-      Icons: x,
-      core: a,
+      Icons: Q,
+      core: l,
       activeButton: n,
       indicatorStyle: i,
       ...D()
     };
   }
-}), gf = ["disabled", "onClick"], vf = ["onClick"], bf = ["onClick"], wf = ["disabled", "onClick"];
-function $f(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-paginator");
-  return m(), I(a, _(e.core.props, {
+}), wf = ["disabled", "onClick"], $f = ["onClick"], Sf = ["onClick"], kf = ["disabled", "onClick"];
+function If(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-paginator");
+  return h(), C(l, F(e.core.props, {
     class: [e.css_root]
-  }, A(e.core.listeners)), {
-    default: $((l) => [
-      g("div", {
+  }, P(e.core.listeners)), {
+    default: w((a) => [
+      y("div", {
         class: d([e.css_ec("indicator"), { "-hidden": e.activeButton === null }]),
-        style: W(e.indicatorStyle)
+        style: z(e.indicatorStyle)
       }, null, 6),
-      g("button", {
+      y("button", {
         class: d([e.css_ec("button")]),
-        disabled: l.currentPage === 1,
-        onClick: (c) => l.onPaginationButtonClick(l.currentPage - 1)
+        disabled: a.currentPage === 1,
+        onClick: (c) => a.onPaginationButtonClick(a.currentPage - 1)
       }, [
-        C(r, {
+        I(r, {
           icon: e.Icons.arrowLeft,
           size: "16px"
         }, null, 8, ["icon"])
-      ], 10, gf),
-      (m(!0), S(oe, null, he(l.buttons, (c) => (m(), S(oe, null, [
-        c === l.currentPage ? (m(), S("button", {
+      ], 10, wf),
+      (h(!0), $(le, null, me(a.buttons, (c) => (h(), $(le, null, [
+        c === a.currentPage ? (h(), $("button", {
           key: c,
           ref_for: !0,
           ref: "activeButton",
           class: d([e.css_ec("button"), "-active"]),
-          onClick: (u) => l.onPaginationButtonClick(c)
-        }, N(c !== null ? c : "..."), 11, vf)) : (m(), S("button", {
+          onClick: (u) => a.onPaginationButtonClick(c)
+        }, N(c !== null ? c : "..."), 11, $f)) : (h(), $("button", {
           key: c,
           class: d([e.css_ec("button")]),
-          onClick: (u) => l.onPaginationButtonClick(c)
-        }, N(c !== null ? c : "..."), 11, bf))
+          onClick: (u) => a.onPaginationButtonClick(c)
+        }, N(c !== null ? c : "..."), 11, Sf))
       ], 64))), 256)),
-      g("button", {
+      y("button", {
         class: d([e.css_ec("button")]),
-        disabled: l.currentPage === l.pages,
-        onClick: (c) => l.onPaginationButtonClick(l.currentPage + 1)
+        disabled: a.currentPage === a.pages,
+        onClick: (c) => a.onPaginationButtonClick(a.currentPage + 1)
       }, [
-        C(r, {
+        I(r, {
           icon: e.Icons.arrowRight,
           size: "16px"
         }, null, 8, ["icon"])
-      ], 10, wf)
+      ], 10, kf)
     ]),
     _: 1
   }, 16, ["class"]);
 }
-const Sf = /* @__PURE__ */ E(yf, [["render", $f]]), gs = "elementic-paginators", kf = {
-  Paginator: Sf
-}, If = {
+const Cf = /* @__PURE__ */ V(bf, [["render", If]]), ys = "elementic-paginators", Tf = {
+  Paginator: Cf
+}, Mf = {
   CorePaginatorsInstall: Qr
-}, Cf = {
+}, Of = {
   install: (e, t) => {
-    p.isModuleInstalled(e, gs) || (p.installDependencies(e, If, t), p.installComponents(e, kf), p.markModuleAsInstalled(e, gs));
+    p.isModuleInstalled(e, ys) || (p.installDependencies(e, Mf, t), p.installComponents(e, Tf), p.markModuleAsInstalled(e, ys));
   }
-}, vs = {
+}, gs = {
   top: "tiny2x-slide-down-medium",
   right: "tiny2x-slide-to-left-medium",
   bottom: "tiny2x-slide-up-medium",
   left: "tiny2x-slide-to-right-medium"
-}, Tf = O({
+}, Df = O({
   name: "h-popover",
   props: {
     ...Ut(),
@@ -7552,7 +7656,7 @@ const Sf = /* @__PURE__ */ E(yf, [["render", $f]]), gs = "elementic-paginators",
     computedPosition: (e) => !0
   },
   setup(e, t) {
-    const n = k(vs[e.placement]);
+    const n = k(gs[e.placement]);
     return {
       floatingMiddleware: k([
         Ct(4)
@@ -7561,17 +7665,17 @@ const Sf = /* @__PURE__ */ E(yf, [["render", $f]]), gs = "elementic-paginators",
         t.emit("clickOutside", r);
       },
       onComputedPosition: (r) => {
-        const a = r.placement.split("-")[0];
-        n.value = vs[a], t.emit("computedPosition", r);
+        const l = r.placement.split("-")[0];
+        n.value = gs[l], t.emit("computedPosition", r);
       },
       transition: n,
       ...D()
     };
   }
 });
-function Of(e, t, n, s, o, i) {
+function Vf(e, t, n, s, o, i) {
   const r = v("h-floating");
-  return m(), I(r, {
+  return h(), C(r, {
     as: "div",
     class: d([e.css_root]),
     reference: e.reference,
@@ -7583,13 +7687,13 @@ function Of(e, t, n, s, o, i) {
     onClickOutside: e.onClickOutside,
     onComputedPosition: e.onComputedPosition
   }, {
-    arrow: $(() => [
-      g("div", {
+    arrow: w(() => [
+      y("div", {
         class: d([e.css_ec("arrow")])
       }, null, 2)
     ]),
-    default: $(() => [
-      g("div", {
+    default: w(() => [
+      y("div", {
         class: d([e.css_ec("content")])
       }, [
         T(e.$slots, "default")
@@ -7598,15 +7702,15 @@ function Of(e, t, n, s, o, i) {
     _: 3
   }, 8, ["class", "reference", "transition", "visible", "placement", "middleware", "onClickOutside", "onComputedPosition"]);
 }
-const Mf = /* @__PURE__ */ E(Tf, [["render", Of]]), bs = "elementic-popovers", Df = {
-  Popover: Mf
-}, Ef = {
-  FloatingInstall: at
-}, Lf = {
+const Ef = /* @__PURE__ */ V(Df, [["render", Vf]]), vs = "elementic-popovers", Lf = {
+  Popover: Ef
+}, Nf = {
+  FloatingInstall: lt
+}, _f = {
   install: (e, t) => {
-    p.isModuleInstalled(e, bs) || (p.installDependencies(e, Ef, t), p.installComponents(e, Df), p.markModuleAsInstalled(e, bs));
+    p.isModuleInstalled(e, vs) || (p.installDependencies(e, Nf, t), p.installComponents(e, Lf), p.markModuleAsInstalled(e, vs));
   }
-}, Vf = O({
+}, Ff = O({
   name: "h-progress-bar",
   props: {
     ...Xr,
@@ -7642,9 +7746,9 @@ const Mf = /* @__PURE__ */ E(Tf, [["render", Of]]), bs = "elementic-popovers", D
     }
   },
   setup(e, t) {
-    const n = k(), s = V(() => n.value ? e.showPercentage ? `${n.value.percentage}%` : e.value : ""), o = V(() => n.value ? `${Math.min(100, n.value.percentage)}%` : "0%"), i = V(() => {
-      const a = 100 / (e.value - e.minimum) * (e.maximum - e.minimum);
-      return Math.round(a * 10) / 10;
+    const n = k(), s = L(() => n.value ? e.showPercentage ? `${n.value.percentage}%` : e.value : ""), o = L(() => n.value ? `${Math.min(100, n.value.percentage)}%` : "0%"), i = L(() => {
+      const l = 100 / (e.value - e.minimum) * (e.maximum - e.minimum);
+      return Math.round(l * 10) / 10;
     });
     return {
       core: ti().as("div").props(["value", "minimum", "maximum"]).build(),
@@ -7656,34 +7760,34 @@ const Mf = /* @__PURE__ */ E(Tf, [["render", Of]]), bs = "elementic-popovers", D
     };
   }
 });
-function Nf(e, t, n, s, o, i) {
+function Pf(e, t, n, s, o, i) {
   const r = v("hr-progress-bar");
-  return m(), I(r, _({
+  return h(), C(r, F({
     ref: "coreProgressBar",
     class: [e.css_root, `-size-${e.size}`, `-styling-${e.styling}`, { "-striped": e.striped, "-animated": e.animated }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $(() => [
-      g("div", {
+  }, e.core.props, P(e.core.listeners)), {
+    default: w(() => [
+      y("div", {
         class: d([e.css_ec("back")])
       }, [
-        g("div", {
+        y("div", {
           class: d([e.css_ec("filler")]),
-          style: W({ width: e.width })
+          style: z({ width: e.width })
         }, [
-          (e.showPercentage || e.showValue) && e.size === "large" ? (m(), S("span", {
+          (e.showPercentage || e.showValue) && e.size === "large" ? (h(), $("span", {
             key: 0,
             class: d([e.css_ec("label")])
           }, N(e.label), 3)) : M("", !0)
         ], 6),
-        e.showOverflowIndicator ? K((m(), S("div", {
+        e.showOverflowIndicator ? G((h(), $("div", {
           key: 0,
           class: d([e.css_ec("overflow-indicator")]),
-          style: W({ left: `${e.overflowOffset}%` })
+          style: z({ left: `${e.overflowOffset}%` })
         }, null, 6)), [
-          [J, e.overflowOffset < 100]
+          [K, e.overflowOffset < 100]
         ]) : M("", !0)
       ], 2),
-      (e.showPercentage || e.showValue) && e.size === "normal" ? (m(), S("span", {
+      (e.showPercentage || e.showValue) && e.size === "normal" ? (h(), $("span", {
         key: 0,
         class: d([e.css_ec("label")])
       }, N(e.label), 3)) : M("", !0)
@@ -7691,15 +7795,15 @@ function Nf(e, t, n, s, o, i) {
     _: 1
   }, 16, ["class"]);
 }
-const _f = /* @__PURE__ */ E(Vf, [["render", Nf]]), ws = "elementic-progress-bars", Pf = {
-  ProgressBar: _f
-}, Ff = {
+const Af = /* @__PURE__ */ V(Ff, [["render", Pf]]), bs = "elementic-progress-bars", Hf = {
+  ProgressBar: Af
+}, zf = {
   CoreProgressBarsInstall: ni
-}, Af = {
+}, Rf = {
   install: (e, t) => {
-    p.isModuleInstalled(e, ws) || (p.installDependencies(e, Ff, t), p.installComponents(e, Pf), p.markModuleAsInstalled(e, ws));
+    p.isModuleInstalled(e, bs) || (p.installDependencies(e, zf, t), p.installComponents(e, Hf), p.markModuleAsInstalled(e, bs));
   }
-}, Hf = O({
+}, Bf = O({
   name: "h-radio-button",
   props: {
     ...si,
@@ -7725,53 +7829,53 @@ const _f = /* @__PURE__ */ E(Vf, [["render", Nf]]), ws = "elementic-progress-bar
       ...D()
     };
   }
-}), zf = ["checked", "disabled", "onChange"];
-function Rf(e, t, n, s, o, i) {
+}), Zf = ["checked", "disabled", "onChange"];
+function Wf(e, t, n, s, o, i) {
   const r = v("hr-radio-button");
-  return m(), I(r, _({
+  return h(), C(r, F({
     class: [e.css_root, { "-focus": e.hasFocus, "-bordered": e.bordered }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((a) => [
-      g("span", {
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((l) => [
+      y("span", {
         class: d([e.css_ec("container")])
       }, [
-        g("input", {
+        y("input", {
           class: d([e.css_ec("input")]),
-          checked: a.state,
+          checked: l.state,
           type: "radio",
-          disabled: a.disabled,
-          onChange: a.onChange,
-          onFocus: t[0] || (t[0] = (l) => e.hasFocus = !0),
-          onBlur: t[1] || (t[1] = (l) => e.hasFocus = !1)
-        }, null, 42, zf),
-        g("div", {
+          disabled: l.disabled,
+          onChange: l.onChange,
+          onFocus: t[0] || (t[0] = (a) => e.hasFocus = !0),
+          onBlur: t[1] || (t[1] = (a) => e.hasFocus = !1)
+        }, null, 42, Zf),
+        y("div", {
           class: d([e.css_ec("check-icon")])
         }, null, 2)
       ], 2),
-      e.$slots.default || e.label ? (m(), S("span", {
+      e.$slots.default || e.label ? (h(), $("span", {
         key: 0,
         class: d([e.css_ec("label")])
       }, [
         T(e.$slots, "default", {}, () => [
-          se(N(e.label), 1)
+          ee(N(e.label), 1)
         ])
       ], 2)) : M("", !0)
     ]),
     _: 3
   }, 16, ["class"]);
 }
-const Bf = /* @__PURE__ */ E(Hf, [["render", Rf]]), $s = "elementic-radio-buttons", Zf = {
-  RadioButton: Bf
-}, Wf = {
-  CoreRadioButtonsInstall: ai
-}, qf = {
+const qf = /* @__PURE__ */ V(Bf, [["render", Wf]]), ws = "elementic-radio-buttons", jf = {
+  RadioButton: qf
+}, Uf = {
+  CoreRadioButtonsInstall: li
+}, Yf = {
   install: (e, t) => {
-    p.isModuleInstalled(e, $s) || (p.installDependencies(e, Wf, t), p.installComponents(e, Zf), p.markModuleAsInstalled(e, $s));
+    p.isModuleInstalled(e, ws) || (p.installDependencies(e, Uf, t), p.installComponents(e, jf), p.markModuleAsInstalled(e, ws));
   }
-}, jf = O({
+}, Gf = O({
   name: "h-scroll-container",
   props: {
-    ...li,
+    ...ai,
     ...ci,
     ...ui,
     ...di,
@@ -7785,77 +7889,77 @@ const Bf = /* @__PURE__ */ E(Hf, [["render", Rf]]), $s = "elementic-radio-button
   },
   setup(e, t) {
     const n = k(), s = k(), o = k(), i = k(), r = k();
-    ee([s, o], () => {
+    ne([s, o], () => {
       n.value.registerBar("vertical", s.value, o.value);
-    }), ee([i, r], () => {
+    }), ne([i, r], () => {
       n.value.registerBar("horizontal", i.value, r.value);
     });
-    const a = (u, h) => {
-      n.value.scrollTo(u, h);
-    }, l = (u) => ({
+    const l = (u, f) => {
+      n.value.scrollTo(u, f);
+    }, a = (u) => ({
       class: { "-hover": u.anyHover, "-dragging": u.anyDragging, "-is-hidden": u.hidden }
     });
     return {
-      core: pi().as("div", l).props(["horizontal", "vertical", "autoHide", "autoHideDelay", "minimumSize", "containerClasses", "wrapperClasses"]).build(),
+      core: pi().as("div", a).props(["horizontal", "vertical", "autoHide", "autoHideDelay", "minimumSize", "containerClasses", "wrapperClasses"]).build(),
       scrollContainer: n,
       verticalTrack: s,
       verticalThumb: o,
       horizontalTrack: i,
       horizontalThumb: r,
       ...D(),
-      scrollTo: a
+      scrollTo: l
     };
   }
 });
-function Uf(e, t, n, s, o, i) {
+function Kf(e, t, n, s, o, i) {
   const r = v("hr-scroll-container");
-  return m(), I(r, _({
+  return h(), C(r, F({
     ref: "scrollContainer",
     class: [e.css_root, `-color-${e.color}`]
-  }, e.core.props, A(e.core.listeners)), {
-    verticalBar: $((a) => [
-      K(g("div", {
+  }, e.core.props, P(e.core.listeners)), {
+    verticalBar: w((l) => [
+      G(y("div", {
         ref: "verticalTrack",
-        class: d([e.css_ec("track"), "-vertical", { "-hover": a.trackHover, "-dragging": a.dragging }])
+        class: d([e.css_ec("track"), "-vertical", { "-hover": l.trackHover, "-dragging": l.dragging }])
       }, [
-        g("div", {
+        y("div", {
           ref: "verticalThumb",
-          class: d([e.css_ec("thumb"), { "-hover": a.thumbHover, "-dragging": a.dragging }]),
-          style: W({ height: `${a.size}px`, transform: `translate(0, ${a.offset}px)` })
+          class: d([e.css_ec("thumb"), { "-hover": l.thumbHover, "-dragging": l.dragging }]),
+          style: z({ height: `${l.size}px`, transform: `translate(0, ${l.offset}px)` })
         }, null, 6)
       ], 2), [
-        [J, a.visible]
+        [K, l.visible]
       ])
     ]),
-    horizontal: $((a) => [
-      K(g("div", {
+    horizontal: w((l) => [
+      G(y("div", {
         ref: "horizontalTrack",
-        class: d([e.css_ec("track"), "-horizontal", { "-hover": a.trackHover, "-dragging": a.dragging }])
+        class: d([e.css_ec("track"), "-horizontal", { "-hover": l.trackHover, "-dragging": l.dragging }])
       }, [
-        g("div", {
+        y("div", {
           ref: "horizontalThumb",
-          class: d([e.css_ec("thumb"), { "-hover": a.thumbHover, "-dragging": a.dragging }]),
-          style: W({ height: `${a.size}px`, transform: `translate(0, ${a.offset}px)` })
+          class: d([e.css_ec("thumb"), { "-hover": l.thumbHover, "-dragging": l.dragging }]),
+          style: z({ height: `${l.size}px`, transform: `translate(0, ${l.offset}px)` })
         }, null, 6)
       ], 2), [
-        [J, a.visible]
+        [K, l.visible]
       ])
     ]),
-    default: $(() => [
+    default: w(() => [
       T(e.$slots, "default")
     ]),
     _: 3
   }, 16, ["class"]);
 }
-const Yf = /* @__PURE__ */ E(jf, [["render", Uf]]), Ss = "elementic-scroll-containers", Gf = {
-  ScrollContainer: Yf
-}, Kf = {
+const Jf = /* @__PURE__ */ V(Gf, [["render", Kf]]), $s = "elementic-scroll-containers", Qf = {
+  ScrollContainer: Jf
+}, Xf = {
   CoreScrollContainersInstall: yi
 }, Ao = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Ss) || (p.installDependencies(e, Kf, t), p.installComponents(e, Gf), p.markModuleAsInstalled(e, Ss));
+    p.isModuleInstalled(e, $s) || (p.installDependencies(e, Xf, t), p.installComponents(e, Qf), p.markModuleAsInstalled(e, $s));
   }
-}, Jf = O({
+}, xf = O({
   name: "h-select",
   props: {
     ...gi,
@@ -7871,8 +7975,8 @@ const Yf = /* @__PURE__ */ E(jf, [["render", Uf]]), Ss = "elementic-scroll-conta
   },
   emits: ["update:modelValue", "focusedItemChanged"],
   setup(e, t) {
-    const n = k(), s = k(), o = k(""), i = V(() => [
-      kn({
+    const n = k(), s = k(), o = k(""), i = L(() => [
+      Tt({
         padding: 8,
         apply(u) {
           Object.assign(u.elements.floating.style, {
@@ -7882,35 +7986,35 @@ const Yf = /* @__PURE__ */ E(jf, [["render", Uf]]), Ss = "elementic-scroll-conta
       })
     ]), r = (u) => {
       u.outsideFloating && u.outsideReference && n.value.close();
-    }, a = (u) => {
+    }, l = (u) => {
       u && u.component && u.component.vnode && u.component.vnode.el && u.component.vnode.el.scrollIntoView({
         behavior: "smooth",
         block: "nearest"
       });
-    }, l = (u) => ({
+    }, a = (u) => ({
       class: { "-active": u.menuVisible, "-disabled": u.disabled }
-    }), c = ki().as("div", l).props(["modelValue", "disabled", "hideOnSelect", "allowClear", "multiple", "compare"]).events(["update:modelValue", "focusedItemChanged"]).build();
+    }), c = ki().as("div", a).props(["modelValue", "disabled", "hideOnSelect", "allowClear", "multiple", "compare"]).events(["update:modelValue", "focusedItemChanged"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       core: c,
       select: n,
       button: s,
       menuMaxHeight: o,
       floatingMiddleware: i,
       onClickOutside: r,
-      onFocusedItemChanged: a,
+      onFocusedItemChanged: l,
       ...D()
     };
   }
-}), Qf = ["disabled", "title", "onClick", "onKeydown"], Xf = ["onClick"], xf = ["onKeydown"];
-function em(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("h-scroll-container"), l = v("h-floating"), c = v("hr-select");
-  return m(), I(c, _({
+}), em = ["disabled", "title", "onClick", "onKeydown"], tm = ["onClick"], nm = ["onKeydown"];
+function sm(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-scroll-container"), a = v("h-floating"), c = v("hr-select");
+  return h(), C(c, F({
     ref: "select",
     class: [e.css_root]
-  }, e.core.props, A(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
-    default: $((u) => [
-      g("button", {
+  }, e.core.props, P(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
+    default: w((u) => [
+      y("button", {
         ref: "button",
         type: "button",
         class: d([e.css_ec("button")]),
@@ -7919,25 +8023,25 @@ function em(e, t, n, s, o, i) {
         onClick: u.onButtonClick,
         onKeydown: u.onKeyEvents
       }, [
-        g("span", {
+        y("span", {
           class: d([e.css_ec("label"), { "-placeholder": !u.anythingSelected }])
         }, [
           u.anythingSelected ? T(e.$slots, "selection", {
             key: 0,
             items: u.selectedItems
           }, () => [
-            se(N(u.selectedText), 1)
+            ee(N(u.selectedText), 1)
           ]) : T(e.$slots, "placeholder", { key: 1 }, () => [
-            se(N(e.placeholder), 1)
+            ee(N(e.placeholder), 1)
           ])
         ], 2),
-        C(pe, { name: "fade-fast" }, {
-          default: $(() => [
-            u.allowClear && u.menuVisible ? M("", !0) : (m(), S("div", {
+        I(pe, { name: "fade-fast" }, {
+          default: w(() => [
+            u.allowClear && u.menuVisible ? M("", !0) : (h(), $("div", {
               key: 0,
               class: d([e.css_ec("icon")])
             }, [
-              C(r, {
+              I(r, {
                 icon: e.Icons.chevronDown,
                 size: "16px"
               }, null, 8, ["icon"])
@@ -7945,24 +8049,24 @@ function em(e, t, n, s, o, i) {
           ]),
           _: 2
         }, 1024),
-        C(pe, { name: "fade-fast" }, {
-          default: $(() => [
-            u.allowClear && u.menuVisible ? (m(), S("div", {
+        I(pe, { name: "fade-fast" }, {
+          default: w(() => [
+            u.allowClear && u.menuVisible ? (h(), $("div", {
               key: 0,
               class: d([e.css_ec("clear-icon")]),
               title: "Clear",
               onClick: u.clearValue
             }, [
-              C(r, {
+              I(r, {
                 icon: e.Icons.close,
                 size: "16px"
               }, null, 8, ["icon"])
-            ], 10, Xf)) : M("", !0)
+            ], 10, tm)) : M("", !0)
           ]),
           _: 2
         }, 1024)
-      ], 42, Qf),
-      C(l, {
+      ], 42, em),
+      I(a, {
         as: "div",
         class: d([e.css_ec("menu-container")]),
         reference: e.button,
@@ -7972,22 +8076,22 @@ function em(e, t, n, s, o, i) {
         placement: "bottom",
         middleware: e.floatingMiddleware,
         onClickOutside: e.onClickOutside,
-        onHide: (h) => u.clearFocusedItem(),
+        onHide: (f) => u.clearFocusedItem(),
         onTransitionStateChanged: u.onMenuTransitioning
       }, {
-        default: $(() => [
-          g("div", {
+        default: w(() => [
+          y("div", {
             class: d([e.css_ec("menu")]),
             onKeydown: u.onKeyEvents,
-            style: W({ maxHeight: e.menuMaxHeight })
+            style: z({ maxHeight: e.menuMaxHeight })
           }, [
-            C(a, null, {
-              default: $(() => [
+            I(l, null, {
+              default: w(() => [
                 T(e.$slots, "default")
               ]),
               _: 3
             })
-          ], 46, xf)
+          ], 46, nm)
         ]),
         _: 2
       }, 1032, ["class", "reference", "visible", "middleware", "onClickOutside", "onHide", "onTransitionStateChanged"])
@@ -7995,7 +8099,7 @@ function em(e, t, n, s, o, i) {
     _: 3
   }, 16, ["class", "onFocusedItemChanged"]);
 }
-const tm = /* @__PURE__ */ E(Jf, [["render", em]]), nm = O({
+const om = /* @__PURE__ */ V(xf, [["render", sm]]), rm = O({
   name: "h-select-item",
   props: {
     ...Ii,
@@ -8010,68 +8114,61 @@ const tm = /* @__PURE__ */ E(Jf, [["render", em]]), nm = O({
     const n = (o) => ({
       class: { "-selected": o.selected, "-focused": o.focused, "-disabled": o.disabled },
       onClick: o.onClick
-    }), s = Oi().as("div", n).props(["value", "label", "disabled"]).build();
+    }), s = Mi().as("div", n).props(["value", "label", "disabled"]).build();
     return {
-      Icons: x,
+      Icons: Q,
       core: s,
       ...D()
     };
   }
 });
-function sm(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("hr-select-item");
-  return m(), I(a, _({
+function im(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("hr-select-item");
+  return h(), C(l, F({
     tabindex: "-1",
     class: [e.css_root]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
       T(e.$slots, "default", {}, () => [
-        e.icon ? (m(), I(r, {
+        e.icon ? (h(), C(r, {
           key: 0,
           class: d([e.css_ec("icon")]),
           icon: e.icon,
           size: "16"
         }, null, 8, ["class", "icon"])) : M("", !0),
-        g("span", {
+        y("span", {
           class: d([e.css_ec("label")])
         }, N(e.label), 3)
       ]),
-      g("div", {
-        class: d([e.css_ec("checkmark")])
+      y("div", {
+        class: d([e.css_ec("checkmark"), { "-selected": a.selected }])
       }, [
-        C(pe, { name: "fade-fast" }, {
-          default: $(() => [
-            K(C(r, {
-              icon: e.Icons.check,
-              size: "16px"
-            }, null, 8, ["icon"]), [
-              [J, l.selected]
-            ])
-          ]),
-          _: 2
-        }, 1024)
+        I(r, {
+          icon: e.Icons.check,
+          size: "16px"
+        }, null, 8, ["icon"])
       ], 2)
     ]),
     _: 3
   }, 16, ["class"]);
 }
-const om = /* @__PURE__ */ E(nm, [["render", sm]]), rm = O({
+const lm = /* @__PURE__ */ V(rm, [["render", im]]), am = O({
   name: "h-select-item-divider",
   setup(e, t) {
-    const n = ie("select"), s = V(() => n.itemsVisible.value);
+    const n = ce("select"), s = L(() => n.itemsVisible.value);
     return {
       ...D(),
       visible: s
     };
   }
 });
-function im(e, t, n, s, o, i) {
-  return e.visible ? (m(), S("div", {
+function cm(e, t, n, s, o, i) {
+  return e.visible ? (h(), $("div", {
     key: 0,
     class: d([e.css_root])
   }, null, 2)) : M("", !0);
 }
-const am = /* @__PURE__ */ E(rm, [["render", im]]), lm = O({
+const um = /* @__PURE__ */ V(am, [["render", cm]]), dm = O({
   name: "h-select-item-header",
   props: {
     label: {
@@ -8084,53 +8181,218 @@ const am = /* @__PURE__ */ E(rm, [["render", im]]), lm = O({
     }
   },
   setup(e, t) {
-    const n = ie("select"), s = V(() => n.itemsVisible.value);
+    const n = ce("select"), s = L(() => n.itemsVisible.value);
     return {
       ...D(),
       visible: s
     };
   }
 });
-function cm(e, t, n, s, o, i) {
+function fm(e, t, n, s, o, i) {
   const r = v("h-icon");
-  return e.visible ? (m(), S("div", {
+  return e.visible ? (h(), $("div", {
     key: 0,
     class: d([e.css_root])
   }, [
     T(e.$slots, "default", {}, () => [
-      e.icon ? (m(), I(r, {
+      e.icon ? (h(), C(r, {
         key: 0,
         class: d([e.css_ec("icon")]),
         icon: e.icon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      g("span", {
+      y("span", {
         class: d([e.css_ec("text")])
       }, N(e.label), 3)
     ])
   ], 2)) : M("", !0);
 }
-const um = /* @__PURE__ */ E(lm, [["render", cm]]), ks = "elementic-selects", dm = {
-  Select: tm,
-  SelectItem: om,
-  SelectItemDivider: am,
-  SelectItemHeader: um
-}, fm = {
-  CoreSelectsInstall: Mi,
-  FloatingInstall: at,
-  ScrollContainersInstall: Ao
-}, mm = {
-  install: (e, t) => {
-    p.isModuleInstalled(e, ks) || (p.installDependencies(e, fm, t), p.installComponents(e, dm), p.markModuleAsInstalled(e, ks));
-  }
-}, hm = O({
-  name: "h-slider",
+const mm = /* @__PURE__ */ V(dm, [["render", fm]]), hm = O({
+  name: "h-simple-select",
   props: {
+    ...Oi,
     ...Di,
+    ...Vi,
     ...Ei,
     ...Li,
-    ...Vi,
     ...Ni,
+    ..._i,
+    placeholder: {
+      type: String,
+      default: ""
+    }
+  },
+  emits: ["update:modelValue", "focusedItemChanged"],
+  setup(e, t) {
+    const n = k(), s = k(), o = k(""), i = L(() => [
+      Tt({
+        padding: 8,
+        apply(u) {
+          Object.assign(u.elements.floating.style, {
+            width: `${u.rects.reference.width}px`
+          }), o.value = `${u.availableHeight}px`;
+        }
+      })
+    ]), r = (u) => {
+      u.outsideFloating && u.outsideReference && n.value.close();
+    }, l = (u) => {
+      u && u.component && u.component.vnode && u.component.vnode.el && u.component.vnode.el.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }, a = (u) => ({
+      class: { "-active": u.menuVisible, "-disabled": u.disabled }
+    }), c = Fi().as("div", a).props(["modelValue", "items", "disabled", "hideOnSelect", "allowClear", "multiple", "compare"]).events(["update:modelValue", "focusedItemChanged"]).build();
+    return {
+      Icons: Q,
+      core: c,
+      select: n,
+      button: s,
+      menuMaxHeight: o,
+      floatingMiddleware: i,
+      onClickOutside: r,
+      onFocusedItemChanged: l,
+      ...D()
+    };
+  }
+}), pm = ["disabled", "title", "onClick", "onKeydown"], ym = ["onClick"], gm = ["onKeydown"], vm = ["onClick"];
+function bm(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-scroll-container"), a = v("h-floating"), c = v("hr-simple-select");
+  return h(), C(c, F({
+    ref: "select",
+    class: [e.css_root]
+  }, e.core.props, P(e.core.listeners), { onFocusedItemChanged: e.onFocusedItemChanged }), {
+    default: w((u) => [
+      y("button", {
+        ref: "button",
+        type: "button",
+        class: d([e.css_ec("button")]),
+        disabled: u.disabled,
+        title: u.modelValue && u.modelValue.length !== 0 ? u.selectedText : null,
+        onClick: u.onButtonClick,
+        onKeydown: u.onKeyEvents
+      }, [
+        y("span", {
+          class: d([e.css_ec("label"), { "-placeholder": !u.anythingSelected }])
+        }, [
+          u.anythingSelected ? T(e.$slots, "selection", {
+            key: 0,
+            items: u.selectedItems
+          }, () => [
+            ee(N(u.selectedText), 1)
+          ]) : T(e.$slots, "placeholder", { key: 1 }, () => [
+            ee(N(e.placeholder), 1)
+          ])
+        ], 2),
+        I(pe, { name: "fade-fast" }, {
+          default: w(() => [
+            u.allowClear && u.menuVisible ? M("", !0) : (h(), $("div", {
+              key: 0,
+              class: d([e.css_ec("icon")])
+            }, [
+              I(r, {
+                icon: e.Icons.chevronDown,
+                size: "16px"
+              }, null, 8, ["icon"])
+            ], 2))
+          ]),
+          _: 2
+        }, 1024),
+        I(pe, { name: "fade-fast" }, {
+          default: w(() => [
+            u.allowClear && u.menuVisible ? (h(), $("div", {
+              key: 0,
+              class: d([e.css_ec("clear-icon")]),
+              title: "Clear",
+              onClick: u.clearValue
+            }, [
+              I(r, {
+                icon: e.Icons.close,
+                size: "16px"
+              }, null, 8, ["icon"])
+            ], 10, ym)) : M("", !0)
+          ]),
+          _: 2
+        }, 1024)
+      ], 42, pm),
+      I(a, {
+        as: "div",
+        class: d([e.css_ec("menu-container")]),
+        reference: e.button,
+        transition: "fade-fast",
+        keep: "",
+        visible: u.menuVisible,
+        placement: "bottom",
+        middleware: e.floatingMiddleware,
+        onClickOutside: e.onClickOutside,
+        onHide: (f) => u.clearFocusedItem(),
+        onTransitionStateChanged: u.onMenuTransitioning
+      }, {
+        default: w(() => [
+          y("div", {
+            class: d([e.css_ec("menu")]),
+            onKeydown: u.onKeyEvents,
+            style: z({ maxHeight: e.menuMaxHeight })
+          }, [
+            I(l, null, {
+              default: w(() => [
+                (h(!0), $(le, null, me(u.items, (f) => (h(), $("div", {
+                  class: d([e.css_ec("item")]),
+                  onClick: (m) => u.onItemClick(f)
+                }, [
+                  T(e.$slots, "default", { item: f }, () => [
+                    f.icon ? (h(), C(r, {
+                      key: 0,
+                      class: d([e.css_ec("item-icon")]),
+                      icon: f.icon,
+                      size: "16"
+                    }, null, 8, ["class", "icon"])) : M("", !0),
+                    y("span", {
+                      class: d([e.css_ec("item-label")])
+                    }, N(f.label), 3)
+                  ]),
+                  y("div", {
+                    class: d([e.css_ec("item-checkmark"), { "-selected": f.selected }])
+                  }, [
+                    I(r, {
+                      icon: e.Icons.check,
+                      size: "16px"
+                    }, null, 8, ["icon"])
+                  ], 2)
+                ], 10, vm))), 256))
+              ]),
+              _: 2
+            }, 1024)
+          ], 46, gm)
+        ]),
+        _: 2
+      }, 1032, ["class", "reference", "visible", "middleware", "onClickOutside", "onHide", "onTransitionStateChanged"])
+    ]),
+    _: 3
+  }, 16, ["class", "onFocusedItemChanged"]);
+}
+const wm = /* @__PURE__ */ V(hm, [["render", bm]]), Ss = "elementic-selects", $m = {
+  SimpleSelect: wm,
+  Select: om,
+  SelectItem: lm,
+  SelectItemDivider: um,
+  SelectItemHeader: mm
+}, Sm = {
+  CoreSelectsInstall: Pi,
+  FloatingInstall: lt,
+  ScrollContainersInstall: Ao
+}, km = {
+  install: (e, t) => {
+    p.isModuleInstalled(e, Ss) || (p.installDependencies(e, Sm, t), p.installComponents(e, $m), p.markModuleAsInstalled(e, Ss));
+  }
+}, Im = O({
+  name: "h-slider",
+  props: {
+    ...Ai,
+    ...Hi,
+    ...zi,
+    ...Ri,
+    ...Bi,
     showSteps: {
       type: Boolean,
       default: !1
@@ -8145,90 +8407,90 @@ const um = /* @__PURE__ */ E(lm, [["render", cm]]), ks = "elementic-selects", dm
     }
   },
   setup(e, t) {
-    const n = k(), s = k(!1), o = V(() => n.value && e.showSteps ? n.value.steps : 1), i = V(() => {
+    const n = k(), s = k(!1), o = L(() => n.value && e.showSteps ? n.value.steps : 1), i = L(() => {
       if (n.value) {
-        let h = n.value.percentage;
-        return `${Math.max(0, Math.min(100, h))}%`;
+        let f = n.value.percentage;
+        return `${Math.max(0, Math.min(100, f))}%`;
       } else
         return "0%";
-    }), r = (h) => {
-      e.disabled || (s.value = !0, h.preventDefault());
-    }, a = (h) => {
+    }), r = (f) => {
+      e.disabled || (s.value = !0, f.preventDefault());
+    }, l = (f) => {
       if (s.value) {
-        const f = n.value.$el.getBoundingClientRect();
-        let y = e.vertical ? 100 / f.height * (h.pageY - f.top) : 100 / f.width * (h.pageX - f.left);
-        e.invert && (y = 100 - y);
-        const w = n.value.getValueFromPercentage(y);
-        t.emit("update:modelValue", w), h.preventDefault();
+        const m = n.value.$el.getBoundingClientRect();
+        let g = e.vertical ? 100 / m.height * (f.pageY - m.top) : 100 / m.width * (f.pageX - m.left);
+        e.invert && (g = 100 - g);
+        const S = n.value.getValueFromPercentage(g);
+        t.emit("update:modelValue", S), f.preventDefault();
       }
-    }, l = (h) => {
+    }, a = (f) => {
       s.value = !1;
-    }, c = (h) => {
+    }, c = (f) => {
       if (!e.disabled) {
-        let f = e.vertical ? 100 / n.value.$el.clientHeight * h.offsetY : 100 / n.value.$el.clientWidth * h.offsetX;
-        e.invert && (f = 100 - f);
-        const y = n.value.getValueFromPercentage(f);
-        t.emit("update:modelValue", y), h.preventDefault();
+        let m = e.vertical ? 100 / n.value.$el.clientHeight * f.offsetY : 100 / n.value.$el.clientWidth * f.offsetX;
+        e.invert && (m = 100 - m);
+        const g = n.value.getValueFromPercentage(m);
+        t.emit("update:modelValue", g), f.preventDefault();
       }
     };
     return {
-      core: _i().as("div").props(["modelValue", "disabled", "minimum", "maximum", "stepSize"]).build(),
+      core: Zi().as("div").props(["modelValue", "disabled", "minimum", "maximum", "stepSize"]).build(),
       coreSlider: n,
       size: i,
       steps: o,
       handleMouseDown: r,
-      handleMouseMove: a,
-      handleMouseUp: l,
+      handleMouseMove: l,
+      handleMouseUp: a,
       handleClick: c,
       dragging: s,
       ...D()
     };
   }
 });
-function pm(e, t, n, s, o, i) {
-  const r = v("hr-slider"), a = Wo("document-event");
-  return K((m(), I(r, _({
+function Cm(e, t, n, s, o, i) {
+  const r = v("hr-slider"), l = Wo("document-event");
+  return G((h(), C(r, F({
     ref: "coreSlider",
     class: [e.css_root, e.vertical ? "-vertical" : "-horizontal", { "-invert": e.invert, "-dragging": e.dragging, "-disabled": e.disabled }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $(() => [
-      g("div", {
+  }, e.core.props, P(e.core.listeners)), {
+    default: w(() => [
+      y("div", {
         class: d([e.css_ec("bar")]),
-        onClick: t[0] || (t[0] = (...l) => e.handleClick && e.handleClick(...l))
+        onClick: t[0] || (t[0] = (...a) => e.handleClick && e.handleClick(...a))
       }, [
-        g("div", {
+        y("div", {
           class: d([e.css_ec("back")])
         }, [
-          (m(!0), S(oe, null, he(e.steps, (l) => (m(), S("div", {
+          (h(!0), $(le, null, me(e.steps, (a) => (h(), $("div", {
             class: d([e.css_ec("step")])
           }, null, 2))), 256))
         ], 2),
-        g("div", {
+        y("div", {
           class: d([e.css_ec("filler")]),
-          style: W({ "--size": e.size })
+          style: z({ "--size": e.size })
         }, null, 6)
       ], 2),
-      g("div", {
+      y("div", {
         class: d([e.css_ec("handle")]),
-        style: W({ "--offset": e.size }),
-        onMousedown: t[1] || (t[1] = (...l) => e.handleMouseDown && e.handleMouseDown(...l))
+        style: z({ "--offset": e.size }),
+        onMousedown: t[1] || (t[1] = (...a) => e.handleMouseDown && e.handleMouseDown(...a))
       }, null, 38)
     ]),
     _: 1
   }, 16, ["class"])), [
-    [a, e.handleMouseUp, "mouseup"],
-    [a, e.handleMouseMove, "mousemove"]
+    [l, e.handleMouseUp, "mouseup"],
+    [l, e.handleMouseMove, "mousemove"]
   ]);
 }
-const ym = /* @__PURE__ */ E(hm, [["render", pm]]), Is = "elementic-sliders", gm = {
-  Slider: ym
-}, vm = {
-  CoreSlidersInstall: Pi
-}, bm = {
+const Tm = /* @__PURE__ */ V(Im, [["render", Cm]]), ks = "elementic-sliders", Mm = {
+  Slider: Tm
+}, Om = {
+  CoreSlidersInstall: Wi
+}, Dm = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Is) || (p.installDependencies(e, vm, t), p.installComponents(e, gm), p.markModuleAsInstalled(e, Is));
+    p.isModuleInstalled(e, ks) || (p.installDependencies(e, Om, t), p.installComponents(e, Mm), p.markModuleAsInstalled(e, ks));
   }
-}, wm = O({
+}, Vm = O({
   name: "h-spinner",
   props: {
     size: {
@@ -8250,13 +8512,13 @@ const ym = /* @__PURE__ */ E(hm, [["render", pm]]), Is = "elementic-sliders", gm
     };
   }
 });
-function $m(e, t, n, s, o, i) {
-  return m(), S("div", {
+function Em(e, t, n, s, o, i) {
+  return h(), $("div", {
     class: d([e.css_root, `-color-${e.color}`]),
-    style: W({ width: e.size, height: e.size, "--border-thickness": e.thickness })
+    style: z({ width: e.size, height: e.size, "--border-thickness": e.thickness })
   }, null, 6);
 }
-const Ho = /* @__PURE__ */ E(wm, [["render", $m]]), Sm = O({
+const Ho = /* @__PURE__ */ V(Vm, [["render", Em]]), Lm = O({
   name: "h-spinner-overlay",
   components: { HSpinner: Ho },
   props: {
@@ -8278,35 +8540,35 @@ const Ho = /* @__PURE__ */ E(wm, [["render", $m]]), Sm = O({
     };
   }
 });
-function km(e, t, n, s, o, i) {
+function Nm(e, t, n, s, o, i) {
   const r = v("h-spinner");
-  return m(), S("div", {
+  return h(), $("div", {
     class: d([e.css_root, { "-loading": e.loading, "-has-label": e.label }, `-color-${e.color}`])
   }, [
-    g("div", {
+    y("div", {
       class: d([e.css_ec("content")])
     }, [
       T(e.$slots, "default")
     ], 2),
-    g("div", {
+    y("div", {
       class: d([e.css_ec("overlay")])
     }, [
-      C(r),
-      e.label ? (m(), S("div", {
+      I(r),
+      e.label ? (h(), $("div", {
         key: 0,
         class: d([e.css_ec("label")])
       }, N(e.label), 3)) : M("", !0)
     ], 2)
   ], 2);
 }
-const Im = /* @__PURE__ */ E(Sm, [["render", km]]), Cs = "elementic-spinners", Cm = {
+const _m = /* @__PURE__ */ V(Lm, [["render", Nm]]), Is = "elementic-spinners", Fm = {
   Spinner: Ho,
-  SpinnerOverlay: Im
-}, Tm = {}, Om = {
+  SpinnerOverlay: _m
+}, Pm = {}, Am = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Cs) || (p.installDependencies(e, Tm, t), p.installComponents(e, Cm), p.markModuleAsInstalled(e, Cs));
+    p.isModuleInstalled(e, Is) || (p.installDependencies(e, Pm, t), p.installComponents(e, Fm), p.markModuleAsInstalled(e, Is));
   }
-}, Mm = O({
+}, Hm = O({
   name: "h-step-item",
   props: {
     step: {
@@ -8321,44 +8583,44 @@ const Im = /* @__PURE__ */ E(Sm, [["render", km]]), Cs = "elementic-spinners", C
     };
     return {
       ...D(),
-      Icons: x,
+      Icons: Q,
       onClick: n
     };
   }
 });
-function Dm(e, t, n, s, o, i) {
+function zm(e, t, n, s, o, i) {
   const r = v("h-icon");
-  return m(), S("div", {
+  return h(), $("div", {
     class: d([e.css_root, { "-current": e.step.isCurrent, "-done": e.step.isDone, "-last": e.step.isLast, "-locked": e.step.isLocked }]),
-    onClick: t[0] || (t[0] = (...a) => e.onClick && e.onClick(...a))
+    onClick: t[0] || (t[0] = (...l) => e.onClick && e.onClick(...l))
   }, [
-    g("div", {
+    y("div", {
       class: d([e.css_ec("container")])
     }, [
-      e.step.data.icon ? (m(), I(r, {
+      e.step.data.icon ? (h(), C(r, {
         key: 0,
         class: d([e.css_ec("icon")]),
         icon: e.step.data.icon,
         size: "16px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      e.step.data.icon ? (m(), I(r, {
+      e.step.data.icon ? (h(), C(r, {
         key: 1,
         class: d([e.css_ec("done-icon")]),
         icon: e.Icons.check,
         size: "20px"
       }, null, 8, ["class", "icon"])) : M("", !0),
-      e.step.data.label ? (m(), S("div", {
+      e.step.data.label ? (h(), $("div", {
         key: 2,
         class: d([e.css_ec("label")])
       }, N(e.step.data.label), 3)) : M("", !0)
     ], 2)
   ], 2);
 }
-const Em = /* @__PURE__ */ E(Mm, [["render", Dm]]), Lm = O({
+const Rm = /* @__PURE__ */ V(Hm, [["render", zm]]), Bm = O({
   name: "h-steps-navigator",
   props: {
-    ...Fi,
-    ...Ai,
+    ...qi,
+    ...ji,
     vertical: {
       type: Boolean,
       default: !1
@@ -8366,88 +8628,88 @@ const Em = /* @__PURE__ */ E(Mm, [["render", Dm]]), Lm = O({
   },
   emits: ["update:modelValue"],
   setup(e, t) {
-    const n = k(), s = k([]), o = V(() => e.steps.filter((f) => f.data.label).length > 0), i = k(0), r = k(0), a = V(() => e.vertical ? {
+    const n = k(), s = k([]), o = L(() => e.steps.filter((m) => m.data.label).length > 0), i = k(0), r = k(0), l = L(() => e.vertical ? {
       top: `${r.value}px`,
       height: `${i.value}px`
     } : {
       left: `${r.value}px`,
       width: `${i.value}px`
-    }), l = () => {
+    }), a = () => {
       if (s.value.length) {
-        const f = s.value[0].$el;
-        r.value = e.vertical ? f.offsetTop + f.offsetHeight : f.offsetLeft + f.offsetWidth;
-        const y = s.value.find((w) => w.step.id === e.modelValue);
-        y && (i.value = Math.max(0, (e.vertical ? y.$el.offsetTop : y.$el.offsetLeft) - r.value));
+        const m = s.value[0].$el;
+        r.value = e.vertical ? m.offsetTop + m.offsetHeight : m.offsetLeft + m.offsetWidth;
+        const g = s.value.find((S) => S.step.id === e.modelValue);
+        g && (i.value = Math.max(0, (e.vertical ? g.$el.offsetTop : g.$el.offsetLeft) - r.value));
       }
-    }, c = (f, y) => {
-      y.id === e.modelValue && l();
+    }, c = (m, g) => {
+      g.id === e.modelValue && a();
     };
-    _s(() => {
+    Ns(() => {
       s.value = [];
     }), st(() => {
-      l(), ee(() => n.value.visibleSteps, () => Re(l));
-    }), ee(() => e.modelValue, l);
+      a(), ne(() => n.value.visibleSteps, () => Re(a));
+    }), ne(() => e.modelValue, a);
     const u = () => {
       n.value.nextStep();
-    }, h = Hi().as("div").props(["modelValue", "steps"]).events(["update:modelValue"]).build();
+    }, f = Ui().as("div").props(["modelValue", "steps"]).events(["update:modelValue"]).build();
     return {
       stepsNavigator: n,
       stepsRefs: s,
       setActiveStepRef: c,
-      core: h,
+      core: f,
       hasLabels: o,
-      indicatorStyle: a,
-      updateIndicator: l,
+      indicatorStyle: l,
+      updateIndicator: a,
       nextStep: u,
       ...D()
     };
   }
 });
-function Vm(e, t, n, s, o, i) {
-  const r = v("h-step-item"), a = v("hr-steps-navigator");
-  return m(), I(a, _({
+function Zm(e, t, n, s, o, i) {
+  const r = v("h-step-item"), l = v("hr-steps-navigator");
+  return h(), C(l, F({
     ref: "stepsNavigator",
     class: [e.css_root, { "-vertical": e.vertical, "-has-labels": e.hasLabels }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
-      (m(!0), S(oe, null, he(l.visibleSteps, (c, u) => (m(), S(oe, {
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
+      (h(!0), $(le, null, me(a.visibleSteps, (c, u) => (h(), $(le, {
         key: c.id
       }, [
-        C(r, {
+        I(r, {
           ref_for: !0,
-          ref: (h) => e.stepsRefs[u] = h,
+          ref: (f) => e.stepsRefs[u] = f,
           step: c,
-          onClick: (h) => l.onStepClick(c)
+          onClick: (f) => a.onStepClick(c)
         }, null, 8, ["step", "onClick"]),
-        u !== l.visibleSteps.length - 1 ? (m(), S("div", {
+        u !== a.visibleSteps.length - 1 ? (h(), $("div", {
           key: `${c.id}-line`,
           class: d([e.css_ec("step-line")])
         }, null, 2)) : M("", !0)
       ], 64))), 128)),
-      g("div", {
-        class: d([e.css_ec("indicator"), { "-hidden": l.currentStep === null }]),
-        style: W(e.indicatorStyle)
+      y("div", {
+        class: d([e.css_ec("indicator"), { "-hidden": a.currentStep === null }]),
+        style: z(e.indicatorStyle)
       }, null, 6)
     ]),
     _: 1
   }, 16, ["class"]);
 }
-const Nm = /* @__PURE__ */ E(Lm, [["render", Vm]]), Ts = "elementic-steps", _m = {
-  StepItem: Em,
-  StepsNavigator: Nm
-}, Pm = {
-  CoreStepsInstall: zi
-}, Fm = {
+const Wm = /* @__PURE__ */ V(Bm, [["render", Zm]]), Cs = "elementic-steps", qm = {
+  StepItem: Rm,
+  StepsNavigator: Wm
+}, jm = {
+  CoreStepsInstall: Yi
+}, Um = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Ts) || (p.installDependencies(e, Pm, t), p.installComponents(e, _m), p.markModuleAsInstalled(e, Ts));
+    p.isModuleInstalled(e, Cs) || (p.installDependencies(e, jm, t), p.installComponents(e, qm), p.markModuleAsInstalled(e, Cs));
   }
-}, Am = O({
+}, Ym = O({
   name: "h-switch",
   props: {
+    ...Ps,
     ...As,
     ...Hs,
     ...zs,
-    ...Rs,
     leftText: {
       type: String,
       default: ""
@@ -8468,77 +8730,77 @@ const Nm = /* @__PURE__ */ E(Lm, [["render", Vm]]), Ts = "elementic-steps", _m =
       }]
     });
     return {
-      core: Bs().as("label", o).props(["modelValue", "value", "disabled", "visible"]).events(["update:modelValue"]).build(),
+      core: Rs().as("label", o).props(["modelValue", "value", "disabled", "visible"]).events(["update:modelValue"]).build(),
       hasFocus: s,
       ...n
     };
   }
-}), Hm = ["checked", "disabled", "onChange"];
-function zm(e, t, n, s, o, i) {
+}), Gm = ["checked", "disabled", "onChange"];
+function Km(e, t, n, s, o, i) {
   const r = v("hr-checkbox");
-  return K((m(), I(r, _(e.core.props, A(e.core.listeners)), {
-    default: $((a) => [
-      e.$slots.leftText || e.leftText ? (m(), S("span", {
+  return G((h(), C(r, F(e.core.props, P(e.core.listeners)), {
+    default: w((l) => [
+      e.$slots.leftText || e.leftText ? (h(), $("span", {
         key: 0,
         class: d([e.css_ec("left-label")])
       }, [
         T(e.$slots, "leftText", {}, () => [
-          se(N(e.leftText), 1)
+          ee(N(e.leftText), 1)
         ])
       ], 2)) : M("", !0),
-      g("div", {
+      y("div", {
         class: d([e.css_ec("container")])
       }, [
-        g("input", {
+        y("input", {
           class: d([e.css_ec("back")]),
-          checked: a.state,
+          checked: l.state,
           type: "checkbox",
-          disabled: a.disabled,
-          onChange: a.onChange,
-          onFocus: t[0] || (t[0] = (l) => e.hasFocus = !0),
-          onBlur: t[1] || (t[1] = (l) => e.hasFocus = !1)
-        }, null, 42, Hm),
-        g("span", {
+          disabled: l.disabled,
+          onChange: l.onChange,
+          onFocus: t[0] || (t[0] = (a) => e.hasFocus = !0),
+          onBlur: t[1] || (t[1] = (a) => e.hasFocus = !1)
+        }, null, 42, Gm),
+        y("span", {
           class: d([e.css_ec("back-inner")])
         }, null, 2),
-        g("span", {
+        y("span", {
           class: d([e.css_ec("dot")])
         }, null, 2)
       ], 2),
-      e.$slots.default || e.rightText ? (m(), S("span", {
+      e.$slots.default || e.rightText ? (h(), $("span", {
         key: 1,
         class: d([e.css_ec("right-label")])
       }, [
         T(e.$slots, "rightText", {}, () => [
-          se(N(e.rightText), 1)
+          ee(N(e.rightText), 1)
         ])
       ], 2)) : M("", !0)
     ]),
     _: 3
   }, 16)), [
-    [J, e.visible]
+    [K, e.visible]
   ]);
 }
-const Rm = /* @__PURE__ */ E(Am, [["render", zm]]), Os = "elementic-switches", Bm = {
-  Switch: Rm
-}, Zm = {
-  CoreCheckboxInstall: Zs
-}, Wm = {
+const Jm = /* @__PURE__ */ V(Ym, [["render", Km]]), Ts = "elementic-switches", Qm = {
+  Switch: Jm
+}, Xm = {
+  CoreCheckboxInstall: Bs
+}, xm = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Os) || (p.installDependencies(e, Zm, t), p.installComponents(e, Bm), p.markModuleAsInstalled(e, Os));
+    p.isModuleInstalled(e, Ts) || (p.installDependencies(e, Xm, t), p.installComponents(e, Qm), p.markModuleAsInstalled(e, Ts));
   }
-}, qm = O({
+}, eh = O({
   name: "h-tab-item",
   props: {
-    ...Ri,
-    ...Bi,
+    ...Gi,
+    ...Ki,
     label: {
       type: String,
       required: !0
     }
   },
   setup(e, t) {
-    const n = k(), s = ie("updateIndicator"), o = ie("tabsNavigator"), i = je({
+    const n = k(), s = ce("updateIndicator"), o = ce("tabsNavigator"), i = je({
       id: e.id
     });
     st(() => {
@@ -8548,155 +8810,156 @@ const Rm = /* @__PURE__ */ E(Am, [["render", zm]]), Os = "elementic-switches", B
     }), jo(() => {
       s && s();
     });
-    const r = (l) => ({
-      class: { "-active": l.active, "-disabled": l.disabled },
-      onClick: l.onClick,
+    const r = (a) => ({
+      class: { "-active": a.active, "-disabled": a.disabled },
+      onClick: a.onClick,
       onKeydown: (c) => {
-        c.key === "Enter" && l.onClick();
+        c.key === "Enter" && a.onClick();
       }
     });
     return {
-      core: Zi().as("div", r).props(["id", "disabled"]).build(),
+      core: Ji().as("div", r).props(["id", "disabled"]).build(),
       tab: n,
       ...D()
     };
   }
 });
-function jm(e, t, n, s, o, i) {
+function th(e, t, n, s, o, i) {
   const r = v("hr-tab-item");
-  return m(), I(r, _({
+  return h(), C(r, F({
     ref: "tab",
     tabindex: "0",
     class: [e.css_root]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $(() => [
-      se(N(e.label) + " ", 1)
+  }, e.core.props, P(e.core.listeners)), {
+    default: w(() => [
+      ee(N(e.label) + " ", 1)
     ]),
     _: 1
   }, 16, ["class"]);
 }
-const Um = /* @__PURE__ */ E(qm, [["render", jm]]), Ym = O({
+const nh = /* @__PURE__ */ V(eh, [["render", th]]), sh = O({
   name: "h-tabs-navigator",
   props: {
-    ...Wi,
+    ...Qi,
     vertical: {
       type: Boolean,
       default: !1
     }
   },
   emits: ["update:modelValue"],
-  setup(e, t) {
-    const n = k(), s = k([]), o = (f) => {
-      s.value.push(f);
-    }, i = (f) => {
-      s.value = ji.remove(s.value, f);
-    }, r = k(0), a = k(0), l = V(() => e.vertical ? {
-      transform: `translate(0, ${a.value}px)`,
-      height: `${r.value}px`
+  setup(e) {
+    const t = k(), n = k([]), s = (f) => {
+      n.value.push(f);
+    }, o = (f) => {
+      n.value = xi.remove(n.value, f);
+    }, i = k(0), r = k(0), l = L(() => e.vertical ? {
+      transform: `translate(0, ${r.value}px)`,
+      height: `${i.value}px`
     } : {
-      transform: `translate(${a.value}px, 0)`,
-      width: `${r.value}px`
-    }), c = () => {
-      if (n.value && n.value.activeTab) {
-        const f = n.value.activeTab.id, y = s.value.find((w) => w.id === f);
-        y && y.ref && (a.value = e.vertical ? y.ref.offsetTop : y.ref.offsetLeft, r.value = e.vertical ? y.ref.offsetHeight : y.ref.offsetWidth);
+      transform: `translate(${r.value}px, 0)`,
+      width: `${i.value}px`
+    }), a = () => {
+      if (t.value && t.value.activeTab) {
+        const f = t.value.activeTab.id, m = n.value.find((g) => g.id === f);
+        m && m.ref && (r.value = e.vertical ? m.ref.offsetTop : m.ref.offsetLeft, i.value = e.vertical ? m.ref.offsetHeight : m.ref.offsetWidth);
       }
-    }, u = (f) => {
-      n.value = f, ee(() => n.value ? n.value.activeTab : null, c);
+    }, c = (f) => {
+      t.value = f, ne(() => t.value ? t.value.activeTab : null, a);
     };
-    st(() => c()), ht("updateIndicator", c), ht("tabsNavigator", {
-      addTabInstance: o,
-      removeTabInstance: i
+    st(() => a()), ht("updateIndicator", a), ht("tabsNavigator", {
+      addTabInstance: s,
+      removeTabInstance: o
     });
-    const h = qi().as("div").props(["modelValue"]).events(["update:modelValue"]).build();
+    const u = Xi().as("div").props(["modelValue"]).events(["update:modelValue"]).build();
     return {
-      setNavigator: u,
-      core: h,
+      setNavigator: c,
+      core: u,
       indicatorStyle: l,
-      updateIndicator: c,
+      updateIndicator: a,
       ...D()
     };
   }
 });
-function Gm(e, t, n, s, o, i) {
+function oh(e, t, n, s, o, i) {
   const r = v("hr-tabs-navigator");
-  return m(), I(r, _({
-    ref: (a) => e.setNavigator(a),
+  return h(), C(r, F({
+    ref: (l) => e.setNavigator(l),
     class: [e.css_root, { "-vertical": e.vertical }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((a) => [
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((l) => [
       T(e.$slots, "default"),
-      g("div", {
-        class: d([e.css_ec("indicator"), { "-hidden": a.activeTab === null }]),
-        style: W(e.indicatorStyle)
+      y("div", {
+        class: d([e.css_ec("indicator"), { "-hidden": l.activeTab === null }]),
+        style: z(e.indicatorStyle)
       }, null, 6)
     ]),
     _: 3
   }, 16, ["class"]);
 }
-const Km = /* @__PURE__ */ E(Ym, [["render", Gm]]), Ms = "elementic-tabs", Jm = {
-  TabItem: Um,
-  TabsNavigator: Km
-}, Qm = {
-  CoreTabsInstall: Ui
-}, Xm = {
+const rh = /* @__PURE__ */ V(sh, [["render", oh]]), Ms = "elementic-tabs", ih = {
+  TabItem: nh,
+  TabsNavigator: rh
+}, lh = {
+  CoreTabsInstall: el
+}, ah = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Ms) || (p.installDependencies(e, Qm, t), p.installComponents(e, Jm), p.markModuleAsInstalled(e, Ms));
+    p.isModuleInstalled(e, Ms) || (p.installDependencies(e, lh, t), p.installComponents(e, ih), p.markModuleAsInstalled(e, Ms));
   }
-}, xm = /* @__PURE__ */ O({
+}, ch = /* @__PURE__ */ O({
   name: "h-table-column-header",
   props: {
     column: {
-      type: Object
+      type: Object,
+      required: !0
     },
     sort: {
       type: Object,
       default: null
     }
   },
-  setup(e, t) {
-    const n = ie("table"), s = V(() => e.sort.key === null ? "-unsorted" : e.sort.key === e.column.property ? `-sorting-${e.sort.direction}` : null), o = () => {
-      n.setSorting(e.column.property);
-    }, i = D(), r = () => C("div", {
-      onClick: o,
-      class: [i.css_ec("sorting-icon"), s.value]
-    }, [C(v("h-icon"), {
-      class: [i.css_ec("sort-up")],
+  setup(e) {
+    const t = ce("table"), n = L(() => e.sort.key === null ? "-unsorted" : e.sort.key === e.column.property ? `-sorting-${e.sort.direction}` : null), s = () => {
+      t && t.setSorting(e.column.property);
+    }, o = D(), i = () => I("div", {
+      onClick: s,
+      class: [o.css_ec("sorting-icon"), n.value]
+    }, [I(v("h-icon"), {
+      class: [o.css_ec("sort-up")],
       icon: "chevron-up",
       size: "16px"
-    }, null), C(v("h-icon"), {
-      class: [i.css_ec("sort-down")],
+    }, null), I(v("h-icon"), {
+      class: [o.css_ec("sort-down")],
       icon: "chevron-down",
       size: "16px"
     }, null)]);
-    return () => C("th", {
-      class: [i.css_root.value, {
+    return () => I("th", {
+      class: [o.css_root.value, {
         "-sortable": e.column.sortable
       }]
-    }, [C("div", {
-      class: [i.css_ec("container")]
-    }, [C("div", {
-      class: [i.css_ec("content")]
+    }, [I("div", {
+      class: [o.css_ec("container")]
+    }, [I("div", {
+      class: [o.css_ec("content")]
     }, [e.column.headerTemplate ? e.column.headerTemplate({
       data: e.column.data
-    }) : e.column.data.label]), e.column.sortable ? r() : null])]);
+    }) : e.column.data.label]), e.column.sortable ? i() : null])]);
   }
-}), eh = /* @__PURE__ */ O({
+}), uh = /* @__PURE__ */ O({
   name: "h-table-row",
   props: {
     column: {
-      type: Yi,
+      type: tl,
       required: !0
     },
     row: {
-      type: Gi,
+      type: nl,
       required: !0
     }
   },
   setup(e, t) {
-    const n = V(() => [{
+    const n = L(() => [{
       "-minimum-width": e.column.data.width === "minimum"
-    }]), s = e.column.data.width !== "minimum" ? e.column.data.width : null, o = () => C("td", {
+    }]), s = e.column.data.width !== "minimum" ? e.column.data.width : null, o = () => I("td", {
       class: [n.value],
       style: {
         width: s
@@ -8706,7 +8969,7 @@ const Km = /* @__PURE__ */ E(Ym, [["render", Gm]]), Ms = "elementic-tabs", Jm = 
       rowId: e.row.id,
       isSelected: e.row.selected,
       rowSelectable: e.row.selectable
-    })]), i = () => C("td", {
+    })]), i = () => I("td", {
       class: [n.value],
       style: {
         width: s
@@ -8714,9 +8977,9 @@ const Km = /* @__PURE__ */ E(Ym, [["render", Gm]]), Ms = "elementic-tabs", Jm = 
     }, [e.row.getValue(e.column.property, e.column.formatter)]);
     return () => e.column.template ? o() : i();
   }
-}), th = O({
+}), dh = O({
   name: "h-table-row",
-  components: { HTableCell: eh },
+  components: { HTableCell: uh },
   props: {
     columns: {
       type: Array,
@@ -8734,24 +8997,24 @@ const Km = /* @__PURE__ */ E(Ym, [["render", Gm]]), Ms = "elementic-tabs", Jm = 
     }
   },
   emits: ["rowClick"],
-  setup(e, t) {
-    const n = V(() => typeof e.classes == "function" ? e.classes(e.row.data) : e.classes), s = (i) => ({
-      onClick: i.onClick
+  setup(e) {
+    const t = L(() => typeof e.classes == "function" ? e.classes(e.row.data) : e.classes), n = (o) => ({
+      onClick: o.onClick
     });
     return {
-      core: Ki().as("tr", s).props(["columns", "row"]).events(["rowClick"]).build(),
-      rowClasses: n,
+      core: sl().as("tr", n).props(["columns", "row"]).events(["rowClick"]).build(),
+      rowClasses: t,
       ...D()
     };
   }
 });
-function nh(e, t, n, s, o, i) {
-  const r = v("h-table-cell"), a = v("hr-table-row");
-  return m(), I(a, _({
+function fh(e, t, n, s, o, i) {
+  const r = v("h-table-cell"), l = v("hr-table-row");
+  return h(), C(l, F({
     class: [e.css_root, { "-selected": e.row.selected }, e.rowClasses]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((l) => [
-      (m(!0), S(oe, null, he(e.columns, (c) => (m(), I(r, {
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((a) => [
+      (h(!0), $(le, null, me(e.columns, (c) => (h(), C(r, {
         key: c.property,
         row: e.row,
         column: c
@@ -8760,15 +9023,15 @@ function nh(e, t, n, s, o, i) {
     _: 1
   }, 16, ["class"]);
 }
-const sh = /* @__PURE__ */ E(th, [["render", nh]]), oh = O({
+const mh = /* @__PURE__ */ V(dh, [["render", fh]]), hh = O({
   name: "h-table",
-  components: { HTableRow: sh, HTableColumnHeader: xm },
+  components: { HTableRow: mh, HTableColumnHeader: ch },
   props: {
-    ...Ji,
-    ...Qi,
-    ...Xi,
-    ...xi,
-    ...ea,
+    ...ol,
+    ...rl,
+    ...il,
+    ...ll,
+    ...al,
     rowClasses: {
       type: [String, Function],
       default: null
@@ -8783,70 +9046,70 @@ const sh = /* @__PURE__ */ E(th, [["render", nh]]), oh = O({
     }
   },
   emits: ["update:sort", "update:selectedRows"],
-  setup(e, t) {
+  setup() {
     return {
-      core: ta().as("table").props(["data", "rowKey", "selectable", "sort", "selectedRows"]).events(["update:sort", "update:selectedRows"]).build(),
+      core: cl().as("table").props(["data", "rowKey", "selectable", "sort", "selectedRows"]).events(["update:sort", "update:selectedRows"]).build(),
       ...D()
     };
   }
-}), rh = {
+}), ph = {
   key: 0,
   class: "-no-hover"
-}, ih = ["colspan"], ah = { key: 0 };
-function lh(e, t, n, s, o, i) {
-  const r = v("h-table-column-header"), a = v("h-table-row"), l = v("h-checkbox"), c = v("h-table-column"), u = v("hr-table");
-  return m(), I(u, _({
+}, yh = ["colspan"], gh = { key: 0 };
+function vh(e, t, n, s, o, i) {
+  const r = v("h-table-column-header"), l = v("h-table-row"), a = v("h-checkbox"), c = v("h-table-column"), u = v("hr-table");
+  return h(), C(u, F({
     class: [e.css_root, { "-striped": e.striped, "-hoverable": e.hover }]
-  }, e.core.props, A(e.core.listeners)), {
-    default: $((h) => [
-      g("thead", null, [
-        (m(!0), S(oe, null, he(h.orderedColumns, (f) => (m(), I(r, {
-          key: f.property,
-          column: f,
+  }, e.core.props, P(e.core.listeners)), {
+    default: w((f) => [
+      y("thead", null, [
+        (h(!0), $(le, null, me(f.orderedColumns, (m) => (h(), C(r, {
+          key: m.property,
+          column: m,
           sort: e.sort
         }, null, 8, ["column", "sort"]))), 128))
       ]),
-      g("tbody", null, [
-        (m(!0), S(oe, null, he(h.rows, (f) => (m(), I(a, {
-          key: f.data[e.rowKey],
-          row: f,
-          columns: h.orderedColumns,
+      y("tbody", null, [
+        (h(!0), $(le, null, me(f.rows, (m) => (h(), C(l, {
+          key: m.data[e.rowKey],
+          row: m,
+          columns: f.orderedColumns,
           classes: e.rowClasses
         }, null, 8, ["row", "columns", "classes"]))), 128)),
-        e.$slots["no-items"] && h.rows.length === 0 ? (m(), S("tr", rh, [
-          g("td", {
-            colspan: h.orderedColumns.length
+        e.$slots["no-items"] && f.rows.length === 0 ? (h(), $("tr", ph, [
+          y("td", {
+            colspan: f.orderedColumns.length
           }, [
             T(e.$slots, "no-items")
-          ], 8, ih)
+          ], 8, yh)
         ])) : M("", !0)
       ]),
-      e.$slots.footer ? (m(), S("tfoot", ah, [
+      e.$slots.footer ? (h(), $("tfoot", gh, [
         T(e.$slots, "footer", {
-          rows: h.rows
+          rows: f.rows
         })
       ])) : M("", !0),
-      e.selectable && h.anySelectable ? (m(), I(c, {
+      e.selectable && f.anySelectable ? (h(), C(c, {
         key: 1,
         width: "minimum",
         property: "__sortable",
         sortable: !1,
         order: -1
       }, {
-        header: $(() => [
-          C(l, {
-            "model-value": h.allRowsSelected,
-            indeterminate: !h.allRowsSelected && h.anyRowsSelected,
-            "onUpdate:modelValue": h.toggleAllSelection
+        header: w(() => [
+          I(a, {
+            "model-value": f.allRowsSelected,
+            indeterminate: !f.allRowsSelected && f.anyRowsSelected,
+            "onUpdate:modelValue": f.toggleAllSelection
           }, null, 8, ["model-value", "indeterminate", "onUpdate:modelValue"])
         ]),
-        default: $(({ rowId: f, isSelected: y, rowSelectable: w }) => [
-          C(pe, { name: "fade-fast" }, {
-            default: $(() => [
-              C(l, {
-                visible: w,
-                "model-value": y,
-                "onUpdate:modelValue": (z) => h.setRowSelectionState(f, z)
+        default: w(({ rowId: m, isSelected: g, rowSelectable: S }) => [
+          I(pe, { name: "fade-fast" }, {
+            default: w(() => [
+              I(a, {
+                visible: S,
+                "model-value": g,
+                "onUpdate:modelValue": (Z) => f.setRowSelectionState(m, Z)
               }, null, 8, ["visible", "model-value", "onUpdate:modelValue"])
             ]),
             _: 2
@@ -8859,13 +9122,13 @@ function lh(e, t, n, s, o, i) {
     _: 3
   }, 16, ["class"]);
 }
-const ch = /* @__PURE__ */ E(oh, [["render", lh]]), uh = O({
+const bh = /* @__PURE__ */ V(hh, [["render", vh]]), wh = O({
   name: "h-table-column",
   props: {
-    ...na,
-    ...sa,
-    ...oa,
-    ...ra,
+    ...ul,
+    ...dl,
+    ...fl,
+    ...ml,
     label: {
       type: String,
       default: null
@@ -8876,49 +9139,49 @@ const ch = /* @__PURE__ */ E(oh, [["render", lh]]), uh = O({
       validator: (e) => ["auto", "minimum"].indexOf(e) !== -1 || !Number.isNaN(parseInt(e, 10))
     }
   },
-  setup(e, t) {
-    const n = je({
-      label: V(() => e.label),
-      width: V(() => e.width)
+  setup(e) {
+    const t = je({
+      label: L(() => e.label),
+      width: L(() => e.width)
     });
     return {
-      core: ia(n, ["property", "formatter", "sortable", "order"])
+      core: hl(t, ["property", "formatter", "sortable", "order"])
     };
   }
 });
-function dh(e, t, n, s, o, i) {
+function $h(e, t, n, s, o, i) {
   const r = v("hr-table-column");
-  return m(), I(r, _(e.core.props, A(e.core.listeners)), {
-    default: $(() => [
+  return h(), C(r, F(e.core.props, P(e.core.listeners)), {
+    default: w(() => [
       T(e.$slots, "default"),
       T(e.$slots, "header")
     ]),
     _: 3
   }, 16);
 }
-const fh = /* @__PURE__ */ E(uh, [["render", dh]]), Ds = "elementic-tables", mh = {
-  Table: ch,
-  TableColumn: fh
-}, hh = {
-  CoreTablesInstall: aa,
-  CheckboxInstall: Ks
-}, ph = {
+const Sh = /* @__PURE__ */ V(wh, [["render", $h]]), Os = "elementic-tables", kh = {
+  Table: bh,
+  TableColumn: Sh
+}, Ih = {
+  CoreTablesInstall: pl,
+  CheckboxInstall: Gs
+}, Ch = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Ds) || (p.installDependencies(e, hh, t), p.installComponents(e, mh), p.markModuleAsInstalled(e, Ds));
+    p.isModuleInstalled(e, Os) || (p.installDependencies(e, Ih, t), p.installComponents(e, kh), p.markModuleAsInstalled(e, Os));
   }
-}, Es = {
+}, Ds = {
   top: "tiny2x-slide-down-medium",
   right: "tiny2x-slide-to-left-medium",
   bottom: "tiny2x-slide-up-medium",
   left: "tiny2x-slide-to-right-medium"
-}, yh = O({
+}, Th = O({
   name: "h-tooltip",
   props: {
     ...Ut("top"),
-    ...la,
-    ...ca,
-    ...ua,
-    ...da,
+    ...yl,
+    ...gl,
+    ...vl,
+    ...bl,
     content: {
       type: String
     },
@@ -8927,16 +9190,16 @@ const fh = /* @__PURE__ */ E(uh, [["render", dh]]), Ds = "elementic-tables", mh 
       default: "inline-block"
     }
   },
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue", "computedPosition"],
   setup(e, t) {
-    const n = k(), s = k(Es[e.placement]), o = k([
+    const n = k(), s = k(Ds[e.placement]), o = k([
       Ct(4)
-    ]), i = (a) => {
-      const l = a.placement.split("-")[0];
-      s.value = Es[l], t.emit("computedPosition", a);
+    ]), i = (l) => {
+      const a = l.placement.split("-")[0];
+      s.value = Ds[a], t.emit("computedPosition", l);
     };
     return {
-      core: fa(n).props(["modelValue", "trigger"]).events(["update:modelValue"]).build(),
+      core: wl(n).props(["modelValue", "trigger"]).events(["update:modelValue"]).build(),
       reference: n,
       floatingMiddleware: o,
       onComputedPosition: i,
@@ -8944,18 +9207,18 @@ const fh = /* @__PURE__ */ E(uh, [["render", dh]]), Ds = "elementic-tables", mh 
       ...D()
     };
   }
-}), gh = ["innerHTML"];
-function vh(e, t, n, s, o, i) {
-  const r = v("h-icon"), a = v("h-floating"), l = v("hr-tooltip");
-  return m(), I(l, _(e.core.props, A(e.core.listeners)), {
-    default: $((c) => [
-      g("div", {
+}), Mh = ["innerHTML"];
+function Oh(e, t, n, s, o, i) {
+  const r = v("h-icon"), l = v("h-floating"), a = v("hr-tooltip");
+  return h(), C(a, F(e.core.props, P(e.core.listeners)), {
+    default: w((c) => [
+      y("div", {
         ref: "reference",
-        style: W({ display: e.display })
+        style: z({ display: e.display })
       }, [
         T(e.$slots, "default")
       ], 4),
-      C(a, {
+      I(l, {
         as: "div",
         class: d([e.css_root]),
         reference: e.reference,
@@ -8966,15 +9229,15 @@ function vh(e, t, n, s, o, i) {
         middleware: e.floatingMiddleware,
         onComputedPosition: e.onComputedPosition
       }, {
-        arrow: $(() => [
-          C(r, {
+        arrow: w(() => [
+          I(r, {
             icon: "tooltip-arrow",
             class: d([e.css_ec("arrow")])
           }, null, 8, ["class"])
         ]),
-        default: $(() => [
+        default: w(() => [
           T(e.$slots, "content", {}, () => [
-            g("span", { innerHTML: e.content }, null, 8, gh)
+            y("span", { innerHTML: e.content }, null, 8, Mh)
           ])
         ]),
         _: 2
@@ -8983,21 +9246,21 @@ function vh(e, t, n, s, o, i) {
     _: 3
   }, 16);
 }
-const bh = /* @__PURE__ */ E(yh, [["render", vh]]), wh = {
+const Dh = /* @__PURE__ */ V(Th, [["render", Oh]]), Vh = {
   width: 16,
   height: 16,
   viewBox: "0 0 16 16",
   data: '<polygon points="0,16 16,16 8,8"/>'
-}, Ls = "elementic-tooltips", $h = {
-  Tooltip: bh
-}, Sh = {
-  CoreTooltipsInstall: ma,
-  FloatingInstall: at
-}, kh = {
+}, Vs = "elementic-tooltips", Eh = {
+  Tooltip: Dh
+}, Lh = {
+  CoreTooltipsInstall: $l,
+  FloatingInstall: lt
+}, Nh = {
   install: (e, t) => {
-    p.isModuleInstalled(e, Ls) || (p.installDependencies(e, Sh, t), p.installComponents(e, $h), be.register("tooltip-arrow", wh), p.markModuleAsInstalled(e, Ls));
+    p.isModuleInstalled(e, Vs) || (p.installDependencies(e, Lh, t), p.installComponents(e, Eh), ke.register("tooltip-arrow", Vh), p.markModuleAsInstalled(e, Vs));
   }
-}, Ih = O({
+}, _h = O({
   name: "SimpleNotification",
   props: {
     title: {
@@ -9014,62 +9277,62 @@ const bh = /* @__PURE__ */ E(yh, [["render", vh]]), wh = {
   },
   emits: ["something"],
   setup(e, t) {
-    return Us.setupNotification(), {};
+    return js.setupNotification(), {};
   }
 });
-function Ch(e, t, n, s, o, i) {
+function Fh(e, t, n, s, o, i) {
   const r = v("h-notification");
-  return m(), I(r, {
+  return h(), C(r, {
     title: e.title,
     color: e.color
   }, {
-    default: $(() => [
-      se(N(e.text), 1)
+    default: w(() => [
+      ee(N(e.text), 1)
     ]),
     _: 1
   }, 8, ["title", "color"]);
 }
-const Eh = /* @__PURE__ */ E(Ih, [["render", Ch]]), Th = {
-  AlertsInstall: Pa,
-  ButtonsInstall: Xa,
-  CheckboxesInstall: Ks,
-  CollapsesInstall: Il,
-  DatePickersInstall: Yu,
-  DialogsInstall: ud,
-  DrawersInstall: gd,
-  DropdownsInstall: Zd,
-  FloatingInstall: at,
-  FragmentsInstall: Qd,
+const Rh = /* @__PURE__ */ V(_h, [["render", Fh]]), Ph = {
+  AlertsInstall: Wl,
+  ButtonsInstall: ia,
+  CheckboxesInstall: Gs,
+  CollapsesInstall: La,
+  DatePickersInstall: td,
+  DialogsInstall: md,
+  DrawersInstall: wd,
+  DropdownsInstall: jd,
+  FloatingInstall: lt,
+  FragmentsInstall: ef,
   IconsInstall: Yt,
   InputsInstall: _o,
-  ListsInstall: sf,
-  NotificationsInstall: pf,
-  PaginatorsInstall: Cf,
-  PopoversInstall: Lf,
-  ProgressBarsInstall: Af,
-  RadioButtonsInstall: qf,
+  ListsInstall: lf,
+  NotificationsInstall: vf,
+  PaginatorsInstall: Of,
+  PopoversInstall: _f,
+  ProgressBarsInstall: Rf,
+  RadioButtonsInstall: Yf,
   ScrollContainersInstall: Ao,
-  SelectsInstall: mm,
-  SlidersInstall: bm,
-  SpinnersInstall: Om,
-  StepsInstall: Fm,
-  SwitchesInstall: Wm,
-  TabsInstall: Xm,
-  TablesInstall: ph,
-  TooltipsInstall: kh
-}, Lh = {
+  SelectsInstall: km,
+  SlidersInstall: Dm,
+  SpinnersInstall: Am,
+  StepsInstall: Um,
+  SwitchesInstall: xm,
+  TabsInstall: ah,
+  TablesInstall: Ch,
+  TooltipsInstall: Nh
+}, Bh = {
   install: (e, t) => {
-    Object.values(Th).forEach((n) => {
+    Object.values(Ph).forEach((n) => {
       n.install(e, t);
     });
   }
 };
 export {
-  _h as DialogManager,
-  Dh as IconRegistry,
-  Ph as NotificationManager,
-  Eh as SimpleNotification,
-  Fh as coreFloatingArrowReference,
-  Ah as createCoreStepItem,
-  Lh as default
+  qh as DialogManager,
+  zh as IconRegistry,
+  jh as NotificationManager,
+  Rh as SimpleNotification,
+  Uh as coreFloatingArrowReference,
+  Yh as createCoreStepItem,
+  Bh as default
 };

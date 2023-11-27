@@ -75,7 +75,7 @@ export default defineComponent({
         ...coreDatePickerFirstDayOfWeekProp,
     },
     emits: ['click'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
 
         const slotProps = reactive<CoreDatePickerSlotProps>({
             disabled: computed(() => props.disabled),

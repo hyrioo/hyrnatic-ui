@@ -64,7 +64,7 @@ export default defineComponent({
         ...coreSliderStepSizeProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const percentage = computed(() => {
             const p = ((props.modelValue - props.minimum) * 100) / (props.maximum - props.minimum);
             return Math.round(p);

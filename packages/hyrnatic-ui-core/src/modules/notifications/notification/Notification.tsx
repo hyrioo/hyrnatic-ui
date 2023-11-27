@@ -32,7 +32,7 @@ export default defineComponent({
         ...coreComponentAsPropsProp,
         ...coreNotificationVisibleProp,
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const id = inject<string>('notification-id') as string;
         if (!id) {
             console.warn('You must call NotificationManager.setupNotification() in the notification setup');

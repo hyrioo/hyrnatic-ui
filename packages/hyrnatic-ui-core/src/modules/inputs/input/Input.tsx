@@ -66,7 +66,7 @@ export default defineComponent({
         },
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const focusInput = (e: MouseEvent) => {
             if (props.readonly) {
                 // If nothing is selected, then select all text

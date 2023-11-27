@@ -78,7 +78,7 @@ export function splitPlacement(value: string) {
     return {
         placement: parts[0],
         alignment: parts.length === 2 ? parts[1] : null,
-    }
+    };
 }
 
 export default defineComponent({
@@ -95,13 +95,13 @@ export default defineComponent({
     emits: {
         clickOutside: (event: CoreFloatingClickOutsideEvent) => true,
         computedPosition: (data: ComputePositionReturn) => true,
-        'transitionStateChanged': (state: boolean) => true,
+        transitionStateChanged: (state: boolean) => true,
         show: () => true,
         hide: () => true,
     },
-    setup(props, ctx: SetupContext) {
-        const floatingElement = ref<HTMLElement|null>(null);
-        const cleanup = ref<(() => void)|null>(null);
+    setup(props, ctx) {
+        const floatingElement = ref<HTMLElement | null>(null);
+        const cleanup = ref<(() => void) | null>(null);
         const style = reactive({
             position: 'absolute',
             left: '0',
@@ -120,7 +120,7 @@ export default defineComponent({
 
         const updatePosition = () => {
             // console.log('updatePosition');
-            if(floatingElement.value) {
+            if (floatingElement.value) {
                 computePosition(props.reference, floatingElement.value, {
                     placement: props.placement,
                     middleware: middleware.value
@@ -137,15 +137,19 @@ export default defineComponent({
 
         const setupFloating = () => {
             // console.log('setupFloating');
-            if(floatingElement.value) {
+            if (floatingElement.value) {
                 cleanup.value = autoUpdate(props.reference, floatingElement.value, updatePosition);
             }
         };
 
         watch(() => props.visible, (visible: boolean) => {
-            ctx.emit(visible ? 'show' : 'hide');
+            if (visible) {
+                ctx.emit('show');
+            } else {
+                ctx.emit('hide');
+            }
             if (visible && !cleanup.value) {
-                nextTick(setupFloating);
+                void nextTick(setupFloating);
             }
         });
 
@@ -166,6 +170,7 @@ export default defineComponent({
                 return;
             }
 
+            // @ts-ignore
             ctx.emit('clickOutside', {
                 outsideFloating,
                 outsideReference,
@@ -204,7 +209,7 @@ export default defineComponent({
     },
     render() {
         // Always access this.$attrs to prevent warning
-        const attrs = { ...this.$attrs, style: {...this.style} };
+        const attrs = { ...this.$attrs, style: { ...this.style } };
 
         const Tag = this.$props.as || 'span';
 

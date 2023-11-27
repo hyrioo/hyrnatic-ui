@@ -46,7 +46,7 @@ export default defineComponent({
         ...coreRadioButtonValueProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const state = computed(() => props.modelValue === props.value);
 
         const onChange = () => {

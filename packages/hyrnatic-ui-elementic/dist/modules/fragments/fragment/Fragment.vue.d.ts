@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     id: {
         type: StringConstructor;
         required: true;
@@ -11,10 +11,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
     onEnter: () => void;
     onBeforeLeave: () => void;
     onAfterEnter: () => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     id: {
         type: StringConstructor;
         required: true;
     };
-}>>, {}>;
-export default _sfc_main;
+}>>, {}, {}>;
+export default _default;

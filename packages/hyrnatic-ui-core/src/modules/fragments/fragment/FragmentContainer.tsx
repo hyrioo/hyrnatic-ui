@@ -31,7 +31,7 @@ export default defineComponent({
         ...coreFragmentContainerActiveProp,
     },
     emits: ['click'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const slotProps = reactive<CoreFragmentContainerSlotProps>({
             active: computed(() => props.active as string),
         });

@@ -1,21 +1,22 @@
 import {
-    defineComponent, SetupContext, inject, computed, PropType,
+    defineComponent, inject, computed, PropType,
 } from 'vue';
 import componentCss from '../../../utils/component-css';
-import { CoreTableColumn, CoreTableSortDefinition, CoreTableProvide } from '@hyrioo/hyrnatic-ui-core';
+import { CoreTableSortDefinition, CoreTableProvide } from '@hyrioo/hyrnatic-ui-core';
 
 export default defineComponent({
     name: 'h-table-column-header',
     props: {
         column: {
             type: Object,
+            required: true,
         },
         sort: {
             type: Object as PropType<CoreTableSortDefinition>,
             default: null,
         },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props) {
         const table = inject<CoreTableProvide>('table');
         const sortClass = computed(() => {
             if (props.sort.key === null) {
@@ -28,7 +29,9 @@ export default defineComponent({
         });
 
         const onClick = () => {
-            table.setSorting(props.column.property);
+            if(table) {
+                table.setSorting(props.column.property);
+            }
         };
 
         const component = componentCss();

@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     label: {
         type: (StringConstructor | NumberConstructor)[];
         default: null;
@@ -47,7 +47,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         [key: string]: any;
     };
     core: any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "click"[], "click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     label: {
         type: (StringConstructor | NumberConstructor)[];
         default: null;
@@ -88,16 +88,18 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}>>, {
+}>> & {
+    onClick?: ((...args: any[]) => any) | undefined;
+}, {
     loading: boolean;
     icon: string;
     styling: "none" | "subtle" | "simple" | "block";
     type: "button" | "submit" | "reset";
     label: string | number;
+    size: "small" | "normal" | "large";
     rounded: boolean;
     color: "primary" | "negative" | "success" | "warning" | "danger" | "none";
-    size: "small" | "normal" | "large";
     visible: boolean;
     disabled: boolean;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

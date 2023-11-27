@@ -54,7 +54,7 @@ export default defineComponent({
         ...corePaginatorDeltaProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const pages = computed(() => Math.ceil(props.count! / props.pageSize!));
         const paginationButtons = computed<(number|null)[]>(() => {
             const c = props.modelValue as number;

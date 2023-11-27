@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     header: {
         type: StringConstructor;
     };
@@ -13,7 +13,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         [key: string]: any;
     };
     core: any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     header: {
         type: StringConstructor;
     };
@@ -21,5 +21,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         required: boolean;
     };
-}>>, {}>;
-export default _sfc_main;
+}>>, {}, {}>;
+export default _default;

@@ -21,7 +21,7 @@ import ProgressBar from './pages/progress-bars/progress-bar/ProgressBar.vue';
 import RadioButton from './pages/RadioButton.vue';
 import Slider from './pages/sliders/slider/Slider.vue';
 import ScrollContainer from './pages/ScrollContainer.vue';
-import Select from './pages/Select.vue';
+import Select from './pages/selects/select/Select.vue';
 import Spinner from './pages/spinners/spinner/Spinner.vue';
 import SpinnerOverlay from './pages/spinners/spinner-overlay/SpinnerOverlay.vue';
 import Step from './pages/Step.vue';
@@ -30,6 +30,8 @@ import Tab from './pages/Tab.vue';
 import Table from './pages/Table.vue';
 import Tooltip from './pages/Tooltip.vue';
 import Popover from './pages/popovers/popover/Popover.vue';
+import Autocomplete from './pages/inputs/autocomplete/Autocomplete.vue';
+import SimpleSelect from './pages/selects/simple-select/SimpleSelect.vue';
 
 const componentPage = (name: string, page: any) => ({
     name,
@@ -38,7 +40,7 @@ const componentPage = (name: string, page: any) => ({
 });
 
 const router = createRouter({
-    history: createWebHistory('/hyrnatic-ui/'),
+    history: createWebHistory('/'),//hyrnatic-ui/
     routes: [
         componentPage('installation', Installation),
 
@@ -54,6 +56,7 @@ const router = createRouter({
         componentPage('icon-button', IconButton),
         componentPage('inline-collapse', InlineCollapse),
         componentPage('input', Input),
+        componentPage('autocomplete', Autocomplete),
         componentPage('list', List),
         componentPage('notification', Notification),
         componentPage('paginator', Paginator),
@@ -63,6 +66,7 @@ const router = createRouter({
         componentPage('slider', Slider),
         componentPage('scroll-container', ScrollContainer),
         componentPage('select', Select),
+        componentPage('simple-select', SimpleSelect),
         componentPage('spinner', Spinner),
         componentPage('spinner-overlay', SpinnerOverlay),
         componentPage('step', Step),

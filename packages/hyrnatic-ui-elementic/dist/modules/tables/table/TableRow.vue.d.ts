@@ -1,4 +1,4 @@
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     columns: {
         type: ArrayConstructor;
         required: true;
@@ -16,7 +16,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     css_ec: (element: string) => string;
     core: any;
     rowClasses: import("vue").ComputedRef<any>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, "rowClick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "rowClick"[], "rowClick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     columns: {
         type: ArrayConstructor;
         required: true;
@@ -29,7 +29,9 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: (StringConstructor | FunctionConstructor)[];
         default: null;
     };
-}>>, {
+}>> & {
+    onRowClick?: ((...args: any[]) => any) | undefined;
+}, {
     classes: string | Function;
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;

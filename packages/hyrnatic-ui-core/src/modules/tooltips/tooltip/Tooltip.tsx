@@ -57,7 +57,7 @@ export default defineComponent({
         },
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const visible = ref(props.modelValue);
 
         watch(() => props.modelValue, (newValue) => {

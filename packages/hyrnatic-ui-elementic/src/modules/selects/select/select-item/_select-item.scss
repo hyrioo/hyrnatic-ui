@@ -1,0 +1,54 @@
+$crc: '.h-select-item';
+
+#{$crc} {
+	line-height: $v-control-height;
+	padding: 0 $g-8;
+	font-size: $fs-default;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: $t-fast-standard;
+	display: flex;
+	align-items: center;
+	outline: none;
+	position: relative;
+
+	&:hover, &.-focused, &.-selected {
+		color: $c-primary-text;
+	}
+
+	&:hover, &.-focused {
+		color: $c-primary-text;
+		background: rgba($c-primary, $o-4);
+	}
+
+	&.-disabled {
+		color: $c-disabled--primary-text;
+		background: transparent;
+		cursor: not-allowed;
+	}
+}
+
+#{$crc}__label {
+	padding-right: 24px + 8px;
+	text-overflow: ellipsis;
+	max-width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+#{$crc}__icon {
+	margin-right: $g-4;
+}
+
+#{$crc}__checkmark {
+	position: absolute;
+	display: flex;
+	right: $g-8;
+	fill: $c-primary-text;
+	opacity: 0;
+	transition: opacity $t-fast-standard;
+
+	&.-selected {
+		opacity: 1;
+	}
+}

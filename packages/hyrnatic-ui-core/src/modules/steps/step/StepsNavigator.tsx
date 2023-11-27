@@ -76,7 +76,7 @@ export default defineComponent({
         ...coreStepsNavigatorStepsProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const currentIndex = computed<number>(() => props.steps.findIndex((s) => s.id === props.modelValue));
         const visibleSteps = computed(() => props.steps.filter((s) => s.visible));
         const steps = computed(() => {

@@ -15,7 +15,7 @@
 </template>
 
 <script lang="tsx">
-import { computed, defineComponent, nextTick, PropType, ref, SetupContext } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
     coreButtonDisabledProp,
@@ -60,14 +60,19 @@ export default defineComponent({
         type: {
             type: String as PropType<'button' | 'submit' | 'reset'>,
             default: 'button',
-        }
+        },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const componentCssHelpers = componentCss();
         const iconOnly = computed(() => !ctx.slots.default && !props.label);
 
         const asProps = (slotProps: CoreButtonSlotProps) => ({
-            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`,  `-color-${props.color}`, `-size-${props.size}`, { '-loading': slotProps.loading, '-icon-only': iconOnly.value, '-has-icon': props.icon, '-rounded': props.rounded }],
+            class: [componentCssHelpers.css_root.value, `-styling-${props.styling}`, `-color-${props.color}`, `-size-${props.size}`, {
+                '-loading': slotProps.loading,
+                '-icon-only': iconOnly.value,
+                '-has-icon': props.icon,
+                '-rounded': props.rounded
+            }],
             disabled: slotProps.disabled,
             onClick: slotProps.onClick,
             type: props.type,

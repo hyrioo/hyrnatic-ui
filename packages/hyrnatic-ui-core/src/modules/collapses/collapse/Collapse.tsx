@@ -43,7 +43,7 @@ export default defineComponent({
         ...coreCollapseModelValueProp,
     },
     emits: ['update:modelValue'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const expandedItems = computed(() => ([] as any[]).concat(props.modelValue));
 
         const onItemClick = (id: string) => {

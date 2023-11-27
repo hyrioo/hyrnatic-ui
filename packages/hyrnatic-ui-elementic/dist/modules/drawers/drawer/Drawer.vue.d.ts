@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<{
     zIndex: {
         type: NumberConstructor;
     };
@@ -35,7 +35,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
             [key: string]: any;
         };
     };
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     zIndex: {
         type: NumberConstructor;
     };
@@ -60,5 +60,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     color: "primary" | "danger";
     visible: boolean;
     placement: "left" | "right";
-}>;
-export default _sfc_main;
+}, {}>;
+export default _default;
