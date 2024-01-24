@@ -61,6 +61,14 @@ const docs: ComponentAPIDescriptor = {
             default: 'primary',
         },
         {
+            property: 'backdrop-color',
+            origin: 'elementic',
+            description: 'The backdrop color used by the styling',
+            type: ['string'],
+            values: ['light', 'dark'],
+            default: 'light',
+        },
+        {
             property: 'show-close-button',
             origin: 'elementic',
             description: 'Whether or not to show a close button.',

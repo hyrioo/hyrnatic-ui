@@ -5,7 +5,7 @@
                  @focus="onInputFocus" @blur="onInputBlur">
             <template #customSuffix>
                 <h-icon :ref="com => { if(com) icon = com.$el }" :icon="Icons.calendarMonth"
-                        :class="['h-input__suffix-icon']" size="16px" />
+                        :class="['h-input__suffix-icon']" size="16px"/>
             </template>
         </h-input>
 
@@ -20,20 +20,20 @@
             <div :class="[css_ec('calendar-header')]">
                 <div>
                     <h-icon-button :icon="Icons.chevronLeft" size="normal" styling="subtle"
-                                   @click="minusShownDate({months: 1})" />
+                                   @click="minusShownDate({months: 1})"/>
                     <h-icon-button :icon="Icons.chevronDoubleLeft" size="normal" styling="subtle"
-                                   @click="minusShownDate({years: 1})" />
+                                   @click="minusShownDate({years: 1})"/>
                 </div>
                 <div>
                     <span :class="[css_ec('calendar-year-label')]">
-                        {{ `${shownDate.monthLong} ${shownDate.year}` }}
+                        {{ `${capitalize(shownDate.monthLong)} ${shownDate.year}` }}
                     </span>
                 </div>
                 <div>
                     <h-icon-button :icon="Icons.chevronDoubleRight" size="normal" styling="subtle"
-                                   @click="plusShownDate({years: 1})" />
+                                   @click="plusShownDate({years: 1})"/>
                     <h-icon-button :icon="Icons.chevronRight" size="normal" styling="subtle"
-                                   @click="plusShownDate({months: 1})" />
+                                   @click="plusShownDate({months: 1})"/>
                 </div>
             </div>
             <div :class="[css_ec('calendar')]">
@@ -41,27 +41,28 @@
                     <div v-for="weekday in weekdayNames">{{ weekday }}</div>
                 </div>
                 <div :class="[css_ec('calendar-dates'), {'-has-dots': cachedDots !== null}]">
-                    <div v-for="date in daysToShow" :key="`${date.date.toISODate()}-${shownDate.toISODate()}`" :class="[css_ec('calendar-date'), date.classes]"
+                    <div v-for="date in daysToShow" :key="`${date.date.toISODate()}-${shownDate.toISODate()}`"
+                         :class="[css_ec('calendar-date'), date.classes]"
                          @click="onDateClick(date.date)">
                         {{ date.date.day }}
                         <template v-if="cachedDots !== null && cachedDots[date.date.toISODate()]">
                             <div :class="[css_ec('dots-container')]">
                                 <span v-for="dot in cachedDots[date.date.toISODate()]" :class="[css_ec('dot')]"
-                                      :style="{background: dot.color || null}" />
+                                      :style="{background: dot.color || null}"/>
                             </div>
                         </template>
                     </div>
                 </div>
             </div>
             <template #arrow>
-                <h-icon icon="tooltip-arrow" :class="[css_ec('arrow')]" />
+                <h-icon icon="tooltip-arrow" :class="[css_ec('arrow')]"/>
             </template>
         </h-floating>
     </hr-date-picker>
 </template>
 
 <script lang="tsx">
-import { computed, defineComponent, PropType, ref, SetupContext, watch } from 'vue';
+import {computed, defineComponent, PropType, ref, SetupContext, watch} from 'vue';
 import componentCss from '../../../utils/component-css';
 import {
     coreDatePickerModelValueProp,
@@ -73,10 +74,11 @@ import {
     splitPlacement, CoreFloatingClickOutsideEvent,
 } from '@hyrioo/hyrnatic-ui-core';
 import Icons from '../../../icons';
-import { DateTime, Duration, Info as DateTimeInfo } from 'luxon';
-import { ComputePositionReturn, offset, size } from '@floating-ui/dom';
+import {DateTime, Duration, Info as DateTimeInfo} from 'luxon';
+import {ComputePositionReturn, offset, size} from '@floating-ui/dom';
+import {capitalize} from "../../../utils/string";
 
-const transitions: {[key: string]: string} = {
+const transitions: { [key: string]: string } = {
     top: 'tiny2x-slide-down-medium',
     bottom: 'tiny2x-slide-up-medium',
 };
@@ -106,7 +108,7 @@ export default defineComponent({
         }
     },
     emits: ['update:modelValue', 'focus', 'blur', 'view-changed'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const componentCssHelpers = componentCss();
         const input = ref();
         const icon = ref();
@@ -124,7 +126,7 @@ export default defineComponent({
             if (props.dots === null) {
                 return null;
             }
-            const obj: {[key:string]: { date: DateTime, color?: string }[]} = {};
+            const obj: { [key: string]: { date: DateTime, color?: string }[] } = {};
             props.dots.forEach((dot: { date: DateTime, color?: string }) => {
                 const date = dot.date.toISODate();
                 obj[date] = obj[date] || [];
@@ -134,10 +136,11 @@ export default defineComponent({
         });
 
         const weekdayNames = computed(() => {
-            let w = DateTimeInfo.weekdays('short', { locale: 'en' });
+            let w = DateTimeInfo.weekdays('short');
             if (props.firstDayOfWeek !== 0) {
                 w.unshift(...w.splice(props.firstDayOfWeek, 7 - props.firstDayOfWeek));
             }
+            w = w.map((d) => capitalize(d.replace(/\./g, '')));
             return w;
         });
         const daysToShow = computed<{ date: DateTime, classes: any }[]>(() => {
@@ -150,7 +153,7 @@ export default defineComponent({
                 offset -= props.firstDayOfWeek;
             }
             const today = DateTime.now();
-            let date = startOfMonth.minus({ days: offset });
+            let date = startOfMonth.minus({days: offset});
             for (let i = 0; i < 6 * 7; i++) {
                 days.push({
                     date,
@@ -160,7 +163,7 @@ export default defineComponent({
                         '-selected': props.modelValue && date.hasSame(props.modelValue, 'day')
                     }
                 });
-                date = date.plus({ days: 1 });
+                date = date.plus({days: 1});
             }
             return days;
         });
@@ -217,7 +220,7 @@ export default defineComponent({
             }
         });
         watch(daysToShow, (value) => {
-            ctx.emit('view-changed', { from: value[0].date, to: value[value.length - 1].date });
+            ctx.emit('view-changed', {from: value[0].date, to: value[value.length - 1].date});
         });
 
         const asProps = (slotProps: CoreDatePickerSlotProps) => ({
@@ -227,6 +230,7 @@ export default defineComponent({
 
         return {
             Icons,
+            capitalize,
             input,
             icon,
             inputValue,

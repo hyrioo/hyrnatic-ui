@@ -1,7 +1,7 @@
 var ln = Object.defineProperty;
 var an = (e, t, n) => t in e ? ln(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var K = (e, t, n) => (an(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { computed as h, reactive as x, defineComponent as T, h as A, getCurrentInstance as D, provide as W, inject as G, ref as k, watch as z, getCurrentScope as cn, onScopeDispose as un, unref as dn, toRef as fn, readonly as It, customRef as pn, onMounted as re, nextTick as ne, shallowReactive as mn, onUnmounted as he, Teleport as Rt, shallowRef as xt, createVNode as le, Transition as hn, isVNode as vn, withDirectives as Ie, mergeProps as ze, vShow as gn, resolveDirective as Re, onBeforeUnmount as bn } from "vue";
+import { computed as h, reactive as x, defineComponent as V, h as A, getCurrentInstance as D, provide as W, inject as G, ref as k, watch as z, getCurrentScope as cn, onScopeDispose as un, unref as dn, toRef as fn, readonly as It, customRef as pn, onMounted as re, nextTick as ne, shallowReactive as mn, onUnmounted as he, Teleport as Rt, shallowRef as xt, createVNode as le, Transition as hn, isVNode as vn, withDirectives as Ie, mergeProps as ze, vShow as gn, resolveDirective as Re, onBeforeUnmount as bn } from "vue";
 function N(e, t) {
   return e.__hyrnatic_ui_installed && e.__hyrnatic_ui_installed.indexOf(t) !== -1;
 }
@@ -181,7 +181,7 @@ var In = 20, Rn = ["top", "right", "bottom", "left", "width", "height", "size", 
       return this.instance_ || (this.instance_ = new e()), this.instance_;
     }, e.instance_ = null, e;
   }()
-), Vt = function(e, t) {
+), Tt = function(e, t) {
   for (var n = 0, o = Object.keys(t); n < o.length; n++) {
     var s = o[n];
     Object.defineProperty(e, s, {
@@ -195,7 +195,7 @@ var In = 20, Rn = ["top", "right", "bottom", "left", "width", "height", "size", 
 }, fe = function(e) {
   var t = e && e.ownerDocument && e.ownerDocument.defaultView;
   return t || xe;
-}, Tt = Ee(0, 0, 0, 0);
+}, Vt = Ee(0, 0, 0, 0);
 function ke(e) {
   return parseFloat(e) || 0;
 }
@@ -218,10 +218,10 @@ function Dn(e) {
   var t = e.getBBox();
   return Ee(0, 0, t.width, t.height);
 }
-function Vn(e) {
+function Tn(e) {
   var t = e.clientWidth, n = e.clientHeight;
   if (!t && !n)
-    return Tt;
+    return Vt;
   var o = fe(e).getComputedStyle(e), s = On(o), r = s.left + s.right, i = s.top + s.bottom, l = ke(o.width), a = ke(o.height);
   if (o.boxSizing === "border-box" && (Math.round(l + r) !== t && (l -= Ge(o, "left", "right") + r), Math.round(a + i) !== n && (a -= Ge(o, "top", "bottom") + i)), !En(e)) {
     var u = Math.round(l + r) - t, b = Math.round(a + i) - n;
@@ -229,7 +229,7 @@ function Vn(e) {
   }
   return Ee(s.left, s.top, l, a);
 }
-var Tn = function() {
+var Vn = function() {
   return typeof SVGGraphicsElement < "u" ? function(e) {
     return e instanceof fe(e).SVGGraphicsElement;
   } : function(e) {
@@ -240,11 +240,11 @@ function En(e) {
   return e === fe(e).document.documentElement;
 }
 function $n(e) {
-  return Ne ? Tn(e) ? Dn(e) : Vn(e) : Tt;
+  return Ne ? Vn(e) ? Dn(e) : Tn(e) : Vt;
 }
 function An(e) {
   var t = e.x, n = e.y, o = e.width, s = e.height, r = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, i = Object.create(r.prototype);
-  return Vt(i, {
+  return Tt(i, {
     x: t,
     y: n,
     width: o,
@@ -277,7 +277,7 @@ var Bn = (
   function() {
     function e(t, n) {
       var o = An(n);
-      Vt(this, { target: t, contentRect: o });
+      Tt(this, { target: t, contentRect: o });
     }
     return e;
   }()
@@ -470,7 +470,7 @@ const Wn = {
 function ml() {
   return $(D());
 }
-const Kn = /* @__PURE__ */ T({
+const Kn = /* @__PURE__ */ V({
   name: "hr-button",
   props: {
     ...B,
@@ -547,7 +547,7 @@ const Kn = /* @__PURE__ */ T({
 function hl() {
   return $(D());
 }
-const to = /* @__PURE__ */ T({
+const to = /* @__PURE__ */ V({
   name: "hr-checkbox",
   props: {
     ...B,
@@ -648,7 +648,7 @@ const to = /* @__PURE__ */ T({
 function vl() {
   return $(D());
 }
-const io = /* @__PURE__ */ T({
+const io = /* @__PURE__ */ V({
   name: "hr-collapse",
   props: {
     ...B,
@@ -698,7 +698,7 @@ const io = /* @__PURE__ */ T({
 function gl() {
   return $(D());
 }
-const ao = /* @__PURE__ */ T({
+const ao = /* @__PURE__ */ V({
   name: "hr-collapse-item",
   props: {
     ...B,
@@ -735,7 +735,7 @@ const ao = /* @__PURE__ */ T({
 function bl() {
   return $(D());
 }
-const uo = /* @__PURE__ */ T({
+const uo = /* @__PURE__ */ V({
   name: "hr-inline-collapse",
   props: {
     ...B,
@@ -1006,7 +1006,7 @@ const We = {
   trimMultiSpaces(e) {
     return e.replace(/ +(?= )/g, "");
   }
-}, pe = mn({}), Oo = /* @__PURE__ */ T({
+}, pe = mn({}), Oo = /* @__PURE__ */ V({
   name: "hr-dialog-wrapper",
   props: {
     teleport: {
@@ -1125,7 +1125,7 @@ function Ht(e) {
   const t = G("wrapper-name");
   return pe[t].getDialog(e);
 }
-function Vo() {
+function To() {
   const e = D(), t = Ht(e.vnode.key);
   return W("dialog-id", e.vnode.key), W("dialog-resolve", t.resolve), W("dialog-reject", t.reject), W("dialog-transition-end", t.transitionEnd), {
     resolve: t.resolve,
@@ -1138,8 +1138,8 @@ const yl = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   createPromise: Do,
   getDialog: Ht,
   getWrapper: jt,
-  setupDialog: Vo
-}, Symbol.toStringTag, { value: "Module" })), To = {
+  setupDialog: To
+}, Symbol.toStringTag, { value: "Module" })), Vo = {
   visible: {
     type: Boolean,
     default: !1
@@ -1154,10 +1154,10 @@ function wl(e = [], t = []) {
     listeners: Mt(n, t)
   };
 }
-const Eo = /* @__PURE__ */ T({
+const Eo = /* @__PURE__ */ V({
   name: "hr-dialog",
   props: {
-    ...To
+    ...Vo
   },
   setup(e, t) {
     const n = G("dialog-id");
@@ -1194,7 +1194,7 @@ const Eo = /* @__PURE__ */ T({
 function Pl() {
   return $(D());
 }
-const Lo = /* @__PURE__ */ T({
+const Lo = /* @__PURE__ */ V({
   name: "hr-dropdown-item",
   props: {
     ...B,
@@ -1263,7 +1263,7 @@ const Lo = /* @__PURE__ */ T({
 function Cl() {
   return $(D());
 }
-const Ho = /* @__PURE__ */ T({
+const Ho = /* @__PURE__ */ V({
   name: "hr-dropdown",
   props: {
     ...B,
@@ -1391,10 +1391,10 @@ function Yo(e, t, n) {
   n === void 0 && (n = !1);
   const o = qe(e), s = qt(e), r = Wt(s);
   let i = s === "x" ? o === (n ? "end" : "start") ? "right" : "left" : o === "start" ? "bottom" : "top";
-  return t.reference[r] > t.floating[r] && (i = Ve(i)), [i, Ve(i)];
+  return t.reference[r] > t.floating[r] && (i = Te(i)), [i, Te(i)];
 }
 function Xo(e) {
-  const t = Ve(e);
+  const t = Te(e);
   return [je(e), t, je(t)];
 }
 function je(e) {
@@ -1418,7 +1418,7 @@ function Zo(e, t, n, o) {
   let r = Go(ce(e), n === "start", o);
   return s && (r = r.map((i) => i + "-" + s), t && (r = r.concat(r.map(je)))), r;
 }
-function Ve(e) {
+function Te(e) {
   return e.replace(/left|right|bottom|top/g, (t) => Uo[t]);
 }
 function Jo(e) {
@@ -1438,7 +1438,7 @@ function Qo(e) {
     left: e
   };
 }
-function Te(e) {
+function Ve(e) {
   return {
     ...e,
     top: e.y,
@@ -1575,7 +1575,7 @@ async function Ut(e, t) {
     elementContext: p = "floating",
     altBoundary: v = !1,
     padding: c = 0
-  } = ge(t, e), g = Qo(c), _ = l[v ? p === "floating" ? "reference" : "floating" : p], P = Te(await r.getClippingRect({
+  } = ge(t, e), g = Qo(c), _ = l[v ? p === "floating" ? "reference" : "floating" : p], P = Ve(await r.getClippingRect({
     element: (n = await (r.isElement == null ? void 0 : r.isElement(_))) == null || n ? _ : _.contextElement || await (r.getDocumentElement == null ? void 0 : r.getDocumentElement(l.floating)),
     boundary: u,
     rootBoundary: b,
@@ -1590,7 +1590,7 @@ async function Ut(e, t) {
   } : {
     x: 1,
     y: 1
-  }, m = Te(r.convertOffsetParentRelativeRectToViewportRelativeRect ? await r.convertOffsetParentRelativeRectToViewportRelativeRect({
+  }, m = Ve(r.convertOffsetParentRelativeRectToViewportRelativeRect ? await r.convertOffsetParentRelativeRectToViewportRelativeRect({
     rect: O,
     offsetParent: w,
     strategy: a
@@ -1626,7 +1626,7 @@ const Kt = function(e) {
       } = ge(e, t);
       if ((n = r.arrow) != null && n.alignmentOffset)
         return {};
-      const P = ce(s), O = ce(l) === l, w = await (a.isRTL == null ? void 0 : a.isRTL(u.floating)), d = v || (O || !f ? [Ve(l)] : Xo(l));
+      const P = ce(s), O = ce(l) === l, w = await (a.isRTL == null ? void 0 : a.isRTL(u.floating)), d = v || (O || !f ? [Te(l)] : Xo(l));
       !v && g !== "none" && d.push(...Zo(l, f, g, w));
       const m = [l, ...d], I = await Ut(t, _), L = [];
       let C = ((o = r.flip) == null ? void 0 : o.overflows) || [];
@@ -1638,8 +1638,8 @@ const Kt = function(e) {
         placement: s,
         overflows: L
       }], !L.every((R) => R <= 0)) {
-        var V, y;
-        const R = (((V = r.flip) == null ? void 0 : V.index) || 0) + 1, E = m[R];
+        var T, y;
+        const R = (((T = r.flip) == null ? void 0 : T.index) || 0) + 1, E = m[R];
         if (E)
           return {
             data: {
@@ -1910,7 +1910,7 @@ function ue(e, t, n, o) {
       a *= f.x, u *= f.y, b *= f.x, p *= f.y, a += O, u += w, g = Y(g).frameElement;
     }
   }
-  return Te({
+  return Ve({
     width: b,
     height: p,
     x: a,
@@ -1999,7 +1999,7 @@ function at(e, t, n) {
       y: t.y - s.y
     };
   }
-  return Te(o);
+  return Ve(o);
 }
 function en(e, t) {
   const n = me(e);
@@ -2240,7 +2240,7 @@ function _l(e) {
     alignment: t.length === 2 ? t[1] : null
   };
 }
-const ks = /* @__PURE__ */ T({
+const ks = /* @__PURE__ */ V({
   name: "hr-floating",
   props: {
     ...B,
@@ -2341,7 +2341,7 @@ const ks = /* @__PURE__ */ T({
   install: (e, t) => {
     N(e, ut) || (j(e, Os), F(e, ut));
   }
-}, Vs = {
+}, Ts = {
   active: {
     type: String,
     required: !0
@@ -2350,12 +2350,12 @@ const ks = /* @__PURE__ */ T({
 function Il() {
   return $(D());
 }
-const Ts = /* @__PURE__ */ T({
+const Vs = /* @__PURE__ */ V({
   name: "hr-fragment-container",
   props: {
     ...B,
     ...M,
-    ...Vs
+    ...Ts
   },
   emits: ["click"],
   setup(e, t) {
@@ -2379,7 +2379,7 @@ const Ts = /* @__PURE__ */ T({
     return this.defaultRender();
   }
 }), dt = "core-fragments", Es = {
-  FragmentContainer: Ts
+  FragmentContainer: Vs
 }, $s = {
   install: (e, t) => {
     N(e, dt) || (j(e, Es), F(e, dt));
@@ -2413,7 +2413,7 @@ const Ts = /* @__PURE__ */ T({
 function Rl(e) {
   return $(D()).setProp("input", e);
 }
-const Ns = /* @__PURE__ */ T({
+const Ns = /* @__PURE__ */ V({
   name: "hr-input",
   props: {
     ...B,
@@ -2491,7 +2491,7 @@ const Ns = /* @__PURE__ */ T({
 function xl(e) {
   return $(D()).setProp("input", e);
 }
-const qs = /* @__PURE__ */ T({
+const qs = /* @__PURE__ */ V({
   name: "hr-autocomplete",
   props: {
     ...B,
@@ -2581,7 +2581,7 @@ const qs = /* @__PURE__ */ T({
 function kl() {
   return $(D());
 }
-const Xs = /* @__PURE__ */ T({
+const Xs = /* @__PURE__ */ V({
   name: "hr-notification-wrapper",
   props: {
     ...B,
@@ -2597,7 +2597,7 @@ const Xs = /* @__PURE__ */ T({
       }), f;
     }, r = (g) => {
       const f = t[g];
-      f.visible = !1;
+      f && (f.visible = !1, f.durationTimeout !== null && clearTimeout(f.durationTimeout));
     }, i = (g) => {
       delete t[g];
     }, l = (g) => {
@@ -2608,7 +2608,7 @@ const Xs = /* @__PURE__ */ T({
     }, u = (g) => {
       a(g);
       const f = t[g];
-      f.options.duration !== null && f.durationTimeout === null && (f.durationTimeout = setTimeout(() => {
+      f.options.duration !== null && f.durationTimeout === null && f.visible === !0 && (f.durationTimeout = setTimeout(() => {
         f.reject();
       }, f.options.duration));
     }, v = {
@@ -2702,7 +2702,7 @@ const Ol = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
 function Dl() {
   return $(D());
 }
-const er = /* @__PURE__ */ T({
+const er = /* @__PURE__ */ V({
   name: "hr-notification",
   props: {
     ...B,
@@ -2758,10 +2758,10 @@ const er = /* @__PURE__ */ T({
     default: 1
   }
 };
-function Vl() {
+function Tl() {
   return $(D());
 }
-const lr = /* @__PURE__ */ T({
+const lr = /* @__PURE__ */ V({
   name: "hr-paginator",
   props: {
     ...B,
@@ -2826,10 +2826,10 @@ const lr = /* @__PURE__ */ T({
     default: 100
   }
 };
-function Tl() {
+function Vl() {
   return $(D());
 }
-const pr = /* @__PURE__ */ T({
+const pr = /* @__PURE__ */ V({
   name: "hr-progress-bar",
   props: {
     ...B,
@@ -2885,7 +2885,7 @@ const pr = /* @__PURE__ */ T({
 function El() {
   return $(D());
 }
-const yr = /* @__PURE__ */ T({
+const yr = /* @__PURE__ */ V({
   name: "hr-radio-button",
   props: {
     ...B,
@@ -2963,7 +2963,7 @@ const Cr = {
 function $l() {
   return $(D());
 }
-const Or = /* @__PURE__ */ T({
+const Or = /* @__PURE__ */ V({
   name: "hr-scroll-container",
   props: {
     as: {
@@ -3066,7 +3066,7 @@ const Or = /* @__PURE__ */ T({
     }), bn(() => {
       document.removeEventListener("mousemove", P), document.removeEventListener("mouseup", w), t.value.removeEventListener("scroll", C);
     });
-    const V = (S, R, E) => {
+    const T = (S, R, E) => {
       S === "vertical" ? (n.value = R, o.value = E) : (s.value = R, r.value = E);
     }, y = x({
       anyHover: h(() => u.value),
@@ -3084,7 +3084,7 @@ const Or = /* @__PURE__ */ T({
       startAutoHideTimer: c,
       updateThumbs: I,
       slotProps: y,
-      registerBar: V,
+      registerBar: T,
       scrollTo: L
     };
   },
@@ -3109,11 +3109,11 @@ const Or = /* @__PURE__ */ T({
   }
 }), gt = "core-scroll-containers", Dr = {
   ScrollContainer: Or
-}, Vr = {
-  CommonInstall: At
 }, Tr = {
+  CommonInstall: At
+}, Vr = {
   install: (e, t) => {
-    N(e, gt) || (Ot(e, Vr, t), j(e, Dr), F(e, gt));
+    N(e, gt) || (Ot(e, Tr, t), j(e, Dr), F(e, gt));
   }
 }, we = {
   /**
@@ -3158,7 +3158,7 @@ const Or = /* @__PURE__ */ T({
 function Al() {
   return $(D());
 }
-const zr = /* @__PURE__ */ T({
+const zr = /* @__PURE__ */ V({
   name: "hr-select",
   props: {
     ...B,
@@ -3295,7 +3295,7 @@ const zr = /* @__PURE__ */ T({
 function Bl() {
   return $(D());
 }
-const Hr = /* @__PURE__ */ T({
+const Hr = /* @__PURE__ */ V({
   name: "hr-select-item",
   props: {
     ...B,
@@ -3386,7 +3386,7 @@ const Hr = /* @__PURE__ */ T({
 function Ml() {
   return $(D());
 }
-const Jr = /* @__PURE__ */ T({
+const Jr = /* @__PURE__ */ V({
   name: "hr-simple-select",
   props: {
     ...B,
@@ -3405,10 +3405,10 @@ const Jr = /* @__PURE__ */ T({
   setup(e, t) {
     const n = k(!1), o = k(!1), s = h(() => {
       const C = [].concat(e.modelValue);
-      return e.items.map((V) => {
-        let y = typeof V == "string" ? V : typeof e.label == "string" ? V[e.label] : e.label(V), S = !1;
-        return C.indexOf(V) !== -1 ? S = !0 : e.compare && (typeof e.compare == "string" ? S = C.find((E) => (E !== null && we.getProperty(E, e.compare)) === (V !== null && we.getProperty(V, e.compare))) : S = e.compare(C, V)), {
-          value: V,
+      return e.items.map((T) => {
+        let y = typeof T == "string" ? T : typeof e.label == "string" ? T[e.label] : e.label(T), S = !1;
+        return C.indexOf(T) !== -1 ? S = !0 : e.compare && (typeof e.compare == "string" ? S = C.find((E) => (E !== null && we.getProperty(E, e.compare)) === (T !== null && we.getProperty(T, e.compare))) : S = e.compare(C, T)), {
+          value: T,
           label: y,
           disabled: !1,
           selected: S
@@ -3416,8 +3416,8 @@ const Jr = /* @__PURE__ */ T({
       });
     }), r = k(null), i = h(() => s.value.filter((C) => C.selected)), l = h(() => i.value.length > 0), a = h(() => {
       const C = [];
-      return i.value.forEach((V) => {
-        C.push(V.label);
+      return i.value.forEach((T) => {
+        C.push(T.label);
       }), C.join(", ");
     }), u = k(""), b = k(), p = h(() => s.value.filter((C) => !C.disabled)), v = () => {
       r.value = null;
@@ -3429,11 +3429,11 @@ const Jr = /* @__PURE__ */ T({
       n.value = !1;
     }, g = (C) => {
       const {
-        value: V
+        value: T
       } = C;
       e.hideOnSelect && !e.multiple && c();
-      let y = V;
-      e.multiple && (y = [], e.modelValue !== void 0 && (y = y.concat(e.modelValue)), y.includes(V) ? y.splice(y.indexOf(V), 1) : y.push(V)), r.value = C, t.emit("update:modelValue", y);
+      let y = T;
+      e.multiple && (y = [], e.modelValue !== void 0 && (y = y.concat(e.modelValue)), y.includes(T) ? y.splice(y.indexOf(T), 1) : y.push(T)), r.value = C, t.emit("update:modelValue", y);
     }, f = () => {
       if (e.disabled)
         return !1;
@@ -3443,13 +3443,13 @@ const Jr = /* @__PURE__ */ T({
     }, P = (C) => {
       if (e.disabled)
         return !1;
-      const V = () => r.value ? p.value.findIndex((y) => y === r.value) : null;
+      const T = () => r.value ? p.value.findIndex((y) => y === r.value) : null;
       if (!n.value && (C.key === "ArrowDown" || C.key === "ArrowUp" || C.key === "Enter"))
         n.value = !0, C.preventDefault(), C.stopImmediatePropagation();
       else if (C.key === "ArrowDown")
-        r.value = U.next(p.value, V()), C.preventDefault(), C.stopImmediatePropagation();
+        r.value = U.next(p.value, T()), C.preventDefault(), C.stopImmediatePropagation();
       else if (C.key === "ArrowUp")
-        r.value = U.prev(p.value, V()), C.preventDefault(), C.stopImmediatePropagation();
+        r.value = U.prev(p.value, T()), C.preventDefault(), C.stopImmediatePropagation();
       else if (C.key === "Enter" && r.value)
         g(r.value), C.preventDefault(), C.stopImmediatePropagation();
       else if (C.key === "Tab")
@@ -3546,7 +3546,7 @@ const Jr = /* @__PURE__ */ T({
 function Ll() {
   return $(D());
 }
-const ii = /* @__PURE__ */ T({
+const ii = /* @__PURE__ */ V({
   name: "hr-slider",
   props: {
     ...B,
@@ -3616,7 +3616,7 @@ const ci = {
 function Nl() {
   return $(D());
 }
-const di = /* @__PURE__ */ T({
+const di = /* @__PURE__ */ V({
   name: "hr-steps-navigator",
   props: {
     ...B,
@@ -3747,7 +3747,7 @@ const vi = {
 function Fl() {
   return $(D());
 }
-const Pi = /* @__PURE__ */ T({
+const Pi = /* @__PURE__ */ V({
   name: "hr-table",
   props: {
     ...B,
@@ -3891,7 +3891,7 @@ function jl(e, t = [], n = []) {
     listeners: Mt(o, n)
   };
 }
-const ki = /* @__PURE__ */ T({
+const ki = /* @__PURE__ */ V({
   name: "hr-table-column",
   props: {
     ...Ci,
@@ -3926,7 +3926,7 @@ const ki = /* @__PURE__ */ T({
 function Hl() {
   return $(D());
 }
-const Vi = /* @__PURE__ */ T({
+const Ti = /* @__PURE__ */ V({
   name: "hr-table-row",
   props: {
     ...B,
@@ -3955,13 +3955,13 @@ const Vi = /* @__PURE__ */ T({
     }
     return this.defaultRender();
   }
-}), Pt = "core-tables", Ti = {
+}), Pt = "core-tables", Vi = {
   Table: Pi,
   TableColumn: ki,
-  TableRow: Vi
+  TableRow: Ti
 }, Ei = {
   install: (e, t) => {
-    N(e, Pt) || (j(e, Ti), F(e, Pt));
+    N(e, Pt) || (j(e, Vi), F(e, Pt));
   }
 }, $i = {
   id: {
@@ -3977,7 +3977,7 @@ const Vi = /* @__PURE__ */ T({
 function Wl() {
   return $(D());
 }
-const Bi = /* @__PURE__ */ T({
+const Bi = /* @__PURE__ */ V({
   name: "hr-tab-item",
   props: {
     ...B,
@@ -4024,7 +4024,7 @@ const Bi = /* @__PURE__ */ T({
 function ql() {
   return $(D());
 }
-const Li = /* @__PURE__ */ T({
+const Li = /* @__PURE__ */ V({
   name: "hr-tabs-navigator",
   props: {
     ...B,
@@ -4096,7 +4096,7 @@ const Li = /* @__PURE__ */ T({
 function Ul(e) {
   return $(D()).setProp("reference", e);
 }
-const qi = /* @__PURE__ */ T({
+const qi = /* @__PURE__ */ V({
   name: "hr-tooltip",
   props: {
     ...Fi,
@@ -4211,7 +4211,7 @@ const qi = /* @__PURE__ */ T({
 function Yl() {
   return $(D());
 }
-const tl = /* @__PURE__ */ T({
+const tl = /* @__PURE__ */ V({
   name: "hr-date-picker",
   props: {
     ...B,
@@ -4283,12 +4283,12 @@ const Gl = (e) => ({
     const O = P[c] + P[p] - b[p] - l.floating[c], w = b[p] - P[p], d = await ((H = a.getOffsetParent) == null ? void 0 : H.call(a, n));
     let m = d ? p === "y" ? d.clientHeight || 0 : d.clientWidth || 0 : 0;
     m === 0 && (m = l.floating[c]);
-    const I = O / 2 - w / 2, L = u[f], C = m - g[c] - u[_], V = m / 2 - g[c] / 2 + I, y = cl(L, V, C), E = (v === "start" ? u[f] : u[_]) > 0 && V !== y && P[c] <= l.floating[c] ? V < L ? L - V : C - V : 0;
+    const I = O / 2 - w / 2, L = u[f], C = m - g[c] - u[_], T = m / 2 - g[c] / 2 + I, y = cl(L, T, C), E = (v === "start" ? u[f] : u[_]) > 0 && T !== y && P[c] <= l.floating[c] ? T < L ? L - T : C - T : 0;
     return {
       [p]: b[p] - E,
       data: {
         [p]: y,
-        centerOffset: V - y
+        centerOffset: T - y
       }
     };
   }
@@ -4306,7 +4306,7 @@ const Gl = (e) => ({
   PaginatorsInstall: cr,
   ProgressBarsInstall: hr,
   RadioButtonsInstall: Pr,
-  ScrollContainersInstall: Tr,
+  ScrollContainersInstall: Vr,
   SelectsInstall: ei,
   SlidersInstall: ai,
   StepsInstall: pi,
@@ -4335,7 +4335,7 @@ export {
   cr as CorePaginatorsInstall,
   hr as CoreProgressBarsInstall,
   Pr as CoreRadioButtonsInstall,
-  Tr as CoreScrollContainersInstall,
+  Vr as CoreScrollContainersInstall,
   ei as CoreSelectsInstall,
   ai as CoreSlidersInstall,
   pi as CoreStepsInstall,
@@ -4382,7 +4382,7 @@ export {
   Kl as coreDatePickerValueFormatProp,
   Gi as coreDatePickerVisibleProp,
   wl as coreDialogSetup,
-  To as coreDialogVisibleProp,
+  Vo as coreDialogVisibleProp,
   Oo as coreDialogWrapper,
   zo as coreDropdownDisabledProp,
   No as coreDropdownHideOnClickProp,
@@ -4400,7 +4400,7 @@ export {
   Sl as coreFloatingSetup,
   Is as coreFloatingTransitionProp,
   Ss as coreFloatingVisibleProp,
-  Vs as coreFragmentContainerActiveProp,
+  Ts as coreFragmentContainerActiveProp,
   Il as coreFragmentContainerSetup,
   co as coreInlineCollapseModelValueProp,
   Ms as coreInputDisabledProp,
@@ -4417,10 +4417,10 @@ export {
   ir as corePaginatorDeltaProp,
   or as corePaginatorModelValueProp,
   sr as corePaginatorPageSizeProp,
-  Vl as corePaginatorSetup,
+  Tl as corePaginatorSetup,
   fr as coreProgressBarMaximumProp,
   dr as coreProgressBarMinimumProp,
-  Tl as coreProgressBarSetup,
+  Vl as coreProgressBarSetup,
   ur as coreProgressBarValueProp,
   vr as coreRadioButtonDisabledProp,
   gr as coreRadioButtonModelValueProp,

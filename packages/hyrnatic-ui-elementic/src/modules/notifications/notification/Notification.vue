@@ -42,27 +42,8 @@ export default defineComponent({
             default: true,
         },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const componentCssHelpers = componentCss();
-        const transitionEnd = inject<() => void>('notification-transition-end');
-        const activeTransitions = reactive({});
-
-        watch(activeTransitions, () => {
-            if (Object.keys(activeTransitions).length === 0) {
-                transitionEnd();
-            }
-        });
-
-        const transitionEnded = (key) => {
-            if (props.visible === false) {
-                delete activeTransitions[key];
-            }
-        };
-        const transitionStarted = (key) => {
-            if (props.visible === false) {
-                activeTransitions[key] = true;
-            }
-        };
 
         const asProps = (slotProps: CoreNotificationSlotProps) => ({
             class: [componentCssHelpers.css_root.value, `-color-${props.color}`,],
@@ -73,8 +54,6 @@ export default defineComponent({
             Icons,
             core,
             ...componentCss(),
-            transitionEnded,
-            transitionStarted,
         };
     },
 });

@@ -24,7 +24,7 @@ export default defineComponent({
         },
     },
     emits: ['something'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         NotificationManager.setupNotification();
 
         return { };

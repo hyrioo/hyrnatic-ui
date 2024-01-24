@@ -33,115 +33,116 @@ $c-success: #6ACC6A !default;
 $c-warning: #FFBC85 !default;
 $c-danger: #ff8585 !default;
 
-$c-disabled: #F8F8F8;
-$c-fill: #FFFFFF;
+$c-disabled: #F8F8F8 !default;
+$c-fill: #FFFFFF !default;
 
-$c-light-primary: rgba-solid(rgba($c-primary, $o-32), #F5F5F5);
-$c-light-negative: rgba-solid(rgba($c-negative, $o-32), #F5F5F5);
-$c-light-success: rgba-solid(rgba($c-success, $o-32), #F5F5F5);
-$c-light-warning: rgba-solid(rgba($c-warning, $o-32), #F5F5F5);
-$c-light-danger: rgba-solid(rgba($c-danger, $o-32), #F5F5F5);
+$c-light-primary: rgba-solid(rgba($c-primary, $o-32), #F5F5F5) !default;
+$c-light-negative: rgba-solid(rgba($c-negative, $o-32), #F5F5F5) !default;
+$c-light-success: rgba-solid(rgba($c-success, $o-32), #F5F5F5) !default;
+$c-light-warning: rgba-solid(rgba($c-warning, $o-32), #F5F5F5) !default;
+$c-light-danger: rgba-solid(rgba($c-danger, $o-32), #F5F5F5) !default;
 
-$c-dark-primary: rgba-solid(rgba($c-primary, $o-80), #000);
-$c-dark-negative: rgba-solid(rgba($c-negative, $o-80), #000);
-$c-dark-success: rgba-solid(rgba($c-success, $o-80), #000);
-$c-dark-warning: rgba-solid(rgba($c-warning, $o-80), #000);
-$c-dark-danger: rgba-solid(rgba($c-danger, $o-80), #000);
+$c-dark-primary: rgba-solid(rgba($c-primary, $o-80), #000) !default;
+$c-dark-negative: rgba-solid(rgba($c-negative, $o-80), #000) !default;
+$c-dark-success: rgba-solid(rgba($c-success, $o-80), #000) !default;
+$c-dark-warning: rgba-solid(rgba($c-warning, $o-80), #000) !default;
+$c-dark-danger: rgba-solid(rgba($c-danger, $o-80), #000) !default;
 
-$c-default-shadow: #4A5C5C;
+$c-default-shadow: #4A5C5C !default;
 
-$c-primary-text: $c-primary;
-$c-negative-text: #4A5C5C;
-$c-success-text: #43AF43;
-$c-warning-text: #DB9154;
-$c-danger-text: #DB5454;
+$c-primary-text: $c-primary !default;
+$c-negative-text: #4A5C5C !default;
+$c-success-text: #43AF43 !default;
+$c-warning-text: #DB9154 !default;
+$c-danger-text: #DB5454 !default;
 
-$c-default-text: #202020;
-$c-dark-text: #4A5C5C;
-$c-light-text: #C7DBDB;
-$c-dark-text-hint: rgba($c-dark-text, $o-64);
-$c-light-text-hint: rgba($c-light-text, $o-64);
+$c-default-text: #202020 !default;
+$c-dark-text: #4A5C5C !default;
+$c-light-text: #C7DBDB !default;
+$c-dark-text-hint: rgba($c-dark-text, $o-64) !default;
+$c-light-text-hint: rgba($c-light-text, $o-64) !default;
 
 
 
 /* Components colors
    ========================= */
 
-$c-primary-border: $c-light-primary;
-$c-negative-border: $c-light-negative;
-$c-success-border: $c-light-success;
-$c-warning-border: $c-light-warning;
-$c-danger-border: $c-light-danger;
+$c-primary-border: $c-light-primary !default;
+$c-negative-border: $c-light-negative !default;
+$c-success-border: $c-light-success !default;
+$c-warning-border: $c-light-warning !default;
+$c-danger-border: $c-light-danger !default;
 
-$c-primary-background: $c-fill;
-$c-negative-background: $c-fill;
-$c-success-background: $c-fill;
-$c-warning-background: $c-fill;
-$c-danger-background: $c-fill;
-
-
-$c-checked--primary-background: $c-primary;
-$c-checked--negative-background: $c-negative;
-$c-checked--success-background: $c-success;
-$c-checked--warning-background: $c-warning;
-$c-checked--danger-background: $c-danger;
-
-$c-checked--primary-text: $c-fill;
-$c-checked--negative-text: $c-fill;
-$c-checked--success-text: $c-fill;
-$c-checked--warning-text: $c-fill;
-$c-checked--danger-text: $c-fill;
+$c-primary-background: $c-fill !default;
+$c-negative-background: $c-fill !default;
+$c-success-background: $c-fill !default;
+$c-warning-background: $c-fill !default;
+$c-danger-background: $c-fill !default;
 
 
-$c-hover--primary-background: $c-primary;
-$c-hover--negative-background: $c-negative;
-$c-hover--success-background: $c-success;
-$c-hover--warning-background: $c-warning;
-$c-hover--danger-background: $c-danger;
+$c-checked--primary-background: $c-primary !default;
+$c-checked--negative-background: $c-negative !default;
+$c-checked--success-background: $c-success !default;
+$c-checked--warning-background: $c-warning !default;
+$c-checked--danger-background: $c-danger !default;
 
-$c-hover--primary-border: $c-primary;
-$c-hover--negative-border: $c-negative;
-$c-hover--success-border: $c-success;
-$c-hover--warning-border: $c-warning;
-$c-hover--danger-border: $c-danger;
-
-
-$c-active--primary-background: $c-dark-primary;
-$c-active--negative-background: $c-dark-negative;
-$c-active--success-background: $c-dark-success;
-$c-active--warning-background: $c-dark-warning;
-$c-active--danger-background: $c-dark-danger;
-
-$c-active--primary-border: $c-dark-primary;
-$c-active--negative-border: $c-dark-negative;
-$c-active--success-border: $c-dark-success;
-$c-active--warning-border: $c-dark-warning;
-$c-active--danger-border: $c-dark-danger;
-
-$c-active--primary-text: $c-dark-primary;
-$c-active--negative-text: $c-dark-negative;
-$c-active--success-text: $c-dark-success;
-$c-active--warning-text: $c-dark-warning;
-$c-active--danger-text: $c-dark-danger;
+$c-checked--primary-text: $c-fill !default;
+$c-checked--negative-text: $c-fill !default;
+$c-checked--success-text: $c-fill !default;
+$c-checked--warning-text: $c-fill !default;
+$c-checked--danger-text: $c-fill !default;
 
 
-$c-disabled--primary-background: $c-disabled;
-$c-disabled--negative-background: $c-disabled;
-$c-disabled--success-background: $c-disabled;
-$c-disabled--warning-background: $c-disabled;
-$c-disabled--danger-background: $c-disabled;
+$c-hover--primary-background: $c-primary !default;
+$c-hover--negative-background: $c-negative !default;
+$c-hover--success-background: $c-success !default;
+$c-hover--warning-background: $c-warning !default;
+$c-hover--danger-background: $c-danger !default;
 
-$c-disabled--primary-text: rgba($c-dark-text, $o-64);
-$c-disabled--negative-text: rgba($c-dark-text, $o-64);
-$c-disabled--success-text: rgba($c-dark-text, $o-64);
-$c-disabled--warning-text: rgba($c-dark-text, $o-64);
-$c-disabled--danger-text: rgba($c-dark-text, $o-64);
+$c-hover--primary-border: $c-primary !default;
+$c-hover--negative-border: $c-negative !default;
+$c-hover--success-border: $c-success !default;
+$c-hover--warning-border: $c-warning !default;
+$c-hover--danger-border: $c-danger !default;
 
 
-$c-box--primary-border: $c-primary-border;
-$c-box--danger-border: $c-danger-border;
-$c-box-background: $c-fill;
-$c-box-backdrop: rgba($c-fill, $o-80);
+$c-active--primary-background: $c-dark-primary !default;
+$c-active--negative-background: $c-dark-negative !default;
+$c-active--success-background: $c-dark-success !default;
+$c-active--warning-background: $c-dark-warning !default;
+$c-active--danger-background: $c-dark-danger !default;
+
+$c-active--primary-border: $c-dark-primary !default;
+$c-active--negative-border: $c-dark-negative !default;
+$c-active--success-border: $c-dark-success !default;
+$c-active--warning-border: $c-dark-warning !default;
+$c-active--danger-border: $c-dark-danger !default;
+
+$c-active--primary-text: $c-dark-primary !default;
+$c-active--negative-text: $c-dark-negative !default;
+$c-active--success-text: $c-dark-success !default;
+$c-active--warning-text: $c-dark-warning !default;
+$c-active--danger-text: $c-dark-danger !default;
+
+
+$c-disabled--primary-background: $c-disabled !default;
+$c-disabled--negative-background: $c-disabled !default;
+$c-disabled--success-background: $c-disabled !default;
+$c-disabled--warning-background: $c-disabled !default;
+$c-disabled--danger-background: $c-disabled !default;
+
+$c-disabled--primary-text: rgba($c-dark-text, $o-64) !default;
+$c-disabled--negative-text: rgba($c-dark-text, $o-64) !default;
+$c-disabled--success-text: rgba($c-dark-text, $o-64) !default;
+$c-disabled--warning-text: rgba($c-dark-text, $o-64) !default;
+$c-disabled--danger-text: rgba($c-dark-text, $o-64) !default;
+
+
+$c-box--primary-border: $c-primary-border !default;
+$c-box--danger-border: $c-danger-border !default;
+$c-box-background: $c-fill !default;
+$c-box-backdrop-light: rgba($c-fill, $o-80) !default;
+$c-box-backdrop-dark: rgba(#212121, $o-80) !default;
 
 
 /* Layout
@@ -265,31 +266,31 @@ $t-slow-sharp: $s-slow $e-sharp;
 /* Shadows
    ========================= */
 
-$sd-hover--primary-box-shadow: default-box-shadow($c-primary, $o-16p, $g-12);
-$sd-hover--negative-box-shadow: default-box-shadow($c-negative, $o-16p, $g-12);
-$sd-hover--success-box-shadow: default-box-shadow($c-success, $o-16p, $g-12);
-$sd-hover--warning-box-shadow: default-box-shadow($c-warning, $o-16p, $g-12);
-$sd-hover--danger-box-shadow: default-box-shadow($c-danger, $o-16p, $g-12);
+$sd-hover--primary-box-shadow: default-box-shadow($c-primary, $o-16p, $g-12) !default;
+$sd-hover--negative-box-shadow: default-box-shadow($c-negative, $o-16p, $g-12) !default;
+$sd-hover--success-box-shadow: default-box-shadow($c-success, $o-16p, $g-12) !default;
+$sd-hover--warning-box-shadow: default-box-shadow($c-warning, $o-16p, $g-12) !default;
+$sd-hover--danger-box-shadow: default-box-shadow($c-danger, $o-16p, $g-12) !default;
 
-$sd-hover--primary-text-shadow: default-text-shadow($c-primary);
-$sd-hover--negative-text-shadow: default-text-shadow($c-negative);
-$sd-hover--success-text-shadow: default-text-shadow($c-success);
-$sd-hover--warning-text-shadow: default-text-shadow($c-warning);
-$sd-hover--danger-text-shadow: default-text-shadow($c-danger);
+$sd-hover--primary-text-shadow: default-text-shadow($c-primary) !default;
+$sd-hover--negative-text-shadow: default-text-shadow($c-negative) !default;
+$sd-hover--success-text-shadow: default-text-shadow($c-success) !default;
+$sd-hover--warning-text-shadow: default-text-shadow($c-warning) !default;
+$sd-hover--danger-text-shadow: default-text-shadow($c-danger) !default;
 
 
-$sd-active--primary-box-shadow: default-box-shadow($c-dark-primary, $o-16p, $g-12);
-$sd-active--negative-box-shadow: default-box-shadow($c-dark-negative, $o-16p, $g-12);
-$sd-active--success-box-shadow: default-box-shadow($c-dark-success, $o-16p, $g-12);
-$sd-active--warning-box-shadow: default-box-shadow($c-dark-warning, $o-16p, $g-12);
-$sd-active--danger-box-shadow: default-box-shadow($c-dark-danger, $o-16p, $g-12);
+$sd-active--primary-box-shadow: default-box-shadow($c-dark-primary, $o-16p, $g-12) !default;
+$sd-active--negative-box-shadow: default-box-shadow($c-dark-negative, $o-16p, $g-12) !default;
+$sd-active--success-box-shadow: default-box-shadow($c-dark-success, $o-16p, $g-12) !default;
+$sd-active--warning-box-shadow: default-box-shadow($c-dark-warning, $o-16p, $g-12) !default;
+$sd-active--danger-box-shadow: default-box-shadow($c-dark-danger, $o-16p, $g-12) !default;
 
-$sd-active--primary-text-shadow: default-text-shadow($c-dark-primary);
-$sd-active--negative-text-shadow: default-text-shadow($c-dark-negative);
-$sd-active--success-text-shadow: default-text-shadow($c-dark-success);
-$sd-active--warning-text-shadow: default-text-shadow($c-dark-warning);
-$sd-active--danger-text-shadow: default-text-shadow($c-dark-danger);
+$sd-active--primary-text-shadow: default-text-shadow($c-dark-primary) !default;
+$sd-active--negative-text-shadow: default-text-shadow($c-dark-negative) !default;
+$sd-active--success-text-shadow: default-text-shadow($c-dark-success) !default;
+$sd-active--warning-text-shadow: default-text-shadow($c-dark-warning) !default;
+$sd-active--danger-text-shadow: default-text-shadow($c-dark-danger) !default;
 
-$sd-card-box-shadow: 0 2px $g-4 rgba($c-default-shadow, $o-16);
-$sd-modal-box-shadow: 0 0 $g-16 rgba($c-default-shadow, $o-16);
-$sd-tooltip-box: 0 0 $g-12 rgba($c-default-shadow, $o-16);
+$sd-card-box-shadow: 0 2px $g-4 rgba($c-default-shadow, $o-16) !default;
+$sd-modal-box-shadow: 0 0 $g-16 rgba($c-default-shadow, $o-16) !default;
+$sd-tooltip-box: 0 0 $g-12 rgba($c-default-shadow, $o-16) !default;

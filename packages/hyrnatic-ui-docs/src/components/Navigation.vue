@@ -16,7 +16,7 @@
 import { defineComponent, SetupContext } from 'vue';
 
 export default defineComponent({
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const modules = [
             {
                 name: 'Alerts',

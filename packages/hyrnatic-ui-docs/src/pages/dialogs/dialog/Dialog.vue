@@ -28,6 +28,12 @@
                             <h-select-item value="danger" label="Danger" />
                         </h-select>
                     </preview-option-form-control>
+                    <preview-option-form-control>
+                        <h-select v-model="backdropColor" placeholder="Select backdrop color" style="width: 100%;">
+                            <h-select-item value="light" label="Light" />
+                            <h-select-item value="dark" label="Dark" />
+                        </h-select>
+                    </preview-option-form-control>
                 </template>
             </component-preview>
         </section>
@@ -67,11 +73,12 @@ import SampleDialog from '../../../components/SampleDialog.vue';
 import { dialogExample, previewExample, usageExample, wrapperExample } from './snippets';
 
 export default defineComponent({
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const showCloseButton = ref(true);
         const expandHeight = ref(false);
         const hide = ref(false);
         const color = ref('primary');
+        const backdropColor = ref('light');
         const counter = ref(0);
 
         const onClick = async () => {
@@ -79,6 +86,7 @@ export default defineComponent({
                 const dialog = DialogManager.create(SampleDialog, {
                     showCloseButton: showCloseButton,
                     color: color,
+                    backdropColor: backdropColor,
                     text: '1',
                     counter: counter,
                     expandHeight: expandHeight,
@@ -114,6 +122,7 @@ export default defineComponent({
             showCloseButton,
             expandHeight,
             color,
+            backdropColor,
             hide,
         };
     },

@@ -17,8 +17,6 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }, {
-    transitionEnded: (key: any) => void;
-    transitionStarted: (key: any) => void;
     css_root: import("vue").ComputedRef<string | null | undefined>;
     css_ec: (element: string) => string;
     Icons: {

@@ -6,8 +6,8 @@ import {
     ComputedRef, reactive, provide, getCurrentInstance,
 } from 'vue';
 import Str from '../../../utils/string';
-import { coreComponentAsProp, coreComponentAsPropsProp, setupBuilder } from '../../../utils/component';
-import { NotificationOptions } from './NotificationManager';
+import {coreComponentAsProp, coreComponentAsPropsProp, setupBuilder} from '../../../utils/component';
+import {NotificationOptions} from './NotificationManager';
 
 export interface NotificationObject {
     component: DefineComponent;
@@ -16,6 +16,7 @@ export interface NotificationObject {
     options: NotificationOptions;
     promise: { resolve: (payload: any) => void; reject: (payload: any) => void };
 }
+
 export interface InternalNotificationObject extends NotificationObject {
     id: string;
     visible: boolean;
@@ -25,6 +26,7 @@ export interface InternalNotificationObject extends NotificationObject {
     transitionEnd: () => void;
     durationTimeout: any;
 }
+
 export type Wrapper = {
     addNotification(notification: NotificationObject): InternalNotificationObject;
     getNotification(id: string): InternalNotificationObject;
@@ -45,6 +47,7 @@ export type CoreNotificationWrapperSlotProps = {
     name: ComputedRef<string>;
     notifications: ComputedRef<{ [key: string]: InternalNotificationObject }>;
 }
+
 export function coreNotificationWrapperSetup() {
     return setupBuilder<CoreNotificationWrapperSlotProps>(getCurrentInstance()!);
 }
@@ -101,7 +104,13 @@ export default defineComponent({
          */
         const hideNotification = (id: string) => {
             const notification = notifications[id];
-            notification.visible = false;
+            if (notification) {
+                notification.visible = false;
+
+                if (notification.durationTimeout !== null) {
+                    clearTimeout(notification.durationTimeout);
+                }
+            }
         };
 
         /**
@@ -122,7 +131,7 @@ export default defineComponent({
 
         const pauseDuration = (id: string) => {
             const notification = notifications[id];
-            if(notification.durationTimeout !== null && notification.options.resetDurationOnInteractivity) {
+            if (notification.durationTimeout !== null && notification.options.resetDurationOnInteractivity) {
                 clearTimeout(notification.durationTimeout);
                 notification.durationTimeout = null;
             }
@@ -130,7 +139,7 @@ export default defineComponent({
         const resumeDuration = (id: string) => {
             pauseDuration(id);
             const notification = notifications[id];
-            if(notification.options.duration !== null && notification.durationTimeout === null) {
+            if (notification.options.duration !== null && notification.durationTimeout === null && notification.visible === true) {
                 notification.durationTimeout = setTimeout(() => {
                     notification.reject();
                 }, notification.options.duration);
@@ -196,7 +205,7 @@ export default defineComponent({
         const defaultRender = () => this.$slots.default!(this.slotProps);
         if (this.$props.as) {
             const p = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-            return h(this.$props.as, { ...p }, defaultRender());
+            return h(this.$props.as, {...p}, defaultRender());
         }
         return defaultRender();
     },

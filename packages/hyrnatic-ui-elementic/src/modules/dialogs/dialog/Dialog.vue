@@ -4,7 +4,7 @@
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
-                <div v-show="props.visible" :class="[css_ec('backdrop')]" :style="{opacity: getOpacity(props.stackIndex, props.visibleStackCount)}" />
+                <div v-show="props.visible" :class="[css_ec('backdrop'), `-color-${backdropColor}`]" :style="{opacity: getOpacity(props.stackIndex, props.visibleStackCount)}" />
             </transition>
             <div ref="scrollContainer" :class="[css_ec('scroll-container'), {'-transitioning': lockScroll && activeTransitions['box'], '-body-has-scrollbar': lockScroll && bodyScrollbarWidth > 0}]">
                 <transition name="small-slide-up-medium" appear
@@ -60,6 +60,10 @@ export default defineComponent({
             type: String as PropType<'primary' | 'danger'>,
             default: 'primary',
         },
+        backdropColor: {
+            type: String as PropType<'light' | 'dark'>,
+            default: 'light',
+        },
         boxClasses: {
             type: String,
             default: null,
@@ -73,7 +77,7 @@ export default defineComponent({
             default: true,
         },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const transitionEnd = inject<() => void>('dialog-transition-end');
         const activeTransitions = reactive<{[key: string]: boolean}>({});
         const scrollContainer = ref();
@@ -83,7 +87,7 @@ export default defineComponent({
         useResizeObserver(scrollContainer, (entries) => {
             if(props.visible) {
                 containerScrollbarWidth.value = `${scrollContainer.value.offsetWidth - scrollContainer.value.clientWidth}px`;
-                console.log(containerScrollbarWidth.value);
+                // console.log(containerScrollbarWidth.value);
             }
         });
 

@@ -27,12 +27,16 @@ $crc: '.h-notification-wrapper';
 	margin-bottom: $g-16;
 }
 
-.notification-slide-in-enter-from,
-.notification-slide-in-leave-to {
+.notification-slide-down-enter-from,
+.notification-slide-down-leave-to {
 	opacity: 0;
-	transform: translateX($g-16);
+	transform: translateY($g-16);
 }
-
-.notification-slide-in-leave-active {
+.notification-slide-up-enter-from,
+.notification-slide-up-leave-to {
+	opacity: 0;
+	transform: translateY(-$g-16);
+}
+.notification-slide-down-leave-active, .notification-slide-up-leave-active {
 	position: absolute;
 }

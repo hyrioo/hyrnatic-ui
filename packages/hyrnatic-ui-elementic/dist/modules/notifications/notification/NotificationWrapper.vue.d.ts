@@ -13,6 +13,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, {
     transitionEnded: (el: HTMLElement) => void;
+    transitionName: import("vue").ComputedRef<"notification-slide-down" | "notification-slide-up" | null>;
     css_root: import("vue").ComputedRef<string | null | undefined>;
     css_ec: (element: string) => string;
     core: any;

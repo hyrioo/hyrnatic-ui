@@ -96,7 +96,7 @@ export default defineComponent({
         },
     },
     emits: ['update:modelValue', 'focus', 'blur'],
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const input = ref<HTMLInputElement>();
         const coreInput = ref();
 

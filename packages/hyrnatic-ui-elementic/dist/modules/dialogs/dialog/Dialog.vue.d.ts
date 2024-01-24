@@ -11,6 +11,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<"primary" | "danger">;
         default: string;
     };
+    backdropColor: {
+        type: PropType<"light" | "dark">;
+        default: string;
+    };
     boxClasses: {
         type: StringConstructor;
         default: null;
@@ -62,6 +66,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<"primary" | "danger">;
         default: string;
     };
+    backdropColor: {
+        type: PropType<"light" | "dark">;
+        default: string;
+    };
     boxClasses: {
         type: StringConstructor;
         default: null;
@@ -83,6 +91,7 @@ declare const _default: import("vue").DefineComponent<{
     showCloseButton: boolean;
     color: "primary" | "danger";
     visible: boolean;
+    backdropColor: "light" | "dark";
     boxClasses: string;
     lockScroll: boolean;
 }, {}>;

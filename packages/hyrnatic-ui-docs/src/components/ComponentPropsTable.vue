@@ -26,9 +26,9 @@ export default defineComponent({
             required: true,
         }
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const typeFormatter = (cellValue) => {
-            if(cellValue === null) {
+            if(cellValue === null || cellValue === undefined) {
                 return 'Any';
             } else if (Array.isArray(cellValue)) {
                 return cellValue.join(', ');
@@ -37,7 +37,7 @@ export default defineComponent({
             }
         };
         const valuesFormatter = (cellValue) => {
-            if(cellValue === null) {
+            if(cellValue === null || cellValue === undefined) {
                 return '-';
             } else if (Array.isArray(cellValue)) {
                 return cellValue.join(', ');
@@ -46,7 +46,7 @@ export default defineComponent({
             }
         };
         const defaultFormatter = (cellValue) => {
-            if(cellValue === null) {
+            if(cellValue === null || cellValue === undefined) {
                 return '-';
             } else {
                 return cellValue.toString();

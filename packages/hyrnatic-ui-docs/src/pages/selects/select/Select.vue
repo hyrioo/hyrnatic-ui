@@ -11,7 +11,7 @@
             <component-preview :code="previewExample(previewExampleOptions)">
                 <template #preview>
                     <div style="display: flex; flex-direction: column; align-items: center">
-                        <h-select v-model="value" multiple v-bind="vbind" style="margin-bottom: 12px; width: 175px">
+                        <h-select v-model="value" v-bind="vbind" style="margin-bottom: 12px; width: 100%">
                             <h-select-item-header v-if="showHeader" :label="header" />
                             <h-select-item value="1" label="Loooong option 1" />
                             <h-select-item value="2" icon="plus" label="Option 2" />

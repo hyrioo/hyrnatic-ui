@@ -55,7 +55,7 @@ import { DateTime } from 'luxon';
 import { previewExample } from './snippets';
 
 export default defineComponent({
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const date = ref<DateTime>(DateTime.now().minus({days: 3}));
         const highlightToday = ref(true);
         const disabled = ref(false);

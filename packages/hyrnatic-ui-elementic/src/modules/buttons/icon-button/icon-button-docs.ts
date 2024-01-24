@@ -15,6 +15,7 @@ const docs: ComponentAPIDescriptor = {
             origin: 'core',
             description: 'Determines if the button is disabled.',
             type: 'boolean',
+            values: null,
             default: false,
         },
         {
@@ -22,6 +23,7 @@ const docs: ComponentAPIDescriptor = {
             origin: 'core',
             description: 'Determines if the button is visible. Use this instead of v-show.',
             type: 'boolean',
+            values: null,
             default: true,
         },
         {

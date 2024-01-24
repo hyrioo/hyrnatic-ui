@@ -11,7 +11,7 @@
         </div>
     </div>
     <h-dialog-wrapper ref="dialogWrapper" />
-    <h-notification-wrapper ref="notificationWrapper" placement="bottom-right" />
+    <h-notification-wrapper ref="notificationWrapper" placement="top-right" />
 </template>
 
 <script lang="ts">

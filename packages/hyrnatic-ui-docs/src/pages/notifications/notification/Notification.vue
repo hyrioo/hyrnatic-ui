@@ -67,14 +67,18 @@ import Drawer from '../../../../../hyrnatic-ui-elementic/src/modules/drawers/dra
 import { previewExample, usageExample, wrapperExample } from './snippets';
 
 export default defineComponent({
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const resetDurationOnInteractivity = ref(true);
-        const duration = ref(1500);
+        const duration = ref(3000);
         const color = ref('primary');
 
         const showNotification = async () => {
             console.log(NotificationManager, SimpleNotification);
-            NotificationManager.showPromise(SimpleNotification, { title: 'Test', text: 'Here is some content for the notification.', color: color.value }, {}, {duration: duration.value, resetDurationOnInteractivity: resetDurationOnInteractivity.value}).then(() => {}).catch(() => {});
+            NotificationManager.showPromise(SimpleNotification, { title: 'Test', text: 'Here is some content for the notification.', color: color.value }, {}, {duration: duration.value, resetDurationOnInteractivity: resetDurationOnInteractivity.value}).then(() => {
+                console.log('resolved');
+            }).catch(() => {
+                console.log('rejected');
+            });
         };
 
         const previewExampleOptions = computed(() => {

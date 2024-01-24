@@ -59,7 +59,6 @@ export default defineComponent({
         });
 
         const onClickOutside = (value: CoreFloatingClickOutsideEvent) => {
-            console.log(value);
             if(value.outsideFloating && value.outsideReference) {
                 visible.value = false;
             }
