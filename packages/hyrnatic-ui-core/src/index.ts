@@ -77,6 +77,7 @@ export type {
  */
 export { default as CoreCheckboxInstall } from './modules/checkboxes/install';
 export {
+    default as coreCheckbox,
     coreCheckboxSetup,
     coreCheckboxModelValueProp,
     coreCheckboxValueProp,
@@ -94,15 +95,18 @@ export type {
  */
 export { default as CoreCollapsesInstall } from './modules/collapses/install';
 export {
+    default as coreCollapse,
     coreCollapseSetup,
     coreCollapseAccordionProp,
     coreCollapseModelValueProp,
 } from './modules/collapses/collapse/Collapse';
 export {
+    default as coreCollapseItem,
     coreCollapseItemSetup,
     coreCollapseItemIdProp,
 } from './modules/collapses/collapse/CollapseItem';
 export {
+    default as coreCollapseInline,
     coreCollapseInlineSetup,
     coreInlineCollapseModelValueProp
 } from './modules/collapses/inline-collapse/InlineCollapse';
@@ -122,6 +126,7 @@ export type {
  */
 export { default as CoreDatePickersInstall } from './modules/date-pickers/install';
 export {
+    default as coreDatePicker,
     coreDatePickerSetup,
     coreDatePickerModelValueProp,
     coreDatePickerValueFormatProp,
@@ -142,6 +147,7 @@ export type {
  */
 export { default as CoreDialogsInstall } from './modules/dialogs/install';
 export {
+    default as coreDialog,
     coreDialogSetup,
     coreDialogVisibleProp,
 } from './modules/dialogs/dialog/Dialog';
@@ -159,6 +165,7 @@ export * as DialogManager from './modules/dialogs/dialog/DialogManager';
  */
 export { default as CoreDropdownsInstall } from './modules/dropdowns/install';
 export {
+    default as coreDropdown,
     coreDropdownSetup,
     coreDropdownDisabledProp,
     coreDropdownHideOnClickProp,

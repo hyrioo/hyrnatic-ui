@@ -13,15 +13,15 @@ export type { CoreButtonSlotProps, } from './modules/buttons/button/Button';
  * Checkboxes
  */
 export { default as CoreCheckboxInstall } from './modules/checkboxes/install';
-export { coreCheckboxSetup, coreCheckboxModelValueProp, coreCheckboxValueProp, coreCheckboxDisabledProp, coreCheckboxVisibleProp, coreCheckboxIndeterminateProp, } from './modules/checkboxes/checkbox/Checkbox';
+export { default as coreCheckbox, coreCheckboxSetup, coreCheckboxModelValueProp, coreCheckboxValueProp, coreCheckboxDisabledProp, coreCheckboxVisibleProp, coreCheckboxIndeterminateProp, } from './modules/checkboxes/checkbox/Checkbox';
 export type { CoreCheckboxSlotProps, } from './modules/checkboxes/checkbox/Checkbox';
 /**
  * Collapses
  */
 export { default as CoreCollapsesInstall } from './modules/collapses/install';
-export { coreCollapseSetup, coreCollapseAccordionProp, coreCollapseModelValueProp, } from './modules/collapses/collapse/Collapse';
-export { coreCollapseItemSetup, coreCollapseItemIdProp, } from './modules/collapses/collapse/CollapseItem';
-export { coreCollapseInlineSetup, coreInlineCollapseModelValueProp } from './modules/collapses/inline-collapse/InlineCollapse';
+export { default as coreCollapse, coreCollapseSetup, coreCollapseAccordionProp, coreCollapseModelValueProp, } from './modules/collapses/collapse/Collapse';
+export { default as coreCollapseItem, coreCollapseItemSetup, coreCollapseItemIdProp, } from './modules/collapses/collapse/CollapseItem';
+export { default as coreCollapseInline, coreCollapseInlineSetup, coreInlineCollapseModelValueProp } from './modules/collapses/inline-collapse/InlineCollapse';
 export type { CoreCollapseSlotProps, } from './modules/collapses/collapse/Collapse';
 export type { CoreCollapseItemSlotProps, } from './modules/collapses/collapse/CollapseItem';
 export type { CoreCollapseInlineSlotProps, } from './modules/collapses/inline-collapse/InlineCollapse';
@@ -29,13 +29,13 @@ export type { CoreCollapseInlineSlotProps, } from './modules/collapses/inline-co
  * Date pickers
  */
 export { default as CoreDatePickersInstall } from './modules/date-pickers/install';
-export { coreDatePickerSetup, coreDatePickerModelValueProp, coreDatePickerValueFormatProp, coreDatePickerDisabledProp, coreDatePickerVisibleProp, coreDatePickerMultipleProp, coreDatePickerClearableProp, coreDatePickerDisabledDateProp, coreDatePickerFirstDayOfWeekProp, } from './modules/date-pickers/date-picker/DatePicker';
+export { default as coreDatePicker, coreDatePickerSetup, coreDatePickerModelValueProp, coreDatePickerValueFormatProp, coreDatePickerDisabledProp, coreDatePickerVisibleProp, coreDatePickerMultipleProp, coreDatePickerClearableProp, coreDatePickerDisabledDateProp, coreDatePickerFirstDayOfWeekProp, } from './modules/date-pickers/date-picker/DatePicker';
 export type { CoreDatePickerSlotProps, } from './modules/date-pickers/date-picker/DatePicker';
 /**
  * Dialogs
  */
 export { default as CoreDialogsInstall } from './modules/dialogs/install';
-export { coreDialogSetup, coreDialogVisibleProp, } from './modules/dialogs/dialog/Dialog';
+export { default as coreDialog, coreDialogSetup, coreDialogVisibleProp, } from './modules/dialogs/dialog/Dialog';
 export type { CoreDialogSlotProps, } from './modules/dialogs/dialog/Dialog';
 export { default as coreDialogWrapper, } from './modules/dialogs/dialog/DialogWrapper';
 export * as DialogManager from './modules/dialogs/dialog/DialogManager';
@@ -43,7 +43,7 @@ export * as DialogManager from './modules/dialogs/dialog/DialogManager';
  * Dropdowns
  */
 export { default as CoreDropdownsInstall } from './modules/dropdowns/install';
-export { coreDropdownSetup, coreDropdownDisabledProp, coreDropdownHideOnClickProp, coreDropdownSplitButtonProp, coreDropdownVisibleProp, } from './modules/dropdowns/dropdown/Dropdown';
+export { default as coreDropdown, coreDropdownSetup, coreDropdownDisabledProp, coreDropdownHideOnClickProp, coreDropdownSplitButtonProp, coreDropdownVisibleProp, } from './modules/dropdowns/dropdown/Dropdown';
 export { coreDropdownItemSetup, coreDropdownItemDisabledProp, coreDropdownItemLabelProp, } from './modules/dropdowns/dropdown/DropdownItem';
 export type { CoreDropdownSlotProps, } from './modules/dropdowns/dropdown/Dropdown';
 export type { CoreDropdownItemSlotProps, CoreDropdownItemInstance, CoreDropdownProvide, } from './modules/dropdowns/dropdown/DropdownItem';

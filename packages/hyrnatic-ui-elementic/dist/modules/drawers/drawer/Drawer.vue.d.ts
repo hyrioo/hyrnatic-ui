@@ -11,9 +11,17 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<"primary" | "danger">;
         default: string;
     };
+    backdropColor: {
+        type: PropType<"light" | "dark">;
+        default: string;
+    };
     placement: {
         type: PropType<"left" | "right">;
         default: string;
+    };
+    boxClasses: {
+        type: StringConstructor;
+        default: null;
     };
     visible: {
         type: BooleanConstructor;
@@ -23,7 +31,7 @@ declare const _default: import("vue").DefineComponent<{
     slideTransition: import("vue").ComputedRef<"large2x-slide-to-left-medium" | "large2x-slide-to-right-medium">;
     transitionEnded: (key: string) => void;
     transitionStarted: (key: string) => void;
-    getScale: (index: number, count: number) => string | null;
+    getOffset: (index: number, count: number) => string | null;
     getOpacity: (index: number, count: number) => number | null;
     css_root: import("vue").ComputedRef<string | null | undefined>;
     css_ec: (element: string) => string;
@@ -47,9 +55,17 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<"primary" | "danger">;
         default: string;
     };
+    backdropColor: {
+        type: PropType<"light" | "dark">;
+        default: string;
+    };
     placement: {
         type: PropType<"left" | "right">;
         default: string;
+    };
+    boxClasses: {
+        type: StringConstructor;
+        default: null;
     };
     visible: {
         type: BooleanConstructor;
@@ -60,5 +76,7 @@ declare const _default: import("vue").DefineComponent<{
     color: "primary" | "danger";
     visible: boolean;
     placement: "left" | "right";
+    backdropColor: "light" | "dark";
+    boxClasses: string;
 }, {}>;
 export default _default;

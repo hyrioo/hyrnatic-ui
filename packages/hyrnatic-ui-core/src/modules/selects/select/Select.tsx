@@ -93,22 +93,23 @@ export default defineComponent({
         const transitioning = ref(false);
         const items = ref<CoreSelectItemInstance[]>([]);
         const focusedItem = ref<CoreSelectItemInstance|null>(null);
+        const isItemSelected = (item: CoreSelectItemInstance, copy: any[]) => {
+            const index = copy.indexOf(item.value);
+            if(index !== -1) {
+                return true;
+            } else if(props.compare) {
+                if(typeof props.compare === 'string'){
+                    return copy.find((c) => (c !== null && Obj.getProperty(c, props.compare as string)) === (item.value !== null && Obj.getProperty(item.value, props.compare as string)));
+                } else {
+                    return props.compare(copy, item.value);
+                }
+            } else {
+                return false;
+            }
+        };
         const selectedItems = computed(() => {
             const copy: any[] = [].concat(props.modelValue);
-            return items.value.filter((i) => {
-                const index = copy.indexOf(i.value);
-                if(index !== -1) {
-                    return true;
-                } else if(props.compare) {
-                    if(typeof props.compare === 'string'){
-                        return copy.find((c) => (c !== null && Obj.getProperty(c, props.compare as string)) === (i.value !== null && Obj.getProperty(i.value, props.compare as string)));
-                    } else {
-                        return props.compare(copy, i.value);
-                    }
-                } else {
-                    return false;
-                }
-            });
+            return items.value.filter((i) => isItemSelected(i, copy));
         });
         const anythingSelected = computed(() => selectedItems.value.length > 0);
         const selectedText = computed(() => {
@@ -151,7 +152,7 @@ export default defineComponent({
                 if (props.modelValue !== undefined) {
                     selected = selected.concat(props.modelValue);
                 }
-                if (selected.includes(value)) {
+                if (isItemSelected(item, selected)) {
                     selected.splice(selected.indexOf(value), 1);
                 } else {
                     selected.push(value);

@@ -4,12 +4,12 @@
             <transition name="fade-medium" appear
                         @before-leave="transitionStarted('backdrop')" @after-leave="transitionEnded('backdrop')"
             >
-                <div v-show="props.visible" :class="[css_ec('backdrop')]" :style="{opacity: getOpacity(props.stackIndex, props.visibleStackCount)}" />
+                <div v-show="props.visible" :class="[css_ec('backdrop'), `-color-${backdropColor}`]" :style="{opacity: getOpacity(props.stackIndex, props.visibleStackCount)}" />
             </transition>
             <transition :name="slideTransition" appear
                         @before-leave="transitionStarted('box')" @after-leave="transitionEnded('box')"
             >
-                <div v-show="props.visible" :class="[css_ec('box'), `-placement-${placement}`, {'-has-footer': $slots.footer}]" :style="{transform: getScale(props.stackIndex, props.visibleStackCount)}">
+                <div v-show="props.visible" :class="[css_ec('box'), boxClasses, `-placement-${placement}`, {'-has-footer': $slots.footer}]" :style="{transform: getOffset(props.stackIndex, props.visibleStackCount)}">
                     <div v-if="$slots.title || title" :class="[css_ec('title')]">
                         <slot name="title">
                             <span v-html="title" />
@@ -56,12 +56,20 @@ export default defineComponent({
             type: String as PropType<'primary' | 'danger'>,
             default: 'primary',
         },
+        backdropColor: {
+            type: String as PropType<'light' | 'dark'>,
+            default: 'light',
+        },
         placement: {
             type: String as PropType<'right' | 'left'>,
             default: 'right',
         },
+        boxClasses: {
+            type: String,
+            default: null,
+        },
     },
-    setup(props, ctx: SetupContext) {
+    setup(props, ctx) {
         const transitionEnd = inject<() => void>('dialog-transition-end');
         const activeTransitions = reactive<{[key: string]: boolean}>({});
         const slideTransition = computed(() => (props.placement === 'right' ? 'large2x-slide-to-left-medium' : 'large2x-slide-to-right-medium'));
@@ -83,7 +91,7 @@ export default defineComponent({
             }
         };
 
-        const getScale = (index: number, count: number) => {
+        const getOffset = (index: number, count: number) => {
             if (index < count - 1) {
                 return `translateX(${props.placement === 'right' ? '-' : ''}${(count - index - 1) * 64}px)`;
             } else {
@@ -106,7 +114,7 @@ export default defineComponent({
             slideTransition,
             transitionEnded,
             transitionStarted,
-            getScale,
+            getOffset,
             getOpacity,
         };
     },

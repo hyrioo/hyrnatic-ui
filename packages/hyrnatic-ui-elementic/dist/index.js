@@ -6745,9 +6745,17 @@ const dd = /* @__PURE__ */ V(ad, [["render", ud]]), cs = "elementic-dialgos", fd
       type: String,
       default: "primary"
     },
+    backdropColor: {
+      type: String,
+      default: "light"
+    },
     placement: {
       type: String,
       default: "right"
+    },
+    boxClasses: {
+      type: String,
+      default: null
     }
   },
   setup(e, t) {
@@ -6766,7 +6774,7 @@ const dd = /* @__PURE__ */ V(ad, [["render", ud]]), cs = "elementic-dialgos", fd
       slideTransition: o,
       transitionEnded: r,
       transitionStarted: i,
-      getScale: l,
+      getOffset: l,
       getOpacity: a
     };
   }
@@ -6787,7 +6795,7 @@ function gd(e, t, n, s, o, r) {
         }, {
           default: w(() => [
             G(y("div", {
-              class: d([e.css_ec("backdrop")]),
+              class: d([e.css_ec("backdrop"), `-color-${e.backdropColor}`]),
               style: z({ opacity: e.getOpacity(a.stackIndex, a.visibleStackCount) })
             }, null, 6), [
               [K, a.visible]
@@ -6803,8 +6811,8 @@ function gd(e, t, n, s, o, r) {
         }, {
           default: w(() => [
             G(y("div", {
-              class: d([e.css_ec("box"), `-placement-${e.placement}`, { "-has-footer": e.$slots.footer }]),
-              style: z({ transform: e.getScale(a.stackIndex, a.visibleStackCount) })
+              class: d([e.css_ec("box"), e.boxClasses, `-placement-${e.placement}`, { "-has-footer": e.$slots.footer }]),
+              style: z({ transform: e.getOffset(a.stackIndex, a.visibleStackCount) })
             }, [
               e.$slots.title || e.title ? (h(), $("div", {
                 key: 0,

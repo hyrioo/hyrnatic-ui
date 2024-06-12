@@ -1,7 +1,7 @@
 var ln = Object.defineProperty;
 var an = (e, t, n) => t in e ? ln(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var K = (e, t, n) => (an(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { computed as h, reactive as x, defineComponent as V, h as A, getCurrentInstance as D, provide as W, inject as G, ref as k, watch as z, getCurrentScope as cn, onScopeDispose as un, unref as dn, toRef as fn, readonly as It, customRef as pn, onMounted as re, nextTick as ne, shallowReactive as mn, onUnmounted as he, Teleport as Rt, shallowRef as xt, createVNode as le, Transition as hn, isVNode as vn, withDirectives as Ie, mergeProps as ze, vShow as gn, resolveDirective as Re, onBeforeUnmount as bn } from "vue";
+import { computed as h, reactive as R, defineComponent as V, h as $, getCurrentInstance as D, provide as W, inject as Z, ref as k, watch as z, getCurrentScope as cn, onScopeDispose as un, unref as dn, toRef as fn, readonly as _t, customRef as pn, onMounted as re, nextTick as ne, shallowReactive as mn, onUnmounted as he, Teleport as Rt, shallowRef as xt, createVNode as le, Transition as hn, isVNode as vn, withDirectives as _e, mergeProps as ze, vShow as gn, resolveDirective as Re, onBeforeUnmount as bn } from "vue";
 function N(e, t) {
   return e.__hyrnatic_ui_installed && e.__hyrnatic_ui_installed.indexOf(t) !== -1;
 }
@@ -122,7 +122,7 @@ var Dt = function() {
     }, 1e3 / 60);
   };
 }(), Sn = 2;
-function _n(e, t) {
+function In(e, t) {
   var n = !1, o = !1, s = 0;
   function r() {
     n && (n = !1, e()), o && l();
@@ -142,11 +142,11 @@ function _n(e, t) {
   }
   return l;
 }
-var In = 20, Rn = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], xn = typeof MutationObserver < "u", kn = (
+var _n = 20, Rn = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], xn = typeof MutationObserver < "u", kn = (
   /** @class */
   function() {
     function e() {
-      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = _n(this.refresh.bind(this), In);
+      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = In(this.refresh.bind(this), _n);
     }
     return e.prototype.addObserver = function(t) {
       ~this.observers_.indexOf(t) || this.observers_.push(t), this.connected_ || this.connect_();
@@ -406,8 +406,8 @@ function Mt(e, t) {
     n[o] = (...s) => e.emit(o, ...s);
   }), n;
 }
-function $(e) {
-  const t = x({}), n = {}, o = {
+function E(e) {
+  const t = R({}), n = {}, o = {
     /**
      * Render the renderless spinner with a wrapper
      * @param tag HTML tag to use as wrapper
@@ -468,7 +468,7 @@ const Wn = {
   }
 };
 function ml() {
-  return $(D());
+  return E(D());
 }
 const Kn = /* @__PURE__ */ V({
   name: "hr-button",
@@ -483,7 +483,7 @@ const Kn = /* @__PURE__ */ V({
   setup(e, t) {
     const n = (r) => {
       !e.disabled && !e.loading && e.visible && t.emit("click", r);
-    }, o = x({
+    }, o = R({
       disabled: h(() => e.disabled),
       loading: h(() => e.loading),
       onClick: n
@@ -491,7 +491,7 @@ const Kn = /* @__PURE__ */ V({
     return () => {
       if (e.as) {
         const r = e.asProps ? e.asProps(o) : {};
-        return A(e.as, {
+        return $(e.as, {
           ...r
         }, s());
       }
@@ -545,7 +545,7 @@ const Kn = /* @__PURE__ */ V({
   }
 };
 function hl() {
-  return $(D());
+  return E(D());
 }
 const to = /* @__PURE__ */ V({
   name: "hr-checkbox",
@@ -574,7 +574,7 @@ const to = /* @__PURE__ */ V({
         e.value === !0 ? t.emit("update:modelValue", !1) : t.emit("update:modelValue", null);
     }, r = () => {
       !e.disabled && e.visible && (n.value ? s() : o());
-    }, i = x({
+    }, i = R({
       state: h(() => n.value),
       disabled: h(() => e.disabled),
       indeterminate: h(() => e.indeterminate),
@@ -590,7 +590,7 @@ const to = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -646,7 +646,7 @@ const to = /* @__PURE__ */ V({
   }
 };
 function vl() {
-  return $(D());
+  return E(D());
 }
 const io = /* @__PURE__ */ V({
   name: "hr-collapse",
@@ -671,7 +671,7 @@ const io = /* @__PURE__ */ V({
       },
       expandedItems: n
     });
-    const s = x({
+    const s = R({
       accordion: h(() => e.accordion),
       expandedItems: n
     });
@@ -683,7 +683,7 @@ const io = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -696,7 +696,7 @@ const io = /* @__PURE__ */ V({
   }
 };
 function gl() {
-  return $(D());
+  return E(D());
 }
 const ao = /* @__PURE__ */ V({
   name: "hr-collapse-item",
@@ -706,7 +706,7 @@ const ao = /* @__PURE__ */ V({
     ...lo
   },
   setup(e, t) {
-    const n = G("collapse"), o = h(() => n.expandedItems.value.indexOf(e.id) !== -1), r = x({
+    const n = Z("collapse"), o = h(() => n.expandedItems.value.indexOf(e.id) !== -1), r = R({
       expanded: o,
       onClick: () => {
         n.onItemClick(e.id);
@@ -720,7 +720,7 @@ const ao = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -733,7 +733,7 @@ const ao = /* @__PURE__ */ V({
   }
 };
 function bl() {
-  return $(D());
+  return E(D());
 }
 const uo = /* @__PURE__ */ V({
   name: "hr-inline-collapse",
@@ -750,7 +750,7 @@ const uo = /* @__PURE__ */ V({
     });
     const o = () => {
       n.value = !n.value, t.emit("update:modelValue", !e.modelValue);
-    }, s = x({
+    }, s = R({
       expanded: h(() => n.value),
       onClick: o
     });
@@ -762,7 +762,7 @@ const uo = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -793,7 +793,7 @@ function go(...e) {
   if (e.length !== 1)
     return fn(...e);
   const t = e[0];
-  return typeof t == "function" ? It(pn(() => ({ get: t, set: Lt }))) : k(t);
+  return typeof t == "function" ? _t(pn(() => ({ get: t, set: Lt }))) : k(t);
 }
 function bo(e, t = !0) {
   D() ? re(e) : t ? e() : ne(e);
@@ -884,7 +884,7 @@ function So(e, t, n = {}) {
     }
   ), i;
 }
-function _o(e, t, n = {}) {
+function Io(e, t, n = {}) {
   const { window: o = $e, ...s } = n;
   let r;
   const i = zt(() => o && "ResizeObserver" in o), l = () => {
@@ -921,7 +921,7 @@ function Nt(e) {
     return !n || n.tagName === "BODY" ? !1 : Nt(n);
   }
 }
-function Io(e) {
+function _o(e) {
   const t = e || window.event, n = t.target;
   return Nt(n) ? !1 : t.touches.length > 1 ? !0 : (t.preventDefault && t.preventDefault(), !1);
 }
@@ -943,7 +943,7 @@ function Ro(e, t = !1) {
       l,
       "touchmove",
       (a) => {
-        Io(a);
+        _o(a);
       },
       { passive: !1 }
     )), l.style.overflow = "hidden", n.value = !0);
@@ -989,7 +989,7 @@ function ko(e, t = {}) {
     css: l,
     unload: b,
     load: u,
-    isLoaded: It(n)
+    isLoaded: _t(n)
   };
 }
 const We = {
@@ -1026,7 +1026,7 @@ const We = {
     W("wrapper-name", e.name);
     const t = k(0);
     W("global-scrollbar-width", t);
-    const n = x({}), o = x({}), s = h(() => {
+    const n = R({}), o = R({}), s = h(() => {
       const d = {};
       return Object.keys(o).forEach((m) => {
         d[m] = o[m].length;
@@ -1058,12 +1058,12 @@ const We = {
       }, m.transitionEnd = () => {
         b(m.id);
       }, m.visible = !0, m.id = We.random(), m.compiledListeners = h(() => m.listeners ? a(m.listeners) : {}), o[m.stack] || (o[m.stack] = []), o[m.stack].push(m), n[m.id] = m, m;
-    }, c = (d) => n[d], g = (d) => h(() => s.value[d]), f = h(() => Object.values(s.value).reduce((d, m) => d + m, 0)), _ = (d) => h(() => r.value[d]), P = h(() => Object.values(r.value).reduce((d, m) => d + m, 0)), w = {
+    }, c = (d) => n[d], g = (d) => h(() => s.value[d]), f = h(() => Object.values(s.value).reduce((d, m) => d + m, 0)), C = (d) => h(() => r.value[d]), P = h(() => Object.values(r.value).reduce((d, m) => d + m, 0)), w = {
       addDialog: v,
       getDialog: c,
       destroyDialog: p,
       getStackCount: g,
-      getStackVisibleCount: _,
+      getStackVisibleCount: C,
       getStackIndex: (d, m) => h(() => o[d].findIndex((I) => I.id === m)),
       count: f,
       visibleCount: P
@@ -1074,9 +1074,9 @@ const We = {
       delete pe[e.name];
     }), e.lockWindowScroll) {
       const d = So("--h-global-scrollbar-width", document.body);
-      _o(document.body, (L) => {
-        const C = window.innerWidth - document.documentElement.clientWidth;
-        d.value = `${C}px`, t.value = C;
+      Io(document.body, (L) => {
+        const S = window.innerWidth - document.documentElement.clientWidth;
+        d.value = `${S}px`, t.value = S;
       }), ko("body.has-dialogs {padding-right: var(--h-global-scrollbar-width);}");
       const m = k(document.body), I = Ro(m);
       z(() => P.value, (L) => {
@@ -1089,9 +1089,9 @@ const We = {
     };
   },
   render() {
-    return A(Rt, {
+    return $(Rt, {
       to: this.$props.teleport
-    }, Object.values(this.IDialogs).map((e) => A(e.component, {
+    }, Object.values(this.IDialogs).map((e) => $(e.component, {
       key: e.id,
       visible: e.visible,
       ...e.props,
@@ -1106,8 +1106,8 @@ function Ft(e, t, n, o) {
     promise: new Promise((a, u) => {
       i = pe[s].addDialog({
         component: xt(e),
-        listeners: n !== void 0 ? x(n) : null,
-        props: t !== void 0 ? x(t) : null,
+        listeners: n !== void 0 ? R(n) : null,
+        props: t !== void 0 ? R(t) : null,
         stack: r,
         promise: { resolve: a, reject: u }
       });
@@ -1122,7 +1122,7 @@ function jt(e = "default") {
   return pe[e];
 }
 function Ht(e) {
-  const t = G("wrapper-name");
+  const t = Z("wrapper-name");
   return pe[t].getDialog(e);
 }
 function To() {
@@ -1148,7 +1148,7 @@ const yl = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
 function wl(e = [], t = []) {
   const n = D();
   return {
-    props: x({
+    props: R({
       ...Bt(n.props, e)
     }),
     listeners: Mt(n, t)
@@ -1160,11 +1160,11 @@ const Eo = /* @__PURE__ */ V({
     ...Vo
   },
   setup(e, t) {
-    const n = G("dialog-id");
+    const n = Z("dialog-id");
     n || console.warn("You must call DialogManager.setupDialog() in the dialog setup");
-    const o = G("dialog-reject"), s = () => {
+    const o = Z("dialog-reject"), s = () => {
       o(null);
-    }, r = jt(), i = r.getDialog(n), l = x({
+    }, r = jt(), i = r.getDialog(n), l = R({
       visible: h(() => e.visible),
       stackIndex: r.getStackIndex(i.stack, i.id),
       stackCount: r.getStackCount(i.stack),
@@ -1192,7 +1192,7 @@ const Eo = /* @__PURE__ */ V({
   }
 };
 function Pl() {
-  return $(D());
+  return E(D());
 }
 const Lo = /* @__PURE__ */ V({
   name: "hr-dropdown-item",
@@ -1204,9 +1204,9 @@ const Lo = /* @__PURE__ */ V({
   },
   emits: ["click"],
   setup(e, t) {
-    const n = G("dropdown"), o = (a) => {
+    const n = Z("dropdown"), o = (a) => {
       e.disabled || (t.emit("click", a), n.onItemClick(a));
-    }, s = x({
+    }, s = R({
       disabled: e.disabled,
       label: e.label,
       onClick: o,
@@ -1217,7 +1217,7 @@ const Lo = /* @__PURE__ */ V({
     }), he(() => {
       n.removeItemInstance(s);
     });
-    const r = h(() => n.focusedItem.value === s), i = x({
+    const r = h(() => n.focusedItem.value === s), i = R({
       disabled: h(() => e.disabled),
       focused: r,
       onClick: o
@@ -1232,7 +1232,7 @@ const Lo = /* @__PURE__ */ V({
     if (this.dropdown.itemsVisible.value) {
       if (this.$props.as) {
         const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-        return A(this.$props.as, {
+        return $(this.$props.as, {
           ...e
         }, this.defaultRender());
       }
@@ -1261,7 +1261,7 @@ const Lo = /* @__PURE__ */ V({
   }
 };
 function Cl() {
-  return $(D());
+  return E(D());
 }
 const Ho = /* @__PURE__ */ V({
   name: "hr-dropdown",
@@ -1306,7 +1306,7 @@ const Ho = /* @__PURE__ */ V({
       if (a.value)
         return !1;
       n.value = !n.value;
-    }, _ = (d) => {
+    }, C = (d) => {
       o.value = d;
     }, P = h(() => n.value || o.value);
     W("dropdown", {
@@ -1317,7 +1317,7 @@ const Ho = /* @__PURE__ */ V({
       menuVisible: h(() => n.value),
       itemsVisible: P
     });
-    const O = x({
+    const O = R({
       menuVisible: h(() => n.value),
       disabled: h(() => e.disabled),
       splitButton: h(() => e.splitButton),
@@ -1327,7 +1327,7 @@ const Ho = /* @__PURE__ */ V({
       onButtonClick: g,
       onIconClick: f,
       onItemClick: v,
-      onMenuTransitioning: _
+      onMenuTransitioning: C
     });
     return {
       close: p,
@@ -1338,7 +1338,7 @@ const Ho = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -1351,7 +1351,7 @@ const Ho = /* @__PURE__ */ V({
   install: (e, t) => {
     N(e, st) || (j(e, Wo), F(e, st));
   }
-}, Oe = Math.min, ae = Math.max, De = Math.round, _e = Math.floor, oe = (e) => ({
+}, Oe = Math.min, ae = Math.max, De = Math.round, Ie = Math.floor, oe = (e) => ({
   x: e,
   y: e
 }), Uo = {
@@ -1512,7 +1512,7 @@ const es = async (e, t, n) => {
   } = it(u, o, a), v = o, c = {}, g = 0;
   for (let f = 0; f < l.length; f++) {
     const {
-      name: _,
+      name: C,
       fn: P
     } = l[f], {
       x: O,
@@ -1535,8 +1535,8 @@ const es = async (e, t, n) => {
     });
     if (b = O ?? b, p = w ?? p, c = {
       ...c,
-      [_]: {
-        ...c[_],
+      [C]: {
+        ...c[C],
         ...d
       }
     }, m && g <= 50) {
@@ -1575,8 +1575,8 @@ async function Ut(e, t) {
     elementContext: p = "floating",
     altBoundary: v = !1,
     padding: c = 0
-  } = ge(t, e), g = Qo(c), _ = l[v ? p === "floating" ? "reference" : "floating" : p], P = Ve(await r.getClippingRect({
-    element: (n = await (r.isElement == null ? void 0 : r.isElement(_))) == null || n ? _ : _.contextElement || await (r.getDocumentElement == null ? void 0 : r.getDocumentElement(l.floating)),
+  } = ge(t, e), g = Qo(c), C = l[v ? p === "floating" ? "reference" : "floating" : p], P = Ve(await r.getClippingRect({
+    element: (n = await (r.isElement == null ? void 0 : r.isElement(C))) == null || n ? C : C.contextElement || await (r.getDocumentElement == null ? void 0 : r.getDocumentElement(l.floating)),
     boundary: u,
     rootBoundary: b,
     strategy: a
@@ -1622,40 +1622,40 @@ const Kt = function(e) {
         fallbackStrategy: c = "bestFit",
         fallbackAxisSideDirection: g = "none",
         flipAlignment: f = !0,
-        ..._
+        ...C
       } = ge(e, t);
       if ((n = r.arrow) != null && n.alignmentOffset)
         return {};
       const P = ce(s), O = ce(l) === l, w = await (a.isRTL == null ? void 0 : a.isRTL(u.floating)), d = v || (O || !f ? [Te(l)] : Xo(l));
       !v && g !== "none" && d.push(...Zo(l, f, g, w));
-      const m = [l, ...d], I = await Ut(t, _), L = [];
-      let C = ((o = r.flip) == null ? void 0 : o.overflows) || [];
+      const m = [l, ...d], I = await Ut(t, C), L = [];
+      let S = ((o = r.flip) == null ? void 0 : o.overflows) || [];
       if (b && L.push(I[P]), p) {
-        const R = Yo(s, i, w);
-        L.push(I[R[0]], I[R[1]]);
+        const _ = Yo(s, i, w);
+        L.push(I[_[0]], I[_[1]]);
       }
-      if (C = [...C, {
+      if (S = [...S, {
         placement: s,
         overflows: L
-      }], !L.every((R) => R <= 0)) {
-        var T, y;
-        const R = (((T = r.flip) == null ? void 0 : T.index) || 0) + 1, E = m[R];
-        if (E)
+      }], !L.every((_) => _ <= 0)) {
+        var T, A;
+        const _ = (((T = r.flip) == null ? void 0 : T.index) || 0) + 1, x = m[_];
+        if (x)
           return {
             data: {
-              index: R,
-              overflows: C
+              index: _,
+              overflows: S
             },
             reset: {
-              placement: E
+              placement: x
             }
           };
-        let H = (y = C.filter((q) => q.overflows[0] <= 0).sort((q, J) => q.overflows[1] - J.overflows[1])[0]) == null ? void 0 : y.placement;
+        let H = (A = S.filter((q) => q.overflows[0] <= 0).sort((q, G) => q.overflows[1] - G.overflows[1])[0]) == null ? void 0 : A.placement;
         if (!H)
           switch (c) {
             case "bestFit": {
-              var S;
-              const q = (S = C.map((J) => [J.placement, J.overflows.filter((ie) => ie > 0).reduce((ie, Se) => ie + Se, 0)]).sort((J, ie) => J[1] - ie[1])[0]) == null ? void 0 : S[0];
+              var y;
+              const q = (y = S.map((G) => [G.placement, G.overflows.filter((ie) => ie > 0).reduce((ie, Se) => ie + Se, 0)]).sort((G, ie) => G[1] - ie[1])[0]) == null ? void 0 : y[0];
               q && (H = q);
               break;
             }
@@ -1686,11 +1686,11 @@ const Kt = function(e) {
         mainAxis: r = !0,
         crossAxis: i = !1,
         limiter: l = {
-          fn: (_) => {
+          fn: (C) => {
             let {
               x: P,
               y: O
-            } = _;
+            } = C;
             return {
               x: P,
               y: O
@@ -1704,11 +1704,11 @@ const Kt = function(e) {
       }, b = await Ut(t, a), p = Ae(ce(s)), v = Ue(p);
       let c = u[v], g = u[p];
       if (r) {
-        const _ = v === "y" ? "top" : "left", P = v === "y" ? "bottom" : "right", O = c + b[_], w = c - b[P];
+        const C = v === "y" ? "top" : "left", P = v === "y" ? "bottom" : "right", O = c + b[C], w = c - b[P];
         c = rt(O, c, w);
       }
       if (i) {
-        const _ = p === "y" ? "top" : "left", P = p === "y" ? "bottom" : "right", O = g + b[_], w = g - b[P];
+        const C = p === "y" ? "top" : "left", P = p === "y" ? "bottom" : "right", O = g + b[C], w = g - b[P];
         g = rt(O, g, w);
       }
       const f = l.fn({
@@ -1744,7 +1744,7 @@ const Kt = function(e) {
         y: o
       }, p = Ae(s), v = Ue(p);
       let c = b[v], g = b[p];
-      const f = ge(l, t), _ = typeof f == "number" ? {
+      const f = ge(l, t), C = typeof f == "number" ? {
         mainAxis: f,
         crossAxis: 0
       } : {
@@ -1753,12 +1753,12 @@ const Kt = function(e) {
         ...f
       };
       if (a) {
-        const w = v === "y" ? "height" : "width", d = r.reference[v] - r.floating[w] + _.mainAxis, m = r.reference[v] + r.reference[w] - _.mainAxis;
+        const w = v === "y" ? "height" : "width", d = r.reference[v] - r.floating[w] + C.mainAxis, m = r.reference[v] + r.reference[w] - C.mainAxis;
         c < d ? c = d : c > m && (c = m);
       }
       if (u) {
         var P, O;
-        const w = v === "y" ? "width" : "height", d = ["top", "left"].includes(ce(s)), m = r.reference[p] - r.floating[w] + (d && ((P = i.offset) == null ? void 0 : P[p]) || 0) + (d ? 0 : _.crossAxis), I = r.reference[p] + r.reference[w] + (d ? 0 : ((O = i.offset) == null ? void 0 : O[p]) || 0) - (d ? _.crossAxis : 0);
+        const w = v === "y" ? "width" : "height", d = ["top", "left"].includes(ce(s)), m = r.reference[p] - r.floating[w] + (d && ((P = i.offset) == null ? void 0 : P[p]) || 0) + (d ? 0 : C.crossAxis), I = r.reference[p] + r.reference[w] + (d ? 0 : ((O = i.offset) == null ? void 0 : O[p]) || 0) - (d ? C.crossAxis : 0);
         g < m ? g = m : g > I && (g = I);
       }
       return {
@@ -1785,7 +1785,7 @@ function Xt(e) {
 function ee(e) {
   return e instanceof Element || e instanceof Y(e).Element;
 }
-function Z(e) {
+function J(e) {
   return e instanceof HTMLElement || e instanceof Y(e).HTMLElement;
 }
 function lt(e) {
@@ -1809,7 +1809,7 @@ function Ke(e) {
 }
 function os(e) {
   let t = me(e);
-  for (; Z(t) && !Be(t); ) {
+  for (; J(t) && !Be(t); ) {
     if (Ke(t))
       return t;
     t = me(t);
@@ -1848,7 +1848,7 @@ function me(e) {
 }
 function Gt(e) {
   const t = me(e);
-  return Be(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : Z(t) && Ce(t) ? t : Gt(t);
+  return Be(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : J(t) && Ce(t) ? t : Gt(t);
 }
 function be(e, t, n) {
   var o;
@@ -1859,7 +1859,7 @@ function be(e, t, n) {
 function Zt(e) {
   const t = X(e);
   let n = parseFloat(t.width) || 0, o = parseFloat(t.height) || 0;
-  const s = Z(e), r = s ? e.offsetWidth : n, i = s ? e.offsetHeight : o, l = De(n) !== r || De(o) !== i;
+  const s = J(e), r = s ? e.offsetWidth : n, i = s ? e.offsetHeight : o, l = De(n) !== r || De(o) !== i;
   return l && (n = r, o = i), {
     width: n,
     height: o,
@@ -1871,7 +1871,7 @@ function Xe(e) {
 }
 function de(e) {
   const t = Xe(e);
-  if (!Z(t))
+  if (!J(t))
     return oe(1);
   const n = t.getBoundingClientRect(), {
     width: o,
@@ -1906,7 +1906,7 @@ function ue(e, t, n, o) {
     const v = Y(r), c = o && ee(o) ? Y(o) : o;
     let g = v.frameElement;
     for (; g && o && c !== v; ) {
-      const f = de(g), _ = g.getBoundingClientRect(), P = X(g), O = _.left + (g.clientLeft + parseFloat(P.paddingLeft)) * f.x, w = _.top + (g.clientTop + parseFloat(P.paddingTop)) * f.y;
+      const f = de(g), C = g.getBoundingClientRect(), P = X(g), O = C.left + (g.clientLeft + parseFloat(P.paddingLeft)) * f.x, w = C.top + (g.clientTop + parseFloat(P.paddingTop)) * f.y;
       a *= f.x, u *= f.y, b *= f.x, p *= f.y, a += O, u += w, g = Y(g).frameElement;
     }
   }
@@ -1923,7 +1923,7 @@ function is(e) {
     offsetParent: n,
     strategy: o
   } = e;
-  const s = Z(n), r = te(n);
+  const s = J(n), r = te(n);
   if (n === r)
     return t;
   let i = {
@@ -1931,7 +1931,7 @@ function is(e) {
     scrollTop: 0
   }, l = oe(1);
   const a = oe(0);
-  if ((s || !s && o !== "fixed") && ((se(n) !== "body" || Ce(r)) && (i = Me(n)), Z(n))) {
+  if ((s || !s && o !== "fixed") && ((se(n) !== "body" || Ce(r)) && (i = Me(n)), J(n))) {
     const u = ue(n);
     l = de(n), a.x = u.x + n.clientLeft, a.y = u.y + n.clientTop;
   }
@@ -1975,7 +1975,7 @@ function cs(e, t) {
   };
 }
 function us(e, t) {
-  const n = ue(e, !0, t === "fixed"), o = n.top + e.clientTop, s = n.left + e.clientLeft, r = Z(e) ? de(e) : oe(1), i = e.clientWidth * r.x, l = e.clientHeight * r.y, a = s * r.x, u = o * r.y;
+  const n = ue(e, !0, t === "fixed"), o = n.top + e.clientTop, s = n.left + e.clientLeft, r = J(e) ? de(e) : oe(1), i = e.clientWidth * r.x, l = e.clientHeight * r.y, a = s * r.x, u = o * r.y;
   return {
     width: i,
     height: l,
@@ -2040,7 +2040,7 @@ function ps(e) {
   return Zt(e);
 }
 function ms(e, t, n) {
-  const o = Z(t), s = te(t), r = n === "fixed", i = ue(e, !0, r, t);
+  const o = J(t), s = te(t), r = n === "fixed", i = ue(e, !0, r, t);
   let l = {
     scrollLeft: 0,
     scrollTop: 0
@@ -2060,11 +2060,11 @@ function ms(e, t, n) {
   };
 }
 function ct(e, t) {
-  return !Z(e) || X(e).position === "fixed" ? null : t ? t(e) : e.offsetParent;
+  return !J(e) || X(e).position === "fixed" ? null : t ? t(e) : e.offsetParent;
 }
 function tn(e, t) {
   const n = Y(e);
-  if (!Z(e))
+  if (!J(e))
     return n;
   let o = ct(e, t);
   for (; o && ns(o) && X(o).position === "static"; )
@@ -2118,8 +2118,8 @@ function bs(e, t) {
     } = e.getBoundingClientRect();
     if (l || t(), !p || !v)
       return;
-    const c = _e(b), g = _e(s.clientWidth - (u + p)), f = _e(s.clientHeight - (b + v)), _ = _e(u), O = {
-      rootMargin: -c + "px " + -g + "px " + -f + "px " + -_ + "px",
+    const c = Ie(b), g = Ie(s.clientWidth - (u + p)), f = Ie(s.clientHeight - (b + v)), C = Ie(u), O = {
+      rootMargin: -c + "px " + -g + "px " + -f + "px " + -C + "px",
       threshold: ae(0, Oe(1, a)) || 1
     };
     let w = !0;
@@ -2170,10 +2170,10 @@ function ys(e, t, n, o) {
     })), n();
   }), u && !a && c.observe(u), c.observe(t));
   let g, f = a ? ue(e) : null;
-  a && _();
-  function _() {
+  a && C();
+  function C() {
     const P = ue(e);
-    f && (P.x !== f.x || P.y !== f.y || P.width !== f.width || P.height !== f.height) && n(), f = P, g = requestAnimationFrame(_);
+    f && (P.x !== f.x || P.y !== f.y || P.width !== f.width || P.height !== f.height) && n(), f = P, g = requestAnimationFrame(C);
   }
   return n(), () => {
     b.forEach((P) => {
@@ -2207,12 +2207,12 @@ const Cs = {
     type: Boolean,
     default: !1
   }
-}, _s = {
+}, Is = {
   keep: {
     type: Boolean,
     default: !1
   }
-}, Is = {
+}, _s = {
   transition: {
     type: String,
     default: null
@@ -2231,9 +2231,9 @@ const Cs = {
   }
 };
 function Sl() {
-  return $(D());
+  return E(D());
 }
-function _l(e) {
+function Il(e) {
   const t = e.split("-");
   return {
     placement: t[0],
@@ -2246,8 +2246,8 @@ const ks = /* @__PURE__ */ V({
     ...B,
     ...Cs,
     ...Ss,
-    ..._s,
     ...Is,
+    ..._s,
     ...Rs(),
     ...xs
   },
@@ -2259,7 +2259,7 @@ const ks = /* @__PURE__ */ V({
     hide: () => !0
   },
   setup(e, t) {
-    const n = k(null), o = k(null), s = x({
+    const n = k(null), o = k(null), s = R({
       position: "absolute",
       left: "0",
       top: "0",
@@ -2314,11 +2314,11 @@ const ks = /* @__PURE__ */ V({
       style: {
         ...this.style
       }
-    }, n = this.$props.as || "span", o = () => this.$props.keep ? Ie(le(n, ze({
+    }, n = this.$props.as || "span", o = () => this.$props.keep ? _e(le(n, ze({
       ref: "floatingElement"
     }, t), {
       default: () => [this.$slots.default ? this.$slots.default() : null]
-    }), [[gn, this.visible], [Re("document-event"), this.onDocumentClick, "click"]]) : this.visible ? Ie(le(n, ze({
+    }), [[gn, this.visible], [Re("document-event"), this.onDocumentClick, "click"]]) : this.visible ? _e(le(n, ze({
       ref: "floatingElement"
     }, t), {
       default: () => [this.$slots.default ? this.$slots.default() : null]
@@ -2347,8 +2347,8 @@ const ks = /* @__PURE__ */ V({
     required: !0
   }
 };
-function Il() {
-  return $(D());
+function _l() {
+  return E(D());
 }
 const Vs = /* @__PURE__ */ V({
   name: "hr-fragment-container",
@@ -2359,7 +2359,7 @@ const Vs = /* @__PURE__ */ V({
   },
   emits: ["click"],
   setup(e, t) {
-    const n = x({
+    const n = R({
       active: h(() => e.active)
     }), o = () => t.slots.default(n);
     return W("coreFragmentContainer", {
@@ -2372,7 +2372,7 @@ const Vs = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -2411,7 +2411,7 @@ const Vs = /* @__PURE__ */ V({
   }
 };
 function Rl(e) {
-  return $(D()).setProp("input", e);
+  return E(D()).setProp("input", e);
 }
 const Ns = /* @__PURE__ */ V({
   name: "hr-input",
@@ -2443,7 +2443,7 @@ const Ns = /* @__PURE__ */ V({
       t.emit("update:modelValue", l), ne(() => {
         e.type !== "number" && e.input.setSelectionRange(a, u);
       });
-    }, s = x({
+    }, s = R({
       disabled: h(() => e.disabled),
       readonly: h(() => e.readonly),
       modelValue: h({
@@ -2461,7 +2461,7 @@ const Ns = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -2489,7 +2489,7 @@ const Ns = /* @__PURE__ */ V({
   }
 };
 function xl(e) {
-  return $(D()).setProp("input", e);
+  return E(D()).setProp("input", e);
 }
 const qs = /* @__PURE__ */ V({
   name: "hr-autocomplete",
@@ -2535,7 +2535,7 @@ const qs = /* @__PURE__ */ V({
       !s.value && c.key !== "Escape" && e.modelValue.length > 0 ? a() : c.key === "ArrowDown" && e.modelValue.length > 0 ? (r.value = U.next(e.items, g()), c.preventDefault(), c.stopImmediatePropagation()) : c.key === "ArrowUp" && e.modelValue.length > 0 ? (r.value = U.prev(e.items, g()), c.preventDefault(), c.stopImmediatePropagation()) : c.key === "Enter" && r.value ? (i(r.value), c.preventDefault(), c.stopImmediatePropagation()) : c.key === "Tab" ? l() : c.key === "Escape" && (l(), c.preventDefault(), c.stopImmediatePropagation());
     }, b = () => {
       r.value = null;
-    }, p = x({
+    }, p = R({
       modelValue: h({
         get: () => e.modelValue,
         set: (c) => o(c)
@@ -2559,7 +2559,7 @@ const qs = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -2579,7 +2579,7 @@ const qs = /* @__PURE__ */ V({
   }
 };
 function kl() {
-  return $(D());
+  return E(D());
 }
 const Xs = /* @__PURE__ */ V({
   name: "hr-notification-wrapper",
@@ -2590,10 +2590,10 @@ const Xs = /* @__PURE__ */ V({
   },
   setup: function(e) {
     W("wrapper-name", e.name);
-    const t = x({}), n = (g) => g.charAt(0).toUpperCase() + g.slice(1), o = (g) => g.split("-").map((P) => n(P)).join(""), s = (g) => {
+    const t = R({}), n = (g) => g.charAt(0).toUpperCase() + g.slice(1), o = (g) => g.split("-").map((P) => n(P)).join(""), s = (g) => {
       const f = {};
-      return Object.keys(g).forEach((_) => {
-        f[`on${o(_)}`] = g[_];
+      return Object.keys(g).forEach((C) => {
+        f[`on${o(C)}`] = g[C];
       }), f;
     }, r = (g) => {
       const f = t[g];
@@ -2614,10 +2614,10 @@ const Xs = /* @__PURE__ */ V({
     }, v = {
       addNotification: (g) => {
         const f = g;
-        return f.resolve = (_ = null) => {
-          f.promise.resolve(_), r(f.id);
-        }, f.reject = (_ = null) => {
-          f.promise.reject(_), r(f.id);
+        return f.resolve = (C = null) => {
+          f.promise.resolve(C), r(f.id);
+        }, f.reject = (C = null) => {
+          f.promise.reject(C), r(f.id);
         }, f.transitionEnd = () => {
           i(f.id);
         }, f.visible = !0, f.id = We.random(), f.compiledListeners = h(() => f.listeners ? s(f.listeners) : {}), f.durationTimeout = null, t[f.id] = f, u(f.id), f;
@@ -2628,7 +2628,7 @@ const Xs = /* @__PURE__ */ V({
       resumeDuration: u
     };
     ye[e.name] = v;
-    const c = x({
+    const c = R({
       name: h(() => e.name),
       notifications: h(() => t)
     });
@@ -2642,7 +2642,7 @@ const Xs = /* @__PURE__ */ V({
     const e = () => this.$slots.default(this.slotProps);
     if (this.$props.as) {
       const t = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...t
       }, e());
     }
@@ -2660,8 +2660,8 @@ function on(e, t, n, o) {
     promise: new Promise((a, u) => {
       i = ye[r].addNotification({
         component: xt(e),
-        listeners: n !== void 0 ? x(n) : null,
-        props: t !== void 0 ? x(t) : null,
+        listeners: n !== void 0 ? R(n) : null,
+        props: t !== void 0 ? R(t) : null,
         options: s,
         promise: { resolve: a, reject: u }
       });
@@ -2676,7 +2676,7 @@ function sn(e = "default") {
   return ye[e];
 }
 function Zs(e) {
-  const t = G("wrapper-name");
+  const t = Z("wrapper-name");
   return ye[t].getNotification(e);
 }
 function Js() {
@@ -2700,7 +2700,7 @@ const Ol = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   }
 };
 function Dl() {
-  return $(D());
+  return E(D());
 }
 const er = /* @__PURE__ */ V({
   name: "hr-notification",
@@ -2710,11 +2710,11 @@ const er = /* @__PURE__ */ V({
     ...Qs
   },
   setup(e, t) {
-    const n = G("notification-id");
+    const n = Z("notification-id");
     n || console.warn("You must call NotificationManager.setupNotification() in the notification setup");
-    const o = G("notification-reject"), s = () => {
+    const o = Z("notification-reject"), s = () => {
       o(null);
-    }, r = sn(), i = x({
+    }, r = sn(), i = R({
       visible: h(() => e.visible),
       pauseDuration: () => r.pauseDuration(n),
       resumeDuration: () => r.resumeDuration(n),
@@ -2723,7 +2723,7 @@ const er = /* @__PURE__ */ V({
     return () => {
       if (e.as) {
         const a = e.asProps ? e.asProps(i) : {};
-        return A(e.as, {
+        return $(e.as, {
           ...a
         }, l());
       }
@@ -2759,7 +2759,7 @@ const er = /* @__PURE__ */ V({
   }
 };
 function Tl() {
-  return $(D());
+  return E(D());
 }
 const lr = /* @__PURE__ */ V({
   name: "hr-paginator",
@@ -2784,7 +2784,7 @@ const lr = /* @__PURE__ */ V({
       }), b;
     }), s = (l) => {
       l !== null && t.emit("update:modelValue", l);
-    }, r = x({
+    }, r = R({
       currentPage: h(() => e.modelValue),
       pages: n,
       buttons: o,
@@ -2798,7 +2798,7 @@ const lr = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -2827,7 +2827,7 @@ const lr = /* @__PURE__ */ V({
   }
 };
 function Vl() {
-  return $(D());
+  return E(D());
 }
 const pr = /* @__PURE__ */ V({
   name: "hr-progress-bar",
@@ -2842,7 +2842,7 @@ const pr = /* @__PURE__ */ V({
     const n = h(() => {
       const r = (e.value - e.minimum) * 100 / (e.maximum - e.minimum);
       return Math.round(r);
-    }), o = x({
+    }), o = R({
       percentage: n
     });
     return {
@@ -2854,7 +2854,7 @@ const pr = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -2883,7 +2883,7 @@ const pr = /* @__PURE__ */ V({
   }
 };
 function El() {
-  return $(D());
+  return E(D());
 }
 const yr = /* @__PURE__ */ V({
   name: "hr-radio-button",
@@ -2898,7 +2898,7 @@ const yr = /* @__PURE__ */ V({
   setup(e, t) {
     const n = h(() => e.modelValue === e.value), o = () => {
       t.emit("update:modelValue", e.value);
-    }, s = x({
+    }, s = R({
       disabled: h(() => e.disabled),
       state: n,
       onChange: o
@@ -2911,7 +2911,7 @@ const yr = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -2934,12 +2934,12 @@ const Cr = {
     type: Boolean,
     default: !0
   }
-}, _r = {
+}, Ir = {
   autoHide: {
     type: Boolean,
     default: !0
   }
-}, Ir = {
+}, _r = {
   autoHideDelay: {
     type: Number,
     default: 1500
@@ -2961,7 +2961,7 @@ const Cr = {
   }
 };
 function $l() {
-  return $(D());
+  return E(D());
 }
 const Or = /* @__PURE__ */ V({
   name: "hr-scroll-container",
@@ -2973,24 +2973,24 @@ const Or = /* @__PURE__ */ V({
     ...M,
     ...Cr,
     ...Sr,
-    ..._r,
     ...Ir,
+    ..._r,
     ...Rr,
     ...xr,
     ...kr
   },
   setup(e) {
-    const t = k(), n = k(), o = k(), s = k(), r = k(), i = x({
+    const t = k(), n = k(), o = k(), s = k(), r = k(), i = R({
       start: null,
       startOffset: null
-    }), l = x({
+    }), l = R({
       offset: 0,
       size: 20,
       trackHover: !1,
       thumbHover: !1,
       visible: !1,
       dragging: !1
-    }), a = x({
+    }), a = R({
       offset: 0,
       size: 20,
       trackHover: !1,
@@ -3003,35 +3003,35 @@ const Or = /* @__PURE__ */ V({
       !e.autoHide || b.value || u.value || (p.value = !1, v && clearTimeout(v), v = setTimeout(() => {
         p.value = !0;
       }, e.autoHideDelay));
-    }, g = (S) => {
-      S ? (v && clearTimeout(v), p.value = !1) : c();
+    }, g = (y) => {
+      y ? (v && clearTimeout(v), p.value = !1) : c();
     };
     z(b, g), z(u, g);
-    const f = (S, R) => {
-      const E = S.getBoundingClientRect(), H = R.clientX, q = R.clientY, J = E.left, ie = J + E.width, Se = E.top, rn = Se + E.height;
-      return H >= J && H <= ie && q >= Se && q <= rn;
-    }, _ = (S) => {
-      l.trackHover = n.value && l.visible && f(n.value, S), l.thumbHover = l.trackHover && f(o.value, S), a.trackHover = s.value && a.visible && f(s.value, S), a.thumbHover = a.trackHover && f(r.value, S);
-    }, P = (S) => {
+    const f = (y, _) => {
+      const x = y.getBoundingClientRect(), H = _.clientX, q = _.clientY, G = x.left, ie = G + x.width, Se = x.top, rn = Se + x.height;
+      return H >= G && H <= ie && q >= Se && q <= rn;
+    }, C = (y) => {
+      l.trackHover = n.value && l.visible && f(n.value, y), l.thumbHover = l.trackHover && f(o.value, y), a.trackHover = s.value && a.visible && f(s.value, y), a.thumbHover = a.trackHover && f(r.value, y);
+    }, P = (y) => {
       if (l.dragging && i.startOffset) {
-        const R = t.value.getBoundingClientRect(), E = n.value.getBoundingClientRect(), H = S.clientY - R.top - i.startOffset.top + (R.top - E.top), q = Math.min(100, Math.max(0, 100 / n.value.offsetHeight * H));
-        t.value.scrollTop = t.value.scrollHeight * (q / 100), S.preventDefault(), S.stopImmediatePropagation();
+        const _ = t.value.getBoundingClientRect(), x = n.value.getBoundingClientRect(), H = y.clientY - _.top - i.startOffset.top + (_.top - x.top), q = Math.min(100, Math.max(0, 100 / n.value.offsetHeight * H));
+        t.value.scrollTop = t.value.scrollHeight * (q / 100), y.preventDefault(), y.stopImmediatePropagation();
       } else if (a.dragging && i.startOffset) {
-        const R = t.value.getBoundingClientRect(), E = s.value.getBoundingClientRect(), H = S.clientX - R.left - i.startOffset.left + (R.left - E.left), q = Math.min(100, Math.max(0, 100 / s.value.offsetWidth * H));
-        t.value.scrollLeft = t.value.scrollWidth * (q / 100), S.preventDefault(), S.stopImmediatePropagation();
+        const _ = t.value.getBoundingClientRect(), x = s.value.getBoundingClientRect(), H = y.clientX - _.left - i.startOffset.left + (_.left - x.left), q = Math.min(100, Math.max(0, 100 / s.value.offsetWidth * H));
+        t.value.scrollLeft = t.value.scrollWidth * (q / 100), y.preventDefault(), y.stopImmediatePropagation();
       }
-    }, O = (S) => {
-      if (l.dragging = n.value && f(n.value, S), a.dragging = s.value && f(s.value, S), (l.dragging || a.dragging) && i.start === null) {
-        const R = t.value.getBoundingClientRect();
+    }, O = (y) => {
+      if (l.dragging = n.value && f(n.value, y), a.dragging = s.value && f(s.value, y), (l.dragging || a.dragging) && i.start === null) {
+        const _ = t.value.getBoundingClientRect();
         i.start = {
-          top: S.clientY - R.top,
-          left: S.clientX - R.left
+          top: y.clientY - _.top,
+          left: y.clientX - _.left
         };
-        const E = l.dragging ? o.value.getBoundingClientRect() : r.value.getBoundingClientRect();
+        const x = l.dragging ? o.value.getBoundingClientRect() : r.value.getBoundingClientRect();
         i.startOffset = {
-          top: R.top - E.top + i.start.top,
-          left: R.left - E.left + i.start.left
-        }, S.preventDefault(), S.stopImmediatePropagation();
+          top: _.top - x.top + i.start.top,
+          left: _.left - x.left + i.start.left
+        }, y.preventDefault(), y.stopImmediatePropagation();
       }
     }, w = () => {
       l.dragging = a.dragging = !1, i.startOffset = i.start = null;
@@ -3040,35 +3040,35 @@ const Or = /* @__PURE__ */ V({
         if (t.value.scrollHeight !== d.value && (c(), d.value = t.value.scrollHeight), n.value.offsetHeight === 0)
           ne(I);
         else {
-          const S = 100 / t.value.scrollHeight * t.value.offsetHeight;
-          l.size = Math.max(e.minimumSize, n.value.offsetHeight * (S / 100));
-          const R = 100 / (t.value.scrollHeight - t.value.offsetHeight) * t.value.scrollTop;
-          l.offset = (n.value.offsetHeight - l.size) * (R / 100);
+          const y = 100 / t.value.scrollHeight * t.value.offsetHeight;
+          l.size = Math.max(e.minimumSize, n.value.offsetHeight * (y / 100));
+          const _ = 100 / (t.value.scrollHeight - t.value.offsetHeight) * t.value.scrollTop;
+          l.offset = (n.value.offsetHeight - l.size) * (_ / 100);
         }
       if (a.visible = t.value.scrollWidth > t.value.offsetWidth, a.visible && s.value && r.value)
         if (t.value.scrollWidth !== m.value && (c(), m.value = t.value.scrollWidth), s.value.offsetWidth === 0)
           ne(I);
         else {
-          const S = 100 / t.value.scrollWidth * t.value.offsetWidth;
-          a.size = Math.max(e.minimumSize, s.value.offsetWidth * (S / 100));
-          const R = 100 / (t.value.scrollWidth - t.value.offsetWidth) * t.value.scrollLeft;
-          a.offset = (s.value.offsetWidth - a.size) * (R / 100);
+          const y = 100 / t.value.scrollWidth * t.value.offsetWidth;
+          a.size = Math.max(e.minimumSize, s.value.offsetWidth * (y / 100));
+          const _ = 100 / (t.value.scrollWidth - t.value.offsetWidth) * t.value.scrollLeft;
+          a.offset = (s.value.offsetWidth - a.size) * (_ / 100);
         }
-    }, L = (S, R) => {
-      t.value.scrollTo(S, R);
-    }, C = () => {
+    }, L = (y, _) => {
+      t.value.scrollTo(y, _);
+    }, S = () => {
       c(), I();
     };
     re(() => {
-      I(), document.addEventListener("mousemove", P), document.addEventListener("mouseup", w), t.value.addEventListener("scroll", C, {
+      I(), document.addEventListener("mousemove", P), document.addEventListener("mouseup", w), t.value.addEventListener("scroll", S, {
         passive: !0
       });
     }), bn(() => {
-      document.removeEventListener("mousemove", P), document.removeEventListener("mouseup", w), t.value.removeEventListener("scroll", C);
+      document.removeEventListener("mousemove", P), document.removeEventListener("mouseup", w), t.value.removeEventListener("scroll", S);
     });
-    const T = (S, R, E) => {
-      S === "vertical" ? (n.value = R, o.value = E) : (s.value = R, r.value = E);
-    }, y = x({
+    const T = (y, _, x) => {
+      y === "vertical" ? (n.value = _, o.value = x) : (s.value = _, r.value = x);
+    }, A = R({
       anyHover: h(() => u.value),
       anyDragging: h(() => b.value),
       hidden: h(() => p.value)
@@ -3079,11 +3079,11 @@ const Or = /* @__PURE__ */ V({
       horizontalBar: a,
       anyHover: u,
       anyDragging: b,
-      onMouseMove: _,
+      onMouseMove: C,
       onMouseDown: O,
       startAutoHideTimer: c,
       updateThumbs: I,
-      slotProps: y,
+      slotProps: A,
       registerBar: T,
       scrollTo: L
     };
@@ -3096,13 +3096,13 @@ const Or = /* @__PURE__ */ V({
       }],
       onMouseenter: this.startAutoHideTimer
     }), {
-      default: () => [Ie(le("div", {
+      default: () => [_e(le("div", {
         ref: "wrapper",
         class: ["hr-scroll-container__wrapper", this.wrapperClasses],
         onMousemove: this.onMouseMove,
         onMouseleave: this.onMouseMove,
         onMousedown: this.onMouseDown
-      }, [Ie(le("div", {
+      }, [_e(le("div", {
         class: ["hr-scroll-container__container", this.containerClasses]
       }, [this.$slots.default()]), [[Re("resize"), this.updateThumbs]])]), [[Re("resize"), this.updateThumbs]]), this.$slots.verticalBar ? this.$slots.verticalBar(this.verticalBar) : null, this.$slots.horizontalBar ? this.$slots.horizontalBar(this.horizontalBar) : null]
     });
@@ -3156,7 +3156,7 @@ const Or = /* @__PURE__ */ V({
   }
 };
 function Al() {
-  return $(D());
+  return E(D());
 }
 const zr = /* @__PURE__ */ V({
   name: "hr-select",
@@ -3172,105 +3172,105 @@ const zr = /* @__PURE__ */ V({
   },
   emits: ["update:modelValue", "focusedItemChanged"],
   setup(e, t) {
-    const n = k(!1), o = k(!1), s = k([]), r = k(null), i = h(() => {
+    const n = k(!1), o = k(!1), s = k([]), r = k(null), i = (y, _) => _.indexOf(y.value) !== -1 ? !0 : e.compare ? typeof e.compare == "string" ? _.find((H) => (H !== null && we.getProperty(H, e.compare)) === (y.value !== null && we.getProperty(y.value, e.compare))) : e.compare(_, y.value) : !1, l = h(() => {
       const y = [].concat(e.modelValue);
-      return s.value.filter((S) => y.indexOf(S.value) !== -1 ? !0 : e.compare ? typeof e.compare == "string" ? y.find((E) => (E !== null && we.getProperty(E, e.compare)) === (S.value !== null && we.getProperty(S.value, e.compare))) : e.compare(y, S.value) : !1);
-    }), l = h(() => i.value.length > 0), a = h(() => {
+      return s.value.filter((_) => i(_, y));
+    }), a = h(() => l.value.length > 0), u = h(() => {
       const y = [];
-      return i.value.forEach((S) => {
-        y.push(S.label);
+      return l.value.forEach((_) => {
+        y.push(_.label);
       }), y.join(", ");
-    }), u = k(""), b = k(), p = h(() => s.value.filter((y) => y.disabled === !1)), v = () => {
+    }), b = k(""), p = k(), v = h(() => s.value.filter((y) => y.disabled === !1)), c = () => {
       r.value = null;
     };
     z(r, () => {
       t.emit("focusedItemChanged", r.value);
     });
-    const c = (y) => {
+    const g = (y) => {
       s.value.push(y);
-    }, g = (y) => {
+    }, f = (y) => {
       s.value = U.remove(s.value, y);
-    }, f = () => {
+    }, C = () => {
       n.value = !1;
-    }, _ = (y) => {
+    }, P = (y) => {
       const {
-        value: S
+        value: _
       } = y;
-      e.hideOnSelect && !e.multiple && f();
-      let R = S;
-      e.multiple && (R = [], e.modelValue !== void 0 && (R = R.concat(e.modelValue)), R.includes(S) ? R.splice(R.indexOf(S), 1) : R.push(S)), r.value = y, t.emit("update:modelValue", R);
-    }, P = () => {
+      e.hideOnSelect && !e.multiple && C();
+      let x = _;
+      e.multiple && (x = [], e.modelValue !== void 0 && (x = x.concat(e.modelValue)), i(y, x) ? x.splice(x.indexOf(_), 1) : x.push(_)), r.value = y, t.emit("update:modelValue", x);
+    }, O = () => {
       if (e.disabled)
         return !1;
       n.value = !n.value;
-    }, O = () => {
+    }, w = () => {
       t.emit("update:modelValue", e.multiple ? [] : void 0);
-    }, w = (y) => {
+    }, d = (y) => {
       if (e.disabled)
         return !1;
-      const S = () => r.value ? p.value.findIndex((R) => R === r.value) : null;
+      const _ = () => r.value ? v.value.findIndex((x) => x === r.value) : null;
       if (!n.value && (y.key === "ArrowDown" || y.key === "ArrowUp" || y.key === "Enter"))
         n.value = !0, y.preventDefault(), y.stopImmediatePropagation();
       else if (y.key === "ArrowDown")
-        r.value = U.next(p.value, S()), y.preventDefault(), y.stopImmediatePropagation();
+        r.value = U.next(v.value, _()), y.preventDefault(), y.stopImmediatePropagation();
       else if (y.key === "ArrowUp")
-        r.value = U.prev(p.value, S()), y.preventDefault(), y.stopImmediatePropagation();
+        r.value = U.prev(v.value, _()), y.preventDefault(), y.stopImmediatePropagation();
       else if (y.key === "Enter" && r.value)
-        _(r.value), y.preventDefault(), y.stopImmediatePropagation();
+        P(r.value), y.preventDefault(), y.stopImmediatePropagation();
       else if (y.key === "Tab")
-        f();
+        C();
       else if (y.key === "Escape")
-        f(), y.preventDefault(), y.stopImmediatePropagation();
+        C(), y.preventDefault(), y.stopImmediatePropagation();
       else {
-        clearTimeout(b.value);
-        const R = y.key.toLowerCase();
-        if (R.match(/^\p{L}$/u)) {
-          let H = null;
-          R == u.value ? H = r.value ? d.value.findIndex((q) => q === r.value) : null : u.value += R, r.value = U.next(d.value, H), b.value = setTimeout(m, 1500);
+        clearTimeout(p.value);
+        const x = y.key.toLowerCase();
+        if (x.match(/^\p{L}$/u)) {
+          let q = null;
+          x == b.value ? q = r.value ? m.value.findIndex((G) => G === r.value) : null : b.value += x, r.value = U.next(m.value, q), p.value = setTimeout(I, 1500);
         }
       }
-    }, d = h(() => s.value.filter((y) => y.label.toLowerCase().startsWith(u.value))), m = () => {
-      u.value = "";
-    }, I = (y) => {
+    }, m = h(() => s.value.filter((y) => y.label.toLowerCase().startsWith(b.value))), I = () => {
+      b.value = "";
+    }, L = (y) => {
       o.value = y;
-    }, L = h(() => n.value || o.value);
+    }, S = h(() => n.value || o.value);
     W("select", {
-      selectedItems: i,
+      selectedItems: l,
       focusedItem: r,
-      onItemClick: _,
-      addItemInstance: c,
-      removeItemInstance: g,
+      onItemClick: P,
+      addItemInstance: g,
+      removeItemInstance: f,
       menuVisible: h(() => n.value),
-      itemsVisible: L
+      itemsVisible: S
     });
-    const C = x({
+    const T = R({
       modelValue: h(() => e.modelValue),
       disabled: h(() => e.disabled),
       allowClear: h(() => e.allowClear),
       menuVisible: h(() => n.value),
       focusedItem: h(() => r.value),
-      clearFocusedItem: v,
-      anythingSelected: l,
-      selectedItems: i,
-      selectedText: a,
-      clearValue: O,
-      close: f,
-      onButtonClick: P,
-      onItemClick: _,
-      onKeyEvents: w,
-      onMenuTransitioning: I
+      clearFocusedItem: c,
+      anythingSelected: a,
+      selectedItems: l,
+      selectedText: u,
+      clearValue: w,
+      close: C,
+      onButtonClick: O,
+      onItemClick: P,
+      onKeyEvents: d,
+      onMenuTransitioning: L
     });
     return {
-      close: f,
-      slotProps: C,
-      defaultRender: () => t.slots.default(C),
+      close: C,
+      slotProps: T,
+      defaultRender: () => t.slots.default(T),
       items: s
     };
   },
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -3293,7 +3293,7 @@ const zr = /* @__PURE__ */ V({
   }
 };
 function Bl() {
-  return $(D());
+  return E(D());
 }
 const Hr = /* @__PURE__ */ V({
   name: "hr-select-item",
@@ -3306,7 +3306,7 @@ const Hr = /* @__PURE__ */ V({
   },
   emits: ["update:modelValue"],
   setup(e, t) {
-    const n = G("select"), o = x({
+    const n = Z("select"), o = R({
       value: e.value,
       label: e.label,
       disabled: e.disabled,
@@ -3319,7 +3319,7 @@ const Hr = /* @__PURE__ */ V({
     });
     const s = h(() => n.selectedItems.value.indexOf(o) !== -1), r = h(() => n.focusedItem.value === o), i = () => {
       e.disabled || n.onItemClick(o);
-    }, l = x({
+    }, l = R({
       selected: s,
       focused: r,
       disabled: h(() => e.disabled),
@@ -3336,7 +3336,7 @@ const Hr = /* @__PURE__ */ V({
     if (this.select.itemsVisible.value) {
       if (this.$props.as) {
         const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-        return A(this.$props.as, {
+        return $(this.$props.as, {
           ...e
         }, this.defaultRender());
       }
@@ -3384,7 +3384,7 @@ const Hr = /* @__PURE__ */ V({
   }
 };
 function Ml() {
-  return $(D());
+  return E(D());
 }
 const Jr = /* @__PURE__ */ V({
   name: "hr-simple-select",
@@ -3404,22 +3404,22 @@ const Jr = /* @__PURE__ */ V({
   emits: ["update:modelValue", "focusedItemChanged"],
   setup(e, t) {
     const n = k(!1), o = k(!1), s = h(() => {
-      const C = [].concat(e.modelValue);
+      const S = [].concat(e.modelValue);
       return e.items.map((T) => {
-        let y = typeof T == "string" ? T : typeof e.label == "string" ? T[e.label] : e.label(T), S = !1;
-        return C.indexOf(T) !== -1 ? S = !0 : e.compare && (typeof e.compare == "string" ? S = C.find((E) => (E !== null && we.getProperty(E, e.compare)) === (T !== null && we.getProperty(T, e.compare))) : S = e.compare(C, T)), {
+        let A = typeof T == "string" ? T : typeof e.label == "string" ? T[e.label] : e.label(T), y = !1;
+        return S.indexOf(T) !== -1 ? y = !0 : e.compare && (typeof e.compare == "string" ? y = S.find((x) => (x !== null && we.getProperty(x, e.compare)) === (T !== null && we.getProperty(T, e.compare))) : y = e.compare(S, T)), {
           value: T,
-          label: y,
+          label: A,
           disabled: !1,
-          selected: S
+          selected: y
         };
       });
-    }), r = k(null), i = h(() => s.value.filter((C) => C.selected)), l = h(() => i.value.length > 0), a = h(() => {
-      const C = [];
+    }), r = k(null), i = h(() => s.value.filter((S) => S.selected)), l = h(() => i.value.length > 0), a = h(() => {
+      const S = [];
       return i.value.forEach((T) => {
-        C.push(T.label);
-      }), C.join(", ");
-    }), u = k(""), b = k(), p = h(() => s.value.filter((C) => !C.disabled)), v = () => {
+        S.push(T.label);
+      }), S.join(", ");
+    }), u = k(""), b = k(), p = h(() => s.value.filter((S) => !S.disabled)), v = () => {
       r.value = null;
     };
     z(r, () => {
@@ -3427,47 +3427,47 @@ const Jr = /* @__PURE__ */ V({
     });
     const c = () => {
       n.value = !1;
-    }, g = (C) => {
+    }, g = (S) => {
       const {
         value: T
-      } = C;
+      } = S;
       e.hideOnSelect && !e.multiple && c();
-      let y = T;
-      e.multiple && (y = [], e.modelValue !== void 0 && (y = y.concat(e.modelValue)), y.includes(T) ? y.splice(y.indexOf(T), 1) : y.push(T)), r.value = C, t.emit("update:modelValue", y);
+      let A = T;
+      e.multiple && (A = [], e.modelValue !== void 0 && (A = A.concat(e.modelValue)), A.includes(T) ? A.splice(A.indexOf(T), 1) : A.push(T)), r.value = S, t.emit("update:modelValue", A);
     }, f = () => {
       if (e.disabled)
         return !1;
       n.value = !n.value;
-    }, _ = () => {
+    }, C = () => {
       t.emit("update:modelValue", e.multiple ? [] : void 0);
-    }, P = (C) => {
+    }, P = (S) => {
       if (e.disabled)
         return !1;
-      const T = () => r.value ? p.value.findIndex((y) => y === r.value) : null;
-      if (!n.value && (C.key === "ArrowDown" || C.key === "ArrowUp" || C.key === "Enter"))
-        n.value = !0, C.preventDefault(), C.stopImmediatePropagation();
-      else if (C.key === "ArrowDown")
-        r.value = U.next(p.value, T()), C.preventDefault(), C.stopImmediatePropagation();
-      else if (C.key === "ArrowUp")
-        r.value = U.prev(p.value, T()), C.preventDefault(), C.stopImmediatePropagation();
-      else if (C.key === "Enter" && r.value)
-        g(r.value), C.preventDefault(), C.stopImmediatePropagation();
-      else if (C.key === "Tab")
+      const T = () => r.value ? p.value.findIndex((A) => A === r.value) : null;
+      if (!n.value && (S.key === "ArrowDown" || S.key === "ArrowUp" || S.key === "Enter"))
+        n.value = !0, S.preventDefault(), S.stopImmediatePropagation();
+      else if (S.key === "ArrowDown")
+        r.value = U.next(p.value, T()), S.preventDefault(), S.stopImmediatePropagation();
+      else if (S.key === "ArrowUp")
+        r.value = U.prev(p.value, T()), S.preventDefault(), S.stopImmediatePropagation();
+      else if (S.key === "Enter" && r.value)
+        g(r.value), S.preventDefault(), S.stopImmediatePropagation();
+      else if (S.key === "Tab")
         c();
-      else if (C.key === "Escape")
-        c(), C.preventDefault(), C.stopImmediatePropagation();
+      else if (S.key === "Escape")
+        c(), S.preventDefault(), S.stopImmediatePropagation();
       else {
         clearTimeout(b.value);
-        const y = C.key.toLowerCase();
-        if (y.match(/^\p{L}$/u)) {
-          let R = null;
-          y == u.value ? R = r.value ? O.value.findIndex((E) => E === r.value) : null : u.value += y, r.value = U.next(O.value, R), b.value = setTimeout(w, 1500);
+        const A = S.key.toLowerCase();
+        if (A.match(/^\p{L}$/u)) {
+          let _ = null;
+          A == u.value ? _ = r.value ? O.value.findIndex((x) => x === r.value) : null : u.value += A, r.value = U.next(O.value, _), b.value = setTimeout(w, 1500);
         }
       }
-    }, O = h(() => s.value.filter((C) => C.label.toLowerCase().startsWith(u.value))), w = () => {
+    }, O = h(() => s.value.filter((S) => S.label.toLowerCase().startsWith(u.value))), w = () => {
       u.value = "";
-    }, d = (C) => {
-      o.value = C;
+    }, d = (S) => {
+      o.value = S;
     }, m = h(() => n.value || o.value);
     W("select", {
       selectedItems: i,
@@ -3476,7 +3476,7 @@ const Jr = /* @__PURE__ */ V({
       menuVisible: h(() => n.value),
       itemsVisible: m
     });
-    const I = x({
+    const I = R({
       modelValue: h(() => e.modelValue),
       disabled: h(() => e.disabled),
       allowClear: h(() => e.allowClear),
@@ -3487,7 +3487,7 @@ const Jr = /* @__PURE__ */ V({
       anythingSelected: l,
       selectedItems: i,
       selectedText: a,
-      clearValue: _,
+      clearValue: C,
       close: c,
       onButtonClick: f,
       onItemClick: g,
@@ -3504,7 +3504,7 @@ const Jr = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -3544,7 +3544,7 @@ const Jr = /* @__PURE__ */ V({
   }
 };
 function Ll() {
-  return $(D());
+  return E(D());
 }
 const ii = /* @__PURE__ */ V({
   name: "hr-slider",
@@ -3565,7 +3565,7 @@ const ii = /* @__PURE__ */ V({
     }), o = h(() => Math.round((e.maximum - e.minimum) / e.stepSize)), s = (l) => {
       let a = (e.maximum - e.minimum) / 100 * l + e.minimum;
       return a < e.minimum ? a = e.minimum : a > e.maximum && (a = e.maximum), Math.round(a / e.stepSize) * e.stepSize;
-    }, r = x({
+    }, r = R({
       modelValue: h(() => e.modelValue),
       percentage: n,
       steps: o
@@ -3581,7 +3581,7 @@ const ii = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -3595,7 +3595,7 @@ const ii = /* @__PURE__ */ V({
   }
 };
 function zl(e, t, n = null, o = !0) {
-  return x({
+  return R({
     id: e,
     visible: o,
     validator: n,
@@ -3614,7 +3614,7 @@ const ci = {
   }
 };
 function Nl() {
-  return $(D());
+  return E(D());
 }
 const di = /* @__PURE__ */ V({
   name: "hr-steps-navigator",
@@ -3652,7 +3652,7 @@ const di = /* @__PURE__ */ V({
     }, u = () => {
       const v = U.prev(s.value, n.value, (c) => c.visible);
       t.emit("update:modelValue", v.id);
-    }, b = x({
+    }, b = R({
       steps: s,
       currentStep: r,
       currentIndex: n,
@@ -3672,7 +3672,7 @@ const di = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -3745,7 +3745,7 @@ const vi = {
   }
 };
 function Fl() {
-  return $(D());
+  return E(D());
 }
 const Pi = /* @__PURE__ */ V({
   name: "hr-table",
@@ -3815,15 +3815,15 @@ const Pi = /* @__PURE__ */ V({
       v === null && (v = [].concat(p.value)), v.push(new mi(w, d, m)), ne(c);
     }, f = (w) => {
       v === null && (v = p.value), v = v.filter((d) => d.id !== w), ne(c);
-    }, _ = h(() => p.value.sort((w, d) => w.order - d.order));
+    }, C = h(() => p.value.sort((w, d) => w.order - d.order));
     W("table", {
       setSorting: u,
       setRowSelectionState: i,
       addColumn: g,
       removeColumn: f
     });
-    const P = x({
-      orderedColumns: _,
+    const P = R({
+      orderedColumns: C,
       rows: n,
       allRowsSelected: o,
       anyRowsSelected: s,
@@ -3844,7 +3844,7 @@ const Pi = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -3859,12 +3859,12 @@ const Pi = /* @__PURE__ */ V({
     type: Function,
     default: null
   }
-}, _i = {
+}, Ii = {
   sortable: {
     type: Boolean,
     default: !1
   }
-}, Ii = {
+}, _i = {
   data: {
     type: Object,
     default: null
@@ -3883,7 +3883,7 @@ const Pi = /* @__PURE__ */ V({
 function jl(e, t = [], n = []) {
   const o = D();
   return {
-    props: x({
+    props: R({
       data: e,
       component: o,
       ...Bt(o.props, t)
@@ -3896,13 +3896,13 @@ const ki = /* @__PURE__ */ V({
   props: {
     ...Ci,
     ...Si,
-    ..._i,
     ...Ii,
+    ..._i,
     ...xi,
     ...Ri
   },
   setup(e) {
-    const t = G("table"), n = We.random();
+    const t = Z("table"), n = We.random();
     return re(() => {
       t.addColumn(n, e.component, e.data);
     }), he(() => {
@@ -3924,7 +3924,7 @@ const ki = /* @__PURE__ */ V({
   }
 };
 function Hl() {
-  return $(D());
+  return E(D());
 }
 const Ti = /* @__PURE__ */ V({
   name: "hr-table-row",
@@ -3936,7 +3936,7 @@ const Ti = /* @__PURE__ */ V({
   },
   emits: ["update:modelValue", "rowClick"],
   setup(e, t) {
-    const o = x({
+    const o = R({
       onClick: () => {
         t.emit("rowClick", e.row);
       }
@@ -3949,7 +3949,7 @@ const Ti = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -3975,7 +3975,7 @@ const Ti = /* @__PURE__ */ V({
   }
 };
 function Wl() {
-  return $(D());
+  return E(D());
 }
 const Bi = /* @__PURE__ */ V({
   name: "hr-tab-item",
@@ -3986,7 +3986,7 @@ const Bi = /* @__PURE__ */ V({
     ...Ai
   },
   setup(e, t) {
-    const n = G("coreTabsNavigator"), o = x({
+    const n = Z("coreTabsNavigator"), o = R({
       id: e.id
     });
     re(() => {
@@ -3996,7 +3996,7 @@ const Bi = /* @__PURE__ */ V({
     });
     const s = h(() => o === n.activeTab.value), r = () => {
       e.disabled || n.onTabClick(o);
-    }, i = x({
+    }, i = R({
       disabled: h(() => e.disabled),
       active: s,
       onClick: r
@@ -4009,7 +4009,7 @@ const Bi = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -4022,7 +4022,7 @@ const Bi = /* @__PURE__ */ V({
   }
 };
 function ql() {
-  return $(D());
+  return E(D());
 }
 const Li = /* @__PURE__ */ V({
   name: "hr-tabs-navigator",
@@ -4046,7 +4046,7 @@ const Li = /* @__PURE__ */ V({
         t.emit("update:modelValue", u.id);
       }
     });
-    const l = x({
+    const l = R({
       tabs: n,
       activeTab: o
     });
@@ -4059,7 +4059,7 @@ const Li = /* @__PURE__ */ V({
   render() {
     if (this.$props.as) {
       const e = this.$props.asProps ? this.$props.asProps(this.slotProps) : {};
-      return A(this.$props.as, {
+      return $(this.$props.as, {
         ...e
       }, this.defaultRender());
     }
@@ -4094,7 +4094,7 @@ const Li = /* @__PURE__ */ V({
   }
 };
 function Ul(e) {
-  return $(D()).setProp("reference", e);
+  return E(D()).setProp("reference", e);
 }
 const qi = /* @__PURE__ */ V({
   name: "hr-tooltip",
@@ -4150,7 +4150,7 @@ const qi = /* @__PURE__ */ V({
         f && e.reference && a(e.reference, f.show, f.hide);
       }
     });
-    const p = x({
+    const p = R({
       visible: h(() => n.value)
     });
     return {
@@ -4209,7 +4209,7 @@ const qi = /* @__PURE__ */ V({
   }
 };
 function Yl() {
-  return $(D());
+  return E(D());
 }
 const tl = /* @__PURE__ */ V({
   name: "hr-date-picker",
@@ -4226,24 +4226,24 @@ const tl = /* @__PURE__ */ V({
   },
   emits: ["click"],
   setup(e, t) {
-    const n = x({
+    const n = R({
       disabled: h(() => e.disabled)
     }), o = () => t.slots.default(n);
     return () => {
       if (e.as) {
         const s = e.asProps ? e.asProps(n) : {};
-        return A(e.as, {
+        return $(e.as, {
           ...s
         }, o());
       }
       return o();
     };
   }
-}), _t = "core-date-pickers", nl = {
+}), It = "core-date-pickers", nl = {
   DatePicker: tl
 }, Xl = {
   install: (e, t) => {
-    N(e, _t) || (j(e, nl), F(e, _t));
+    N(e, It) || (j(e, nl), F(e, It));
   }
 };
 function ol(e) {
@@ -4277,18 +4277,18 @@ const Gl = (e) => ({
       return console.warn(
         "Floating UI: No `element` was passed to the `arrow` middleware."
       ), {};
-    const u = sl(o), b = { x: s, y: r }, p = al(i), v = il(i), c = ll(p), g = await a.getDimensions(n), f = p === "y" ? "top" : "left", _ = p === "y" ? "bottom" : "right";
+    const u = sl(o), b = { x: s, y: r }, p = al(i), v = il(i), c = ll(p), g = await a.getDimensions(n), f = p === "y" ? "top" : "left", C = p === "y" ? "bottom" : "right";
     let P = l.reference;
     e.reference && (P = (await a.getClientRects(e.reference))[0]);
     const O = P[c] + P[p] - b[p] - l.floating[c], w = b[p] - P[p], d = await ((H = a.getOffsetParent) == null ? void 0 : H.call(a, n));
     let m = d ? p === "y" ? d.clientHeight || 0 : d.clientWidth || 0 : 0;
     m === 0 && (m = l.floating[c]);
-    const I = O / 2 - w / 2, L = u[f], C = m - g[c] - u[_], T = m / 2 - g[c] / 2 + I, y = cl(L, T, C), E = (v === "start" ? u[f] : u[_]) > 0 && T !== y && P[c] <= l.floating[c] ? T < L ? L - T : C - T : 0;
+    const I = O / 2 - w / 2, L = u[f], S = m - g[c] - u[C], T = m / 2 - g[c] / 2 + I, A = cl(L, T, S), x = (v === "start" ? u[f] : u[C]) > 0 && T !== A && P[c] <= l.floating[c] ? T < L ? L - T : S - T : 0;
     return {
-      [p]: b[p] - E,
+      [p]: b[p] - x,
       data: {
-        [p]: y,
-        centerOffset: T - y
+        [p]: A,
+        centerOffset: T - A
       }
     };
   }
@@ -4359,19 +4359,24 @@ export {
   Un as coreButtonLoadingProp,
   ml as coreButtonSetup,
   qn as coreButtonVisibleProp,
+  to as coreCheckbox,
   Jn as coreCheckboxDisabledProp,
   eo as coreCheckboxIndeterminateProp,
   Gn as coreCheckboxModelValueProp,
   hl as coreCheckboxSetup,
   Zn as coreCheckboxValueProp,
   Qn as coreCheckboxVisibleProp,
+  io as coreCollapse,
   so as coreCollapseAccordionProp,
+  uo as coreCollapseInline,
   bl as coreCollapseInlineSetup,
+  ao as coreCollapseItem,
   lo as coreCollapseItemIdProp,
   gl as coreCollapseItemSetup,
   ro as coreCollapseModelValueProp,
   vl as coreCollapseSetup,
   B as coreComponentAsProp,
+  tl as coreDatePicker,
   Ji as coreDatePickerClearableProp,
   Qi as coreDatePickerDisabledDateProp,
   Xi as coreDatePickerDisabledProp,
@@ -4381,9 +4386,11 @@ export {
   Yl as coreDatePickerSetup,
   Kl as coreDatePickerValueFormatProp,
   Gi as coreDatePickerVisibleProp,
+  Eo as coreDialog,
   wl as coreDialogSetup,
   Vo as coreDialogVisibleProp,
   Oo as coreDialogWrapper,
+  Ho as coreDropdown,
   zo as coreDropdownDisabledProp,
   No as coreDropdownHideOnClickProp,
   Bo as coreDropdownItemDisabledProp,
@@ -4393,15 +4400,15 @@ export {
   Fo as coreDropdownSplitButtonProp,
   jo as coreDropdownVisibleProp,
   Gl as coreFloatingArrowReference,
-  _s as coreFloatingKeepProp,
+  Is as coreFloatingKeepProp,
   xs as coreFloatingMiddlewareProp,
   Rs as coreFloatingPlacementProp,
   Cs as coreFloatingReferenceProp,
   Sl as coreFloatingSetup,
-  Is as coreFloatingTransitionProp,
+  _s as coreFloatingTransitionProp,
   Ss as coreFloatingVisibleProp,
   Ts as coreFragmentContainerActiveProp,
-  Il as coreFragmentContainerSetup,
+  _l as coreFragmentContainerSetup,
   co as coreInlineCollapseModelValueProp,
   Ms as coreInputDisabledProp,
   Bs as coreInputModelModifiersProp,
@@ -4426,8 +4433,8 @@ export {
   gr as coreRadioButtonModelValueProp,
   El as coreRadioButtonSetup,
   br as coreRadioButtonValueProp,
-  Ir as coreScrollContainerAutoHideDelayProp,
-  _r as coreScrollContainerAutoHideProp,
+  _r as coreScrollContainerAutoHideDelayProp,
+  Ir as coreScrollContainerAutoHideProp,
   xr as coreScrollContainerContainerClassesProp,
   Cr as coreScrollContainerHorizontalProp,
   Rr as coreScrollContainerMinimumSizeProp,
@@ -4467,12 +4474,12 @@ export {
   $i as coreTabItemIdProp,
   Wl as coreTabItemSetup,
   xi as coreTableColumnComponentProp,
-  Ii as coreTableColumnDataProp,
+  _i as coreTableColumnDataProp,
   Si as coreTableColumnFormatterProp,
   Ri as coreTableColumnOrderProp,
   Ci as coreTableColumnPropertyProp,
   jl as coreTableColumnSetup,
-  _i as coreTableColumnSortableProp,
+  Ii as coreTableColumnSortableProp,
   vi as coreTableDataProp,
   Oi as coreTableRowColumnsProp,
   gi as coreTableRowKeyProp,
@@ -4491,5 +4498,5 @@ export {
   ji as coreTooltipTriggerProp,
   zl as createCoreStepItem,
   Zl as default,
-  _l as splitPlacement
+  Il as splitPlacement
 };
